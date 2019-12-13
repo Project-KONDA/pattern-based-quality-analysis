@@ -1,0 +1,83 @@
+
+
+
+
++++ Translation of Pattern to XQuery +++
+
+// see class diagram ...
+// class names are written in upper case letters in the following algorithm
+
+Initialization:
+	boolean Element.isTarget := true 
+		if the Element is the target of a mapping, thus if it has already been translated to XQuery
+				
+	boolean BoolOperator.isReady := true 
+		if the BoolOperator only references other single elements which were already translated or set elements
+
+Root GRAPH translation: 
+	(basis for XQuery: for, where, return)
+
+	for-clauses: 
+		(specification of the output via (multiple nested) for-clauses)
+		
+		starting at the root element navigate through graph of connected single elements: 
+		for each element of type SINGLEELEMENT:
+			add for clause: for $id<element.id> in <pathExpression>[condition]*
+				(create variable based on element ID)
+			generate pathExpression: 
+				translate relations by appending the corresponding axes to the variable representing the previous element
+			generate condition:
+				for each element.elementCondition of type BOOLEANOPERATOR where elementCondition.isReady: 
+					translate element.elementCondition by navigating through graph of operators and arguments
+						- translate operator: directly transfer notation
+						- translate arguments:
+							- INPUT: 
+								- input value can be directly put into the XQuery
+							- PROPERTY:
+								- translate DATA to data()
+								- translate TAG to name()
+								- translate ATTRIBUTE to @<attributeName>
+							- ELEMENT: 
+								- variable name or "." (self)
+							- ELEMENTSET:
+								- create path expression by navigating to previous single element 
+								- append elementConditions translated as described here
+							- OPERATOR: 
+								- put operator-function into the XQuery
+								- translate arguments recursively						
+			element.isTranslated = true		
+	where-clause: 
+		(conditions)
+		where <empty, space to fill during algorithm execution>
+		
+	return-clause: 
+		return <variable representing the return element>
+		
+
+CONDITION translation:
+	for each condition of type CONDITION nested in pattern
+	(where-clause is built incrementally)
+
+		if QUANTIFIEDCONDITION:	
+			starting at the root element navigate through graph of connected single elements: for each element of type SINGLEELEMENT do the following:		
+				if !element.isTarget:
+					if quantifier = EXISTS:
+						where clause += some $id<element.id> in <pathExpression>[condition]* satisfies			
+					else if quantifier = FORALL:
+						where clause += every $id<element.id> in <pathExpression>[condition]* satisfies
+					translate relations and element.elementConditions where isReady: see above
+					
+				else:
+					translate element.elementConditions where isReady: see above
+					if quantifier = EXISTS:
+						where clause += some $id<elem-id> in $id<elem-id>[condition]* satisfies
+					else if quantifier = FORALL:
+						where clause += every $id<elem-id> in $id<elem-id>[condition]* satisfies
+					elementConditions.isTranslated = true
+					
+		if FORMULA:
+			translate logical operator directly
+			translate nested CONDITIONs as described above
+			
+		if TRUE:
+			close where-clause
