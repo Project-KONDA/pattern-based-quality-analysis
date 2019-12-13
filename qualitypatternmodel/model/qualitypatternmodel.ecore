@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="QualityPatternModel" nsURI="qualitypatternmodel" nsPrefix="qualitypatternmodel">
+  <eClassifiers xsi:type="ecore:EClass" name="Pattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
+        eType="#//Graph" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+        eType="#//Condition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="QuantifiedCondition" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+        eType="#//Condition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1" eType="#//Graph"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"
+        eType="#//Morphism" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//Quantifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Formula" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" lowerBound="1"
+        upperBound="-1" eType="#//Condition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//LogicalOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="True" eSuperTypes="#//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Graph">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
+        upperBound="-1" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" lowerBound="1" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variablelist" lowerBound="1"
+        eType="#//VariableList" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="#//GraphElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementConditions" upperBound="-1"
+        eType="#//BooleanOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationTo" eType="#//Relation"
+        eOpposite="#//Relation/elementTo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SetElement" eSuperTypes="#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SingleElement" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationFrom" upperBound="-1"
+        eType="#//Relation" eOpposite="#//Relation/elementFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//SingleElementMapping"
+        eOpposite="#//SingleElementMapping/from"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//GraphElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
+        eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//Location"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOptions" upperBound="-1"
+        eType="#//Option"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//GraphElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operatorOptions" upperBound="-1"
+        eType="#//Option"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Input" abstract="true" eSuperTypes="#//GraphElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Input"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//Input"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//Input"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Option" eSuperTypes="#//Input"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GraphElement" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Mapping"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Morphism">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" upperBound="-1"
+        eType="#//Mapping" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1" eType="#//Graph"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//Graph"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//Input"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Axis">
+    <eLiterals name="CHILD" literal="child"/>
+    <eLiterals name="DESCENDANT" value="1" literal="descendant"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Location">
+    <eLiterals name="DATA" literal="data()"/>
+    <eLiterals name="TAG" value="1" literal="name()"/>
+    <eLiterals name="ATTRIBUTE" value="2" literal="@"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LogicalOperator">
+    <eLiterals name="NOT" literal="NOT"/>
+    <eLiterals name="AND" value="1" literal="AND"/>
+    <eLiterals name="OR" value="2" literal="OR"/>
+    <eLiterals name="IMPLIES" value="3" literal="IMPLIES"/>
+    <eLiterals name="XOR" value="4" literal="XOR"/>
+    <eLiterals name="EQUIVALENT" value="5" literal="EQUIVALENT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Quantifier">
+    <eLiterals name="EXISTS" literal="EXISTS"/>
+    <eLiterals name="FORALL" value="1" literal="FORALL"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="#//Axis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementFrom" eType="#//SingleElement"
+        eOpposite="#//SingleElement/relationFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementTo" lowerBound="1"
+        eType="#//Element" eOpposite="#//Element/relationTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationOptions" upperBound="-1"
+        eType="#//Option"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" eType="#//RelationMapping"
+        eOpposite="#//RelationMapping/to"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//BooleanOperator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//ComparisonOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" lowerBound="2"
+        upperBound="2" eType="#//GraphElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//BooleanOperator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
+        eType="#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//Input"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
+    <eLiterals name="EQUAL" literal="="/>
+    <eLiterals name="GREATER" value="1" literal=">"/>
+    <eLiterals name="LESS" value="2" literal="&lt;"/>
+    <eLiterals name="GREATEROREQUAL" value="3" literal=">="/>
+    <eLiterals name="LESSOREQUAL" value="4" literal="&lt;="/>
+    <eLiterals name="NOTEQUAL" value="5" literal="!="/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OtterOperators" abstract="true" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SingleElementMapping" eSuperTypes="#//Mapping">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//SingleElement"
+        eOpposite="#//SingleElement/mappingFrom"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelationMapping" eSuperTypes="#//Mapping">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" eType="#//Relation"
+        eOpposite="#//Relation/mappingTo"/>
+  </eClassifiers>
+</ecore:EPackage>
