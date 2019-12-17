@@ -9,6 +9,14 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//Axis">
       <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/CHILD"/>
       <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/DESCENDANT"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/PARENT"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/ANCESTOR"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/FOLLOWING"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/FOLLOWING_SIBLING"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/PRECEDING"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/PRECEDING_SIBLING"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/ANCESTOR_OR_SELF"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/DESCENDANT_OR_SELF"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//Location">
       <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Location/DATA"/>
@@ -38,8 +46,11 @@
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Pattern">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Pattern/return"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Pattern/condition"/>
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Pattern/toXQuery"/>
     </genClasses>
-    <genClasses ecoreClass="qualitypatternmodel.ecore#//Condition"/>
+    <genClasses ecoreClass="qualitypatternmodel.ecore#//Condition">
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Condition/toXQuery"/>
+    </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//QuantifiedCondition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//QuantifiedCondition/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//QuantifiedCondition/graph"/>
@@ -54,16 +65,28 @@
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Graph">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Graph/return"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Graph/root"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Graph/variablelist"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Graph/variableList"/>
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Graph/toXQuery">
+        <genParameters ecoreParameter="qualitypatternmodel.ecore#//Graph/toXQuery/isReturnGraph"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Element">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Element/elementConditions"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Element/relationTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Element/predicates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Element/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Element/relationsFromPreviousElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Element/previousElement"/>
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Element/generateXPredicates"/>
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Element/generateXPathExpression"/>
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Element/toXQuery">
+        <genParameters ecoreParameter="qualitypatternmodel.ecore#//Element/toXQuery/isInReturnGraph"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//SetElement"/>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//SingleElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElement/relationFrom"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElement/mappingFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElement/mappingTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//SingleElement/isTranslated"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElement/nextElements"/>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Property">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Property/element"/>
@@ -76,11 +99,19 @@
     </genClasses>
     <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//BooleanOperator"/>
     <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//Input"/>
-    <genClasses ecoreClass="qualitypatternmodel.ecore#//Text"/>
-    <genClasses ecoreClass="qualitypatternmodel.ecore#//Number"/>
-    <genClasses ecoreClass="qualitypatternmodel.ecore#//Boolean"/>
+    <genClasses ecoreClass="qualitypatternmodel.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Text/text"/>
+    </genClasses>
+    <genClasses ecoreClass="qualitypatternmodel.ecore#//Number">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Number/number"/>
+    </genClasses>
+    <genClasses ecoreClass="qualitypatternmodel.ecore#//Boolean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Boolean/boolean"/>
+    </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Option"/>
-    <genClasses ecoreClass="qualitypatternmodel.ecore#//GraphElement"/>
+    <genClasses ecoreClass="qualitypatternmodel.ecore#//GraphElement">
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//GraphElement/toXQuery"/>
+    </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Mapping"/>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Morphism">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Morphism/mapping"/>
@@ -92,10 +123,9 @@
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Relation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Relation/axis"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Relation/elementFrom"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Relation/elementTo"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Relation/relationOptions"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Relation/mappingTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Relation/mappingFrom"/>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Comparison">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Comparison/operator"/>
@@ -105,12 +135,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Match/property"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Match/input"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//OtterOperators"/>
+    <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//OtherOperators"/>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//SingleElementMapping">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElementMapping/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElementMapping/to"/>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//RelationMapping">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//RelationMapping/to"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//RelationMapping/from"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
