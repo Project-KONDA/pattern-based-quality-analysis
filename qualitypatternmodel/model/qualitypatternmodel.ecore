@@ -146,7 +146,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//BooleanOperator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
         eType="#//Property"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//Input"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//Text"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
     <eLiterals name="EQUAL" literal="="/>
