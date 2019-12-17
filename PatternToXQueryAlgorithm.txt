@@ -1,34 +1,27 @@
-
-
-
-
 +++ Translation of Pattern to XQuery +++
 
-// see class diagram ...
+// see class diagram in "qualitypatternmodel.jpg"
 // class names are written in upper case letters in the following algorithm
 
 Initialization:
-	boolean Element.isTarget := true 
-		if the Element is the target of a mapping, thus if it has already been translated to XQuery
-				
-	boolean BoolOperator.isReady := true 
-		if the BoolOperator only references other single elements which were already translated or set elements
+	boolean ELEMENT.isTarget := true if the ELEMENT is the target of a mapping, thus if it has already been translated to XQuery				
+	boolean BOOLOPERATOR.isReady := true if the BOOLOPERATOR only references (PROPERTies of) other SINGLEELEMENTs which were already translated (Element.isTranslated) or SETELEMENTS or other BOOLEANOPERATORs with isReady
 
-Root GRAPH translation: 
+translation of the return graph (PATTERN.return of type GRAPH): 
 	(basis for XQuery: for, where, return)
 
 	for-clauses: 
 		(specification of the output via (multiple nested) for-clauses)
 		
-		starting at the root element navigate through graph of connected single elements: 
+		starting at the GRAPH.root element navigate through graph of connected SINGLEELEMENTs via ELEMENT.nextElements: 
 		for each element of type SINGLEELEMENT:
-			add for clause: for $id<element.id> in <pathExpression>[condition]*
+			add for clause: for $id<element.id> in <xPathExpression>[xPredicate]*
 				(create variable based on element ID)
-			generate pathExpression: 
-				translate relations by appending the corresponding axes to the variable representing the previous element
-			generate condition:
-				for each element.elementCondition of type BOOLEANOPERATOR where elementCondition.isReady: 
-					translate element.elementCondition by navigating through graph of operators and arguments
+			generate xPathExpression: 
+				translate element.relationsFromPreviousElement by appending the corresponding axes to the variable representing element.previousElement
+			generate xPredicate:
+				for each predicate of type BOOLEANOPERATOR in element.predicates where predicate.isReady: 
+					translate predicate by navigating through graph of operators and arguments
 						- translate operator: directly transfer notation
 						- translate arguments:
 							- INPUT: 
@@ -41,43 +34,42 @@ Root GRAPH translation:
 								- variable name or "." (self)
 							- ELEMENTSET:
 								- create path expression by navigating to previous single element 
-								- append elementConditions translated as described here
+								- append predicates translated as described here
 							- OPERATOR: 
 								- put operator-function into the XQuery
-								- translate arguments recursively						
+								- translate arguments recursively	
 			element.isTranslated = true		
 	where-clause: 
 		(conditions)
-		where <empty, space to fill during algorithm execution>
+		where <empty, space to fill during translation of CONDITIONs>
 		
 	return-clause: 
 		return <variable representing the return element>
 		
 
-CONDITION translation:
-	for each condition of type CONDITION nested in pattern
+translation of CONDITIONs nested in PATTERN:
+	for each condition of type CONDITION nested in PATTERN:
 	(where-clause is built incrementally)
 
-		if QUANTIFIEDCONDITION:	
-			starting at the root element navigate through graph of connected single elements: for each element of type SINGLEELEMENT do the following:		
+		if condition is of type QUANTIFIEDCONDITION:	
+			starting at the GRAPH.root element navigate through graph of connected SINGLEELEMENTs via SINGLEELEMENT.nextElements: 
+			for each element of type SINGLEELEMENT:		
 				if !element.isTarget:
+					translate element.relationsFromPreviousElement (-> xPathExpression) and element.predicates where isReady (-> xPredicate): see above
 					if quantifier = EXISTS:
-						where clause += some $id<element.id> in <pathExpression>[condition]* satisfies			
+						where clause += some $id<element.id> in <xPathExpression>[xPredicate]* satisfies			
 					else if quantifier = FORALL:
-						where clause += every $id<element.id> in <pathExpression>[condition]* satisfies
-					translate relations and element.elementConditions where isReady: see above
-					
+						where clause += every $id<element.id> in <xPathExpression>[xPredicate]* satisfies					
 				else:
-					translate element.elementConditions where isReady: see above
+					translate element.predicates where isReady (-> xPredicate): see above
 					if quantifier = EXISTS:
-						where clause += some $id<elem-id> in $id<elem-id>[condition]* satisfies
+						where clause += some $id<element.id> in $id<element.id>[xPredicate]* satisfies
 					else if quantifier = FORALL:
-						where clause += every $id<elem-id> in $id<elem-id>[condition]* satisfies
-					elementConditions.isTranslated = true
+						where clause += every $id<element.id> in $id<element.id>[xPredicate]* satisfies
 					
-		if FORMULA:
+		if condition is of type FORMULA:
 			translate logical operator directly
 			translate nested CONDITIONs as described above
 			
-		if TRUE:
+		if condition is of type TRUE:
 			close where-clause
