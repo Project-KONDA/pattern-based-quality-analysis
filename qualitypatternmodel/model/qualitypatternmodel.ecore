@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="QualityPatternModel" nsURI="qualitypatternmodel" nsPrefix="qualitypatternmodel">
-  <eClassifiers xsi:type="ecore:EClass" name="Pattern">
+  <eClassifiers xsi:type="ecore:EClass" name="Pattern" eSuperTypes="#//PatternElement">
     <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="return" lowerBound="1"
         eType="#//Graph" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
         eType="#//Condition" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//PatternElement">
     <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuantifiedCondition" eSuperTypes="#//Condition">
@@ -26,7 +26,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//LogicalOperator"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="True" eSuperTypes="#//Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Graph">
+  <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//PatternElement">
     <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eParameters name="isReturnGraph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
@@ -86,11 +86,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="boolean" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Option" eSuperTypes="#//Input"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GraphElement" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="GraphElement" abstract="true" eSuperTypes="#//PatternElement">
     <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Mapping" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Morphism">
+  <eClassifiers xsi:type="ecore:EClass" name="Mapping" abstract="true" eSuperTypes="#//PatternElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Morphism" eSuperTypes="#//PatternElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" upperBound="-1"
         eType="#//Mapping" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1" eType="#//Graph"/>
@@ -168,5 +168,8 @@
         eOpposite="#//Relation/mappingTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//Relation"
         eOpposite="#//Relation/mappingFrom"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
+    <eOperations name="isValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>
