@@ -3,9 +3,9 @@
 // see class diagram in "qualitypatternmodel.jpg"
 // class names are written in upper case letters in the following algorithm
 
-Initialization:
+initialization:
 	boolean ELEMENT.isTarget := true if the ELEMENT is the target of a mapping, thus if it has already been translated to XQuery				
-	boolean BOOLOPERATOR.isReady := true if the BOOLOPERATOR only references (PROPERTies of) other SINGLEELEMENTs which were already translated (Element.isTranslated) or SETELEMENTS or other BOOLEANOPERATORs with isReady
+	boolean BOOLEANOPERATOR.isReady := true if the BOOLEANOPERATOR only references (PROPERTies of) other SINGLEELEMENTs which were already translated (Element.isTranslated) or SETELEMENTS or other BOOLEANOPERATORs with isReady
 
 translation of the return graph (PATTERN.return of type GRAPH): 
 	(basis for XQuery: for, where, return)
@@ -55,13 +55,13 @@ translation of CONDITIONs nested in PATTERN:
 			starting at the GRAPH.root element navigate through graph of connected SINGLEELEMENTs via SINGLEELEMENT.nextElements: 
 			for each element of type SINGLEELEMENT:		
 				if !element.isTarget:
-					translate element.relationsFromPreviousElement (-> xPathExpression) and element.predicates where isReady (-> xPredicate): see above
+					translate element.relationsFromPreviousElement (-> xPathExpression) and element.predicates where isReady (-> xPredicate): see above (lines 20 to 40)
 					if quantifier = EXISTS:
 						where clause += some $id<element.id> in <xPathExpression>[xPredicate]* satisfies			
 					else if quantifier = FORALL:
 						where clause += every $id<element.id> in <xPathExpression>[xPredicate]* satisfies					
 				else:
-					translate element.predicates where isReady (-> xPredicate): see above
+					translate element.predicates where isReady (-> xPredicate): see above (lines 22 to 40)
 					if quantifier = EXISTS:
 						where clause += some $id<element.id> in $id<element.id>[xPredicate]* satisfies
 					else if quantifier = FORALL:
