@@ -5,8 +5,13 @@
 
 initialization:
 	boolean ELEMENT.isTarget := true if the ELEMENT is the target of a mapping, thus if it has already been translated to XQuery				
-	boolean BOOLEANOPERATOR.isReady := true if the BOOLEANOPERATOR only references (PROPERTies of) other SINGLEELEMENTs which were already translated (Element.isTranslated) or SETELEMENTS or other BOOLEANOPERATORs with isReady
-
+	boolean BOOLEANOPERATOR.isReady := true if the BOOLEANOPERATOR only references 
+											- (PROPERTies of) other SINGLEELEMENTs which were already translated (SINGLEELEMENT.isTranslated) 
+											- or SETELEMENTS whose closest preceding SINGLEELEMENT was already translated (SINGLEELEMENT.isTranslated) 
+											- or other BOOLEANOPERATORs with isReady
+	
+	for each element of type ELEMENT: element.isTranslated = false
+	
 translation of the return graph (PATTERN.return of type GRAPH): 
 	(basis for XQuery: for, where, return)
 
@@ -25,19 +30,29 @@ translation of the return graph (PATTERN.return of type GRAPH):
 						- translate operator: directly transfer notation
 						- translate arguments:
 							- INPUT: 
-								- input value can be directly put into the XQuery
+								input value can be directly put into the XQuery
 							- PROPERTY:
 								- translate DATA to data()
 								- translate TAG to name()
 								- translate ATTRIBUTE to @<attributeName>
 							- ELEMENT: 
-								- variable name or "." (self)
-							- ELEMENTSET:
-								- create path expression by navigating to previous single element 
-								- append predicates translated as described here
-							- OPERATOR: 
-								- put operator-function into the XQuery
-								- translate arguments recursively	
+								variable name or "." (self)
+							- setElement of type SETELEMENT:
+								let predicateOwnerElement of type ELEMENT be the element which references the predicate containing the set operation which has setElement as an argument									
+								generate xPathExpression:									
+									navigate from setElement to predicateOwnerElement: 
+									for each pathElement of type SETELEMENT:										
+										xPathExpression = translated pathElement.relationsFromPreviousElement + translated pathElement.predicates + xPathExpression (see lines 20 to 52)
+										pathElement.isTranslated = true
+									xPathExpression = variable representing predicateOwnerElement + xPathExpression
+								generate xPredicates string of the form [xPredicate]*:
+									xPredicates += translated setElement.predicates (see lines 22 to 52)
+									for each nextSetElement of type SETELEMENT in setElement.next with !nextSetElement.isTranslated:
+										xPredicates += predicate requiring the existence of nextSetElement in the form [./<xPathExpression>[xPredicate]*] (see lines 20 to 52)
+								put <xPathExpression><xPredicates> into the XQuery
+							- OPERATOR:
+								put operator-function into the XQuery
+								translate arguments recursively	
 			element.isTranslated = true		
 	where-clause: 
 		(conditions)
@@ -55,13 +70,13 @@ translation of CONDITIONs nested in PATTERN:
 			starting at the GRAPH.root element navigate through graph of connected SINGLEELEMENTs via SINGLEELEMENT.nextElements: 
 			for each element of type SINGLEELEMENT:		
 				if !element.isTarget:
-					translate element.relationsFromPreviousElement (-> xPathExpression) and element.predicates where isReady (-> xPredicate): see above (lines 20 to 40)
+					translate element.relationsFromPreviousElement (-> xPathExpression) and element.predicates where isReady (-> xPredicate): see lines 20 to 52
 					if quantifier = EXISTS:
 						where clause += some $id<element.id> in <xPathExpression>[xPredicate]* satisfies			
 					else if quantifier = FORALL:
 						where clause += every $id<element.id> in <xPathExpression>[xPredicate]* satisfies					
 				else:
-					translate element.predicates where isReady (-> xPredicate): see above (lines 22 to 40)
+					translate element.predicates where isReady (-> xPredicate): see lines 22 to 52
 					if quantifier = EXISTS:
 						where clause += some $id<element.id> in $id<element.id>[xPredicate]* satisfies
 					else if quantifier = FORALL:
