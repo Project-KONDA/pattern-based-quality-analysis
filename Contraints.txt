@@ -1,0 +1,11 @@
++++ Constraints for the quality pattern model +++
+
+When using a set operator:
+- let e of type ELEMENT be the element(s) which reference(s) the predicate containing the set operator
+- let s of type SETELEMENT be the element(s) which serve(s) as an argument to the set operator
+- there has to exist a path from each e to at least one s in the graph
+- for each s there must exist a path from one e to s in the graph
+- between e and s only SETELEMENTs are allowed (connected via RELATION) and they are not allowed to be the argument of a set operator
+
+
+Each ELEMENT x has exactly one previousElement except for GRAPH.root, which has no previousElement.
