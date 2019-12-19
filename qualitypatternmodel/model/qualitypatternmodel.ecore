@@ -104,6 +104,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GraphElement" abstract="true" eSuperTypes="#//PatternElement">
     <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getReturnType" eType="#//ReturnType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mapping" abstract="true" eSuperTypes="#//PatternElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Morphism" eSuperTypes="#//PatternElement">
@@ -163,6 +164,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
         eType="#//Property"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" lowerBound="1" eType="#//Text"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="invert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
     <eLiterals name="EQUAL" literal="="/>
@@ -172,7 +175,7 @@
     <eLiterals name="LESSOREQUAL" value="4" literal="&lt;="/>
     <eLiterals name="NOTEQUAL" value="5" literal="!="/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OtherOperators" abstract="true" eSuperTypes="#//Operator"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberOperators" abstract="true" eSuperTypes="#//Operator"/>
   <eClassifiers xsi:type="ecore:EClass" name="SingleElementMapping" eSuperTypes="#//Mapping">
     <eStructuralFeatures xsi:type="ecore:EReference" name="from" eType="#//SingleElement"
         eOpposite="#//SingleElement/mappingFrom"/>
@@ -188,4 +191,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
     <eOperations name="isValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//NumberOperators">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+        eType="#//SetElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ReturnType">
+    <eLiterals name="NUMBER"/>
+    <eLiterals name="STRING" value="1"/>
+    <eLiterals name="BOOLEAN" value="2"/>
+    <eLiterals name="NONE" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OtherOperators" abstract="true" eSuperTypes="#//Operator"/>
 </ecore:EPackage>
