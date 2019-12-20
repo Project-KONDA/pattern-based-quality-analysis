@@ -18,10 +18,10 @@
       <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/ANCESTOR_OR_SELF"/>
       <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Axis/DESCENDANT_OR_SELF"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//Location">
-      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Location/DATA"/>
-      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Location/TAG"/>
-      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//Location/ATTRIBUTE"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//PropertyLocation">
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//PropertyLocation/DATA"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//PropertyLocation/TAG"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//PropertyLocation/ATTRIBUTE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//LogicalOperator">
       <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//LogicalOperator/NOT"/>
@@ -43,14 +43,25 @@
       <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//ComparisonOperator/LESSOREQUAL"/>
       <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//ComparisonOperator/NOTEQUAL"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//ReturnType">
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//ReturnType/NUMBER"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//ReturnType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//ReturnType/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//ReturnType/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//ReturnType/ELEMENT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//TranslationLocation">
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//TranslationLocation/ROOT"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//TranslationLocation/OUTSIDE"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//TranslationLocation/EXISTS"/>
+      <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//TranslationLocation/FORALL"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//InvalidTranslationExceptionWrapper"/>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Pattern">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Pattern/return"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Pattern/returnGraph"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Pattern/condition"/>
-      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Pattern/toXQuery"/>
     </genClasses>
-    <genClasses ecoreClass="qualitypatternmodel.ecore#//Condition">
-      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Condition/toXQuery"/>
-    </genClasses>
+    <genClasses ecoreClass="qualitypatternmodel.ecore#//Condition"/>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//QuantifiedCondition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//QuantifiedCondition/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//QuantifiedCondition/graph"/>
@@ -63,39 +74,29 @@
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//True"/>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Graph">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Graph/return"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Graph/root"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Graph/returnElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Graph/rootElement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Graph/variableList"/>
-      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Graph/toXQuery">
-        <genParameters ecoreParameter="qualitypatternmodel.ecore#//Graph/toXQuery/isReturnGraph"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Element">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Element/predicates"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Element/id"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Element/relationsFromPreviousElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Element/relationFromPrevious"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Element/isTranslated"/>
       <genOperations ecoreOperation="qualitypatternmodel.ecore#//Element/generateXPredicates"/>
       <genOperations ecoreOperation="qualitypatternmodel.ecore#//Element/generateXPathExpression"/>
-      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Element/toXQuery">
-        <genParameters ecoreParameter="qualitypatternmodel.ecore#//Element/toXQuery/isInReturnGraph"/>
-      </genOperations>
-      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Element/getNextElement"/>
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Element/getNextElements"/>
       <genOperations ecoreOperation="qualitypatternmodel.ecore#//Element/getPreviousElement"/>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//SetElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SetElement/next"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SetElement/previous"/>
-      <genOperations ecoreOperation="qualitypatternmodel.ecore#//SetElement/getPreviousElement"/>
-      <genOperations ecoreOperation="qualitypatternmodel.ecore#//SetElement/getNextElement"/>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//SingleElement">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElement/mappingFrom"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElement/mappingTo"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//SingleElement/isTranslated"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElement/previous"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElement/next"/>
-      <genOperations ecoreOperation="qualitypatternmodel.ecore#//SingleElement/getPreviousElement"/>
-      <genOperations ecoreOperation="qualitypatternmodel.ecore#//SingleElement/getNextElement"/>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Property">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Property/element"/>
@@ -103,11 +104,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Property/location"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Property/propertyOptions"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//Operator">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Operator/operatorOptions"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//Operator"/>
     <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//BooleanOperator"/>
-    <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//Input"/>
+    <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//Input">
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//Input/inputIsValid"/>
+    </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Text">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Text/text"/>
     </genClasses>
@@ -115,15 +116,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Number/number"/>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Boolean">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Boolean/boolean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Boolean/bool"/>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Option">
       <genTypeParameters ecoreTypeParameter="qualitypatternmodel.ecore#//Option/T"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Option/selection"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Option/options"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Option/selection"/>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//GraphElement">
-      <genOperations ecoreOperation="qualitypatternmodel.ecore#//GraphElement/toXQuery"/>
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//GraphElement/getReturnType"/>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Mapping"/>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Morphism">
@@ -142,13 +143,17 @@
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Comparison">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Comparison/operator"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Comparison/arguments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Comparison/argument1"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Comparison/options"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Comparison/argument2"/>
     </genClasses>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//Match">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Match/property"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Match/input"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Match/regularExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//Match/negate"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Match/options"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//OtherOperators"/>
+    <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//NumberOperators"/>
     <genClasses ecoreClass="qualitypatternmodel.ecore#//SingleElementMapping">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElementMapping/from"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//SingleElementMapping/to"/>
@@ -159,6 +164,19 @@
     </genClasses>
     <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//PatternElement">
       <genOperations ecoreOperation="qualitypatternmodel.ecore#//PatternElement/isValid"/>
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//PatternElement/toXQuery">
+        <genParameters ecoreParameter="qualitypatternmodel.ecore#//PatternElement/toXQuery/translationLocation"/>
+      </genOperations>
+      <genOperations ecoreOperation="qualitypatternmodel.ecore#//PatternElement/toLocalXQuery">
+        <genParameters ecoreParameter="qualitypatternmodel.ecore#//PatternElement/toLocalXQuery/tranlsationLocation"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="qualitypatternmodel.ecore#//Count">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//Count/argument"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//OtherOperators"/>
+    <genClasses ecoreClass="qualitypatternmodel.ecore#//ToNumber">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//ToNumber/property"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
