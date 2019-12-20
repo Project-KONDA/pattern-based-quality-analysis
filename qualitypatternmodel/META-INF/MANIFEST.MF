@@ -8,9 +8,18 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: QualityPatternModel,
- QualityPatternModel.impl,
- QualityPatternModel.util
+Export-Package: qualitypatternmodel.functions,
+ qualitypatternmodel.functions.impl,
+ qualitypatternmodel.functions.util,
+ qualitypatternmodel.graphstructure,
+ qualitypatternmodel.graphstructure.impl,
+ qualitypatternmodel.graphstructure.util,
+ qualitypatternmodel.inputfields,
+ qualitypatternmodel.inputfields.impl,
+ qualitypatternmodel.inputfields.util,
+ qualitypatternmodel.patternstructure,
+ qualitypatternmodel.patternstructure.impl,
+ qualitypatternmodel.patternstructure.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy
