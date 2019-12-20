@@ -1,90 +1,100 @@
-+++ Translation of Pattern to XQuery +++
++++ Translation of a pattern of type PATTERN to XQuery +++
 
 // see class diagram in "qualitypatternmodel.jpg"
 // class names are written in upper case letters in the following algorithm
 
-initialization:
+specification of boolean properties referenced in the algorithm:
 	boolean ELEMENT.isTarget := true if the ELEMENT is the target of a mapping, thus if it has already been translated to XQuery				
 	boolean BOOLEANOPERATOR.isReady := true if the BOOLEANOPERATOR only references 
 											- (PROPERTies of) other SINGLEELEMENTs which were already translated (SINGLEELEMENT.isTranslated) 
 											- or SETELEMENTS whose closest preceding SINGLEELEMENT was already translated (SINGLEELEMENT.isTranslated) 
 											- or other BOOLEANOPERATORs with isReady
-	
+initialization:
 	for each element of type ELEMENT: element.isTranslated = false
 	
-translation of the return graph (PATTERN.return of type GRAPH): 
+translation of pattern.returnGraph of type GRAPH: 
 	(basis for XQuery: for, where, return)
 
 	for-clauses: 
-		(specification of the output via (multiple nested) for-clauses)
+		(specification of the output via (multiple nested) for-clauses in the XQuery)
 		
-		starting at the GRAPH.root element navigate through graph of connected SINGLEELEMENTs via ELEMENT.nextElements: 
+		starting at the pattern.returnGraph.rootElement navigate through graph of connected SINGLEELEMENTs via ELEMENT.next: 
 		for each element of type SINGLEELEMENT:
-			add for clause: for $id<element.id> in <xPathExpression>[xPredicate]*
-				(create variable based on element ID)
+			add for clause: for $id<element.id> in <xPathExpression>[<xPredicate>]*
+				// create XQuery variable based on element ID
+				// generate xPathExpression and xPredicates as described below
 			generate xPathExpression: 
-				translate element.relationsFromPreviousElement by appending the corresponding axes to the variable representing element.previousElement
+				translate element.relationFromPrevious by appending the corresponding axis to the variable representing element.previous
 			generate xPredicate:
 				for each predicate of type BOOLEANOPERATOR in element.predicates where predicate.isReady: 
 					translate predicate by navigating through graph of operators and arguments
-						- translate operator: directly transfer notation
-						- translate arguments:
-							- INPUT: 
-								input value can be directly put into the XQuery
-							- PROPERTY:
-								- translate DATA to data()
-								- translate TAG to name()
-								- translate ATTRIBUTE to @<attributeName>
-							- ELEMENT: 
-								variable name or "." (self)
+						translate operator: directly transfer operator notation to the XQuery
+						translate arguments depending on their type:
+							- input of type INPUT: 
+								if input is of type TEXT, NUMBER or BOOLEAN:
+									directly transfer input value to the XQuery
+								if input is of type OPTION: 
+									let option of type OPTION be casted input
+									translate option.selection depending on the type variable T as described in lines 32 to 63								
+							- property of type PROPERTY:
+								if property.location = DATA:
+									add data() to XQuery
+								if property.location = TAG:
+									add name() to XQuery
+								if property.location = ATTRIBUTE:
+									add @<property.attributeName> to XQuery								
+							- element of type ELEMENT: 
+								transfer name of the XQuery variable representing element or "." (self) to the XQuery
 							- setElement of type SETELEMENT:
 								let predicateOwnerElement of type ELEMENT be the element which references the predicate containing the set operation which has setElement as an argument									
 								generate xPathExpression:									
 									navigate from setElement to predicateOwnerElement: 
 									for each pathElement of type SETELEMENT:										
-										xPathExpression = translated pathElement.relationsFromPreviousElement + translated pathElement.predicates + xPathExpression (see lines 20 to 52)
+										xPathExpression = translated pathElement.relationFromPrevious + translated pathElement.predicates + xPathExpression (see lines 26 to 63)
 										pathElement.isTranslated = true
 									xPathExpression = variable representing predicateOwnerElement + xPathExpression
 								generate xPredicates string of the form [xPredicate]*:
-									xPredicates += translated setElement.predicates (see lines 22 to 52)
+									xPredicates += translated setElement.predicates (see lines 28 to 63)
 									for each nextSetElement of type SETELEMENT in setElement.next with !nextSetElement.isTranslated:
-										xPredicates += predicate requiring the existence of nextSetElement in the form [./<xPathExpression>[xPredicate]*] (see lines 20 to 52)
+										xPredicates += predicate requiring the existence of nextSetElement in the form [./<xPathExpression>[xPredicate]*] (see lines 26 to 63)
 								put <xPathExpression><xPredicates> into the XQuery
-							- OPERATOR:
-								put operator-function into the XQuery
-								translate arguments recursively	
+							- operator of type OPERATOR:
+								directly transfer operator notation to the XQuery
+								translate arguments recursively	(see lines 32 to 63)
 			element.isTranslated = true		
 	where-clause: 
 		(conditions)
-		where <empty, space to fill during translation of CONDITIONs>
+		where <empty space to fill during translation of CONDITIONs (see lines 72 to 100)>
 		
 	return-clause: 
-		return <variable representing the return element>
+		return <variable representing pattern.returnGraph.returnElement>
 		
-
-translation of CONDITIONs nested in PATTERN:
-	for each condition of type CONDITION nested in PATTERN:
+translation of CONDITIONs nested in pattern.condition:
+	for each condition of type CONDITION:
 	(where-clause is built incrementally)
 
 		if condition is of type QUANTIFIEDCONDITION:	
-			starting at the GRAPH.root element navigate through graph of connected SINGLEELEMENTs via SINGLEELEMENT.nextElements: 
+			let quantifiedCondition of type QUANTIFIEDCONDITION be casted condition
+			starting at the quantifiedCondition.graph.rootElement navigate through quantifiedCondition.graph of connected SINGLEELEMENTs via SINGLEELEMENT.next: 
 			for each element of type SINGLEELEMENT:		
 				if !element.isTarget:
-					translate element.relationsFromPreviousElement (-> xPathExpression) and element.predicates where isReady (-> xPredicate): see lines 20 to 52
+					translate element.relationFromPrevious (-> xPathExpression) and element.predicates where isReady (-> xPredicate): see lines 26 to 63
 					if quantifier = EXISTS:
 						where clause += some $id<element.id> in <xPathExpression>[xPredicate]* satisfies			
 					else if quantifier = FORALL:
 						where clause += every $id<element.id> in <xPathExpression>[xPredicate]* satisfies					
 				else:
-					translate element.predicates where isReady (-> xPredicate): see lines 22 to 52
+					translate element.predicates where isReady (-> xPredicate): see lines 28 to 63
 					if quantifier = EXISTS:
 						where clause += some $id<element.id> in $id<element.id>[xPredicate]* satisfies
 					else if quantifier = FORALL:
 						where clause += every $id<element.id> in $id<element.id>[xPredicate]* satisfies
+			translate quantifiedCondition.condition of type CONDITION as described in lines 72 to 100
 					
 		if condition is of type FORMULA:
-			translate logical operator directly
-			translate nested CONDITIONs as described above
+			let formula of type FORMULA be casted condition
+			translate formula.operator directly
+			translate formula.arguments each of type CONDITION as described in lines 72 to 100
 			
 		if condition is of type TRUE:
 			close where-clause
