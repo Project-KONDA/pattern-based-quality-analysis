@@ -4,10 +4,7 @@ package QualityPatternModel.impl;
 
 import QualityPatternModel.Condition;
 import QualityPatternModel.QualityPatternModelPackage;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ConditionImpl extends MinimalEObjectImpl.Container implements Condition {
+public abstract class ConditionImpl extends PatternElementImpl implements Condition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

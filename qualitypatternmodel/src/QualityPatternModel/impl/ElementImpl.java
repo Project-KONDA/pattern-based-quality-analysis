@@ -6,11 +6,15 @@ import QualityPatternModel.BooleanOperator;
 import QualityPatternModel.Element;
 import QualityPatternModel.QualityPatternModelPackage;
 import QualityPatternModel.Relation;
+import QualityPatternModel.ReturnType;
+
+import java.lang.Boolean;
+
+import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -29,32 +33,74 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link QualityPatternModel.impl.ElementImpl#getElementConditions <em>Element Conditions</em>}</li>
- *   <li>{@link QualityPatternModel.impl.ElementImpl#getRelationTo <em>Relation To</em>}</li>
+ *   <li>{@link QualityPatternModel.impl.ElementImpl#getPredicates <em>Predicates</em>}</li>
+ *   <li>{@link QualityPatternModel.impl.ElementImpl#getId <em>Id</em>}</li>
+ *   <li>{@link QualityPatternModel.impl.ElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
+ *   <li>{@link QualityPatternModel.impl.ElementImpl#isIsTranslated <em>Is Translated</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ElementImpl extends GraphElementImpl implements Element {
+public abstract class ElementImpl extends GraphElementImpl implements Element {
 	/**
-	 * The cached value of the '{@link #getElementConditions() <em>Element Conditions</em>}' reference list.
+	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElementConditions()
+	 * @see #getPredicates()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BooleanOperator> elementConditions;
+	protected EList<BooleanOperator> predicates;
 
 	/**
-	 * The cached value of the '{@link #getRelationTo() <em>Relation To</em>}' reference.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRelationTo()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected Relation relationTo;
+	protected static final int ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected int id = ID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRelationFromPrevious() <em>Relation From Previous</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelationFromPrevious()
+	 * @generated
+	 * @ordered
+	 */
+	protected Relation relationFromPrevious;
+
+	/**
+	 * The default value of the '{@link #isIsTranslated() <em>Is Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_TRANSLATED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsTranslated() <em>Is Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isTranslated = IS_TRANSLATED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,6 +109,11 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	 */
 	protected ElementImpl() {
 		super();
+	}
+	
+	@Override
+	public ReturnType getReturnType() {
+		return ReturnType.ELEMENT;
 	}
 
 	/**
@@ -80,11 +131,11 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BooleanOperator> getElementConditions() {
-		if (elementConditions == null) {
-			elementConditions = new EObjectResolvingEList<BooleanOperator>(BooleanOperator.class, this, QualityPatternModelPackage.ELEMENT__ELEMENT_CONDITIONS);
+	public EList<BooleanOperator> getPredicates() {
+		if (predicates == null) {
+			predicates = new EObjectResolvingEList<BooleanOperator>(BooleanOperator.class, this, QualityPatternModelPackage.ELEMENT__PREDICATES);
 		}
-		return elementConditions;
+		return predicates;
 	}
 
 	/**
@@ -92,16 +143,37 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Relation getRelationTo() {
-		if (relationTo != null && relationTo.eIsProxy()) {
-			InternalEObject oldRelationTo = (InternalEObject)relationTo;
-			relationTo = (Relation)eResolveProxy(oldRelationTo);
-			if (relationTo != oldRelationTo) {
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(int newId) {
+		int oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.ELEMENT__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Relation getRelationFromPrevious() {
+		if (relationFromPrevious != null && relationFromPrevious.eIsProxy()) {
+			InternalEObject oldRelationFromPrevious = (InternalEObject)relationFromPrevious;
+			relationFromPrevious = (Relation)eResolveProxy(oldRelationFromPrevious);
+			if (relationFromPrevious != oldRelationFromPrevious) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualityPatternModelPackage.ELEMENT__RELATION_TO, oldRelationTo, relationTo));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualityPatternModelPackage.ELEMENT__RELATION_FROM_PREVIOUS, oldRelationFromPrevious, relationFromPrevious));
 			}
 		}
-		return relationTo;
+		return relationFromPrevious;
 	}
 
 	/**
@@ -109,8 +181,8 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Relation basicGetRelationTo() {
-		return relationTo;
+	public Relation basicGetRelationFromPrevious() {
+		return relationFromPrevious;
 	}
 
 	/**
@@ -118,14 +190,11 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRelationTo(Relation newRelationTo, NotificationChain msgs) {
-		Relation oldRelationTo = relationTo;
-		relationTo = newRelationTo;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.ELEMENT__RELATION_TO, oldRelationTo, newRelationTo);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public void setRelationFromPrevious(Relation newRelationFromPrevious) {
+		Relation oldRelationFromPrevious = relationFromPrevious;
+		relationFromPrevious = newRelationFromPrevious;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.ELEMENT__RELATION_FROM_PREVIOUS, oldRelationFromPrevious, relationFromPrevious));
 	}
 
 	/**
@@ -133,18 +202,8 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRelationTo(Relation newRelationTo) {
-		if (newRelationTo != relationTo) {
-			NotificationChain msgs = null;
-			if (relationTo != null)
-				msgs = ((InternalEObject)relationTo).eInverseRemove(this, QualityPatternModelPackage.RELATION__ELEMENT_TO, Relation.class, msgs);
-			if (newRelationTo != null)
-				msgs = ((InternalEObject)newRelationTo).eInverseAdd(this, QualityPatternModelPackage.RELATION__ELEMENT_TO, Relation.class, msgs);
-			msgs = basicSetRelationTo(newRelationTo, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.ELEMENT__RELATION_TO, newRelationTo, newRelationTo));
+	public boolean isIsTranslated() {
+		return isTranslated;
 	}
 
 	/**
@@ -152,15 +211,11 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case QualityPatternModelPackage.ELEMENT__RELATION_TO:
-				if (relationTo != null)
-					msgs = ((InternalEObject)relationTo).eInverseRemove(this, QualityPatternModelPackage.RELATION__ELEMENT_TO, Relation.class, msgs);
-				return basicSetRelationTo((Relation)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+	public void setIsTranslated(boolean newIsTranslated) {
+		boolean oldIsTranslated = isTranslated;
+		isTranslated = newIsTranslated;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.ELEMENT__IS_TRANSLATED, oldIsTranslated, isTranslated));
 	}
 
 	/**
@@ -168,14 +223,36 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case QualityPatternModelPackage.ELEMENT__RELATION_TO:
-				return basicSetRelationTo(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+	public String generateXPredicates() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String generateXPathExpression() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
+	public abstract EList<Element> getNextElements();
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
+	public abstract Element getPreviousElement();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,11 +262,15 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QualityPatternModelPackage.ELEMENT__ELEMENT_CONDITIONS:
-				return getElementConditions();
-			case QualityPatternModelPackage.ELEMENT__RELATION_TO:
-				if (resolve) return getRelationTo();
-				return basicGetRelationTo();
+			case QualityPatternModelPackage.ELEMENT__PREDICATES:
+				return getPredicates();
+			case QualityPatternModelPackage.ELEMENT__ID:
+				return getId();
+			case QualityPatternModelPackage.ELEMENT__RELATION_FROM_PREVIOUS:
+				if (resolve) return getRelationFromPrevious();
+				return basicGetRelationFromPrevious();
+			case QualityPatternModelPackage.ELEMENT__IS_TRANSLATED:
+				return isIsTranslated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,12 +284,18 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QualityPatternModelPackage.ELEMENT__ELEMENT_CONDITIONS:
-				getElementConditions().clear();
-				getElementConditions().addAll((Collection<? extends BooleanOperator>)newValue);
+			case QualityPatternModelPackage.ELEMENT__PREDICATES:
+				getPredicates().clear();
+				getPredicates().addAll((Collection<? extends BooleanOperator>)newValue);
 				return;
-			case QualityPatternModelPackage.ELEMENT__RELATION_TO:
-				setRelationTo((Relation)newValue);
+			case QualityPatternModelPackage.ELEMENT__ID:
+				setId((Integer)newValue);
+				return;
+			case QualityPatternModelPackage.ELEMENT__RELATION_FROM_PREVIOUS:
+				setRelationFromPrevious((Relation)newValue);
+				return;
+			case QualityPatternModelPackage.ELEMENT__IS_TRANSLATED:
+				setIsTranslated((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -222,11 +309,17 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QualityPatternModelPackage.ELEMENT__ELEMENT_CONDITIONS:
-				getElementConditions().clear();
+			case QualityPatternModelPackage.ELEMENT__PREDICATES:
+				getPredicates().clear();
 				return;
-			case QualityPatternModelPackage.ELEMENT__RELATION_TO:
-				setRelationTo((Relation)null);
+			case QualityPatternModelPackage.ELEMENT__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case QualityPatternModelPackage.ELEMENT__RELATION_FROM_PREVIOUS:
+				setRelationFromPrevious((Relation)null);
+				return;
+			case QualityPatternModelPackage.ELEMENT__IS_TRANSLATED:
+				setIsTranslated(IS_TRANSLATED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -240,12 +333,54 @@ public class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QualityPatternModelPackage.ELEMENT__ELEMENT_CONDITIONS:
-				return elementConditions != null && !elementConditions.isEmpty();
-			case QualityPatternModelPackage.ELEMENT__RELATION_TO:
-				return relationTo != null;
+			case QualityPatternModelPackage.ELEMENT__PREDICATES:
+				return predicates != null && !predicates.isEmpty();
+			case QualityPatternModelPackage.ELEMENT__ID:
+				return id != ID_EDEFAULT;
+			case QualityPatternModelPackage.ELEMENT__RELATION_FROM_PREVIOUS:
+				return relationFromPrevious != null;
+			case QualityPatternModelPackage.ELEMENT__IS_TRANSLATED:
+				return isTranslated != IS_TRANSLATED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case QualityPatternModelPackage.ELEMENT___GENERATE_XPREDICATES:
+				return generateXPredicates();
+			case QualityPatternModelPackage.ELEMENT___GENERATE_XPATH_EXPRESSION:
+				return generateXPathExpression();
+			case QualityPatternModelPackage.ELEMENT___GET_NEXT_ELEMENTS:
+				return getNextElements();
+			case QualityPatternModelPackage.ELEMENT___GET_PREVIOUS_ELEMENT:
+				return getPreviousElement();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (id: ");
+		result.append(id);
+		result.append(", isTranslated: ");
+		result.append(isTranslated);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ElementImpl

@@ -2,7 +2,6 @@
  */
 package QualityPatternModel;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,8 +10,9 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see QualityPatternModel.QualityPatternModelPackage#getCondition()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface Condition extends EObject {
+public interface Condition extends PatternElement {
+
 } // Condition

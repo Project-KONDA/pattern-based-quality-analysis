@@ -7,8 +7,6 @@ import QualityPatternModel.QualityPatternModelPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Mapping</b></em>'.
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class MappingImpl extends MinimalEObjectImpl.Container implements Mapping {
+public abstract class MappingImpl extends PatternElementImpl implements Mapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

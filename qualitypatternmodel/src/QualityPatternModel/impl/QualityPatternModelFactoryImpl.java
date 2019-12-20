@@ -5,28 +5,29 @@ package QualityPatternModel.impl;
 import QualityPatternModel.Axis;
 import QualityPatternModel.Comparison;
 import QualityPatternModel.ComparisonOperator;
-import QualityPatternModel.Condition;
-import QualityPatternModel.Element;
+import QualityPatternModel.Count;
 import QualityPatternModel.Formula;
 import QualityPatternModel.Graph;
-import QualityPatternModel.Location;
 import QualityPatternModel.LogicalOperator;
-import QualityPatternModel.Mapping;
 import QualityPatternModel.Match;
 import QualityPatternModel.Morphism;
 import QualityPatternModel.Option;
 import QualityPatternModel.Pattern;
 import QualityPatternModel.Property;
+import QualityPatternModel.PropertyLocation;
 import QualityPatternModel.QualityPatternModelFactory;
 import QualityPatternModel.QualityPatternModelPackage;
 import QualityPatternModel.QuantifiedCondition;
 import QualityPatternModel.Quantifier;
 import QualityPatternModel.Relation;
 import QualityPatternModel.RelationMapping;
+import QualityPatternModel.ReturnType;
 import QualityPatternModel.SetElement;
 import QualityPatternModel.SingleElement;
 import QualityPatternModel.SingleElementMapping;
 import QualityPatternModel.Text;
+import QualityPatternModel.ToNumber;
+import QualityPatternModel.TranslationLocation;
 import QualityPatternModel.True;
 import QualityPatternModel.VariableList;
 
@@ -84,12 +85,10 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QualityPatternModelPackage.PATTERN: return createPattern();
-			case QualityPatternModelPackage.CONDITION: return createCondition();
 			case QualityPatternModelPackage.QUANTIFIED_CONDITION: return createQuantifiedCondition();
 			case QualityPatternModelPackage.FORMULA: return createFormula();
 			case QualityPatternModelPackage.TRUE: return createTrue();
 			case QualityPatternModelPackage.GRAPH: return createGraph();
-			case QualityPatternModelPackage.ELEMENT: return createElement();
 			case QualityPatternModelPackage.SET_ELEMENT: return createSetElement();
 			case QualityPatternModelPackage.SINGLE_ELEMENT: return createSingleElement();
 			case QualityPatternModelPackage.PROPERTY: return createProperty();
@@ -97,7 +96,6 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 			case QualityPatternModelPackage.NUMBER: return createNumber();
 			case QualityPatternModelPackage.BOOLEAN: return createBoolean();
 			case QualityPatternModelPackage.OPTION: return createOption();
-			case QualityPatternModelPackage.MAPPING: return createMapping();
 			case QualityPatternModelPackage.MORPHISM: return createMorphism();
 			case QualityPatternModelPackage.VARIABLE_LIST: return createVariableList();
 			case QualityPatternModelPackage.RELATION: return createRelation();
@@ -105,6 +103,8 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 			case QualityPatternModelPackage.MATCH: return createMatch();
 			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING: return createSingleElementMapping();
 			case QualityPatternModelPackage.RELATION_MAPPING: return createRelationMapping();
+			case QualityPatternModelPackage.COUNT: return createCount();
+			case QualityPatternModelPackage.TO_NUMBER: return createToNumber();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -120,14 +120,20 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 		switch (eDataType.getClassifierID()) {
 			case QualityPatternModelPackage.AXIS:
 				return createAxisFromString(eDataType, initialValue);
-			case QualityPatternModelPackage.LOCATION:
-				return createLocationFromString(eDataType, initialValue);
+			case QualityPatternModelPackage.PROPERTY_LOCATION:
+				return createPropertyLocationFromString(eDataType, initialValue);
 			case QualityPatternModelPackage.LOGICAL_OPERATOR:
 				return createLogicalOperatorFromString(eDataType, initialValue);
 			case QualityPatternModelPackage.QUANTIFIER:
 				return createQuantifierFromString(eDataType, initialValue);
 			case QualityPatternModelPackage.COMPARISON_OPERATOR:
 				return createComparisonOperatorFromString(eDataType, initialValue);
+			case QualityPatternModelPackage.RETURN_TYPE:
+				return createReturnTypeFromString(eDataType, initialValue);
+			case QualityPatternModelPackage.TRANSLATION_LOCATION:
+				return createTranslationLocationFromString(eDataType, initialValue);
+			case QualityPatternModelPackage.INVALID_TRANSLATION_EXCEPTION_WRAPPER:
+				return createInvalidTranslationExceptionWrapperFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -143,14 +149,20 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 		switch (eDataType.getClassifierID()) {
 			case QualityPatternModelPackage.AXIS:
 				return convertAxisToString(eDataType, instanceValue);
-			case QualityPatternModelPackage.LOCATION:
-				return convertLocationToString(eDataType, instanceValue);
+			case QualityPatternModelPackage.PROPERTY_LOCATION:
+				return convertPropertyLocationToString(eDataType, instanceValue);
 			case QualityPatternModelPackage.LOGICAL_OPERATOR:
 				return convertLogicalOperatorToString(eDataType, instanceValue);
 			case QualityPatternModelPackage.QUANTIFIER:
 				return convertQuantifierToString(eDataType, instanceValue);
 			case QualityPatternModelPackage.COMPARISON_OPERATOR:
 				return convertComparisonOperatorToString(eDataType, instanceValue);
+			case QualityPatternModelPackage.RETURN_TYPE:
+				return convertReturnTypeToString(eDataType, instanceValue);
+			case QualityPatternModelPackage.TRANSLATION_LOCATION:
+				return convertTranslationLocationToString(eDataType, instanceValue);
+			case QualityPatternModelPackage.INVALID_TRANSLATION_EXCEPTION_WRAPPER:
+				return convertInvalidTranslationExceptionWrapperToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -164,16 +176,6 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 	public Pattern createPattern() {
 		PatternImpl pattern = new PatternImpl();
 		return pattern;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Condition createCondition() {
-		ConditionImpl condition = new ConditionImpl();
-		return condition;
 	}
 
 	/**
@@ -214,16 +216,6 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 	public Graph createGraph() {
 		GraphImpl graph = new GraphImpl();
 		return graph;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Element createElement() {
-		ElementImpl element = new ElementImpl();
-		return element;
 	}
 
 	/**
@@ -291,19 +283,9 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Option createOption() {
-		OptionImpl option = new OptionImpl();
+	public <T> Option<T> createOption() {
+		OptionImpl<T> option = new OptionImpl<T>();
 		return option;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Mapping createMapping() {
-		MappingImpl mapping = new MappingImpl();
-		return mapping;
 	}
 
 	/**
@@ -381,6 +363,26 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Count createCount() {
+		CountImpl count = new CountImpl();
+		return count;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ToNumber createToNumber() {
+		ToNumberImpl toNumber = new ToNumberImpl();
+		return toNumber;
+	}	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Axis createAxisFromString(EDataType eDataType, String initialValue) {
 		Axis result = Axis.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -401,8 +403,8 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Location createLocationFromString(EDataType eDataType, String initialValue) {
-		Location result = Location.get(initialValue);
+	public PropertyLocation createPropertyLocationFromString(EDataType eDataType, String initialValue) {
+		PropertyLocation result = PropertyLocation.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -412,7 +414,7 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertLocationToString(EDataType eDataType, Object instanceValue) {
+	public String convertPropertyLocationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -474,6 +476,64 @@ public class QualityPatternModelFactoryImpl extends EFactoryImpl implements Qual
 	 */
 	public String convertComparisonOperatorToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReturnType createReturnTypeFromString(EDataType eDataType, String initialValue) {
+		ReturnType result = ReturnType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertReturnTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TranslationLocation createTranslationLocationFromString(EDataType eDataType, String initialValue) {
+		TranslationLocation result = TranslationLocation.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTranslationLocationToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InvalidTranslationException createInvalidTranslationExceptionWrapperFromString(EDataType eDataType, String initialValue) {
+		return (InvalidTranslationException)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertInvalidTranslationExceptionWrapperToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

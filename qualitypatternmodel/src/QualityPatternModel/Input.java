@@ -14,4 +14,12 @@ package QualityPatternModel;
  * @generated
  */
 public interface Input extends GraphElement {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean inputIsValid();
 } // Input

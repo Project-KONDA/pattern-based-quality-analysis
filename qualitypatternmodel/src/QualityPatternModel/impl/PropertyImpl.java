@@ -3,23 +3,18 @@
 package QualityPatternModel.impl;
 
 import QualityPatternModel.Element;
-import QualityPatternModel.Location;
 import QualityPatternModel.Option;
 import QualityPatternModel.Property;
+import QualityPatternModel.PropertyLocation;
 import QualityPatternModel.QualityPatternModelPackage;
-
-import java.util.Collection;
+import QualityPatternModel.ReturnType;
+import QualityPatternModel.TranslationLocation;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,7 +71,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Location LOCATION_EDEFAULT = Location.DATA;
+	protected static final PropertyLocation LOCATION_EDEFAULT = PropertyLocation.DATA;
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
@@ -86,17 +81,17 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * @generated
 	 * @ordered
 	 */
-	protected Location location = LOCATION_EDEFAULT;
+	protected PropertyLocation location = LOCATION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPropertyOptions() <em>Property Options</em>}' reference list.
+	 * The cached value of the '{@link #getPropertyOptions() <em>Property Options</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPropertyOptions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Option> propertyOptions;
+	protected Option<PropertyLocation> propertyOptions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,6 +100,19 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 */
 	protected PropertyImpl() {
 		super();
+	}
+	
+	@Override
+	public String toLocalXQuery(TranslationLocation tranlsationLocation) {
+		String output = location.getLiteral();
+		if(location == PropertyLocation.ATTRIBUTE) {
+			output += attributeName + ")";
+		}
+		return output;
+	}
+	@Override
+	public ReturnType getReturnType() {
+		return ReturnType.STRING;
 	}
 
 	/**
@@ -181,7 +189,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Location getLocation() {
+	public PropertyLocation getLocation() {
 		return location;
 	}
 
@@ -190,8 +198,8 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLocation(Location newLocation) {
-		Location oldLocation = location;
+	public void setLocation(PropertyLocation newLocation) {
+		PropertyLocation oldLocation = location;
 		location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.PROPERTY__LOCATION, oldLocation, location));
@@ -202,11 +210,38 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Option> getPropertyOptions() {
-		if (propertyOptions == null) {
-			propertyOptions = new EObjectResolvingEList<Option>(Option.class, this, QualityPatternModelPackage.PROPERTY__PROPERTY_OPTIONS);
+	@SuppressWarnings("unchecked")
+	public Option<PropertyLocation> getPropertyOptions() {
+		if (propertyOptions != null && propertyOptions.eIsProxy()) {
+			InternalEObject oldPropertyOptions = (InternalEObject)propertyOptions;
+			propertyOptions = (Option<PropertyLocation>)eResolveProxy(oldPropertyOptions);
+			if (propertyOptions != oldPropertyOptions) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualityPatternModelPackage.PROPERTY__PROPERTY_OPTIONS, oldPropertyOptions, propertyOptions));
+			}
 		}
 		return propertyOptions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Option<PropertyLocation> basicGetPropertyOptions() {
+		return propertyOptions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPropertyOptions(Option<PropertyLocation> newPropertyOptions) {
+		Option<PropertyLocation> oldPropertyOptions = propertyOptions;
+		propertyOptions = newPropertyOptions;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.PROPERTY__PROPERTY_OPTIONS, oldPropertyOptions, propertyOptions));
 	}
 
 	/**
@@ -225,7 +260,8 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 			case QualityPatternModelPackage.PROPERTY__LOCATION:
 				return getLocation();
 			case QualityPatternModelPackage.PROPERTY__PROPERTY_OPTIONS:
-				return getPropertyOptions();
+				if (resolve) return getPropertyOptions();
+				return basicGetPropertyOptions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -246,11 +282,10 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 				setAttributeName((String)newValue);
 				return;
 			case QualityPatternModelPackage.PROPERTY__LOCATION:
-				setLocation((Location)newValue);
+				setLocation((PropertyLocation)newValue);
 				return;
 			case QualityPatternModelPackage.PROPERTY__PROPERTY_OPTIONS:
-				getPropertyOptions().clear();
-				getPropertyOptions().addAll((Collection<? extends Option>)newValue);
+				setPropertyOptions((Option<PropertyLocation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -274,7 +309,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 				setLocation(LOCATION_EDEFAULT);
 				return;
 			case QualityPatternModelPackage.PROPERTY__PROPERTY_OPTIONS:
-				getPropertyOptions().clear();
+				setPropertyOptions((Option<PropertyLocation>)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -295,7 +330,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 			case QualityPatternModelPackage.PROPERTY__LOCATION:
 				return location != LOCATION_EDEFAULT;
 			case QualityPatternModelPackage.PROPERTY__PROPERTY_OPTIONS:
-				return propertyOptions != null && !propertyOptions.isEmpty();
+				return propertyOptions != null;
 		}
 		return super.eIsSet(featureID);
 	}

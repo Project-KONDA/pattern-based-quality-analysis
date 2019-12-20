@@ -2,7 +2,6 @@
  */
 package QualityPatternModel;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -11,8 +10,8 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see QualityPatternModel.QualityPatternModelPackage#getMapping()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface Mapping extends EObject {
+public interface Mapping extends PatternElement {
 } // Mapping

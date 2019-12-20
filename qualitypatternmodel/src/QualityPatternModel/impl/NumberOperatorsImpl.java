@@ -2,7 +2,7 @@
  */
 package QualityPatternModel.impl;
 
-import QualityPatternModel.BooleanOperator;
+import QualityPatternModel.NumberOperators;
 import QualityPatternModel.QualityPatternModelPackage;
 import QualityPatternModel.ReturnType;
 
@@ -10,24 +10,24 @@ import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Boolean Operator</b></em>'.
+ * An implementation of the model object '<em><b>Number Operators</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class BooleanOperatorImpl extends OperatorImpl implements BooleanOperator {
+public abstract class NumberOperatorsImpl extends OperatorImpl implements NumberOperators {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BooleanOperatorImpl() {
+	protected NumberOperatorsImpl() {
 		super();
 	}
 	
 	@Override
 	public ReturnType getReturnType() {
-		return ReturnType.BOOLEAN;
+		return ReturnType.NUMBER;
 	}
 
 	/**
@@ -37,7 +37,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QualityPatternModelPackage.Literals.BOOLEAN_OPERATOR;
+		return QualityPatternModelPackage.Literals.NUMBER_OPERATORS;
 	}
 
-} //BooleanOperatorImpl
+} //NumberOperatorsImpl

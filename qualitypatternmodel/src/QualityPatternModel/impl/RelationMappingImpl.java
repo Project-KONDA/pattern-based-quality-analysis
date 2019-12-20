@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link QualityPatternModel.impl.RelationMappingImpl#getTo <em>To</em>}</li>
+ *   <li>{@link QualityPatternModel.impl.RelationMappingImpl#getFrom <em>From</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,6 +38,16 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	 * @ordered
 	 */
 	protected Relation to;
+
+	/**
+	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFrom()
+	 * @generated
+	 * @ordered
+	 */
+	protected Relation from;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,6 +133,66 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Relation getFrom() {
+		if (from != null && from.eIsProxy()) {
+			InternalEObject oldFrom = (InternalEObject)from;
+			from = (Relation)eResolveProxy(oldFrom);
+			if (from != oldFrom) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualityPatternModelPackage.RELATION_MAPPING__FROM, oldFrom, from));
+			}
+		}
+		return from;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Relation basicGetFrom() {
+		return from;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFrom(Relation newFrom, NotificationChain msgs) {
+		Relation oldFrom = from;
+		from = newFrom;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.RELATION_MAPPING__FROM, oldFrom, newFrom);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFrom(Relation newFrom) {
+		if (newFrom != from) {
+			NotificationChain msgs = null;
+			if (from != null)
+				msgs = ((InternalEObject)from).eInverseRemove(this, QualityPatternModelPackage.RELATION__MAPPING_FROM, Relation.class, msgs);
+			if (newFrom != null)
+				msgs = ((InternalEObject)newFrom).eInverseAdd(this, QualityPatternModelPackage.RELATION__MAPPING_FROM, Relation.class, msgs);
+			msgs = basicSetFrom(newFrom, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.RELATION_MAPPING__FROM, newFrom, newFrom));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -129,6 +200,10 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 				if (to != null)
 					msgs = ((InternalEObject)to).eInverseRemove(this, QualityPatternModelPackage.RELATION__MAPPING_TO, Relation.class, msgs);
 				return basicSetTo((Relation)otherEnd, msgs);
+			case QualityPatternModelPackage.RELATION_MAPPING__FROM:
+				if (from != null)
+					msgs = ((InternalEObject)from).eInverseRemove(this, QualityPatternModelPackage.RELATION__MAPPING_FROM, Relation.class, msgs);
+				return basicSetFrom((Relation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -143,6 +218,8 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		switch (featureID) {
 			case QualityPatternModelPackage.RELATION_MAPPING__TO:
 				return basicSetTo(null, msgs);
+			case QualityPatternModelPackage.RELATION_MAPPING__FROM:
+				return basicSetFrom(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -158,6 +235,9 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 			case QualityPatternModelPackage.RELATION_MAPPING__TO:
 				if (resolve) return getTo();
 				return basicGetTo();
+			case QualityPatternModelPackage.RELATION_MAPPING__FROM:
+				if (resolve) return getFrom();
+				return basicGetFrom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,6 +252,9 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		switch (featureID) {
 			case QualityPatternModelPackage.RELATION_MAPPING__TO:
 				setTo((Relation)newValue);
+				return;
+			case QualityPatternModelPackage.RELATION_MAPPING__FROM:
+				setFrom((Relation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -188,6 +271,9 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 			case QualityPatternModelPackage.RELATION_MAPPING__TO:
 				setTo((Relation)null);
 				return;
+			case QualityPatternModelPackage.RELATION_MAPPING__FROM:
+				setFrom((Relation)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -202,6 +288,8 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		switch (featureID) {
 			case QualityPatternModelPackage.RELATION_MAPPING__TO:
 				return to != null;
+			case QualityPatternModelPackage.RELATION_MAPPING__FROM:
+				return from != null;
 		}
 		return super.eIsSet(featureID);
 	}

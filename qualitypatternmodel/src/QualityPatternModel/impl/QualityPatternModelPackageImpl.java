@@ -7,39 +7,49 @@ import QualityPatternModel.BooleanOperator;
 import QualityPatternModel.Comparison;
 import QualityPatternModel.ComparisonOperator;
 import QualityPatternModel.Condition;
+import QualityPatternModel.Count;
 import QualityPatternModel.Element;
 import QualityPatternModel.Formula;
 import QualityPatternModel.Graph;
 import QualityPatternModel.GraphElement;
 import QualityPatternModel.Input;
-import QualityPatternModel.Location;
 import QualityPatternModel.LogicalOperator;
 import QualityPatternModel.Mapping;
 import QualityPatternModel.Match;
 import QualityPatternModel.Morphism;
+import QualityPatternModel.NumberOperators;
 import QualityPatternModel.Operator;
 import QualityPatternModel.Option;
-import QualityPatternModel.OtterOperators;
+import QualityPatternModel.OtherOperators;
 import QualityPatternModel.Pattern;
+import QualityPatternModel.PatternElement;
 import QualityPatternModel.Property;
+import QualityPatternModel.PropertyLocation;
 import QualityPatternModel.QualityPatternModelFactory;
 import QualityPatternModel.QualityPatternModelPackage;
 import QualityPatternModel.QuantifiedCondition;
 import QualityPatternModel.Quantifier;
 import QualityPatternModel.Relation;
 import QualityPatternModel.RelationMapping;
+import QualityPatternModel.ReturnType;
 import QualityPatternModel.SetElement;
 import QualityPatternModel.SingleElement;
 import QualityPatternModel.SingleElementMapping;
 import QualityPatternModel.Text;
+import QualityPatternModel.ToNumber;
+import QualityPatternModel.TranslationLocation;
 import QualityPatternModel.True;
 import QualityPatternModel.VariableList;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.ETypeParameter;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -223,7 +233,21 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass otterOperatorsEClass = null;
+	private EClass numberOperatorsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass otherOperatorsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass toNumberEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -244,6 +268,20 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass patternElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass countEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum axisEEnum = null;
 
 	/**
@@ -251,7 +289,7 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum locationEEnum = null;
+	private EEnum propertyLocationEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -273,6 +311,27 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * @generated
 	 */
 	private EEnum comparisonOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum returnTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum translationLocationEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType invalidTranslationExceptionWrapperEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -349,7 +408,7 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPattern_Return() {
+	public EReference getPattern_ReturnGraph() {
 		return (EReference)patternEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -466,7 +525,7 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGraph_Return() {
+	public EReference getGraph_ReturnElement() {
 		return (EReference)graphEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -475,7 +534,7 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGraph_Root() {
+	public EReference getGraph_RootElement() {
 		return (EReference)graphEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -484,7 +543,7 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGraph_Variablelist() {
+	public EReference getGraph_VariableList() {
 		return (EReference)graphEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -502,7 +561,7 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElement_ElementConditions() {
+	public EReference getElement_Predicates() {
 		return (EReference)elementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -511,8 +570,62 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElement_RelationTo() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(1);
+	public EAttribute getElement_Id() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getElement_RelationFromPrevious() {
+		return (EReference)elementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElement_IsTranslated() {
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getElement__GenerateXPredicates() {
+		return elementEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getElement__GenerateXPathExpression() {
+		return elementEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getElement__GetNextElements() {
+		return elementEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getElement__GetPreviousElement() {
+		return elementEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -529,6 +642,24 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSetElement_Next() {
+		return (EReference)setElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSetElement_Previous() {
+		return (EReference)setElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSingleElement() {
 		return singleElementEClass;
 	}
@@ -538,7 +669,7 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSingleElement_RelationFrom() {
+	public EReference getSingleElement_MappingFrom() {
 		return (EReference)singleElementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -547,8 +678,26 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSingleElement_MappingFrom() {
+	public EReference getSingleElement_MappingTo() {
 		return (EReference)singleElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSingleElement_Previous() {
+		return (EReference)singleElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSingleElement_Next() {
+		return (EReference)singleElementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -610,15 +759,6 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperator_OperatorOptions() {
-		return (EReference)operatorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getBooleanOperator() {
 		return booleanOperatorEClass;
 	}
@@ -637,8 +777,26 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getInput__InputIsValid() {
+		return inputEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getText() {
 		return textEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getText_Text() {
+		return (EAttribute)textEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -655,8 +813,26 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getNumber_Number() {
+		return (EAttribute)numberEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBoolean() {
 		return booleanEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBoolean_Bool() {
+		return (EAttribute)booleanEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -673,8 +849,35 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getOption_Selection() {
+		return (EAttribute)optionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOption_Options() {
+		return (EAttribute)optionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGraphElement() {
 		return graphElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGraphElement__GetReturnType() {
+		return graphElementEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -763,7 +966,7 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRelation_ElementFrom() {
+	public EReference getRelation_RelationOptions() {
 		return (EReference)relationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -772,7 +975,7 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRelation_ElementTo() {
+	public EReference getRelation_MappingTo() {
 		return (EReference)relationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -781,17 +984,8 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRelation_RelationOptions() {
+	public EReference getRelation_MappingFrom() {
 		return (EReference)relationEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRelation_MappingTo() {
-		return (EReference)relationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -817,8 +1011,26 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComparison_Arguments() {
+	public EReference getComparison_Argument1() {
 		return (EReference)comparisonEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComparison_Options() {
+		return (EReference)comparisonEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComparison_Argument2() {
+		return (EReference)comparisonEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -844,7 +1056,7 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMatch_Input() {
+	public EReference getMatch_RegularExpression() {
 		return (EReference)matchEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -853,8 +1065,53 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getOtterOperators() {
-		return otterOperatorsEClass;
+	public EAttribute getMatch_Negate() {
+		return (EAttribute)matchEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMatch_Options() {
+		return (EReference)matchEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNumberOperators() {
+		return numberOperatorsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOtherOperators() {
+		return otherOperatorsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getToNumber() {
+		return toNumberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getToNumber_Property() {
+		return (EReference)toNumberEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -880,6 +1137,15 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSingleElementMapping_To() {
+		return (EReference)singleElementMappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRelationMapping() {
 		return relationMappingEClass;
 	}
@@ -898,6 +1164,69 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRelationMapping_From() {
+		return (EReference)relationMappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPatternElement() {
+		return patternElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPatternElement__IsValid() {
+		return patternElementEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPatternElement__ToXQuery__TranslationLocation() {
+		return patternElementEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPatternElement__ToLocalXQuery__TranslationLocation() {
+		return patternElementEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCount() {
+		return countEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCount_Argument() {
+		return (EReference)countEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getAxis() {
 		return axisEEnum;
 	}
@@ -907,8 +1236,8 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getLocation() {
-		return locationEEnum;
+	public EEnum getPropertyLocation() {
+		return propertyLocationEEnum;
 	}
 
 	/**
@@ -943,6 +1272,33 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getReturnType() {
+		return returnTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTranslationLocation() {
+		return translationLocationEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getInvalidTranslationExceptionWrapper() {
+		return invalidTranslationExceptionWrapperEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QualityPatternModelFactory getQualityPatternModelFactory() {
 		return (QualityPatternModelFactory)getEFactoryInstance();
 	}
@@ -967,7 +1323,7 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 
 		// Create classes and their features
 		patternEClass = createEClass(PATTERN);
-		createEReference(patternEClass, PATTERN__RETURN);
+		createEReference(patternEClass, PATTERN__RETURN_GRAPH);
 		createEReference(patternEClass, PATTERN__CONDITION);
 
 		conditionEClass = createEClass(CONDITION);
@@ -985,19 +1341,29 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 		trueEClass = createEClass(TRUE);
 
 		graphEClass = createEClass(GRAPH);
-		createEReference(graphEClass, GRAPH__RETURN);
-		createEReference(graphEClass, GRAPH__ROOT);
-		createEReference(graphEClass, GRAPH__VARIABLELIST);
+		createEReference(graphEClass, GRAPH__RETURN_ELEMENT);
+		createEReference(graphEClass, GRAPH__ROOT_ELEMENT);
+		createEReference(graphEClass, GRAPH__VARIABLE_LIST);
 
 		elementEClass = createEClass(ELEMENT);
-		createEReference(elementEClass, ELEMENT__ELEMENT_CONDITIONS);
-		createEReference(elementEClass, ELEMENT__RELATION_TO);
+		createEReference(elementEClass, ELEMENT__PREDICATES);
+		createEAttribute(elementEClass, ELEMENT__ID);
+		createEReference(elementEClass, ELEMENT__RELATION_FROM_PREVIOUS);
+		createEAttribute(elementEClass, ELEMENT__IS_TRANSLATED);
+		createEOperation(elementEClass, ELEMENT___GENERATE_XPREDICATES);
+		createEOperation(elementEClass, ELEMENT___GENERATE_XPATH_EXPRESSION);
+		createEOperation(elementEClass, ELEMENT___GET_NEXT_ELEMENTS);
+		createEOperation(elementEClass, ELEMENT___GET_PREVIOUS_ELEMENT);
 
 		setElementEClass = createEClass(SET_ELEMENT);
+		createEReference(setElementEClass, SET_ELEMENT__NEXT);
+		createEReference(setElementEClass, SET_ELEMENT__PREVIOUS);
 
 		singleElementEClass = createEClass(SINGLE_ELEMENT);
-		createEReference(singleElementEClass, SINGLE_ELEMENT__RELATION_FROM);
 		createEReference(singleElementEClass, SINGLE_ELEMENT__MAPPING_FROM);
+		createEReference(singleElementEClass, SINGLE_ELEMENT__MAPPING_TO);
+		createEReference(singleElementEClass, SINGLE_ELEMENT__PREVIOUS);
+		createEReference(singleElementEClass, SINGLE_ELEMENT__NEXT);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEReference(propertyEClass, PROPERTY__ELEMENT);
@@ -1006,21 +1372,27 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 		createEReference(propertyEClass, PROPERTY__PROPERTY_OPTIONS);
 
 		operatorEClass = createEClass(OPERATOR);
-		createEReference(operatorEClass, OPERATOR__OPERATOR_OPTIONS);
 
 		booleanOperatorEClass = createEClass(BOOLEAN_OPERATOR);
 
 		inputEClass = createEClass(INPUT);
+		createEOperation(inputEClass, INPUT___INPUT_IS_VALID);
 
 		textEClass = createEClass(TEXT);
+		createEAttribute(textEClass, TEXT__TEXT);
 
 		numberEClass = createEClass(NUMBER);
+		createEAttribute(numberEClass, NUMBER__NUMBER);
 
 		booleanEClass = createEClass(BOOLEAN);
+		createEAttribute(booleanEClass, BOOLEAN__BOOL);
 
 		optionEClass = createEClass(OPTION);
+		createEAttribute(optionEClass, OPTION__OPTIONS);
+		createEAttribute(optionEClass, OPTION__SELECTION);
 
 		graphElementEClass = createEClass(GRAPH_ELEMENT);
+		createEOperation(graphElementEClass, GRAPH_ELEMENT___GET_RETURN_TYPE);
 
 		mappingEClass = createEClass(MAPPING);
 
@@ -1034,33 +1406,56 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 
 		relationEClass = createEClass(RELATION);
 		createEAttribute(relationEClass, RELATION__AXIS);
-		createEReference(relationEClass, RELATION__ELEMENT_FROM);
-		createEReference(relationEClass, RELATION__ELEMENT_TO);
 		createEReference(relationEClass, RELATION__RELATION_OPTIONS);
 		createEReference(relationEClass, RELATION__MAPPING_TO);
+		createEReference(relationEClass, RELATION__MAPPING_FROM);
 
 		comparisonEClass = createEClass(COMPARISON);
 		createEAttribute(comparisonEClass, COMPARISON__OPERATOR);
-		createEReference(comparisonEClass, COMPARISON__ARGUMENTS);
+		createEReference(comparisonEClass, COMPARISON__ARGUMENT1);
+		createEReference(comparisonEClass, COMPARISON__OPTIONS);
+		createEReference(comparisonEClass, COMPARISON__ARGUMENT2);
 
 		matchEClass = createEClass(MATCH);
 		createEReference(matchEClass, MATCH__PROPERTY);
-		createEReference(matchEClass, MATCH__INPUT);
+		createEReference(matchEClass, MATCH__REGULAR_EXPRESSION);
+		createEAttribute(matchEClass, MATCH__NEGATE);
+		createEReference(matchEClass, MATCH__OPTIONS);
 
-		otterOperatorsEClass = createEClass(OTTER_OPERATORS);
+		numberOperatorsEClass = createEClass(NUMBER_OPERATORS);
 
 		singleElementMappingEClass = createEClass(SINGLE_ELEMENT_MAPPING);
 		createEReference(singleElementMappingEClass, SINGLE_ELEMENT_MAPPING__FROM);
+		createEReference(singleElementMappingEClass, SINGLE_ELEMENT_MAPPING__TO);
 
 		relationMappingEClass = createEClass(RELATION_MAPPING);
 		createEReference(relationMappingEClass, RELATION_MAPPING__TO);
+		createEReference(relationMappingEClass, RELATION_MAPPING__FROM);
+
+		patternElementEClass = createEClass(PATTERN_ELEMENT);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION);
+
+		countEClass = createEClass(COUNT);
+		createEReference(countEClass, COUNT__ARGUMENT);
+
+		otherOperatorsEClass = createEClass(OTHER_OPERATORS);
+
+		toNumberEClass = createEClass(TO_NUMBER);
+		createEReference(toNumberEClass, TO_NUMBER__PROPERTY);
 
 		// Create enums
 		axisEEnum = createEEnum(AXIS);
-		locationEEnum = createEEnum(LOCATION);
+		propertyLocationEEnum = createEEnum(PROPERTY_LOCATION);
 		logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
 		quantifierEEnum = createEEnum(QUANTIFIER);
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
+		returnTypeEEnum = createEEnum(RETURN_TYPE);
+		translationLocationEEnum = createEEnum(TRANSLATION_LOCATION);
+
+		// Create data types
+		invalidTranslationExceptionWrapperEDataType = createEDataType(INVALID_TRANSLATION_EXCEPTION_WRAPPER);
 	}
 
 	/**
@@ -1087,13 +1482,17 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 		setNsURI(eNS_URI);
 
 		// Create type parameters
+		ETypeParameter optionEClass_T = addETypeParameter(optionEClass, "T");
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		patternEClass.getESuperTypes().add(this.getPatternElement());
+		conditionEClass.getESuperTypes().add(this.getPatternElement());
 		quantifiedConditionEClass.getESuperTypes().add(this.getCondition());
 		formulaEClass.getESuperTypes().add(this.getCondition());
 		trueEClass.getESuperTypes().add(this.getCondition());
+		graphEClass.getESuperTypes().add(this.getPatternElement());
 		elementEClass.getESuperTypes().add(this.getGraphElement());
 		setElementEClass.getESuperTypes().add(this.getElement());
 		singleElementEClass.getESuperTypes().add(this.getElement());
@@ -1105,18 +1504,25 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 		numberEClass.getESuperTypes().add(this.getInput());
 		booleanEClass.getESuperTypes().add(this.getInput());
 		optionEClass.getESuperTypes().add(this.getInput());
+		graphElementEClass.getESuperTypes().add(this.getPatternElement());
+		mappingEClass.getESuperTypes().add(this.getPatternElement());
+		morphismEClass.getESuperTypes().add(this.getPatternElement());
+		relationEClass.getESuperTypes().add(this.getPatternElement());
 		comparisonEClass.getESuperTypes().add(this.getBooleanOperator());
 		matchEClass.getESuperTypes().add(this.getBooleanOperator());
-		otterOperatorsEClass.getESuperTypes().add(this.getOperator());
+		numberOperatorsEClass.getESuperTypes().add(this.getOperator());
 		singleElementMappingEClass.getESuperTypes().add(this.getMapping());
 		relationMappingEClass.getESuperTypes().add(this.getMapping());
+		countEClass.getESuperTypes().add(this.getNumberOperators());
+		otherOperatorsEClass.getESuperTypes().add(this.getOperator());
+		toNumberEClass.getESuperTypes().add(this.getNumberOperators());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(patternEClass, Pattern.class, "Pattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPattern_Return(), this.getGraph(), null, "return", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPattern_ReturnGraph(), this.getGraph(), null, "returnGraph", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_Condition(), this.getCondition(), null, "condition", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(quantifiedConditionEClass, QuantifiedCondition.class, "QuantifiedCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQuantifiedCondition_Condition(), this.getCondition(), null, "condition", null, 1, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1131,44 +1537,71 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 		initEClass(trueEClass, True.class, "True", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGraph_Return(), this.getElement(), null, "return", null, 1, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGraph_Root(), this.getElement(), null, "root", null, 1, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGraph_Variablelist(), this.getVariableList(), null, "variablelist", null, 1, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGraph_ReturnElement(), this.getSingleElement(), null, "returnElement", null, 1, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGraph_RootElement(), this.getSingleElement(), null, "rootElement", null, 1, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGraph_VariableList(), this.getVariableList(), null, "variableList", null, 1, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElement_ElementConditions(), this.getBooleanOperator(), null, "elementConditions", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_RelationTo(), this.getRelation(), this.getRelation_ElementTo(), "relationTo", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElement_Predicates(), this.getBooleanOperator(), null, "predicates", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_Id(), ecorePackage.getEInt(), "id", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_RelationFromPrevious(), this.getRelation(), null, "relationFromPrevious", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElement_IsTranslated(), ecorePackage.getEBoolean(), "isTranslated", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getElement__GenerateXPredicates(), ecorePackage.getEString(), "generateXPredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getElement__GenerateXPathExpression(), ecorePackage.getEString(), "generateXPathExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getElement__GetNextElements(), this.getElement(), "getNextElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getElement__GetPreviousElement(), this.getElement(), "getPreviousElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(setElementEClass, SetElement.class, "SetElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSetElement_Next(), this.getSetElement(), null, "next", null, 0, -1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSetElement_Previous(), this.getElement(), null, "previous", null, 1, 1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(singleElementEClass, SingleElement.class, "SingleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSingleElement_RelationFrom(), this.getRelation(), this.getRelation_ElementFrom(), "relationFrom", null, 0, -1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSingleElement_MappingFrom(), this.getSingleElementMapping(), this.getSingleElementMapping_From(), "mappingFrom", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleElement_MappingTo(), this.getSingleElementMapping(), this.getSingleElementMapping_To(), "mappingTo", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleElement_Previous(), this.getSingleElement(), null, "previous", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleElement_Next(), this.getElement(), null, "next", null, 0, -1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProperty_Element(), this.getElement(), null, "element", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProperty_AttributeName(), ecorePackage.getEString(), "attributeName", "", 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProperty_Location(), this.getLocation(), "location", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProperty_PropertyOptions(), this.getOption(), null, "propertyOptions", null, 0, -1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_Location(), this.getPropertyLocation(), "location", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		EGenericType g1 = createEGenericType(this.getOption());
+		EGenericType g2 = createEGenericType(this.getPropertyLocation());
+		g1.getETypeArguments().add(g2);
+		initEReference(getProperty_PropertyOptions(), g1, null, "propertyOptions", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOperator_OperatorOptions(), this.getOption(), null, "operatorOptions", null, 0, -1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanOperatorEClass, BooleanOperator.class, "BooleanOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEOperation(getInput__InputIsValid(), ecorePackage.getEBoolean(), "inputIsValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getText_Text(), ecorePackage.getEString(), "text", "", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(numberEClass, QualityPatternModel.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumber_Number(), ecorePackage.getEDoubleObject(), "number", null, 0, 1, QualityPatternModel.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanEClass, QualityPatternModel.Boolean.class, "Boolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBoolean_Bool(), ecorePackage.getEBooleanObject(), "bool", null, 0, 1, QualityPatternModel.Boolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(optionEClass_T);
+		initEAttribute(getOption_Options(), g1, "options", null, 0, -1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(optionEClass_T);
+		initEAttribute(getOption_Selection(), g1, "selection", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(graphElementEClass, GraphElement.class, "GraphElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(mappingEClass, Mapping.class, "Mapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEOperation(getGraphElement__GetReturnType(), this.getReturnType(), "getReturnType", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(mappingEClass, Mapping.class, "Mapping", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(morphismEClass, Morphism.class, "Morphism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMorphism_Mapping(), this.getMapping(), null, "mapping", null, 0, -1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1180,36 +1613,77 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 
 		initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRelation_Axis(), this.getAxis(), "axis", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelation_ElementFrom(), this.getSingleElement(), this.getSingleElement_RelationFrom(), "elementFrom", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelation_ElementTo(), this.getElement(), this.getElement_RelationTo(), "elementTo", null, 1, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelation_RelationOptions(), this.getOption(), null, "relationOptions", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getOption());
+		g2 = createEGenericType(this.getAxis());
+		g1.getETypeArguments().add(g2);
+		initEReference(getRelation_RelationOptions(), g1, null, "relationOptions", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_MappingTo(), this.getRelationMapping(), this.getRelationMapping_To(), "mappingTo", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelation_MappingFrom(), this.getRelationMapping(), this.getRelationMapping_From(), "mappingFrom", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComparison_Operator(), this.getComparisonOperator(), "operator", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComparison_Arguments(), this.getGraphElement(), null, "arguments", null, 2, 2, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparison_Argument1(), this.getGraphElement(), null, "argument1", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getOption());
+		g2 = createEGenericType(this.getComparisonOperator());
+		g1.getETypeArguments().add(g2);
+		initEReference(getComparison_Options(), g1, null, "options", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparison_Argument2(), this.getGraphElement(), null, "argument2", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(matchEClass, Match.class, "Match", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMatch_Property(), this.getProperty(), null, "property", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMatch_Input(), this.getInput(), null, "input", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMatch_RegularExpression(), this.getText(), null, "regularExpression", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMatch_Negate(), ecorePackage.getEBoolean(), "negate", "false", 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getOption());
+		g2 = createEGenericType(this.getBoolean());
+		g1.getETypeArguments().add(g2);
+		initEReference(getMatch_Options(), g1, null, "options", null, 0, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(otterOperatorsEClass, OtterOperators.class, "OtterOperators", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(numberOperatorsEClass, NumberOperators.class, "NumberOperators", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(singleElementMappingEClass, SingleElementMapping.class, "SingleElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSingleElementMapping_From(), this.getSingleElement(), this.getSingleElement_MappingFrom(), "from", null, 0, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleElementMapping_To(), this.getSingleElement(), this.getSingleElement_MappingTo(), "to", null, 0, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(relationMappingEClass, RelationMapping.class, "RelationMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRelationMapping_To(), this.getRelation(), this.getRelation_MappingTo(), "to", null, 0, 1, RelationMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationMapping_From(), this.getRelation(), this.getRelation_MappingFrom(), "from", null, 0, 1, RelationMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getPatternElement__IsValid(), ecorePackage.getEBoolean(), "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = initEOperation(getPatternElement__ToXQuery__TranslationLocation(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTranslationLocation(), "translationLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidTranslationExceptionWrapper());
+
+		op = initEOperation(getPatternElement__ToLocalXQuery__TranslationLocation(), ecorePackage.getEString(), "toLocalXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTranslationLocation(), "tranlsationLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(countEClass, Count.class, "Count", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCount_Argument(), this.getSetElement(), null, "argument", null, 1, 1, Count.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(otherOperatorsEClass, OtherOperators.class, "OtherOperators", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(toNumberEClass, ToNumber.class, "ToNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getToNumber_Property(), this.getProperty(), null, "property", null, 1, 1, ToNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(axisEEnum, Axis.class, "Axis");
 		addEEnumLiteral(axisEEnum, Axis.CHILD);
 		addEEnumLiteral(axisEEnum, Axis.DESCENDANT);
+		addEEnumLiteral(axisEEnum, Axis.PARENT);
+		addEEnumLiteral(axisEEnum, Axis.ANCESTOR);
+		addEEnumLiteral(axisEEnum, Axis.FOLLOWING);
+		addEEnumLiteral(axisEEnum, Axis.FOLLOWING_SIBLING);
+		addEEnumLiteral(axisEEnum, Axis.PRECEDING);
+		addEEnumLiteral(axisEEnum, Axis.PRECEDING_SIBLING);
+		addEEnumLiteral(axisEEnum, Axis.ANCESTOR_OR_SELF);
+		addEEnumLiteral(axisEEnum, Axis.DESCENDANT_OR_SELF);
 
-		initEEnum(locationEEnum, Location.class, "Location");
-		addEEnumLiteral(locationEEnum, Location.DATA);
-		addEEnumLiteral(locationEEnum, Location.TAG);
-		addEEnumLiteral(locationEEnum, Location.ATTRIBUTE);
+		initEEnum(propertyLocationEEnum, PropertyLocation.class, "PropertyLocation");
+		addEEnumLiteral(propertyLocationEEnum, PropertyLocation.DATA);
+		addEEnumLiteral(propertyLocationEEnum, PropertyLocation.TAG);
+		addEEnumLiteral(propertyLocationEEnum, PropertyLocation.ATTRIBUTE);
 
 		initEEnum(logicalOperatorEEnum, LogicalOperator.class, "LogicalOperator");
 		addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.NOT);
@@ -1230,6 +1704,22 @@ public class QualityPatternModelPackageImpl extends EPackageImpl implements Qual
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATEROREQUAL);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LESSOREQUAL);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.NOTEQUAL);
+
+		initEEnum(returnTypeEEnum, ReturnType.class, "ReturnType");
+		addEEnumLiteral(returnTypeEEnum, ReturnType.NUMBER);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.STRING);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.BOOLEAN);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.NONE);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.ELEMENT);
+
+		initEEnum(translationLocationEEnum, TranslationLocation.class, "TranslationLocation");
+		addEEnumLiteral(translationLocationEEnum, TranslationLocation.ROOT);
+		addEEnumLiteral(translationLocationEEnum, TranslationLocation.OUTSIDE);
+		addEEnumLiteral(translationLocationEEnum, TranslationLocation.EXISTS);
+		addEEnumLiteral(translationLocationEEnum, TranslationLocation.FORALL);
+
+		// Initialize data types
+		initEDataType(invalidTranslationExceptionWrapperEDataType, InvalidTranslationException.class, "InvalidTranslationExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -4,8 +4,6 @@ package QualityPatternModel;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Graph</b></em>'.
@@ -15,70 +13,70 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link QualityPatternModel.Graph#getReturn <em>Return</em>}</li>
- *   <li>{@link QualityPatternModel.Graph#getRoot <em>Root</em>}</li>
- *   <li>{@link QualityPatternModel.Graph#getVariablelist <em>Variablelist</em>}</li>
+ *   <li>{@link QualityPatternModel.Graph#getReturnElement <em>Return Element</em>}</li>
+ *   <li>{@link QualityPatternModel.Graph#getRootElement <em>Root Element</em>}</li>
+ *   <li>{@link QualityPatternModel.Graph#getVariableList <em>Variable List</em>}</li>
  * </ul>
  *
  * @see QualityPatternModel.QualityPatternModelPackage#getGraph()
  * @model
  * @generated
  */
-public interface Graph extends EObject {
+public interface Graph extends PatternElement {
 	/**
-	 * Returns the value of the '<em><b>Return</b></em>' reference list.
-	 * The list contents are of type {@link QualityPatternModel.Element}.
+	 * Returns the value of the '<em><b>Return Element</b></em>' reference list.
+	 * The list contents are of type {@link QualityPatternModel.SingleElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Return</em>' reference list.
-	 * @see QualityPatternModel.QualityPatternModelPackage#getGraph_Return()
+	 * @return the value of the '<em>Return Element</em>' reference list.
+	 * @see QualityPatternModel.QualityPatternModelPackage#getGraph_ReturnElement()
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<Element> getReturn();
+	EList<SingleElement> getReturnElement();
 
 	/**
-	 * Returns the value of the '<em><b>Root</b></em>' reference.
+	 * Returns the value of the '<em><b>Root Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root</em>' reference.
-	 * @see #setRoot(Element)
-	 * @see QualityPatternModel.QualityPatternModelPackage#getGraph_Root()
+	 * @return the value of the '<em>Root Element</em>' reference.
+	 * @see #setRootElement(SingleElement)
+	 * @see QualityPatternModel.QualityPatternModelPackage#getGraph_RootElement()
 	 * @model required="true"
 	 * @generated
 	 */
-	Element getRoot();
+	SingleElement getRootElement();
 
 	/**
-	 * Sets the value of the '{@link QualityPatternModel.Graph#getRoot <em>Root</em>}' reference.
+	 * Sets the value of the '{@link QualityPatternModel.Graph#getRootElement <em>Root Element</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root</em>' reference.
-	 * @see #getRoot()
+	 * @param value the new value of the '<em>Root Element</em>' reference.
+	 * @see #getRootElement()
 	 * @generated
 	 */
-	void setRoot(Element value);
+	void setRootElement(SingleElement value);
 
 	/**
-	 * Returns the value of the '<em><b>Variablelist</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Variable List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variablelist</em>' containment reference.
-	 * @see #setVariablelist(VariableList)
-	 * @see QualityPatternModel.QualityPatternModelPackage#getGraph_Variablelist()
+	 * @return the value of the '<em>Variable List</em>' containment reference.
+	 * @see #setVariableList(VariableList)
+	 * @see QualityPatternModel.QualityPatternModelPackage#getGraph_VariableList()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	VariableList getVariablelist();
+	VariableList getVariableList();
 
 	/**
-	 * Sets the value of the '{@link QualityPatternModel.Graph#getVariablelist <em>Variablelist</em>}' containment reference.
+	 * Sets the value of the '{@link QualityPatternModel.Graph#getVariableList <em>Variable List</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Variablelist</em>' containment reference.
-	 * @see #getVariablelist()
+	 * @param value the new value of the '<em>Variable List</em>' containment reference.
+	 * @see #getVariableList()
 	 * @generated
 	 */
-	void setVariablelist(VariableList value);
+	void setVariableList(VariableList value);
 
 } // Graph

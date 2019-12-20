@@ -36,7 +36,87 @@ public enum Axis implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DESCENDANT(1, "DESCENDANT", "descendant");
+	DESCENDANT(1, "DESCENDANT", "descendant"),
+
+	/**
+	 * The '<em><b>PARENT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PARENT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PARENT(2, "PARENT", "parent"),
+
+	/**
+	 * The '<em><b>ANCESTOR</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ANCESTOR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ANCESTOR(3, "ANCESTOR", "ancestor"),
+
+	/**
+	 * The '<em><b>FOLLOWING</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FOLLOWING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FOLLOWING(4, "FOLLOWING", "following"),
+
+	/**
+	 * The '<em><b>FOLLOWING SIBLING</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FOLLOWING_SIBLING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FOLLOWING_SIBLING(5, "FOLLOWING_SIBLING", "following-sibling"),
+
+	/**
+	 * The '<em><b>PRECEDING</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PRECEDING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PRECEDING(6, "PRECEDING", "preceding"),
+
+	/**
+	 * The '<em><b>PRECEDING SIBLING</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PRECEDING_SIBLING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PRECEDING_SIBLING(7, "PRECEDING_SIBLING", "preceding-sibling"),
+
+	/**
+	 * The '<em><b>ANCESTOR OR SELF</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ANCESTOR_OR_SELF_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ANCESTOR_OR_SELF(8, "ANCESTOR_OR_SELF", "ancestor-or-self"),
+
+	/**
+	 * The '<em><b>DESCENDANT OR SELF</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DESCENDANT_OR_SELF_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DESCENDANT_OR_SELF(9, "DESCENDANT_OR_SELF", "descendant-or-self");
 
 	/**
 	 * The '<em><b>CHILD</b></em>' literal value.
@@ -61,6 +141,94 @@ public enum Axis implements Enumerator {
 	public static final int DESCENDANT_VALUE = 1;
 
 	/**
+	 * The '<em><b>PARENT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PARENT
+	 * @model literal="parent"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PARENT_VALUE = 2;
+
+	/**
+	 * The '<em><b>ANCESTOR</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ANCESTOR
+	 * @model literal="ancestor"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ANCESTOR_VALUE = 3;
+
+	/**
+	 * The '<em><b>FOLLOWING</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FOLLOWING
+	 * @model literal="following"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FOLLOWING_VALUE = 4;
+
+	/**
+	 * The '<em><b>FOLLOWING SIBLING</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FOLLOWING_SIBLING
+	 * @model literal="following-sibling"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FOLLOWING_SIBLING_VALUE = 5;
+
+	/**
+	 * The '<em><b>PRECEDING</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PRECEDING
+	 * @model literal="preceding"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PRECEDING_VALUE = 6;
+
+	/**
+	 * The '<em><b>PRECEDING SIBLING</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PRECEDING_SIBLING
+	 * @model literal="preceding-sibling"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PRECEDING_SIBLING_VALUE = 7;
+
+	/**
+	 * The '<em><b>ANCESTOR OR SELF</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ANCESTOR_OR_SELF
+	 * @model literal="ancestor-or-self"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ANCESTOR_OR_SELF_VALUE = 8;
+
+	/**
+	 * The '<em><b>DESCENDANT OR SELF</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DESCENDANT_OR_SELF
+	 * @model literal="descendant-or-self"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DESCENDANT_OR_SELF_VALUE = 9;
+
+	/**
 	 * An array of all the '<em><b>Axis</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,6 +238,14 @@ public enum Axis implements Enumerator {
 		new Axis[] {
 			CHILD,
 			DESCENDANT,
+			PARENT,
+			ANCESTOR,
+			FOLLOWING,
+			FOLLOWING_SIBLING,
+			PRECEDING,
+			PRECEDING_SIBLING,
+			ANCESTOR_OR_SELF,
+			DESCENDANT_OR_SELF,
 		};
 
 	/**
@@ -128,6 +304,14 @@ public enum Axis implements Enumerator {
 		switch (value) {
 			case CHILD_VALUE: return CHILD;
 			case DESCENDANT_VALUE: return DESCENDANT;
+			case PARENT_VALUE: return PARENT;
+			case ANCESTOR_VALUE: return ANCESTOR;
+			case FOLLOWING_VALUE: return FOLLOWING;
+			case FOLLOWING_SIBLING_VALUE: return FOLLOWING_SIBLING;
+			case PRECEDING_VALUE: return PRECEDING;
+			case PRECEDING_SIBLING_VALUE: return PRECEDING_SIBLING;
+			case ANCESTOR_OR_SELF_VALUE: return ANCESTOR_OR_SELF;
+			case DESCENDANT_OR_SELF_VALUE: return DESCENDANT_OR_SELF;
 		}
 		return null;
 	}

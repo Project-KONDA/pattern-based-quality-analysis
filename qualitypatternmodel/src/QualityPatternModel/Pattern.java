@@ -2,8 +2,6 @@
  */
 package QualityPatternModel;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pattern</b></em>'.
@@ -13,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link QualityPatternModel.Pattern#getReturn <em>Return</em>}</li>
+ *   <li>{@link QualityPatternModel.Pattern#getReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link QualityPatternModel.Pattern#getCondition <em>Condition</em>}</li>
  * </ul>
  *
@@ -21,28 +19,28 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Pattern extends EObject {
+public interface Pattern extends PatternElement {
 	/**
-	 * Returns the value of the '<em><b>Return</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Return Graph</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Return</em>' containment reference.
-	 * @see #setReturn(Graph)
-	 * @see QualityPatternModel.QualityPatternModelPackage#getPattern_Return()
+	 * @return the value of the '<em>Return Graph</em>' containment reference.
+	 * @see #setReturnGraph(Graph)
+	 * @see QualityPatternModel.QualityPatternModelPackage#getPattern_ReturnGraph()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Graph getReturn();
+	Graph getReturnGraph();
 
 	/**
-	 * Sets the value of the '{@link QualityPatternModel.Pattern#getReturn <em>Return</em>}' containment reference.
+	 * Sets the value of the '{@link QualityPatternModel.Pattern#getReturnGraph <em>Return Graph</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Return</em>' containment reference.
-	 * @see #getReturn()
+	 * @param value the new value of the '<em>Return Graph</em>' containment reference.
+	 * @see #getReturnGraph()
 	 * @generated
 	 */
-	void setReturn(Graph value);
+	void setReturnGraph(Graph value);
 
 	/**
 	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.

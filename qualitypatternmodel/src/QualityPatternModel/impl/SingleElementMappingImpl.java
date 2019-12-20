@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link QualityPatternModel.impl.SingleElementMappingImpl#getFrom <em>From</em>}</li>
+ *   <li>{@link QualityPatternModel.impl.SingleElementMappingImpl#getTo <em>To</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,6 +38,16 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	 * @ordered
 	 */
 	protected SingleElement from;
+
+	/**
+	 * The cached value of the '{@link #getTo() <em>To</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTo()
+	 * @generated
+	 * @ordered
+	 */
+	protected SingleElement to;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,6 +133,66 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SingleElement getTo() {
+		if (to != null && to.eIsProxy()) {
+			InternalEObject oldTo = (InternalEObject)to;
+			to = (SingleElement)eResolveProxy(oldTo);
+			if (to != oldTo) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__TO, oldTo, to));
+			}
+		}
+		return to;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SingleElement basicGetTo() {
+		return to;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTo(SingleElement newTo, NotificationChain msgs) {
+		SingleElement oldTo = to;
+		to = newTo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__TO, oldTo, newTo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTo(SingleElement newTo) {
+		if (newTo != to) {
+			NotificationChain msgs = null;
+			if (to != null)
+				msgs = ((InternalEObject)to).eInverseRemove(this, QualityPatternModelPackage.SINGLE_ELEMENT__MAPPING_TO, SingleElement.class, msgs);
+			if (newTo != null)
+				msgs = ((InternalEObject)newTo).eInverseAdd(this, QualityPatternModelPackage.SINGLE_ELEMENT__MAPPING_TO, SingleElement.class, msgs);
+			msgs = basicSetTo(newTo, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__TO, newTo, newTo));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -129,6 +200,10 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 				if (from != null)
 					msgs = ((InternalEObject)from).eInverseRemove(this, QualityPatternModelPackage.SINGLE_ELEMENT__MAPPING_FROM, SingleElement.class, msgs);
 				return basicSetFrom((SingleElement)otherEnd, msgs);
+			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__TO:
+				if (to != null)
+					msgs = ((InternalEObject)to).eInverseRemove(this, QualityPatternModelPackage.SINGLE_ELEMENT__MAPPING_TO, SingleElement.class, msgs);
+				return basicSetTo((SingleElement)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -143,6 +218,8 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		switch (featureID) {
 			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__FROM:
 				return basicSetFrom(null, msgs);
+			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__TO:
+				return basicSetTo(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -158,6 +235,9 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__FROM:
 				if (resolve) return getFrom();
 				return basicGetFrom();
+			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__TO:
+				if (resolve) return getTo();
+				return basicGetTo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,6 +252,9 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		switch (featureID) {
 			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__FROM:
 				setFrom((SingleElement)newValue);
+				return;
+			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__TO:
+				setTo((SingleElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -188,6 +271,9 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__FROM:
 				setFrom((SingleElement)null);
 				return;
+			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__TO:
+				setTo((SingleElement)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -202,6 +288,8 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		switch (featureID) {
 			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__FROM:
 				return from != null;
+			case QualityPatternModelPackage.SINGLE_ELEMENT_MAPPING__TO:
+				return to != null;
 		}
 		return super.eIsSet(featureID);
 	}

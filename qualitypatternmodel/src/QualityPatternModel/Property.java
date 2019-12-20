@@ -2,8 +2,6 @@
  */
 package QualityPatternModel;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Property</b></em>'.
@@ -71,39 +69,49 @@ public interface Property extends GraphElement {
 
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
-	 * The literals are from the enumeration {@link QualityPatternModel.Location}.
+	 * The literals are from the enumeration {@link QualityPatternModel.PropertyLocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Location</em>' attribute.
-	 * @see QualityPatternModel.Location
-	 * @see #setLocation(Location)
+	 * @see QualityPatternModel.PropertyLocation
+	 * @see #setLocation(PropertyLocation)
 	 * @see QualityPatternModel.QualityPatternModelPackage#getProperty_Location()
 	 * @model
 	 * @generated
 	 */
-	Location getLocation();
+	PropertyLocation getLocation();
 
 	/**
 	 * Sets the value of the '{@link QualityPatternModel.Property#getLocation <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Location</em>' attribute.
-	 * @see QualityPatternModel.Location
+	 * @see QualityPatternModel.PropertyLocation
 	 * @see #getLocation()
 	 * @generated
 	 */
-	void setLocation(Location value);
+	void setLocation(PropertyLocation value);
 
 	/**
-	 * Returns the value of the '<em><b>Property Options</b></em>' reference list.
-	 * The list contents are of type {@link QualityPatternModel.Option}.
+	 * Returns the value of the '<em><b>Property Options</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Options</em>' reference list.
+	 * @return the value of the '<em>Property Options</em>' reference.
+	 * @see #setPropertyOptions(Option)
 	 * @see QualityPatternModel.QualityPatternModelPackage#getProperty_PropertyOptions()
 	 * @model
 	 * @generated
 	 */
-	EList<Option> getPropertyOptions();
+	Option<PropertyLocation> getPropertyOptions();
+
+	/**
+	 * Sets the value of the '{@link QualityPatternModel.Property#getPropertyOptions <em>Property Options</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Property Options</em>' reference.
+	 * @see #getPropertyOptions()
+	 * @generated
+	 */
+	void setPropertyOptions(Option<PropertyLocation> value);
 
 } // Property

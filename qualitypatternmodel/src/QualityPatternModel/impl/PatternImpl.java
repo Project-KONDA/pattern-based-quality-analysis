@@ -6,15 +6,12 @@ import QualityPatternModel.Condition;
 import QualityPatternModel.Graph;
 import QualityPatternModel.Pattern;
 import QualityPatternModel.QualityPatternModelPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,22 +21,22 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link QualityPatternModel.impl.PatternImpl#getReturn <em>Return</em>}</li>
+ *   <li>{@link QualityPatternModel.impl.PatternImpl#getReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link QualityPatternModel.impl.PatternImpl#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern {
+public class PatternImpl extends PatternElementImpl implements Pattern {
 	/**
-	 * The cached value of the '{@link #getReturn() <em>Return</em>}' containment reference.
+	 * The cached value of the '{@link #getReturnGraph() <em>Return Graph</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReturn()
+	 * @see #getReturnGraph()
 	 * @generated
 	 * @ordered
 	 */
-	protected Graph return_;
+	protected Graph returnGraph;
 
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
@@ -75,8 +72,8 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Graph getReturn() {
-		return return_;
+	public Graph getReturnGraph() {
+		return returnGraph;
 	}
 
 	/**
@@ -84,11 +81,11 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReturn(Graph newReturn, NotificationChain msgs) {
-		Graph oldReturn = return_;
-		return_ = newReturn;
+	public NotificationChain basicSetReturnGraph(Graph newReturnGraph, NotificationChain msgs) {
+		Graph oldReturnGraph = returnGraph;
+		returnGraph = newReturnGraph;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.PATTERN__RETURN, oldReturn, newReturn);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.PATTERN__RETURN_GRAPH, oldReturnGraph, newReturnGraph);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -99,18 +96,18 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReturn(Graph newReturn) {
-		if (newReturn != return_) {
+	public void setReturnGraph(Graph newReturnGraph) {
+		if (newReturnGraph != returnGraph) {
 			NotificationChain msgs = null;
-			if (return_ != null)
-				msgs = ((InternalEObject)return_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QualityPatternModelPackage.PATTERN__RETURN, null, msgs);
-			if (newReturn != null)
-				msgs = ((InternalEObject)newReturn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QualityPatternModelPackage.PATTERN__RETURN, null, msgs);
-			msgs = basicSetReturn(newReturn, msgs);
+			if (returnGraph != null)
+				msgs = ((InternalEObject)returnGraph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QualityPatternModelPackage.PATTERN__RETURN_GRAPH, null, msgs);
+			if (newReturnGraph != null)
+				msgs = ((InternalEObject)newReturnGraph).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QualityPatternModelPackage.PATTERN__RETURN_GRAPH, null, msgs);
+			msgs = basicSetReturnGraph(newReturnGraph, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.PATTERN__RETURN, newReturn, newReturn));
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.PATTERN__RETURN_GRAPH, newReturnGraph, newReturnGraph));
 	}
 
 	/**
@@ -164,8 +161,8 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QualityPatternModelPackage.PATTERN__RETURN:
-				return basicSetReturn(null, msgs);
+			case QualityPatternModelPackage.PATTERN__RETURN_GRAPH:
+				return basicSetReturnGraph(null, msgs);
 			case QualityPatternModelPackage.PATTERN__CONDITION:
 				return basicSetCondition(null, msgs);
 		}
@@ -180,8 +177,8 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QualityPatternModelPackage.PATTERN__RETURN:
-				return getReturn();
+			case QualityPatternModelPackage.PATTERN__RETURN_GRAPH:
+				return getReturnGraph();
 			case QualityPatternModelPackage.PATTERN__CONDITION:
 				return getCondition();
 		}
@@ -196,8 +193,8 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QualityPatternModelPackage.PATTERN__RETURN:
-				setReturn((Graph)newValue);
+			case QualityPatternModelPackage.PATTERN__RETURN_GRAPH:
+				setReturnGraph((Graph)newValue);
 				return;
 			case QualityPatternModelPackage.PATTERN__CONDITION:
 				setCondition((Condition)newValue);
@@ -214,8 +211,8 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QualityPatternModelPackage.PATTERN__RETURN:
-				setReturn((Graph)null);
+			case QualityPatternModelPackage.PATTERN__RETURN_GRAPH:
+				setReturnGraph((Graph)null);
 				return;
 			case QualityPatternModelPackage.PATTERN__CONDITION:
 				setCondition((Condition)null);
@@ -232,8 +229,8 @@ public class PatternImpl extends MinimalEObjectImpl.Container implements Pattern
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QualityPatternModelPackage.PATTERN__RETURN:
-				return return_ != null;
+			case QualityPatternModelPackage.PATTERN__RETURN_GRAPH:
+				return returnGraph != null;
 			case QualityPatternModelPackage.PATTERN__CONDITION:
 				return condition != null;
 		}

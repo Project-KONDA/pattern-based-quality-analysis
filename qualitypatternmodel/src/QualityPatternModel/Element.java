@@ -13,49 +13,125 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link QualityPatternModel.Element#getElementConditions <em>Element Conditions</em>}</li>
- *   <li>{@link QualityPatternModel.Element#getRelationTo <em>Relation To</em>}</li>
+ *   <li>{@link QualityPatternModel.Element#getPredicates <em>Predicates</em>}</li>
+ *   <li>{@link QualityPatternModel.Element#getId <em>Id</em>}</li>
+ *   <li>{@link QualityPatternModel.Element#getRelationFromPrevious <em>Relation From Previous</em>}</li>
+ *   <li>{@link QualityPatternModel.Element#isIsTranslated <em>Is Translated</em>}</li>
  * </ul>
  *
  * @see QualityPatternModel.QualityPatternModelPackage#getElement()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Element extends GraphElement {
 	/**
-	 * Returns the value of the '<em><b>Element Conditions</b></em>' reference list.
+	 * Returns the value of the '<em><b>Predicates</b></em>' reference list.
 	 * The list contents are of type {@link QualityPatternModel.BooleanOperator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element Conditions</em>' reference list.
-	 * @see QualityPatternModel.QualityPatternModelPackage#getElement_ElementConditions()
+	 * @return the value of the '<em>Predicates</em>' reference list.
+	 * @see QualityPatternModel.QualityPatternModelPackage#getElement_Predicates()
 	 * @model
 	 * @generated
 	 */
-	EList<BooleanOperator> getElementConditions();
+	EList<BooleanOperator> getPredicates();
 
 	/**
-	 * Returns the value of the '<em><b>Relation To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link QualityPatternModel.Relation#getElementTo <em>Element To</em>}'.
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relation To</em>' reference.
-	 * @see #setRelationTo(Relation)
-	 * @see QualityPatternModel.QualityPatternModelPackage#getElement_RelationTo()
-	 * @see QualityPatternModel.Relation#getElementTo
-	 * @model opposite="elementTo"
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(int)
+	 * @see QualityPatternModel.QualityPatternModelPackage#getElement_Id()
+	 * @model id="true"
 	 * @generated
 	 */
-	Relation getRelationTo();
+	int getId();
 
 	/**
-	 * Sets the value of the '{@link QualityPatternModel.Element#getRelationTo <em>Relation To</em>}' reference.
+	 * Sets the value of the '{@link QualityPatternModel.Element#getId <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relation To</em>' reference.
-	 * @see #getRelationTo()
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
 	 * @generated
 	 */
-	void setRelationTo(Relation value);
+	void setId(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Relation From Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Relation From Previous</em>' reference.
+	 * @see #setRelationFromPrevious(Relation)
+	 * @see QualityPatternModel.QualityPatternModelPackage#getElement_RelationFromPrevious()
+	 * @model
+	 * @generated
+	 */
+	Relation getRelationFromPrevious();
+
+	/**
+	 * Sets the value of the '{@link QualityPatternModel.Element#getRelationFromPrevious <em>Relation From Previous</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Relation From Previous</em>' reference.
+	 * @see #getRelationFromPrevious()
+	 * @generated
+	 */
+	void setRelationFromPrevious(Relation value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Translated</em>' attribute.
+	 * @see #setIsTranslated(boolean)
+	 * @see QualityPatternModel.QualityPatternModelPackage#getElement_IsTranslated()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsTranslated();
+
+	/**
+	 * Sets the value of the '{@link QualityPatternModel.Element#isIsTranslated <em>Is Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Translated</em>' attribute.
+	 * @see #isIsTranslated()
+	 * @generated
+	 */
+	void setIsTranslated(boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String generateXPredicates();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String generateXPathExpression();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Element> getNextElements();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Element getPreviousElement();
 
 } // Element

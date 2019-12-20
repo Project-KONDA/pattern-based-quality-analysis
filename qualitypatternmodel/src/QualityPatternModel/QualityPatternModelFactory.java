@@ -31,15 +31,6 @@ public interface QualityPatternModelFactory extends EFactory {
 	Pattern createPattern();
 
 	/**
-	 * Returns a new object of class '<em>Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition</em>'.
-	 * @generated
-	 */
-	Condition createCondition();
-
-	/**
 	 * Returns a new object of class '<em>Quantified Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,15 +65,6 @@ public interface QualityPatternModelFactory extends EFactory {
 	 * @generated
 	 */
 	Graph createGraph();
-
-	/**
-	 * Returns a new object of class '<em>Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element</em>'.
-	 * @generated
-	 */
-	Element createElement();
 
 	/**
 	 * Returns a new object of class '<em>Set Element</em>'.
@@ -145,16 +127,7 @@ public interface QualityPatternModelFactory extends EFactory {
 	 * @return a new object of class '<em>Option</em>'.
 	 * @generated
 	 */
-	Option createOption();
-
-	/**
-	 * Returns a new object of class '<em>Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mapping</em>'.
-	 * @generated
-	 */
-	Mapping createMapping();
+	<T> Option<T> createOption();
 
 	/**
 	 * Returns a new object of class '<em>Morphism</em>'.
@@ -218,6 +191,24 @@ public interface QualityPatternModelFactory extends EFactory {
 	 * @generated
 	 */
 	RelationMapping createRelationMapping();
+
+	/**
+	 * Returns a new object of class '<em>Count</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Count</em>'.
+	 * @generated
+	 */
+	Count createCount();
+
+	/**
+	 * Returns a new object of class '<em>To Number</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>To Number</em>'.
+	 * @generated
+	 */
+	ToNumber createToNumber();
 
 	/**
 	 * Returns the package supported by this factory.

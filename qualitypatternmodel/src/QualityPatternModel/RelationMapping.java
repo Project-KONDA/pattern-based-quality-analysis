@@ -13,6 +13,7 @@ package QualityPatternModel;
  * </p>
  * <ul>
  *   <li>{@link QualityPatternModel.RelationMapping#getTo <em>To</em>}</li>
+ *   <li>{@link QualityPatternModel.RelationMapping#getFrom <em>From</em>}</li>
  * </ul>
  *
  * @see QualityPatternModel.QualityPatternModelPackage#getRelationMapping()
@@ -43,5 +44,29 @@ public interface RelationMapping extends Mapping {
 	 * @generated
 	 */
 	void setTo(Relation value);
+
+	/**
+	 * Returns the value of the '<em><b>From</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link QualityPatternModel.Relation#getMappingFrom <em>Mapping From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>From</em>' reference.
+	 * @see #setFrom(Relation)
+	 * @see QualityPatternModel.QualityPatternModelPackage#getRelationMapping_From()
+	 * @see QualityPatternModel.Relation#getMappingFrom
+	 * @model opposite="mappingFrom"
+	 * @generated
+	 */
+	Relation getFrom();
+
+	/**
+	 * Sets the value of the '{@link QualityPatternModel.RelationMapping#getFrom <em>From</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>From</em>' reference.
+	 * @see #getFrom()
+	 * @generated
+	 */
+	void setFrom(Relation value);
 
 } // RelationMapping

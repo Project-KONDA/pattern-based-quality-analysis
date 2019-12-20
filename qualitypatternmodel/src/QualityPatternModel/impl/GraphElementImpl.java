@@ -5,9 +5,12 @@ package QualityPatternModel.impl;
 import QualityPatternModel.GraphElement;
 import QualityPatternModel.QualityPatternModelPackage;
 
-import org.eclipse.emf.ecore.EClass;
+import QualityPatternModel.ReturnType;
+import java.lang.reflect.InvocationTargetException;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class GraphElementImpl extends MinimalEObjectImpl.Container implements GraphElement {
+public abstract class GraphElementImpl extends PatternElementImpl implements GraphElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,6 +37,31 @@ public abstract class GraphElementImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	protected EClass eStaticClass() {
 		return QualityPatternModelPackage.Literals.GRAPH_ELEMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReturnType getReturnType() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case QualityPatternModelPackage.GRAPH_ELEMENT___GET_RETURN_TYPE:
+				return getReturnType();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //GraphElementImpl

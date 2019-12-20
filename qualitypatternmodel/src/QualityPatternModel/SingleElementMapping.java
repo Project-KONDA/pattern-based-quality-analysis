@@ -13,6 +13,7 @@ package QualityPatternModel;
  * </p>
  * <ul>
  *   <li>{@link QualityPatternModel.SingleElementMapping#getFrom <em>From</em>}</li>
+ *   <li>{@link QualityPatternModel.SingleElementMapping#getTo <em>To</em>}</li>
  * </ul>
  *
  * @see QualityPatternModel.QualityPatternModelPackage#getSingleElementMapping()
@@ -43,5 +44,29 @@ public interface SingleElementMapping extends Mapping {
 	 * @generated
 	 */
 	void setFrom(SingleElement value);
+
+	/**
+	 * Returns the value of the '<em><b>To</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link QualityPatternModel.SingleElement#getMappingTo <em>Mapping To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>To</em>' reference.
+	 * @see #setTo(SingleElement)
+	 * @see QualityPatternModel.QualityPatternModelPackage#getSingleElementMapping_To()
+	 * @see QualityPatternModel.SingleElement#getMappingTo
+	 * @model opposite="mappingTo"
+	 * @generated
+	 */
+	SingleElement getTo();
+
+	/**
+	 * Sets the value of the '{@link QualityPatternModel.SingleElementMapping#getTo <em>To</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>To</em>' reference.
+	 * @see #getTo()
+	 * @generated
+	 */
+	void setTo(SingleElement value);
 
 } // SingleElementMapping

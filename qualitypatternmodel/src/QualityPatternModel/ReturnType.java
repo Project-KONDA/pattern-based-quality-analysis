@@ -10,109 +10,153 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Location</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Return Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see QualityPatternModel.QualityPatternModelPackage#getLocation()
+ * @see QualityPatternModel.QualityPatternModelPackage#getReturnType()
  * @model
  * @generated
  */
-public enum Location implements Enumerator {
+public enum ReturnType implements Enumerator {
 	/**
-	 * The '<em><b>DATA</b></em>' literal object.
+	 * The '<em><b>NUMBER</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #DATA_VALUE
+	 * @see #NUMBER_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	DATA(0, "DATA", "data()"),
+	NUMBER(0, "NUMBER", "NUMBER"),
 
 	/**
-	 * The '<em><b>TAG</b></em>' literal object.
+	 * The '<em><b>STRING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #TAG_VALUE
+	 * @see #STRING_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	TAG(1, "TAG", "name()"),
+	STRING(1, "STRING", "STRING"),
 
 	/**
-	 * The '<em><b>ATTRIBUTE</b></em>' literal object.
+	 * The '<em><b>BOOLEAN</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ATTRIBUTE_VALUE
+	 * @see #BOOLEAN_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ATTRIBUTE(2, "ATTRIBUTE", "@");
+	BOOLEAN(2, "BOOLEAN", "BOOLEAN"),
 
 	/**
-	 * The '<em><b>DATA</b></em>' literal value.
+	 * The '<em><b>NONE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #DATA
-	 * @model literal="data()"
+	 * @see #NONE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DATA_VALUE = 0;
+	NONE(3, "NONE", "NONE"),
 
 	/**
-	 * The '<em><b>TAG</b></em>' literal value.
+	 * The '<em><b>ELEMENT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #TAG
-	 * @model literal="name()"
+	 * @see #ELEMENT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TAG_VALUE = 1;
+	ELEMENT(4, "ELEMENT", "ELEMENT");
 
 	/**
-	 * The '<em><b>ATTRIBUTE</b></em>' literal value.
+	 * The '<em><b>NUMBER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ATTRIBUTE
-	 * @model literal="@"
+	 * @see #NUMBER
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ATTRIBUTE_VALUE = 2;
+	public static final int NUMBER_VALUE = 0;
 
 	/**
-	 * An array of all the '<em><b>Location</b></em>' enumerators.
+	 * The '<em><b>STRING</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STRING
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int STRING_VALUE = 1;
+
+	/**
+	 * The '<em><b>BOOLEAN</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BOOLEAN
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int BOOLEAN_VALUE = 2;
+
+	/**
+	 * The '<em><b>NONE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NONE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NONE_VALUE = 3;
+
+	/**
+	 * The '<em><b>ELEMENT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ELEMENT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ELEMENT_VALUE = 4;
+
+	/**
+	 * An array of all the '<em><b>Return Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final Location[] VALUES_ARRAY =
-		new Location[] {
-			DATA,
-			TAG,
-			ATTRIBUTE,
+	private static final ReturnType[] VALUES_ARRAY =
+		new ReturnType[] {
+			NUMBER,
+			STRING,
+			BOOLEAN,
+			NONE,
+			ELEMENT,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Location</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Return Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<Location> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ReturnType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Location</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Return Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static Location get(String literal) {
+	public static ReturnType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			Location result = VALUES_ARRAY[i];
+			ReturnType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -121,16 +165,16 @@ public enum Location implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Location</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Return Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static Location getByName(String name) {
+	public static ReturnType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			Location result = VALUES_ARRAY[i];
+			ReturnType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -139,18 +183,20 @@ public enum Location implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Location</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Return Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static Location get(int value) {
+	public static ReturnType get(int value) {
 		switch (value) {
-			case DATA_VALUE: return DATA;
-			case TAG_VALUE: return TAG;
-			case ATTRIBUTE_VALUE: return ATTRIBUTE;
+			case NUMBER_VALUE: return NUMBER;
+			case STRING_VALUE: return STRING;
+			case BOOLEAN_VALUE: return BOOLEAN;
+			case NONE_VALUE: return NONE;
+			case ELEMENT_VALUE: return ELEMENT;
 		}
 		return null;
 	}
@@ -182,7 +228,7 @@ public enum Location implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private Location(int value, String name, String literal) {
+	private ReturnType(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -226,4 +272,4 @@ public enum Location implements Enumerator {
 		return literal;
 	}
 	
-} //Location
+} //ReturnType

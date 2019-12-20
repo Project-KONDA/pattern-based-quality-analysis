@@ -4,8 +4,6 @@ package QualityPatternModel;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Morphism</b></em>'.
@@ -24,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Morphism extends EObject {
+public interface Morphism extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Mapping</b></em>' containment reference list.
 	 * The list contents are of type {@link QualityPatternModel.Mapping}.

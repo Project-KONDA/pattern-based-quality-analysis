@@ -2,10 +2,6 @@
  */
 package QualityPatternModel;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Relation</b></em>'.
@@ -16,17 +12,16 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link QualityPatternModel.Relation#getAxis <em>Axis</em>}</li>
- *   <li>{@link QualityPatternModel.Relation#getElementFrom <em>Element From</em>}</li>
- *   <li>{@link QualityPatternModel.Relation#getElementTo <em>Element To</em>}</li>
  *   <li>{@link QualityPatternModel.Relation#getRelationOptions <em>Relation Options</em>}</li>
  *   <li>{@link QualityPatternModel.Relation#getMappingTo <em>Mapping To</em>}</li>
+ *   <li>{@link QualityPatternModel.Relation#getMappingFrom <em>Mapping From</em>}</li>
  * </ul>
  *
  * @see QualityPatternModel.QualityPatternModelPackage#getRelation()
  * @model
  * @generated
  */
-public interface Relation extends EObject {
+public interface Relation extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Axis</b></em>' attribute.
 	 * The literals are from the enumeration {@link QualityPatternModel.Axis}.
@@ -53,64 +48,26 @@ public interface Relation extends EObject {
 	void setAxis(Axis value);
 
 	/**
-	 * Returns the value of the '<em><b>Element From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link QualityPatternModel.SingleElement#getRelationFrom <em>Relation From</em>}'.
+	 * Returns the value of the '<em><b>Relation Options</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element From</em>' reference.
-	 * @see #setElementFrom(SingleElement)
-	 * @see QualityPatternModel.QualityPatternModelPackage#getRelation_ElementFrom()
-	 * @see QualityPatternModel.SingleElement#getRelationFrom
-	 * @model opposite="relationFrom"
-	 * @generated
-	 */
-	SingleElement getElementFrom();
-
-	/**
-	 * Sets the value of the '{@link QualityPatternModel.Relation#getElementFrom <em>Element From</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element From</em>' reference.
-	 * @see #getElementFrom()
-	 * @generated
-	 */
-	void setElementFrom(SingleElement value);
-
-	/**
-	 * Returns the value of the '<em><b>Element To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link QualityPatternModel.Element#getRelationTo <em>Relation To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element To</em>' reference.
-	 * @see #setElementTo(Element)
-	 * @see QualityPatternModel.QualityPatternModelPackage#getRelation_ElementTo()
-	 * @see QualityPatternModel.Element#getRelationTo
-	 * @model opposite="relationTo" required="true"
-	 * @generated
-	 */
-	Element getElementTo();
-
-	/**
-	 * Sets the value of the '{@link QualityPatternModel.Relation#getElementTo <em>Element To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element To</em>' reference.
-	 * @see #getElementTo()
-	 * @generated
-	 */
-	void setElementTo(Element value);
-
-	/**
-	 * Returns the value of the '<em><b>Relation Options</b></em>' reference list.
-	 * The list contents are of type {@link QualityPatternModel.Option}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relation Options</em>' reference list.
+	 * @return the value of the '<em>Relation Options</em>' reference.
+	 * @see #setRelationOptions(Option)
 	 * @see QualityPatternModel.QualityPatternModelPackage#getRelation_RelationOptions()
 	 * @model
 	 * @generated
 	 */
-	EList<Option> getRelationOptions();
+	Option<Axis> getRelationOptions();
+
+	/**
+	 * Sets the value of the '{@link QualityPatternModel.Relation#getRelationOptions <em>Relation Options</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Relation Options</em>' reference.
+	 * @see #getRelationOptions()
+	 * @generated
+	 */
+	void setRelationOptions(Option<Axis> value);
 
 	/**
 	 * Returns the value of the '<em><b>Mapping To</b></em>' reference.
@@ -135,5 +92,29 @@ public interface Relation extends EObject {
 	 * @generated
 	 */
 	void setMappingTo(RelationMapping value);
+
+	/**
+	 * Returns the value of the '<em><b>Mapping From</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link QualityPatternModel.RelationMapping#getFrom <em>From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mapping From</em>' reference.
+	 * @see #setMappingFrom(RelationMapping)
+	 * @see QualityPatternModel.QualityPatternModelPackage#getRelation_MappingFrom()
+	 * @see QualityPatternModel.RelationMapping#getFrom
+	 * @model opposite="from"
+	 * @generated
+	 */
+	RelationMapping getMappingFrom();
+
+	/**
+	 * Sets the value of the '{@link QualityPatternModel.Relation#getMappingFrom <em>Mapping From</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mapping From</em>' reference.
+	 * @see #getMappingFrom()
+	 * @generated
+	 */
+	void setMappingFrom(RelationMapping value);
 
 } // Relation

@@ -2,11 +2,10 @@
  */
 package QualityPatternModel.impl;
 
-import QualityPatternModel.Element;
 import QualityPatternModel.Graph;
 import QualityPatternModel.QualityPatternModelPackage;
+import QualityPatternModel.SingleElement;
 import QualityPatternModel.VariableList;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,7 +17,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
@@ -30,43 +28,43 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link QualityPatternModel.impl.GraphImpl#getReturn <em>Return</em>}</li>
- *   <li>{@link QualityPatternModel.impl.GraphImpl#getRoot <em>Root</em>}</li>
- *   <li>{@link QualityPatternModel.impl.GraphImpl#getVariablelist <em>Variablelist</em>}</li>
+ *   <li>{@link QualityPatternModel.impl.GraphImpl#getReturnElement <em>Return Element</em>}</li>
+ *   <li>{@link QualityPatternModel.impl.GraphImpl#getRootElement <em>Root Element</em>}</li>
+ *   <li>{@link QualityPatternModel.impl.GraphImpl#getVariableList <em>Variable List</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
+public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
-	 * The cached value of the '{@link #getReturn() <em>Return</em>}' reference list.
+	 * The cached value of the '{@link #getReturnElement() <em>Return Element</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReturn()
+	 * @see #getReturnElement()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> return_;
+	protected EList<SingleElement> returnElement;
 
 	/**
-	 * The cached value of the '{@link #getRoot() <em>Root</em>}' reference.
+	 * The cached value of the '{@link #getRootElement() <em>Root Element</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRoot()
+	 * @see #getRootElement()
 	 * @generated
 	 * @ordered
 	 */
-	protected Element root;
+	protected SingleElement rootElement;
 
 	/**
-	 * The cached value of the '{@link #getVariablelist() <em>Variablelist</em>}' containment reference.
+	 * The cached value of the '{@link #getVariableList() <em>Variable List</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVariablelist()
+	 * @see #getVariableList()
 	 * @generated
 	 * @ordered
 	 */
-	protected VariableList variablelist;
+	protected VariableList variableList;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,11 +90,11 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Element> getReturn() {
-		if (return_ == null) {
-			return_ = new EObjectResolvingEList<Element>(Element.class, this, QualityPatternModelPackage.GRAPH__RETURN);
+	public EList<SingleElement> getReturnElement() {
+		if (returnElement == null) {
+			returnElement = new EObjectResolvingEList<SingleElement>(SingleElement.class, this, QualityPatternModelPackage.GRAPH__RETURN_ELEMENT);
 		}
-		return return_;
+		return returnElement;
 	}
 
 	/**
@@ -104,16 +102,16 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element getRoot() {
-		if (root != null && root.eIsProxy()) {
-			InternalEObject oldRoot = (InternalEObject)root;
-			root = (Element)eResolveProxy(oldRoot);
-			if (root != oldRoot) {
+	public SingleElement getRootElement() {
+		if (rootElement != null && rootElement.eIsProxy()) {
+			InternalEObject oldRootElement = (InternalEObject)rootElement;
+			rootElement = (SingleElement)eResolveProxy(oldRootElement);
+			if (rootElement != oldRootElement) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualityPatternModelPackage.GRAPH__ROOT, oldRoot, root));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualityPatternModelPackage.GRAPH__ROOT_ELEMENT, oldRootElement, rootElement));
 			}
 		}
-		return root;
+		return rootElement;
 	}
 
 	/**
@@ -121,8 +119,8 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element basicGetRoot() {
-		return root;
+	public SingleElement basicGetRootElement() {
+		return rootElement;
 	}
 
 	/**
@@ -130,11 +128,11 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRoot(Element newRoot) {
-		Element oldRoot = root;
-		root = newRoot;
+	public void setRootElement(SingleElement newRootElement) {
+		SingleElement oldRootElement = rootElement;
+		rootElement = newRootElement;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.GRAPH__ROOT, oldRoot, root));
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.GRAPH__ROOT_ELEMENT, oldRootElement, rootElement));
 	}
 
 	/**
@@ -142,8 +140,8 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableList getVariablelist() {
-		return variablelist;
+	public VariableList getVariableList() {
+		return variableList;
 	}
 
 	/**
@@ -151,11 +149,11 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetVariablelist(VariableList newVariablelist, NotificationChain msgs) {
-		VariableList oldVariablelist = variablelist;
-		variablelist = newVariablelist;
+	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
+		VariableList oldVariableList = variableList;
+		variableList = newVariableList;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.GRAPH__VARIABLELIST, oldVariablelist, newVariablelist);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.GRAPH__VARIABLE_LIST, oldVariableList, newVariableList);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -166,18 +164,18 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVariablelist(VariableList newVariablelist) {
-		if (newVariablelist != variablelist) {
+	public void setVariableList(VariableList newVariableList) {
+		if (newVariableList != variableList) {
 			NotificationChain msgs = null;
-			if (variablelist != null)
-				msgs = ((InternalEObject)variablelist).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QualityPatternModelPackage.GRAPH__VARIABLELIST, null, msgs);
-			if (newVariablelist != null)
-				msgs = ((InternalEObject)newVariablelist).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QualityPatternModelPackage.GRAPH__VARIABLELIST, null, msgs);
-			msgs = basicSetVariablelist(newVariablelist, msgs);
+			if (variableList != null)
+				msgs = ((InternalEObject)variableList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QualityPatternModelPackage.GRAPH__VARIABLE_LIST, null, msgs);
+			if (newVariableList != null)
+				msgs = ((InternalEObject)newVariableList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QualityPatternModelPackage.GRAPH__VARIABLE_LIST, null, msgs);
+			msgs = basicSetVariableList(newVariableList, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.GRAPH__VARIABLELIST, newVariablelist, newVariablelist));
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityPatternModelPackage.GRAPH__VARIABLE_LIST, newVariableList, newVariableList));
 	}
 
 	/**
@@ -188,8 +186,8 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QualityPatternModelPackage.GRAPH__VARIABLELIST:
-				return basicSetVariablelist(null, msgs);
+			case QualityPatternModelPackage.GRAPH__VARIABLE_LIST:
+				return basicSetVariableList(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -202,13 +200,13 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QualityPatternModelPackage.GRAPH__RETURN:
-				return getReturn();
-			case QualityPatternModelPackage.GRAPH__ROOT:
-				if (resolve) return getRoot();
-				return basicGetRoot();
-			case QualityPatternModelPackage.GRAPH__VARIABLELIST:
-				return getVariablelist();
+			case QualityPatternModelPackage.GRAPH__RETURN_ELEMENT:
+				return getReturnElement();
+			case QualityPatternModelPackage.GRAPH__ROOT_ELEMENT:
+				if (resolve) return getRootElement();
+				return basicGetRootElement();
+			case QualityPatternModelPackage.GRAPH__VARIABLE_LIST:
+				return getVariableList();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -222,15 +220,15 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QualityPatternModelPackage.GRAPH__RETURN:
-				getReturn().clear();
-				getReturn().addAll((Collection<? extends Element>)newValue);
+			case QualityPatternModelPackage.GRAPH__RETURN_ELEMENT:
+				getReturnElement().clear();
+				getReturnElement().addAll((Collection<? extends SingleElement>)newValue);
 				return;
-			case QualityPatternModelPackage.GRAPH__ROOT:
-				setRoot((Element)newValue);
+			case QualityPatternModelPackage.GRAPH__ROOT_ELEMENT:
+				setRootElement((SingleElement)newValue);
 				return;
-			case QualityPatternModelPackage.GRAPH__VARIABLELIST:
-				setVariablelist((VariableList)newValue);
+			case QualityPatternModelPackage.GRAPH__VARIABLE_LIST:
+				setVariableList((VariableList)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -244,14 +242,14 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QualityPatternModelPackage.GRAPH__RETURN:
-				getReturn().clear();
+			case QualityPatternModelPackage.GRAPH__RETURN_ELEMENT:
+				getReturnElement().clear();
 				return;
-			case QualityPatternModelPackage.GRAPH__ROOT:
-				setRoot((Element)null);
+			case QualityPatternModelPackage.GRAPH__ROOT_ELEMENT:
+				setRootElement((SingleElement)null);
 				return;
-			case QualityPatternModelPackage.GRAPH__VARIABLELIST:
-				setVariablelist((VariableList)null);
+			case QualityPatternModelPackage.GRAPH__VARIABLE_LIST:
+				setVariableList((VariableList)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -265,12 +263,12 @@ public class GraphImpl extends MinimalEObjectImpl.Container implements Graph {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QualityPatternModelPackage.GRAPH__RETURN:
-				return return_ != null && !return_.isEmpty();
-			case QualityPatternModelPackage.GRAPH__ROOT:
-				return root != null;
-			case QualityPatternModelPackage.GRAPH__VARIABLELIST:
-				return variablelist != null;
+			case QualityPatternModelPackage.GRAPH__RETURN_ELEMENT:
+				return returnElement != null && !returnElement.isEmpty();
+			case QualityPatternModelPackage.GRAPH__ROOT_ELEMENT:
+				return rootElement != null;
+			case QualityPatternModelPackage.GRAPH__VARIABLE_LIST:
+				return variableList != null;
 		}
 		return super.eIsSet(featureID);
 	}

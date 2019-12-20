@@ -5,6 +5,7 @@ package QualityPatternModel.util;
 import QualityPatternModel.BooleanOperator;
 import QualityPatternModel.Comparison;
 import QualityPatternModel.Condition;
+import QualityPatternModel.Count;
 import QualityPatternModel.Element;
 import QualityPatternModel.Formula;
 import QualityPatternModel.Graph;
@@ -13,10 +14,12 @@ import QualityPatternModel.Input;
 import QualityPatternModel.Mapping;
 import QualityPatternModel.Match;
 import QualityPatternModel.Morphism;
+import QualityPatternModel.NumberOperators;
 import QualityPatternModel.Operator;
 import QualityPatternModel.Option;
-import QualityPatternModel.OtterOperators;
+import QualityPatternModel.OtherOperators;
 import QualityPatternModel.Pattern;
+import QualityPatternModel.PatternElement;
 import QualityPatternModel.Property;
 import QualityPatternModel.QualityPatternModelPackage;
 import QualityPatternModel.QuantifiedCondition;
@@ -26,6 +29,7 @@ import QualityPatternModel.SetElement;
 import QualityPatternModel.SingleElement;
 import QualityPatternModel.SingleElementMapping;
 import QualityPatternModel.Text;
+import QualityPatternModel.ToNumber;
 import QualityPatternModel.True;
 import QualityPatternModel.VariableList;
 
@@ -157,7 +161,7 @@ public class QualityPatternModelAdapterFactory extends AdapterFactoryImpl {
 				return createBooleanAdapter();
 			}
 			@Override
-			public Adapter caseOption(Option object) {
+			public <T> Adapter caseOption(Option<T> object) {
 				return createOptionAdapter();
 			}
 			@Override
@@ -189,8 +193,8 @@ public class QualityPatternModelAdapterFactory extends AdapterFactoryImpl {
 				return createMatchAdapter();
 			}
 			@Override
-			public Adapter caseOtterOperators(OtterOperators object) {
-				return createOtterOperatorsAdapter();
+			public Adapter caseNumberOperators(NumberOperators object) {
+				return createNumberOperatorsAdapter();
 			}
 			@Override
 			public Adapter caseSingleElementMapping(SingleElementMapping object) {
@@ -199,6 +203,22 @@ public class QualityPatternModelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRelationMapping(RelationMapping object) {
 				return createRelationMappingAdapter();
+			}
+			@Override
+			public Adapter casePatternElement(PatternElement object) {
+				return createPatternElementAdapter();
+			}
+			@Override
+			public Adapter caseCount(Count object) {
+				return createCountAdapter();
+			}
+			@Override
+			public Adapter caseOtherOperators(OtherOperators object) {
+				return createOtherOperatorsAdapter();
+			}
+			@Override
+			public Adapter caseToNumber(ToNumber object) {
+				return createToNumberAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -557,16 +577,44 @@ public class QualityPatternModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link QualityPatternModel.OtterOperators <em>Otter Operators</em>}'.
+	 * Creates a new adapter for an object of class '{@link QualityPatternModel.NumberOperators <em>Number Operators</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see QualityPatternModel.OtterOperators
+	 * @see QualityPatternModel.NumberOperators
 	 * @generated
 	 */
-	public Adapter createOtterOperatorsAdapter() {
+	public Adapter createNumberOperatorsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link QualityPatternModel.OtherOperators <em>Other Operators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see QualityPatternModel.OtherOperators
+	 * @generated
+	 */
+	public Adapter createOtherOperatorsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link QualityPatternModel.ToNumber <em>To Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see QualityPatternModel.ToNumber
+	 * @generated
+	 */
+	public Adapter createToNumberAdapter() {
 		return null;
 	}
 
@@ -595,6 +643,34 @@ public class QualityPatternModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRelationMappingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link QualityPatternModel.PatternElement <em>Pattern Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see QualityPatternModel.PatternElement
+	 * @generated
+	 */
+	public Adapter createPatternElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link QualityPatternModel.Count <em>Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see QualityPatternModel.Count
+	 * @generated
+	 */
+	public Adapter createCountAdapter() {
 		return null;
 	}
 
