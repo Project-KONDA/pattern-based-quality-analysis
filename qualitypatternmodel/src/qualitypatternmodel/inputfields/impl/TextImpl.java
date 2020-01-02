@@ -57,7 +57,7 @@ public class TextImpl extends InputImpl implements Text {
 	}
 	
 	@Override
-	public String toLocalXQuery(TranslationLocation tranlsationLocation) {
+	public String toXQuery(TranslationLocation translationLocation) {
 		return "\""+text+"\"";
 	}
 	

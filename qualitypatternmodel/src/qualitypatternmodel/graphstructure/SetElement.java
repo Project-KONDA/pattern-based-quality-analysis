@@ -23,13 +23,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface SetElement extends Element {
 	/**
-	 * Returns the value of the '<em><b>Next</b></em>' reference list.
+	 * Returns the value of the '<em><b>Next</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.SetElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next</em>' reference list.
+	 * @return the value of the '<em>Next</em>' containment reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement_Next()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<SetElement> getNext();

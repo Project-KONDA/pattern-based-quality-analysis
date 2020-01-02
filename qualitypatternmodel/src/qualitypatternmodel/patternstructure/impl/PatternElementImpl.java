@@ -47,7 +47,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isValid() {
+	public String toXQuery(TranslationLocation tranlsationLocation) throws InvalidTranslationException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -56,21 +56,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public String toXQuery(TranslationLocation translationLocation) throws InvalidTranslationException {
-		if(isValid()) {
-			return toLocalXQuery(translationLocation);
-		} else {
-			throw new InvalidTranslationException();
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String toLocalXQuery(TranslationLocation tranlsationLocation) {
+	public boolean isValid(boolean isDefinedPattern) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -84,8 +72,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID:
-				return isValid();
 			case PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION:
 				try {
 					return toXQuery((TranslationLocation)arguments.get(0));
@@ -93,8 +79,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION:
-				return toLocalXQuery((TranslationLocation)arguments.get(0));
+			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN:
+				return isValid((Boolean)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -5,6 +5,7 @@ package qualitypatternmodel.graphstructure.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
@@ -13,8 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SetElement;
@@ -35,7 +36,7 @@ import qualitypatternmodel.graphstructure.SetElement;
  */
 public class SetElementImpl extends ElementImpl implements SetElement {
 	/**
-	 * The cached value of the '{@link #getNext() <em>Next</em>}' reference list.
+	 * The cached value of the '{@link #getNext() <em>Next</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNext()
@@ -80,7 +81,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	 */
 	public EList<SetElement> getNext() {
 		if (next == null) {
-			next = new EObjectResolvingEList<SetElement>(SetElement.class, this, GraphstructurePackage.SET_ELEMENT__NEXT);
+			next = new EObjectContainmentEList<SetElement>(SetElement.class, this, GraphstructurePackage.SET_ELEMENT__NEXT);
 		}
 		return next;
 	}
@@ -121,6 +122,20 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 		previous = newPrevious;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SET_ELEMENT__PREVIOUS, oldPrevious, previous));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GraphstructurePackage.SET_ELEMENT__NEXT:
+				return ((InternalEList<?>)getNext()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

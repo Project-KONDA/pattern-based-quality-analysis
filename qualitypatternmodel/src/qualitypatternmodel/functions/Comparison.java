@@ -74,22 +74,22 @@ public interface Comparison extends BooleanOperator {
 	void setArgument1(GraphElement value);
 
 	/**
-	 * Returns the value of the '<em><b>Options</b></em>' reference.
+	 * Returns the value of the '<em><b>Options</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Options</em>' reference.
+	 * @return the value of the '<em>Options</em>' containment reference.
 	 * @see #setOptions(Option)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getComparison_Options()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Option<ComparisonOperator> getOptions();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.functions.Comparison#getOptions <em>Options</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.functions.Comparison#getOptions <em>Options</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Options</em>' reference.
+	 * @param value the new value of the '<em>Options</em>' containment reference.
 	 * @see #getOptions()
 	 * @generated
 	 */

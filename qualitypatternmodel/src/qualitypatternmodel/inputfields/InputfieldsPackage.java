@@ -78,15 +78,6 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT_FEATURE_COUNT = GraphstructurePackage.GRAPH_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT___IS_VALID = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,13 +87,13 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___TO_XQUERY__TRANSLATIONLOCATION = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = GraphstructurePackage.GRAPH_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int INPUT___IS_VALID__BOOLEAN = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -160,15 +151,6 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER_FEATURE_COUNT = INPUT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER___IS_VALID = INPUT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,13 +160,13 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER___TO_XQUERY__TRANSLATIONLOCATION = INPUT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = INPUT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int NUMBER___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -242,15 +224,6 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN_FEATURE_COUNT = INPUT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN___IS_VALID = INPUT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -260,13 +233,13 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN___TO_XQUERY__TRANSLATIONLOCATION = INPUT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = INPUT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int BOOLEAN___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -333,15 +306,6 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___IS_VALID = INPUT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -351,13 +315,13 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION___TO_XQUERY__TRANSLATIONLOCATION = INPUT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPTION___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = INPUT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int OPTION___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -415,15 +379,6 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_FEATURE_COUNT = INPUT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT___IS_VALID = INPUT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -433,13 +388,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT___TO_XQUERY__TRANSLATIONLOCATION = INPUT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = INPUT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int TEXT___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.

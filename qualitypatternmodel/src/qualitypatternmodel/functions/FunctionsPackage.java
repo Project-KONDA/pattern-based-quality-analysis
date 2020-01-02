@@ -79,15 +79,6 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR_FEATURE_COUNT = GraphstructurePackage.GRAPH_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR___IS_VALID = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,13 +88,13 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___TO_XQUERY__TRANSLATIONLOCATION = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = GraphstructurePackage.GRAPH_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int OPERATOR___IS_VALID__BOOLEAN = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -143,15 +134,6 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR___IS_VALID = OPERATOR___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,13 +143,13 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___TO_XQUERY__TRANSLATIONLOCATION = OPERATOR___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = OPERATOR___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int BOOLEAN_OPERATOR___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -207,15 +189,6 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATORS_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OPERATORS___IS_VALID = OPERATOR___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,13 +198,13 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATORS___TO_XQUERY__TRANSLATIONLOCATION = OPERATOR___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = OPERATOR___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int NUMBER_OPERATORS___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -280,15 +253,6 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT_FEATURE_COUNT = NUMBER_OPERATORS_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT___IS_VALID = NUMBER_OPERATORS___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -298,13 +262,13 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT___TO_XQUERY__TRANSLATIONLOCATION = NUMBER_OPERATORS___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = NUMBER_OPERATORS___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int COUNT___IS_VALID__BOOLEAN = NUMBER_OPERATORS___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -344,15 +308,6 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATORS_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_OPERATORS___IS_VALID = OPERATOR___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -362,13 +317,13 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATORS___TO_XQUERY__TRANSLATIONLOCATION = OPERATOR___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = OPERATOR___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int OTHER_OPERATORS___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -399,7 +354,7 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH = 5;
 
 	/**
-	 * The feature id for the '<em><b>Property</b></em>' reference.
+	 * The feature id for the '<em><b>Property</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -408,7 +363,7 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH__PROPERTY = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Regular Expression</b></em>' reference.
+	 * The feature id for the '<em><b>Regular Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -417,22 +372,13 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH__REGULAR_EXPRESSION = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Negate</b></em>' attribute.
+	 * The feature id for the '<em><b>Options</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH__NEGATE = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH__OPTIONS = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
+	int MATCH__OPTIONS = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Match</em>' class.
@@ -441,16 +387,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___IS_VALID = BOOLEAN_OPERATOR___IS_VALID;
+	int MATCH_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -462,13 +399,13 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___TO_XQUERY__TRANSLATIONLOCATION = BOOLEAN_OPERATOR___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = BOOLEAN_OPERATOR___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int MATCH___IS_VALID__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -517,7 +454,7 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON__ARGUMENT1 = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Options</b></em>' reference.
+	 * The feature id for the '<em><b>Options</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -544,15 +481,6 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___IS_VALID = BOOLEAN_OPERATOR___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -562,13 +490,13 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___TO_XQUERY__TRANSLATIONLOCATION = BOOLEAN_OPERATOR___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = BOOLEAN_OPERATOR___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int COMPARISON___IS_VALID__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -599,7 +527,7 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER = 7;
 
 	/**
-	 * The feature id for the '<em><b>Property</b></em>' reference.
+	 * The feature id for the '<em><b>Property</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -617,15 +545,6 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER_FEATURE_COUNT = NUMBER_OPERATORS_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___IS_VALID = NUMBER_OPERATORS___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -635,13 +554,13 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER___TO_XQUERY__TRANSLATIONLOCATION = NUMBER_OPERATORS___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = NUMBER_OPERATORS___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int TO_NUMBER___IS_VALID__BOOLEAN = NUMBER_OPERATORS___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -744,10 +663,10 @@ public interface FunctionsPackage extends EPackage {
 	EClass getMatch();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Match#getProperty <em>Property</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.functions.Match#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Property</em>'.
+	 * @return the meta object for the containment reference '<em>Property</em>'.
 	 * @see qualitypatternmodel.functions.Match#getProperty()
 	 * @see #getMatch()
 	 * @generated
@@ -755,10 +674,10 @@ public interface FunctionsPackage extends EPackage {
 	EReference getMatch_Property();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Match#getRegularExpression <em>Regular Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.functions.Match#getRegularExpression <em>Regular Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Regular Expression</em>'.
+	 * @return the meta object for the containment reference '<em>Regular Expression</em>'.
 	 * @see qualitypatternmodel.functions.Match#getRegularExpression()
 	 * @see #getMatch()
 	 * @generated
@@ -766,21 +685,10 @@ public interface FunctionsPackage extends EPackage {
 	EReference getMatch_RegularExpression();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.functions.Match#isNegate <em>Negate</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.functions.Match#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Negate</em>'.
-	 * @see qualitypatternmodel.functions.Match#isNegate()
-	 * @see #getMatch()
-	 * @generated
-	 */
-	EAttribute getMatch_Negate();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Match#getOptions <em>Options</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Options</em>'.
+	 * @return the meta object for the containment reference '<em>Options</em>'.
 	 * @see qualitypatternmodel.functions.Match#getOptions()
 	 * @see #getMatch()
 	 * @generated
@@ -820,10 +728,10 @@ public interface FunctionsPackage extends EPackage {
 	EReference getComparison_Argument1();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Comparison#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.functions.Comparison#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Options</em>'.
+	 * @return the meta object for the containment reference '<em>Options</em>'.
 	 * @see qualitypatternmodel.functions.Comparison#getOptions()
 	 * @see #getComparison()
 	 * @generated
@@ -852,10 +760,10 @@ public interface FunctionsPackage extends EPackage {
 	EClass getToNumber();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.ToNumber#getProperty <em>Property</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.functions.ToNumber#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Property</em>'.
+	 * @return the meta object for the containment reference '<em>Property</em>'.
 	 * @see qualitypatternmodel.functions.ToNumber#getProperty()
 	 * @see #getToNumber()
 	 * @generated
@@ -964,7 +872,7 @@ public interface FunctionsPackage extends EPackage {
 		EClass MATCH = eINSTANCE.getMatch();
 
 		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Property</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -972,7 +880,7 @@ public interface FunctionsPackage extends EPackage {
 		EReference MATCH__PROPERTY = eINSTANCE.getMatch_Property();
 
 		/**
-		 * The meta object literal for the '<em><b>Regular Expression</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Regular Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -980,15 +888,7 @@ public interface FunctionsPackage extends EPackage {
 		EReference MATCH__REGULAR_EXPRESSION = eINSTANCE.getMatch_RegularExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Negate</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MATCH__NEGATE = eINSTANCE.getMatch_Negate();
-
-		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Options</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1022,7 +922,7 @@ public interface FunctionsPackage extends EPackage {
 		EReference COMPARISON__ARGUMENT1 = eINSTANCE.getComparison_Argument1();
 
 		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Options</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1048,7 +948,7 @@ public interface FunctionsPackage extends EPackage {
 		EClass TO_NUMBER = eINSTANCE.getToNumber();
 
 		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Property</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

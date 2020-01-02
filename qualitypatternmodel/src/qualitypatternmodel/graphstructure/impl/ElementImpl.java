@@ -8,6 +8,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -15,8 +16,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.functions.BooleanOperator;
 
 import qualitypatternmodel.graphstructure.Element;
@@ -35,13 +36,14 @@ import qualitypatternmodel.graphstructure.Relation;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getId <em>Id</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isIsTranslated <em>Is Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isIsRoot <em>Is Root</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class ElementImpl extends GraphElementImpl implements Element {
 	/**
-	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' reference list.
+	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPredicates()
@@ -71,7 +73,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected int id = ID_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRelationFromPrevious() <em>Relation From Previous</em>}' reference.
+	 * The cached value of the '{@link #getRelationFromPrevious() <em>Relation From Previous</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRelationFromPrevious()
@@ -101,12 +103,42 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected boolean isTranslated = IS_TRANSLATED_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isIsRoot() <em>Is Root</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsRoot()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_ROOT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsRoot() <em>Is Root</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsRoot()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isRoot = IS_ROOT_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ElementImpl() {
 		super();
+	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		for(Element next : getNextElements()) {
+			if(!(next.isValid(isDefinedPattern) && next.getPreviousElement().equals(this))) {
+				return false;
+			}
+		}
+		return getPreviousElement() != null  && relationFromPrevious.isValid(isDefinedPattern) || isRoot;
 	}
 
 	/**
@@ -126,7 +158,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 */
 	public EList<BooleanOperator> getPredicates() {
 		if (predicates == null) {
-			predicates = new EObjectResolvingEList<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES);
+			predicates = new EObjectContainmentEList<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES);
 		}
 		return predicates;
 	}
@@ -158,14 +190,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * @generated
 	 */
 	public Relation getRelationFromPrevious() {
-		if (relationFromPrevious != null && relationFromPrevious.eIsProxy()) {
-			InternalEObject oldRelationFromPrevious = (InternalEObject)relationFromPrevious;
-			relationFromPrevious = (Relation)eResolveProxy(oldRelationFromPrevious);
-			if (relationFromPrevious != oldRelationFromPrevious) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, oldRelationFromPrevious, relationFromPrevious));
-			}
-		}
 		return relationFromPrevious;
 	}
 
@@ -174,8 +198,14 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Relation basicGetRelationFromPrevious() {
-		return relationFromPrevious;
+	public NotificationChain basicSetRelationFromPrevious(Relation newRelationFromPrevious, NotificationChain msgs) {
+		Relation oldRelationFromPrevious = relationFromPrevious;
+		relationFromPrevious = newRelationFromPrevious;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, oldRelationFromPrevious, newRelationFromPrevious);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -184,10 +214,17 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * @generated
 	 */
 	public void setRelationFromPrevious(Relation newRelationFromPrevious) {
-		Relation oldRelationFromPrevious = relationFromPrevious;
-		relationFromPrevious = newRelationFromPrevious;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, oldRelationFromPrevious, relationFromPrevious));
+		if (newRelationFromPrevious != relationFromPrevious) {
+			NotificationChain msgs = null;
+			if (relationFromPrevious != null)
+				msgs = ((InternalEObject)relationFromPrevious).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, null, msgs);
+			if (newRelationFromPrevious != null)
+				msgs = ((InternalEObject)newRelationFromPrevious).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, null, msgs);
+			msgs = basicSetRelationFromPrevious(newRelationFromPrevious, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, newRelationFromPrevious, newRelationFromPrevious));
 	}
 
 	/**
@@ -209,6 +246,27 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		isTranslated = newIsTranslated;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__IS_TRANSLATED, oldIsTranslated, isTranslated));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isIsRoot() {
+		return isRoot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsRoot(boolean newIsRoot) {
+		boolean oldIsRoot = isRoot;
+		isRoot = newIsRoot;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__IS_ROOT, oldIsRoot, isRoot));
 	}
 
 	/**
@@ -252,6 +310,22 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GraphstructurePackage.ELEMENT__PREDICATES:
+				return ((InternalEList<?>)getPredicates()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
+				return basicSetRelationFromPrevious(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GraphstructurePackage.ELEMENT__PREDICATES:
@@ -259,10 +333,11 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__ID:
 				return getId();
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
-				if (resolve) return getRelationFromPrevious();
-				return basicGetRelationFromPrevious();
+				return getRelationFromPrevious();
 			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
 				return isIsTranslated();
+			case GraphstructurePackage.ELEMENT__IS_ROOT:
+				return isIsRoot();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -289,6 +364,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
 				setIsTranslated((Boolean)newValue);
 				return;
+			case GraphstructurePackage.ELEMENT__IS_ROOT:
+				setIsRoot((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -313,6 +391,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
 				setIsTranslated(IS_TRANSLATED_EDEFAULT);
 				return;
+			case GraphstructurePackage.ELEMENT__IS_ROOT:
+				setIsRoot(IS_ROOT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -333,6 +414,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return relationFromPrevious != null;
 			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
 				return isTranslated != IS_TRANSLATED_EDEFAULT;
+			case GraphstructurePackage.ELEMENT__IS_ROOT:
+				return isRoot != IS_ROOT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -371,6 +454,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		result.append(id);
 		result.append(", isTranslated: ");
 		result.append(isTranslated);
+		result.append(", isRoot: ");
+		result.append(isRoot);
 		result.append(')');
 		return result.toString();
 	}

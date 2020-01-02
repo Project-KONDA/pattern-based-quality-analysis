@@ -39,17 +39,18 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	protected EClass eStaticClass() {
 		return InputfieldsPackage.Literals.INPUT;
 	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		return !isDefinedPattern || inputIsValid();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
-	public boolean inputIsValid() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	public abstract boolean inputIsValid();	
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -22,22 +22,22 @@ import qualitypatternmodel.graphstructure.Property;
  */
 public interface ToNumber extends NumberOperators {
 	/**
-	 * Returns the value of the '<em><b>Property</b></em>' reference.
+	 * Returns the value of the '<em><b>Property</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property</em>' reference.
+	 * @return the value of the '<em>Property</em>' containment reference.
 	 * @see #setProperty(Property)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getToNumber_Property()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Property getProperty();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.functions.ToNumber#getProperty <em>Property</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.functions.ToNumber#getProperty <em>Property</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property</em>' reference.
+	 * @param value the new value of the '<em>Property</em>' containment reference.
 	 * @see #getProperty()
 	 * @generated
 	 */

@@ -4,6 +4,7 @@ package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -27,7 +28,6 @@ import qualitypatternmodel.inputfields.Text;
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#getRegularExpression <em>Regular Expression</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#isNegate <em>Negate</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#getOptions <em>Options</em>}</li>
  * </ul>
  *
@@ -35,7 +35,7 @@ import qualitypatternmodel.inputfields.Text;
  */
 public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
-	 * The cached value of the '{@link #getProperty() <em>Property</em>}' reference.
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProperty()
@@ -45,7 +45,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	protected Property property;
 
 	/**
-	 * The cached value of the '{@link #getRegularExpression() <em>Regular Expression</em>}' reference.
+	 * The cached value of the '{@link #getRegularExpression() <em>Regular Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRegularExpression()
@@ -55,27 +55,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	protected Text regularExpression;
 
 	/**
-	 * The default value of the '{@link #isNegate() <em>Negate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isNegate()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean NEGATE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isNegate() <em>Negate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isNegate()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean negate = NEGATE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getOptions() <em>Options</em>}' reference.
+	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOptions()
@@ -91,6 +71,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	protected MatchImpl() {
 		super();
+	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		return options != null && options.isValid(isDefinedPattern) && regularExpression != null && regularExpression.isValid(isDefinedPattern) && property != null && property.isValid(isDefinedPattern);
 	}
 
 	/**
@@ -109,14 +94,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	public Property getProperty() {
-		if (property != null && property.eIsProxy()) {
-			InternalEObject oldProperty = (InternalEObject)property;
-			property = (Property)eResolveProxy(oldProperty);
-			if (property != oldProperty) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.MATCH__PROPERTY, oldProperty, property));
-			}
-		}
 		return property;
 	}
 
@@ -125,8 +102,14 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Property basicGetProperty() {
-		return property;
+	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
+		Property oldProperty = property;
+		property = newProperty;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__PROPERTY, oldProperty, newProperty);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -135,10 +118,17 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	public void setProperty(Property newProperty) {
-		Property oldProperty = property;
-		property = newProperty;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__PROPERTY, oldProperty, property));
+		if (newProperty != property) {
+			NotificationChain msgs = null;
+			if (property != null)
+				msgs = ((InternalEObject)property).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.MATCH__PROPERTY, null, msgs);
+			if (newProperty != null)
+				msgs = ((InternalEObject)newProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.MATCH__PROPERTY, null, msgs);
+			msgs = basicSetProperty(newProperty, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__PROPERTY, newProperty, newProperty));
 	}
 
 	/**
@@ -147,14 +137,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	public Text getRegularExpression() {
-		if (regularExpression != null && regularExpression.eIsProxy()) {
-			InternalEObject oldRegularExpression = (InternalEObject)regularExpression;
-			regularExpression = (Text)eResolveProxy(oldRegularExpression);
-			if (regularExpression != oldRegularExpression) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, regularExpression));
-			}
-		}
 		return regularExpression;
 	}
 
@@ -163,8 +145,14 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Text basicGetRegularExpression() {
-		return regularExpression;
+	public NotificationChain basicSetRegularExpression(Text newRegularExpression, NotificationChain msgs) {
+		Text oldRegularExpression = regularExpression;
+		regularExpression = newRegularExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, newRegularExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -173,31 +161,17 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	public void setRegularExpression(Text newRegularExpression) {
-		Text oldRegularExpression = regularExpression;
-		regularExpression = newRegularExpression;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, regularExpression));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isNegate() {
-		return negate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNegate(boolean newNegate) {
-		boolean oldNegate = negate;
-		negate = newNegate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__NEGATE, oldNegate, negate));
+		if (newRegularExpression != regularExpression) {
+			NotificationChain msgs = null;
+			if (regularExpression != null)
+				msgs = ((InternalEObject)regularExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.MATCH__REGULAR_EXPRESSION, null, msgs);
+			if (newRegularExpression != null)
+				msgs = ((InternalEObject)newRegularExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.MATCH__REGULAR_EXPRESSION, null, msgs);
+			msgs = basicSetRegularExpression(newRegularExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__REGULAR_EXPRESSION, newRegularExpression, newRegularExpression));
 	}
 
 	/**
@@ -207,14 +181,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	@SuppressWarnings("unchecked")
 	public Option<qualitypatternmodel.inputfields.Boolean> getOptions() {
-		if (options != null && options.eIsProxy()) {
-			InternalEObject oldOptions = (InternalEObject)options;
-			options = (Option<qualitypatternmodel.inputfields.Boolean>)eResolveProxy(oldOptions);
-			if (options != oldOptions) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.MATCH__OPTIONS, oldOptions, options));
-			}
-		}
 		return options;
 	}
 
@@ -223,8 +189,14 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Option<qualitypatternmodel.inputfields.Boolean> basicGetOptions() {
-		return options;
+	public NotificationChain basicSetOptions(Option<qualitypatternmodel.inputfields.Boolean> newOptions, NotificationChain msgs) {
+		Option<qualitypatternmodel.inputfields.Boolean> oldOptions = options;
+		options = newOptions;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTIONS, oldOptions, newOptions);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -233,10 +205,35 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	public void setOptions(Option<qualitypatternmodel.inputfields.Boolean> newOptions) {
-		Option<qualitypatternmodel.inputfields.Boolean> oldOptions = options;
-		options = newOptions;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTIONS, oldOptions, options));
+		if (newOptions != options) {
+			NotificationChain msgs = null;
+			if (options != null)
+				msgs = ((InternalEObject)options).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.MATCH__OPTIONS, null, msgs);
+			if (newOptions != null)
+				msgs = ((InternalEObject)newOptions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.MATCH__OPTIONS, null, msgs);
+			msgs = basicSetOptions(newOptions, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTIONS, newOptions, newOptions));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FunctionsPackage.MATCH__PROPERTY:
+				return basicSetProperty(null, msgs);
+			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
+				return basicSetRegularExpression(null, msgs);
+			case FunctionsPackage.MATCH__OPTIONS:
+				return basicSetOptions(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -248,16 +245,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case FunctionsPackage.MATCH__PROPERTY:
-				if (resolve) return getProperty();
-				return basicGetProperty();
+				return getProperty();
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
-				if (resolve) return getRegularExpression();
-				return basicGetRegularExpression();
-			case FunctionsPackage.MATCH__NEGATE:
-				return isNegate();
+				return getRegularExpression();
 			case FunctionsPackage.MATCH__OPTIONS:
-				if (resolve) return getOptions();
-				return basicGetOptions();
+				return getOptions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -276,9 +268,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return;
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				setRegularExpression((Text)newValue);
-				return;
-			case FunctionsPackage.MATCH__NEGATE:
-				setNegate((Boolean)newValue);
 				return;
 			case FunctionsPackage.MATCH__OPTIONS:
 				setOptions((Option<qualitypatternmodel.inputfields.Boolean>)newValue);
@@ -301,9 +290,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				setRegularExpression((Text)null);
 				return;
-			case FunctionsPackage.MATCH__NEGATE:
-				setNegate(NEGATE_EDEFAULT);
-				return;
 			case FunctionsPackage.MATCH__OPTIONS:
 				setOptions((Option<qualitypatternmodel.inputfields.Boolean>)null);
 				return;
@@ -323,28 +309,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return property != null;
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				return regularExpression != null;
-			case FunctionsPackage.MATCH__NEGATE:
-				return negate != NEGATE_EDEFAULT;
 			case FunctionsPackage.MATCH__OPTIONS:
 				return options != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (negate: ");
-		result.append(negate);
-		result.append(')');
-		return result.toString();
 	}
 
 } //MatchImpl

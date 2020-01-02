@@ -38,22 +38,22 @@ public interface Graph extends PatternElement {
 	EList<SingleElement> getReturnElement();
 
 	/**
-	 * Returns the value of the '<em><b>Root Element</b></em>' reference.
+	 * Returns the value of the '<em><b>Root Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root Element</em>' reference.
+	 * @return the value of the '<em>Root Element</em>' containment reference.
 	 * @see #setRootElement(SingleElement)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_RootElement()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	SingleElement getRootElement();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root Element</em>' reference.
+	 * @param value the new value of the '<em>Root Element</em>' containment reference.
 	 * @see #getRootElement()
 	 * @generated
 	 */

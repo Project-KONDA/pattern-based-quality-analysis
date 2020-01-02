@@ -451,7 +451,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPatternElement__IsValid() {
+	public EOperation getPatternElement__ToXQuery__TranslationLocation() {
 		return patternElementEClass.getEOperations().get(0);
 	}
 
@@ -460,17 +460,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPatternElement__ToXQuery__TranslationLocation() {
+	public EOperation getPatternElement__IsValid__boolean() {
 		return patternElementEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPatternElement__ToLocalXQuery__TranslationLocation() {
-		return patternElementEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -571,9 +562,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(patternEClass, PATTERN__CONDITION);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN);
 
 		// Create enums
 		logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
@@ -661,14 +651,12 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getPatternElement__IsValid(), ecorePackage.getEBoolean(), "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		EOperation op = initEOperation(getPatternElement__ToXQuery__TranslationLocation(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTranslationLocation(), "translationLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTranslationLocation(), "tranlsationLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidTranslationExceptionWrapper());
 
-		op = initEOperation(getPatternElement__ToLocalXQuery__TranslationLocation(), ecorePackage.getEString(), "toLocalXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTranslationLocation(), "tranlsationLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__IsValid__boolean(), ecorePackage.getEBoolean(), "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(logicalOperatorEEnum, LogicalOperator.class, "LogicalOperator");
@@ -684,7 +672,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEEnumLiteral(quantifierEEnum, Quantifier.FORALL);
 
 		initEEnum(translationLocationEEnum, TranslationLocation.class, "TranslationLocation");
-		addEEnumLiteral(translationLocationEEnum, TranslationLocation.ROOT);
+		addEEnumLiteral(translationLocationEEnum, TranslationLocation.RETURN);
 		addEEnumLiteral(translationLocationEEnum, TranslationLocation.OUTSIDE);
 		addEEnumLiteral(translationLocationEEnum, TranslationLocation.EXISTS);
 		addEEnumLiteral(translationLocationEEnum, TranslationLocation.FORALL);

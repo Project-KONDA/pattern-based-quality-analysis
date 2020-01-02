@@ -19,6 +19,7 @@ import qualitypatternmodel.functions.BooleanOperator;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getId <em>Id</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isIsTranslated <em>Is Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#isIsRoot <em>Is Root</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
@@ -27,13 +28,13 @@ import qualitypatternmodel.functions.BooleanOperator;
  */
 public interface Element extends GraphElement {
 	/**
-	 * Returns the value of the '<em><b>Predicates</b></em>' reference list.
+	 * Returns the value of the '<em><b>Predicates</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.functions.BooleanOperator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Predicates</em>' reference list.
+	 * @return the value of the '<em>Predicates</em>' containment reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Predicates()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<BooleanOperator> getPredicates();
@@ -61,22 +62,22 @@ public interface Element extends GraphElement {
 	void setId(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Relation From Previous</b></em>' reference.
+	 * Returns the value of the '<em><b>Relation From Previous</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relation From Previous</em>' reference.
+	 * @return the value of the '<em>Relation From Previous</em>' containment reference.
 	 * @see #setRelationFromPrevious(Relation)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_RelationFromPrevious()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Relation getRelationFromPrevious();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relation From Previous</em>' reference.
+	 * @param value the new value of the '<em>Relation From Previous</em>' containment reference.
 	 * @see #getRelationFromPrevious()
 	 * @generated
 	 */
@@ -103,6 +104,28 @@ public interface Element extends GraphElement {
 	 * @generated
 	 */
 	void setIsTranslated(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Root</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Root</em>' attribute.
+	 * @see #setIsRoot(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_IsRoot()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsRoot();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isIsRoot <em>Is Root</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Root</em>' attribute.
+	 * @see #isIsRoot()
+	 * @generated
+	 */
+	void setIsRoot(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

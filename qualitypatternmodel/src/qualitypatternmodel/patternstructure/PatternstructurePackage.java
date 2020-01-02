@@ -79,31 +79,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___IS_VALID = 0;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION = 1;
+	int PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION = 0;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = 2;
+	int PATTERN_ELEMENT___IS_VALID__BOOLEAN = 1;
 
 	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
@@ -112,7 +103,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 3;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -134,15 +125,6 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___IS_VALID = PATTERN_ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,13 +134,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING___TO_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int MAPPING___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
@@ -207,15 +189,6 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___IS_VALID = MAPPING___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,13 +198,13 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING___TO_XQUERY__TRANSLATIONLOCATION = MAPPING___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = MAPPING___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int RELATION_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Relation Mapping</em>' class.
@@ -262,15 +235,6 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___IS_VALID = PATTERN_ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,13 +244,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___TO_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int CONDITION___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -353,15 +317,6 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___IS_VALID = CONDITION___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,13 +326,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___TO_XQUERY__TRANSLATIONLOCATION = CONDITION___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = CONDITION___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int QUANTIFIED_CONDITION___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Quantified Condition</em>' class.
@@ -435,15 +390,6 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___IS_VALID = PATTERN_ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -453,13 +399,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___TO_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int MORPHISM___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
@@ -508,15 +454,6 @@ public interface PatternstructurePackage extends EPackage {
 	int SINGLE_ELEMENT_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT_MAPPING___IS_VALID = MAPPING___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -526,13 +463,13 @@ public interface PatternstructurePackage extends EPackage {
 	int SINGLE_ELEMENT_MAPPING___TO_XQUERY__TRANSLATIONLOCATION = MAPPING___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = MAPPING___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int SINGLE_ELEMENT_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Single Element Mapping</em>' class.
@@ -581,15 +518,6 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___IS_VALID = CONDITION___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -599,13 +527,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___TO_XQUERY__TRANSLATIONLOCATION = CONDITION___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = CONDITION___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int FORMULA___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Formula</em>' class.
@@ -636,15 +564,6 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE___IS_VALID = CONDITION___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -654,13 +573,13 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE___TO_XQUERY__TRANSLATIONLOCATION = CONDITION___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = CONDITION___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int TRUE___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>True</em>' class.
@@ -709,15 +628,6 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___IS_VALID = PATTERN_ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -727,13 +637,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___TO_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int PATTERN___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Pattern</em>' class.
@@ -1051,16 +961,6 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getPatternElement();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid() <em>Is Valid</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid()
-	 * @generated
-	 */
-	EOperation getPatternElement__IsValid();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.TranslationLocation) <em>To XQuery</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1071,14 +971,14 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__ToXQuery__TranslationLocation();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#toLocalXQuery(qualitypatternmodel.patternstructure.TranslationLocation) <em>To Local XQuery</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>To Local XQuery</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#toLocalXQuery(qualitypatternmodel.patternstructure.TranslationLocation)
+	 * @return the meta object for the '<em>Is Valid</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(boolean)
 	 * @generated
 	 */
-	EOperation getPatternElement__ToLocalXQuery__TranslationLocation();
+	EOperation getPatternElement__IsValid__boolean();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.LogicalOperator <em>Logical Operator</em>}'.
@@ -1365,14 +1265,6 @@ public interface PatternstructurePackage extends EPackage {
 		EClass PATTERN_ELEMENT = eINSTANCE.getPatternElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN_ELEMENT___IS_VALID = eINSTANCE.getPatternElement__IsValid();
-
-		/**
 		 * The meta object literal for the '<em><b>To XQuery</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1381,12 +1273,12 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION = eINSTANCE.getPatternElement__ToXQuery__TranslationLocation();
 
 		/**
-		 * The meta object literal for the '<em><b>To Local XQuery</b></em>' operation.
+		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = eINSTANCE.getPatternElement__ToLocalXQuery__TranslationLocation();
+		EOperation PATTERN_ELEMENT___IS_VALID__BOOLEAN = eINSTANCE.getPatternElement__IsValid__boolean();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.LogicalOperator <em>Logical Operator</em>}' enum.

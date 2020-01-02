@@ -4,6 +4,7 @@ package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -15,7 +16,9 @@ import qualitypatternmodel.functions.FunctionsPackage;
 
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.impl.InputImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,7 +68,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	protected GraphElement argument1;
 
 	/**
-	 * The cached value of the '{@link #getOptions() <em>Options</em>}' reference.
+	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOptions()
@@ -91,6 +94,25 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	protected ComparisonImpl() {
 		super();
+	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {		
+		if(argument1 == null || argument2 == null) {
+			return false;
+		}
+		if(argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl) {
+			if(!argument1.isValid(isDefinedPattern)) {
+				return false;
+			}
+		}
+		if(argument2 instanceof PropertyImpl|| argument2 instanceof OperatorImpl || argument2 instanceof InputImpl) {
+			if(!argument2.isValid(isDefinedPattern)) {
+				return false;
+			}
+		}
+		
+		return  operator != null ^ (options != null && options.isValid(isDefinedPattern)) && argument1.getReturnType() == argument2.getReturnType();
 	}
 
 	@Override
@@ -174,14 +196,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	@SuppressWarnings("unchecked")
 	public Option<ComparisonOperator> getOptions() {
-		if (options != null && options.eIsProxy()) {
-			InternalEObject oldOptions = (InternalEObject)options;
-			options = (Option<ComparisonOperator>)eResolveProxy(oldOptions);
-			if (options != oldOptions) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.COMPARISON__OPTIONS, oldOptions, options));
-			}
-		}
 		return options;
 	}
 
@@ -190,8 +204,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Option<ComparisonOperator> basicGetOptions() {
-		return options;
+	public NotificationChain basicSetOptions(Option<ComparisonOperator> newOptions, NotificationChain msgs) {
+		Option<ComparisonOperator> oldOptions = options;
+		options = newOptions;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTIONS, oldOptions, newOptions);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -200,10 +220,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 */
 	public void setOptions(Option<ComparisonOperator> newOptions) {
-		Option<ComparisonOperator> oldOptions = options;
-		options = newOptions;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTIONS, oldOptions, options));
+		if (newOptions != options) {
+			NotificationChain msgs = null;
+			if (options != null)
+				msgs = ((InternalEObject)options).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.COMPARISON__OPTIONS, null, msgs);
+			if (newOptions != null)
+				msgs = ((InternalEObject)newOptions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.COMPARISON__OPTIONS, null, msgs);
+			msgs = basicSetOptions(newOptions, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTIONS, newOptions, newOptions));
 	}
 
 	/**
@@ -250,6 +277,20 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FunctionsPackage.COMPARISON__OPTIONS:
+				return basicSetOptions(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case FunctionsPackage.COMPARISON__OPERATOR:
@@ -258,8 +299,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				if (resolve) return getArgument1();
 				return basicGetArgument1();
 			case FunctionsPackage.COMPARISON__OPTIONS:
-				if (resolve) return getOptions();
-				return basicGetOptions();
+				return getOptions();
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				if (resolve) return getArgument2();
 				return basicGetArgument2();

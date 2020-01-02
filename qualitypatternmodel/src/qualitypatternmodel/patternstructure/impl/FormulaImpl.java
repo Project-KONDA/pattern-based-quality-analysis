@@ -19,8 +19,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.TranslationLocation;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,6 +76,27 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 */
 	protected FormulaImpl() {
 		super();
+	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		if(operator == null || arguments == null) {
+			return false;
+		}
+		if(operator == LogicalOperator.NOT) {
+			return arguments.size() == 1 && arguments.get(0) != null && arguments.get(0).isValid(isDefinedPattern);
+		} else {
+			return arguments.size() == 2 && arguments.get(0) != null && arguments.get(0).isValid(isDefinedPattern) && arguments.get(1) != null && arguments.get(1).isValid(isDefinedPattern);
+		}
+	}
+	
+	@Override
+	public String toXQuery(TranslationLocation translationLocation) throws InvalidTranslationException {
+		if(operator == LogicalOperator.NOT) {
+			return operator.getLiteral() + "(" + arguments.get(0).toXQuery(translationLocation) + ")";
+		} else {
+			return "(" + arguments.get(0).toXQuery(translationLocation) + ") " + operator.getLiteral() + " (" + arguments.get(1).toXQuery(translationLocation) + ")";
+		}
 	}
 
 	/**

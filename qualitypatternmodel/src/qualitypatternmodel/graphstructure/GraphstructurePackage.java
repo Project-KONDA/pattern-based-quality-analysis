@@ -80,7 +80,7 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__AXIS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Relation Options</b></em>' reference.
+	 * The feature id for the '<em><b>Relation Options</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -116,15 +116,6 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION___IS_VALID = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,13 +125,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___TO_XQUERY__TRANSLATIONLOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int RELATION___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Relation</em>' class.
@@ -171,15 +162,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_ELEMENT_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH_ELEMENT___IS_VALID = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -189,13 +171,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int GRAPH_ELEMENT___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -253,7 +235,7 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY__LOCATION = GRAPH_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Property Options</b></em>' reference.
+	 * The feature id for the '<em><b>Property Options</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -271,15 +253,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY_FEATURE_COUNT = GRAPH_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___IS_VALID = GRAPH_ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -289,13 +262,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___TO_XQUERY__TRANSLATIONLOCATION = GRAPH_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = GRAPH_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int PROPERTY___IS_VALID__BOOLEAN = GRAPH_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -326,7 +299,7 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
+	 * The feature id for the '<em><b>Predicates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -344,7 +317,7 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__ID = GRAPH_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Relation From Previous</b></em>' reference.
+	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -362,22 +335,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__IS_TRANSLATED = GRAPH_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Is Root</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__IS_ROOT = GRAPH_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = GRAPH_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___IS_VALID = GRAPH_ELEMENT___IS_VALID;
+	int ELEMENT_FEATURE_COUNT = GRAPH_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -389,13 +362,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___TO_XQUERY__TRANSLATIONLOCATION = GRAPH_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = GRAPH_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int ELEMENT___IS_VALID__BOOLEAN = GRAPH_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -462,7 +435,7 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
+	 * The feature id for the '<em><b>Predicates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -480,7 +453,7 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__ID = ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Relation From Previous</b></em>' reference.
+	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -496,6 +469,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT__IS_TRANSLATED = ELEMENT__IS_TRANSLATED;
+
+	/**
+	 * The feature id for the '<em><b>Is Root</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__IS_ROOT = ELEMENT__IS_ROOT;
 
 	/**
 	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
@@ -525,7 +507,7 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__PREVIOUS = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Next</b></em>' reference list.
+	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -543,15 +525,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___IS_VALID = ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -561,13 +534,13 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION = ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int SINGLE_ELEMENT___IS_VALID__BOOLEAN = ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -634,7 +607,7 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
+	 * The feature id for the '<em><b>Predicates</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -652,7 +625,7 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__ID = ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Relation From Previous</b></em>' reference.
+	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -670,7 +643,16 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__IS_TRANSLATED = ELEMENT__IS_TRANSLATED;
 
 	/**
-	 * The feature id for the '<em><b>Next</b></em>' reference list.
+	 * The feature id for the '<em><b>Is Root</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT__IS_ROOT = ELEMENT__IS_ROOT;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -697,15 +679,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___IS_VALID = ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -715,13 +688,13 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION = ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int SET_ELEMENT___IS_VALID__BOOLEAN = ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -797,7 +770,7 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__RETURN_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Root Element</b></em>' reference.
+	 * The feature id for the '<em><b>Root Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -824,15 +797,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH___IS_VALID = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -842,13 +806,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___TO_XQUERY__TRANSLATIONLOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
 
 	/**
-	 * The operation id for the '<em>To Local XQuery</em>' operation.
+	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___TO_LOCAL_XQUERY__TRANSLATIONLOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_LOCAL_XQUERY__TRANSLATIONLOCATION;
+	int GRAPH___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Graph</em>' class.
@@ -949,10 +913,10 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getRelation_Axis();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getRelationOptions <em>Relation Options</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Relation#getRelationOptions <em>Relation Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Relation Options</em>'.
+	 * @return the meta object for the containment reference '<em>Relation Options</em>'.
 	 * @see qualitypatternmodel.graphstructure.Relation#getRelationOptions()
 	 * @see #getRelation()
 	 * @generated
@@ -1025,10 +989,10 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getProperty_Location();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Property Options</em>'.
+	 * @return the meta object for the containment reference '<em>Property Options</em>'.
 	 * @see qualitypatternmodel.graphstructure.Property#getPropertyOptions()
 	 * @see #getProperty()
 	 * @generated
@@ -1079,10 +1043,10 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getSingleElement_Previous();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.SingleElement#getNext <em>Next</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.SingleElement#getNext <em>Next</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Next</em>'.
+	 * @return the meta object for the containment reference list '<em>Next</em>'.
 	 * @see qualitypatternmodel.graphstructure.SingleElement#getNext()
 	 * @see #getSingleElement()
 	 * @generated
@@ -1100,10 +1064,10 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getSetElement();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.SetElement#getNext <em>Next</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.SetElement#getNext <em>Next</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Next</em>'.
+	 * @return the meta object for the containment reference list '<em>Next</em>'.
 	 * @see qualitypatternmodel.graphstructure.SetElement#getNext()
 	 * @see #getSetElement()
 	 * @generated
@@ -1132,10 +1096,10 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getElement();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Predicates</em>'.
+	 * @return the meta object for the containment reference list '<em>Predicates</em>'.
 	 * @see qualitypatternmodel.graphstructure.Element#getPredicates()
 	 * @see #getElement()
 	 * @generated
@@ -1154,10 +1118,10 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getElement_Id();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Relation From Previous</em>'.
+	 * @return the meta object for the containment reference '<em>Relation From Previous</em>'.
 	 * @see qualitypatternmodel.graphstructure.Element#getRelationFromPrevious()
 	 * @see #getElement()
 	 * @generated
@@ -1174,6 +1138,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElement_IsTranslated();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Element#isIsRoot <em>Is Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Root</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#isIsRoot()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EAttribute getElement_IsRoot();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#generateXPredicates() <em>Generate XPredicates</em>}' operation.
@@ -1237,10 +1212,10 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getGraph_ReturnElement();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Root Element</em>'.
+	 * @return the meta object for the containment reference '<em>Root Element</em>'.
 	 * @see qualitypatternmodel.graphstructure.Graph#getRootElement()
 	 * @see #getGraph()
 	 * @generated
@@ -1371,7 +1346,7 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute RELATION__AXIS = eINSTANCE.getRelation_Axis();
 
 		/**
-		 * The meta object literal for the '<em><b>Relation Options</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Relation Options</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1429,7 +1404,7 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute PROPERTY__LOCATION = eINSTANCE.getProperty_Location();
 
 		/**
-		 * The meta object literal for the '<em><b>Property Options</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Property Options</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1471,7 +1446,7 @@ public interface GraphstructurePackage extends EPackage {
 		EReference SINGLE_ELEMENT__PREVIOUS = eINSTANCE.getSingleElement_Previous();
 
 		/**
-		 * The meta object literal for the '<em><b>Next</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Next</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1489,7 +1464,7 @@ public interface GraphstructurePackage extends EPackage {
 		EClass SET_ELEMENT = eINSTANCE.getSetElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Next</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Next</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1515,7 +1490,7 @@ public interface GraphstructurePackage extends EPackage {
 		EClass ELEMENT = eINSTANCE.getElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Predicates</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Predicates</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1531,7 +1506,7 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute ELEMENT__ID = eINSTANCE.getElement_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Relation From Previous</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Relation From Previous</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1545,6 +1520,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT__IS_TRANSLATED = eINSTANCE.getElement_IsTranslated();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Root</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT__IS_ROOT = eINSTANCE.getElement_IsRoot();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate XPredicates</b></em>' operation.
@@ -1597,7 +1580,7 @@ public interface GraphstructurePackage extends EPackage {
 		EReference GRAPH__RETURN_ELEMENT = eINSTANCE.getGraph_ReturnElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Root Element</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Root Element</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

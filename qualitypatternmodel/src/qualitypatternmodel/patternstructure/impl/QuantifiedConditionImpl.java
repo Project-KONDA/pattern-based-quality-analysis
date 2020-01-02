@@ -93,6 +93,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	protected QuantifiedConditionImpl() {
 		super();
 	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		if(quantifier == null || condition == null || graph == null || morphism == null) {
+			return false;
+		}
+		return condition.isValid(isDefinedPattern) && graph.isValid(isDefinedPattern) && morphism.isValid(isDefinedPattern);
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

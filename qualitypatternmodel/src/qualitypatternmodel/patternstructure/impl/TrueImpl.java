@@ -23,6 +23,11 @@ public class TrueImpl extends ConditionImpl implements True {
 	protected TrueImpl() {
 		super();
 	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		return true;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

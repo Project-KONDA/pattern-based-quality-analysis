@@ -11,10 +11,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.graphstructure.Graph;
-
+import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.TranslationLocation;
+
+import static utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,6 +62,22 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 */
 	protected PatternImpl() {
 		super();
+	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		return returnGraph != null && returnGraph.isValid(isDefinedPattern) && condition != null && condition.isValid(isDefinedPattern);
+	}
+	
+	@Override
+	public String toXQuery(TranslationLocation translationLocation) throws InvalidTranslationException {
+		String returnVariables = "(";
+		for(SingleElement returnElement : returnGraph.getReturnElement()) {
+			returnVariables += "" + VARIABLE + returnElement.getId() + ", ";
+		}
+		returnVariables = returnVariables.substring(0, returnVariables.length()-2);
+		returnVariables += ")";
+		return returnGraph.toXQuery(TranslationLocation.RETURN) + "\nwhere " + condition.toXQuery(TranslationLocation.OUTSIDE) + "\nreturn " + returnVariables;
 	}
 
 	/**

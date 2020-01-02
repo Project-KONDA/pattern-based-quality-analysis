@@ -49,7 +49,7 @@ public class VariableListImpl extends MinimalEObjectImpl.Container implements Va
 	protected VariableListImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

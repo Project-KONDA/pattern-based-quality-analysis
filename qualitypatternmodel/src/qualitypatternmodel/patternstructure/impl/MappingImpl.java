@@ -23,6 +23,7 @@ public abstract class MappingImpl extends PatternElementImpl implements Mapping 
 	protected MappingImpl() {
 		super();
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->

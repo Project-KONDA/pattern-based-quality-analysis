@@ -60,6 +60,11 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		super();
 	}
 
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		return from != null && to != null;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

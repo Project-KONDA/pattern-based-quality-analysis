@@ -77,6 +77,19 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	protected MorphismImpl() {
 		super();
 	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		if(from == null || to == null) {
+			return false;
+		}
+		for(Mapping m : mapping) {
+			if(m == null || !m.isValid(isDefinedPattern)) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -50,7 +50,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	protected EList<SingleElement> returnElement;
 
 	/**
-	 * The cached value of the '{@link #getRootElement() <em>Root Element</em>}' reference.
+	 * The cached value of the '{@link #getRootElement() <em>Root Element</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRootElement()
@@ -76,6 +76,19 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	protected GraphImpl() {
 		super();
+	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		if(!(returnElement != null && !returnElement.isEmpty())) {
+			return false;
+		}
+		for(SingleElement returnElements : returnElement) {
+			if(!returnElements.isValid(isDefinedPattern)) {
+				return false;
+			}
+		}
+		return rootElement != null && rootElement.isValid(isDefinedPattern) && variableList != null;
 	}
 
 	/**
@@ -106,14 +119,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated
 	 */
 	public SingleElement getRootElement() {
-		if (rootElement != null && rootElement.eIsProxy()) {
-			InternalEObject oldRootElement = (InternalEObject)rootElement;
-			rootElement = (SingleElement)eResolveProxy(oldRootElement);
-			if (rootElement != oldRootElement) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.GRAPH__ROOT_ELEMENT, oldRootElement, rootElement));
-			}
-		}
 		return rootElement;
 	}
 
@@ -122,8 +127,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SingleElement basicGetRootElement() {
-		return rootElement;
+	public NotificationChain basicSetRootElement(SingleElement newRootElement, NotificationChain msgs) {
+		SingleElement oldRootElement = rootElement;
+		rootElement = newRootElement;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__ROOT_ELEMENT, oldRootElement, newRootElement);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -132,10 +143,17 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated
 	 */
 	public void setRootElement(SingleElement newRootElement) {
-		SingleElement oldRootElement = rootElement;
-		rootElement = newRootElement;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__ROOT_ELEMENT, oldRootElement, rootElement));
+		if (newRootElement != rootElement) {
+			NotificationChain msgs = null;
+			if (rootElement != null)
+				msgs = ((InternalEObject)rootElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
+			if (newRootElement != null)
+				msgs = ((InternalEObject)newRootElement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
+			msgs = basicSetRootElement(newRootElement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__ROOT_ELEMENT, newRootElement, newRootElement));
 	}
 
 	/**
@@ -189,6 +207,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
+				return basicSetRootElement(null, msgs);
 			case GraphstructurePackage.GRAPH__VARIABLE_LIST:
 				return basicSetVariableList(null, msgs);
 		}
@@ -206,8 +226,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__RETURN_ELEMENT:
 				return getReturnElement();
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-				if (resolve) return getRootElement();
-				return basicGetRootElement();
+				return getRootElement();
 			case GraphstructurePackage.GRAPH__VARIABLE_LIST:
 				return getVariableList();
 		}

@@ -58,7 +58,7 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	}
 
 	@Override
-	public String toLocalXQuery(TranslationLocation tranlsationLocation) {
+	public String toXQuery(TranslationLocation tranlsationLocation) {
 		return bool + "()";
 	}
 	

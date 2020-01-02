@@ -19,16 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum TranslationLocation implements Enumerator {
 	/**
-	 * The '<em><b>ROOT</b></em>' literal object.
+	 * The '<em><b>RETURN</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ROOT_VALUE
+	 * @see #RETURN_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ROOT(1, "ROOT", "ROOT"),
-
-	/**
+	RETURN(1, "RETURN", "RETURN"), /**
 	 * The '<em><b>OUTSIDE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,15 +57,15 @@ public enum TranslationLocation implements Enumerator {
 	FORALL(3, "FORALL", "FORALL");
 
 	/**
-	 * The '<em><b>ROOT</b></em>' literal value.
+	 * The '<em><b>RETURN</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ROOT
+	 * @see #RETURN
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ROOT_VALUE = 1;
+	public static final int RETURN_VALUE = 1;
 
 	/**
 	 * The '<em><b>OUTSIDE</b></em>' literal value.
@@ -110,7 +108,7 @@ public enum TranslationLocation implements Enumerator {
 	 */
 	private static final TranslationLocation[] VALUES_ARRAY =
 		new TranslationLocation[] {
-			ROOT,
+			RETURN,
 			OUTSIDE,
 			EXISTS,
 			FORALL,
@@ -170,7 +168,7 @@ public enum TranslationLocation implements Enumerator {
 	 */
 	public static TranslationLocation get(int value) {
 		switch (value) {
-			case ROOT_VALUE: return ROOT;
+			case RETURN_VALUE: return RETURN;
 			case OUTSIDE_VALUE: return OUTSIDE;
 			case EXISTS_VALUE: return EXISTS;
 			case FORALL_VALUE: return FORALL;

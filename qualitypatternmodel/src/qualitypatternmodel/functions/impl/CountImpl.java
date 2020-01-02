@@ -46,6 +46,11 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	protected CountImpl() {
 		super();
 	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		return argument != null;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

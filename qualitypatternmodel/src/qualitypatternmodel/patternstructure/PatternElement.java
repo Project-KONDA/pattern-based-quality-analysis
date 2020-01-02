@@ -18,18 +18,10 @@ public interface PatternElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	boolean isValid();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
 	 * @generated
 	 */
-	String toXQuery(TranslationLocation translationLocation) throws InvalidTranslationException;
+	String toXQuery(TranslationLocation tranlsationLocation) throws InvalidTranslationException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -37,6 +29,6 @@ public interface PatternElement extends EObject {
 	 * @model
 	 * @generated
 	 */
-	String toLocalXQuery(TranslationLocation tranlsationLocation);
+	boolean isValid(boolean isDefinedPattern);
 
 } // PatternElement

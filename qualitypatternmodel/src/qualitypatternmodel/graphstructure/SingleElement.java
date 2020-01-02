@@ -97,13 +97,13 @@ public interface SingleElement extends Element {
 	void setPrevious(SingleElement value);
 
 	/**
-	 * Returns the value of the '<em><b>Next</b></em>' reference list.
+	 * Returns the value of the '<em><b>Next</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next</em>' reference list.
+	 * @return the value of the '<em>Next</em>' containment reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Next()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Element> getNext();

@@ -60,6 +60,16 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	protected OptionImpl() {
 		super();
 	}
+	
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		return options != null && options.size() > 1 && (!isDefinedPattern || inputIsValid());
+	}
+	
+	@Override
+	public boolean inputIsValid() {
+		return selection != null && options.contains(selection);
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

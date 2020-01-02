@@ -95,22 +95,22 @@ public interface Property extends GraphElement {
 	void setLocation(PropertyLocation value);
 
 	/**
-	 * Returns the value of the '<em><b>Property Options</b></em>' reference.
+	 * Returns the value of the '<em><b>Property Options</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Options</em>' reference.
+	 * @return the value of the '<em>Property Options</em>' containment reference.
 	 * @see #setPropertyOptions(Option)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_PropertyOptions()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Option<PropertyLocation> getPropertyOptions();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property Options</em>' reference.
+	 * @param value the new value of the '<em>Property Options</em>' containment reference.
 	 * @see #getPropertyOptions()
 	 * @generated
 	 */

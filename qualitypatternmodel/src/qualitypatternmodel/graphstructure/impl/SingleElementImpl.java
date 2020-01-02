@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
@@ -71,7 +71,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	protected SingleElement previous;
 
 	/**
-	 * The cached value of the '{@link #getNext() <em>Next</em>}' reference list.
+	 * The cached value of the '{@link #getNext() <em>Next</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNext()
@@ -264,7 +264,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 */
 	public EList<Element> getNext() {
 		if (next == null) {
-			next = new EObjectResolvingEList<Element>(Element.class, this, GraphstructurePackage.SINGLE_ELEMENT__NEXT);
+			next = new EObjectContainmentEList<Element>(Element.class, this, GraphstructurePackage.SINGLE_ELEMENT__NEXT);
 		}
 		return next;
 	}
@@ -301,6 +301,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return basicSetMappingFrom(null, msgs);
 			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
 				return basicSetMappingTo(null, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT:
+				return ((InternalEList<?>)getNext()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
-
+import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
@@ -60,6 +60,11 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		super();
 	}
 
+	@Override
+	public boolean isValid(boolean isDefinedPattern) {
+		return from != null && to != null;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

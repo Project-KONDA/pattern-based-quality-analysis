@@ -56,7 +56,7 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	}
 	
 	@Override
-	public String toLocalXQuery(TranslationLocation tranlsationLocation) {
+	public String toXQuery(TranslationLocation translationLocation) {
 		return Double.toString(number);
 	}
 	
