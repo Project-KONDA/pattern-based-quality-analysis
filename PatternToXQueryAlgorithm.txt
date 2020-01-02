@@ -79,9 +79,9 @@ translation of CONDITIONs nested in pattern.condition:
 			for each element of type SINGLEELEMENT:		
 				if !element.isTarget:
 					translate element.relationFromPrevious (-> xPathExpression) and element.predicates where isReady (-> xPredicate): see lines 26 to 63
-					if quantifier = EXISTS:
+					if quantifiedCondition.quantifier = EXISTS:
 						where clause += some $id<element.id> in <xPathExpression>[xPredicate]* satisfies			
-					else if quantifier = FORALL:
+					else if quantifiedCondition.quantifier = FORALL:
 						where clause += every $id<element.id> in <xPathExpression>[xPredicate]* satisfies					
 				else:
 					translate element.predicates where isReady (-> xPredicate): see lines 28 to 63
