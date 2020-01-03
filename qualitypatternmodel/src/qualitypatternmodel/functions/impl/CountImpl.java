@@ -13,6 +13,7 @@ import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 
 import qualitypatternmodel.graphstructure.SetElement;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,8 +49,8 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 	
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		return argument != null;
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+		if (argument == null) throw new InvalidTranslationException ("argument null");
 	}
 
 	/**

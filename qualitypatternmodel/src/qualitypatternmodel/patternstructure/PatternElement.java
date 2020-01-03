@@ -26,9 +26,9 @@ public interface PatternElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
 	 * @generated
 	 */
-	boolean isValid(boolean isDefinedPattern);
+	void isValid(boolean isDefinedPattern) throws InvalidTranslationException;
 
 } // PatternElement

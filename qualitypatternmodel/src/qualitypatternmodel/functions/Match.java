@@ -77,10 +77,10 @@ public interface Match extends BooleanOperator {
 	 * @return the value of the '<em>Options</em>' containment reference.
 	 * @see #setOptions(Option)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_Options()
-	 * @model containment="true" required="true"
+	 * @model type="qualitypatternmodel.inputfields.Option&lt;org.eclipse.emf.ecore.EBooleanObject&gt;" containment="true" required="true"
 	 * @generated
 	 */
-	Option<qualitypatternmodel.inputfields.Boolean> getOptions();
+	Option<Boolean> getOptions();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.functions.Match#getOptions <em>Options</em>}' containment reference.
@@ -90,6 +90,6 @@ public interface Match extends BooleanOperator {
 	 * @see #getOptions()
 	 * @generated
 	 */
-	void setOptions(Option<qualitypatternmodel.inputfields.Boolean> value);
+	void setOptions(Option<Boolean> value);
 
 } // Match

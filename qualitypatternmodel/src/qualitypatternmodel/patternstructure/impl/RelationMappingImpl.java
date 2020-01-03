@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -61,8 +61,9 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		return from != null && to != null;
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+		if (from == null) throw new InvalidTranslationException ("from null");
+		if (to == null) throw new InvalidTranslationException ("to null");
 	}
 	
 	/**

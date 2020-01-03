@@ -17,6 +17,7 @@ import qualitypatternmodel.graphstructure.Property;
 
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,7 +63,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 * @ordered
 	 */
-	protected Option<qualitypatternmodel.inputfields.Boolean> options;
+	protected Option<Boolean> options;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,8 +75,17 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		return options != null && options.isValid(isDefinedPattern) && regularExpression != null && regularExpression.isValid(isDefinedPattern) && property != null && property.isValid(isDefinedPattern);
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+//		return options != null && options.isValid(isDefinedPattern) && regularExpression != null && regularExpression.isValid(isDefinedPattern) && property != null && property.isValid(isDefinedPattern);
+		if (options == null)
+			throw new InvalidTranslationException("options null");
+		options.isValid(isDefinedPattern);		
+		if (regularExpression == null)
+			throw new InvalidTranslationException("regularExpression null");
+		regularExpression.isValid(isDefinedPattern);		
+		if (property == null)
+			throw new InvalidTranslationException("property null");
+		property.isValid(isDefinedPattern);
 	}
 
 	/**
@@ -180,7 +190,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public Option<qualitypatternmodel.inputfields.Boolean> getOptions() {
+	public Option<Boolean> getOptions() {
 		return options;
 	}
 
@@ -189,8 +199,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOptions(Option<qualitypatternmodel.inputfields.Boolean> newOptions, NotificationChain msgs) {
-		Option<qualitypatternmodel.inputfields.Boolean> oldOptions = options;
+	public NotificationChain basicSetOptions(Option<Boolean> newOptions, NotificationChain msgs) {
+		Option<Boolean> oldOptions = options;
 		options = newOptions;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTIONS, oldOptions, newOptions);
@@ -204,7 +214,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOptions(Option<qualitypatternmodel.inputfields.Boolean> newOptions) {
+	public void setOptions(Option<Boolean> newOptions) {
 		if (newOptions != options) {
 			NotificationChain msgs = null;
 			if (options != null)
@@ -270,7 +280,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setRegularExpression((Text)newValue);
 				return;
 			case FunctionsPackage.MATCH__OPTIONS:
-				setOptions((Option<qualitypatternmodel.inputfields.Boolean>)newValue);
+				setOptions((Option<Boolean>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,7 +301,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setRegularExpression((Text)null);
 				return;
 			case FunctionsPackage.MATCH__OPTIONS:
-				setOptions((Option<qualitypatternmodel.inputfields.Boolean>)null);
+				setOptions((Option<Boolean>)null);
 				return;
 		}
 		super.eUnset(featureID);

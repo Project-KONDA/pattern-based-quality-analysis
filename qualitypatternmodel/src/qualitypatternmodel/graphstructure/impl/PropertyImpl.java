@@ -15,6 +15,7 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.TranslationLocation;
 
 /**
@@ -96,11 +97,21 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	}
 	
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		return
-			element != null 
-			&& ( location != null ^ (propertyOptions != null && propertyOptions.isValid(isDefinedPattern)) )
-			&& (!(location  != null && location == PropertyLocation.ATTRIBUTE) || (attributeName != null));
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException  {
+//		return
+//			element != null 
+//			&& ( location != null ^ (propertyOptions != null && propertyOptions.isValid(isDefinedPattern)) )
+//			&& (!(location  != null && location == PropertyLocation.ATTRIBUTE) || (attributeName != null));
+		if (element == null) 
+			throw new InvalidTranslationException("element null");
+		
+		if (!( location != null ^ propertyOptions != null))
+			throw new InvalidTranslationException("location or propertyOptions invalid");
+		
+		if (propertyOptions != null) propertyOptions.isValid(isDefinedPattern);
+		
+		if (location != null && location == PropertyLocation.ATTRIBUTE && attributeName == null)
+			throw new InvalidTranslationException("attributeName null");
 	}
 
 	@Override

@@ -212,7 +212,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	@Override
 	public EList<Element> getNextElements() {
 		EList<Element> elementListNext = new BasicEList<Element>();
-		for(Element element : next) {
+		for(Element element : getNext()) {
 			elementListNext.add(element);
 		}		
 		return elementListNext;
@@ -220,7 +220,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 
 	@Override
 	public Element getPreviousElement() {
-		return previous;
+		return getPrevious();
 	}
 	
 

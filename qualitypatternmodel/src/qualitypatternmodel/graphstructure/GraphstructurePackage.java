@@ -770,22 +770,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__RETURN_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Root Element</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH__ROOT_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__VARIABLE_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int GRAPH__VARIABLE_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Root Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__ROOT_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
@@ -1212,17 +1212,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getGraph_ReturnElement();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Root Element</em>'.
-	 * @see qualitypatternmodel.graphstructure.Graph#getRootElement()
-	 * @see #getGraph()
-	 * @generated
-	 */
-	EReference getGraph_RootElement();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getVariableList <em>Variable List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1232,6 +1221,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGraph_VariableList();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Root Element</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getRootElement()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_RootElement();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.GraphElement <em>Graph Element</em>}'.
@@ -1580,20 +1580,20 @@ public interface GraphstructurePackage extends EPackage {
 		EReference GRAPH__RETURN_ELEMENT = eINSTANCE.getGraph_ReturnElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Root Element</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GRAPH__ROOT_ELEMENT = eINSTANCE.getGraph_RootElement();
-
-		/**
 		 * The meta object literal for the '<em><b>Variable List</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference GRAPH__VARIABLE_LIST = eINSTANCE.getGraph_VariableList();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__ROOT_ELEMENT = eINSTANCE.getGraph_RootElement();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphElementImpl <em>Graph Element</em>}' class.

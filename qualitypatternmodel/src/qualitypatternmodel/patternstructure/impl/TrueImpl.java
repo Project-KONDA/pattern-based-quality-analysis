@@ -25,9 +25,7 @@ public class TrueImpl extends ConditionImpl implements True {
 	}
 	
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		return true;
-	}
+	public void isValid(boolean isDefinedPattern) {}
 
 	/**
 	 * <!-- begin-user-doc -->

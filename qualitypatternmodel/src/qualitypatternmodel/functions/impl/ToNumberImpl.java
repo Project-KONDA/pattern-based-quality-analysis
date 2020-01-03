@@ -14,6 +14,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.ToNumber;
 
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,8 +50,11 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	}
 	
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		return property != null && property.isValid(isDefinedPattern);
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+//		return property != null && property.isValid(isDefinedPattern);
+		if (property == null)
+			throw new InvalidTranslationException("property null");
+		property.isValid(isDefinedPattern);
 	}
 
 	/**

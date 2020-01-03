@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,8 +63,13 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	}
 	
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		return options != null && options.size() > 1 && (!isDefinedPattern || inputIsValid());
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+//		return options != null && options.size() > 1 && (!isDefinedPattern || inputIsValid()) && variableList != null;
+		if (options == null) 
+			throw new InvalidTranslationException("options null");
+		if (options.size() < 2) 
+			throw new InvalidTranslationException("not enough options");
+		super.isValid(isDefinedPattern);
 	}
 	
 	@Override

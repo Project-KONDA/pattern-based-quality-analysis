@@ -18,41 +18,43 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.graphstructure.Graph;
-
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Morphism</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Morphism</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMapping <em>Mapping</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getFrom <em>From</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getTo <em>To</em>}</li>
+ * <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMappings
+ * <em>Mappings</em>}</li>
+ * <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getFrom
+ * <em>From</em>}</li>
+ * <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getTo
+ * <em>To</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MorphismImpl extends PatternElementImpl implements Morphism {
 	/**
-	 * The cached value of the '{@link #getMapping() <em>Mapping</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMapping()
+	 * The cached value of the '{@link #getMappings() <em>Mappings</em>}'
+	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getMappings()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Mapping> mapping;
+	protected EList<Mapping> mappings;
 
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getFrom()
 	 * @generated
 	 * @ordered
@@ -60,9 +62,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	protected Graph from;
 
 	/**
-	 * The cached value of the '{@link #getTo() <em>To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTo() <em>To</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getTo()
 	 * @generated
 	 * @ordered
@@ -70,30 +72,36 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	protected Graph to;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected MorphismImpl() {
 		super();
 	}
-	
+
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		if(from == null || to == null) {
-			return false;
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+//		if (from == null || to == null) 
+//			return false;
+//		for(Mapping m : mappings) 
+//			if(m == null || !m.isValid(isDefinedPattern)) 
+//				return false;
+//		return true;
+		if (from == null)
+			throw new InvalidTranslationException("from null");
+		if (to == null)
+			throw new InvalidTranslationException("to null");
+		for (Mapping mapping : mappings) {
+			if (mapping == null)
+				throw new InvalidTranslationException("mapping invalid (" + mapping + ")");
+			mapping.isValid(isDefinedPattern);
 		}
-		for(Mapping m : mapping) {
-			if(m == null || !m.isValid(isDefinedPattern)) {
-				return false;
-			}
-		}
-		return true;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -102,37 +110,39 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public EList<Mapping> getMapping() {
-		if (mapping == null) {
-			mapping = new EObjectContainmentEList<Mapping>(Mapping.class, this, PatternstructurePackage.MORPHISM__MAPPING);
+	public EList<Mapping> getMappings() {
+		if (mappings == null) {
+			mappings = new EObjectContainmentEList<Mapping>(Mapping.class, this,
+					PatternstructurePackage.MORPHISM__MAPPINGS);
 		}
-		return mapping;
+		return mappings;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Graph getFrom() {
 		if (from != null && from.eIsProxy()) {
-			InternalEObject oldFrom = (InternalEObject)from;
-			from = (Graph)eResolveProxy(oldFrom);
+			InternalEObject oldFrom = (InternalEObject) from;
+			from = (Graph) eResolveProxy(oldFrom);
 			if (from != oldFrom) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.MORPHISM__FROM, oldFrom, from));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.MORPHISM__FROM,
+							oldFrom, from));
 			}
 		}
 		return from;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Graph basicGetFrom() {
@@ -140,37 +150,39 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFrom(Graph newFrom) {
 		Graph oldFrom = from;
 		from = newFrom;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__FROM, oldFrom, from));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__FROM, oldFrom,
+					from));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Graph getTo() {
 		if (to != null && to.eIsProxy()) {
-			InternalEObject oldTo = (InternalEObject)to;
-			to = (Graph)eResolveProxy(oldTo);
+			InternalEObject oldTo = (InternalEObject) to;
+			to = (Graph) eResolveProxy(oldTo);
 			if (to != oldTo) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.MORPHISM__TO, oldTo, to));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.MORPHISM__TO,
+							oldTo, to));
 			}
 		}
 		return to;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Graph basicGetTo() {
@@ -178,8 +190,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTo(Graph newTo) {
@@ -190,99 +202,101 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPING:
-				return ((InternalEList<?>)getMapping()).basicRemove(otherEnd, msgs);
+		case PatternstructurePackage.MORPHISM__MAPPINGS:
+			return ((InternalEList<?>) getMappings()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPING:
-				return getMapping();
-			case PatternstructurePackage.MORPHISM__FROM:
-				if (resolve) return getFrom();
-				return basicGetFrom();
-			case PatternstructurePackage.MORPHISM__TO:
-				if (resolve) return getTo();
-				return basicGetTo();
+		case PatternstructurePackage.MORPHISM__MAPPINGS:
+			return getMappings();
+		case PatternstructurePackage.MORPHISM__FROM:
+			if (resolve)
+				return getFrom();
+			return basicGetFrom();
+		case PatternstructurePackage.MORPHISM__TO:
+			if (resolve)
+				return getTo();
+			return basicGetTo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPING:
-				getMapping().clear();
-				getMapping().addAll((Collection<? extends Mapping>)newValue);
-				return;
-			case PatternstructurePackage.MORPHISM__FROM:
-				setFrom((Graph)newValue);
-				return;
-			case PatternstructurePackage.MORPHISM__TO:
-				setTo((Graph)newValue);
-				return;
+		case PatternstructurePackage.MORPHISM__MAPPINGS:
+			getMappings().clear();
+			getMappings().addAll((Collection<? extends Mapping>) newValue);
+			return;
+		case PatternstructurePackage.MORPHISM__FROM:
+			setFrom((Graph) newValue);
+			return;
+		case PatternstructurePackage.MORPHISM__TO:
+			setTo((Graph) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPING:
-				getMapping().clear();
-				return;
-			case PatternstructurePackage.MORPHISM__FROM:
-				setFrom((Graph)null);
-				return;
-			case PatternstructurePackage.MORPHISM__TO:
-				setTo((Graph)null);
-				return;
+		case PatternstructurePackage.MORPHISM__MAPPINGS:
+			getMappings().clear();
+			return;
+		case PatternstructurePackage.MORPHISM__FROM:
+			setFrom((Graph) null);
+			return;
+		case PatternstructurePackage.MORPHISM__TO:
+			setTo((Graph) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPING:
-				return mapping != null && !mapping.isEmpty();
-			case PatternstructurePackage.MORPHISM__FROM:
-				return from != null;
-			case PatternstructurePackage.MORPHISM__TO:
-				return to != null;
+		case PatternstructurePackage.MORPHISM__MAPPINGS:
+			return mappings != null && !mappings.isEmpty();
+		case PatternstructurePackage.MORPHISM__FROM:
+			return from != null;
+		case PatternstructurePackage.MORPHISM__TO:
+			return to != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //MorphismImpl
+} // MorphismImpl

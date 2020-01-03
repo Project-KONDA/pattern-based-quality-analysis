@@ -31,7 +31,7 @@ public interface RelationMapping extends Mapping {
 	 * @see #setTo(Relation)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getRelationMapping_To()
 	 * @see qualitypatternmodel.graphstructure.Relation#getMappingTo
-	 * @model opposite="mappingTo"
+	 * @model opposite="mappingTo" required="true"
 	 * @generated
 	 */
 	Relation getTo();
@@ -55,7 +55,7 @@ public interface RelationMapping extends Mapping {
 	 * @see #setFrom(Relation)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getRelationMapping_From()
 	 * @see qualitypatternmodel.graphstructure.Relation#getMappingFrom
-	 * @model opposite="mappingFrom"
+	 * @model opposite="mappingFrom" required="true"
 	 * @generated
 	 */
 	Relation getFrom();

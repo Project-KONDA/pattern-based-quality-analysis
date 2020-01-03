@@ -354,13 +354,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM = 3;
 
 	/**
-	 * The feature id for the '<em><b>Mapping</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Mappings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__MAPPING = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int MORPHISM__MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
@@ -802,15 +802,15 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getMorphism();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.patternstructure.Morphism#getMapping <em>Mapping</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Mapping</em>'.
-	 * @see qualitypatternmodel.patternstructure.Morphism#getMapping()
+	 * @return the meta object for the containment reference list '<em>Mappings</em>'.
+	 * @see qualitypatternmodel.patternstructure.Morphism#getMappings()
 	 * @see #getMorphism()
 	 * @generated
 	 */
-	EReference getMorphism_Mapping();
+	EReference getMorphism_Mappings();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}'.
@@ -1133,12 +1133,12 @@ public interface PatternstructurePackage extends EPackage {
 		EClass MORPHISM = eINSTANCE.getMorphism();
 
 		/**
-		 * The meta object literal for the '<em><b>Mapping</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Mappings</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MORPHISM__MAPPING = eINSTANCE.getMorphism_Mapping();
+		EReference MORPHISM__MAPPINGS = eINSTANCE.getMorphism_Mappings();
 
 		/**
 		 * The meta object literal for the '<em><b>From</b></em>' reference feature.

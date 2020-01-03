@@ -15,7 +15,7 @@ import qualitypatternmodel.graphstructure.Graph;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMapping <em>Mapping</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}</li>
  * </ul>
@@ -26,16 +26,16 @@ import qualitypatternmodel.graphstructure.Graph;
  */
 public interface Morphism extends PatternElement {
 	/**
-	 * Returns the value of the '<em><b>Mapping</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Mappings</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.patternstructure.Mapping}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mapping</em>' containment reference list.
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Mapping()
+	 * @return the value of the '<em>Mappings</em>' containment reference list.
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Mappings()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Mapping> getMapping();
+	EList<Mapping> getMappings();
 
 	/**
 	 * Returns the value of the '<em><b>From</b></em>' reference.

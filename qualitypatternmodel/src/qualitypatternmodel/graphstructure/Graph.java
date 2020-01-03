@@ -16,8 +16,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElement <em>Return Element</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getVariableList <em>Variable List</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph()
@@ -36,28 +36,6 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	EList<SingleElement> getReturnElement();
-
-	/**
-	 * Returns the value of the '<em><b>Root Element</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root Element</em>' containment reference.
-	 * @see #setRootElement(SingleElement)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_RootElement()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	SingleElement getRootElement();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root Element</em>' containment reference.
-	 * @see #getRootElement()
-	 * @generated
-	 */
-	void setRootElement(SingleElement value);
 
 	/**
 	 * Returns the value of the '<em><b>Variable List</b></em>' containment reference.
@@ -80,5 +58,27 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	void setVariableList(VariableList value);
+
+	/**
+	 * Returns the value of the '<em><b>Root Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Root Element</em>' containment reference.
+	 * @see #setRootElement(SingleElement)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_RootElement()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	SingleElement getRootElement();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Root Element</em>' containment reference.
+	 * @see #getRootElement()
+	 * @generated
+	 */
+	void setRootElement(SingleElement value);
 
 } // Graph

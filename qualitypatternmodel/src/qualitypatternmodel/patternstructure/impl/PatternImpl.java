@@ -21,9 +21,8 @@ import qualitypatternmodel.patternstructure.TranslationLocation;
 import static utilityclasses.Constants.*;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Pattern</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Pattern</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -37,8 +36,7 @@ import static utilityclasses.Constants.*;
 public class PatternImpl extends PatternElementImpl implements Pattern {
 	/**
 	 * The cached value of the '{@link #getReturnGraph() <em>Return Graph</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReturnGraph()
 	 * @generated
 	 * @ordered
@@ -47,8 +45,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCondition()
 	 * @generated
 	 * @ordered
@@ -56,33 +53,38 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	protected Condition condition;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected PatternImpl() {
 		super();
 	}
-	
+
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		return returnGraph != null && returnGraph.isValid(isDefinedPattern) && condition != null && condition.isValid(isDefinedPattern);
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+//		return returnGraph != null && returnGraph.isValid(isDefinedPattern) && condition != null && condition.isValid(isDefinedPattern);
+		if (returnGraph == null)
+			throw new InvalidTranslationException("returnGraph null");
+		returnGraph.isValid(isDefinedPattern);
+		if (condition == null)
+			throw new InvalidTranslationException("condition null");
+		condition.isValid(isDefinedPattern);
 	}
-	
+
 	@Override
 	public String toXQuery(TranslationLocation translationLocation) throws InvalidTranslationException {
 		String returnVariables = "(";
-		for(SingleElement returnElement : returnGraph.getReturnElement()) {
+		for (SingleElement returnElement : returnGraph.getReturnElement()) {
 			returnVariables += "" + VARIABLE + returnElement.getId() + ", ";
 		}
-		returnVariables = returnVariables.substring(0, returnVariables.length()-2);
+		returnVariables = returnVariables.substring(0, returnVariables.length() - 2);
 		returnVariables += ")";
-		return returnGraph.toXQuery(TranslationLocation.RETURN) + "\nwhere " + condition.toXQuery(TranslationLocation.OUTSIDE) + "\nreturn " + returnVariables;
+		return returnGraph.toXQuery(TranslationLocation.RETURN) + "\nwhere "
+				+ condition.toXQuery(TranslationLocation.OUTSIDE) + "\nreturn " + returnVariables;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -91,8 +93,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Graph getReturnGraph() {
@@ -100,8 +101,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetReturnGraph(Graph newReturnGraph, NotificationChain msgs) {
@@ -115,8 +115,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setReturnGraph(Graph newReturnGraph) {
@@ -134,8 +133,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Condition getCondition() {
@@ -143,8 +141,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
@@ -158,8 +155,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setCondition(Condition newCondition) {
@@ -177,8 +173,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -193,8 +188,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -209,8 +203,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -227,8 +220,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -245,8 +237,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -260,4 +251,4 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		return super.eIsSet(featureID);
 	}
 
-} //PatternImpl
+} // PatternImpl

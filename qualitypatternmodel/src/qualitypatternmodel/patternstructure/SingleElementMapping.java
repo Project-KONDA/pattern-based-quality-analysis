@@ -31,7 +31,7 @@ public interface SingleElementMapping extends Mapping {
 	 * @see #setFrom(SingleElement)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getSingleElementMapping_From()
 	 * @see qualitypatternmodel.graphstructure.SingleElement#getMappingFrom
-	 * @model opposite="mappingFrom"
+	 * @model opposite="mappingFrom" required="true"
 	 * @generated
 	 */
 	SingleElement getFrom();
@@ -55,7 +55,7 @@ public interface SingleElementMapping extends Mapping {
 	 * @see #setTo(SingleElement)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getSingleElementMapping_To()
 	 * @see qualitypatternmodel.graphstructure.SingleElement#getMappingTo
-	 * @model opposite="mappingTo"
+	 * @model opposite="mappingTo" required="true"
 	 * @generated
 	 */
 	SingleElement getTo();

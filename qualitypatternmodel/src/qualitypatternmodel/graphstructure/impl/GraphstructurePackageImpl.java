@@ -472,7 +472,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGraph_RootElement() {
+	public EReference getGraph_VariableList() {
 		return (EReference)graphEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -481,7 +481,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGraph_VariableList() {
+	public EReference getGraph_RootElement() {
 		return (EReference)graphEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -611,8 +611,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__RETURN_ELEMENT);
-		createEReference(graphEClass, GRAPH__ROOT_ELEMENT);
 		createEReference(graphEClass, GRAPH__VARIABLE_LIST);
+		createEReference(graphEClass, GRAPH__ROOT_ELEMENT);
 
 		graphElementEClass = createEClass(GRAPH_ELEMENT);
 		createEOperation(graphElementEClass, GRAPH_ELEMENT___GET_RETURN_TYPE);
@@ -713,15 +713,15 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraph_ReturnElement(), this.getSingleElement(), null, "returnElement", null, 1, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGraph_RootElement(), this.getSingleElement(), null, "rootElement", null, 1, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGraph_VariableList(), this.getVariableList(), null, "variableList", null, 1, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGraph_RootElement(), this.getSingleElement(), null, "rootElement", null, 1, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(graphElementEClass, GraphElement.class, "GraphElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getGraphElement__GetReturnType(), this.getReturnType(), "getReturnType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(variableListEClass, VariableList.class, "VariableList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariableList_Variables(), theInputfieldsPackage.getInput(), null, "variables", null, 0, -1, VariableList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVariableList_Variables(), theInputfieldsPackage.getInput(), theInputfieldsPackage.getInput_VariableList(), "variables", null, 0, -1, VariableList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(propertyLocationEEnum, PropertyLocation.class, "PropertyLocation");

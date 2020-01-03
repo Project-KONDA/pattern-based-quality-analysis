@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.graphstructure.Graph;
 
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -95,11 +96,22 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		if(quantifier == null || condition == null || graph == null || morphism == null) {
-			return false;
-		}
-		return condition.isValid(isDefinedPattern) && graph.isValid(isDefinedPattern) && morphism.isValid(isDefinedPattern);
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+//		if(quantifier == null || condition == null || graph == null || morphism == null) {
+//			return false;
+//		}
+//		return condition.isValid(isDefinedPattern) && graph.isValid(isDefinedPattern) && morphism.isValid(isDefinedPattern);
+		if (quantifier == null)
+			throw new InvalidTranslationException("quantifier null");
+		if (condition == null)
+			throw new InvalidTranslationException("condition null");
+		if (graph == null)
+			throw new InvalidTranslationException("graph null");
+		if (morphism == null)
+			throw new InvalidTranslationException("morphism null");
+		condition.isValid(isDefinedPattern);
+		graph.isValid(isDefinedPattern);
+		morphism.isValid(isDefinedPattern);
 	}
 
 	/**

@@ -316,7 +316,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMorphism_Mapping() {
+	public EReference getMorphism_Mappings() {
 		return (EReference)morphismEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -541,7 +541,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		conditionEClass = createEClass(CONDITION);
 
 		morphismEClass = createEClass(MORPHISM);
-		createEReference(morphismEClass, MORPHISM__MAPPING);
+		createEReference(morphismEClass, MORPHISM__MAPPINGS);
 		createEReference(morphismEClass, MORPHISM__FROM);
 		createEReference(morphismEClass, MORPHISM__TO);
 
@@ -617,8 +617,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(relationMappingEClass, RelationMapping.class, "RelationMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRelationMapping_To(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_MappingTo(), "to", null, 0, 1, RelationMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelationMapping_From(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_MappingFrom(), "from", null, 0, 1, RelationMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationMapping_To(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_MappingTo(), "to", null, 1, 1, RelationMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationMapping_From(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_MappingFrom(), "from", null, 1, 1, RelationMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(quantifiedConditionEClass, QuantifiedCondition.class, "QuantifiedCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQuantifiedCondition_Condition(), this.getCondition(), null, "condition", null, 1, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -629,13 +629,13 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(morphismEClass, Morphism.class, "Morphism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMorphism_Mapping(), this.getMapping(), null, "mapping", null, 0, -1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMorphism_Mappings(), this.getMapping(), null, "mappings", null, 0, -1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_From(), theGraphstructurePackage.getGraph(), null, "from", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_To(), theGraphstructurePackage.getGraph(), null, "to", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(singleElementMappingEClass, SingleElementMapping.class, "SingleElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSingleElementMapping_From(), theGraphstructurePackage.getSingleElement(), theGraphstructurePackage.getSingleElement_MappingFrom(), "from", null, 0, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSingleElementMapping_To(), theGraphstructurePackage.getSingleElement(), theGraphstructurePackage.getSingleElement_MappingTo(), "to", null, 0, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleElementMapping_From(), theGraphstructurePackage.getSingleElement(), theGraphstructurePackage.getSingleElement_MappingFrom(), "from", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleElementMapping_To(), theGraphstructurePackage.getSingleElement(), theGraphstructurePackage.getSingleElement_MappingTo(), "to", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mappingEClass, Mapping.class, "Mapping", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -655,8 +655,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEParameter(op, this.getTranslationLocation(), "tranlsationLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidTranslationExceptionWrapper());
 
-		op = initEOperation(getPatternElement__IsValid__boolean(), ecorePackage.getEBoolean(), "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__IsValid__boolean(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidTranslationExceptionWrapper());
 
 		// Initialize enums and add enum literals
 		initEEnum(logicalOperatorEEnum, LogicalOperator.class, "LogicalOperator");

@@ -15,7 +15,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.inputfields.Option;
-
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.TranslationLocation;
@@ -108,8 +108,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 	
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {		
-		return  axis != null ^ (relationOptions != null && relationOptions.isValid(isDefinedPattern));
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException  {		
+//		return  axis != null ^ (relationOptions != null && relationOptions.isValid(isDefinedPattern));
+		if (!(axis != null ^ relationOptions != null))
+			throw new InvalidTranslationException("axis options invalid");
+		if (relationOptions != null) relationOptions.isValid(isDefinedPattern);
 	}
 
 	/**

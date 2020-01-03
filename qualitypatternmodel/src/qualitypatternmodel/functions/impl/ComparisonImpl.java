@@ -19,6 +19,7 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.impl.InputImpl;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
  * <!-- begin-user-doc -->
@@ -97,22 +98,37 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 	
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {		
-		if(argument1 == null || argument2 == null) {
-			return false;
-		}
-		if(argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl) {
-			if(!argument1.isValid(isDefinedPattern)) {
-				return false;
-			}
-		}
-		if(argument2 instanceof PropertyImpl|| argument2 instanceof OperatorImpl || argument2 instanceof InputImpl) {
-			if(!argument2.isValid(isDefinedPattern)) {
-				return false;
-			}
-		}
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {		
+//		if(argument1 == null || argument2 == null) {
+//			return false;
+//		}
+//		if(argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl) {
+//			if(!argument1.isValid(isDefinedPattern)) {
+//				return false;
+//			}
+//		}
+//		if(argument2 instanceof PropertyImpl|| argument2 instanceof OperatorImpl || argument2 instanceof InputImpl) {
+//			if(!argument2.isValid(isDefinedPattern)) {
+//				return false;
+//			}
+//		}
+//		return  operator != null ^ (options != null && options.isValid(isDefinedPattern)) && argument1.getReturnType() == argument2.getReturnType();
+
+		if (argument1 == null)
+			throw new InvalidTranslationException("argument1 null");
+		if (argument2 == null)
+			throw new InvalidTranslationException("argument2 null");
 		
-		return  operator != null ^ (options != null && options.isValid(isDefinedPattern)) && argument1.getReturnType() == argument2.getReturnType();
+		if(argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl) 
+			argument1.isValid(isDefinedPattern);
+		if(argument2 instanceof PropertyImpl|| argument2 instanceof OperatorImpl || argument2 instanceof InputImpl) 
+			argument2.isValid(isDefinedPattern);
+		
+		if (!(operator != null ^ options != null))
+			throw new InvalidTranslationException("operator Options invalid");
+		if (options != null) options.isValid(isDefinedPattern);
+		if (!(argument1.getReturnType() == argument2.getReturnType()))
+			throw new InvalidTranslationException("unmatching types");
 	}
 
 	@Override

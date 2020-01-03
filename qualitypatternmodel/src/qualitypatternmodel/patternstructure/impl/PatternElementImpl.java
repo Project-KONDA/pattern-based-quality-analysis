@@ -58,7 +58,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isValid(boolean isDefinedPattern) {
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -80,7 +80,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 					throw new InvocationTargetException(throwable);
 				}
 			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN:
-				return isValid((Boolean)arguments.get(0));
+				try {
+					isValid((Boolean)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -79,15 +79,31 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		if(operator == null || arguments == null) {
-			return false;
-		}
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException  {
+//		if(operator == null || arguments == null) {
+//			return false;
+//		}
+//		if(operator == LogicalOperator.NOT) {
+//			return arguments.size() == 1 && arguments.get(0) != null && arguments.get(0).isValid(isDefinedPattern);
+//		} else {
+//			return arguments.size() == 2 && arguments.get(0) != null && arguments.get(0).isValid(isDefinedPattern) && arguments.get(1) != null && arguments.get(1).isValid(isDefinedPattern);
+//		}
+
+		if(operator == null) 
+			throw new InvalidTranslationException("operator null");
+		if(arguments == null) 
+			throw new InvalidTranslationException("arguments null");
+		
 		if(operator == LogicalOperator.NOT) {
-			return arguments.size() == 1 && arguments.get(0) != null && arguments.get(0).isValid(isDefinedPattern);
-		} else {
-			return arguments.size() == 2 && arguments.get(0) != null && arguments.get(0).isValid(isDefinedPattern) && arguments.get(1) != null && arguments.get(1).isValid(isDefinedPattern);
-		}
+			if (arguments.size() != 1 || arguments.get(0) == null)
+				throw new InvalidTranslationException("argument invalid (op:NOT)");
+			arguments.get(0).isValid(isDefinedPattern);
+		} else 
+			if (arguments.size() != 2 || arguments.get(0) == null || arguments.get(1) == null)
+				throw new InvalidTranslationException("arguments invalid");
+			arguments.get(0).isValid(isDefinedPattern);
+			arguments.get(1).isValid(isDefinedPattern);
+//			if(!(arguments.size() == 2 && arguments.get(0) != null && arguments.get(0).isValid(isDefinedPattern) && arguments.get(1) != null && arguments.get(1).isValid(isDefinedPattern)))
 	}
 	
 	@Override

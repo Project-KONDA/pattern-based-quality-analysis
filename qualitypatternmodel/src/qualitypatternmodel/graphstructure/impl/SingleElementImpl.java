@@ -402,12 +402,12 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 	@Override
 	public EList<Element> getNextElements() {
-		return next;
+		return getNext();
 	}
 
 	@Override
 	public Element getPreviousElement() {
-		return previous;
+		return getPrevious();
 	}
 
 } //SingleElementImpl

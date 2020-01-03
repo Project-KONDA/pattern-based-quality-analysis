@@ -28,11 +28,13 @@ public interface VariableList extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Variables</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.inputfields.Input}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.Input#getVariableList <em>Variable List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variables</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getVariableList_Variables()
-	 * @model
+	 * @see qualitypatternmodel.inputfields.Input#getVariableList
+	 * @model opposite="variableList"
 	 * @generated
 	 */
 	EList<Input> getVariables();

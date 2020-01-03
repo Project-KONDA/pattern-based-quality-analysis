@@ -4,6 +4,8 @@
   <eSubpackages name="inputfields" nsURI="inputfields" nsPrefix="inputfields">
     <eClassifiers xsi:type="ecore:EClass" name="Input" abstract="true" eSuperTypes="#//graphstructure/GraphElement">
       <eOperations name="inputIsValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
+          eType="#//graphstructure/VariableList" eOpposite="#//graphstructure/VariableList/variables"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//inputfields/Input">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
@@ -42,7 +44,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="options" lowerBound="1"
           containment="true">
         <eGenericType eClassifier="#//inputfields/Option">
-          <eTypeArguments eClassifier="#//inputfields/Boolean"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
         </eGenericType>
       </eStructuralFeatures>
     </eClassifiers>
@@ -128,17 +130,17 @@
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="returnElement" lowerBound="1"
           upperBound="-1" eType="#//graphstructure/SingleElement"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rootElement" lowerBound="1"
-          eType="#//graphstructure/SingleElement" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
           eType="#//graphstructure/VariableList" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rootElement" lowerBound="1"
+          eType="#//graphstructure/SingleElement" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GraphElement" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableList">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-          eType="#//inputfields/Input"/>
+          eType="#//inputfields/Input" eOpposite="#//inputfields/Input/variableList"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PropertyLocation">
       <eLiterals name="DATA" literal="data()"/>
@@ -183,7 +185,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//patternstructure/PatternElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="Morphism" eSuperTypes="#//patternstructure/PatternElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
           eType="#//patternstructure/Mapping" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
           eType="#//graphstructure/Graph"/>
@@ -225,7 +227,7 @@
           eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper">
         <eParameters name="tranlsationLocation" eType="#//patternstructure/TranslationLocation"/>
       </eOperations>
-      <eOperations name="isValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper">
         <eParameters name="isDefinedPattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
     </eClassifiers>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.inputfields.presentation.InputfieldsModelWizardID"
+            name="%_UI_InputfieldsModelWizard_label"
+            class="qualitypatternmodel.inputfields.presentation.InputfieldsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/InputfieldsModelFile.gif">
+         <description>%_UI_InputfieldsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.inputfields.presentation.InputfieldsEditorID"
+            name="%_UI_InputfieldsEditor_label"
+            icon="icons/full/obj16/InputfieldsModelFile.gif"
+            extensions="inputfields"
+            class="qualitypatternmodel.inputfields.presentation.InputfieldsEditor"
+            contributorClass="qualitypatternmodel.inputfields.presentation.InputfieldsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.functions.presentation.FunctionsModelWizardID"
+            name="%_UI_FunctionsModelWizard_label"
+            class="qualitypatternmodel.functions.presentation.FunctionsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/FunctionsModelFile.gif">
+         <description>%_UI_FunctionsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.functions.presentation.FunctionsEditorID"
+            name="%_UI_FunctionsEditor_label"
+            icon="icons/full/obj16/FunctionsModelFile.gif"
+            extensions="functions"
+            class="qualitypatternmodel.functions.presentation.FunctionsEditor"
+            contributorClass="qualitypatternmodel.functions.presentation.FunctionsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.graphstructure.presentation.GraphstructureModelWizardID"
+            name="%_UI_GraphstructureModelWizard_label"
+            class="qualitypatternmodel.graphstructure.presentation.GraphstructureModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GraphstructureModelFile.gif">
+         <description>%_UI_GraphstructureModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.graphstructure.presentation.GraphstructureEditorID"
+            name="%_UI_GraphstructureEditor_label"
+            icon="icons/full/obj16/GraphstructureModelFile.gif"
+            extensions="graphstructure"
+            class="qualitypatternmodel.graphstructure.presentation.GraphstructureEditor"
+            contributorClass="qualitypatternmodel.graphstructure.presentation.GraphstructureActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.patternstructure.presentation.PatternstructureModelWizardID"
+            name="%_UI_PatternstructureModelWizard_label"
+            class="qualitypatternmodel.patternstructure.presentation.PatternstructureModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PatternstructureModelFile.gif">
+         <description>%_UI_PatternstructureModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.patternstructure.presentation.PatternstructureEditorID"
+            name="%_UI_PatternstructureEditor_label"
+            icon="icons/full/obj16/PatternstructureModelFile.gif"
+            extensions="patternstructure"
+            class="qualitypatternmodel.patternstructure.presentation.PatternstructureEditor"
+            contributorClass="qualitypatternmodel.patternstructure.presentation.PatternstructureActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

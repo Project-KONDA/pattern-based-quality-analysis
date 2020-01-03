@@ -456,7 +456,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		initEReference(getMatch_Property(), theGraphstructurePackage.getProperty(), null, "property", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMatch_RegularExpression(), theInputfieldsPackage.getText(), null, "regularExpression", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		EGenericType g1 = createEGenericType(theInputfieldsPackage.getOption());
-		EGenericType g2 = createEGenericType(theInputfieldsPackage.getBoolean());
+		EGenericType g2 = createEGenericType(ecorePackage.getEBooleanObject());
 		g1.getETypeArguments().add(g2);
 		initEReference(getMatch_Options(), g1, null, "options", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

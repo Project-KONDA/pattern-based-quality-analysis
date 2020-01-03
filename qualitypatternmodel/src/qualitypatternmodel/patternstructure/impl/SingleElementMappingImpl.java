@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
-import qualitypatternmodel.patternstructure.Mapping;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
@@ -61,8 +61,10 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		return from != null && to != null;
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException{
+		if (from == null) throw new InvalidTranslationException ("from null");
+		if (to == null) throw new InvalidTranslationException ("to null");
+//		return from != null && to != null;
 	}
 	
 	/**

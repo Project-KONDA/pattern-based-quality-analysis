@@ -23,11 +23,11 @@ import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Element</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Element</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -44,8 +44,7 @@ import qualitypatternmodel.graphstructure.Relation;
 public abstract class ElementImpl extends GraphElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPredicates()
 	 * @generated
 	 * @ordered
@@ -53,9 +52,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected EList<BooleanOperator> predicates;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -63,9 +62,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected static final int ID_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
@@ -74,8 +73,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * The cached value of the '{@link #getRelationFromPrevious() <em>Relation From Previous</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRelationFromPrevious()
 	 * @generated
 	 * @ordered
@@ -84,8 +83,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * The default value of the '{@link #isIsTranslated() <em>Is Translated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsTranslated()
 	 * @generated
 	 * @ordered
@@ -94,8 +92,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * The cached value of the '{@link #isIsTranslated() <em>Is Translated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsTranslated()
 	 * @generated
 	 * @ordered
@@ -104,8 +101,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * The default value of the '{@link #isIsRoot() <em>Is Root</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsRoot()
 	 * @generated
 	 * @ordered
@@ -114,8 +110,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * The cached value of the '{@link #isIsRoot() <em>Is Root</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isIsRoot()
 	 * @generated
 	 * @ordered
@@ -123,27 +118,42 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected boolean isRoot = IS_ROOT_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ElementImpl() {
 		super();
 	}
-	
+
 	@Override
-	public boolean isValid(boolean isDefinedPattern) {
-		for(Element next : getNextElements()) {
-			if(!(next.isValid(isDefinedPattern) && next.getPreviousElement().equals(this))) {
-				return false;
-			}
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+//		for (Element next : getNextElements()) {
+//			if (!(next.isValid(isDefinedPattern) && next.getPreviousElement().equals(this))) {
+//				return false;
+//			}
+//		}
+//		return getPreviousElement() != null && relationFromPrevious.isValid(isDefinedPattern) || isRoot;
+		for (Element next : getNextElements()) {
+			if (next == null) 
+				throw new InvalidTranslationException("nextElement null (" + next + ")");
+			next.isValid(isDefinedPattern);
+			if (!next.getPreviousElement().equals(this)) 
+				throw new InvalidTranslationException("nextElement not valid (" + next + ")");
 		}
-		return getPreviousElement() != null  && relationFromPrevious.isValid(isDefinedPattern) || isRoot;
+		
+		for(BooleanOperator predicate : getPredicates()) {
+			if (predicate == null) 
+				throw new InvalidTranslationException("predicate null (" + predicate + ")");
+			predicate.isValid(isDefinedPattern);
+		}
+
+		if (!isRoot && getPreviousElement() == null) 
+			throw new InvalidTranslationException("previousElement null");
+		if (!isRoot) relationFromPrevious.isValid(isDefinedPattern);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -152,8 +162,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<BooleanOperator> getPredicates() {
@@ -164,8 +173,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getId() {
@@ -173,8 +181,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setId(int newId) {
@@ -185,8 +192,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Relation getRelationFromPrevious() {
@@ -194,8 +200,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetRelationFromPrevious(Relation newRelationFromPrevious, NotificationChain msgs) {
@@ -209,8 +214,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRelationFromPrevious(Relation newRelationFromPrevious) {
@@ -228,8 +232,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isIsTranslated() {
@@ -237,8 +240,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setIsTranslated(boolean newIsTranslated) {
@@ -249,8 +251,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isIsRoot() {
@@ -258,8 +259,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setIsRoot(boolean newIsRoot) {
@@ -270,8 +270,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String generateXPredicates() {
@@ -281,8 +280,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String generateXPathExpression() {
@@ -292,21 +290,17 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public abstract EList<Element> getNextElements();
-	
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public abstract Element getPreviousElement();
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -321,8 +315,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -343,8 +336,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -372,8 +364,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -399,8 +390,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -421,8 +411,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -441,8 +430,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -460,4 +448,4 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		return result.toString();
 	}
 
-} //ElementImpl
+} // ElementImpl
