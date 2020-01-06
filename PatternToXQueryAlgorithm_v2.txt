@@ -1,0 +1,245 @@
++++ Translation of a Pattern to XQuery +++
+
+// see class diagram in "qualitypatternmodel.jpg"
+
+String translatePatternToXQuery(Pattern pattern){	
+	for each Element element in the whole pattern: element.isTranslated = false;
+	String forClauses = translateReturnGraph();
+	String whereClause = "where " + translateConditions();
+	String returnClause = "return $id" + pattern.returnGraph.returnElement;
+	return forClauses + whereClause + returnClause;
+}
+	
+String translateReturnGraph(){	
+	return translateSingleElementReturnGraph(pattern.returnGraph.rootElement);
+}
+		
+String translateSingleElementReturnGraph(SingleElement element){
+		
+		String xPathExpression = translatePathFromPrevious(element);
+		
+		String xPredicates = "";
+		
+		for each BooleanOperator predicate in element.predicates where booleanOperatorIsReady(predicate): 
+			String xPredicate = "[" + translatePredicate(predicate, element) + "]";			
+			xPredicates += xPredicate;
+		
+		String forClauses = "for " + "$id" + element.id + " in " + xPathExpression + xPredicates;
+		
+		element.isTranslated = true;
+		
+		for each SingleElement nextElement in element.getNextElements():
+			forClauses += translateSingleElementReturnGraph(nextElement);
+		
+		return forClauses;
+}
+
+boolean booleanOperatorIsReady(BooleanOperator booleanOperator){
+	if(predicate instanceof Comparison){
+		Comparison comparison = (Comparison) predicate;
+		return isReady(comparison.argument1) && isReady(comparison.argument2);
+	}
+	if(predicate instanceof Match){
+		Match match = (Match) predicate;
+		return isReady(match.property);
+	}
+}
+
+boolean numberOperatorIsReady(NumberOperator numberOperator){
+	if(numberOperator instanceof Count){
+		Count count = (Count) numberOperator;
+		return isReady(count.argument);
+	}
+	if(numberOperator instanceof ToNumber){
+		ToNumber toNumber = (ToNumber) numberOperator;
+		return isReady(toNumber.property);
+	}
+}
+
+boolean isReady(GraphElement element){
+	if(element instanceof Property){
+		Property property = (Property) element;
+		return property.element.isTranslated;
+	} else if(element instanceof BooleanOperator){
+		BooleanOperator booleanOperator = (BooleanOperator) element;
+		return booleanOperatorIsReady(booleanOperator);
+	} else if(element instanceof NumberOperator){
+		NumberOperator numberOperator = (NumberOperator) element;
+		return numberOperatorIsReady(numberOperator);
+	} else if(element instanceof SetElement){
+		SetElement setElement = (SetElement) element;
+		return setElement.getPreviousElement().isTranslated;
+	} else {
+		return true;
+	}
+}
+
+String translatePathFromPrevious(Element element){
+	return element.getPreviousElement().getId() + "/" + element.relationFromPrevious.axis;
+}
+
+String translatePredicates(Element element){
+	for each BooleanOperator predicate in element.predicates:
+		translatePredicate(predicate, element);
+}
+		
+String translatePredicate(BooleanOperator predicate, Element element){
+
+	if(predicate instanceof Comparison){
+		Comparison comparison = (Comparison) predicate;
+		return translateArgument(comparison.argument1,element) + comparison.operator + translateArgument(comparison.argument2,element);
+	}
+	if(predicate instanceof Match){
+		Match match = (Match) predicate;
+		return "match(" + translateArgument(match.argument,element) + "," + match.regularExpression.text + ")";
+	}
+
+}
+
+String translateOperator(Operator operator, Element element){
+	if(operator instanceof NumberOperator){
+		NumberOperator numberOperator = (NumberOperator) operator;
+		translateNumberOperator(numberOperator,element);
+	}
+	if(operator instanceof BooleanOperator){
+		BooleanOperator booleanOperator = (BooleanOperator) operator;
+		return translatePredicate(booleanOperator,element);
+	}
+}
+
+String translateNumberOperator(NumberOperator numberOperator, Element element){
+	
+	if(numberOperator instanceof Count){
+		Count count = (Count) numberOperator;
+		return "count(" + translateArgument(count.argument) + ")";
+	}
+	if(numberOperator instanceof ToNumber){
+		ToNumber toNumber = (ToNumber) numberOperator;
+		return "fn:number(" + translateArgument(toNumber.property) + ")";
+	}
+
+}
+
+String translateArgument(GraphElement argument, Element element){
+
+	if(argument instanceof Input){ 
+		Input input = (Input) argument;
+		if input instanceof Text:
+			Text text = (Text) input;
+			return text.text;
+		if input instanceof Number:
+			Number number = (Number) input;
+			return number.number;
+		if input instanceof Boolean:
+			Boolean bool = (Boolean) input;
+			return bool.bool;
+		if input instanceof Option: 
+			Option option = (Option) input;
+			translate option.selection depending on the type variable T as described in lines 32 to 63	???	
+	}		
+	if(argument instanceof Property){ 
+		Property property = (Property) argument;
+		if property.location = DATA:
+			return "data()";
+		if property.location = TAG:
+			return "name()"
+		if property.location = ATTRIBUTE:
+			return "@" + property.attributeName;		
+	}		
+	if(argument instanceof SingleElement){ 
+		SingleElement singleElement = (SingleElement) argument;
+		if(singleElement.equals(element)){
+			return ".";
+		} else {
+			return "$id" + singleElement.id;
+		}
+	}
+	if(argument instanceof SetElement){ 
+		SetElement setElement = (SetElement) argument;
+		Element predicateOwnerElement = element;
+
+		String xPathExpression = translatePathFromPreviousFromSetElement(setElement,"");
+		
+		String xPredicates = "";		
+	
+		for each SetElement nextSetElement in setElement.getNextElements() with !nextSetElement.isTranslated:
+			xPredicates += "[./" + nextSetElement.relationFromPrevious.axis + translatePredicates(nextSetElement) + "]"; 
+					
+		return xPathExpression + xPredicates;			
+	}
+	if(argument instanceof Operator){ 
+		Operator operator = (Operator) argument;
+		return translateOperator(operator,element);
+	}
+
+}
+
+String translatePathFromPreviousFromSetElement(SetElement setElement, Element predicateOwnerElement, String xPathExpression){
+	
+	if(setElement.equals(predicateOwnerElement)){
+		return xPathExpression;
+	}		
+							
+	xPathExpression = translatePathFromPrevious(setElement) + translatePredicates(setElement) + xPathExpression
+	setElement.isTranslated = true
+	xPathExpression = "$id" + predicateOwnerElement.id + xPathExpression	
+	
+	return translatePathFromPreviousFromSetElement(setElement.getPreviousElement(),predicateOwnerElement, xPathExpression);
+
+}
+
+
+String translateConditions(){
+	return translateCondition(pattern.condition);
+}
+
+String translateCondition(Condition condition){
+	if condition instanceof QuantifiedCondition:	
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) condition;		
+		return translateSingleElementConditionGraph(quantifiedCondition.graph.rootElement) + translateCondition(quantifiedCondition.condition);		
+				
+	if condition instanceof Formula:
+		Formula formula = (Formula) condition;	
+		if(formula.operator == NOT){
+			return "not(" + translateCondition(formula.arguments.get(0)) + ")";
+		} else {
+			return "(" + translateCondition(formula.arguments.get(0)) + ")" + formula.operator + "(" + translateCondition(formula.arguments.get(1)) + ")"; 
+		}		
+		
+	if condition instanceof True:
+		return "true";
+}
+
+String translateSingleElementConditionGraph(SingleElement element){
+
+	String forClauses = "";
+
+	if element.mappingTo == null:
+		
+		String xPathExpression = translatePathFromPrevious(element);		
+		String xPredicates;	
+		
+		for each BooleanOperator predicate in element.predicates where predicate.isReady: 
+			xPredicates += "[" + translatePredicate(predicate, element) + "]";			
+		
+		if quantifiedCondition.quantifier = EXISTS:
+			forClauses = "some $id" + element.id " in " + xPathExpression + xPredicates + " satisfies \n"
+			
+		else if quantifiedCondition.quantifier = FORALL:
+			forClauses = "every $id" + element.id " in " + xPathExpression + xPredicates + " satisfies \n"				
+	
+	else:
+
+		if quantifier = EXISTS:
+			forClauses = "some $id" + element.id " in $id" + element.id + xPredicates + " satisfies \n"
+		else if quantifier = FORALL:
+			forClauses = "every $id" + element.id " in $id" + element.id + xPredicates + " satisfies \n"
+	
+	element.isTranslated = true;
+	
+	for each SingleElement nextElement in element.getNextElements():
+		forClauses += translateSingleElementConditionGraph(nextElement);
+	
+	return forClauses;
+}
+	
