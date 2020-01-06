@@ -1,5 +1,73 @@
 +++ Translation of a Pattern to XQuery +++
 
+_____________Explanation:_____________
+
+
+Desired Result:
+	Result is  every return-Element specified in the Return-Graph, which does fulfill specified conditions.
+	The Return-Graph can contain Primitive Conditions, other conditions are specified as Complex Conditions using Graphs in combination with QuantifiedConditions.
+		
+	
+Return-Graph:
+	Path on how to reach the Result-Elements from the XML-Root-Elements
+	can contain primitive conditions
+	
+Return-Element: 
+	One or more elements, which should create the Result based on the Return-Graph.
+	If multiple elements are specified as return-elements, pairs of elements are returned.
+	In that case, we want to add an addtional XML-element (<break/>) between the pairs.
+	This is, because nesting these pairs in an element is inefficient.
+	
+PrimitiveConditions:
+	Simple Conditions, which can be evaluated alone on the current element (name, attribute-values, data) 
+
+ComplexConditions:
+	Combinations of QuantifiedConditions and Formulas
+	additional conditions to the elements, which should be returned
+	
+		QuantifiedConditions:
+			Exists, Forall
+			Contains two ComplexConditions as arguments
+			
+		Formulas:
+			(1 argument:) NOT
+			(2 arguments:) AND, OR, XOR, IMPLIES, XNOR (EQUIVALENT)
+	
+		True:
+			Leaves of an ComplexCondition
+
+Graph:
+	Contains Nodes and their Relationships (based on XPath-Axis)
+	Additionally, Conditions can be defined using boolean functions based on properties of nodes
+	
+	Node: 
+		XML-Elements
+	Relation:
+		Relative position of Nodes (based on XPath-Axis)
+	Propety:
+		XML-Tag-Name, Attribute-Values, Content-Data
+		
+
+Result-Query:
+	for <every possible Result (Return-Element)>
+	where 
+		<test for complex conditions (combinations of quantified conditions and formulas)>
+	return <Result>
+	
+	for:
+		The Query does iterate through the elements specified in the Return-Graph from the XML-Root to the Return-Element(s) using nested for-clauses
+		
+	where:
+		QuantifiedCondition are translated by some- and every-clauses.
+		Formulas can be represented directly with the operators.
+		These clauses can be nested.
+	
+	return:
+		variable of the return-Element(s)
+
+
+_____________Algorithm:_____________
+
 // see class diagram in "qualitypatternmodel.jpg"
 
 String translatePatternToXQuery(Pattern pattern){	
