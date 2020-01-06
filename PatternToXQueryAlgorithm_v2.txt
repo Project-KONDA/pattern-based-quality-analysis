@@ -1,77 +1,101 @@
 +++ Translation of a Pattern to XQuery +++
 
+// see class diagram in "qualitypatternmodel.jpg"
+
 _____________Explanation:_____________
 
 
 Desired Result:
-	Result is  every return-Element specified in the Return-Graph, which does fulfill specified conditions.
-	The Return-Graph can contain Primitive Conditions, other conditions are specified as Complex Conditions using Graphs in combination with QuantifiedConditions.
+	The result of a pattern is the set of Return Elements specified in the Return Graph, which satisfy the specified conditions.
+	The Return Graph may include Primitive Conditions (e.g. regarding an element's property). 
+	Other conditions (e.g. regarding the existence of child elements) are specified as Complex Conditions via nested QuantifiedConditions that each include a Graph.
 		
 	
-Return-Graph:
-	Path on how to reach the Result-Elements from the XML-Root-Elements
-	can contain primitive conditions
+Return Graph:
+	Specifies which elements should be returned by the pattern by indicating the path from the XML Root Element to the Return Elements.
+	May contain primitive conditions refering to properties of the root or return elements or the elements on the path between them.
 	
-Return-Element: 
-	One or more elements, which should create the Result based on the Return-Graph.
-	If multiple elements are specified as return-elements, pairs of elements are returned.
-	In that case, we want to add an addtional XML-element (<break/>) between the pairs.
-	This is, because nesting these pairs in an element is inefficient.
+Return Element: 
+	One or more elements, which should be returned as the Result when applying the pattern.
+	if (multiple elements are specified as Return Elements, pairs of elements are returned.
+		(In that case, we want to add an addtional XML element (<break/>) between the pairs.
+		This is, because nesting these pairs in an element is inefficient.)
 	
-PrimitiveConditions:
-	Simple Conditions, which can be evaluated alone on the current element (name, attribute-values, data) 
+Primitive Conditions:
+	Simple conditions which can be evaluated solely on a single element (whose tag name, attribute values or content data they refer to) and do not depend on any further elements. 
 
-ComplexConditions:
-	Combinations of QuantifiedConditions and Formulas
-	additional conditions to the elements, which should be returned
+Complex Conditions:
+	combinations of QuantifiedConditions and Formulas
+	additional conditions regarding the XML structure of the return elements and their related elements
 	
-		QuantifiedConditions:
-			Exists, Forall
-			Contains two ComplexConditions as arguments
+		QuantifiedCondition:
+			contains a Graph which specifies the elements involved in the condition as well as their relations and properties
+			specifies a quantifier for the elements new in this graph: exists or forall
+			contains a nested QuantifiedCondition
 			
-		Formulas:
+		Formula:
 			(1 argument:) NOT
 			(2 arguments:) AND, OR, XOR, IMPLIES, XNOR (EQUIVALENT)
+			contains Complex Condition(s) as arguments
 	
 		True:
-			Leaves of an ComplexCondition
+			Leave of a Complex Condition
 
 Graph:
-	Contains Nodes and their Relationships (based on XPath-Axis)
-	Additionally, Conditions can be defined using boolean functions based on properties of nodes
+	describes Nodes and Relationships between them (based on XPath axes)
+	Additionally, Conditions can be defined via boolean functions over the property of a node or properties of multiple different nodes.
 	
 	Node: 
-		XML-Elements
+		XML element
 	Relation:
-		Relative position of Nodes (based on XPath-Axis)
+		Relative position (based on XPath axes) of an XML element in relation to another XML element
 	Propety:
-		XML-Tag-Name, Attribute-Values, Content-Data
+		XML tag name, attribute values, content data
 		
 
-Result-Query:
-	for <every possible Result (Return-Element)>
+Query as the result of the pattern translation:
+	for <every possible Result (Return Element)>
 	where 
 		<test for complex conditions (combinations of quantified conditions and formulas)>
 	return <Result>
 	
 	for:
-		The Query does iterate through the elements specified in the Return-Graph from the XML-Root to the Return-Element(s) using nested for-clauses
+		The Query iterates through the elements specified in the Return Graph (from the XML Root Element to the Return Element(s)) using nested for clauses.
 		
 	where:
-		QuantifiedCondition are translated by some- and every-clauses.
-		Formulas can be represented directly with the operators.
-		These clauses can be nested.
+		QuantifiedCondition are translated into nested some and every clauses.
+		Formulas are expressed directly via the corresponding operators.		
 	
 	return:
-		variable of the return-Element(s)
+		variable(s) of the Return Element(s)
+		
 
 
-_____________Algorithm:_____________
+_____________Abstract Algorithm:_____________
 
-// see class diagram in "qualitypatternmodel.jpg"
+
+translate returnGraph 
+	by traversing the graph and adding a FOR clause for each visited element
+	for $id<element.id> in <xPathExpression>[<xPredicate>]*
+		the xPathExpression encodes the relation to the previous element
+		each xPredicate encodes a primitive condition on one of the element's properties
+	
+
+translate each condition nested in the pattern
+	in case of a QuantifiedCondition: traverse the graph and nest a SOME or EVERY clause into the WHERE clause for each visited element
+		{some, every} $id<element.id> in <xPathExpression>[xPredicate]* satisfies
+			the xPathExpression encodes the relation to the previous element
+			each xPredicate encodes a condition on a propertiy of an element or on properties of multiple different elements (this also includes statements about sets of elements)
+	in case of a Formula: append the logical operator to the WHERE clause and translate its arguments
+
+add a RETURN clause for returning the variables representing the pattern's return elements
+
+
+_____________Detailed Algorithm:_____________
+
 
 String translatePatternToXQuery(Pattern pattern){	
-	for each Element element in the whole pattern: element.isTranslated = false;
+	for (Element element: pattern.graphs.elements) element.isTranslated = false;
 	String forClauses = translateReturnGraph();
 	String whereClause = "where " + translateConditions();
 	String returnClause = "return $id" + pattern.returnGraph.returnElement;
@@ -84,57 +108,61 @@ String translateReturnGraph(){
 		
 String translateSingleElementReturnGraph(SingleElement element){
 		
-		String xPathExpression = translatePathFromPrevious(element);
-		
-		String xPredicates = "";
-		
-		for each BooleanOperator predicate in element.predicates where booleanOperatorIsReady(predicate): 
+	String xPathExpression = translatePathFromPrevious(element);
+	
+	String xPredicates = "";
+	
+	for (BooleanOperator predicate : element.predicates){
+		if ((booleanOperatorIsReady(predicate)){
 			String xPredicate = "[" + translatePredicate(predicate, element) + "]";			
 			xPredicates += xPredicate;
-		
-		String forClauses = "for " + "$id" + element.id + " in " + xPathExpression + xPredicates;
-		
-		element.isTranslated = true;
-		
-		for each SingleElement nextElement in element.getNextElements():
-			forClauses += translateSingleElementReturnGraph(nextElement);
-		
-		return forClauses;
+		}
+	}
+	
+	String forClauses = "for " + "$id" + element.id + " in " + xPathExpression + xPredicates;
+	
+	element.isTranslated = true;
+	
+	for (SingleElement nextElement : element.getNextElements()){
+		forClauses += translateSingleElementReturnGraph(nextElement);
+	}
+	
+	return forClauses;
 }
 
 boolean booleanOperatorIsReady(BooleanOperator booleanOperator){
-	if(predicate instanceof Comparison){
+	if (predicate instanceof Comparison){
 		Comparison comparison = (Comparison) predicate;
 		return isReady(comparison.argument1) && isReady(comparison.argument2);
 	}
-	if(predicate instanceof Match){
+	if (predicate instanceof Match){
 		Match match = (Match) predicate;
 		return isReady(match.property);
 	}
 }
 
 boolean numberOperatorIsReady(NumberOperator numberOperator){
-	if(numberOperator instanceof Count){
+	if (numberOperator instanceof Count){
 		Count count = (Count) numberOperator;
 		return isReady(count.argument);
 	}
-	if(numberOperator instanceof ToNumber){
+	if (numberOperator instanceof ToNumber){
 		ToNumber toNumber = (ToNumber) numberOperator;
 		return isReady(toNumber.property);
 	}
 }
 
 boolean isReady(GraphElement element){
-	if(element instanceof Property){
+	if (element instanceof Property){
 		Property property = (Property) element;
 		return property.element.isTranslated;
-	} else if(element instanceof BooleanOperator){
+	} else if (element instanceof BooleanOperator){
 		BooleanOperator booleanOperator = (BooleanOperator) element;
 		return booleanOperatorIsReady(booleanOperator);
-	} else if(element instanceof NumberOperator){
+	} else if (element instanceof NumberOperator){
 		NumberOperator numberOperator = (NumberOperator) element;
 		return numberOperatorIsReady(numberOperator);
-	} else if(element instanceof SetElement){
+	} else if (element instanceof SetElement){
 		SetElement setElement = (SetElement) element;
 		return setElement.getPreviousElement().isTranslated;
 	} else {
@@ -143,33 +171,51 @@ boolean isReady(GraphElement element){
 }
 
 String translatePathFromPrevious(Element element){
-	return element.getPreviousElement().getId() + "/" + element.relationFromPrevious.axis;
+	String axis;
+	if (element.relationFromPrevious.axis == null){
+		axis = (Axis) element.relationFromPrevious.options.selection;
+	} else {
+		axis = element.relationFromPrevious.axis;
+	}
+	return element.getPreviousElement().getId() + "/" + axis;
 }
 
 String translatePredicates(Element element){
-	for each BooleanOperator predicate in element.predicates:
+	for (BooleanOperator predicate : element.predicates){
 		translatePredicate(predicate, element);
+	}
 }
 		
 String translatePredicate(BooleanOperator predicate, Element element){
 
-	if(predicate instanceof Comparison){
+	if (predicate instanceof Comparison){
 		Comparison comparison = (Comparison) predicate;
-		return translateArgument(comparison.argument1,element) + comparison.operator + translateArgument(comparison.argument2,element);
+		String operator;
+		if (comparison.operator == null){
+			operator = (ComparisonOperator) comparison.options.selection;
+		} else {
+			operator = comparison.operator;
+		}
+		return translateArgument(comparison.argument1,element) + operator + translateArgument(comparison.argument2,element);
 	}
-	if(predicate instanceof Match){
+	if (predicate instanceof Match){
 		Match match = (Match) predicate;
-		return "match(" + translateArgument(match.argument,element) + "," + match.regularExpression.text + ")";
+		if ((Boolean) match.options.selection){
+			return "match(" + translateArgument(match.argument,element) + "," + match.regularExpression.text + ")";
+		} else {
+			return "not(match(" + translateArgument(match.argument,element) + "," + match.regularExpression.text + "))";
+		}
+		
 	}
 
 }
 
 String translateOperator(Operator operator, Element element){
-	if(operator instanceof NumberOperator){
+	if (operator instanceof NumberOperator){
 		NumberOperator numberOperator = (NumberOperator) operator;
 		translateNumberOperator(numberOperator,element);
 	}
-	if(operator instanceof BooleanOperator){
+	if (operator instanceof BooleanOperator){
 		BooleanOperator booleanOperator = (BooleanOperator) operator;
 		return translatePredicate(booleanOperator,element);
 	}
@@ -177,11 +223,11 @@ String translateOperator(Operator operator, Element element){
 
 String translateNumberOperator(NumberOperator numberOperator, Element element){
 	
-	if(numberOperator instanceof Count){
+	if (numberOperator instanceof Count){
 		Count count = (Count) numberOperator;
 		return "count(" + translateArgument(count.argument) + ")";
 	}
-	if(numberOperator instanceof ToNumber){
+	if (numberOperator instanceof ToNumber){
 		ToNumber toNumber = (ToNumber) numberOperator;
 		return "fn:number(" + translateArgument(toNumber.property) + ")";
 	}
@@ -190,39 +236,52 @@ String translateNumberOperator(NumberOperator numberOperator, Element element){
 
 String translateArgument(GraphElement argument, Element element){
 
-	if(argument instanceof Input){ 
+	if (argument instanceof Input){ 
 		Input input = (Input) argument;
-		if input instanceof Text:
+		if (input instanceof Text){
 			Text text = (Text) input;
 			return text.text;
-		if input instanceof Number:
+		}
+		if (input instanceof Number){
 			Number number = (Number) input;
 			return number.number;
-		if input instanceof Boolean:
+		}
+		if (input instanceof Boolean){
 			Boolean bool = (Boolean) input;
 			return bool.bool;
-		if input instanceof Option: 
+		}
+		if (input instanceof Option){ 
 			Option option = (Option) input;
-			translate option.selection depending on the type variable T as described in lines 32 to 63	???	
+			???	
+		}
 	}		
-	if(argument instanceof Property){ 
+	if (argument instanceof Property){ 
 		Property property = (Property) argument;
-		if property.location = DATA:
+		String location;
+		if (property.location == null){
+			location = (PropertyLocation) property.options.selection;
+		} else {
+			location = property.location;
+		}
+		if (location = DATA){
 			return "data()";
-		if property.location = TAG:
+		}
+		if (location = TAG){
 			return "name()"
-		if property.location = ATTRIBUTE:
+		}
+		if (location = ATTRIBUTE){
 			return "@" + property.attributeName;		
+		}
 	}		
-	if(argument instanceof SingleElement){ 
+	if (argument instanceof SingleElement){ 
 		SingleElement singleElement = (SingleElement) argument;
-		if(singleElement.equals(element)){
+		if (singleElement.equals(element)){
 			return ".";
 		} else {
 			return "$id" + singleElement.id;
 		}
 	}
-	if(argument instanceof SetElement){ 
+	if (argument instanceof SetElement){ 
 		SetElement setElement = (SetElement) argument;
 		Element predicateOwnerElement = element;
 
@@ -230,12 +289,15 @@ String translateArgument(GraphElement argument, Element element){
 		
 		String xPredicates = "";		
 	
-		for each SetElement nextSetElement in setElement.getNextElements() with !nextSetElement.isTranslated:
-			xPredicates += "[./" + nextSetElement.relationFromPrevious.axis + translatePredicates(nextSetElement) + "]"; 
+		for (SetElement nextSetElement : setElement.getNextElements()){
+			if (!nextSetElement.isTranslated){
+				xPredicates += "[./" + nextSetElement.relationFromPrevious.axis + translatePredicates(nextSetElement) + "]";
+			}
+		}
 					
 		return xPathExpression + xPredicates;			
 	}
-	if(argument instanceof Operator){ 
+	if (argument instanceof Operator){ 
 		Operator operator = (Operator) argument;
 		return translateOperator(operator,element);
 	}
@@ -244,7 +306,7 @@ String translateArgument(GraphElement argument, Element element){
 
 String translatePathFromPreviousFromSetElement(SetElement setElement, Element predicateOwnerElement, String xPathExpression){
 	
-	if(setElement.equals(predicateOwnerElement)){
+	if (setElement.equals(predicateOwnerElement)){
 		return xPathExpression;
 	}		
 							
@@ -262,51 +324,57 @@ String translateConditions(){
 }
 
 String translateCondition(Condition condition){
-	if condition instanceof QuantifiedCondition:	
+	if (condition instanceof QuantifiedCondition){	
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) condition;		
 		return translateSingleElementConditionGraph(quantifiedCondition.graph.rootElement) + translateCondition(quantifiedCondition.condition);		
-				
-	if condition instanceof Formula:
+	}		
+	if (condition instanceof Formula){
 		Formula formula = (Formula) condition;	
-		if(formula.operator == NOT){
+		if (formula.operator == NOT){
 			return "not(" + translateCondition(formula.arguments.get(0)) + ")";
 		} else {
 			return "(" + translateCondition(formula.arguments.get(0)) + ")" + formula.operator + "(" + translateCondition(formula.arguments.get(1)) + ")"; 
 		}		
+	}
 		
-	if condition instanceof True:
+	if (condition instanceof True){
 		return "true";
+	}
 }
 
 String translateSingleElementConditionGraph(SingleElement element){
 
 	String forClauses = "";
 
-	if element.mappingTo == null:
-		
+	if (element.mappingTo == null){		
 		String xPathExpression = translatePathFromPrevious(element);		
 		String xPredicates;	
 		
-		for each BooleanOperator predicate in element.predicates where predicate.isReady: 
-			xPredicates += "[" + translatePredicate(predicate, element) + "]";			
+		for (BooleanOperator predicate : element.predicates){
+			if (booleanOperatorIsReady(predicate)){
+				xPredicates += "[" + translatePredicate(predicate, element) + "]";
+			}
+		}
 		
-		if quantifiedCondition.quantifier = EXISTS:
-			forClauses = "some $id" + element.id " in " + xPathExpression + xPredicates + " satisfies \n"
-			
-		else if quantifiedCondition.quantifier = FORALL:
-			forClauses = "every $id" + element.id " in " + xPathExpression + xPredicates + " satisfies \n"				
+		if (quantifiedCondition.quantifier = EXISTS){
+			forClauses = "some $id" + element.id " in " + xPathExpression + xPredicates + " satisfies \n";
+		} else if (quantifiedCondition.quantifier = FORALL){
+			forClauses = "every $id" + element.id " in " + xPathExpression + xPredicates + " satisfies \n";
+		}
 	
-	else:
-
-		if quantifier = EXISTS:
-			forClauses = "some $id" + element.id " in $id" + element.id + xPredicates + " satisfies \n"
-		else if quantifier = FORALL:
-			forClauses = "every $id" + element.id " in $id" + element.id + xPredicates + " satisfies \n"
+	} else {
+		if (quantifier = EXISTS){
+			forClauses = "some $id" + element.id " in $id" + element.id + xPredicates + " satisfies \n";
+		} else if (quantifier = FORALL){
+			forClauses = "every $id" + element.id " in $id" + element.id + xPredicates + " satisfies \n";
+		}
+	}
 	
 	element.isTranslated = true;
 	
-	for each SingleElement nextElement in element.getNextElements():
+	for (SingleElement nextElement : element.getNextElements()){
 		forClauses += translateSingleElementConditionGraph(nextElement);
+	}
 	
 	return forClauses;
 }
