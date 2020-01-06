@@ -22,7 +22,8 @@ Return Element:
 		This is, because nesting these pairs in an element is inefficient.)
 	
 Primitive Conditions:
-	Simple conditions which can be evaluated solely on a single element (whose tag name, attribute values or content data they refer to) and do not depend on any further elements. 
+	Simple conditions which can be evaluated solely on a single element (whose tag name, attribute values or content data they refer to) 
+		and do not depend on any further elements. 
 
 Complex Conditions:
 	combinations of QuantifiedConditions and Formulas
@@ -85,7 +86,8 @@ translate each condition nested in the pattern
 	in case of a QuantifiedCondition: traverse the graph and nest a SOME or EVERY clause into the WHERE clause for each visited element
 		{some, every} $id<element.id> in <xPathExpression>[xPredicate]* satisfies
 			the xPathExpression encodes the relation to the previous element
-			each xPredicate encodes a condition on a propertiy of an element or on properties of multiple different elements (this also includes statements about sets of elements)
+			each xPredicate encodes a condition on a propertiy of an element or on properties of multiple different elements 
+				(this also includes statements about sets of elements)
 	in case of a Formula: append the logical operator to the WHERE clause and translate its arguments
 
 add a RETURN clause for returning the variables representing the pattern's return elements
@@ -106,18 +108,9 @@ String translateReturnGraph(){
 	return translateSingleElementReturnGraph(pattern.returnGraph.rootElement);
 }
 		
-String translateSingleElementReturnGraph(SingleElement element){
-		
-	String xPathExpression = translatePathFromPrevious(element);
-	
-	String xPredicates = "";
-	
-	for (BooleanOperator predicate : element.predicates){
-		if ((booleanOperatorIsReady(predicate)){
-			String xPredicate = "[" + translatePredicate(predicate, element) + "]";			
-			xPredicates += xPredicate;
-		}
-	}
+String translateSingleElementReturnGraph(SingleElement element){		
+	String xPathExpression = translatePathFromPrevious(element);	
+	String xPredicates = translatePredicates(element);		
 	
 	String forClauses = "for " + "$id" + element.id + " in " + xPathExpression + xPredicates;
 	
@@ -173,16 +166,22 @@ boolean isReady(GraphElement element){
 String translatePathFromPrevious(Element element){
 	String axis;
 	if (element.relationFromPrevious.axis == null){
-		axis = (Axis) element.relationFromPrevious.options.selection;
+		axis = ((Axis) element.relationFromPrevious.options.selection).getLiteral();
 	} else {
 		axis = element.relationFromPrevious.axis;
 	}
-	return element.getPreviousElement().getId() + "/" + axis;
+	if(element instanceof SingleElement){
+		return element.getPreviousElement().getId() + "/" + axis + "::*";
+	} else if (element instanceof SetElement){
+		return "/" + axis + "::*";
+	}
 }
 
 String translatePredicates(Element element){
 	for (BooleanOperator predicate : element.predicates){
-		translatePredicate(predicate, element);
+		if ((booleanOperatorIsReady(predicate)){
+			return "[" + translatePredicate(predicate, element) + "]";
+		}
 	}
 }
 		
@@ -192,7 +191,7 @@ String translatePredicate(BooleanOperator predicate, Element element){
 		Comparison comparison = (Comparison) predicate;
 		String operator;
 		if (comparison.operator == null){
-			operator = (ComparisonOperator) comparison.options.selection;
+			operator = ((ComparisonOperator) comparison.options.selection).getLiteral();
 		} else {
 			operator = comparison.operator;
 		}
@@ -213,7 +212,7 @@ String translatePredicate(BooleanOperator predicate, Element element){
 String translateOperator(Operator operator, Element element){
 	if (operator instanceof NumberOperator){
 		NumberOperator numberOperator = (NumberOperator) operator;
-		translateNumberOperator(numberOperator,element);
+		return translateNumberOperator(numberOperator,element);
 	}
 	if (operator instanceof BooleanOperator){
 		BooleanOperator booleanOperator = (BooleanOperator) operator;
@@ -284,40 +283,33 @@ String translateArgument(GraphElement argument, Element element){
 	if (argument instanceof SetElement){ 
 		SetElement setElement = (SetElement) argument;
 		Element predicateOwnerElement = element;
-
-		String xPathExpression = translatePathFromPreviousFromSetElement(setElement,"");
-		
-		String xPredicates = "";		
-	
-		for (SetElement nextSetElement : setElement.getNextElements()){
-			if (!nextSetElement.isTranslated){
-				xPredicates += "[./" + nextSetElement.relationFromPrevious.axis + translatePredicates(nextSetElement) + "]";
-			}
-		}
-					
-		return xPathExpression + xPredicates;			
+		return translatePathFromPreviousFromSetElement(setElement,"");				
 	}
 	if (argument instanceof Operator){ 
 		Operator operator = (Operator) argument;
 		return translateOperator(operator,element);
 	}
-
 }
 
-String translatePathFromPreviousFromSetElement(SetElement setElement, Element predicateOwnerElement, String xPathExpression){
-	
+String translatePathFromPreviousFromSetElement(SetElement setElement, Element predicateOwnerElement, String xPathExpression){	
 	if (setElement.equals(predicateOwnerElement)){
-		return xPathExpression;
-	}		
-							
-	xPathExpression = translatePathFromPrevious(setElement) + translatePredicates(setElement) + xPathExpression
-	setElement.isTranslated = true
-	xPathExpression = "$id" + predicateOwnerElement.id + xPathExpression	
-	
-	return translatePathFromPreviousFromSetElement(setElement.getPreviousElement(),predicateOwnerElement, xPathExpression);
-
+		return "$id" + predicateOwnerElement.id + xPathExpression;
+	}			
+	xPathExpression = translatePathFromPrevious(setElement) + translatePredicates(setElement) 
+		+ translateElementExistencePredicates(pathElement) + xPathExpression;
+	setElement.isTranslated = true;	
+	return translatePathFromPreviousFromSetElement(setElement.getPreviousElement(), predicateOwnerElement, xPathExpression);
 }
 
+String translateElementExistencePredicates(Element pathElement){		
+	for (SetElement nextSetElement : pathElement.next){
+		if (!nextSetElement.isTranslated){
+			nextSetElement.isTranslated = true;
+			return "[." + translatePathFromPrevious(nextSetElement) + translatePredicates(nextSetElement)
+				+ translateElementExistencePredicates(nextSetElement) + "]"; 			
+		}										
+	}
+}
 
 String translateConditions(){
 	return translateCondition(pattern.condition);
@@ -343,31 +335,12 @@ String translateCondition(Condition condition){
 }
 
 String translateSingleElementConditionGraph(SingleElement element){
-
-	String forClauses = "";
-
-	if (element.mappingTo == null){		
-		String xPathExpression = translatePathFromPrevious(element);		
-		String xPredicates;	
-		
-		for (BooleanOperator predicate : element.predicates){
-			if (booleanOperatorIsReady(predicate)){
-				xPredicates += "[" + translatePredicate(predicate, element) + "]";
-			}
-		}
-		
-		if (quantifiedCondition.quantifier = EXISTS){
-			forClauses = "some $id" + element.id " in " + xPathExpression + xPredicates + " satisfies \n";
-		} else if (quantifiedCondition.quantifier = FORALL){
-			forClauses = "every $id" + element.id " in " + xPathExpression + xPredicates + " satisfies \n";
-		}
-	
-	} else {
-		if (quantifier = EXISTS){
-			forClauses = "some $id" + element.id " in $id" + element.id + xPredicates + " satisfies \n";
-		} else if (quantifier = FORALL){
-			forClauses = "every $id" + element.id " in $id" + element.id + xPredicates + " satisfies \n";
-		}
+	String xPathExpression = translatePathFromPrevious(element);		
+	String xPredicates = translatePredicates(element);		
+	if (element.mappingTo == null){					
+		forClauses = quantifiedCondition.quantifier.getLiteral() + " $id" + element.id " in " + xPathExpression + xPredicates + " satisfies \n";			
+	} else {		
+		forClauses = quantifiedCondition.quantifier.getLiteral() + " $id" + element.id " in $id" + element.id + xPredicates + " satisfies \n";
 	}
 	
 	element.isTranslated = true;

@@ -43,20 +43,23 @@ translation of pattern.returnGraph of type GRAPH:
 									add name() to XQuery
 								if property.location = ATTRIBUTE:
 									add @<property.attributeName> to XQuery								
-							- element of type ELEMENT: 
-								transfer name of the XQuery variable representing element or "." (self) to the XQuery
+							- singleElement of type SINGLEELEMENT: 
+								transfer name of the XQuery variable representing singleElement or "." (self) to the XQuery
 							- setElement of type SETELEMENT:
 								let predicateOwnerElement of type ELEMENT be the element which references the predicate containing the set operation which has setElement as an argument									
 								generate xPathExpression:									
 									navigate from setElement to predicateOwnerElement: 
 									for each pathElement of type SETELEMENT:										
-										xPathExpression = translated pathElement.relationFromPrevious + translated pathElement.predicates + xPathExpression (see lines 26 to 63)
+										pathPredicates = translated pathElement.predicates;
+										setConditions = "";
+										for each nextSetElement of type SETELEMENT in pathElement.next with !nextSetElement.isTranslated 
+											!!! and all its following SETELEMENTS satisfying the condition (recursively!):
+											setConditions += predicate requiring the existence of nextSetElement in the form [./<xPathExpression>[xPredicate]*[xSetCondition]*] (recursive) (see lines 26 to 63)
+										xPathExpression = translated pathElement.relationFromPrevious + pathPredicates + setConditions + xPathExpression (see lines 26 to 63)
 										pathElement.isTranslated = true
 									xPathExpression = variable representing predicateOwnerElement + xPathExpression
-								generate xPredicates string of the form [xPredicate]*:
-									xPredicates += translated setElement.predicates (see lines 28 to 63)
-									for each nextSetElement of type SETELEMENT in setElement.next with !nextSetElement.isTranslated:
-										xPredicates += predicate requiring the existence of nextSetElement in the form [./<xPathExpression>[xPredicate]*] (see lines 26 to 63)
+								
+									
 								put <xPathExpression><xPredicates> into the XQuery
 							- operator of type OPERATOR:
 								directly transfer operator notation to the XQuery
