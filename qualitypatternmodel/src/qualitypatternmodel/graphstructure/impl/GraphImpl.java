@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.OperatorList;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.graphstructure.VariableList;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
@@ -34,6 +35,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElement <em>Return Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getVariableList <em>Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getRootElement <em>Root Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorlist <em>Operatorlist</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +70,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @ordered
 	 */
 	protected SingleElement rootElement;
+
+	/**
+	 * The cached value of the '{@link #getOperatorlist() <em>Operatorlist</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperatorlist()
+	 * @generated
+	 * @ordered
+	 */
+	protected OperatorList operatorlist;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,6 +228,49 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public OperatorList getOperatorlist() {
+		return operatorlist;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOperatorlist(OperatorList newOperatorlist, NotificationChain msgs) {
+		OperatorList oldOperatorlist = operatorlist;
+		operatorlist = newOperatorlist;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__OPERATORLIST, oldOperatorlist, newOperatorlist);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOperatorlist(OperatorList newOperatorlist) {
+		if (newOperatorlist != operatorlist) {
+			NotificationChain msgs = null;
+			if (operatorlist != null)
+				msgs = ((InternalEObject)operatorlist).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__OPERATORLIST, null, msgs);
+			if (newOperatorlist != null)
+				msgs = ((InternalEObject)newOperatorlist).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__OPERATORLIST, null, msgs);
+			msgs = basicSetOperatorlist(newOperatorlist, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__OPERATORLIST, newOperatorlist, newOperatorlist));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -223,6 +278,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return basicSetVariableList(null, msgs);
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				return basicSetRootElement(null, msgs);
+			case GraphstructurePackage.GRAPH__OPERATORLIST:
+				return basicSetOperatorlist(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -241,6 +298,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getVariableList();
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				return getRootElement();
+			case GraphstructurePackage.GRAPH__OPERATORLIST:
+				return getOperatorlist();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -264,6 +323,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				setRootElement((SingleElement)newValue);
 				return;
+			case GraphstructurePackage.GRAPH__OPERATORLIST:
+				setOperatorlist((OperatorList)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -285,6 +347,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				setRootElement((SingleElement)null);
 				return;
+			case GraphstructurePackage.GRAPH__OPERATORLIST:
+				setOperatorlist((OperatorList)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -303,6 +368,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return variableList != null;
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				return rootElement != null;
+			case GraphstructurePackage.GRAPH__OPERATORLIST:
+				return operatorlist != null;
 		}
 		return super.eIsSet(featureID);
 	}

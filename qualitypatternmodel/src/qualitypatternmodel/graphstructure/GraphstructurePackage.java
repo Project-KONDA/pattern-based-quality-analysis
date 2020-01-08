@@ -80,7 +80,7 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__AXIS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Relation Options</b></em>' containment reference.
+	 * The feature id for the '<em><b>Relation Options</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -208,22 +208,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__ELEMENT = GRAPH_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Attribute Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__ATTRIBUTE_NAME = GRAPH_ELEMENT_FEATURE_COUNT + 1;
+	int PROPERTY__ATTRIBUTE_NAME = GRAPH_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -232,16 +223,25 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__LOCATION = GRAPH_ELEMENT_FEATURE_COUNT + 2;
+	int PROPERTY__LOCATION = GRAPH_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Property Options</b></em>' containment reference.
+	 * The feature id for the '<em><b>Property Options</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__PROPERTY_OPTIONS = GRAPH_ELEMENT_FEATURE_COUNT + 3;
+	int PROPERTY__PROPERTY_OPTIONS = GRAPH_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Element</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__ELEMENT = GRAPH_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Property</em>' class.
@@ -299,7 +299,7 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -344,13 +344,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__IS_ROOT = GRAPH_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__PROPERTY = GRAPH_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = GRAPH_ELEMENT_FEATURE_COUNT + 5;
+	int ELEMENT_FEATURE_COUNT = GRAPH_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -435,7 +444,7 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -478,6 +487,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT__IS_ROOT = ELEMENT__IS_ROOT;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__PROPERTY = ELEMENT__PROPERTY;
 
 	/**
 	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
@@ -607,7 +625,7 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -650,6 +668,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT__IS_ROOT = ELEMENT__IS_ROOT;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT__PROPERTY = ELEMENT__PROPERTY;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
@@ -788,13 +815,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__ROOT_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Operatorlist</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -834,7 +870,7 @@ public interface GraphstructurePackage extends EPackage {
 	int VARIABLE_LIST = 7;
 
 	/**
-	 * The feature id for the '<em><b>Variables</b></em>' reference list.
+	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -861,6 +897,43 @@ public interface GraphstructurePackage extends EPackage {
 	int VARIABLE_LIST_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.OperatorListImpl <em>Operator List</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.impl.OperatorListImpl
+	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getOperatorList()
+	 * @generated
+	 */
+	int OPERATOR_LIST = 8;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST__OPERATOR = 0;
+
+	/**
+	 * The number of structural features of the '<em>Operator List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Operator List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -868,7 +941,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getPropertyLocation()
 	 * @generated
 	 */
-	int PROPERTY_LOCATION = 8;
+	int PROPERTY_LOCATION = 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Axis <em>Axis</em>}' enum.
@@ -878,7 +951,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getAxis()
 	 * @generated
 	 */
-	int AXIS = 9;
+	int AXIS = 10;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}' enum.
@@ -888,7 +961,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getReturnType()
 	 * @generated
 	 */
-	int RETURN_TYPE = 10;
+	int RETURN_TYPE = 11;
 
 
 	/**
@@ -913,10 +986,10 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getRelation_Axis();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Relation#getRelationOptions <em>Relation Options</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getRelationOptions <em>Relation Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Relation Options</em>'.
+	 * @return the meta object for the reference '<em>Relation Options</em>'.
 	 * @see qualitypatternmodel.graphstructure.Relation#getRelationOptions()
 	 * @see #getRelation()
 	 * @generated
@@ -956,10 +1029,10 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getProperty();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Element</em>'.
+	 * @return the meta object for the container reference '<em>Element</em>'.
 	 * @see qualitypatternmodel.graphstructure.Property#getElement()
 	 * @see #getProperty()
 	 * @generated
@@ -989,10 +1062,10 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getProperty_Location();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Property Options</em>'.
+	 * @return the meta object for the reference '<em>Property Options</em>'.
 	 * @see qualitypatternmodel.graphstructure.Property#getPropertyOptions()
 	 * @see #getProperty()
 	 * @generated
@@ -1096,10 +1169,10 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getElement();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Predicates</em>'.
+	 * @return the meta object for the reference list '<em>Predicates</em>'.
 	 * @see qualitypatternmodel.graphstructure.Element#getPredicates()
 	 * @see #getElement()
 	 * @generated
@@ -1149,6 +1222,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElement_IsRoot();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Element#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Property</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#getProperty()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EReference getElement_Property();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#generateXPredicates() <em>Generate XPredicates</em>}' operation.
@@ -1234,6 +1318,17 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getGraph_RootElement();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getOperatorlist <em>Operatorlist</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operatorlist</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getOperatorlist()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_Operatorlist();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.GraphElement <em>Graph Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1264,15 +1359,36 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getVariableList();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.VariableList#getVariables <em>Variables</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.VariableList#getVariables <em>Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Variables</em>'.
+	 * @return the meta object for the containment reference list '<em>Variables</em>'.
 	 * @see qualitypatternmodel.graphstructure.VariableList#getVariables()
 	 * @see #getVariableList()
 	 * @generated
 	 */
 	EReference getVariableList_Variables();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.OperatorList <em>Operator List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operator List</em>'.
+	 * @see qualitypatternmodel.graphstructure.OperatorList
+	 * @generated
+	 */
+	EClass getOperatorList();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.OperatorList#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operator</em>'.
+	 * @see qualitypatternmodel.graphstructure.OperatorList#getOperator()
+	 * @see #getOperatorList()
+	 * @generated
+	 */
+	EReference getOperatorList_Operator();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}'.
@@ -1346,7 +1462,7 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute RELATION__AXIS = eINSTANCE.getRelation_Axis();
 
 		/**
-		 * The meta object literal for the '<em><b>Relation Options</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Relation Options</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1380,7 +1496,7 @@ public interface GraphstructurePackage extends EPackage {
 		EClass PROPERTY = eINSTANCE.getProperty();
 
 		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Element</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1404,7 +1520,7 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute PROPERTY__LOCATION = eINSTANCE.getProperty_Location();
 
 		/**
-		 * The meta object literal for the '<em><b>Property Options</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Property Options</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1490,7 +1606,7 @@ public interface GraphstructurePackage extends EPackage {
 		EClass ELEMENT = eINSTANCE.getElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Predicates</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Predicates</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1528,6 +1644,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT__IS_ROOT = eINSTANCE.getElement_IsRoot();
+
+		/**
+		 * The meta object literal for the '<em><b>Property</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT__PROPERTY = eINSTANCE.getElement_Property();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate XPredicates</b></em>' operation.
@@ -1596,6 +1720,14 @@ public interface GraphstructurePackage extends EPackage {
 		EReference GRAPH__ROOT_ELEMENT = eINSTANCE.getGraph_RootElement();
 
 		/**
+		 * The meta object literal for the '<em><b>Operatorlist</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__OPERATORLIST = eINSTANCE.getGraph_Operatorlist();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphElementImpl <em>Graph Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1624,12 +1756,30 @@ public interface GraphstructurePackage extends EPackage {
 		EClass VARIABLE_LIST = eINSTANCE.getVariableList();
 
 		/**
-		 * The meta object literal for the '<em><b>Variables</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference VARIABLE_LIST__VARIABLES = eINSTANCE.getVariableList_Variables();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.OperatorListImpl <em>Operator List</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.graphstructure.impl.OperatorListImpl
+		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getOperatorList()
+		 * @generated
+		 */
+		EClass OPERATOR_LIST = eINSTANCE.getOperatorList();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATOR_LIST__OPERATOR = eINSTANCE.getOperatorList_Operator();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.

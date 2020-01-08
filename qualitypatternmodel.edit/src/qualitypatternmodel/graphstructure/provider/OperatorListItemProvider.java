@@ -13,32 +13,43 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
+import qualitypatternmodel.functions.FunctionsFactory;
+
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.OperatorList;
 
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
 
-import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
-
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.Graph} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.OperatorList} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GraphItemProvider extends PatternElementItemProvider {
+public class OperatorListItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GraphItemProvider(AdapterFactory adapterFactory) {
+	public OperatorListItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -53,31 +64,8 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReturnElementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Return Element feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReturnElementPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Graph_returnElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_returnElement_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__RETURN_ELEMENT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -92,9 +80,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__VARIABLE_LIST);
-			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENT);
-			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__OPERATORLIST);
+			childrenFeatures.add(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATOR);
 		}
 		return childrenFeatures;
 	}
@@ -113,14 +99,14 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This returns Graph.gif.
+	 * This returns OperatorList.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Graph"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OperatorList"));
 	}
 
 	/**
@@ -131,7 +117,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Graph_type");
+		return getString("_UI_OperatorList_type");
 	}
 
 
@@ -146,10 +132,8 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Graph.class)) {
-			case GraphstructurePackage.GRAPH__VARIABLE_LIST:
-			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-			case GraphstructurePackage.GRAPH__OPERATORLIST:
+		switch (notification.getFeatureID(OperatorList.class)) {
+			case GraphstructurePackage.OPERATOR_LIST__OPERATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -169,18 +153,23 @@ public class GraphItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.GRAPH__VARIABLE_LIST,
-				 GraphstructureFactory.eINSTANCE.createVariableList()));
+				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATOR,
+				 FunctionsFactory.eINSTANCE.createCount()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENT,
-				 GraphstructureFactory.eINSTANCE.createSingleElement()));
+				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATOR,
+				 FunctionsFactory.eINSTANCE.createMatch()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.GRAPH__OPERATORLIST,
-				 GraphstructureFactory.eINSTANCE.createOperatorList()));
+				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATOR,
+				 FunctionsFactory.eINSTANCE.createComparison()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATOR,
+				 FunctionsFactory.eINSTANCE.createToNumber()));
 	}
 
 	/**

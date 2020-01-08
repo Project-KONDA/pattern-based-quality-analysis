@@ -47,9 +47,9 @@ public class PropertyItemProvider extends GraphElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addElementPropertyDescriptor(object);
 			addAttributeNamePropertyDescriptor(object);
 			addLocationPropertyDescriptor(object);
+			addElementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

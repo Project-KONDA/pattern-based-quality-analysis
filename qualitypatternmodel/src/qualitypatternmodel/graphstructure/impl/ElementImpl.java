@@ -15,13 +15,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.functions.BooleanOperator;
 
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
@@ -37,13 +38,14 @@ import qualitypatternmodel.patternstructure.InvalidTranslationException;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isIsTranslated <em>Is Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isIsRoot <em>Is Root</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperty <em>Property</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class ElementImpl extends GraphElementImpl implements Element {
 	/**
-	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' containment reference list.
+	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPredicates()
 	 * @generated
@@ -118,6 +120,16 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected boolean isRoot = IS_ROOT_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Property> property;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -167,7 +179,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 */
 	public EList<BooleanOperator> getPredicates() {
 		if (predicates == null) {
-			predicates = new EObjectContainmentEList<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES);
+			predicates = new EObjectResolvingEList<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES);
 		}
 		return predicates;
 	}
@@ -270,6 +282,18 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Property> getProperty() {
+		if (property == null) {
+			property = new EObjectContainmentWithInverseEList<Property>(Property.class, this, GraphstructurePackage.ELEMENT__PROPERTY, GraphstructurePackage.PROPERTY__ELEMENT);
+		}
+		return property;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -300,16 +324,31 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	public abstract Element getPreviousElement();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GraphstructurePackage.ELEMENT__PROPERTY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperty()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.ELEMENT__PREDICATES:
-				return ((InternalEList<?>)getPredicates()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return basicSetRelationFromPrevious(null, msgs);
+			case GraphstructurePackage.ELEMENT__PROPERTY:
+				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -331,6 +370,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return isIsTranslated();
 			case GraphstructurePackage.ELEMENT__IS_ROOT:
 				return isIsRoot();
+			case GraphstructurePackage.ELEMENT__PROPERTY:
+				return getProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -359,6 +400,10 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__IS_ROOT:
 				setIsRoot((Boolean)newValue);
 				return;
+			case GraphstructurePackage.ELEMENT__PROPERTY:
+				getProperty().clear();
+				getProperty().addAll((Collection<? extends Property>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -385,6 +430,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__IS_ROOT:
 				setIsRoot(IS_ROOT_EDEFAULT);
 				return;
+			case GraphstructurePackage.ELEMENT__PROPERTY:
+				getProperty().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -406,6 +454,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return isTranslated != IS_TRANSLATED_EDEFAULT;
 			case GraphstructurePackage.ELEMENT__IS_ROOT:
 				return isRoot != IS_ROOT_EDEFAULT;
+			case GraphstructurePackage.ELEMENT__PROPERTY:
+				return property != null && !property.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

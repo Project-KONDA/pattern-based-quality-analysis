@@ -70,7 +70,7 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' reference.
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -79,13 +79,22 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT__VARIABLE_LIST = GraphstructurePackage.GRAPH_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__DESCRIPTION = GraphstructurePackage.GRAPH_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Input</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_FEATURE_COUNT = GraphstructurePackage.GRAPH_ELEMENT_FEATURE_COUNT + 1;
+	int INPUT_FEATURE_COUNT = GraphstructurePackage.GRAPH_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -143,13 +152,22 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' reference.
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int NUMBER__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__DESCRIPTION = INPUT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -225,13 +243,22 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN = 2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' reference.
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int BOOLEAN__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN__DESCRIPTION = INPUT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Bool</b></em>' attribute.
@@ -307,13 +334,22 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' reference.
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int OPTION__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION__DESCRIPTION = INPUT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -398,13 +434,22 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' reference.
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int TEXT__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__DESCRIPTION = INPUT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -481,15 +526,26 @@ public interface InputfieldsPackage extends EPackage {
 	EClass getInput();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.inputfields.Input#getVariableList <em>Variable List</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.inputfields.Input#getVariableList <em>Variable List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Variable List</em>'.
+	 * @return the meta object for the container reference '<em>Variable List</em>'.
 	 * @see qualitypatternmodel.inputfields.Input#getVariableList()
 	 * @see #getInput()
 	 * @generated
 	 */
 	EReference getInput_VariableList();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Input#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see qualitypatternmodel.inputfields.Input#getDescription()
+	 * @see #getInput()
+	 * @generated
+	 */
+	EAttribute getInput_Description();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Input#inputIsValid() <em>Input Is Valid</em>}' operation.
@@ -630,12 +686,20 @@ public interface InputfieldsPackage extends EPackage {
 		EClass INPUT = eINSTANCE.getInput();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable List</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Variable List</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference INPUT__VARIABLE_LIST = eINSTANCE.getInput_VariableList();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT__DESCRIPTION = eINSTANCE.getInput_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Is Valid</b></em>' operation.

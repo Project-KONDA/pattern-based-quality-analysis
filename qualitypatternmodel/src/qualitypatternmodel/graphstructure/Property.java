@@ -13,10 +13,10 @@ import qualitypatternmodel.inputfields.Option;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getLocation <em>Location</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty()
@@ -25,22 +25,24 @@ import qualitypatternmodel.inputfields.Option;
  */
 public interface Property extends GraphElement {
 	/**
-	 * Returns the value of the '<em><b>Element</b></em>' reference.
+	 * Returns the value of the '<em><b>Element</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element</em>' reference.
+	 * @return the value of the '<em>Element</em>' container reference.
 	 * @see #setElement(Element)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Element()
-	 * @model required="true"
+	 * @see qualitypatternmodel.graphstructure.Element#getProperty
+	 * @model opposite="property" required="true" transient="false"
 	 * @generated
 	 */
 	Element getElement();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element</em>' reference.
+	 * @param value the new value of the '<em>Element</em>' container reference.
 	 * @see #getElement()
 	 * @generated
 	 */
@@ -95,22 +97,22 @@ public interface Property extends GraphElement {
 	void setLocation(PropertyLocation value);
 
 	/**
-	 * Returns the value of the '<em><b>Property Options</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Property Options</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Options</em>' containment reference.
+	 * @return the value of the '<em>Property Options</em>' reference.
 	 * @see #setPropertyOptions(Option)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_PropertyOptions()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	Option<PropertyLocation> getPropertyOptions();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property Options</em>' containment reference.
+	 * @param value the new value of the '<em>Property Options</em>' reference.
 	 * @see #getPropertyOptions()
 	 * @generated
 	 */

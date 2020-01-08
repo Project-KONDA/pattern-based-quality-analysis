@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.VariableList;
@@ -34,7 +34,7 @@ import qualitypatternmodel.inputfields.InputfieldsPackage;
  */
 public class VariableListImpl extends MinimalEObjectImpl.Container implements VariableList {
 	/**
-	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' reference list.
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVariables()
@@ -69,7 +69,7 @@ public class VariableListImpl extends MinimalEObjectImpl.Container implements Va
 	 */
 	public EList<Input> getVariables() {
 		if (variables == null) {
-			variables = new EObjectWithInverseResolvingEList<Input>(Input.class, this, GraphstructurePackage.VARIABLE_LIST__VARIABLES, InputfieldsPackage.INPUT__VARIABLE_LIST);
+			variables = new EObjectContainmentWithInverseEList<Input>(Input.class, this, GraphstructurePackage.VARIABLE_LIST__VARIABLES, InputfieldsPackage.INPUT__VARIABLE_LIST);
 		}
 		return variables;
 	}

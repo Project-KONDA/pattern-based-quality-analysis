@@ -15,6 +15,7 @@ import qualitypatternmodel.graphstructure.VariableList;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.Input#getVariableList <em>Variable List</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.Input#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput()
@@ -23,28 +24,50 @@ import qualitypatternmodel.graphstructure.VariableList;
  */
 public interface Input extends GraphElement {
 	/**
-	 * Returns the value of the '<em><b>Variable List</b></em>' reference.
+	 * Returns the value of the '<em><b>Variable List</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.VariableList#getVariables <em>Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variable List</em>' reference.
+	 * @return the value of the '<em>Variable List</em>' container reference.
 	 * @see #setVariableList(VariableList)
 	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput_VariableList()
 	 * @see qualitypatternmodel.graphstructure.VariableList#getVariables
-	 * @model opposite="variables" required="true"
+	 * @model opposite="variables" required="true" transient="false"
 	 * @generated
 	 */
 	VariableList getVariableList();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Input#getVariableList <em>Variable List</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Input#getVariableList <em>Variable List</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Variable List</em>' reference.
+	 * @param value the new value of the '<em>Variable List</em>' container reference.
 	 * @see #getVariableList()
 	 * @generated
 	 */
 	void setVariableList(VariableList value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Input#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

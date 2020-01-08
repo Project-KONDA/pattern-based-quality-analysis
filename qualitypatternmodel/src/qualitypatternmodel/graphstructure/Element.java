@@ -20,6 +20,7 @@ import qualitypatternmodel.functions.BooleanOperator;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isIsTranslated <em>Is Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isIsRoot <em>Is Root</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperty <em>Property</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
@@ -28,13 +29,13 @@ import qualitypatternmodel.functions.BooleanOperator;
  */
 public interface Element extends GraphElement {
 	/**
-	 * Returns the value of the '<em><b>Predicates</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Predicates</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.functions.BooleanOperator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Predicates</em>' containment reference list.
+	 * @return the value of the '<em>Predicates</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Predicates()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<BooleanOperator> getPredicates();
@@ -126,6 +127,20 @@ public interface Element extends GraphElement {
 	 * @generated
 	 */
 	void setIsRoot(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Property</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Property}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Property</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Property()
+	 * @see qualitypatternmodel.graphstructure.Property#getElement
+	 * @model opposite="element" containment="true"
+	 * @generated
+	 */
+	EList<Property> getProperty();
 
 	/**
 	 * <!-- begin-user-doc -->

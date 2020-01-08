@@ -354,7 +354,7 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH = 5;
 
 	/**
-	 * The feature id for the '<em><b>Property</b></em>' containment reference.
+	 * The feature id for the '<em><b>Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -363,7 +363,7 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH__PROPERTY = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Regular Expression</b></em>' containment reference.
+	 * The feature id for the '<em><b>Regular Expression</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -372,7 +372,7 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH__REGULAR_EXPRESSION = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference.
+	 * The feature id for the '<em><b>Options</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -454,7 +454,7 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON__ARGUMENT1 = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference.
+	 * The feature id for the '<em><b>Options</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -527,7 +527,7 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER = 7;
 
 	/**
-	 * The feature id for the '<em><b>Property</b></em>' containment reference.
+	 * The feature id for the '<em><b>Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -663,10 +663,10 @@ public interface FunctionsPackage extends EPackage {
 	EClass getMatch();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.functions.Match#getProperty <em>Property</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Match#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Property</em>'.
+	 * @return the meta object for the reference '<em>Property</em>'.
 	 * @see qualitypatternmodel.functions.Match#getProperty()
 	 * @see #getMatch()
 	 * @generated
@@ -674,10 +674,10 @@ public interface FunctionsPackage extends EPackage {
 	EReference getMatch_Property();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.functions.Match#getRegularExpression <em>Regular Expression</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Match#getRegularExpression <em>Regular Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Regular Expression</em>'.
+	 * @return the meta object for the reference '<em>Regular Expression</em>'.
 	 * @see qualitypatternmodel.functions.Match#getRegularExpression()
 	 * @see #getMatch()
 	 * @generated
@@ -685,10 +685,10 @@ public interface FunctionsPackage extends EPackage {
 	EReference getMatch_RegularExpression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.functions.Match#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Match#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Options</em>'.
+	 * @return the meta object for the reference '<em>Options</em>'.
 	 * @see qualitypatternmodel.functions.Match#getOptions()
 	 * @see #getMatch()
 	 * @generated
@@ -728,10 +728,10 @@ public interface FunctionsPackage extends EPackage {
 	EReference getComparison_Argument1();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.functions.Comparison#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Comparison#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Options</em>'.
+	 * @return the meta object for the reference '<em>Options</em>'.
 	 * @see qualitypatternmodel.functions.Comparison#getOptions()
 	 * @see #getComparison()
 	 * @generated
@@ -760,10 +760,10 @@ public interface FunctionsPackage extends EPackage {
 	EClass getToNumber();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.functions.ToNumber#getProperty <em>Property</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.ToNumber#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Property</em>'.
+	 * @return the meta object for the reference '<em>Property</em>'.
 	 * @see qualitypatternmodel.functions.ToNumber#getProperty()
 	 * @see #getToNumber()
 	 * @generated
@@ -872,7 +872,7 @@ public interface FunctionsPackage extends EPackage {
 		EClass MATCH = eINSTANCE.getMatch();
 
 		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -880,7 +880,7 @@ public interface FunctionsPackage extends EPackage {
 		EReference MATCH__PROPERTY = eINSTANCE.getMatch_Property();
 
 		/**
-		 * The meta object literal for the '<em><b>Regular Expression</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Regular Expression</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -888,7 +888,7 @@ public interface FunctionsPackage extends EPackage {
 		EReference MATCH__REGULAR_EXPRESSION = eINSTANCE.getMatch_RegularExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Options</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -922,7 +922,7 @@ public interface FunctionsPackage extends EPackage {
 		EReference COMPARISON__ARGUMENT1 = eINSTANCE.getComparison_Argument1();
 
 		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Options</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -948,7 +948,7 @@ public interface FunctionsPackage extends EPackage {
 		EClass TO_NUMBER = eINSTANCE.getToNumber();
 
 		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

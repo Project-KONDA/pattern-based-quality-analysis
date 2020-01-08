@@ -3,8 +3,6 @@
 package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -69,7 +67,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	protected GraphElement argument1;
 
 	/**
-	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference.
+	 * The cached value of the '{@link #getOptions() <em>Options</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOptions()
@@ -212,6 +210,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	@SuppressWarnings("unchecked")
 	public Option<ComparisonOperator> getOptions() {
+		if (options != null && options.eIsProxy()) {
+			InternalEObject oldOptions = (InternalEObject)options;
+			options = (Option<ComparisonOperator>)eResolveProxy(oldOptions);
+			if (options != oldOptions) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.COMPARISON__OPTIONS, oldOptions, options));
+			}
+		}
 		return options;
 	}
 
@@ -220,14 +226,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOptions(Option<ComparisonOperator> newOptions, NotificationChain msgs) {
-		Option<ComparisonOperator> oldOptions = options;
-		options = newOptions;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTIONS, oldOptions, newOptions);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Option<ComparisonOperator> basicGetOptions() {
+		return options;
 	}
 
 	/**
@@ -236,17 +236,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 */
 	public void setOptions(Option<ComparisonOperator> newOptions) {
-		if (newOptions != options) {
-			NotificationChain msgs = null;
-			if (options != null)
-				msgs = ((InternalEObject)options).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.COMPARISON__OPTIONS, null, msgs);
-			if (newOptions != null)
-				msgs = ((InternalEObject)newOptions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.COMPARISON__OPTIONS, null, msgs);
-			msgs = basicSetOptions(newOptions, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTIONS, newOptions, newOptions));
+		Option<ComparisonOperator> oldOptions = options;
+		options = newOptions;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTIONS, oldOptions, options));
 	}
 
 	/**
@@ -293,20 +286,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FunctionsPackage.COMPARISON__OPTIONS:
-				return basicSetOptions(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case FunctionsPackage.COMPARISON__OPERATOR:
@@ -315,7 +294,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				if (resolve) return getArgument1();
 				return basicGetArgument1();
 			case FunctionsPackage.COMPARISON__OPTIONS:
-				return getOptions();
+				if (resolve) return getOptions();
+				return basicGetOptions();
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				if (resolve) return getArgument2();
 				return basicGetArgument2();

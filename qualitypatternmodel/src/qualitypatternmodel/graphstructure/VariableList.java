@@ -26,15 +26,15 @@ import qualitypatternmodel.inputfields.Input;
  */
 public interface VariableList extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Variables</b></em>' reference list.
+	 * Returns the value of the '<em><b>Variables</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.inputfields.Input}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.Input#getVariableList <em>Variable List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variables</em>' reference list.
+	 * @return the value of the '<em>Variables</em>' containment reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getVariableList_Variables()
 	 * @see qualitypatternmodel.inputfields.Input#getVariableList
-	 * @model opposite="variableList"
+	 * @model opposite="variableList" containment="true"
 	 * @generated
 	 */
 	EList<Input> getVariables();

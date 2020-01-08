@@ -3,8 +3,6 @@
 package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -31,7 +29,7 @@ import qualitypatternmodel.patternstructure.InvalidTranslationException;
  */
 public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	/**
-	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference.
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProperty()
@@ -73,6 +71,14 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	 * @generated
 	 */
 	public Property getProperty() {
+		if (property != null && property.eIsProxy()) {
+			InternalEObject oldProperty = (InternalEObject)property;
+			property = (Property)eResolveProxy(oldProperty);
+			if (property != oldProperty) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.TO_NUMBER__PROPERTY, oldProperty, property));
+			}
+		}
 		return property;
 	}
 
@@ -81,14 +87,8 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
-		Property oldProperty = property;
-		property = newProperty;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.TO_NUMBER__PROPERTY, oldProperty, newProperty);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Property basicGetProperty() {
+		return property;
 	}
 
 	/**
@@ -97,31 +97,10 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	 * @generated
 	 */
 	public void setProperty(Property newProperty) {
-		if (newProperty != property) {
-			NotificationChain msgs = null;
-			if (property != null)
-				msgs = ((InternalEObject)property).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.TO_NUMBER__PROPERTY, null, msgs);
-			if (newProperty != null)
-				msgs = ((InternalEObject)newProperty).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FunctionsPackage.TO_NUMBER__PROPERTY, null, msgs);
-			msgs = basicSetProperty(newProperty, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.TO_NUMBER__PROPERTY, newProperty, newProperty));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case FunctionsPackage.TO_NUMBER__PROPERTY:
-				return basicSetProperty(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		Property oldProperty = property;
+		property = newProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.TO_NUMBER__PROPERTY, oldProperty, property));
 	}
 
 	/**
@@ -133,7 +112,8 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case FunctionsPackage.TO_NUMBER__PROPERTY:
-				return getProperty();
+				if (resolve) return getProperty();
+				return basicGetProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

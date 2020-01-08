@@ -53,22 +53,22 @@ public interface Relation extends PatternElement {
 	void setAxis(Axis value);
 
 	/**
-	 * Returns the value of the '<em><b>Relation Options</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Relation Options</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relation Options</em>' containment reference.
+	 * @return the value of the '<em>Relation Options</em>' reference.
 	 * @see #setRelationOptions(Option)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_RelationOptions()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	Option<Axis> getRelationOptions();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getRelationOptions <em>Relation Options</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getRelationOptions <em>Relation Options</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relation Options</em>' containment reference.
+	 * @param value the new value of the '<em>Relation Options</em>' reference.
 	 * @see #getRelationOptions()
 	 * @generated
 	 */

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.VariableList;
 import qualitypatternmodel.graphstructure.impl.GraphElementImpl;
@@ -28,20 +29,30 @@ import qualitypatternmodel.patternstructure.InvalidTranslationException;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getVariableList <em>Variable List</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class InputImpl extends GraphElementImpl implements Input {
 	/**
-	 * The cached value of the '{@link #getVariableList() <em>Variable List</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getVariableList()
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
-	protected VariableList variableList;
-
+	protected static final String DESCRIPTION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -64,23 +75,8 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * @generated
 	 */
 	public VariableList getVariableList() {
-		if (variableList != null && variableList.eIsProxy()) {
-			InternalEObject oldVariableList = (InternalEObject)variableList;
-			variableList = (VariableList)eResolveProxy(oldVariableList);
-			if (variableList != oldVariableList) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InputfieldsPackage.INPUT__VARIABLE_LIST, oldVariableList, variableList));
-			}
-		}
-		return variableList;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public VariableList basicGetVariableList() {
-		return variableList;
+		if (eContainerFeatureID() != InputfieldsPackage.INPUT__VARIABLE_LIST) return null;
+		return (VariableList)eInternalContainer();
 	}
 
 	/**
@@ -88,12 +84,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * @generated
 	 */
 	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
-		VariableList oldVariableList = variableList;
-		variableList = newVariableList;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InputfieldsPackage.INPUT__VARIABLE_LIST, oldVariableList, newVariableList);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newVariableList, InputfieldsPackage.INPUT__VARIABLE_LIST, msgs);
 		return msgs;
 	}
 
@@ -102,10 +93,12 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * @generated
 	 */
 	public void setVariableList(VariableList newVariableList) {
-		if (newVariableList != variableList) {
+		if (newVariableList != eInternalContainer() || (eContainerFeatureID() != InputfieldsPackage.INPUT__VARIABLE_LIST && newVariableList != null)) {
+			if (EcoreUtil.isAncestor(this, newVariableList))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (variableList != null)
-				msgs = ((InternalEObject)variableList).eInverseRemove(this, GraphstructurePackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newVariableList != null)
 				msgs = ((InternalEObject)newVariableList).eInverseAdd(this, GraphstructurePackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
 			msgs = basicSetVariableList(newVariableList, msgs);
@@ -115,10 +108,31 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.INPUT__VARIABLE_LIST, newVariableList, newVariableList));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.INPUT__DESCRIPTION, oldDescription, description));
+	}
+
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
 //		return (!isDefinedPattern || inputIsValid()) && variableList != null;
-		if (variableList == null)
+		if (getVariableList() == null)
 			throw new InvalidTranslationException("variableList null");
 		if ((isDefinedPattern && !inputIsValid()))
 			throw new InvalidTranslationException("no defined input");
@@ -138,8 +152,8 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
-				if (variableList != null)
-					msgs = ((InternalEObject)variableList).eInverseRemove(this, GraphstructurePackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetVariableList((VariableList)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -159,6 +173,20 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case InputfieldsPackage.INPUT__VARIABLE_LIST:
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -166,8 +194,9 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
-				if (resolve) return getVariableList();
-				return basicGetVariableList();
+				return getVariableList();
+			case InputfieldsPackage.INPUT__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -181,6 +210,9 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 		switch (featureID) {
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
 				setVariableList((VariableList)newValue);
+				return;
+			case InputfieldsPackage.INPUT__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,6 +228,9 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
 				setVariableList((VariableList)null);
 				return;
+			case InputfieldsPackage.INPUT__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -208,7 +243,9 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
-				return variableList != null;
+				return getVariableList() != null;
+			case InputfieldsPackage.INPUT__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -224,6 +261,22 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 				return inputIsValid();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (description: ");
+		result.append(description);
+		result.append(')');
+		return result.toString();
 	}
 
 } // InputImpl

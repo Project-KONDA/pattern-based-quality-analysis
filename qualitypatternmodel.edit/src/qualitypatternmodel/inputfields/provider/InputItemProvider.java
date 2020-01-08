@@ -14,8 +14,11 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.graphstructure.provider.GraphElementItemProvider;
 
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 
 /**
@@ -47,6 +50,7 @@ public class InputItemProvider extends GraphElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addVariableListPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,6 +78,28 @@ public class InputItemProvider extends GraphElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Input_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Input_description_feature", "_UI_Input_type"),
+				 InputfieldsPackage.Literals.INPUT__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,7 +107,10 @@ public class InputItemProvider extends GraphElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Input_type");
+		String label = ((Input)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Input_type") :
+			getString("_UI_Input_type") + " " + label;
 	}
 
 
@@ -95,6 +124,12 @@ public class InputItemProvider extends GraphElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Input.class)) {
+			case InputfieldsPackage.INPUT__DESCRIPTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

@@ -18,6 +18,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElement <em>Return Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getVariableList <em>Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorlist <em>Operatorlist</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph()
@@ -80,5 +81,27 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	void setRootElement(SingleElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Operatorlist</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operatorlist</em>' containment reference.
+	 * @see #setOperatorlist(OperatorList)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_Operatorlist()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	OperatorList getOperatorlist();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getOperatorlist <em>Operatorlist</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Operatorlist</em>' containment reference.
+	 * @see #getOperatorlist()
+	 * @generated
+	 */
+	void setOperatorlist(OperatorList value);
 
 } // Graph

@@ -170,6 +170,15 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getInput_Description() {
+		return (EAttribute)inputEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getInput__InputIsValid() {
 		return inputEClass.getEOperations().get(0);
 	}
@@ -285,6 +294,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		// Create classes and their features
 		inputEClass = createEClass(INPUT);
 		createEReference(inputEClass, INPUT__VARIABLE_LIST);
+		createEAttribute(inputEClass, INPUT__DESCRIPTION);
 		createEOperation(inputEClass, INPUT___INPUT_IS_VALID);
 
 		numberEClass = createEClass(NUMBER);
@@ -341,7 +351,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInput_VariableList(), theGraphstructurePackage.getVariableList(), theGraphstructurePackage.getVariableList_Variables(), "variableList", null, 1, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInput_VariableList(), theGraphstructurePackage.getVariableList(), theGraphstructurePackage.getVariableList_Variables(), "variableList", null, 1, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInput_Description(), ecorePackage.getEString(), "description", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getInput__InputIsValid(), ecorePackage.getEBoolean(), "inputIsValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 

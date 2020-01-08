@@ -90,8 +90,7 @@ public class NumberItemProvider extends InputItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Double labelValue = ((qualitypatternmodel.inputfields.Number)object).getNumber();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((qualitypatternmodel.inputfields.Number)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Number_type") :
 			getString("_UI_Number_type") + " " + label;
