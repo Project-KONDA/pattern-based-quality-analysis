@@ -8,15 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
-import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.functions.Match;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.inputfields.InputfieldsFactory;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.functions.Match} object.
@@ -46,40 +40,77 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPropertyPropertyDescriptor(object);
+			addRegularExpressionPropertyDescriptor(object);
+			addOptionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Property feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(FunctionsPackage.Literals.MATCH__PROPERTY);
-			childrenFeatures.add(FunctionsPackage.Literals.MATCH__REGULAR_EXPRESSION);
-			childrenFeatures.add(FunctionsPackage.Literals.MATCH__OPTIONS);
-		}
-		return childrenFeatures;
+	protected void addPropertyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Match_property_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Match_property_feature", "_UI_Match_type"),
+				 FunctionsPackage.Literals.MATCH__PROPERTY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
+	 * This adds a property descriptor for the Regular Expression feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
+	protected void addRegularExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Match_regularExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Match_regularExpression_feature", "_UI_Match_type"),
+				 FunctionsPackage.Literals.MATCH__REGULAR_EXPRESSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
-		return super.getChildFeature(object, child);
+	/**
+	 * This adds a property descriptor for the Options feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Match_options_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Match_options_feature", "_UI_Match_type"),
+				 FunctionsPackage.Literals.MATCH__OPTIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -115,14 +146,6 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Match.class)) {
-			case FunctionsPackage.MATCH__PROPERTY:
-			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
-			case FunctionsPackage.MATCH__OPTIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -136,21 +159,6 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FunctionsPackage.Literals.MATCH__PROPERTY,
-				 GraphstructureFactory.eINSTANCE.createProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FunctionsPackage.Literals.MATCH__REGULAR_EXPRESSION,
-				 InputfieldsFactory.eINSTANCE.createText()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FunctionsPackage.Literals.MATCH__OPTIONS,
-				 InputfieldsFactory.eINSTANCE.createOption()));
 	}
 
 }

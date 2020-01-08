@@ -8,8 +8,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -18,7 +16,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.inputfields.InputfieldsFactory;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.functions.Comparison} object.
@@ -50,6 +47,7 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 
 			addOperatorPropertyDescriptor(object);
 			addArgument1PropertyDescriptor(object);
+			addOptionsPropertyDescriptor(object);
 			addArgument2PropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -100,6 +98,28 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Options feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Comparison_options_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Comparison_options_feature", "_UI_Comparison_type"),
+				 FunctionsPackage.Literals.COMPARISON__OPTIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Argument2 feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,36 +139,6 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 				 null,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(FunctionsPackage.Literals.COMPARISON__OPTIONS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -193,9 +183,6 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 			case FunctionsPackage.COMPARISON__OPERATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case FunctionsPackage.COMPARISON__OPTIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -210,11 +197,6 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FunctionsPackage.Literals.COMPARISON__OPTIONS,
-				 InputfieldsFactory.eINSTANCE.createOption()));
 	}
 
 }

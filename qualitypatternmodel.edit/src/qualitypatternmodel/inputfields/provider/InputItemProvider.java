@@ -49,32 +49,9 @@ public class InputItemProvider extends GraphElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addVariableListPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Variable List feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVariableListPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Input_variableList_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Input_variableList_feature", "_UI_Input_type"),
-				 InputfieldsPackage.Literals.INPUT__VARIABLE_LIST,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

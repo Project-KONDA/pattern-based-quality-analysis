@@ -10,8 +10,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -20,8 +18,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-
-import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
 
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
@@ -55,6 +51,7 @@ public class RelationItemProvider extends PatternElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addAxisPropertyDescriptor(object);
+			addRelationOptionsPropertyDescriptor(object);
 			addMappingToPropertyDescriptor(object);
 			addMappingFromPropertyDescriptor(object);
 		}
@@ -79,6 +76,28 @@ public class RelationItemProvider extends PatternElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Relation Options feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRelationOptionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Relation_relationOptions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_relationOptions_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__RELATION_OPTIONS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -128,36 +147,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.RELATION__RELATION_OPTIONS);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns Relation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -199,9 +188,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 			case GraphstructurePackage.RELATION__AXIS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case GraphstructurePackage.RELATION__RELATION_OPTIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -216,11 +202,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphstructurePackage.Literals.RELATION__RELATION_OPTIONS,
-				 InputfieldsFactory.eINSTANCE.createOption()));
 	}
 
 	/**

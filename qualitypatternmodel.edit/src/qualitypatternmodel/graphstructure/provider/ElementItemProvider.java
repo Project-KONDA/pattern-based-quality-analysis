@@ -14,8 +14,6 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import qualitypatternmodel.functions.FunctionsFactory;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -48,11 +46,34 @@ public class ElementItemProvider extends GraphElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPredicatesPropertyDescriptor(object);
 			addIdPropertyDescriptor(object);
 			addIsTranslatedPropertyDescriptor(object);
 			addIsRootPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Predicates feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPredicatesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Element_predicates_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_predicates_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__PREDICATES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -133,7 +154,6 @@ public class ElementItemProvider extends GraphElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__PREDICATES);
 			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__RELATION_FROM_PREVIOUS);
 			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__PROPERTY);
 		}
@@ -183,7 +203,6 @@ public class ElementItemProvider extends GraphElementItemProvider {
 			case GraphstructurePackage.ELEMENT__IS_ROOT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case GraphstructurePackage.ELEMENT__PREDICATES:
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 			case GraphstructurePackage.ELEMENT__PROPERTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -202,16 +221,6 @@ public class ElementItemProvider extends GraphElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphstructurePackage.Literals.ELEMENT__PREDICATES,
-				 FunctionsFactory.eINSTANCE.createMatch()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphstructurePackage.Literals.ELEMENT__PREDICATES,
-				 FunctionsFactory.eINSTANCE.createComparison()));
 
 		newChildDescriptors.add
 			(createChildParameter
