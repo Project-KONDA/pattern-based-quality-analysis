@@ -53,12 +53,9 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EList<Input> getAllVariables() throws InvalidTranslationException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return new BasicEList<Input>();
 	}
 
 	/**

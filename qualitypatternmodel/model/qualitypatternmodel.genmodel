@@ -138,7 +138,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/relationFromPrevious"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Element/isTranslated"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Element/isRoot"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/property"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/properties"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/generateXPredicates"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/generateXPathExpression"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getNextElements"/>
@@ -162,7 +162,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/VariableList/variables"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/OperatorList">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/OperatorList/operator"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/OperatorList/operators"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Patternstructure" basePackage="qualitypatternmodel"
