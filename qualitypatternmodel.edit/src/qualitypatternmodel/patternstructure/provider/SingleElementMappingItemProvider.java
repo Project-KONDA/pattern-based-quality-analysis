@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.SingleElementMapping;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.SingleElementMapping} object.
@@ -111,7 +112,8 @@ public class SingleElementMappingItemProvider extends MappingItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SingleElementMapping_type");
+		SingleElementMapping singleElementMapping = (SingleElementMapping)object;
+		return getString("_UI_SingleElementMapping_type") + " " + singleElementMapping.getId();
 	}
 
 

@@ -70,6 +70,15 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__ID = GraphstructurePackage.GRAPH_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,13 +97,22 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT__DESCRIPTION = GraphstructurePackage.GRAPH_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__IS_PREDEFINED = GraphstructurePackage.GRAPH_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Input</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_FEATURE_COUNT = GraphstructurePackage.GRAPH_ELEMENT_FEATURE_COUNT + 2;
+	int INPUT_FEATURE_COUNT = GraphstructurePackage.GRAPH_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -133,13 +151,22 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___INPUT_IS_VALID = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___GET_ALL_VARIABLES = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Input</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 1;
+	int INPUT_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.NumberImpl <em>Number</em>}' class.
@@ -150,6 +177,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 */
 	int NUMBER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__ID = INPUT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -168,6 +204,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER__DESCRIPTION = INPUT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__IS_PREDEFINED = INPUT__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -224,6 +269,15 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Number</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -243,6 +297,15 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN__ID = INPUT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,6 +322,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN__DESCRIPTION = INPUT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN__IS_PREDEFINED = INPUT__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Bool</b></em>' attribute.
@@ -315,6 +387,15 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Boolean</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -334,6 +415,15 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION__ID = INPUT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -350,6 +440,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPTION__DESCRIPTION = INPUT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION__IS_PREDEFINED = INPUT__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -415,13 +514,31 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION___IS_VALID__BOOLEAN_CLASS = INPUT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Option</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPTION_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+	int OPTION_OPERATION_COUNT = INPUT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.TextImpl <em>Text</em>}' class.
@@ -432,6 +549,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 */
 	int TEXT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__ID = INPUT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -450,6 +576,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT__DESCRIPTION = INPUT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__IS_PREDEFINED = INPUT__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -506,6 +641,15 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -548,6 +692,17 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getInput_Description();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Input#isIsPredefined <em>Is Predefined</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Predefined</em>'.
+	 * @see qualitypatternmodel.inputfields.Input#isIsPredefined()
+	 * @see #getInput()
+	 * @generated
+	 */
+	EAttribute getInput_IsPredefined();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Input#inputIsValid() <em>Input Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -556,6 +711,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getInput__InputIsValid();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Input#getAllVariables() <em>Get All Variables</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Variables</em>' operation.
+	 * @see qualitypatternmodel.inputfields.Input#getAllVariables()
+	 * @generated
+	 */
+	EOperation getInput__GetAllVariables();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Number <em>Number</em>}'.
@@ -632,6 +797,16 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getOption_Selection();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Option#isValid(boolean, java.lang.Class) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid</em>' operation.
+	 * @see qualitypatternmodel.inputfields.Option#isValid(boolean, java.lang.Class)
+	 * @generated
+	 */
+	EOperation getOption__IsValid__boolean_Class();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Text <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -702,12 +877,28 @@ public interface InputfieldsPackage extends EPackage {
 		EAttribute INPUT__DESCRIPTION = eINSTANCE.getInput_Description();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Predefined</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INPUT__IS_PREDEFINED = eINSTANCE.getInput_IsPredefined();
+
+		/**
 		 * The meta object literal for the '<em><b>Input Is Valid</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation INPUT___INPUT_IS_VALID = eINSTANCE.getInput__InputIsValid();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Variables</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT___GET_ALL_VARIABLES = eINSTANCE.getInput__GetAllVariables();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.NumberImpl <em>Number</em>}' class.
@@ -770,6 +961,14 @@ public interface InputfieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OPTION__SELECTION = eINSTANCE.getOption_Selection();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPTION___IS_VALID__BOOLEAN_CLASS = eINSTANCE.getOption__IsValid__boolean_Class();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.TextImpl <em>Text</em>}' class.

@@ -3,6 +3,8 @@
 package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -12,7 +14,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 
 import qualitypatternmodel.graphstructure.Property;
-
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
@@ -84,6 +86,17 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		if (property == null)
 			throw new InvalidTranslationException("property null");
 		property.isValid(isDefinedPattern);
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<Input> getAllVariables() throws InvalidTranslationException {
+		EList<Input> res = new BasicEList<Input>();
+		res.add(regularExpression);
+		res.add(options);
+		return res;
 	}
 
 	/**

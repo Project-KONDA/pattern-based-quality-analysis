@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import qualitypatternmodel.patternstructure.True;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.True} object.
@@ -62,7 +63,8 @@ public class TrueItemProvider extends ConditionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_True_type");
+		True true_ = (True)object;
+		return getString("_UI_True_type") + " " + true_.getId();
 	}
 
 

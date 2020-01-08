@@ -451,6 +451,15 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPatternElement_Id() {
+		return (EAttribute)patternElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getPatternElement__ToXQuery__TranslationLocation() {
 		return patternElementEClass.getEOperations().get(0);
 	}
@@ -562,6 +571,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(patternEClass, PATTERN__CONDITION);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
+		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN);
 
@@ -650,6 +660,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getPattern_Condition(), this.getCondition(), null, "condition", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPatternElement_Id(), ecorePackage.getEInt(), "id", null, 0, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getPatternElement__ToXQuery__TranslationLocation(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTranslationLocation(), "tranlsationLocation", 0, 1, IS_UNIQUE, IS_ORDERED);

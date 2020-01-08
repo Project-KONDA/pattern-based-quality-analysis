@@ -2,10 +2,10 @@
  */
 package qualitypatternmodel.functions.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -203,6 +203,24 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getOperator__GetAllOperators() {
+		return operatorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getOperator__GetAllVariables() {
+		return operatorEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCount() {
 		return countEClass;
 	}
@@ -284,17 +302,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComparison_Operator() {
-		return (EAttribute)comparisonEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getComparison_Argument1() {
-		return (EReference)comparisonEClass.getEStructuralFeatures().get(1);
+		return (EReference)comparisonEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -303,7 +312,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	public EReference getComparison_Options() {
-		return (EReference)comparisonEClass.getEStructuralFeatures().get(2);
+		return (EReference)comparisonEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -312,7 +321,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	public EReference getComparison_Argument2() {
-		return (EReference)comparisonEClass.getEStructuralFeatures().get(3);
+		return (EReference)comparisonEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -373,6 +382,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		booleanOperatorEClass = createEClass(BOOLEAN_OPERATOR);
 
 		operatorEClass = createEClass(OPERATOR);
+		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
+		createEOperation(operatorEClass, OPERATOR___GET_ALL_VARIABLES);
 
 		countEClass = createEClass(COUNT);
 		createEReference(countEClass, COUNT__ARGUMENT);
@@ -387,7 +398,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEReference(matchEClass, MATCH__OPTIONS);
 
 		comparisonEClass = createEClass(COMPARISON);
-		createEAttribute(comparisonEClass, COMPARISON__OPERATOR);
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT1);
 		createEReference(comparisonEClass, COMPARISON__OPTIONS);
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT2);
@@ -424,6 +434,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		// Obtain other dependent packages
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
+		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 		InputfieldsPackage theInputfieldsPackage = (InputfieldsPackage)EPackage.Registry.INSTANCE.getEPackage(InputfieldsPackage.eNS_URI);
 
 		// Create type parameters
@@ -445,6 +456,12 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		EOperation op = initEOperation(getOperator__GetAllOperators(), this.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidTranslationExceptionWrapper());
+
+		op = initEOperation(getOperator__GetAllVariables(), theInputfieldsPackage.getInput(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidTranslationExceptionWrapper());
+
 		initEClass(countEClass, Count.class, "Count", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCount_Argument(), theGraphstructurePackage.getSetElement(), null, "argument", null, 1, 1, Count.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -461,12 +478,11 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		initEReference(getMatch_Options(), g1, null, "options", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getComparison_Operator(), this.getComparisonOperator(), "operator", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Argument1(), theGraphstructurePackage.getGraphElement(), null, "argument1", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theInputfieldsPackage.getOption());
 		g2 = createEGenericType(this.getComparisonOperator());
 		g1.getETypeArguments().add(g2);
-		initEReference(getComparison_Options(), g1, null, "options", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparison_Options(), g1, null, "options", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Argument2(), theGraphstructurePackage.getGraphElement(), null, "argument2", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(toNumberEClass, ToNumber.class, "ToNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

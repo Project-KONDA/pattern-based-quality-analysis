@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import qualitypatternmodel.functions.BooleanOperator;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.functions.BooleanOperator} object.
@@ -51,7 +52,8 @@ public class BooleanOperatorItemProvider extends OperatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BooleanOperator_type");
+		BooleanOperator booleanOperator = (BooleanOperator)object;
+		return getString("_UI_BooleanOperator_type") + " " + booleanOperator.getId();
 	}
 
 

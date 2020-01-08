@@ -2,8 +2,10 @@
  */
 package qualitypatternmodel.inputfields;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.VariableList;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,6 +18,7 @@ import qualitypatternmodel.graphstructure.VariableList;
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.Input#getVariableList <em>Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.inputfields.Input#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.Input#isIsPredefined <em>Is Predefined</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput()
@@ -70,11 +73,41 @@ public interface Input extends GraphElement {
 	void setDescription(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Predefined</em>' attribute.
+	 * @see #setIsPredefined(boolean)
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput_IsPredefined()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsPredefined();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Input#isIsPredefined <em>Is Predefined</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Predefined</em>' attribute.
+	 * @see #isIsPredefined()
+	 * @generated
+	 */
+	void setIsPredefined(boolean value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
 	boolean inputIsValid();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	EList<Input> getAllVariables() throws InvalidTranslationException;
 
 } // Input

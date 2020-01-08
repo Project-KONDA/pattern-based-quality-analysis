@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.inputfields.impl;
 
+import java.lang.Boolean;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -63,11 +65,18 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	}
 	
 	@Override
+	public void isValid(boolean isDefinedPattern, Class cls) throws InvalidTranslationException {
+		if(selection != null && selection.getClass() != cls || options.get(0).getClass() != cls) {
+			throw new InvalidTranslationException("options of wrong type");
+		}
+	}
+	
+	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
 //		return options != null && options.size() > 1 && (!isDefinedPattern || inputIsValid()) && variableList != null;
 		if (options == null) 
 			throw new InvalidTranslationException("options null");
-		if (options.size() < 2) 
+		if (options.size() < 1) 
 			throw new InvalidTranslationException("not enough options");
 		super.isValid(isDefinedPattern);
 	}
@@ -188,6 +197,26 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 				return selection != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case InputfieldsPackage.OPTION___IS_VALID__BOOLEAN_CLASS:
+				try {
+					isValid((Boolean)arguments.get(0), (Class)arguments.get(1));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

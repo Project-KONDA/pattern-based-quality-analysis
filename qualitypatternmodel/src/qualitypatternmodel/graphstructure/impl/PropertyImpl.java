@@ -2,9 +2,12 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -15,7 +18,9 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.TranslationLocation;
 
@@ -26,51 +31,14 @@ import qualitypatternmodel.patternstructure.TranslationLocation;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getPropertyOptions <em>Property Options</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PropertyImpl extends GraphElementImpl implements Property {
-	/**
-	 * The default value of the '{@link #getAttributeName() <em>Attribute Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getAttributeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ATTRIBUTE_NAME_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getAttributeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String attributeName = ATTRIBUTE_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getLocation()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final PropertyLocation LOCATION_EDEFAULT = PropertyLocation.DATA;
-
-	/**
-	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getLocation()
-	 * @generated
-	 * @ordered
-	 */
-	protected PropertyLocation location = LOCATION_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getPropertyOptions() <em>Property Options</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -79,6 +47,16 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * @ordered
 	 */
 	protected Option<PropertyLocation> propertyOptions;
+
+	/**
+	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttributeName()
+	 * @generated
+	 * @ordered
+	 */
+	protected Text attributeName;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -97,22 +75,48 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 		if (getElement() == null) 
 			throw new InvalidTranslationException("element null");
 		
-		if (!( location != null ^ propertyOptions != null))
+		if (propertyOptions == null) {
 			throw new InvalidTranslationException("location or propertyOptions invalid");
+		} else {
+			propertyOptions.isValid(isDefinedPattern);
+			propertyOptions.isValid(isDefinedPattern);
+		}
 		
-		if (propertyOptions != null) propertyOptions.isValid(isDefinedPattern);
-		
-		if (location != null && location == PropertyLocation.ATTRIBUTE && attributeName == null)
+		if (propertyOptions.getSelection() != null && propertyOptions.getSelection() == PropertyLocation.ATTRIBUTE && attributeName == null)
 			throw new InvalidTranslationException("attributeName null");
 	}
 
 	@Override
-	public String toXQuery(TranslationLocation translationLocation) {
-		String output = location.getLiteral();
-		if (location == PropertyLocation.ATTRIBUTE) {
-			output += attributeName + ")";
+	public String toXQuery(TranslationLocation translationLocation) throws InvalidTranslationException {		
+		if(propertyOptions == null || propertyOptions.getSelection() == null) {
+			throw new InvalidTranslationException("propertyOptions invalid");
+		}				
+		switch (propertyOptions.getSelection()) {
+		case ATTRIBUTE: 
+			if(attributeName == null || attributeName.getText() == null) {
+				throw new InvalidTranslationException("attributeName invalid");
+			} else {
+				return "data(@" + attributeName.getText() + ")";
+			}
+		case DATA: return "data()";
+		case TAG: return "name()";
+		default:
+			throw new InvalidTranslationException("error in location specification");
 		}
-		return output;
+		
+	}
+
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<Input> getAllVariables() throws InvalidTranslationException {
+		EList<Input> res = new BasicEList<Input>();
+		res.add(attributeName);
+		res.add(propertyOptions);
+		return res;
 	}
 
 	@Override
@@ -160,13 +164,52 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newElement != null)
-				msgs = ((InternalEObject)newElement).eInverseAdd(this, GraphstructurePackage.ELEMENT__PROPERTY, Element.class, msgs);
+				msgs = ((InternalEObject)newElement).eInverseAdd(this, GraphstructurePackage.ELEMENT__PROPERTIES, Element.class, msgs);
 			msgs = basicSetElement(newElement, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ELEMENT, newElement, newElement));
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Text getAttributeName() {
+		if (attributeName != null && attributeName.eIsProxy()) {
+			InternalEObject oldAttributeName = (InternalEObject)attributeName;
+			attributeName = (Text)eResolveProxy(oldAttributeName);
+			if (attributeName != oldAttributeName) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, oldAttributeName, attributeName));
+			}
+		}
+		return attributeName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Text basicGetAttributeName() {
+		return attributeName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAttributeName(Text newAttributeName) {
+		Text oldAttributeName = attributeName;
+		attributeName = newAttributeName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, oldAttributeName, attributeName));
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,44 +225,6 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 				return basicSetElement((Element)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getAttributeName() {
-		return attributeName;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAttributeName(String newAttributeName) {
-		String oldAttributeName = attributeName;
-		attributeName = newAttributeName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, oldAttributeName, attributeName));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropertyLocation getLocation() {
-		return location;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLocation(PropertyLocation newLocation) {
-		PropertyLocation oldLocation = location;
-		location = newLocation == null ? LOCATION_EDEFAULT : newLocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__LOCATION, oldLocation, location));
 	}
 
 	/**
@@ -282,7 +287,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case GraphstructurePackage.PROPERTY__ELEMENT:
-				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.ELEMENT__PROPERTY, Element.class, msgs);
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.ELEMENT__PROPERTIES, Element.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -294,15 +299,14 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				return getAttributeName();
-			case GraphstructurePackage.PROPERTY__LOCATION:
-				return getLocation();
 			case GraphstructurePackage.PROPERTY__PROPERTY_OPTIONS:
 				if (resolve) return getPropertyOptions();
 				return basicGetPropertyOptions();
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				return getElement();
+			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
+				if (resolve) return getAttributeName();
+				return basicGetAttributeName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -315,17 +319,14 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				setAttributeName((String)newValue);
-				return;
-			case GraphstructurePackage.PROPERTY__LOCATION:
-				setLocation((PropertyLocation)newValue);
-				return;
 			case GraphstructurePackage.PROPERTY__PROPERTY_OPTIONS:
 				setPropertyOptions((Option<PropertyLocation>)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				setElement((Element)newValue);
+				return;
+			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
+				setAttributeName((Text)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -338,17 +339,14 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				setAttributeName(ATTRIBUTE_NAME_EDEFAULT);
-				return;
-			case GraphstructurePackage.PROPERTY__LOCATION:
-				setLocation(LOCATION_EDEFAULT);
-				return;
 			case GraphstructurePackage.PROPERTY__PROPERTY_OPTIONS:
 				setPropertyOptions((Option<PropertyLocation>)null);
 				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				setElement((Element)null);
+				return;
+			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
+				setAttributeName((Text)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -361,33 +359,33 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				return ATTRIBUTE_NAME_EDEFAULT == null ? attributeName != null : !ATTRIBUTE_NAME_EDEFAULT.equals(attributeName);
-			case GraphstructurePackage.PROPERTY__LOCATION:
-				return location != LOCATION_EDEFAULT;
 			case GraphstructurePackage.PROPERTY__PROPERTY_OPTIONS:
 				return propertyOptions != null;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				return getElement() != null;
+			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
+				return attributeName != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (attributeName: ");
-		result.append(attributeName);
-		result.append(", location: ");
-		result.append(location);
-		result.append(')');
-		return result.toString();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case GraphstructurePackage.PROPERTY___GET_ALL_VARIABLES:
+				try {
+					return getAllVariables();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } // PropertyImpl

@@ -102,7 +102,8 @@ public class PatternItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Pattern_type");
+		Pattern pattern = (Pattern)object;
+		return getString("_UI_Pattern_type") + " " + pattern.getId();
 	}
 
 

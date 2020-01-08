@@ -11,6 +11,12 @@ import qualitypatternmodel.inputfields.Option;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Option</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.inputfields.Option#isValid(boolean, java.lang.Class) <em>Is Valid</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class OptionTest extends InputTest {
@@ -65,6 +71,19 @@ public class OptionTest extends InputTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.inputfields.Option#isValid(boolean, java.lang.Class) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.inputfields.Option#isValid(boolean, java.lang.Class)
+	 * @generated
+	 */
+	public void testIsValid__boolean_Class() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //OptionTest

@@ -179,8 +179,26 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getInput_IsPredefined() {
+		return (EAttribute)inputEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getInput__InputIsValid() {
 		return inputEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getInput__GetAllVariables() {
+		return inputEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -251,6 +269,15 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getOption__IsValid__boolean_Class() {
+		return optionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getText() {
 		return textEClass;
 	}
@@ -295,7 +322,9 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		inputEClass = createEClass(INPUT);
 		createEReference(inputEClass, INPUT__VARIABLE_LIST);
 		createEAttribute(inputEClass, INPUT__DESCRIPTION);
+		createEAttribute(inputEClass, INPUT__IS_PREDEFINED);
 		createEOperation(inputEClass, INPUT___INPUT_IS_VALID);
+		createEOperation(inputEClass, INPUT___GET_ALL_VARIABLES);
 
 		numberEClass = createEClass(NUMBER);
 		createEAttribute(numberEClass, NUMBER__NUMBER);
@@ -306,6 +335,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		optionEClass = createEClass(OPTION);
 		createEAttribute(optionEClass, OPTION__OPTIONS);
 		createEAttribute(optionEClass, OPTION__SELECTION);
+		createEOperation(optionEClass, OPTION___IS_VALID__BOOLEAN_CLASS);
 
 		textEClass = createEClass(TEXT);
 		createEAttribute(textEClass, TEXT__TEXT);
@@ -336,6 +366,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 
 		// Obtain other dependent packages
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
+		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 
 		// Create type parameters
 		ETypeParameter optionEClass_T = addETypeParameter(optionEClass, "T");
@@ -353,8 +384,12 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInput_VariableList(), theGraphstructurePackage.getVariableList(), theGraphstructurePackage.getVariableList_Variables(), "variableList", null, 1, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInput_Description(), ecorePackage.getEString(), "description", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInput_IsPredefined(), ecorePackage.getEBoolean(), "isPredefined", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getInput__InputIsValid(), ecorePackage.getEBoolean(), "inputIsValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = initEOperation(getInput__GetAllVariables(), this.getInput(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidTranslationExceptionWrapper());
 
 		initEClass(numberEClass, qualitypatternmodel.inputfields.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumber_Number(), ecorePackage.getEDoubleObject(), "number", null, 0, 1, qualitypatternmodel.inputfields.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -367,6 +402,11 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		initEAttribute(getOption_Options(), g1, "options", null, 0, -1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(optionEClass_T);
 		initEAttribute(getOption_Selection(), g1, "selection", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getOption__IsValid__boolean_Class(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedBattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaClass(), "cls", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidTranslationExceptionWrapper());
 
 		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getText_Text(), ecorePackage.getEString(), "text", "", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

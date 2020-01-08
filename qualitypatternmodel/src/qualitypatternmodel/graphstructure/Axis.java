@@ -26,9 +26,7 @@ public enum Axis implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CHILD(0, "CHILD", "child"),
-
-	/**
+	CHILD(0, "CHILD", "child"), /**
 	 * The '<em><b>DESCENDANT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -36,9 +34,7 @@ public enum Axis implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DESCENDANT(1, "DESCENDANT", "descendant"),
-
-	/**
+	DESCENDANT(1, "DESCENDANT", "descendant"), /**
 	 * The '<em><b>PARENT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,9 +42,7 @@ public enum Axis implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PARENT(2, "PARENT", "parent"),
-
-	/**
+	PARENT(2, "PARENT", "parent"), /**
 	 * The '<em><b>ANCESTOR</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,9 +50,7 @@ public enum Axis implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANCESTOR(3, "ANCESTOR", "ancestor"),
-
-	/**
+	ANCESTOR(3, "ANCESTOR", "ancestor"), /**
 	 * The '<em><b>FOLLOWING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,9 +58,7 @@ public enum Axis implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FOLLOWING(4, "FOLLOWING", "following"),
-
-	/**
+	FOLLOWING(4, "FOLLOWING", "following"), /**
 	 * The '<em><b>FOLLOWING SIBLING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,9 +66,7 @@ public enum Axis implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FOLLOWING_SIBLING(5, "FOLLOWING_SIBLING", "following-sibling"),
-
-	/**
+	FOLLOWING_SIBLING(5, "FOLLOWING_SIBLING", "following-sibling"), /**
 	 * The '<em><b>PRECEDING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,9 +74,7 @@ public enum Axis implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRECEDING(6, "PRECEDING", "preceding"),
-
-	/**
+	PRECEDING(6, "PRECEDING", "preceding"), /**
 	 * The '<em><b>PRECEDING SIBLING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,9 +82,7 @@ public enum Axis implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PRECEDING_SIBLING(7, "PRECEDING_SIBLING", "preceding-sibling"),
-
-	/**
+	PRECEDING_SIBLING(7, "PRECEDING_SIBLING", "preceding-sibling"), /**
 	 * The '<em><b>ANCESTOR OR SELF</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,9 +90,7 @@ public enum Axis implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ANCESTOR_OR_SELF(8, "ANCESTOR_OR_SELF", "ancestor-or-self"),
-
-	/**
+	ANCESTOR_OR_SELF(8, "ANCESTOR_OR_SELF", "ancestor-or-self"), /**
 	 * The '<em><b>DESCENDANT OR SELF</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

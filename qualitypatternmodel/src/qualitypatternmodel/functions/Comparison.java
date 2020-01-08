@@ -15,7 +15,6 @@ import qualitypatternmodel.inputfields.Option;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.functions.Comparison#getOperator <em>Operator</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.Comparison#getArgument1 <em>Argument1</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.Comparison#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.Comparison#getArgument2 <em>Argument2</em>}</li>
@@ -26,31 +25,6 @@ import qualitypatternmodel.inputfields.Option;
  * @generated
  */
 public interface Comparison extends BooleanOperator {
-	/**
-	 * Returns the value of the '<em><b>Operator</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.functions.ComparisonOperator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operator</em>' attribute.
-	 * @see qualitypatternmodel.functions.ComparisonOperator
-	 * @see #setOperator(ComparisonOperator)
-	 * @see qualitypatternmodel.functions.FunctionsPackage#getComparison_Operator()
-	 * @model
-	 * @generated
-	 */
-	ComparisonOperator getOperator();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.functions.Comparison#getOperator <em>Operator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Operator</em>' attribute.
-	 * @see qualitypatternmodel.functions.ComparisonOperator
-	 * @see #getOperator()
-	 * @generated
-	 */
-	void setOperator(ComparisonOperator value);
-
 	/**
 	 * Returns the value of the '<em><b>Argument1</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -80,7 +54,7 @@ public interface Comparison extends BooleanOperator {
 	 * @return the value of the '<em>Options</em>' reference.
 	 * @see #setOptions(Option)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getComparison_Options()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Option<ComparisonOperator> getOptions();

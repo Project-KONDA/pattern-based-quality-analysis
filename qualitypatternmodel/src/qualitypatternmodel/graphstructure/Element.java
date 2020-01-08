@@ -5,6 +5,9 @@ package qualitypatternmodel.graphstructure;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.functions.BooleanOperator;
+import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,11 +19,10 @@ import qualitypatternmodel.functions.BooleanOperator;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getId <em>Id</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isIsTranslated <em>Is Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isIsRoot <em>Is Root</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperty <em>Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
@@ -39,28 +41,6 @@ public interface Element extends GraphElement {
 	 * @generated
 	 */
 	EList<BooleanOperator> getPredicates();
-
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(int)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Id()
-	 * @model id="true"
-	 * @generated
-	 */
-	int getId();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Relation From Previous</b></em>' containment reference.
@@ -129,18 +109,18 @@ public interface Element extends GraphElement {
 	void setIsRoot(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Property</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Property}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Property()
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Properties()
 	 * @see qualitypatternmodel.graphstructure.Property#getElement
 	 * @model opposite="element" containment="true"
 	 * @generated
 	 */
-	EList<Property> getProperty();
+	EList<Property> getProperties();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,5 +153,21 @@ public interface Element extends GraphElement {
 	 * @generated
 	 */
 	Element getPreviousElement();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	EList<Operator> getAllOperators() throws InvalidTranslationException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	EList<Input> getAllVariables() throws InvalidTranslationException;
 
 } // Element

@@ -29,22 +29,21 @@ import qualitypatternmodel.graphstructure.OperatorList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.OperatorListImpl#getOperator <em>Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.OperatorListImpl#getOperators <em>Operators</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class OperatorListImpl extends MinimalEObjectImpl.Container implements OperatorList {
 	/**
-	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' containment reference list.
+	 * The cached value of the '{@link #getOperators() <em>Operators</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOperator()
+	 * @see #getOperators()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Operator> operator;
-
+	protected EList<Operator> operators;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,11 +68,11 @@ public class OperatorListImpl extends MinimalEObjectImpl.Container implements Op
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Operator> getOperator() {
-		if (operator == null) {
-			operator = new EObjectContainmentEList<Operator>(Operator.class, this, GraphstructurePackage.OPERATOR_LIST__OPERATOR);
+	public EList<Operator> getOperators() {
+		if (operators == null) {
+			operators = new EObjectContainmentEList<Operator>(Operator.class, this, GraphstructurePackage.OPERATOR_LIST__OPERATORS);
 		}
-		return operator;
+		return operators;
 	}
 
 	/**
@@ -84,8 +83,8 @@ public class OperatorListImpl extends MinimalEObjectImpl.Container implements Op
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.OPERATOR_LIST__OPERATOR:
-				return ((InternalEList<?>)getOperator()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.OPERATOR_LIST__OPERATORS:
+				return ((InternalEList<?>)getOperators()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -98,8 +97,8 @@ public class OperatorListImpl extends MinimalEObjectImpl.Container implements Op
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.OPERATOR_LIST__OPERATOR:
-				return getOperator();
+			case GraphstructurePackage.OPERATOR_LIST__OPERATORS:
+				return getOperators();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,9 +112,9 @@ public class OperatorListImpl extends MinimalEObjectImpl.Container implements Op
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.OPERATOR_LIST__OPERATOR:
-				getOperator().clear();
-				getOperator().addAll((Collection<? extends Operator>)newValue);
+			case GraphstructurePackage.OPERATOR_LIST__OPERATORS:
+				getOperators().clear();
+				getOperators().addAll((Collection<? extends Operator>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -129,8 +128,8 @@ public class OperatorListImpl extends MinimalEObjectImpl.Container implements Op
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.OPERATOR_LIST__OPERATOR:
-				getOperator().clear();
+			case GraphstructurePackage.OPERATOR_LIST__OPERATORS:
+				getOperators().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -144,8 +143,8 @@ public class OperatorListImpl extends MinimalEObjectImpl.Container implements Op
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.OPERATOR_LIST__OPERATOR:
-				return operator != null && !operator.isEmpty();
+			case GraphstructurePackage.OPERATOR_LIST__OPERATORS:
+				return operators != null && !operators.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

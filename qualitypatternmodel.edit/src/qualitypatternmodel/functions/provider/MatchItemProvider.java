@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.Match;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.functions.Match} object.
@@ -132,7 +133,8 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Match_type");
+		Match match = (Match)object;
+		return getString("_UI_Match_type") + " " + match.getId();
 	}
 
 

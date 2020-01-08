@@ -70,13 +70,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT = 9;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT__ID = 0;
+
+	/**
 	 * The number of structural features of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_FEATURE_COUNT = 0;
+	int PATTERN_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -114,6 +123,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	int MAPPING = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING__ID = PATTERN_ELEMENT__ID;
 
 	/**
 	 * The number of structural features of the '<em>Mapping</em>' class.
@@ -160,6 +178,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	int RELATION_MAPPING = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING__ID = MAPPING__ID;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' reference.
@@ -226,6 +253,15 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__ID = PATTERN_ELEMENT__ID;
+
+	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -270,6 +306,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	int QUANTIFIED_CONDITION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION__ID = CONDITION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -354,6 +399,15 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM = 3;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM__ID = PATTERN_ELEMENT__ID;
+
+	/**
 	 * The feature id for the '<em><b>Mappings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -427,6 +481,15 @@ public interface PatternstructurePackage extends EPackage {
 	int SINGLE_ELEMENT_MAPPING = 4;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING__ID = MAPPING__ID;
+
+	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -489,6 +552,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	int FORMULA = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA__ID = CONDITION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
@@ -555,6 +627,15 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE = 7;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE__ID = CONDITION__ID;
+
+	/**
 	 * The number of structural features of the '<em>True</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -599,6 +680,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	int PATTERN = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN__ID = PATTERN_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Return Graph</b></em>' containment reference.
@@ -961,6 +1051,17 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getPatternElement();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.PatternElement#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getId()
+	 * @see #getPatternElement()
+	 * @generated
+	 */
+	EAttribute getPatternElement_Id();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.TranslationLocation) <em>To XQuery</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1263,6 +1364,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EClass PATTERN_ELEMENT = eINSTANCE.getPatternElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PATTERN_ELEMENT__ID = eINSTANCE.getPatternElement_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>To XQuery</b></em>' operation.

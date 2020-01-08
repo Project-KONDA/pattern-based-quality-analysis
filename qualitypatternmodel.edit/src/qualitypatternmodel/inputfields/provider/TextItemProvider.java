@@ -91,10 +91,8 @@ public class TextItemProvider extends InputItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Text)object).getDescription();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Text_type") :
-			getString("_UI_Text_type") + " " + label;
+		Text text = (Text)object;
+		return getString("_UI_Text_type") + " " + text.getId();
 	}
 
 

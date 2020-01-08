@@ -94,7 +94,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__VARIABLE_LIST);
 			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENT);
-			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__OPERATORLIST);
+			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST);
 		}
 		return childrenFeatures;
 	}
@@ -131,7 +131,8 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Graph_type");
+		Graph graph = (Graph)object;
+		return getString("_UI_Graph_type") + " " + graph.getId();
 	}
 
 
@@ -149,7 +150,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		switch (notification.getFeatureID(Graph.class)) {
 			case GraphstructurePackage.GRAPH__VARIABLE_LIST:
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-			case GraphstructurePackage.GRAPH__OPERATORLIST:
+			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -179,7 +180,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.GRAPH__OPERATORLIST,
+				(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST,
 				 GraphstructureFactory.eINSTANCE.createOperatorList()));
 	}
 

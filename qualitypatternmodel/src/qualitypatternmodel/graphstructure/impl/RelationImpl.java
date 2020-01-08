@@ -2,9 +2,10 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -14,6 +15,7 @@ import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -29,7 +31,6 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getAxis <em>Axis</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getRelationOptions <em>Relation Options</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getMappingFrom <em>Mapping From</em>}</li>
@@ -38,26 +39,6 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * @generated
  */
 public class RelationImpl extends PatternElementImpl implements Relation {
-	/**
-	 * The default value of the '{@link #getAxis() <em>Axis</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAxis()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Axis AXIS_EDEFAULT = Axis.CHILD;
-
-	/**
-	 * The cached value of the '{@link #getAxis() <em>Axis</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAxis()
-	 * @generated
-	 * @ordered
-	 */
-	protected Axis axis = AXIS_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getRelationOptions() <em>Relation Options</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -96,23 +77,38 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	protected RelationImpl() {
 		super();
 	}	
-
-	@Override
-	public String toXQuery(TranslationLocation tranlsationLocation) {		
-		if (axis != null) {
-			return "/" + axis.getLiteral() + "::*";
-		} else {
-			Axis selectedAxis = (Axis) relationOptions.getSelection();
-			return "/" + selectedAxis.getLiteral() + "::*";
-		}		
-	}
 	
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException  {		
 //		return  axis != null ^ (relationOptions != null && relationOptions.isValid(isDefinedPattern));
-		if (!(axis != null ^ relationOptions != null))
+		if (relationOptions != null) {
+			relationOptions.isValid(isDefinedPattern);
+		} else {
 			throw new InvalidTranslationException("axis options invalid");
-		if (relationOptions != null) relationOptions.isValid(isDefinedPattern);
+		}
+	}
+
+	@Override
+	public String toXQuery(TranslationLocation tranlsationLocation) throws InvalidTranslationException {		
+		if(relationOptions != null && relationOptions.getSelection() !=null) {
+			Axis selectedAxis = (Axis) relationOptions.getSelection();
+			return "/" + selectedAxis.getLiteral() + "::*";
+		}else {
+			throw new InvalidTranslationException("relation options invalid");
+		}
+			
+	}
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Input> getAllVariables() throws InvalidTranslationException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -123,27 +119,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	protected EClass eStaticClass() {
 		return GraphstructurePackage.Literals.RELATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Axis getAxis() {
-		return axis;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAxis(Axis newAxis) {
-		Axis oldAxis = axis;
-		axis = newAxis == null ? AXIS_EDEFAULT : newAxis;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__AXIS, oldAxis, axis));
 	}
 
 	/**
@@ -305,6 +280,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__MAPPING_FROM, newMappingFrom, newMappingFrom));
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -349,8 +325,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__AXIS:
-				return getAxis();
 			case GraphstructurePackage.RELATION__RELATION_OPTIONS:
 				if (resolve) return getRelationOptions();
 				return basicGetRelationOptions();
@@ -373,9 +347,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__AXIS:
-				setAxis((Axis)newValue);
-				return;
 			case GraphstructurePackage.RELATION__RELATION_OPTIONS:
 				setRelationOptions((Option<Axis>)newValue);
 				return;
@@ -397,9 +368,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__AXIS:
-				setAxis(AXIS_EDEFAULT);
-				return;
 			case GraphstructurePackage.RELATION__RELATION_OPTIONS:
 				setRelationOptions((Option<Axis>)null);
 				return;
@@ -421,8 +389,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__AXIS:
-				return axis != AXIS_EDEFAULT;
 			case GraphstructurePackage.RELATION__RELATION_OPTIONS:
 				return relationOptions != null;
 			case GraphstructurePackage.RELATION__MAPPING_TO:
@@ -439,14 +405,17 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (axis: ");
-		result.append(axis);
-		result.append(')');
-		return result.toString();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case GraphstructurePackage.RELATION___GET_ALL_VARIABLES:
+				try {
+					return getAllVariables();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //RelationImpl

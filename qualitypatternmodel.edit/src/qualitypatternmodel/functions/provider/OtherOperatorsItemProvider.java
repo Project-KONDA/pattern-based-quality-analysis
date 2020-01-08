@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import qualitypatternmodel.functions.OtherOperators;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.functions.OtherOperators} object.
@@ -51,7 +52,8 @@ public class OtherOperatorsItemProvider extends OperatorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_OtherOperators_type");
+		OtherOperators otherOperators = (OtherOperators)object;
+		return getString("_UI_OtherOperators_type") + " " + otherOperators.getId();
 	}
 
 

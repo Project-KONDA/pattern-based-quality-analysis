@@ -14,6 +14,7 @@ import qualitypatternmodel.inputfields.Input;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.Input#inputIsValid() <em>Input Is Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.Input#getAllVariables() <em>Get All Variables</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -49,6 +50,19 @@ public abstract class InputTest extends GraphElementTest {
 	 * @generated
 	 */
 	public void testInputIsValid() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.inputfields.Input#getAllVariables() <em>Get All Variables</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.inputfields.Input#getAllVariables()
+	 * @generated
+	 */
+	public void testGetAllVariables() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

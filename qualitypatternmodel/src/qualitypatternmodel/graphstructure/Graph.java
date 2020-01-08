@@ -4,6 +4,9 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -18,7 +21,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElement <em>Return Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getVariableList <em>Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorlist <em>Operatorlist</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph()
@@ -83,25 +86,41 @@ public interface Graph extends PatternElement {
 	void setRootElement(SingleElement value);
 
 	/**
-	 * Returns the value of the '<em><b>Operatorlist</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Operator List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operatorlist</em>' containment reference.
-	 * @see #setOperatorlist(OperatorList)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_Operatorlist()
+	 * @return the value of the '<em>Operator List</em>' containment reference.
+	 * @see #setOperatorList(OperatorList)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_OperatorList()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	OperatorList getOperatorlist();
+	OperatorList getOperatorList();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getOperatorlist <em>Operatorlist</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Operatorlist</em>' containment reference.
-	 * @see #getOperatorlist()
+	 * @param value the new value of the '<em>Operator List</em>' containment reference.
+	 * @see #getOperatorList()
 	 * @generated
 	 */
-	void setOperatorlist(OperatorList value);
+	void setOperatorList(OperatorList value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	EList<Input> getAllVariables() throws InvalidTranslationException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	EList<Operator> getAllOperators() throws InvalidTranslationException;
 
 } // Graph

@@ -90,10 +90,8 @@ public class BooleanItemProvider extends InputItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((qualitypatternmodel.inputfields.Boolean)object).getDescription();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Boolean_type") :
-			getString("_UI_Boolean_type") + " " + label;
+		qualitypatternmodel.inputfields.Boolean boolean_ = (qualitypatternmodel.inputfields.Boolean)object;
+		return getString("_UI_Boolean_type") + " " + boolean_.getId();
 	}
 
 

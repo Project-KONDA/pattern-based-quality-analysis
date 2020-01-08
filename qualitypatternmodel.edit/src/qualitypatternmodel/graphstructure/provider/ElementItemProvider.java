@@ -47,7 +47,6 @@ public class ElementItemProvider extends GraphElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPredicatesPropertyDescriptor(object);
-			addIdPropertyDescriptor(object);
 			addIsTranslatedPropertyDescriptor(object);
 			addIsRootPropertyDescriptor(object);
 		}
@@ -72,28 +71,6 @@ public class ElementItemProvider extends GraphElementItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Id feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIdPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Element_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Element_id_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -155,7 +132,7 @@ public class ElementItemProvider extends GraphElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__RELATION_FROM_PREVIOUS);
-			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__PROPERTY);
+			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__PROPERTIES);
 		}
 		return childrenFeatures;
 	}
@@ -198,13 +175,12 @@ public class ElementItemProvider extends GraphElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Element.class)) {
-			case GraphstructurePackage.ELEMENT__ID:
 			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
 			case GraphstructurePackage.ELEMENT__IS_ROOT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
-			case GraphstructurePackage.ELEMENT__PROPERTY:
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -229,7 +205,7 @@ public class ElementItemProvider extends GraphElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.ELEMENT__PROPERTY,
+				(GraphstructurePackage.Literals.ELEMENT__PROPERTIES,
 				 GraphstructureFactory.eINSTANCE.createProperty()));
 	}
 

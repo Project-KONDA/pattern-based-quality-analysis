@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import qualitypatternmodel.patternstructure.Condition;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.Condition} object.
@@ -51,7 +52,8 @@ public class ConditionItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Condition_type");
+		Condition condition = (Condition)object;
+		return getString("_UI_Condition_type") + " " + condition.getId();
 	}
 
 

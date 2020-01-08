@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 
 /**
@@ -88,7 +89,8 @@ public class CountItemProvider extends NumberOperatorsItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Count_type");
+		Count count = (Count)object;
+		return getString("_UI_Count_type") + " " + count.getId();
 	}
 
 

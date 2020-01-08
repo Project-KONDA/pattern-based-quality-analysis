@@ -9,6 +9,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -20,10 +21,12 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.functions.BooleanOperator;
 
+import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
@@ -34,11 +37,10 @@ import qualitypatternmodel.patternstructure.InvalidTranslationException;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getPredicates <em>Predicates</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getId <em>Id</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isIsTranslated <em>Is Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isIsRoot <em>Is Root</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,26 +54,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * @ordered
 	 */
 	protected EList<BooleanOperator> predicates;
-
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int ID_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected int id = ID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRelationFromPrevious() <em>Relation From Previous</em>}' containment reference.
@@ -120,14 +102,14 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected boolean isRoot = IS_ROOT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProperty()
+	 * @see #getProperties()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Property> property;
+	protected EList<Property> properties;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -163,6 +145,42 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			throw new InvalidTranslationException("previousElement null");
 		if (!isRoot) relationFromPrevious.isValid(isDefinedPattern);
 	}
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<Operator> getAllOperators() throws InvalidTranslationException {
+		EList<Operator> res = new BasicEList<Operator>();
+		for(Element element : getNextElements()) {
+			res.addAll(element.getAllOperators());
+		}	
+		res.addAll(getPredicates());
+		for (Operator op : getPredicates()) {
+			res.addAll(op.getAllOperators());
+		}
+		return res;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<Input> getAllVariables() throws InvalidTranslationException {
+		EList<Input> res = new BasicEList<Input>();
+		for(Element element : getNextElements()) {
+			res.addAll(element.getAllVariables());
+		}
+		res.addAll(getRelationFromPrevious().getAllVariables());
+		for(Property p : properties) {
+			res.addAll(p.getAllVariables());
+		}
+		for (Operator op : getPredicates()) {
+			res.addAll(op.getAllVariables());
+		}
+		return res;
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -182,25 +200,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			predicates = new EObjectResolvingEList<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES);
 		}
 		return predicates;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setId(int newId) {
-		int oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__ID, oldId, id));
 	}
 
 	/**
@@ -286,11 +285,11 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Property> getProperty() {
-		if (property == null) {
-			property = new EObjectContainmentWithInverseEList<Property>(Property.class, this, GraphstructurePackage.ELEMENT__PROPERTY, GraphstructurePackage.PROPERTY__ELEMENT);
+	public EList<Property> getProperties() {
+		if (properties == null) {
+			properties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, GraphstructurePackage.ELEMENT__PROPERTIES, GraphstructurePackage.PROPERTY__ELEMENT);
 		}
-		return property;
+		return properties;
 	}
 
 	/**
@@ -323,6 +322,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 */
 	public abstract Element getPreviousElement();
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -332,8 +332,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.ELEMENT__PROPERTY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperty()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -347,8 +347,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		switch (featureID) {
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return basicSetRelationFromPrevious(null, msgs);
-			case GraphstructurePackage.ELEMENT__PROPERTY:
-				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -362,16 +362,14 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		switch (featureID) {
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				return getPredicates();
-			case GraphstructurePackage.ELEMENT__ID:
-				return getId();
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return getRelationFromPrevious();
 			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
 				return isIsTranslated();
 			case GraphstructurePackage.ELEMENT__IS_ROOT:
 				return isIsRoot();
-			case GraphstructurePackage.ELEMENT__PROPERTY:
-				return getProperty();
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
+				return getProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -388,9 +386,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				getPredicates().clear();
 				getPredicates().addAll((Collection<? extends BooleanOperator>)newValue);
 				return;
-			case GraphstructurePackage.ELEMENT__ID:
-				setId((Integer)newValue);
-				return;
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				setRelationFromPrevious((Relation)newValue);
 				return;
@@ -400,9 +395,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__IS_ROOT:
 				setIsRoot((Boolean)newValue);
 				return;
-			case GraphstructurePackage.ELEMENT__PROPERTY:
-				getProperty().clear();
-				getProperty().addAll((Collection<? extends Property>)newValue);
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -418,9 +413,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				getPredicates().clear();
 				return;
-			case GraphstructurePackage.ELEMENT__ID:
-				setId(ID_EDEFAULT);
-				return;
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				setRelationFromPrevious((Relation)null);
 				return;
@@ -430,8 +422,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__IS_ROOT:
 				setIsRoot(IS_ROOT_EDEFAULT);
 				return;
-			case GraphstructurePackage.ELEMENT__PROPERTY:
-				getProperty().clear();
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
+				getProperties().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -446,16 +438,14 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		switch (featureID) {
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				return predicates != null && !predicates.isEmpty();
-			case GraphstructurePackage.ELEMENT__ID:
-				return id != ID_EDEFAULT;
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return relationFromPrevious != null;
 			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
 				return isTranslated != IS_TRANSLATED_EDEFAULT;
 			case GraphstructurePackage.ELEMENT__IS_ROOT:
 				return isRoot != IS_ROOT_EDEFAULT;
-			case GraphstructurePackage.ELEMENT__PROPERTY:
-				return property != null && !property.isEmpty();
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
+				return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -475,6 +465,20 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return getNextElements();
 			case GraphstructurePackage.ELEMENT___GET_PREVIOUS_ELEMENT:
 				return getPreviousElement();
+			case GraphstructurePackage.ELEMENT___GET_ALL_OPERATORS:
+				try {
+					return getAllOperators();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.ELEMENT___GET_ALL_VARIABLES:
+				try {
+					return getAllVariables();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -488,9 +492,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (id: ");
-		result.append(id);
-		result.append(", isTranslated: ");
+		result.append(" (isTranslated: ");
 		result.append(isTranslated);
 		result.append(", isRoot: ");
 		result.append(isRoot);

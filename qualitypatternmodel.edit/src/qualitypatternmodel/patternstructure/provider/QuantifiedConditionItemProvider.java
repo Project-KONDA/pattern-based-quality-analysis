@@ -21,7 +21,6 @@ import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.QuantifiedCondition} object.
@@ -129,11 +128,8 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Quantifier labelValue = ((QuantifiedCondition)object).getQuantifier();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_QuantifiedCondition_type") :
-			getString("_UI_QuantifiedCondition_type") + " " + label;
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition)object;
+		return getString("_UI_QuantifiedCondition_type") + " " + quantifiedCondition.getId();
 	}
 
 

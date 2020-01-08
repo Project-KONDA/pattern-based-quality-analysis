@@ -146,7 +146,8 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Morphism_type");
+		Morphism morphism = (Morphism)object;
+		return getString("_UI_Morphism_type") + " " + morphism.getId();
 	}
 
 

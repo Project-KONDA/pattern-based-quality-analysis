@@ -26,9 +26,7 @@ public enum PropertyLocation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATA(0, "DATA", "data()"),
-
-	/**
+	DATA(0, "DATA", "DATA"), /**
 	 * The '<em><b>TAG</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -36,9 +34,7 @@ public enum PropertyLocation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TAG(1, "TAG", "name()"),
-
-	/**
+	TAG(1, "TAG", "TAG"), /**
 	 * The '<em><b>ATTRIBUTE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,14 +42,14 @@ public enum PropertyLocation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ATTRIBUTE(2, "ATTRIBUTE", "data(@");
+	ATTRIBUTE(2, "ATTRIBUTE", "ATTRIBUTE");
 
 	/**
 	 * The '<em><b>DATA</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #DATA
-	 * @model literal="data()"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
@@ -64,7 +60,7 @@ public enum PropertyLocation implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #TAG
-	 * @model literal="name()"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
@@ -75,7 +71,7 @@ public enum PropertyLocation implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #ATTRIBUTE
-	 * @model literal="data(@"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */

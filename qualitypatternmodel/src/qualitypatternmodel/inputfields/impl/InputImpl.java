@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.inputfields.impl;
 
+import java.lang.Boolean;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -30,6 +31,7 @@ import qualitypatternmodel.patternstructure.InvalidTranslationException;
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getVariableList <em>Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#isIsPredefined <em>Is Predefined</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,6 +55,24 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+	/**
+	 * The default value of the '{@link #isIsPredefined() <em>Is Predefined</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsPredefined()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_PREDEFINED_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isIsPredefined() <em>Is Predefined</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsPredefined()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isPredefined = IS_PREDEFINED_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -129,6 +149,27 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.INPUT__DESCRIPTION, oldDescription, description));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isIsPredefined() {
+		return isPredefined;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsPredefined(boolean newIsPredefined) {
+		boolean oldIsPredefined = isPredefined;
+		isPredefined = newIsPredefined;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.INPUT__IS_PREDEFINED, oldIsPredefined, isPredefined));
+	}
+
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
 //		return (!isDefinedPattern || inputIsValid()) && variableList != null;
@@ -143,6 +184,17 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * 
 	 */
 	public abstract boolean inputIsValid();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Input> getAllVariables() throws InvalidTranslationException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -197,6 +249,8 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 				return getVariableList();
 			case InputfieldsPackage.INPUT__DESCRIPTION:
 				return getDescription();
+			case InputfieldsPackage.INPUT__IS_PREDEFINED:
+				return isIsPredefined();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -213,6 +267,9 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 				return;
 			case InputfieldsPackage.INPUT__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case InputfieldsPackage.INPUT__IS_PREDEFINED:
+				setIsPredefined((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -231,6 +288,9 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 			case InputfieldsPackage.INPUT__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case InputfieldsPackage.INPUT__IS_PREDEFINED:
+				setIsPredefined(IS_PREDEFINED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -246,6 +306,8 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 				return getVariableList() != null;
 			case InputfieldsPackage.INPUT__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case InputfieldsPackage.INPUT__IS_PREDEFINED:
+				return isPredefined != IS_PREDEFINED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -259,6 +321,13 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 		switch (operationID) {
 			case InputfieldsPackage.INPUT___INPUT_IS_VALID:
 				return inputIsValid();
+			case InputfieldsPackage.INPUT___GET_ALL_VARIABLES:
+				try {
+					return getAllVariables();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -275,6 +344,8 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (description: ");
 		result.append(description);
+		result.append(", isPredefined: ");
+		result.append(isPredefined);
 		result.append(')');
 		return result.toString();
 	}

@@ -114,10 +114,8 @@ public class OptionItemProvider extends InputItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Option<?>)object).getDescription();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Option_type") :
-			getString("_UI_Option_type") + " " + label;
+		Option<?> option = (Option<?>)object;
+		return getString("_UI_Option_type") + " " + option.getId();
 	}
 
 

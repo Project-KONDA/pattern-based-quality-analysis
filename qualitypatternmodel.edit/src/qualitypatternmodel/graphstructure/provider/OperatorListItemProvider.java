@@ -80,7 +80,7 @@ public class OperatorListItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATOR);
+			childrenFeatures.add(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATORS);
 		}
 		return childrenFeatures;
 	}
@@ -133,7 +133,7 @@ public class OperatorListItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(OperatorList.class)) {
-			case GraphstructurePackage.OPERATOR_LIST__OPERATOR:
+			case GraphstructurePackage.OPERATOR_LIST__OPERATORS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -153,22 +153,22 @@ public class OperatorListItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATOR,
+				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATORS,
 				 FunctionsFactory.eINSTANCE.createCount()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATOR,
+				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATORS,
 				 FunctionsFactory.eINSTANCE.createMatch()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATOR,
+				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATORS,
 				 FunctionsFactory.eINSTANCE.createComparison()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATOR,
+				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATORS,
 				 FunctionsFactory.eINSTANCE.createToNumber()));
 	}
 

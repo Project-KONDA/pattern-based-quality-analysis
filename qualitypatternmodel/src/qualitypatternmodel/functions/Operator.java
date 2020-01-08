@@ -2,7 +2,10 @@
  */
 package qualitypatternmodel.functions;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.GraphElement;
+import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,4 +18,20 @@ import qualitypatternmodel.graphstructure.GraphElement;
  * @generated
  */
 public interface Operator extends GraphElement {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	EList<Operator> getAllOperators() throws InvalidTranslationException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	EList<Input> getAllVariables() throws InvalidTranslationException;
 } // Operator

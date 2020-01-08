@@ -2,7 +2,11 @@
  */
 package qualitypatternmodel.graphstructure;
 
+import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.Text;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,10 +17,9 @@ import qualitypatternmodel.inputfields.Option;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#getLocation <em>Location</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty()
@@ -26,14 +29,14 @@ import qualitypatternmodel.inputfields.Option;
 public interface Property extends GraphElement {
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getProperty <em>Property</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Element</em>' container reference.
 	 * @see #setElement(Element)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Element()
-	 * @see qualitypatternmodel.graphstructure.Element#getProperty
-	 * @model opposite="property" required="true" transient="false"
+	 * @see qualitypatternmodel.graphstructure.Element#getProperties
+	 * @model opposite="properties" required="true" transient="false"
 	 * @generated
 	 */
 	Element getElement();
@@ -49,52 +52,34 @@ public interface Property extends GraphElement {
 	void setElement(Element value);
 
 	/**
-	 * Returns the value of the '<em><b>Attribute Name</b></em>' attribute.
-	 * The default value is <code>""</code>.
+	 * Returns the value of the '<em><b>Attribute Name</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attribute Name</em>' attribute.
-	 * @see #setAttributeName(String)
+	 * @return the value of the '<em>Attribute Name</em>' reference.
+	 * @see #setAttributeName(Text)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_AttributeName()
-	 * @model default=""
+	 * @model required="true"
 	 * @generated
 	 */
-	String getAttributeName();
+	Text getAttributeName();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Attribute Name</em>' attribute.
+	 * @param value the new value of the '<em>Attribute Name</em>' reference.
 	 * @see #getAttributeName()
 	 * @generated
 	 */
-	void setAttributeName(String value);
+	void setAttributeName(Text value);
 
 	/**
-	 * Returns the value of the '<em><b>Location</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.PropertyLocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Location</em>' attribute.
-	 * @see qualitypatternmodel.graphstructure.PropertyLocation
-	 * @see #setLocation(PropertyLocation)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Location()
-	 * @model
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
 	 * @generated
 	 */
-	PropertyLocation getLocation();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getLocation <em>Location</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Location</em>' attribute.
-	 * @see qualitypatternmodel.graphstructure.PropertyLocation
-	 * @see #getLocation()
-	 * @generated
-	 */
-	void setLocation(PropertyLocation value);
+	EList<Input> getAllVariables() throws InvalidTranslationException;
 
 	/**
 	 * Returns the value of the '<em><b>Property Options</b></em>' reference.
@@ -103,7 +88,7 @@ public interface Property extends GraphElement {
 	 * @return the value of the '<em>Property Options</em>' reference.
 	 * @see #setPropertyOptions(Option)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_PropertyOptions()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Option<PropertyLocation> getPropertyOptions();

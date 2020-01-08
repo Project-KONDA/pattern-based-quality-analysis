@@ -4,6 +4,8 @@ package qualitypatternmodel.inputfields;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Option</b></em>'.
@@ -54,5 +56,13 @@ public interface Option<T> extends Input {
 	 * @generated
 	 */
 	void setSelection(T value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	void isValid(boolean isDefinedBattern, Class cls) throws InvalidTranslationException;
 
 } // Option

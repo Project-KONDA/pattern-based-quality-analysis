@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
 
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
@@ -57,7 +58,8 @@ public class GraphElementItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_GraphElement_type");
+		GraphElement graphElement = (GraphElement)object;
+		return getString("_UI_GraphElement_type") + " " + graphElement.getId();
 	}
 
 

@@ -50,6 +50,7 @@ public class InputItemProvider extends GraphElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
+			addIsPredefinedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -77,6 +78,28 @@ public class InputItemProvider extends GraphElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Is Predefined feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsPredefinedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Input_isPredefined_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Input_isPredefined_feature", "_UI_Input_type"),
+				 InputfieldsPackage.Literals.INPUT__IS_PREDEFINED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,10 +107,8 @@ public class InputItemProvider extends GraphElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Input)object).getDescription();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Input_type") :
-			getString("_UI_Input_type") + " " + label;
+		Input input = (Input)object;
+		return getString("_UI_Input_type") + " " + input.getId();
 	}
 
 
@@ -104,6 +125,7 @@ public class InputItemProvider extends GraphElementItemProvider {
 
 		switch (notification.getFeatureID(Input.class)) {
 			case InputfieldsPackage.INPUT__DESCRIPTION:
+			case InputfieldsPackage.INPUT__IS_PREDEFINED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

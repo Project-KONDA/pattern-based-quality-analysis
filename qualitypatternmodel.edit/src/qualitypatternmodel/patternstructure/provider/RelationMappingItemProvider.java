@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.RelationMapping;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.RelationMapping} object.
@@ -111,7 +112,8 @@ public class RelationMappingItemProvider extends MappingItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RelationMapping_type");
+		RelationMapping relationMapping = (RelationMapping)object;
+		return getString("_UI_RelationMapping_type") + " " + relationMapping.getId();
 	}
 
 

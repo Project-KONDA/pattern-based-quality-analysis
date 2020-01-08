@@ -17,7 +17,6 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -125,11 +124,8 @@ public class FormulaItemProvider extends ConditionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		LogicalOperator labelValue = ((Formula)object).getOperator();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Formula_type") :
-			getString("_UI_Formula_type") + " " + label;
+		Formula formula = (Formula)object;
+		return getString("_UI_Formula_type") + " " + formula.getId();
 	}
 
 

@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.graphstructure.provider.GraphElementItemProvider;
 
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
@@ -57,7 +58,8 @@ public class OperatorItemProvider extends GraphElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Operator_type");
+		Operator operator = (Operator)object;
+		return getString("_UI_Operator_type") + " " + operator.getId();
 	}
 
 

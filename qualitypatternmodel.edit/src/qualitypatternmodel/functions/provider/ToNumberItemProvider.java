@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.ToNumber;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.functions.ToNumber} object.
@@ -86,7 +87,8 @@ public class ToNumberItemProvider extends NumberOperatorsItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ToNumber_type");
+		ToNumber toNumber = (ToNumber)object;
+		return getString("_UI_ToNumber_type") + " " + toNumber.getId();
 	}
 
 

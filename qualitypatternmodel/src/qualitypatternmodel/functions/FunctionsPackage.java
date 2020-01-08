@@ -2,9 +2,9 @@
  */
 package qualitypatternmodel.functions;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -70,6 +70,15 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__ID = GraphstructurePackage.GRAPH_ELEMENT__ID;
+
+	/**
 	 * The number of structural features of the '<em>Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,13 +115,31 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___GET_RETURN_TYPE = GraphstructurePackage.GRAPH_ELEMENT___GET_RETURN_TYPE;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GET_ALL_OPERATORS = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GET_ALL_VARIABLES = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 0;
+	int OPERATOR_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.BooleanOperatorImpl <em>Boolean Operator</em>}' class.
@@ -123,6 +150,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	int BOOLEAN_OPERATOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__ID = OPERATOR__ID;
 
 	/**
 	 * The number of structural features of the '<em>Boolean Operator</em>' class.
@@ -161,6 +197,24 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___GET_RETURN_TYPE = OPERATOR___GET_RETURN_TYPE;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,6 +232,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	int NUMBER_OPERATORS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS__ID = OPERATOR__ID;
 
 	/**
 	 * The number of structural features of the '<em>Number Operators</em>' class.
@@ -216,6 +279,24 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATORS___GET_RETURN_TYPE = OPERATOR___GET_RETURN_TYPE;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Number Operators</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -233,6 +314,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	int COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT__ID = NUMBER_OPERATORS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Argument</b></em>' reference.
@@ -280,6 +370,24 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT___GET_RETURN_TYPE = NUMBER_OPERATORS___GET_RETURN_TYPE;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___GET_ALL_OPERATORS = NUMBER_OPERATORS___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___GET_ALL_VARIABLES = NUMBER_OPERATORS___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Count</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -297,6 +405,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	int OTHER_OPERATORS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS__ID = OPERATOR__ID;
 
 	/**
 	 * The number of structural features of the '<em>Other Operators</em>' class.
@@ -335,6 +452,24 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATORS___GET_RETURN_TYPE = OPERATOR___GET_RETURN_TYPE;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Other Operators</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -352,6 +487,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	int MATCH = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH__ID = BOOLEAN_OPERATOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' reference.
@@ -417,6 +561,24 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___GET_RETURN_TYPE = BOOLEAN_OPERATOR___GET_RETURN_TYPE;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GET_ALL_VARIABLES = BOOLEAN_OPERATOR___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Match</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -436,13 +598,13 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON = 6;
 
 	/**
-	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON__OPERATOR = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
+	int COMPARISON__ID = BOOLEAN_OPERATOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Argument1</b></em>' reference.
@@ -451,7 +613,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON__ARGUMENT1 = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
+	int COMPARISON__ARGUMENT1 = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' reference.
@@ -460,7 +622,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON__OPTIONS = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
+	int COMPARISON__OPTIONS = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Argument2</b></em>' reference.
@@ -469,7 +631,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON__ARGUMENT2 = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
+	int COMPARISON__ARGUMENT2 = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Comparison</em>' class.
@@ -478,7 +640,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
+	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -508,6 +670,24 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___GET_RETURN_TYPE = BOOLEAN_OPERATOR___GET_RETURN_TYPE;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GET_ALL_VARIABLES = BOOLEAN_OPERATOR___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Comparison</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -525,6 +705,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	int TO_NUMBER = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER__ID = NUMBER_OPERATORS__ID;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' reference.
@@ -572,6 +761,24 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER___GET_RETURN_TYPE = NUMBER_OPERATORS___GET_RETURN_TYPE;
 
 	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER___GET_ALL_OPERATORS = NUMBER_OPERATORS___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER___GET_ALL_VARIABLES = NUMBER_OPERATORS___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>To Number</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -610,6 +817,26 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOperator();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Operator#getAllOperators() <em>Get All Operators</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Operators</em>' operation.
+	 * @see qualitypatternmodel.functions.Operator#getAllOperators()
+	 * @generated
+	 */
+	EOperation getOperator__GetAllOperators();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Operator#getAllVariables() <em>Get All Variables</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Variables</em>' operation.
+	 * @see qualitypatternmodel.functions.Operator#getAllVariables()
+	 * @generated
+	 */
+	EOperation getOperator__GetAllVariables();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Count <em>Count</em>}'.
@@ -704,17 +931,6 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getComparison();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.functions.Comparison#getOperator <em>Operator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Operator</em>'.
-	 * @see qualitypatternmodel.functions.Comparison#getOperator()
-	 * @see #getComparison()
-	 * @generated
-	 */
-	EAttribute getComparison_Operator();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Comparison#getArgument1 <em>Argument1</em>}'.
@@ -824,6 +1040,22 @@ public interface FunctionsPackage extends EPackage {
 		EClass OPERATOR = eINSTANCE.getOperator();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPERATOR___GET_ALL_OPERATORS = eINSTANCE.getOperator__GetAllOperators();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Variables</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPERATOR___GET_ALL_VARIABLES = eINSTANCE.getOperator__GetAllVariables();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.CountImpl <em>Count</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -904,14 +1136,6 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPARISON = eINSTANCE.getComparison();
-
-		/**
-		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPARISON__OPERATOR = eINSTANCE.getComparison_Operator();
 
 		/**
 		 * The meta object literal for the '<em><b>Argument1</b></em>' reference feature.

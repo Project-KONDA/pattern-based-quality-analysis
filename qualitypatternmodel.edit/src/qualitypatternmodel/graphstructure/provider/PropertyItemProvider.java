@@ -10,9 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 
@@ -44,55 +42,10 @@ public class PropertyItemProvider extends GraphElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAttributeNamePropertyDescriptor(object);
-			addLocationPropertyDescriptor(object);
 			addPropertyOptionsPropertyDescriptor(object);
+			addAttributeNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Attribute Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAttributeNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_attributeName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_attributeName_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__ATTRIBUTE_NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Location feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLocationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_location_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_location_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__LOCATION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -118,6 +71,28 @@ public class PropertyItemProvider extends GraphElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Attribute Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAttributeNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Property_attributeName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Property_attributeName_feature", "_UI_Property_type"),
+				 GraphstructurePackage.Literals.PROPERTY__ATTRIBUTE_NAME,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Property.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,10 +111,8 @@ public class PropertyItemProvider extends GraphElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Property)object).getAttributeName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Property_type") :
-			getString("_UI_Property_type") + " " + label;
+		Property property = (Property)object;
+		return getString("_UI_Property_type") + " " + property.getId();
 	}
 
 
@@ -156,7 +129,6 @@ public class PropertyItemProvider extends GraphElementItemProvider {
 
 		switch (notification.getFeatureID(Property.class)) {
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-			case GraphstructurePackage.PROPERTY__LOCATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -17,7 +17,7 @@ import qualitypatternmodel.functions.Operator;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.OperatorList#getOperator <em>Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.OperatorList#getOperators <em>Operators</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getOperatorList()
@@ -26,15 +26,15 @@ import qualitypatternmodel.functions.Operator;
  */
 public interface OperatorList extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Operator</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Operators</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.functions.Operator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operator</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getOperatorList_Operator()
+	 * @return the value of the '<em>Operators</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getOperatorList_Operators()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Operator> getOperator();
+	EList<Operator> getOperators();
 
 } // OperatorList

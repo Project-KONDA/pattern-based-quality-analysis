@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import qualitypatternmodel.patternstructure.Mapping;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.Mapping} object.
@@ -51,7 +52,8 @@ public class MappingItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Mapping_type");
+		Mapping mapping = (Mapping)object;
+		return getString("_UI_Mapping_type") + " " + mapping.getId();
 	}
 
 
