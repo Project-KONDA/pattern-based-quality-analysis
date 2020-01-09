@@ -16,7 +16,6 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllVariables() <em>Get All Variables</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}</li>
  * </ul>
  * </p>
@@ -74,19 +73,6 @@ public class GraphTest extends PatternElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getAllVariables() <em>Get All Variables</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Graph#getAllVariables()
-	 * @generated
-	 */
-	public void testGetAllVariables() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**

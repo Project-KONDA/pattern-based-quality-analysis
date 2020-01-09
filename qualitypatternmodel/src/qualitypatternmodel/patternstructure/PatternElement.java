@@ -2,7 +2,9 @@
  */
 package qualitypatternmodel.patternstructure;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.inputfields.Input;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,5 +60,13 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	void isValid(boolean isDefinedPattern) throws InvalidTranslationException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	EList<Input> getAllVariables() throws InvalidTranslationException;
 
 } // PatternElement

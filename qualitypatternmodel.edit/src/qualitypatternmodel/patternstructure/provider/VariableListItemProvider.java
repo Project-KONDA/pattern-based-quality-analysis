@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.graphstructure.provider;
+package qualitypatternmodel.patternstructure.provider;
 
 
 import java.util.Collection;
@@ -8,39 +8,22 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
-import qualitypatternmodel.graphstructure.VariableList;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
-import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.VariableList;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.VariableList} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.VariableList} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
 public class VariableListItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -78,7 +61,7 @@ public class VariableListItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.VARIABLE_LIST__VARIABLES);
+			childrenFeatures.add(PatternstructurePackage.Literals.VARIABLE_LIST__VARIABLES);
 		}
 		return childrenFeatures;
 	}
@@ -115,7 +98,8 @@ public class VariableListItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_VariableList_type");
+		VariableList variableList = (VariableList)object;
+		return getString("_UI_VariableList_type") + " " + variableList.getId();
 	}
 
 
@@ -131,7 +115,7 @@ public class VariableListItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(VariableList.class)) {
-			case GraphstructurePackage.VARIABLE_LIST__VARIABLES:
+			case PatternstructurePackage.VARIABLE_LIST__VARIABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -151,34 +135,23 @@ public class VariableListItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.VARIABLE_LIST__VARIABLES,
+				(PatternstructurePackage.Literals.VARIABLE_LIST__VARIABLES,
 				 InputfieldsFactory.eINSTANCE.createNumber()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.VARIABLE_LIST__VARIABLES,
+				(PatternstructurePackage.Literals.VARIABLE_LIST__VARIABLES,
 				 InputfieldsFactory.eINSTANCE.createBoolean()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.VARIABLE_LIST__VARIABLES,
+				(PatternstructurePackage.Literals.VARIABLE_LIST__VARIABLES,
 				 InputfieldsFactory.eINSTANCE.createOption()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.VARIABLE_LIST__VARIABLES,
+				(PatternstructurePackage.Literals.VARIABLE_LIST__VARIABLES,
 				 InputfieldsFactory.eINSTANCE.createText()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return QualitypatternmodelEditPlugin.INSTANCE;
 	}
 
 }

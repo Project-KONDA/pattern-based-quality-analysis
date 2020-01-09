@@ -1,13 +1,11 @@
 /**
  */
-package qualitypatternmodel.graphstructure.tests;
-
-import junit.framework.TestCase;
+package qualitypatternmodel.patternstructure.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.VariableList;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.VariableList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,15 +13,7 @@ import qualitypatternmodel.graphstructure.VariableList;
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableListTest extends TestCase {
-
-	/**
-	 * The fixture for this Variable List test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VariableList fixture = null;
+public class VariableListTest extends PatternElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +35,14 @@ public class VariableListTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Variable List test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(VariableList fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Variable List test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected VariableList getFixture() {
-		return fixture;
+		return (VariableList)fixture;
 	}
 
 	/**
@@ -72,7 +53,7 @@ public class VariableListTest extends TestCase {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(GraphstructureFactory.eINSTANCE.createVariableList());
+		setFixture(PatternstructureFactory.eINSTANCE.createVariableList());
 	}
 
 	/**

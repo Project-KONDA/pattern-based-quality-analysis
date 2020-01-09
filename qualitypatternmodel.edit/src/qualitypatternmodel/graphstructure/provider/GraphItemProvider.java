@@ -92,7 +92,6 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__VARIABLE_LIST);
 			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENT);
 			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST);
 		}
@@ -148,7 +147,6 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Graph.class)) {
-			case GraphstructurePackage.GRAPH__VARIABLE_LIST:
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -167,11 +165,6 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphstructurePackage.Literals.GRAPH__VARIABLE_LIST,
-				 GraphstructureFactory.eINSTANCE.createVariableList()));
 
 		newChildDescriptors.add
 			(createChildParameter

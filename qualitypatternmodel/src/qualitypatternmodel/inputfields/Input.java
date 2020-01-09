@@ -2,10 +2,8 @@
  */
 package qualitypatternmodel.inputfields;
 
-import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.GraphElement;
-import qualitypatternmodel.graphstructure.VariableList;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.VariableList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,13 +26,13 @@ import qualitypatternmodel.patternstructure.InvalidTranslationException;
 public interface Input extends GraphElement {
 	/**
 	 * Returns the value of the '<em><b>Variable List</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.VariableList#getVariables <em>Variables</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.VariableList#getVariables <em>Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variable List</em>' container reference.
 	 * @see #setVariableList(VariableList)
 	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput_VariableList()
-	 * @see qualitypatternmodel.graphstructure.VariableList#getVariables
+	 * @see qualitypatternmodel.patternstructure.VariableList#getVariables
 	 * @model opposite="variables" required="true" transient="false"
 	 * @generated
 	 */
@@ -101,13 +99,5 @@ public interface Input extends GraphElement {
 	 * @generated
 	 */
 	boolean inputIsValid();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
-	 * @generated
-	 */
-	EList<Input> getAllVariables() throws InvalidTranslationException;
 
 } // Input

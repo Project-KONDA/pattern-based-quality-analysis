@@ -62,7 +62,6 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 			case GraphstructurePackage.SINGLE_ELEMENT: return createSingleElement();
 			case GraphstructurePackage.SET_ELEMENT: return createSetElement();
 			case GraphstructurePackage.GRAPH: return createGraph();
-			case GraphstructurePackage.VARIABLE_LIST: return createVariableList();
 			case GraphstructurePackage.OPERATOR_LIST: return createOperatorList();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -155,16 +154,6 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	public Graph createGraph() {
 		GraphImpl graph = new GraphImpl();
 		return graph;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public VariableList createVariableList() {
-		VariableListImpl variableList = new VariableListImpl();
-		return variableList;
 	}
 
 	/**

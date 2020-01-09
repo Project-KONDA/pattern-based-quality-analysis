@@ -4,10 +4,8 @@
   <eSubpackages name="inputfields" nsURI="inputfields" nsPrefix="inputfields">
     <eClassifiers xsi:type="ecore:EClass" name="Input" abstract="true" eSuperTypes="#//graphstructure/GraphElement">
       <eOperations name="inputIsValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="getAllVariables" upperBound="-1" eType="#//inputfields/Input"
-          eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
-          eType="#//graphstructure/VariableList" eOpposite="#//graphstructure/VariableList/variables"/>
+          eType="#//patternstructure/VariableList" eOpposite="#//patternstructure/VariableList/variables"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPredefined" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
@@ -39,8 +37,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//functions/Operator"/>
     <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//graphstructure/GraphElement">
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
-          eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
-      <eOperations name="getAllVariables" upperBound="-1" eType="#//inputfields/Input"
           eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//functions/NumberOperators">
@@ -86,21 +82,13 @@
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
     <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="getAllVariables" upperBound="-1" eType="#//inputfields/Input"
-          eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="relationOptions" lowerBound="1">
-        <eGenericType eClassifier="#//inputfields/Option">
-          <eTypeArguments eClassifier="#//graphstructure/Axis"/>
-        </eGenericType>
-      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/to"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/from"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="#//graphstructure/Axis"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/GraphElement">
-      <eOperations name="getAllVariables" upperBound="-1" eType="#//inputfields/Input"
-          eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOptions" lowerBound="1">
         <eGenericType eClassifier="#//inputfields/Option">
           <eTypeArguments eClassifier="#//graphstructure/PropertyLocation"/>
@@ -145,25 +133,17 @@
           eType="#//graphstructure/Property" containment="true" eOpposite="#//graphstructure/Property/element"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="getAllVariables" upperBound="-1" eType="#//inputfields/Input"
-          eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
           eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="returnElement" lowerBound="1"
           upperBound="-1" eType="#//graphstructure/SingleElement"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
-          eType="#//graphstructure/VariableList" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rootElement" lowerBound="1"
           eType="#//graphstructure/SingleElement" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
-          eType="#//graphstructure/OperatorList" containment="true"/>
+          eType="#//graphstructure/OperatorList" containment="true" eOpposite="#//graphstructure/OperatorList/graph"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GraphElement" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableList">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-          eType="#//inputfields/Input" containment="true" eOpposite="#//inputfields/Input/variableList"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PropertyLocation">
       <eLiterals name="DATA" literal="DATA"/>
@@ -189,9 +169,11 @@
       <eLiterals name="NONE" value="3"/>
       <eLiterals name="ELEMENT" value="4"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="OperatorList">
+    <eClassifiers xsi:type="ecore:EClass" name="OperatorList" eSuperTypes="#//patternstructure/PatternElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operators" upperBound="-1"
           eType="#//functions/Operator" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
+          eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/operatorList"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="patternstructure" nsURI="patternstructure" nsPrefix="patternstructure">
@@ -248,6 +230,8 @@
           eType="#//graphstructure/Graph" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
           eType="#//patternstructure/Condition" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
+          eType="#//patternstructure/VariableList" containment="true" eOpposite="#//patternstructure/VariableList/pattern"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
       <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -257,6 +241,8 @@
       <eOperations name="isValid" eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper">
         <eParameters name="isDefinedPattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
+      <eOperations name="getAllVariables" upperBound="-1" eType="#//inputfields/Input"
+          eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           iD="true"/>
     </eClassifiers>
@@ -268,5 +254,11 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="InvalidTranslationExceptionWrapper"
         instanceClassName="qualitypatternmodel.patternstructure.InvalidTranslationException"/>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableList" eSuperTypes="#//patternstructure/PatternElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+          eType="#//inputfields/Input" containment="true" eOpposite="#//inputfields/Input/variableList"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
+          eType="#//patternstructure/Pattern" eOpposite="#//patternstructure/Pattern/variableList"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

@@ -14,7 +14,6 @@ import qualitypatternmodel.graphstructure.tests.GraphElementTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.Operator#getAllOperators() <em>Get All Operators</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.Operator#getAllVariables() <em>Get All Variables</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -50,19 +49,6 @@ public abstract class OperatorTest extends GraphElementTest {
 	 * @generated
 	 */
 	public void testGetAllOperators() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.functions.Operator#getAllVariables() <em>Get All Variables</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.functions.Operator#getAllVariables()
-	 * @generated
-	 */
-	public void testGetAllVariables() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

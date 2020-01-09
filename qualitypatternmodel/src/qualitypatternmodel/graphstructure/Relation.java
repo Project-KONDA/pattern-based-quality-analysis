@@ -2,11 +2,6 @@
  */
 package qualitypatternmodel.graphstructure;
 
-import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.inputfields.Option;
-
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -19,9 +14,9 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getRelationOptions <em>Relation Options</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getAxis <em>Axis</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation()
@@ -29,28 +24,6 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * @generated
  */
 public interface Relation extends PatternElement {
-	/**
-	 * Returns the value of the '<em><b>Relation Options</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relation Options</em>' reference.
-	 * @see #setRelationOptions(Option)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_RelationOptions()
-	 * @model required="true"
-	 * @generated
-	 */
-	Option<Axis> getRelationOptions();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getRelationOptions <em>Relation Options</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relation Options</em>' reference.
-	 * @see #getRelationOptions()
-	 * @generated
-	 */
-	void setRelationOptions(Option<Axis> value);
-
 	/**
 	 * Returns the value of the '<em><b>Mapping To</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.RelationMapping#getTo <em>To</em>}'.
@@ -100,11 +73,28 @@ public interface Relation extends PatternElement {
 	void setMappingFrom(RelationMapping value);
 
 	/**
+	 * Returns the value of the '<em><b>Axis</b></em>' attribute.
+	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.Axis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @return the value of the '<em>Axis</em>' attribute.
+	 * @see qualitypatternmodel.graphstructure.Axis
+	 * @see #setAxis(Axis)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Axis()
+	 * @model
 	 * @generated
 	 */
-	EList<Input> getAllVariables() throws InvalidTranslationException;
+	Axis getAxis();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getAxis <em>Axis</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Axis</em>' attribute.
+	 * @see qualitypatternmodel.graphstructure.Axis
+	 * @see #getAxis()
+	 * @generated
+	 */
+	void setAxis(Axis value);
 
 } // Relation

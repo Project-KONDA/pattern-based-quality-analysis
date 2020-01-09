@@ -212,15 +212,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOperator__GetAllVariables() {
-		return operatorEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getCount() {
 		return countEClass;
 	}
@@ -383,7 +374,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		operatorEClass = createEClass(OPERATOR);
 		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
-		createEOperation(operatorEClass, OPERATOR___GET_ALL_VARIABLES);
 
 		countEClass = createEClass(COUNT);
 		createEReference(countEClass, COUNT__ARGUMENT);
@@ -457,9 +447,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		EOperation op = initEOperation(getOperator__GetAllOperators(), this.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidTranslationExceptionWrapper());
-
-		op = initEOperation(getOperator__GetAllVariables(), theInputfieldsPackage.getInput(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidTranslationExceptionWrapper());
 
 		initEClass(countEClass, Count.class, "Count", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

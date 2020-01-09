@@ -15,6 +15,7 @@ import qualitypatternmodel.graphstructure.Graph;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getVariableList <em>Variable List</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern()
@@ -65,5 +66,29 @@ public interface Pattern extends PatternElement {
 	 * @generated
 	 */
 	void setCondition(Condition value);
+
+	/**
+	 * Returns the value of the '<em><b>Variable List</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.VariableList#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variable List</em>' containment reference.
+	 * @see #setVariableList(VariableList)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_VariableList()
+	 * @see qualitypatternmodel.patternstructure.VariableList#getPattern
+	 * @model opposite="pattern" containment="true" required="true"
+	 * @generated
+	 */
+	VariableList getVariableList();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getVariableList <em>Variable List</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Variable List</em>' containment reference.
+	 * @see #getVariableList()
+	 * @generated
+	 */
+	void setVariableList(VariableList value);
 
 } // Pattern

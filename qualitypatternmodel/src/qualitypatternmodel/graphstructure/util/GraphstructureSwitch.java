@@ -123,15 +123,10 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GraphstructurePackage.VARIABLE_LIST: {
-				VariableList variableList = (VariableList)theEObject;
-				T result = caseVariableList(variableList);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case GraphstructurePackage.OPERATOR_LIST: {
 				OperatorList operatorList = (OperatorList)theEObject;
 				T result = caseOperatorList(operatorList);
+				if (result == null) result = casePatternElement(operatorList);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -241,21 +236,6 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGraphElement(GraphElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable List</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable List</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseVariableList(VariableList object) {
 		return null;
 	}
 

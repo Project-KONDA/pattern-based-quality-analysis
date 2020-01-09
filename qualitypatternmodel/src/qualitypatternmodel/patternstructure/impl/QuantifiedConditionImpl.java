@@ -4,14 +4,14 @@ package qualitypatternmodel.patternstructure.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.graphstructure.Graph;
-
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.Morphism;
@@ -114,6 +114,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		morphism.isValid(isDefinedPattern);
 	}
 
+	@Override
+	public EList<Input> getAllVariables() throws InvalidTranslationException {
+		EList<Input> inputs = graph.getAllVariables();
+		inputs.addAll(condition.getAllVariables());
+		return inputs;	
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -12,14 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.functions.FunctionsFactory;
@@ -28,6 +21,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.OperatorList;
 
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.OperatorList} object.
@@ -36,13 +30,7 @@ import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
  * @generated
  */
 public class OperatorListItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -117,7 +105,8 @@ public class OperatorListItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_OperatorList_type");
+		OperatorList operatorList = (OperatorList)object;
+		return getString("_UI_OperatorList_type") + " " + operatorList.getId();
 	}
 
 

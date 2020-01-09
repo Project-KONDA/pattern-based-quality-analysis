@@ -73,13 +73,6 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case FunctionsPackage.OPERATOR___GET_ALL_VARIABLES:
-				try {
-					return getAllVariables();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

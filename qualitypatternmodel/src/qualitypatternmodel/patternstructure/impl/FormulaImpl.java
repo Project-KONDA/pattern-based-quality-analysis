@@ -6,7 +6,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
@@ -113,6 +114,15 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		} else {
 			return "(" + arguments.get(0).toXQuery(translationLocation) + ") " + operator.getLiteral() + " (" + arguments.get(1).toXQuery(translationLocation) + ")";
 		}
+	}
+	
+	@Override
+	public EList<Input> getAllVariables() throws InvalidTranslationException {
+		EList<Input> inputs = new BasicEList<Input>();
+		for(Condition condition : arguments) {
+			inputs.addAll(condition.getAllVariables());
+		}	
+		return inputs;	
 	}
 
 	/**

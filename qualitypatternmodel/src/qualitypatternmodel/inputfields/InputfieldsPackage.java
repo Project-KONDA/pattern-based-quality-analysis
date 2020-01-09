@@ -133,6 +133,15 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___IS_VALID__BOOLEAN = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___GET_ALL_VARIABLES = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -151,22 +160,13 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___INPUT_IS_VALID = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT___GET_ALL_VARIABLES = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Input</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 2;
+	int INPUT_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.NumberImpl <em>Number</em>}' class.
@@ -251,6 +251,15 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -267,15 +276,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
-
-	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
 
 	/**
 	 * The number of operations of the '<em>Number</em>' class.
@@ -369,6 +369,15 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -385,15 +394,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
-
-	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
 
 	/**
 	 * The number of operations of the '<em>Boolean</em>' class.
@@ -496,6 +496,15 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -512,15 +521,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPTION___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
-
-	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -623,6 +623,15 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -639,15 +648,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
-
-	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
 
 	/**
 	 * The number of operations of the '<em>Text</em>' class.
@@ -711,16 +711,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getInput__InputIsValid();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Input#getAllVariables() <em>Get All Variables</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Variables</em>' operation.
-	 * @see qualitypatternmodel.inputfields.Input#getAllVariables()
-	 * @generated
-	 */
-	EOperation getInput__GetAllVariables();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Number <em>Number</em>}'.
@@ -891,14 +881,6 @@ public interface InputfieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation INPUT___INPUT_IS_VALID = eINSTANCE.getInput__InputIsValid();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Variables</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation INPUT___GET_ALL_VARIABLES = eINSTANCE.getInput__GetAllVariables();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.NumberImpl <em>Number</em>}' class.

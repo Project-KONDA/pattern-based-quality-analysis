@@ -40,6 +40,7 @@ import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 import qualitypatternmodel.patternstructure.TranslationLocation;
 import qualitypatternmodel.patternstructure.True;
+import qualitypatternmodel.patternstructure.VariableList;
 
 /**
  * <!-- begin-user-doc -->
@@ -117,6 +118,13 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	private EClass patternElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variableListEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -442,6 +450,15 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPattern_VariableList() {
+		return (EReference)patternEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPatternElement() {
 		return patternElementEClass;
 	}
@@ -471,6 +488,42 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	public EOperation getPatternElement__IsValid__boolean() {
 		return patternElementEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPatternElement__GetAllVariables() {
+		return patternElementEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariableList() {
+		return variableListEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableList_Variables() {
+		return (EReference)variableListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableList_Pattern() {
+		return (EReference)variableListEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -569,11 +622,17 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		patternEClass = createEClass(PATTERN);
 		createEReference(patternEClass, PATTERN__RETURN_GRAPH);
 		createEReference(patternEClass, PATTERN__CONDITION);
+		createEReference(patternEClass, PATTERN__VARIABLE_LIST);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_VARIABLES);
+
+		variableListEClass = createEClass(VARIABLE_LIST);
+		createEReference(variableListEClass, VARIABLE_LIST__VARIABLES);
+		createEReference(variableListEClass, VARIABLE_LIST__PATTERN);
 
 		// Create enums
 		logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
@@ -609,6 +668,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		// Obtain other dependent packages
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
+		InputfieldsPackage theInputfieldsPackage = (InputfieldsPackage)EPackage.Registry.INSTANCE.getEPackage(InputfieldsPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -624,6 +684,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		formulaEClass.getESuperTypes().add(this.getCondition());
 		trueEClass.getESuperTypes().add(this.getCondition());
 		patternEClass.getESuperTypes().add(this.getPatternElement());
+		variableListEClass.getESuperTypes().add(this.getPatternElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(relationMappingEClass, RelationMapping.class, "RelationMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -658,6 +719,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEClass(patternEClass, Pattern.class, "Pattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPattern_ReturnGraph(), theGraphstructurePackage.getGraph(), null, "returnGraph", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_Condition(), this.getCondition(), null, "condition", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPattern_VariableList(), this.getVariableList(), this.getVariableList_Pattern(), "variableList", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternElement_Id(), ecorePackage.getEInt(), "id", null, 0, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -669,6 +731,13 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		op = initEOperation(getPatternElement__IsValid__boolean(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidTranslationExceptionWrapper());
+
+		op = initEOperation(getPatternElement__GetAllVariables(), theInputfieldsPackage.getInput(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidTranslationExceptionWrapper());
+
+		initEClass(variableListEClass, VariableList.class, "VariableList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariableList_Variables(), theInputfieldsPackage.getInput(), theInputfieldsPackage.getInput_VariableList(), "variables", null, 0, -1, VariableList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVariableList_Pattern(), this.getPattern(), this.getPattern_VariableList(), "pattern", null, 1, 1, VariableList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(logicalOperatorEEnum, LogicalOperator.class, "LogicalOperator");

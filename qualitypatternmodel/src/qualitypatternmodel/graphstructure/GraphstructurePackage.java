@@ -80,22 +80,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Relation Options</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION__RELATION_OPTIONS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Mapping To</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__MAPPING_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int RELATION__MAPPING_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
@@ -104,7 +95,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__MAPPING_FROM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int RELATION__MAPPING_FROM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Axis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION__AXIS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Relation</em>' class.
@@ -140,7 +140,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int RELATION___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
 	 * The number of operations of the '<em>Relation</em>' class.
@@ -149,7 +149,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphElementImpl <em>Graph Element</em>}' class.
@@ -196,6 +196,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int GRAPH_ELEMENT___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ELEMENT___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -289,6 +298,15 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___IS_VALID__BOOLEAN = GRAPH_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_ALL_VARIABLES = GRAPH_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -298,22 +316,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___GET_RETURN_TYPE = GRAPH_ELEMENT___GET_RETURN_TYPE;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GET_ALL_VARIABLES = GRAPH_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPERATION_COUNT = GRAPH_ELEMENT_OPERATION_COUNT + 1;
+	int PROPERTY_OPERATION_COUNT = GRAPH_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -887,22 +896,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__RETURN_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH__VARIABLE_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Root Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__ROOT_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int GRAPH__ROOT_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Operator List</b></em>' containment reference.
@@ -911,7 +911,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int GRAPH__OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
@@ -920,7 +920,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -947,7 +947,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int GRAPH___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -956,7 +956,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int GRAPH___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Graph</em>' class.
@@ -965,44 +965,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.VariableListImpl <em>Variable List</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.impl.VariableListImpl
-	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getVariableList()
-	 * @generated
-	 */
-	int VARIABLE_LIST = 7;
-
-	/**
-	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_LIST__VARIABLES = 0;
-
-	/**
-	 * The number of structural features of the '<em>Variable List</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_LIST_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Variable List</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_LIST_OPERATION_COUNT = 0;
+	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.OperatorListImpl <em>Operator List</em>}' class.
@@ -1012,7 +975,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getOperatorList()
 	 * @generated
 	 */
-	int OPERATOR_LIST = 8;
+	int OPERATOR_LIST = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Operators</b></em>' containment reference list.
@@ -1021,7 +993,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST__OPERATORS = 0;
+	int OPERATOR_LIST__OPERATORS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Operator List</em>' class.
@@ -1030,7 +1011,34 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST_FEATURE_COUNT = 1;
+	int OPERATOR_LIST_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___TO_XQUERY__TRANSLATIONLOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
 	 * The number of operations of the '<em>Operator List</em>' class.
@@ -1039,7 +1047,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST_OPERATION_COUNT = 0;
+	int OPERATOR_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.
@@ -1049,7 +1057,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getPropertyLocation()
 	 * @generated
 	 */
-	int PROPERTY_LOCATION = 9;
+	int PROPERTY_LOCATION = 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Axis <em>Axis</em>}' enum.
@@ -1059,7 +1067,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getAxis()
 	 * @generated
 	 */
-	int AXIS = 10;
+	int AXIS = 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}' enum.
@@ -1069,7 +1077,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getReturnType()
 	 * @generated
 	 */
-	int RETURN_TYPE = 11;
+	int RETURN_TYPE = 10;
 
 
 	/**
@@ -1081,17 +1089,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRelation();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getRelationOptions <em>Relation Options</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Relation Options</em>'.
-	 * @see qualitypatternmodel.graphstructure.Relation#getRelationOptions()
-	 * @see #getRelation()
-	 * @generated
-	 */
-	EReference getRelation_RelationOptions();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}'.
@@ -1116,14 +1113,15 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getRelation_MappingFrom();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#getAllVariables() <em>Get All Variables</em>}' operation.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Relation#getAxis <em>Axis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Variables</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#getAllVariables()
+	 * @return the meta object for the attribute '<em>Axis</em>'.
+	 * @see qualitypatternmodel.graphstructure.Relation#getAxis()
+	 * @see #getRelation()
 	 * @generated
 	 */
-	EOperation getRelation__GetAllVariables();
+	EAttribute getRelation_Axis();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Property <em>Property</em>}'.
@@ -1156,16 +1154,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProperty_AttributeName();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#getAllVariables() <em>Get All Variables</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Variables</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#getAllVariables()
-	 * @generated
-	 */
-	EOperation getProperty__GetAllVariables();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}'.
@@ -1411,17 +1399,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getGraph_ReturnElement();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getVariableList <em>Variable List</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Variable List</em>'.
-	 * @see qualitypatternmodel.graphstructure.Graph#getVariableList()
-	 * @see #getGraph()
-	 * @generated
-	 */
-	EReference getGraph_VariableList();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1442,16 +1419,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGraph_OperatorList();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getAllVariables() <em>Get All Variables</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Variables</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Graph#getAllVariables()
-	 * @generated
-	 */
-	EOperation getGraph__GetAllVariables();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}' operation.
@@ -1484,27 +1451,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getGraphElement__GetReturnType();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.VariableList <em>Variable List</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Variable List</em>'.
-	 * @see qualitypatternmodel.graphstructure.VariableList
-	 * @generated
-	 */
-	EClass getVariableList();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.VariableList#getVariables <em>Variables</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Variables</em>'.
-	 * @see qualitypatternmodel.graphstructure.VariableList#getVariables()
-	 * @see #getVariableList()
-	 * @generated
-	 */
-	EReference getVariableList_Variables();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.OperatorList <em>Operator List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1524,6 +1470,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOperatorList_Operators();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.OperatorList#getGraph <em>Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Graph</em>'.
+	 * @see qualitypatternmodel.graphstructure.OperatorList#getGraph()
+	 * @see #getOperatorList()
+	 * @generated
+	 */
+	EReference getOperatorList_Graph();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}'.
@@ -1589,14 +1546,6 @@ public interface GraphstructurePackage extends EPackage {
 		EClass RELATION = eINSTANCE.getRelation();
 
 		/**
-		 * The meta object literal for the '<em><b>Relation Options</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RELATION__RELATION_OPTIONS = eINSTANCE.getRelation_RelationOptions();
-
-		/**
 		 * The meta object literal for the '<em><b>Mapping To</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1613,12 +1562,12 @@ public interface GraphstructurePackage extends EPackage {
 		EReference RELATION__MAPPING_FROM = eINSTANCE.getRelation_MappingFrom();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Variables</b></em>' operation.
+		 * The meta object literal for the '<em><b>Axis</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RELATION___GET_ALL_VARIABLES = eINSTANCE.getRelation__GetAllVariables();
+		EAttribute RELATION__AXIS = eINSTANCE.getRelation_Axis();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
@@ -1645,14 +1594,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPERTY__ATTRIBUTE_NAME = eINSTANCE.getProperty_AttributeName();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Variables</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROPERTY___GET_ALL_VARIABLES = eINSTANCE.getProperty__GetAllVariables();
 
 		/**
 		 * The meta object literal for the '<em><b>Property Options</b></em>' reference feature.
@@ -1847,14 +1788,6 @@ public interface GraphstructurePackage extends EPackage {
 		EReference GRAPH__RETURN_ELEMENT = eINSTANCE.getGraph_ReturnElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable List</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GRAPH__VARIABLE_LIST = eINSTANCE.getGraph_VariableList();
-
-		/**
 		 * The meta object literal for the '<em><b>Root Element</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1869,14 +1802,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference GRAPH__OPERATOR_LIST = eINSTANCE.getGraph_OperatorList();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Variables</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GRAPH___GET_ALL_VARIABLES = eINSTANCE.getGraph__GetAllVariables();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
@@ -1905,24 +1830,6 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation GRAPH_ELEMENT___GET_RETURN_TYPE = eINSTANCE.getGraphElement__GetReturnType();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.VariableListImpl <em>Variable List</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.graphstructure.impl.VariableListImpl
-		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getVariableList()
-		 * @generated
-		 */
-		EClass VARIABLE_LIST = eINSTANCE.getVariableList();
-
-		/**
-		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE_LIST__VARIABLES = eINSTANCE.getVariableList_Variables();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.OperatorListImpl <em>Operator List</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1939,6 +1846,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERATOR_LIST__OPERATORS = eINSTANCE.getOperatorList_Operators();
+
+		/**
+		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATOR_LIST__GRAPH = eINSTANCE.getOperatorList_Graph();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.

@@ -187,29 +187,6 @@ public class GraphstructureItemProviderAdapterFactory extends GraphstructureAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.graphstructure.VariableList} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VariableListItemProvider variableListItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.graphstructure.VariableList}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVariableListAdapter() {
-		if (variableListItemProvider == null) {
-			variableListItemProvider = new VariableListItemProvider(this);
-		}
-
-		return variableListItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.graphstructure.OperatorList} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -336,7 +313,6 @@ public class GraphstructureItemProviderAdapterFactory extends GraphstructureAdap
 		if (singleElementItemProvider != null) singleElementItemProvider.dispose();
 		if (setElementItemProvider != null) setElementItemProvider.dispose();
 		if (graphItemProvider != null) graphItemProvider.dispose();
-		if (variableListItemProvider != null) variableListItemProvider.dispose();
 		if (operatorListItemProvider != null) operatorListItemProvider.dispose();
 	}
 

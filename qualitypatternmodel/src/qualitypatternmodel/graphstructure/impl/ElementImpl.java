@@ -472,13 +472,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.ELEMENT___GET_ALL_VARIABLES:
-				try {
-					return getAllVariables();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -5,6 +5,7 @@ package qualitypatternmodel.patternstructure.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -12,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -58,6 +60,16 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	protected PatternElementImpl() {
 		super();
 	}
+	
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<Input> getAllVariables() throws InvalidTranslationException {
+		return new BasicEList<Input>();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,22 +105,16 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String toXQuery(TranslationLocation tranlsationLocation) throws InvalidTranslationException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
@@ -189,6 +195,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				try {
 					isValid((Boolean)arguments.get(0));
 					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES:
+				try {
+					return getAllVariables();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

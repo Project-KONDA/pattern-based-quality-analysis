@@ -66,6 +66,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__RETURN_GRAPH);
 			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__CONDITION);
+			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__VARIABLE_LIST);
 		}
 		return childrenFeatures;
 	}
@@ -121,6 +122,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 		switch (notification.getFeatureID(Pattern.class)) {
 			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
 			case PatternstructurePackage.PATTERN__CONDITION:
+			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -157,6 +159,11 @@ public class PatternItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(PatternstructurePackage.Literals.PATTERN__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createTrue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.PATTERN__VARIABLE_LIST,
+				 PatternstructureFactory.eINSTANCE.createVariableList()));
 	}
 
 }

@@ -14,13 +14,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.VariableList;
 import qualitypatternmodel.graphstructure.impl.GraphElementImpl;
 
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.VariableList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -100,7 +100,8 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
@@ -109,7 +110,8 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setVariableList(VariableList newVariableList) {
@@ -120,7 +122,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newVariableList != null)
-				msgs = ((InternalEObject)newVariableList).eInverseAdd(this, GraphstructurePackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
+				msgs = ((InternalEObject)newVariableList).eInverseAdd(this, PatternstructurePackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
 			msgs = basicSetVariableList(newVariableList, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -186,17 +188,6 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	public abstract boolean inputIsValid();
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Input> getAllVariables() throws InvalidTranslationException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -233,7 +224,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
-				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -321,13 +312,6 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 		switch (operationID) {
 			case InputfieldsPackage.INPUT___INPUT_IS_VALID:
 				return inputIsValid();
-			case InputfieldsPackage.INPUT___GET_ALL_VARIABLES:
-				try {
-					return getAllVariables();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

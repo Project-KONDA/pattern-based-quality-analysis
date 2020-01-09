@@ -98,10 +98,6 @@ public class GraphstructureAdapterFactory extends AdapterFactoryImpl {
 				return createGraphElementAdapter();
 			}
 			@Override
-			public Adapter caseVariableList(VariableList object) {
-				return createVariableListAdapter();
-			}
-			@Override
 			public Adapter caseOperatorList(OperatorList object) {
 				return createOperatorListAdapter();
 			}
@@ -224,20 +220,6 @@ public class GraphstructureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGraphElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.VariableList <em>Variable List</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.graphstructure.VariableList
-	 * @generated
-	 */
-	public Adapter createVariableListAdapter() {
 		return null;
 	}
 

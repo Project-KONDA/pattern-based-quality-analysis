@@ -2,12 +2,11 @@
  */
 package qualitypatternmodel.graphstructure.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.OperatorList;
+import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,15 +14,7 @@ import qualitypatternmodel.graphstructure.OperatorList;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OperatorListTest extends TestCase {
-
-	/**
-	 * The fixture for this Operator List test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OperatorList fixture = null;
+public class OperatorListTest extends PatternElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +36,14 @@ public class OperatorListTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Operator List test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(OperatorList fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Operator List test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected OperatorList getFixture() {
-		return fixture;
+		return (OperatorList)fixture;
 	}
 
 	/**

@@ -106,13 +106,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___IS_VALID__BOOLEAN = 1;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_ALL_VARIABLES = 2;
+
+	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 2;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -159,6 +168,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
@@ -234,6 +252,15 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___GET_ALL_VARIABLES = MAPPING___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Relation Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -287,6 +314,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -380,6 +416,15 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GET_ALL_VARIABLES = CONDITION___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Quantified Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -462,6 +507,15 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -533,6 +587,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING___GET_ALL_VARIABLES = MAPPING___GET_ALL_VARIABLES;
 
 	/**
 	 * The number of operations of the '<em>Single Element Mapping</em>' class.
@@ -608,6 +671,15 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GET_ALL_VARIABLES = CONDITION___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Formula</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -663,6 +735,15 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___GET_ALL_VARIABLES = CONDITION___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>True</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -709,13 +790,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Variable List</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN__VARIABLE_LIST = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -736,6 +826,15 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
 	 * The number of operations of the '<em>Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -745,6 +844,88 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.VariableListImpl <em>Variable List</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.impl.VariableListImpl
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getVariableList()
+	 * @generated
+	 */
+	int VARIABLE_LIST = 10;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST__ID = PATTERN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST__VARIABLES = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST__PATTERN = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Variable List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___TO_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The number of operations of the '<em>Variable List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.LogicalOperator <em>Logical Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -752,7 +933,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLogicalOperator()
 	 * @generated
 	 */
-	int LOGICAL_OPERATOR = 10;
+	int LOGICAL_OPERATOR = 11;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Quantifier <em>Quantifier</em>}' enum.
@@ -762,7 +943,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getQuantifier()
 	 * @generated
 	 */
-	int QUANTIFIER = 11;
+	int QUANTIFIER = 12;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.TranslationLocation <em>Translation Location</em>}' enum.
@@ -772,7 +953,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getTranslationLocation()
 	 * @generated
 	 */
-	int TRANSLATION_LOCATION = 12;
+	int TRANSLATION_LOCATION = 13;
 
 	/**
 	 * The meta object id for the '<em>Invalid Translation Exception Wrapper</em>' data type.
@@ -782,7 +963,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidTranslationExceptionWrapper()
 	 * @generated
 	 */
-	int INVALID_TRANSLATION_EXCEPTION_WRAPPER = 13;
+	int INVALID_TRANSLATION_EXCEPTION_WRAPPER = 14;
 
 
 	/**
@@ -1041,6 +1222,17 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getPattern_Condition();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getVariableList <em>Variable List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Variable List</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getVariableList()
+	 * @see #getPattern()
+	 * @generated
+	 */
+	EReference getPattern_VariableList();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1080,6 +1272,48 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__IsValid__boolean();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllVariables() <em>Get All Variables</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Variables</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getAllVariables()
+	 * @generated
+	 */
+	EOperation getPatternElement__GetAllVariables();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.VariableList <em>Variable List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable List</em>'.
+	 * @see qualitypatternmodel.patternstructure.VariableList
+	 * @generated
+	 */
+	EClass getVariableList();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.patternstructure.VariableList#getVariables <em>Variables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Variables</em>'.
+	 * @see qualitypatternmodel.patternstructure.VariableList#getVariables()
+	 * @see #getVariableList()
+	 * @generated
+	 */
+	EReference getVariableList_Variables();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.VariableList#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Pattern</em>'.
+	 * @see qualitypatternmodel.patternstructure.VariableList#getPattern()
+	 * @see #getVariableList()
+	 * @generated
+	 */
+	EReference getVariableList_Pattern();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.LogicalOperator <em>Logical Operator</em>}'.
@@ -1356,6 +1590,14 @@ public interface PatternstructurePackage extends EPackage {
 		EReference PATTERN__CONDITION = eINSTANCE.getPattern_Condition();
 
 		/**
+		 * The meta object literal for the '<em><b>Variable List</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATTERN__VARIABLE_LIST = eINSTANCE.getPattern_VariableList();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1388,6 +1630,40 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___IS_VALID__BOOLEAN = eINSTANCE.getPatternElement__IsValid__boolean();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Variables</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GET_ALL_VARIABLES = eINSTANCE.getPatternElement__GetAllVariables();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.VariableListImpl <em>Variable List</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.patternstructure.impl.VariableListImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getVariableList()
+		 * @generated
+		 */
+		EClass VARIABLE_LIST = eINSTANCE.getVariableList();
+
+		/**
+		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_LIST__VARIABLES = eINSTANCE.getVariableList_Variables();
+
+		/**
+		 * The meta object literal for the '<em><b>Pattern</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_LIST__PATTERN = eINSTANCE.getVariableList_Pattern();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.LogicalOperator <em>Logical Operator</em>}' enum.

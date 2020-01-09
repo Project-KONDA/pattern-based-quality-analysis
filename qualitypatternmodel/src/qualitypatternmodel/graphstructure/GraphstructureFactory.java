@@ -67,15 +67,6 @@ public interface GraphstructureFactory extends EFactory {
 	Graph createGraph();
 
 	/**
-	 * Returns a new object of class '<em>Variable List</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Variable List</em>'.
-	 * @generated
-	 */
-	VariableList createVariableList();
-
-	/**
 	 * Returns a new object of class '<em>Operator List</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

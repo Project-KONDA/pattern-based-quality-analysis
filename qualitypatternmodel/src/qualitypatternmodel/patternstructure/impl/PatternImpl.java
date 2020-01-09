@@ -5,6 +5,7 @@ package qualitypatternmodel.patternstructure.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -12,12 +13,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.TranslationLocation;
 
+import qualitypatternmodel.patternstructure.VariableList;
 import static utilityclasses.Constants.*;
 
 /**
@@ -29,6 +32,7 @@ import static utilityclasses.Constants.*;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getVariableList <em>Variable List</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,6 +57,16 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	protected Condition condition;
 
 	/**
+	 * The cached value of the '{@link #getVariableList() <em>Variable List</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariableList()
+	 * @generated
+	 * @ordered
+	 */
+	protected VariableList variableList;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -63,6 +77,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
 //		return returnGraph != null && returnGraph.isValid(isDefinedPattern) && condition != null && condition.isValid(isDefinedPattern);
+		if (variableList == null) 
+			throw new InvalidTranslationException("variableList null");
+		variableList.isValid(isDefinedPattern);
 		if (returnGraph == null)
 			throw new InvalidTranslationException("returnGraph null");
 		returnGraph.isValid(isDefinedPattern);
@@ -81,6 +98,16 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		returnVariables += ")";
 		return returnGraph.toXQuery(TranslationLocation.RETURN) + "\nwhere "
 				+ condition.toXQuery(TranslationLocation.OUTSIDE) + "\nreturn " + returnVariables;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<Input> getAllVariables() throws InvalidTranslationException {
+		EList<Input> inputs = returnGraph.getAllVariables();
+		inputs.addAll(condition.getAllVariables());
+		return inputs;
 	}
 
 	/**
@@ -173,6 +200,65 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VariableList getVariableList() {
+		return variableList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
+		VariableList oldVariableList = variableList;
+		variableList = newVariableList;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__VARIABLE_LIST, oldVariableList, newVariableList);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVariableList(VariableList newVariableList) {
+		if (newVariableList != variableList) {
+			NotificationChain msgs = null;
+			if (variableList != null)
+				msgs = ((InternalEObject)variableList).eInverseRemove(this, PatternstructurePackage.VARIABLE_LIST__PATTERN, VariableList.class, msgs);
+			if (newVariableList != null)
+				msgs = ((InternalEObject)newVariableList).eInverseAdd(this, PatternstructurePackage.VARIABLE_LIST__PATTERN, VariableList.class, msgs);
+			msgs = basicSetVariableList(newVariableList, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__VARIABLE_LIST, newVariableList, newVariableList));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
+				if (variableList != null)
+					msgs = ((InternalEObject)variableList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__VARIABLE_LIST, null, msgs);
+				return basicSetVariableList((VariableList)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -183,6 +269,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return basicSetReturnGraph(null, msgs);
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return basicSetCondition(null, msgs);
+			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
+				return basicSetVariableList(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -198,6 +286,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return getReturnGraph();
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return getCondition();
+			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
+				return getVariableList();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -214,6 +304,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return;
 			case PatternstructurePackage.PATTERN__CONDITION:
 				setCondition((Condition)newValue);
+				return;
+			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
+				setVariableList((VariableList)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,6 +325,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 			case PatternstructurePackage.PATTERN__CONDITION:
 				setCondition((Condition)null);
 				return;
+			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
+				setVariableList((VariableList)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -247,6 +343,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return returnGraph != null;
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return condition != null;
+			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
+				return variableList != null;
 		}
 		return super.eIsSet(featureID);
 	}

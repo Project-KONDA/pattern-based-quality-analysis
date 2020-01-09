@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -367,25 +366,6 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 				return attributeName != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case GraphstructurePackage.PROPERTY___GET_ALL_VARIABLES:
-				try {
-					return getAllVariables();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } // PropertyImpl

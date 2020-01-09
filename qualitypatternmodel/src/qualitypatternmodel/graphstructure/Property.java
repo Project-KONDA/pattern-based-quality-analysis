@@ -2,11 +2,8 @@
  */
 package qualitypatternmodel.graphstructure;
 
-import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,14 +69,6 @@ public interface Property extends GraphElement {
 	 * @generated
 	 */
 	void setAttributeName(Text value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
-	 * @generated
-	 */
-	EList<Input> getAllVariables() throws InvalidTranslationException;
 
 	/**
 	 * Returns the value of the '<em><b>Property Options</b></em>' reference.
