@@ -46,8 +46,8 @@ public class SingleElementItemProvider extends ElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMappingFromPropertyDescriptor(object);
 			addMappingToPropertyDescriptor(object);
+			addMappingFromPropertyDescriptor(object);
 			addPreviousPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;

@@ -43,7 +43,7 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 
 			addPropertyPropertyDescriptor(object);
 			addRegularExpressionPropertyDescriptor(object);
-			addOptionsPropertyDescriptor(object);
+			addOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,19 +93,19 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Options feature.
+	 * This adds a property descriptor for the Option feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOptionsPropertyDescriptor(Object object) {
+	protected void addOptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Match_options_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Match_options_feature", "_UI_Match_type"),
-				 FunctionsPackage.Literals.MATCH__OPTIONS,
+				 getString("_UI_Match_option_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Match_option_feature", "_UI_Match_type"),
+				 FunctionsPackage.Literals.MATCH__OPTION,
 				 true,
 				 false,
 				 true,

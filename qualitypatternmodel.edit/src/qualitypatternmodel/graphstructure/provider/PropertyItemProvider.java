@@ -42,26 +42,26 @@ public class PropertyItemProvider extends GraphElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPropertyOptionsPropertyDescriptor(object);
+			addPropertyOptionPropertyDescriptor(object);
 			addAttributeNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Property Options feature.
+	 * This adds a property descriptor for the Property Option feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPropertyOptionsPropertyDescriptor(Object object) {
+	protected void addPropertyOptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Property_propertyOptions_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_propertyOptions_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__PROPERTY_OPTIONS,
+				 getString("_UI_Property_propertyOption_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Property_propertyOption_feature", "_UI_Property_type"),
+				 GraphstructurePackage.Literals.PROPERTY__PROPERTY_OPTION,
 				 true,
 				 false,
 				 true,

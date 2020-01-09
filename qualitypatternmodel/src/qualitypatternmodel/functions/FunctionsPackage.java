@@ -94,7 +94,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___TO_XQUERY__TRANSLATIONLOCATION = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
+	int OPERATOR___TO_XQUERY__LOCATION = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -103,7 +103,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___IS_VALID__BOOLEAN = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN;
+	int OPERATOR___IS_VALID__BOOLEAN_LOCATION = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -176,7 +176,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___TO_XQUERY__TRANSLATIONLOCATION = OPERATOR___TO_XQUERY__TRANSLATIONLOCATION;
+	int BOOLEAN_OPERATOR___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -185,7 +185,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
+	int BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_LOCATION = OPERATOR___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -258,7 +258,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___TO_XQUERY__TRANSLATIONLOCATION = OPERATOR___TO_XQUERY__TRANSLATIONLOCATION;
+	int NUMBER_OPERATORS___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -267,7 +267,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
+	int NUMBER_OPERATORS___IS_VALID__BOOLEAN_LOCATION = OPERATOR___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -349,7 +349,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___TO_XQUERY__TRANSLATIONLOCATION = NUMBER_OPERATORS___TO_XQUERY__TRANSLATIONLOCATION;
+	int COUNT___TO_XQUERY__LOCATION = NUMBER_OPERATORS___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -358,7 +358,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___IS_VALID__BOOLEAN = NUMBER_OPERATORS___IS_VALID__BOOLEAN;
+	int COUNT___IS_VALID__BOOLEAN_LOCATION = NUMBER_OPERATORS___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -431,7 +431,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___TO_XQUERY__TRANSLATIONLOCATION = OPERATOR___TO_XQUERY__TRANSLATIONLOCATION;
+	int OTHER_OPERATORS___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -440,7 +440,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
+	int OTHER_OPERATORS___IS_VALID__BOOLEAN_LOCATION = OPERATOR___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -516,13 +516,13 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH__REGULAR_EXPRESSION = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Options</b></em>' reference.
+	 * The feature id for the '<em><b>Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH__OPTIONS = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
+	int MATCH__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Match</em>' class.
@@ -540,7 +540,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___TO_XQUERY__TRANSLATIONLOCATION = BOOLEAN_OPERATOR___TO_XQUERY__TRANSLATIONLOCATION;
+	int MATCH___TO_XQUERY__LOCATION = BOOLEAN_OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -549,7 +549,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___IS_VALID__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN;
+	int MATCH___IS_VALID__BOOLEAN_LOCATION = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -616,13 +616,13 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON__ARGUMENT1 = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Options</b></em>' reference.
+	 * The feature id for the '<em><b>Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON__OPTIONS = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
+	int COMPARISON__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Argument2</b></em>' reference.
@@ -649,7 +649,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___TO_XQUERY__TRANSLATIONLOCATION = BOOLEAN_OPERATOR___TO_XQUERY__TRANSLATIONLOCATION;
+	int COMPARISON___TO_XQUERY__LOCATION = BOOLEAN_OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -658,7 +658,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___IS_VALID__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN;
+	int COMPARISON___IS_VALID__BOOLEAN_LOCATION = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -740,7 +740,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___TO_XQUERY__TRANSLATIONLOCATION = NUMBER_OPERATORS___TO_XQUERY__TRANSLATIONLOCATION;
+	int TO_NUMBER___TO_XQUERY__LOCATION = NUMBER_OPERATORS___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -749,7 +749,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___IS_VALID__BOOLEAN = NUMBER_OPERATORS___IS_VALID__BOOLEAN;
+	int TO_NUMBER___IS_VALID__BOOLEAN_LOCATION = NUMBER_OPERATORS___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -902,15 +902,15 @@ public interface FunctionsPackage extends EPackage {
 	EReference getMatch_RegularExpression();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Match#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Options</em>'.
-	 * @see qualitypatternmodel.functions.Match#getOptions()
+	 * @return the meta object for the reference '<em>Option</em>'.
+	 * @see qualitypatternmodel.functions.Match#getOption()
 	 * @see #getMatch()
 	 * @generated
 	 */
-	EReference getMatch_Options();
+	EReference getMatch_Option();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Comparison <em>Comparison</em>}'.
@@ -934,15 +934,15 @@ public interface FunctionsPackage extends EPackage {
 	EReference getComparison_Argument1();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Comparison#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Comparison#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Options</em>'.
-	 * @see qualitypatternmodel.functions.Comparison#getOptions()
+	 * @return the meta object for the reference '<em>Option</em>'.
+	 * @see qualitypatternmodel.functions.Comparison#getOption()
 	 * @see #getComparison()
 	 * @generated
 	 */
-	EReference getComparison_Options();
+	EReference getComparison_Option();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Comparison#getArgument2 <em>Argument2</em>}'.
@@ -1102,12 +1102,12 @@ public interface FunctionsPackage extends EPackage {
 		EReference MATCH__REGULAR_EXPRESSION = eINSTANCE.getMatch_RegularExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MATCH__OPTIONS = eINSTANCE.getMatch_Options();
+		EReference MATCH__OPTION = eINSTANCE.getMatch_Option();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.ComparisonImpl <em>Comparison</em>}' class.
@@ -1128,12 +1128,12 @@ public interface FunctionsPackage extends EPackage {
 		EReference COMPARISON__ARGUMENT1 = eINSTANCE.getComparison_Argument1();
 
 		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPARISON__OPTIONS = eINSTANCE.getComparison_Options();
+		EReference COMPARISON__OPTION = eINSTANCE.getComparison_Option();
 
 		/**
 		 * The meta object literal for the '<em><b>Argument2</b></em>' reference feature.

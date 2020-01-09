@@ -21,6 +21,7 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.impl.InputImpl;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -30,7 +31,7 @@ import qualitypatternmodel.patternstructure.InvalidTranslationException;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getArgument1 <em>Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getArgument2 <em>Argument2</em>}</li>
  * </ul>
  *
@@ -47,13 +48,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	protected GraphElement argument1;
 
 	/**
-	 * The cached value of the '{@link #getOptions() <em>Options</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getOptions()
+	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOption()
 	 * @generated
 	 * @ordered
 	 */
-	protected Option<ComparisonOperator> options;
+	protected Option<ComparisonOperator> option;
 
 	/**
 	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' reference.
@@ -73,34 +75,19 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
-//		if(argument1 == null || argument2 == null) {
-//			return false;
-//		}
-//		if(argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl) {
-//			if(!argument1.isValid(isDefinedPattern)) {
-//				return false;
-//			}
-//		}
-//		if(argument2 instanceof PropertyImpl|| argument2 instanceof OperatorImpl || argument2 instanceof InputImpl) {
-//			if(!argument2.isValid(isDefinedPattern)) {
-//				return false;
-//			}
-//		}
-//		return  operator != null ^ (options != null && options.isValid(isDefinedPattern)) && argument1.getReturnType() == argument2.getReturnType();
-
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
 		if (argument1 == null)
 			throw new InvalidTranslationException("argument1 null");
 		if (argument2 == null)
 			throw new InvalidTranslationException("argument2 null");
 
 		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl)
-			argument1.isValid(isDefinedPattern);
+			argument1.isValid(isDefinedPattern, loc);
 		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof InputImpl)
-			argument2.isValid(isDefinedPattern);
+			argument2.isValid(isDefinedPattern, loc);
 
-		if (options != null) {
-			options.isValid(isDefinedPattern);
+		if (option != null) {
+			option.isValid(isDefinedPattern, loc);
 		} else {
 			throw new InvalidTranslationException("operator Options invalid");
 		}
@@ -193,39 +180,42 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public Option<ComparisonOperator> getOptions() {
-		if (options != null && options.eIsProxy()) {
-			InternalEObject oldOptions = (InternalEObject)options;
-			options = (Option<ComparisonOperator>)eResolveProxy(oldOptions);
-			if (options != oldOptions) {
+	public Option<ComparisonOperator> getOption() {
+		if (option != null && option.eIsProxy()) {
+			InternalEObject oldOption = (InternalEObject)option;
+			option = (Option<ComparisonOperator>)eResolveProxy(oldOption);
+			if (option != oldOption) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.COMPARISON__OPTIONS, oldOptions, options));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.COMPARISON__OPTION, oldOption, option));
 			}
 		}
-		return options;
+		return option;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Option<ComparisonOperator> basicGetOptions() {
-		return options;
+	public Option<ComparisonOperator> basicGetOption() {
+		return option;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOptions(Option<ComparisonOperator> newOptions) {
-		Option<ComparisonOperator> oldOptions = options;
-		options = newOptions;
+	public void setOption(Option<ComparisonOperator> newOption) {
+		Option<ComparisonOperator> oldOption = option;
+		option = newOption;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTIONS, oldOptions, options));
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTION, oldOption, option));
 	}
 
 	/**
@@ -273,9 +263,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case FunctionsPackage.COMPARISON__ARGUMENT1:
 				if (resolve) return getArgument1();
 				return basicGetArgument1();
-			case FunctionsPackage.COMPARISON__OPTIONS:
-				if (resolve) return getOptions();
-				return basicGetOptions();
+			case FunctionsPackage.COMPARISON__OPTION:
+				if (resolve) return getOption();
+				return basicGetOption();
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				if (resolve) return getArgument2();
 				return basicGetArgument2();
@@ -294,8 +284,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case FunctionsPackage.COMPARISON__ARGUMENT1:
 				setArgument1((GraphElement)newValue);
 				return;
-			case FunctionsPackage.COMPARISON__OPTIONS:
-				setOptions((Option<ComparisonOperator>)newValue);
+			case FunctionsPackage.COMPARISON__OPTION:
+				setOption((Option<ComparisonOperator>)newValue);
 				return;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((GraphElement)newValue);
@@ -314,8 +304,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case FunctionsPackage.COMPARISON__ARGUMENT1:
 				setArgument1((GraphElement)null);
 				return;
-			case FunctionsPackage.COMPARISON__OPTIONS:
-				setOptions((Option<ComparisonOperator>)null);
+			case FunctionsPackage.COMPARISON__OPTION:
+				setOption((Option<ComparisonOperator>)null);
 				return;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((GraphElement)null);
@@ -333,8 +323,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		switch (featureID) {
 			case FunctionsPackage.COMPARISON__ARGUMENT1:
 				return argument1 != null;
-			case FunctionsPackage.COMPARISON__OPTIONS:
-				return options != null;
+			case FunctionsPackage.COMPARISON__OPTION:
+				return option != null;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				return argument2 != null;
 		}

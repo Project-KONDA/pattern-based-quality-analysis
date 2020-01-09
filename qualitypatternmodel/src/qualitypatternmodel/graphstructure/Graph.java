@@ -17,7 +17,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElement <em>Return Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}</li>
  * </ul>
@@ -28,16 +28,16 @@ import qualitypatternmodel.patternstructure.PatternElement;
  */
 public interface Graph extends PatternElement {
 	/**
-	 * Returns the value of the '<em><b>Return Element</b></em>' reference list.
+	 * Returns the value of the '<em><b>Return Elements</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.SingleElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Return Element</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_ReturnElement()
+	 * @return the value of the '<em>Return Elements</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_ReturnElements()
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<SingleElement> getReturnElement();
+	EList<SingleElement> getReturnElements();
 
 	/**
 	 * Returns the value of the '<em><b>Root Element</b></em>' containment reference.

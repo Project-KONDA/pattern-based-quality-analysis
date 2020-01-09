@@ -21,9 +21,9 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.TranslationLocation;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,16 +80,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException  {
-//		if(operator == null || arguments == null) {
-//			return false;
-//		}
-//		if(operator == LogicalOperator.NOT) {
-//			return arguments.size() == 1 && arguments.get(0) != null && arguments.get(0).isValid(isDefinedPattern);
-//		} else {
-//			return arguments.size() == 2 && arguments.get(0) != null && arguments.get(0).isValid(isDefinedPattern) && arguments.get(1) != null && arguments.get(1).isValid(isDefinedPattern);
-//		}
-
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException  {
 		if(operator == null) 
 			throw new InvalidTranslationException("operator null");
 		if(arguments == null) 
@@ -98,21 +89,20 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		if(operator == LogicalOperator.NOT) {
 			if (arguments.size() != 1 || arguments.get(0) == null)
 				throw new InvalidTranslationException("argument invalid (op:NOT)");
-			arguments.get(0).isValid(isDefinedPattern);
+			arguments.get(0).isValid(isDefinedPattern, loc);
 		} else 
 			if (arguments.size() != 2 || arguments.get(0) == null || arguments.get(1) == null)
 				throw new InvalidTranslationException("arguments invalid");
-			arguments.get(0).isValid(isDefinedPattern);
-			arguments.get(1).isValid(isDefinedPattern);
-//			if(!(arguments.size() == 2 && arguments.get(0) != null && arguments.get(0).isValid(isDefinedPattern) && arguments.get(1) != null && arguments.get(1).isValid(isDefinedPattern)))
+			arguments.get(0).isValid(isDefinedPattern, loc);
+			arguments.get(1).isValid(isDefinedPattern, loc);
 	}
 	
 	@Override
-	public String toXQuery(TranslationLocation translationLocation) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidTranslationException {
 		if(operator == LogicalOperator.NOT) {
-			return operator.getLiteral() + "(" + arguments.get(0).toXQuery(translationLocation) + ")";
+			return operator.getLiteral() + "(" + arguments.get(0).toXQuery(location) + ")";
 		} else {
-			return "(" + arguments.get(0).toXQuery(translationLocation) + ") " + operator.getLiteral() + " (" + arguments.get(1).toXQuery(translationLocation) + ")";
+			return "(" + arguments.get(0).toXQuery(location) + ") " + operator.getLiteral() + " (" + arguments.get(1).toXQuery(location) + ")";
 		}
 	}
 	

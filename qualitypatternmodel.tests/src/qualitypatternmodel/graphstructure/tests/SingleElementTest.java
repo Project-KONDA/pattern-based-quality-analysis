@@ -11,6 +11,12 @@ import qualitypatternmodel.graphstructure.SingleElement;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Single Element</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getOriginalID() <em>Get Original ID</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class SingleElementTest extends ElementTest {
@@ -65,6 +71,19 @@ public class SingleElementTest extends ElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#getOriginalID() <em>Get Original ID</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getOriginalID()
+	 * @generated
+	 */
+	public void testGetOriginalID() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //SingleElementTest

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,20 +66,20 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, Class cls) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, Location loc, Class cls) throws InvalidTranslationException {
 		if(selection != null && selection.getClass() != cls || options.get(0).getClass() != cls) {
 			throw new InvalidTranslationException("options of wrong type");
 		}
+		this.isValid(isDefinedPattern, loc);
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
-//		return options != null && options.size() > 1 && (!isDefinedPattern || inputIsValid()) && variableList != null;
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
 		if (options == null) 
 			throw new InvalidTranslationException("options null");
 		if (options.size() < 1) 
 			throw new InvalidTranslationException("not enough options");
-		super.isValid(isDefinedPattern);
+		super.isValid(isDefinedPattern, loc);
 	}
 	
 	@Override
@@ -207,9 +208,9 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case InputfieldsPackage.OPTION___IS_VALID__BOOLEAN_CLASS:
+			case InputfieldsPackage.OPTION___IS_VALID__BOOLEAN_LOCATION_CLASS:
 				try {
-					isValid((Boolean)arguments.get(0), (Class)arguments.get(1));
+					isValid((Boolean)arguments.get(0), (Location)arguments.get(1), (Class)arguments.get(2));
 					return null;
 				}
 				catch (Throwable throwable) {

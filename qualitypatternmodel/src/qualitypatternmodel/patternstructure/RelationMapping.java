@@ -24,14 +24,14 @@ import qualitypatternmodel.graphstructure.Relation;
 public interface RelationMapping extends Mapping {
 	/**
 	 * Returns the value of the '<em><b>To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>To</em>' reference.
 	 * @see #setTo(Relation)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getRelationMapping_To()
-	 * @see qualitypatternmodel.graphstructure.Relation#getMappingTo
-	 * @model opposite="mappingTo" required="true"
+	 * @see qualitypatternmodel.graphstructure.Relation#getMappingFrom
+	 * @model opposite="mappingFrom" required="true"
 	 * @generated
 	 */
 	Relation getTo();
@@ -48,14 +48,14 @@ public interface RelationMapping extends Mapping {
 
 	/**
 	 * Returns the value of the '<em><b>From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>From</em>' reference.
 	 * @see #setFrom(Relation)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getRelationMapping_From()
-	 * @see qualitypatternmodel.graphstructure.Relation#getMappingFrom
-	 * @model opposite="mappingFrom" required="true"
+	 * @see qualitypatternmodel.graphstructure.Relation#getMappingTo
+	 * @model opposite="mappingTo" required="true"
 	 * @generated
 	 */
 	Relation getFrom();

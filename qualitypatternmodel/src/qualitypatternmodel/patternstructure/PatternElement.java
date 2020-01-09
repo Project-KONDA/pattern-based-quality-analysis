@@ -51,7 +51,7 @@ public interface PatternElement extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
 	 * @generated
 	 */
-	String toXQuery(TranslationLocation tranlsationLocation) throws InvalidTranslationException;
+	String toXQuery(Location location) throws InvalidTranslationException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,7 +59,7 @@ public interface PatternElement extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
 	 * @generated
 	 */
-	void isValid(boolean isDefinedPattern) throws InvalidTranslationException;
+	void isValid(boolean isDefinedPattern, Location location) throws InvalidTranslationException;
 
 	/**
 	 * <!-- begin-user-doc -->

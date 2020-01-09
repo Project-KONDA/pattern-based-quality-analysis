@@ -82,8 +82,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return createLogicalOperatorFromString(eDataType, initialValue);
 			case PatternstructurePackage.QUANTIFIER:
 				return createQuantifierFromString(eDataType, initialValue);
-			case PatternstructurePackage.TRANSLATION_LOCATION:
-				return createTranslationLocationFromString(eDataType, initialValue);
+			case PatternstructurePackage.LOCATION:
+				return createLocationFromString(eDataType, initialValue);
 			case PatternstructurePackage.INVALID_TRANSLATION_EXCEPTION_WRAPPER:
 				return createInvalidTranslationExceptionWrapperFromString(eDataType, initialValue);
 			default:
@@ -103,8 +103,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return convertLogicalOperatorToString(eDataType, instanceValue);
 			case PatternstructurePackage.QUANTIFIER:
 				return convertQuantifierToString(eDataType, instanceValue);
-			case PatternstructurePackage.TRANSLATION_LOCATION:
-				return convertTranslationLocationToString(eDataType, instanceValue);
+			case PatternstructurePackage.LOCATION:
+				return convertLocationToString(eDataType, instanceValue);
 			case PatternstructurePackage.INVALID_TRANSLATION_EXCEPTION_WRAPPER:
 				return convertInvalidTranslationExceptionWrapperToString(eDataType, instanceValue);
 			default:
@@ -237,8 +237,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TranslationLocation createTranslationLocationFromString(EDataType eDataType, String initialValue) {
-		TranslationLocation result = TranslationLocation.get(initialValue);
+	public Location createLocationFromString(EDataType eDataType, String initialValue) {
+		Location result = Location.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -248,7 +248,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertTranslationLocationToString(EDataType eDataType, Object instanceValue) {
+	public String convertLocationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

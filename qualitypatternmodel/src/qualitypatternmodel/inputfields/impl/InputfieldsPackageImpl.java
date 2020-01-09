@@ -260,7 +260,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOption__IsValid__boolean_Class() {
+	public EOperation getOption__IsValid__boolean_Location_Class() {
 		return optionEClass.getEOperations().get(0);
 	}
 
@@ -325,7 +325,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		optionEClass = createEClass(OPTION);
 		createEAttribute(optionEClass, OPTION__OPTIONS);
 		createEAttribute(optionEClass, OPTION__SELECTION);
-		createEOperation(optionEClass, OPTION___IS_VALID__BOOLEAN_CLASS);
+		createEOperation(optionEClass, OPTION___IS_VALID__BOOLEAN_LOCATION_CLASS);
 
 		textEClass = createEClass(TEXT);
 		createEAttribute(textEClass, TEXT__TEXT);
@@ -390,8 +390,9 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		g1 = createEGenericType(optionEClass_T);
 		initEAttribute(getOption_Selection(), g1, "selection", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getOption__IsValid__boolean_Class(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getOption__IsValid__boolean_Location_Class(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedBattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaClass(), "cls", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidTranslationExceptionWrapper());
 

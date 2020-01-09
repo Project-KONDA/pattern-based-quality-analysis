@@ -15,8 +15,8 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingTo <em>Mapping To</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNext <em>Next</em>}</li>
  * </ul>
@@ -28,14 +28,14 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
 public interface SingleElement extends Element {
 	/**
 	 * Returns the value of the '<em><b>Mapping From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getFrom <em>From</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getTo <em>To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mapping From</em>' reference.
 	 * @see #setMappingFrom(SingleElementMapping)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_MappingFrom()
-	 * @see qualitypatternmodel.patternstructure.SingleElementMapping#getFrom
-	 * @model opposite="from"
+	 * @see qualitypatternmodel.patternstructure.SingleElementMapping#getTo
+	 * @model opposite="to"
 	 * @generated
 	 */
 	SingleElementMapping getMappingFrom();
@@ -52,14 +52,14 @@ public interface SingleElement extends Element {
 
 	/**
 	 * Returns the value of the '<em><b>Mapping To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getTo <em>To</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mapping To</em>' reference.
 	 * @see #setMappingTo(SingleElementMapping)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_MappingTo()
-	 * @see qualitypatternmodel.patternstructure.SingleElementMapping#getTo
-	 * @model opposite="to"
+	 * @see qualitypatternmodel.patternstructure.SingleElementMapping#getFrom
+	 * @model opposite="from"
 	 * @generated
 	 */
 	SingleElementMapping getMappingTo();
@@ -107,5 +107,13 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	EList<Element> getNext();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	int getOriginalID();
 
 } // SingleElement

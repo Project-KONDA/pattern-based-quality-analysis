@@ -14,7 +14,7 @@ import qualitypatternmodel.inputfields.Text;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getPropertyOption <em>Property Option</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}</li>
  * </ul>
@@ -24,6 +24,28 @@ import qualitypatternmodel.inputfields.Text;
  * @generated
  */
 public interface Property extends GraphElement {
+	/**
+	 * Returns the value of the '<em><b>Property Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Property Option</em>' reference.
+	 * @see #setPropertyOption(Option)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_PropertyOption()
+	 * @model required="true"
+	 * @generated
+	 */
+	Option<PropertyLocation> getPropertyOption();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getPropertyOption <em>Property Option</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Property Option</em>' reference.
+	 * @see #getPropertyOption()
+	 * @generated
+	 */
+	void setPropertyOption(Option<PropertyLocation> value);
+
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}'.
@@ -69,27 +91,5 @@ public interface Property extends GraphElement {
 	 * @generated
 	 */
 	void setAttributeName(Text value);
-
-	/**
-	 * Returns the value of the '<em><b>Property Options</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Options</em>' reference.
-	 * @see #setPropertyOptions(Option)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_PropertyOptions()
-	 * @model required="true"
-	 * @generated
-	 */
-	Option<PropertyLocation> getPropertyOptions();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getPropertyOptions <em>Property Options</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property Options</em>' reference.
-	 * @see #getPropertyOptions()
-	 * @generated
-	 */
-	void setPropertyOptions(Option<PropertyLocation> value);
 
 } // Property

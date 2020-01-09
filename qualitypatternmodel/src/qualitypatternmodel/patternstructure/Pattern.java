@@ -91,4 +91,12 @@ public interface Pattern extends PatternElement {
 	 */
 	void setVariableList(VariableList value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	void isValid(boolean isDefinedPattern) throws InvalidTranslationException;
+
 } // Pattern

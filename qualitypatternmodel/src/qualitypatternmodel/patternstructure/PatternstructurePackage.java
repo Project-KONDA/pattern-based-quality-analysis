@@ -94,7 +94,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION = 0;
+	int PATTERN_ELEMENT___TO_XQUERY__LOCATION = 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -103,7 +103,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___IS_VALID__BOOLEAN = 1;
+	int PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION = 1;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -158,7 +158,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING___TO_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
+	int MAPPING___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -167,7 +167,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int MAPPING___IS_VALID__BOOLEAN_LOCATION = PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -240,7 +240,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING___TO_XQUERY__TRANSLATIONLOCATION = MAPPING___TO_XQUERY__TRANSLATIONLOCATION;
+	int RELATION_MAPPING___TO_XQUERY__LOCATION = MAPPING___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -249,7 +249,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
+	int RELATION_MAPPING___IS_VALID__BOOLEAN_LOCATION = MAPPING___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -304,7 +304,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___TO_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
+	int CONDITION___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -313,7 +313,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int CONDITION___IS_VALID__BOOLEAN_LOCATION = PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -404,7 +404,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___TO_XQUERY__TRANSLATIONLOCATION = CONDITION___TO_XQUERY__TRANSLATIONLOCATION;
+	int QUANTIFIED_CONDITION___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -413,7 +413,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int QUANTIFIED_CONDITION___IS_VALID__BOOLEAN_LOCATION = CONDITION___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -495,7 +495,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___TO_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
+	int MORPHISM___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -504,7 +504,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int MORPHISM___IS_VALID__BOOLEAN_LOCATION = PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -577,7 +577,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___TO_XQUERY__TRANSLATIONLOCATION = MAPPING___TO_XQUERY__TRANSLATIONLOCATION;
+	int SINGLE_ELEMENT_MAPPING___TO_XQUERY__LOCATION = MAPPING___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -586,7 +586,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
+	int SINGLE_ELEMENT_MAPPING___IS_VALID__BOOLEAN_LOCATION = MAPPING___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -659,7 +659,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___TO_XQUERY__TRANSLATIONLOCATION = CONDITION___TO_XQUERY__TRANSLATIONLOCATION;
+	int FORMULA___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -668,7 +668,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int FORMULA___IS_VALID__BOOLEAN_LOCATION = CONDITION___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -723,7 +723,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___TO_XQUERY__TRANSLATIONLOCATION = CONDITION___TO_XQUERY__TRANSLATIONLOCATION;
+	int TRUE___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -732,7 +732,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int TRUE___IS_VALID__BOOLEAN_LOCATION = CONDITION___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -814,7 +814,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___TO_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
+	int PATTERN___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -823,7 +823,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int PATTERN___IS_VALID__BOOLEAN_LOCATION = PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -835,13 +835,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___IS_VALID__BOOLEAN = PATTERN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.VariableListImpl <em>Variable List</em>}' class.
@@ -896,7 +905,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___TO_XQUERY__TRANSLATIONLOCATION = PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION;
+	int VARIABLE_LIST___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -905,7 +914,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int VARIABLE_LIST___IS_VALID__BOOLEAN_LOCATION = PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -946,14 +955,14 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIER = 12;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.TranslationLocation <em>Translation Location</em>}' enum.
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Location <em>Location</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.TranslationLocation
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getTranslationLocation()
+	 * @see qualitypatternmodel.patternstructure.Location
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLocation()
 	 * @generated
 	 */
-	int TRANSLATION_LOCATION = 13;
+	int LOCATION = 13;
 
 	/**
 	 * The meta object id for the '<em>Invalid Translation Exception Wrapper</em>' data type.
@@ -1233,6 +1242,16 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getPattern_VariableList();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#isValid(boolean) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.Pattern#isValid(boolean)
+	 * @generated
+	 */
+	EOperation getPattern__IsValid__boolean();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1254,24 +1273,24 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getPatternElement_Id();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.TranslationLocation) <em>To XQuery</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location) <em>To XQuery</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>To XQuery</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.TranslationLocation)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
-	EOperation getPatternElement__ToXQuery__TranslationLocation();
+	EOperation getPatternElement__ToXQuery__Location();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, qualitypatternmodel.patternstructure.Location) <em>Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Valid</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(boolean)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
-	EOperation getPatternElement__IsValid__boolean();
+	EOperation getPatternElement__IsValid__boolean_Location();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllVariables() <em>Get All Variables</em>}' operation.
@@ -1336,14 +1355,14 @@ public interface PatternstructurePackage extends EPackage {
 	EEnum getQuantifier();
 
 	/**
-	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.TranslationLocation <em>Translation Location</em>}'.
+	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.Location <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Translation Location</em>'.
-	 * @see qualitypatternmodel.patternstructure.TranslationLocation
+	 * @return the meta object for enum '<em>Location</em>'.
+	 * @see qualitypatternmodel.patternstructure.Location
 	 * @generated
 	 */
-	EEnum getTranslationLocation();
+	EEnum getLocation();
 
 	/**
 	 * Returns the meta object for data type '{@link qualitypatternmodel.patternstructure.InvalidTranslationException <em>Invalid Translation Exception Wrapper</em>}'.
@@ -1598,6 +1617,14 @@ public interface PatternstructurePackage extends EPackage {
 		EReference PATTERN__VARIABLE_LIST = eINSTANCE.getPattern_VariableList();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN___IS_VALID__BOOLEAN = eINSTANCE.getPattern__IsValid__boolean();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1621,7 +1648,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION = eINSTANCE.getPatternElement__ToXQuery__TranslationLocation();
+		EOperation PATTERN_ELEMENT___TO_XQUERY__LOCATION = eINSTANCE.getPatternElement__ToXQuery__Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
@@ -1629,7 +1656,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_ELEMENT___IS_VALID__BOOLEAN = eINSTANCE.getPatternElement__IsValid__boolean();
+		EOperation PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION = eINSTANCE.getPatternElement__IsValid__boolean_Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Variables</b></em>' operation.
@@ -1686,14 +1713,14 @@ public interface PatternstructurePackage extends EPackage {
 		EEnum QUANTIFIER = eINSTANCE.getQuantifier();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.TranslationLocation <em>Translation Location</em>}' enum.
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.Location <em>Location</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.TranslationLocation
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getTranslationLocation()
+		 * @see qualitypatternmodel.patternstructure.Location
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLocation()
 		 * @generated
 		 */
-		EEnum TRANSLATION_LOCATION = eINSTANCE.getTranslationLocation();
+		EEnum LOCATION = eINSTANCE.getLocation();
 
 		/**
 		 * The meta object literal for the '<em>Invalid Translation Exception Wrapper</em>' data type.

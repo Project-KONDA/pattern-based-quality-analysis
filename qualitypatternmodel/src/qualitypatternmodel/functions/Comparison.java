@@ -16,7 +16,7 @@ import qualitypatternmodel.inputfields.Option;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.Comparison#getArgument1 <em>Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.Comparison#getOptions <em>Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.Comparison#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.Comparison#getArgument2 <em>Argument2</em>}</li>
  * </ul>
  *
@@ -48,26 +48,26 @@ public interface Comparison extends BooleanOperator {
 	void setArgument1(GraphElement value);
 
 	/**
-	 * Returns the value of the '<em><b>Options</b></em>' reference.
+	 * Returns the value of the '<em><b>Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Options</em>' reference.
-	 * @see #setOptions(Option)
-	 * @see qualitypatternmodel.functions.FunctionsPackage#getComparison_Options()
+	 * @return the value of the '<em>Option</em>' reference.
+	 * @see #setOption(Option)
+	 * @see qualitypatternmodel.functions.FunctionsPackage#getComparison_Option()
 	 * @model required="true"
 	 * @generated
 	 */
-	Option<ComparisonOperator> getOptions();
+	Option<ComparisonOperator> getOption();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.functions.Comparison#getOptions <em>Options</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.functions.Comparison#getOption <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Options</em>' reference.
-	 * @see #getOptions()
+	 * @param value the new value of the '<em>Option</em>' reference.
+	 * @see #getOption()
 	 * @generated
 	 */
-	void setOptions(Option<ComparisonOperator> value);
+	void setOption(Option<ComparisonOperator> value);
 
 	/**
 	 * Returns the value of the '<em><b>Argument2</b></em>' reference.

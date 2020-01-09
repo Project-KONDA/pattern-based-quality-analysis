@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -61,7 +62,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
 		if (from == null) throw new InvalidTranslationException ("from null");
 		if (to == null) throw new InvalidTranslationException ("to null");
 	}
@@ -126,9 +127,9 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		if (newTo != to) {
 			NotificationChain msgs = null;
 			if (to != null)
-				msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_TO, Relation.class, msgs);
+				msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_FROM, Relation.class, msgs);
 			if (newTo != null)
-				msgs = ((InternalEObject)newTo).eInverseAdd(this, GraphstructurePackage.RELATION__MAPPING_TO, Relation.class, msgs);
+				msgs = ((InternalEObject)newTo).eInverseAdd(this, GraphstructurePackage.RELATION__MAPPING_FROM, Relation.class, msgs);
 			msgs = basicSetTo(newTo, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -186,9 +187,9 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		if (newFrom != from) {
 			NotificationChain msgs = null;
 			if (from != null)
-				msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_FROM, Relation.class, msgs);
+				msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_TO, Relation.class, msgs);
 			if (newFrom != null)
-				msgs = ((InternalEObject)newFrom).eInverseAdd(this, GraphstructurePackage.RELATION__MAPPING_FROM, Relation.class, msgs);
+				msgs = ((InternalEObject)newFrom).eInverseAdd(this, GraphstructurePackage.RELATION__MAPPING_TO, Relation.class, msgs);
 			msgs = basicSetFrom(newFrom, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -206,11 +207,11 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		switch (featureID) {
 			case PatternstructurePackage.RELATION_MAPPING__TO:
 				if (to != null)
-					msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_TO, Relation.class, msgs);
+					msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_FROM, Relation.class, msgs);
 				return basicSetTo((Relation)otherEnd, msgs);
 			case PatternstructurePackage.RELATION_MAPPING__FROM:
 				if (from != null)
-					msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_FROM, Relation.class, msgs);
+					msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_TO, Relation.class, msgs);
 				return basicSetFrom((Relation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

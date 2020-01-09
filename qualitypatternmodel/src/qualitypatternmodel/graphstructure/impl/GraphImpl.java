@@ -23,6 +23,7 @@ import qualitypatternmodel.graphstructure.OperatorList;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -33,7 +34,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElement <em>Return Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElements <em>Return Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getRootElement <em>Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList <em>Operator List</em>}</li>
  * </ul>
@@ -42,14 +43,14 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  */
 public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
-	 * The cached value of the '{@link #getReturnElement() <em>Return Element</em>}' reference list.
+	 * The cached value of the '{@link #getReturnElements() <em>Return Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReturnElement()
+	 * @see #getReturnElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SingleElement> returnElement;
+	protected EList<SingleElement> returnElements;
 
 	/**
 	 * The cached value of the '{@link #getRootElement() <em>Root Element</em>}' containment reference.
@@ -81,15 +82,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
-		if(returnElement == null || returnElement.isEmpty()) 
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
+		if(returnElements == null || returnElements.isEmpty()) 
 			throw new InvalidTranslationException("returnElement empty");
 		if (rootElement == null) 
 			throw new InvalidTranslationException("rootElement null");
-		rootElement.isValid(isDefinedPattern);
+		rootElement.isValid(isDefinedPattern, loc);
 		if (operatorList == null) 
 			throw new InvalidTranslationException("operatorList null");
-		operatorList.isValid(isDefinedPattern);
+		operatorList.isValid(isDefinedPattern, loc);
 	}
 	
 	@Override 
@@ -134,11 +135,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SingleElement> getReturnElement() {
-		if (returnElement == null) {
-			returnElement = new EObjectResolvingEList<SingleElement>(SingleElement.class, this, GraphstructurePackage.GRAPH__RETURN_ELEMENT);
+	public EList<SingleElement> getReturnElements() {
+		if (returnElements == null) {
+			returnElements = new EObjectResolvingEList<SingleElement>(SingleElement.class, this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS);
 		}
-		return returnElement;
+		return returnElements;
 	}
 
 	/**
@@ -251,8 +252,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENT:
-				return getReturnElement();
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				return getReturnElements();
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				return getRootElement();
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
@@ -270,9 +271,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENT:
-				getReturnElement().clear();
-				getReturnElement().addAll((Collection<? extends SingleElement>)newValue);
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				getReturnElements().clear();
+				getReturnElements().addAll((Collection<? extends SingleElement>)newValue);
 				return;
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				setRootElement((SingleElement)newValue);
@@ -292,8 +293,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENT:
-				getReturnElement().clear();
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				getReturnElements().clear();
 				return;
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				setRootElement((SingleElement)null);
@@ -313,8 +314,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENT:
-				return returnElement != null && !returnElement.isEmpty();
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				return returnElements != null && !returnElements.isEmpty();
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				return rootElement != null;
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:

@@ -53,25 +53,25 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReturnElementPropertyDescriptor(object);
+			addReturnElementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Return Element feature.
+	 * This adds a property descriptor for the Return Elements feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReturnElementPropertyDescriptor(Object object) {
+	protected void addReturnElementsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Graph_returnElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_returnElement_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__RETURN_ELEMENT,
+				 getString("_UI_Graph_returnElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_returnElements_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__RETURN_ELEMENTS,
 				 true,
 				 false,
 				 true,

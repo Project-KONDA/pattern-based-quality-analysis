@@ -13,6 +13,7 @@ import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.TranslationLocation;
@@ -26,24 +27,14 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getMappingFrom <em>Mapping From</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getAxis <em>Axis</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class RelationImpl extends PatternElementImpl implements Relation {
-	/**
-	 * The cached value of the '{@link #getMappingTo() <em>Mapping To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMappingTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected RelationMapping mappingTo;
-
 	/**
 	 * The cached value of the '{@link #getMappingFrom() <em>Mapping From</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -53,6 +44,16 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @ordered
 	 */
 	protected RelationMapping mappingFrom;
+
+	/**
+	 * The cached value of the '{@link #getMappingTo() <em>Mapping To</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMappingTo()
+	 * @generated
+	 * @ordered
+	 */
+	protected RelationMapping mappingTo;
 
 	/**
 	 * The default value of the '{@link #getAxis() <em>Axis</em>}' attribute.
@@ -84,21 +85,20 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}	
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException  {		
-//		return  axis != null ^ (relationOptions != null && relationOptions.isValid(isDefinedPattern));
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException  {	
 		if (axis == null){
 			throw new InvalidTranslationException("axis invalid");
 		}
+		if (loc == Location.RETURN && mappingFrom != null)
+			throw new InvalidTranslationException("invalid RelationMapping to returnGraph");
 	}
 
 	@Override
 	public String toXQuery(TranslationLocation tranlsationLocation) throws InvalidTranslationException {		
-		if(axis != null) {
+		if(axis != null)
 			return "/" + axis.getLiteral() + "::*";
-		} else {
-			throw new InvalidTranslationException("axis invalid");
-		}
-			
+		else 
+			throw new InvalidTranslationException("axis invalid");	
 	}
 	
 
@@ -162,9 +162,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (newMappingTo != mappingTo) {
 			NotificationChain msgs = null;
 			if (mappingTo != null)
-				msgs = ((InternalEObject)mappingTo).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__TO, RelationMapping.class, msgs);
+				msgs = ((InternalEObject)mappingTo).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__FROM, RelationMapping.class, msgs);
 			if (newMappingTo != null)
-				msgs = ((InternalEObject)newMappingTo).eInverseAdd(this, PatternstructurePackage.RELATION_MAPPING__TO, RelationMapping.class, msgs);
+				msgs = ((InternalEObject)newMappingTo).eInverseAdd(this, PatternstructurePackage.RELATION_MAPPING__FROM, RelationMapping.class, msgs);
 			msgs = basicSetMappingTo(newMappingTo, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -222,9 +222,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (newMappingFrom != mappingFrom) {
 			NotificationChain msgs = null;
 			if (mappingFrom != null)
-				msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__FROM, RelationMapping.class, msgs);
+				msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__TO, RelationMapping.class, msgs);
 			if (newMappingFrom != null)
-				msgs = ((InternalEObject)newMappingFrom).eInverseAdd(this, PatternstructurePackage.RELATION_MAPPING__FROM, RelationMapping.class, msgs);
+				msgs = ((InternalEObject)newMappingFrom).eInverseAdd(this, PatternstructurePackage.RELATION_MAPPING__TO, RelationMapping.class, msgs);
 			msgs = basicSetMappingFrom(newMappingFrom, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -262,14 +262,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__MAPPING_TO:
-				if (mappingTo != null)
-					msgs = ((InternalEObject)mappingTo).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__TO, RelationMapping.class, msgs);
-				return basicSetMappingTo((RelationMapping)otherEnd, msgs);
 			case GraphstructurePackage.RELATION__MAPPING_FROM:
 				if (mappingFrom != null)
-					msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__FROM, RelationMapping.class, msgs);
+					msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__TO, RelationMapping.class, msgs);
 				return basicSetMappingFrom((RelationMapping)otherEnd, msgs);
+			case GraphstructurePackage.RELATION__MAPPING_TO:
+				if (mappingTo != null)
+					msgs = ((InternalEObject)mappingTo).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__FROM, RelationMapping.class, msgs);
+				return basicSetMappingTo((RelationMapping)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -282,10 +282,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__MAPPING_TO:
-				return basicSetMappingTo(null, msgs);
 			case GraphstructurePackage.RELATION__MAPPING_FROM:
 				return basicSetMappingFrom(null, msgs);
+			case GraphstructurePackage.RELATION__MAPPING_TO:
+				return basicSetMappingTo(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -298,12 +298,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__MAPPING_TO:
-				if (resolve) return getMappingTo();
-				return basicGetMappingTo();
 			case GraphstructurePackage.RELATION__MAPPING_FROM:
 				if (resolve) return getMappingFrom();
 				return basicGetMappingFrom();
+			case GraphstructurePackage.RELATION__MAPPING_TO:
+				if (resolve) return getMappingTo();
+				return basicGetMappingTo();
 			case GraphstructurePackage.RELATION__AXIS:
 				return getAxis();
 		}
@@ -319,11 +319,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__MAPPING_TO:
-				setMappingTo((RelationMapping)newValue);
-				return;
 			case GraphstructurePackage.RELATION__MAPPING_FROM:
 				setMappingFrom((RelationMapping)newValue);
+				return;
+			case GraphstructurePackage.RELATION__MAPPING_TO:
+				setMappingTo((RelationMapping)newValue);
 				return;
 			case GraphstructurePackage.RELATION__AXIS:
 				setAxis((Axis)newValue);
@@ -340,11 +340,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__MAPPING_TO:
-				setMappingTo((RelationMapping)null);
-				return;
 			case GraphstructurePackage.RELATION__MAPPING_FROM:
 				setMappingFrom((RelationMapping)null);
+				return;
+			case GraphstructurePackage.RELATION__MAPPING_TO:
+				setMappingTo((RelationMapping)null);
 				return;
 			case GraphstructurePackage.RELATION__AXIS:
 				setAxis(AXIS_EDEFAULT);
@@ -361,10 +361,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.RELATION__MAPPING_TO:
-				return mappingTo != null;
 			case GraphstructurePackage.RELATION__MAPPING_FROM:
 				return mappingFrom != null;
+			case GraphstructurePackage.RELATION__MAPPING_TO:
+				return mappingTo != null;
 			case GraphstructurePackage.RELATION__AXIS:
 				return axis != AXIS_EDEFAULT;
 		}

@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
@@ -61,7 +62,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException{
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException{
 		if (from == null) throw new InvalidTranslationException ("from null");
 		if (to == null) throw new InvalidTranslationException ("to null");
 //		return from != null && to != null;
@@ -127,9 +128,9 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		if (newFrom != from) {
 			NotificationChain msgs = null;
 			if (from != null)
-				msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM, SingleElement.class, msgs);
+				msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO, SingleElement.class, msgs);
 			if (newFrom != null)
-				msgs = ((InternalEObject)newFrom).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM, SingleElement.class, msgs);
+				msgs = ((InternalEObject)newFrom).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO, SingleElement.class, msgs);
 			msgs = basicSetFrom(newFrom, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -187,9 +188,9 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		if (newTo != to) {
 			NotificationChain msgs = null;
 			if (to != null)
-				msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO, SingleElement.class, msgs);
+				msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM, SingleElement.class, msgs);
 			if (newTo != null)
-				msgs = ((InternalEObject)newTo).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO, SingleElement.class, msgs);
+				msgs = ((InternalEObject)newTo).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM, SingleElement.class, msgs);
 			msgs = basicSetTo(newTo, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -207,11 +208,11 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		switch (featureID) {
 			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM:
 				if (from != null)
-					msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM, SingleElement.class, msgs);
+					msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO, SingleElement.class, msgs);
 				return basicSetFrom((SingleElement)otherEnd, msgs);
 			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO:
 				if (to != null)
-					msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO, SingleElement.class, msgs);
+					msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM, SingleElement.class, msgs);
 				return basicSetTo((SingleElement)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

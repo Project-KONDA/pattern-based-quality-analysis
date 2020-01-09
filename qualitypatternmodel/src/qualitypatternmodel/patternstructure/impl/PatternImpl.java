@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -16,6 +17,7 @@ import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.TranslationLocation;
@@ -73,31 +75,34 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	protected PatternImpl() {
 		super();
 	}
+	
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException{
+		this.isValid(isDefinedPattern, Location.OUTSIDE);
+	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
-//		return returnGraph != null && returnGraph.isValid(isDefinedPattern) && condition != null && condition.isValid(isDefinedPattern);
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
 		if (variableList == null) 
 			throw new InvalidTranslationException("variableList null");
-		variableList.isValid(isDefinedPattern);
+		variableList.isValid(isDefinedPattern, loc);
 		if (returnGraph == null)
 			throw new InvalidTranslationException("returnGraph null");
-		returnGraph.isValid(isDefinedPattern);
+		returnGraph.isValid(isDefinedPattern, Location.RETURN);
 		if (condition == null)
 			throw new InvalidTranslationException("condition null");
-		condition.isValid(isDefinedPattern);
+		condition.isValid(isDefinedPattern, loc);
 	}
 
 	@Override
 	public String toXQuery(TranslationLocation translationLocation) throws InvalidTranslationException {
 		String returnVariables = "(";
-		for (SingleElement returnElement : returnGraph.getReturnElement()) {
+		for (SingleElement returnElement : returnGraph.getReturnElements()) {
 			returnVariables += "" + VARIABLE + returnElement.getId() + ", ";
 		}
 		returnVariables = returnVariables.substring(0, returnVariables.length() - 2);
 		returnVariables += ")";
-		return returnGraph.toXQuery(TranslationLocation.RETURN) + "\nwhere "
-				+ condition.toXQuery(TranslationLocation.OUTSIDE) + "\nreturn " + returnVariables;
+		return returnGraph.toXQuery(Location.RETURN) + "\nwhere "
+				+ condition.toXQuery(Location.OUTSIDE) + "\nreturn " + returnVariables;
 	}
 	
 	/**
@@ -347,6 +352,26 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return variableList != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PatternstructurePackage.PATTERN___IS_VALID__BOOLEAN:
+				try {
+					isValid((Boolean)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } // PatternImpl

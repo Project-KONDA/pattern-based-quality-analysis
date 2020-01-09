@@ -18,6 +18,7 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +30,7 @@ import qualitypatternmodel.patternstructure.InvalidTranslationException;
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#getRegularExpression <em>Regular Expression</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#getOption <em>Option</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,14 +57,14 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	protected Text regularExpression;
 
 	/**
-	 * The cached value of the '{@link #getOptions() <em>Options</em>}' reference.
+	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOptions()
+	 * @see #getOption()
 	 * @generated
 	 * @ordered
 	 */
-	protected Option<Boolean> options;
+	protected Option<Boolean> option;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,17 +76,16 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
-//		return options != null && options.isValid(isDefinedPattern) && regularExpression != null && regularExpression.isValid(isDefinedPattern) && property != null && property.isValid(isDefinedPattern);
-		if (options == null)
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
+		if (option == null)
 			throw new InvalidTranslationException("options null");
-		options.isValid(isDefinedPattern);		
+		option.isValid(isDefinedPattern, loc);		
 		if (regularExpression == null)
 			throw new InvalidTranslationException("regularExpression null");
-		regularExpression.isValid(isDefinedPattern);		
+		regularExpression.isValid(isDefinedPattern, loc);		
 		if (property == null)
 			throw new InvalidTranslationException("property null");
-		property.isValid(isDefinedPattern);
+		property.isValid(isDefinedPattern, loc);
 	}
 	
 	/**
@@ -95,7 +95,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public EList<Input> getAllVariables() throws InvalidTranslationException {
 		EList<Input> res = new BasicEList<Input>();
 		res.add(regularExpression);
-		res.add(options);
+		res.add(option);
 		return res;
 	}
 
@@ -191,16 +191,16 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public Option<Boolean> getOptions() {
-		if (options != null && options.eIsProxy()) {
-			InternalEObject oldOptions = (InternalEObject)options;
-			options = (Option<Boolean>)eResolveProxy(oldOptions);
-			if (options != oldOptions) {
+	public Option<Boolean> getOption() {
+		if (option != null && option.eIsProxy()) {
+			InternalEObject oldOption = (InternalEObject)option;
+			option = (Option<Boolean>)eResolveProxy(oldOption);
+			if (option != oldOption) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.MATCH__OPTIONS, oldOptions, options));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.MATCH__OPTION, oldOption, option));
 			}
 		}
-		return options;
+		return option;
 	}
 
 	/**
@@ -208,8 +208,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Option<Boolean> basicGetOptions() {
-		return options;
+	public Option<Boolean> basicGetOption() {
+		return option;
 	}
 
 	/**
@@ -217,11 +217,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOptions(Option<Boolean> newOptions) {
-		Option<Boolean> oldOptions = options;
-		options = newOptions;
+	public void setOption(Option<Boolean> newOption) {
+		Option<Boolean> oldOption = option;
+		option = newOption;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTIONS, oldOptions, options));
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTION, oldOption, option));
 	}
 
 	/**
@@ -238,9 +238,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				if (resolve) return getRegularExpression();
 				return basicGetRegularExpression();
-			case FunctionsPackage.MATCH__OPTIONS:
-				if (resolve) return getOptions();
-				return basicGetOptions();
+			case FunctionsPackage.MATCH__OPTION:
+				if (resolve) return getOption();
+				return basicGetOption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -260,8 +260,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				setRegularExpression((Text)newValue);
 				return;
-			case FunctionsPackage.MATCH__OPTIONS:
-				setOptions((Option<Boolean>)newValue);
+			case FunctionsPackage.MATCH__OPTION:
+				setOption((Option<Boolean>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -281,8 +281,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				setRegularExpression((Text)null);
 				return;
-			case FunctionsPackage.MATCH__OPTIONS:
-				setOptions((Option<Boolean>)null);
+			case FunctionsPackage.MATCH__OPTION:
+				setOption((Option<Boolean>)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -300,8 +300,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return property != null;
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				return regularExpression != null;
-			case FunctionsPackage.MATCH__OPTIONS:
-				return options != null;
+			case FunctionsPackage.MATCH__OPTION:
+				return option != null;
 		}
 		return super.eIsSet(featureID);
 	}

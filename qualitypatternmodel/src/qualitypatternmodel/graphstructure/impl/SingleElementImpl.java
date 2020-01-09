@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -13,13 +14,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
-
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
@@ -31,8 +32,8 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getMappingTo <em>Mapping To</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getNext <em>Next</em>}</li>
  * </ul>
@@ -40,16 +41,6 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  * @generated
  */
 public class SingleElementImpl extends ElementImpl implements SingleElement {
-	/**
-	 * The cached value of the '{@link #getMappingFrom() <em>Mapping From</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMappingFrom()
-	 * @generated
-	 * @ordered
-	 */
-	protected SingleElementMapping mappingFrom;
-
 	/**
 	 * The cached value of the '{@link #getMappingTo() <em>Mapping To</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -59,6 +50,16 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * @ordered
 	 */
 	protected SingleElementMapping mappingTo;
+
+	/**
+	 * The cached value of the '{@link #getMappingFrom() <em>Mapping From</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMappingFrom()
+	 * @generated
+	 * @ordered
+	 */
+	protected SingleElementMapping mappingFrom;
 
 	/**
 	 * The cached value of the '{@link #getPrevious() <em>Previous</em>}' reference.
@@ -89,6 +90,13 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		super();
 	}
 
+	@Override
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
+		if (loc == Location.RETURN && mappingFrom != null)
+			throw new InvalidTranslationException("invalid SingleElementMapping to returnGraph");
+		super.isValid(isDefinedPattern, loc);
+	}	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,9 +157,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		if (newMappingFrom != mappingFrom) {
 			NotificationChain msgs = null;
 			if (mappingFrom != null)
-				msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM, SingleElementMapping.class, msgs);
+				msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, SingleElementMapping.class, msgs);
 			if (newMappingFrom != null)
-				msgs = ((InternalEObject)newMappingFrom).eInverseAdd(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM, SingleElementMapping.class, msgs);
+				msgs = ((InternalEObject)newMappingFrom).eInverseAdd(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, SingleElementMapping.class, msgs);
 			msgs = basicSetMappingFrom(newMappingFrom, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -209,9 +217,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		if (newMappingTo != mappingTo) {
 			NotificationChain msgs = null;
 			if (mappingTo != null)
-				msgs = ((InternalEObject)mappingTo).eInverseRemove(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, SingleElementMapping.class, msgs);
+				msgs = ((InternalEObject)mappingTo).eInverseRemove(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM, SingleElementMapping.class, msgs);
 			if (newMappingTo != null)
-				msgs = ((InternalEObject)newMappingTo).eInverseAdd(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, SingleElementMapping.class, msgs);
+				msgs = ((InternalEObject)newMappingTo).eInverseAdd(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM, SingleElementMapping.class, msgs);
 			msgs = basicSetMappingTo(newMappingTo, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -272,19 +280,30 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public int getOriginalID() {
+		if (mappingFrom == null) 
+			return this.id;
+		else 
+			return mappingFrom.getFrom().getOriginalID();		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
-				if (mappingFrom != null)
-					msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM, SingleElementMapping.class, msgs);
-				return basicSetMappingFrom((SingleElementMapping)otherEnd, msgs);
 			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
 				if (mappingTo != null)
-					msgs = ((InternalEObject)mappingTo).eInverseRemove(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, SingleElementMapping.class, msgs);
+					msgs = ((InternalEObject)mappingTo).eInverseRemove(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM, SingleElementMapping.class, msgs);
 				return basicSetMappingTo((SingleElementMapping)otherEnd, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+				if (mappingFrom != null)
+					msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, SingleElementMapping.class, msgs);
+				return basicSetMappingFrom((SingleElementMapping)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -297,10 +316,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
-				return basicSetMappingFrom(null, msgs);
 			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
 				return basicSetMappingTo(null, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+				return basicSetMappingFrom(null, msgs);
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT:
 				return ((InternalEList<?>)getNext()).basicRemove(otherEnd, msgs);
 		}
@@ -315,12 +334,12 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
-				if (resolve) return getMappingFrom();
-				return basicGetMappingFrom();
 			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
 				if (resolve) return getMappingTo();
 				return basicGetMappingTo();
+			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+				if (resolve) return getMappingFrom();
+				return basicGetMappingFrom();
 			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
 				if (resolve) return getPrevious();
 				return basicGetPrevious();
@@ -339,11 +358,11 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
-				setMappingFrom((SingleElementMapping)newValue);
-				return;
 			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
 				setMappingTo((SingleElementMapping)newValue);
+				return;
+			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+				setMappingFrom((SingleElementMapping)newValue);
 				return;
 			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
 				setPrevious((SingleElement)newValue);
@@ -364,11 +383,11 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
-				setMappingFrom((SingleElementMapping)null);
-				return;
 			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
 				setMappingTo((SingleElementMapping)null);
+				return;
+			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+				setMappingFrom((SingleElementMapping)null);
 				return;
 			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
 				setPrevious((SingleElement)null);
@@ -388,16 +407,30 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
-				return mappingFrom != null;
 			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
 				return mappingTo != null;
+			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+				return mappingFrom != null;
 			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
 				return previous != null;
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT:
 				return next != null && !next.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case GraphstructurePackage.SINGLE_ELEMENT___GET_ORIGINAL_ID:
+				return getOriginalID();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override

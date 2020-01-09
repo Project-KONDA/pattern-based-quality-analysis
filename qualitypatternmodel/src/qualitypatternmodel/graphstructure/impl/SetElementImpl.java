@@ -13,12 +13,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SetElement;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,6 +65,14 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 		super();
 	}
 
+
+	@Override
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
+		if (loc == Location.RETURN)
+			throw new InvalidTranslationException("SetElement in ReturnGraph");
+		super.isValid(isDefinedPattern, loc);
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

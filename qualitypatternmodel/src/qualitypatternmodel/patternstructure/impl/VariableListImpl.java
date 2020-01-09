@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.VariableList;
@@ -59,7 +60,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
 		if (!getPattern().getAllVariables().containsAll(variables))
 			throw new InvalidTranslationException("not all variables from VariableList in Graph");	
 		if (!variables.containsAll(getPattern().getAllVariables()))

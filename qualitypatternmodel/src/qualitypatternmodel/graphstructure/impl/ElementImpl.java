@@ -28,6 +28,7 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -120,30 +121,25 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
-//		for (Element next : getNextElements()) {
-//			if (!(next.isValid(isDefinedPattern) && next.getPreviousElement().equals(this))) {
-//				return false;
-//			}
-//		}
-//		return getPreviousElement() != null && relationFromPrevious.isValid(isDefinedPattern) || isRoot;
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
+		
 		for (Element next : getNextElements()) {
 			if (next == null) 
 				throw new InvalidTranslationException("nextElement null (" + next + ")");
-			next.isValid(isDefinedPattern);
-			if (!next.getPreviousElement().equals(this)) 
+			next.isValid(isDefinedPattern, loc);
+			if (!next.getPreviousElement().equals(this))
 				throw new InvalidTranslationException("nextElement not valid (" + next + ")");
 		}
 		
 		for(BooleanOperator predicate : getPredicates()) {
 			if (predicate == null) 
 				throw new InvalidTranslationException("predicate null (" + predicate + ")");
-			predicate.isValid(isDefinedPattern);
+			predicate.isValid(isDefinedPattern, loc);
 		}
 
 		if (!isRoot && getPreviousElement() == null) 
 			throw new InvalidTranslationException("previousElement null");
-		if (!isRoot) relationFromPrevious.isValid(isDefinedPattern);
+		if (!isRoot) relationFromPrevious.isValid(isDefinedPattern, loc);
 	}
 	
 

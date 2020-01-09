@@ -21,6 +21,7 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.TranslationLocation;
 
 /**
@@ -30,7 +31,7 @@ import qualitypatternmodel.patternstructure.TranslationLocation;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getPropertyOptions <em>Property Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getPropertyOption <em>Property Option</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
  * </ul>
@@ -39,13 +40,14 @@ import qualitypatternmodel.patternstructure.TranslationLocation;
  */
 public class PropertyImpl extends GraphElementImpl implements Property {
 	/**
-	 * The cached value of the '{@link #getPropertyOptions() <em>Property Options</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getPropertyOptions()
+	 * The cached value of the '{@link #getPropertyOption() <em>Property Option</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPropertyOption()
 	 * @generated
 	 * @ordered
 	 */
-	protected Option<PropertyLocation> propertyOptions;
+	protected Option<PropertyLocation> propertyOption;
 
 	/**
 	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' reference.
@@ -66,31 +68,25 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException  {
-//		return
-//			element != null 
-//			&& ( location != null ^ (propertyOptions != null && propertyOptions.isValid(isDefinedPattern)) )
-//			&& (!(location  != null && location == PropertyLocation.ATTRIBUTE) || (attributeName != null));
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException  {
 		if (getElement() == null) 
 			throw new InvalidTranslationException("element null");
-		
-		if (propertyOptions == null) {
+		if (propertyOption == null) {
 			throw new InvalidTranslationException("location or propertyOptions invalid");
 		} else {
-			propertyOptions.isValid(isDefinedPattern);
-			propertyOptions.isValid(isDefinedPattern);
+			propertyOption.isValid(isDefinedPattern, loc);
 		}
 		
-		if (propertyOptions.getSelection() != null && propertyOptions.getSelection() == PropertyLocation.ATTRIBUTE && attributeName == null)
+		if (propertyOption.getSelection() != null && propertyOption.getSelection() == PropertyLocation.ATTRIBUTE && attributeName == null)
 			throw new InvalidTranslationException("attributeName null");
 	}
 
 	@Override
 	public String toXQuery(TranslationLocation translationLocation) throws InvalidTranslationException {		
-		if(propertyOptions == null || propertyOptions.getSelection() == null) {
+		if(propertyOption == null || propertyOption.getSelection() == null) {
 			throw new InvalidTranslationException("propertyOptions invalid");
 		}				
-		switch (propertyOptions.getSelection()) {
+		switch (propertyOption.getSelection()) {
 		case ATTRIBUTE: 
 			if(attributeName == null || attributeName.getText() == null) {
 				throw new InvalidTranslationException("attributeName invalid");
@@ -114,7 +110,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	public EList<Input> getAllVariables() throws InvalidTranslationException {
 		EList<Input> res = new BasicEList<Input>();
 		res.add(attributeName);
-		res.add(propertyOptions);
+		res.add(propertyOption);
 		return res;
 	}
 
@@ -130,6 +126,45 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	protected EClass eStaticClass() {
 		return GraphstructurePackage.Literals.PROPERTY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public Option<PropertyLocation> getPropertyOption() {
+		if (propertyOption != null && propertyOption.eIsProxy()) {
+			InternalEObject oldPropertyOption = (InternalEObject)propertyOption;
+			propertyOption = (Option<PropertyLocation>)eResolveProxy(oldPropertyOption);
+			if (propertyOption != oldPropertyOption) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__PROPERTY_OPTION, oldPropertyOption, propertyOption));
+			}
+		}
+		return propertyOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Option<PropertyLocation> basicGetPropertyOption() {
+		return propertyOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPropertyOption(Option<PropertyLocation> newPropertyOption) {
+		Option<PropertyLocation> oldPropertyOption = propertyOption;
+		propertyOption = newPropertyOption;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__PROPERTY_OPTION, oldPropertyOption, propertyOption));
 	}
 
 	/**
@@ -227,43 +262,6 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	public Option<PropertyLocation> getPropertyOptions() {
-		if (propertyOptions != null && propertyOptions.eIsProxy()) {
-			InternalEObject oldPropertyOptions = (InternalEObject)propertyOptions;
-			propertyOptions = (Option<PropertyLocation>)eResolveProxy(oldPropertyOptions);
-			if (propertyOptions != oldPropertyOptions) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__PROPERTY_OPTIONS, oldPropertyOptions, propertyOptions));
-			}
-		}
-		return propertyOptions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Option<PropertyLocation> basicGetPropertyOptions() {
-		return propertyOptions;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPropertyOptions(Option<PropertyLocation> newPropertyOptions) {
-		Option<PropertyLocation> oldPropertyOptions = propertyOptions;
-		propertyOptions = newPropertyOptions;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__PROPERTY_OPTIONS, oldPropertyOptions, propertyOptions));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -298,9 +296,9 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTIONS:
-				if (resolve) return getPropertyOptions();
-				return basicGetPropertyOptions();
+			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
+				if (resolve) return getPropertyOption();
+				return basicGetPropertyOption();
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				return getElement();
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
@@ -318,8 +316,8 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTIONS:
-				setPropertyOptions((Option<PropertyLocation>)newValue);
+			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
+				setPropertyOption((Option<PropertyLocation>)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				setElement((Element)newValue);
@@ -338,8 +336,8 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTIONS:
-				setPropertyOptions((Option<PropertyLocation>)null);
+			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
+				setPropertyOption((Option<PropertyLocation>)null);
 				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				setElement((Element)null);
@@ -358,8 +356,8 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTIONS:
-				return propertyOptions != null;
+			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
+				return propertyOption != null;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				return getElement() != null;
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:

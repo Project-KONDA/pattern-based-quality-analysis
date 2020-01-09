@@ -275,7 +275,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMatch_Options() {
+	public EReference getMatch_Option() {
 		return (EReference)matchEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -302,7 +302,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComparison_Options() {
+	public EReference getComparison_Option() {
 		return (EReference)comparisonEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -385,11 +385,11 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		matchEClass = createEClass(MATCH);
 		createEReference(matchEClass, MATCH__PROPERTY);
 		createEReference(matchEClass, MATCH__REGULAR_EXPRESSION);
-		createEReference(matchEClass, MATCH__OPTIONS);
+		createEReference(matchEClass, MATCH__OPTION);
 
 		comparisonEClass = createEClass(COMPARISON);
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT1);
-		createEReference(comparisonEClass, COMPARISON__OPTIONS);
+		createEReference(comparisonEClass, COMPARISON__OPTION);
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT2);
 
 		toNumberEClass = createEClass(TO_NUMBER);
@@ -462,14 +462,14 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		EGenericType g1 = createEGenericType(theInputfieldsPackage.getOption());
 		EGenericType g2 = createEGenericType(ecorePackage.getEBooleanObject());
 		g1.getETypeArguments().add(g2);
-		initEReference(getMatch_Options(), g1, null, "options", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMatch_Option(), g1, null, "option", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComparison_Argument1(), theGraphstructurePackage.getGraphElement(), null, "argument1", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(theInputfieldsPackage.getOption());
 		g2 = createEGenericType(this.getComparisonOperator());
 		g1.getETypeArguments().add(g2);
-		initEReference(getComparison_Options(), g1, null, "options", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparison_Option(), g1, null, "option", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Argument2(), theGraphstructurePackage.getGraphElement(), null, "argument2", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(toNumberEClass, ToNumber.class, "ToNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

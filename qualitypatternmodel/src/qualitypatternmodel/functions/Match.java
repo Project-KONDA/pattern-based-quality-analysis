@@ -18,7 +18,7 @@ import qualitypatternmodel.inputfields.Text;
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.Match#getProperty <em>Property</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.Match#getRegularExpression <em>Regular Expression</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.Match#getOptions <em>Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.functions.FunctionsPackage#getMatch()
@@ -71,25 +71,25 @@ public interface Match extends BooleanOperator {
 	void setRegularExpression(Text value);
 
 	/**
-	 * Returns the value of the '<em><b>Options</b></em>' reference.
+	 * Returns the value of the '<em><b>Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Options</em>' reference.
-	 * @see #setOptions(Option)
-	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_Options()
+	 * @return the value of the '<em>Option</em>' reference.
+	 * @see #setOption(Option)
+	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_Option()
 	 * @model type="qualitypatternmodel.inputfields.Option&lt;org.eclipse.emf.ecore.EBooleanObject&gt;" required="true"
 	 * @generated
 	 */
-	Option<Boolean> getOptions();
+	Option<Boolean> getOption();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.functions.Match#getOptions <em>Options</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Options</em>' reference.
-	 * @see #getOptions()
+	 * @param value the new value of the '<em>Option</em>' reference.
+	 * @see #getOption()
 	 * @generated
 	 */
-	void setOptions(Option<Boolean> value);
+	void setOption(Option<Boolean> value);
 
 } // Match

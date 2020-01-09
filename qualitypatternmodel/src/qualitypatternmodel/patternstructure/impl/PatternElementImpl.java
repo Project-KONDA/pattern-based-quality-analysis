@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.TranslationLocation;
@@ -105,6 +106,17 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public String toXQuery(TranslationLocation tranlsationLocation) throws InvalidTranslationException {
 		throw new UnsupportedOperationException();
@@ -114,7 +126,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -184,16 +196,16 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__TRANSLATIONLOCATION:
+			case PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION:
 				try {
-					return toXQuery((TranslationLocation)arguments.get(0));
+					return toXQuery((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN:
+			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION:
 				try {
-					isValid((Boolean)arguments.get(0));
+					isValid((Boolean)arguments.get(0), (Location)arguments.get(1));
 					return null;
 				}
 				catch (Throwable throwable) {

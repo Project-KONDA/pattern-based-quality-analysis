@@ -48,8 +48,8 @@ public class RelationItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMappingToPropertyDescriptor(object);
 			addMappingFromPropertyDescriptor(object);
+			addMappingToPropertyDescriptor(object);
 			addAxisPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;

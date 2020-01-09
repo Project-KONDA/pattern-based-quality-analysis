@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -76,7 +77,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
 //		if (from == null || to == null) 
 //			return false;
 //		for(Mapping m : mappings) 
@@ -90,7 +91,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		for (Mapping mapping : mappings) {
 			if (mapping == null)
 				throw new InvalidTranslationException("mapping invalid (" + mapping + ")");
-			mapping.isValid(isDefinedPattern);
+			mapping.isValid(isDefinedPattern, loc);
 		}
 	}
 

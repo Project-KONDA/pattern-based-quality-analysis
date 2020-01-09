@@ -13,8 +13,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.TranslationLocation) <em>To XQuery</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location) <em>To XQuery</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, qualitypatternmodel.patternstructure.Location) <em>Is Valid</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAllVariables() <em>Get All Variables</em>}</li>
  * </ul>
  * </p>
@@ -61,26 +61,26 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.TranslationLocation) <em>To XQuery</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location) <em>To XQuery</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.TranslationLocation)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
-	public void testToXQuery__TranslationLocation() {
+	public void testToXQuery__Location() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, qualitypatternmodel.patternstructure.Location) <em>Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(boolean)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
-	public void testIsValid__boolean() {
+	public void testIsValid__boolean_Location() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
