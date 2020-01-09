@@ -112,7 +112,7 @@ String translateSingleElementReturnGraph(SingleElement element){
 	String xPathExpression = translatePathFromPrevious(element);	
 	String xPredicates = translatePredicates(element);		
 	
-	String forClauses = "for " + "$id" + element.id + " in " + xPathExpression + xPredicates;
+	String forClauses = "for " + "$id" + element.getOriginalID() + " in " + xPathExpression + xPredicates + "\n";
 	
 	element.isTranslated = true;
 	
@@ -158,55 +158,50 @@ boolean isReady(GraphElement element){
 	} else if (element instanceof SetElement){
 		SetElement setElement = (SetElement) element;
 		return setElement.getPreviousElement().isTranslated;
+	} else if (element instanceof SingleElement){
+		SingleElement singleElement = (SingleElement) element;
+		return singleElement.isTranslated;
 	} else {
 		return true;
 	}
 }
 
 String translatePathFromPrevious(Element element){
-	String axis;
-	if (element.relationFromPrevious.axis == null){
-		axis = ((Axis) element.relationFromPrevious.options.selection).getLiteral();
-	} else {
-		axis = element.relationFromPrevious.axis;
-	}
 	if(element instanceof SingleElement){
-		return element.getPreviousElement().getId() + "/" + axis + "::*";
+		if(element.getPreviousElement() != null){
+			return element.getPreviousElement().getId() + "/" + element.relationFromPrevious.axis + "::*";
+		} else {
+			return "/*";
+		}
 	} else if (element instanceof SetElement){
-		return "/" + axis + "::*";
+		return "/" + element.relationFromPrevious.axis + "::*";
 	}
 }
 
 String translatePredicates(Element element){
+	String xPredicates = "";
 	for (BooleanOperator predicate : element.predicates){
 		if ((booleanOperatorIsReady(predicate)){
-			return "[" + translatePredicate(predicate, element) + "]";
+			xPredicates += "[" + translatePredicate(predicate, element) + "]";
 		}
 	}
+	return xPredicates;
 }
 		
 String translatePredicate(BooleanOperator predicate, Element element){
-
 	if (predicate instanceof Comparison){
 		Comparison comparison = (Comparison) predicate;
-		String operator;
-		if (comparison.operator == null){
-			operator = ((ComparisonOperator) comparison.options.selection).getLiteral();
-		} else {
-			operator = comparison.operator;
-		}
+		String operator = comparison.options.selection.getLiteral();
 		return translateArgument(comparison.argument1,element) + operator + translateArgument(comparison.argument2,element);
 	}
 	if (predicate instanceof Match){
 		Match match = (Match) predicate;
-		if ((Boolean) match.options.selection){
+		if (match.options.selection){
 			return "match(" + translateArgument(match.argument,element) + "," + match.regularExpression.text + ")";
 		} else {
 			return "not(match(" + translateArgument(match.argument,element) + "," + match.regularExpression.text + "))";
-		}
-		
+		}		
 	}
-
 }
 
 String translateOperator(Operator operator, Element element){
@@ -220,8 +215,7 @@ String translateOperator(Operator operator, Element element){
 	}
 }
 
-String translateNumberOperator(NumberOperator numberOperator, Element element){
-	
+String translateNumberOperator(NumberOperator numberOperator, Element element){	
 	if (numberOperator instanceof Count){
 		Count count = (Count) numberOperator;
 		return "count(" + translateArgument(count.argument) + ")";
@@ -230,11 +224,9 @@ String translateNumberOperator(NumberOperator numberOperator, Element element){
 		ToNumber toNumber = (ToNumber) numberOperator;
 		return "fn:number(" + translateArgument(toNumber.property) + ")";
 	}
-
 }
 
 String translateArgument(GraphElement argument, Element element){
-
 	if (argument instanceof Input){ 
 		Input input = (Input) argument;
 		if (input instanceof Text){
@@ -249,27 +241,20 @@ String translateArgument(GraphElement argument, Element element){
 			Boolean bool = (Boolean) input;
 			return bool.bool;
 		}
-		if (input instanceof Option){ 
-			Option option = (Option) input;
-			???	
-		}
 	}		
 	if (argument instanceof Property){ 
 		Property property = (Property) argument;
-		String location;
-		if (property.location == null){
-			location = (PropertyLocation) property.options.selection;
-		} else {
-			location = property.location;
-		}
+		Element propertyElement = property.getElement();
+		String propertyElementTranslation = translateArgument(propertyElement,element);
+		String location = property.options.selection;		
 		if (location = DATA){
-			return "data()";
+			return propertyElementTranslation + "/data()";
 		}
 		if (location = TAG){
-			return "name()"
+			return propertyElementTranslation + "/name()"
 		}
 		if (location = ATTRIBUTE){
-			return "@" + property.attributeName;		
+			return propertyElementTranslation + "/@" + property.attributeName;		
 		}
 	}		
 	if (argument instanceof SingleElement){ 
@@ -277,13 +262,13 @@ String translateArgument(GraphElement argument, Element element){
 		if (singleElement.equals(element)){
 			return ".";
 		} else {
-			return "$id" + singleElement.id;
+			return "$id" + singleElement.getOriginalID();
 		}
 	}
 	if (argument instanceof SetElement){ 
 		SetElement setElement = (SetElement) argument;
 		Element predicateOwnerElement = element;
-		return translatePathFromPreviousFromSetElement(setElement,"");				
+		return translatePathFromPreviousFromSetElement(setElement,predicateOwnerElement,"");				
 	}
 	if (argument instanceof Operator){ 
 		Operator operator = (Operator) argument;
@@ -291,24 +276,30 @@ String translateArgument(GraphElement argument, Element element){
 	}
 }
 
-String translatePathFromPreviousFromSetElement(SetElement setElement, Element predicateOwnerElement, String xPathExpression){	
-	if (setElement.equals(predicateOwnerElement)){
-		return "$id" + predicateOwnerElement.id + xPathExpression;
+String translatePathFromPreviousFromSetElement(Element element, Element predicateOwnerElement, String xPathExpression){	
+	if (element.equals(predicateOwnerElement)){
+		if(predicateOwnerElement instanceof SingleElement){
+			return "$id" + ((SingleElement) predicateOwnerElement).getOriginalID() + xPathExpression;
+		} else {
+			return ".";
+		}
 	}			
-	xPathExpression = translatePathFromPrevious(setElement) + translatePredicates(setElement) 
+	xPathExpression = translatePathFromPrevious(element) + translatePredicates(element) 
 		+ translateElementExistencePredicates(pathElement) + xPathExpression;
-	setElement.isTranslated = true;	
-	return translatePathFromPreviousFromSetElement(setElement.getPreviousElement(), predicateOwnerElement, xPathExpression);
+	element.isTranslated = true;	
+	return translatePathFromPreviousFromSetElement(element.getPreviousElement(), predicateOwnerElement, xPathExpression);
 }
 
 String translateElementExistencePredicates(Element pathElement){		
+	String predicates = "";
 	for (SetElement nextSetElement : pathElement.next){
 		if (!nextSetElement.isTranslated){
 			nextSetElement.isTranslated = true;
-			return "[." + translatePathFromPrevious(nextSetElement) + translatePredicates(nextSetElement)
+			predicates += "[." + translatePathFromPrevious(nextSetElement) + translatePredicates(nextSetElement)
 				+ translateElementExistencePredicates(nextSetElement) + "]"; 			
 		}										
 	}
+	return predicates;
 }
 
 String translateConditions(){
@@ -338,9 +329,9 @@ String translateSingleElementConditionGraph(SingleElement element){
 	String xPathExpression = translatePathFromPrevious(element);		
 	String xPredicates = translatePredicates(element);		
 	if (element.mappingTo == null){					
-		forClauses = quantifiedCondition.quantifier.getLiteral() + " $id" + element.id " in " + xPathExpression + xPredicates + " satisfies \n";			
+		forClauses = quantifiedCondition.quantifier.getLiteral() + " $id" + element.getOriginalID() " in " + xPathExpression + xPredicates + " satisfies \n";			
 	} else {		
-		forClauses = quantifiedCondition.quantifier.getLiteral() + " $id" + element.id " in $id" + element.id + xPredicates + " satisfies \n";
+		forClauses = quantifiedCondition.quantifier.getLiteral() + " $id" + element.getOriginalID() " in $id" + element.getOriginalID() + xPredicates + " satisfies \n";
 	}
 	
 	element.isTranslated = true;
