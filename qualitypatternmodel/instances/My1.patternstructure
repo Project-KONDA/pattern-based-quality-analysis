@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:graphstructure="graphstructure" xmlns:patternstructure="patternstructure">
-  <returnGraph returnElement="1">
-    <variableList variables="//@returnGraph/@rootElement/@next.0/@predicates.0/@regularExpression //@returnGraph/@rootElement/@next.0/@predicates.0/@options"/>
-    <rootElement isRoot="true">
-      <next xsi:type="graphstructure:SingleElement" id="1" previous="//@returnGraph/@rootElement">
-        <predicates xsi:type="functions:Match">
-          <property element="1"/>
-          <regularExpression variableList="//@returnGraph/@variableList" text="ab"/>
-          <options variableList="//@returnGraph/@variableList"/>
-        </predicates>
-        <relationFromPrevious/>
+<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:graphstructure="graphstructure" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure">
+  <returnGraph id="1" returnElements="3">
+    <rootElement id="2" isRoot="true">
+      <next xsi:type="graphstructure:SingleElement" id="3" predicates="7" previous="2">
+        <relationFromPrevious id="4"/>
+        <properties id="5" propertyOption="12" attributeName="13"/>
       </next>
     </rootElement>
+    <operatorList id="6">
+      <operators xsi:type="functions:Match" id="7" property="5" regularExpression="11" option="10"/>
+    </operatorList>
   </returnGraph>
-  <condition xsi:type="patternstructure:True"/>
+  <condition xsi:type="patternstructure:True" id="8"/>
+  <variableList id="9">
+    <variables xsi:type="inputfields:Option" id="10"/>
+    <variables xsi:type="inputfields:Text" id="11"/>
+    <variables xsi:type="inputfields:Option" id="12"/>
+    <variables xsi:type="inputfields:Text" id="13"/>
+  </variableList>
 </patternstructure:Pattern>

@@ -2,8 +2,8 @@ package qualitypatternmodel.validitychecks;
 
 import java.util.Arrays;
 
-import qualitypatternmodel.functions.BooleanOperator;
-import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.graphstructure.PropertyLocation;
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -13,13 +13,18 @@ public class ValidityTest {
 		 // Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();
         Pattern pattern = loader.load();
-        BooleanOperator boolOp = pattern.getReturnGraph().getRootElement().getNextElements().get(0).getPredicates().get(0);
-        if(boolOp instanceof Match) {
-        	Match match = (Match) boolOp;
-        	Option<Boolean> options = (Option<Boolean>) match.getOption();
-        	options.getOptions().clear();
-        	options.getOptions().addAll(Arrays.asList(true,false));
-        }
+        
+        for (Input input : pattern.getVariableList().getVariables()) {
+        	if (input instanceof Option<?>) {
+            	if (input.getId() == 10) {
+        			((Option) input).getOptions().addAll(Arrays.asList(true,false));
+        		} else if ( input.getId() == 12) {
+        			((Option) input).getOptions().addAll(Arrays.asList(PropertyLocation.ATTRIBUTE,PropertyLocation.DATA));
+        		}
+        		
+        	}
+        }       
+        
         try {
 			pattern.isValid(false);
 		} catch (InvalidTranslationException e) {

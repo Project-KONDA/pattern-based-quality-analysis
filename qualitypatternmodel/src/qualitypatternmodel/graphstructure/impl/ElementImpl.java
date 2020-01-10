@@ -167,8 +167,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		for(Element element : getNextElements()) {
 			res.addAll(element.getAllVariables());
 		}
-		res.addAll(getRelationFromPrevious().getAllVariables());
-		for(Property p : properties) {
+//		res.addAll(getRelationFromPrevious().getAllVariables());
+		for (Property p : getProperties()) {
 			res.addAll(p.getAllVariables());
 		}
 		for (Operator op : getPredicates()) {

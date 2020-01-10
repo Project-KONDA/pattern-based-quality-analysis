@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:graphstructure="graphstructure" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure">
+  <returnGraph returnElements="1">
+    <rootElement mappingTo="//@condition/@morphism/@mappings.0">
+      <next xsi:type="graphstructure:SingleElement" id="1" isRoot="true" mappingTo="1" previous="//@returnGraph/@rootElement">
+        <relationFromPrevious id="1"/>
+      </next>
+    </rootElement>
+    <operatorList/>
+  </returnGraph>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="1">
+    <condition xsi:type="patternstructure:True" id="1"/>
+    <graph id="1" returnElements="3">
+      <rootElement id="2" mappingFrom="//@condition/@morphism/@mappings.0">
+        <next xsi:type="graphstructure:SingleElement" id="3" mappingFrom="1" previous="2">
+          <relationFromPrevious id="3"/>
+          <next xsi:type="graphstructure:SingleElement" id="4">
+            <relationFromPrevious id="4"/>
+            <properties/>
+          </next>
+        </next>
+      </rootElement>
+      <operatorList>
+        <operators xsi:type="functions:Match" property="//@condition/@graph/@rootElement/@next.0/@next.0/@properties.0"/>
+      </operatorList>
+    </graph>
+    <morphism id="1" from="//@returnGraph">
+      <mappings xsi:type="patternstructure:SingleElementMapping" from="//@returnGraph/@rootElement" to="2"/>
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="1" from="1" to="3"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="1"/>
+    </morphism>
+  </condition>
+  <variableList>
+    <variables xsi:type="inputfields:Option" id="1"/>
+    <variables xsi:type="inputfields:Option" id="2"/>
+    <variables xsi:type="inputfields:Text" id="1"/>
+    <variables xsi:type="inputfields:Text" id="2"/>
+  </variableList>
+</patternstructure:Pattern>
