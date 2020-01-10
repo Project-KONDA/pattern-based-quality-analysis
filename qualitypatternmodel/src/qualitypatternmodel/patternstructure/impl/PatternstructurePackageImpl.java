@@ -495,7 +495,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPatternElement__IsValid__boolean_Location() {
+	public EOperation getPatternElement__GetAllVariables() {
 		return patternElementEClass.getEOperations().get(1);
 	}
 
@@ -504,7 +504,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPatternElement__GetAllVariables() {
+	public EOperation getPatternElement__IsValid__boolean_int() {
 		return patternElementEClass.getEOperations().get(2);
 	}
 
@@ -637,8 +637,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___TO_XQUERY__LOCATION);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_VARIABLES);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT);
 
 		variableListEClass = createEClass(VARIABLE_LIST);
 		createEReference(variableListEClass, VARIABLE_LIST__VARIABLES);
@@ -742,12 +742,12 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEParameter(op, this.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidTranslationExceptionWrapper());
 
-		op = initEOperation(getPatternElement__IsValid__boolean_Location(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__GetAllVariables(), theInputfieldsPackage.getInput(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidTranslationExceptionWrapper());
 
-		op = initEOperation(getPatternElement__GetAllVariables(), theInputfieldsPackage.getInput(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__IsValid__boolean_int(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "depth", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidTranslationExceptionWrapper());
 
 		initEClass(variableListEClass, VariableList.class, "VariableList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

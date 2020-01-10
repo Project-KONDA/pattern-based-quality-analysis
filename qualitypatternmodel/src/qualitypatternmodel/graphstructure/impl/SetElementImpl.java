@@ -19,7 +19,6 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,10 +66,10 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 
 
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
-		if (loc == Location.RETURN)
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+		if (depth == 0)
 			throw new InvalidTranslationException("SetElement in ReturnGraph");
-		super.isValid(isDefinedPattern, loc);
+		super.isValid(isDefinedPattern, depth);
 	}
 	
 	/**

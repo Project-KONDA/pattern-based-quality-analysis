@@ -17,6 +17,7 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getAxis <em>Axis</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth <em>Graph Depth</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation()
@@ -96,5 +97,27 @@ public interface Relation extends PatternElement {
 	 * @generated
 	 */
 	void setAxis(Axis value);
+
+	/**
+	 * Returns the value of the '<em><b>Graph Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Graph Depth</em>' attribute.
+	 * @see #setGraphDepth(int)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_GraphDepth()
+	 * @model
+	 * @generated
+	 */
+	int getGraphDepth();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth <em>Graph Depth</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Graph Depth</em>' attribute.
+	 * @see #getGraphDepth()
+	 * @generated
+	 */
+	void setGraphDepth(int value);
 
 } // Relation

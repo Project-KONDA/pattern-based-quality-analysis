@@ -80,7 +80,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException  {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException  {
 		if(operator == null) 
 			throw new InvalidTranslationException("operator null");
 		if(arguments == null) 
@@ -89,12 +89,12 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		if(operator == LogicalOperator.NOT) {
 			if (arguments.size() != 1 || arguments.get(0) == null)
 				throw new InvalidTranslationException("argument invalid (op:NOT)");
-			arguments.get(0).isValid(isDefinedPattern, loc);
+			arguments.get(0).isValid(isDefinedPattern, depth);
 		} else 
 			if (arguments.size() != 2 || arguments.get(0) == null || arguments.get(1) == null)
 				throw new InvalidTranslationException("arguments invalid");
-			arguments.get(0).isValid(isDefinedPattern, loc);
-			arguments.get(1).isValid(isDefinedPattern, loc);
+			arguments.get(0).isValid(isDefinedPattern, depth);
+			arguments.get(1).isValid(isDefinedPattern, depth);
 	}
 	
 	@Override

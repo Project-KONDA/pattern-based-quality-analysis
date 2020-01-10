@@ -11,6 +11,12 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Pattern</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#isValid(boolean) <em>Is Valid</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class PatternTest extends PatternElementTest {
@@ -65,6 +71,19 @@ public class PatternTest extends PatternElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Pattern#isValid(boolean) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Pattern#isValid(boolean)
+	 * @generated
+	 */
+	public void testIsValid__boolean() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //PatternTest

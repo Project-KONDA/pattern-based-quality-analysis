@@ -28,7 +28,6 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -121,12 +120,12 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
 		
 		for (Element next : getNextElements()) {
 			if (next == null) 
 				throw new InvalidTranslationException("nextElement null (" + next + ")");
-			next.isValid(isDefinedPattern, loc);
+			next.isValid(isDefinedPattern, depth);
 			if (!next.getPreviousElement().equals(this))
 				throw new InvalidTranslationException("nextElement not valid (" + next + ")");
 		}
@@ -134,12 +133,12 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		for(BooleanOperator predicate : getPredicates()) {
 			if (predicate == null) 
 				throw new InvalidTranslationException("predicate null (" + predicate + ")");
-			predicate.isValid(isDefinedPattern, loc);
+			predicate.isValid(isDefinedPattern, depth);
 		}
 
 		if (!isRoot && getPreviousElement() == null) 
 			throw new InvalidTranslationException("previousElement null");
-		if (!isRoot) relationFromPrevious.isValid(isDefinedPattern, loc);
+		if (!isRoot) relationFromPrevious.isValid(isDefinedPattern, depth);
 	}
 	
 

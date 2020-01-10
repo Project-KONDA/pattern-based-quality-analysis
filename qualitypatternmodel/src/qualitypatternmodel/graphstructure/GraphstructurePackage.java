@@ -107,13 +107,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__AXIS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION__GRAPH_DEPTH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int RELATION_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -125,15 +134,6 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION___IS_VALID__BOOLEAN_LOCATION = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,6 +141,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The number of operations of the '<em>Relation</em>' class.
@@ -189,15 +198,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_ELEMENT___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH_ELEMENT___IS_VALID__BOOLEAN_LOCATION = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -205,6 +205,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int GRAPH_ELEMENT___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -289,15 +298,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___TO_XQUERY__LOCATION = GRAPH_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___IS_VALID__BOOLEAN_LOCATION = GRAPH_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -305,6 +305,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY___GET_ALL_VARIABLES = GRAPH_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_VALID__BOOLEAN_INT = GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -413,7 +422,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___IS_VALID__BOOLEAN_LOCATION = GRAPH_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
+	int ELEMENT___IS_VALID__BOOLEAN_INT = GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -588,13 +597,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__NEXT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__GRAPH_DEPTH = ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Single Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+	int SINGLE_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -612,7 +630,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___IS_VALID__BOOLEAN_LOCATION = ELEMENT___IS_VALID__BOOLEAN_LOCATION;
+	int SINGLE_ELEMENT___IS_VALID__BOOLEAN_INT = ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -802,7 +820,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___IS_VALID__BOOLEAN_LOCATION = ELEMENT___IS_VALID__BOOLEAN_LOCATION;
+	int SET_ELEMENT___IS_VALID__BOOLEAN_INT = ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -923,13 +941,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__GRAPH_DEPTH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -941,15 +968,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH___IS_VALID__BOOLEAN_LOCATION = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -957,6 +975,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int GRAPH___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1032,15 +1059,6 @@ public interface GraphstructurePackage extends EPackage {
 	int OPERATOR_LIST___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___IS_VALID__BOOLEAN_LOCATION = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1048,6 +1066,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The number of operations of the '<em>Operator List</em>' class.
@@ -1131,6 +1158,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRelation_Axis();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth <em>Graph Depth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Graph Depth</em>'.
+	 * @see qualitypatternmodel.graphstructure.Relation#getGraphDepth()
+	 * @see #getRelation()
+	 * @generated
+	 */
+	EAttribute getRelation_GraphDepth();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Property <em>Property</em>}'.
@@ -1228,6 +1266,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSingleElement_Next();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.SingleElement#getGraphDepth <em>Graph Depth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Graph Depth</em>'.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getGraphDepth()
+	 * @see #getSingleElement()
+	 * @generated
+	 */
+	EAttribute getSingleElement_GraphDepth();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getOriginalID() <em>Get Original ID</em>}' operation.
@@ -1440,6 +1489,17 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getGraph_OperatorList();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Graph#getGraphDepth <em>Graph Depth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Graph Depth</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getGraphDepth()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EAttribute getGraph_GraphDepth();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1589,6 +1649,14 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute RELATION__AXIS = eINSTANCE.getRelation_Axis();
 
 		/**
+		 * The meta object literal for the '<em><b>Graph Depth</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELATION__GRAPH_DEPTH = eINSTANCE.getRelation_GraphDepth();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1663,6 +1731,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SINGLE_ELEMENT__NEXT = eINSTANCE.getSingleElement_Next();
+
+		/**
+		 * The meta object literal for the '<em><b>Graph Depth</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SINGLE_ELEMENT__GRAPH_DEPTH = eINSTANCE.getSingleElement_GraphDepth();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Original ID</b></em>' operation.
@@ -1829,6 +1905,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference GRAPH__OPERATOR_LIST = eINSTANCE.getGraph_OperatorList();
+
+		/**
+		 * The meta object literal for the '<em><b>Graph Depth</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GRAPH__GRAPH_DEPTH = eINSTANCE.getGraph_GraphDepth();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.

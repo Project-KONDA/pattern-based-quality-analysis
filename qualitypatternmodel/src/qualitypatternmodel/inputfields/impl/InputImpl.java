@@ -19,7 +19,6 @@ import qualitypatternmodel.graphstructure.impl.GraphElementImpl;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.VariableList;
 
@@ -174,7 +173,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
 //		return (!isDefinedPattern || inputIsValid()) && variableList != null;
 		if (getVariableList() == null)
 			throw new InvalidTranslationException("variableList null");

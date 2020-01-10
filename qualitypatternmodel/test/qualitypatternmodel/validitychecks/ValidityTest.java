@@ -6,7 +6,6 @@ import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 
 public class ValidityTest {
@@ -22,7 +21,7 @@ public class ValidityTest {
         	options.getOptions().addAll(Arrays.asList(true,false));
         }
         try {
-			pattern.isValid(false, Location.OUTSIDE);
+			pattern.isValid(false);
 		} catch (InvalidTranslationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

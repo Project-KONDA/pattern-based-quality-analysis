@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.Location;
@@ -75,6 +74,16 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+		throw new UnsupportedOperationException();
+	}
+
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -119,14 +128,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 */
 	public String toXQuery(TranslationLocation tranlsationLocation) throws InvalidTranslationException {
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -203,17 +204,17 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION:
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES:
 				try {
-					isValid((Boolean)arguments.get(0), (Location)arguments.get(1));
-					return null;
+					return getAllVariables();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES:
+			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT:
 				try {
-					return getAllVariables();
+					isValid((Boolean)arguments.get(0), (Integer)arguments.get(1));
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

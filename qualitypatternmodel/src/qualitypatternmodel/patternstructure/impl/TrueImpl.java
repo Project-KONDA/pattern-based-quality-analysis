@@ -3,8 +3,6 @@
 package qualitypatternmodel.patternstructure.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.True;
 
@@ -26,7 +24,7 @@ public class TrueImpl extends ConditionImpl implements True {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) {}
+	public void isValid(boolean isDefinedPattern, int depth) {}
 
 	/**
 	 * <!-- begin-user-doc -->

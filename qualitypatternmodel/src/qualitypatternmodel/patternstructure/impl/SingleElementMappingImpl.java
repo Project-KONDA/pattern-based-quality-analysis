@@ -13,14 +13,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Single Element Mapping</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Single
+ * Element Mapping</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -33,9 +31,9 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  */
 public class SingleElementMappingImpl extends MappingImpl implements SingleElementMapping {
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getFrom()
 	 * @generated
 	 * @ordered
@@ -43,9 +41,9 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	protected SingleElement from;
 
 	/**
-	 * The cached value of the '{@link #getTo() <em>To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTo() <em>To</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getTo()
 	 * @generated
 	 * @ordered
@@ -53,8 +51,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	protected SingleElement to;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected SingleElementMappingImpl() {
@@ -62,15 +59,18 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException{
-		if (from == null) throw new InvalidTranslationException ("from null");
-		if (to == null) throw new InvalidTranslationException ("to null");
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != depth)
+			throw new InvalidTranslationException("invalid target elements");
+		if (from == null)
+			throw new InvalidTranslationException("from null");
+		if (to == null)
+			throw new InvalidTranslationException("to null");
 //		return from != null && to != null;
 	}
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -79,8 +79,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public SingleElement getFrom() {
@@ -96,8 +95,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public SingleElement basicGetFrom() {
@@ -105,8 +103,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetFrom(SingleElement newFrom, NotificationChain msgs) {
@@ -120,8 +117,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setFrom(SingleElement newFrom) {
@@ -139,8 +135,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public SingleElement getTo() {
@@ -156,8 +151,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public SingleElement basicGetTo() {
@@ -165,8 +159,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetTo(SingleElement newTo, NotificationChain msgs) {
@@ -180,8 +173,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTo(SingleElement newTo) {
@@ -199,8 +191,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -219,8 +210,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -235,8 +225,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -253,8 +242,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -271,8 +259,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -289,8 +276,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -304,4 +290,4 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		return super.eIsSet(featureID);
 	}
 
-} //SingleElementMappingImpl
+} // SingleElementMappingImpl

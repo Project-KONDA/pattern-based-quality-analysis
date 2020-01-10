@@ -51,6 +51,7 @@ public class RelationItemProvider extends PatternElementItemProvider {
 			addMappingFromPropertyDescriptor(object);
 			addMappingToPropertyDescriptor(object);
 			addAxisPropertyDescriptor(object);
+			addGraphDepthPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -122,6 +123,28 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Graph Depth feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGraphDepthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Relation_graphDepth_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_graphDepth_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__GRAPH_DEPTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Relation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,6 +181,7 @@ public class RelationItemProvider extends PatternElementItemProvider {
 
 		switch (notification.getFeatureID(Relation.class)) {
 			case GraphstructurePackage.RELATION__AXIS:
+			case GraphstructurePackage.RELATION__GRAPH_DEPTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

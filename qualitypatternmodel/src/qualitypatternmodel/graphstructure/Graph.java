@@ -20,6 +20,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGraphDepth <em>Graph Depth</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph()
@@ -84,6 +85,28 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	void setOperatorList(OperatorList value);
+
+	/**
+	 * Returns the value of the '<em><b>Graph Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Graph Depth</em>' attribute.
+	 * @see #setGraphDepth(int)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_GraphDepth()
+	 * @model
+	 * @generated
+	 */
+	int getGraphDepth();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getGraphDepth <em>Graph Depth</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Graph Depth</em>' attribute.
+	 * @see #getGraphDepth()
+	 * @generated
+	 */
+	void setGraphDepth(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

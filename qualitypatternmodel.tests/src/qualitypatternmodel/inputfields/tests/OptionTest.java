@@ -14,7 +14,7 @@ import qualitypatternmodel.inputfields.Option;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.Option#isValid(boolean, java.lang.Class) <em>Is Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.Option#isValid(boolean, int, java.lang.Class) <em>Is Valid</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -74,13 +74,13 @@ public class OptionTest extends InputTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.inputfields.Option#isValid(boolean, java.lang.Class) <em>Is Valid</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.inputfields.Option#isValid(boolean, int, java.lang.Class) <em>Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.inputfields.Option#isValid(boolean, java.lang.Class)
+	 * @see qualitypatternmodel.inputfields.Option#isValid(boolean, int, java.lang.Class)
 	 * @generated
 	 */
-	public void testIsValid__boolean_Class() {
+	public void testIsValid__boolean_int_Class() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

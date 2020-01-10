@@ -19,7 +19,7 @@
       <eTypeParameters name="T"/>
       <eOperations name="isValid" eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper">
         <eParameters name="isDefinedBattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-        <eParameters name="location" eType="#//patternstructure/Location"/>
+        <eParameters name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
         <eParameters name="cls" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1">
@@ -88,6 +88,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="#//graphstructure/Axis"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/GraphElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOption" lowerBound="1">
@@ -109,6 +110,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//graphstructure/SingleElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1"
           eType="#//graphstructure/Element" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SetElement" eSuperTypes="#//graphstructure/Element">
       <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1"
@@ -143,6 +145,7 @@
           eType="#//graphstructure/SingleElement" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
           eType="#//graphstructure/OperatorList" containment="true" eOpposite="#//graphstructure/OperatorList/graph"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GraphElement" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>
@@ -243,12 +246,12 @@
           eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper">
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>
-      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper">
-        <eParameters name="isDefinedPattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
       <eOperations name="getAllVariables" upperBound="-1" eType="#//inputfields/Input"
           eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
+      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper">
+        <eParameters name="isDefinedPattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        <eParameters name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           iD="true"/>
     </eClassifiers>

@@ -21,7 +21,6 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.TranslationLocation;
 
 /**
@@ -68,13 +67,13 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException  {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException  {
 		if (getElement() == null) 
 			throw new InvalidTranslationException("element null");
 		if (propertyOption == null) {
 			throw new InvalidTranslationException("location or propertyOptions invalid");
 		} else {
-			propertyOption.isValid(isDefinedPattern, loc);
+			propertyOption.isValid(isDefinedPattern, depth);
 		}
 		
 		if (propertyOption.getSelection() != null && propertyOption.getSelection() == PropertyLocation.ATTRIBUTE && attributeName == null)

@@ -124,15 +124,6 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___TO_XQUERY__LOCATION = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT___IS_VALID__BOOLEAN_LOCATION = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,6 +131,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT___GET_ALL_VARIABLES = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___IS_VALID__BOOLEAN_INT = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -242,15 +242,6 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER___IS_VALID__BOOLEAN_LOCATION = INPUT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -258,6 +249,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -360,15 +360,6 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN___IS_VALID__BOOLEAN_LOCATION = INPUT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -376,6 +367,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -487,15 +487,6 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___IS_VALID__BOOLEAN_LOCATION = INPUT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -503,6 +494,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPTION___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -529,7 +529,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPTION___IS_VALID__BOOLEAN_LOCATION_CLASS = INPUT_OPERATION_COUNT + 0;
+	int OPTION___IS_VALID__BOOLEAN_INT_CLASS = INPUT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Option</em>' class.
@@ -614,15 +614,6 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT___IS_VALID__BOOLEAN_LOCATION = INPUT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -630,6 +621,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -787,14 +787,14 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getOption_Selection();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Option#isValid(boolean, qualitypatternmodel.patternstructure.Location, java.lang.Class) <em>Is Valid</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Option#isValid(boolean, int, java.lang.Class) <em>Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Valid</em>' operation.
-	 * @see qualitypatternmodel.inputfields.Option#isValid(boolean, qualitypatternmodel.patternstructure.Location, java.lang.Class)
+	 * @see qualitypatternmodel.inputfields.Option#isValid(boolean, int, java.lang.Class)
 	 * @generated
 	 */
-	EOperation getOption__IsValid__boolean_Location_Class();
+	EOperation getOption__IsValid__boolean_int_Class();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Text <em>Text</em>}'.
@@ -950,7 +950,7 @@ public interface InputfieldsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation OPTION___IS_VALID__BOOLEAN_LOCATION_CLASS = eINSTANCE.getOption__IsValid__boolean_Location_Class();
+		EOperation OPTION___IS_VALID__BOOLEAN_INT_CLASS = eINSTANCE.getOption__IsValid__boolean_int_Class();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.TextImpl <em>Text</em>}' class.

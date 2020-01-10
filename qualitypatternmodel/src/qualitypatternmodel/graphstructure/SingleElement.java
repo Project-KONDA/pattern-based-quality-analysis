@@ -19,6 +19,7 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNext <em>Next</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getGraphDepth <em>Graph Depth</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement()
@@ -107,6 +108,28 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	EList<Element> getNext();
+
+	/**
+	 * Returns the value of the '<em><b>Graph Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Graph Depth</em>' attribute.
+	 * @see #setGraphDepth(int)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_GraphDepth()
+	 * @model
+	 * @generated
+	 */
+	int getGraphDepth();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getGraphDepth <em>Graph Depth</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Graph Depth</em>' attribute.
+	 * @see #getGraphDepth()
+	 * @generated
+	 */
+	void setGraphDepth(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

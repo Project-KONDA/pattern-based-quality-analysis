@@ -18,7 +18,6 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,16 +75,16 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
 		if (option == null)
 			throw new InvalidTranslationException("options null");
-		option.isValid(isDefinedPattern, loc);		
+		option.isValid(isDefinedPattern, depth);		
 		if (regularExpression == null)
 			throw new InvalidTranslationException("regularExpression null");
-		regularExpression.isValid(isDefinedPattern, loc);		
+		regularExpression.isValid(isDefinedPattern, depth);		
 		if (property == null)
 			throw new InvalidTranslationException("property null");
-		property.isValid(isDefinedPattern, loc);
+		property.isValid(isDefinedPattern, depth);
 	}
 	
 	/**

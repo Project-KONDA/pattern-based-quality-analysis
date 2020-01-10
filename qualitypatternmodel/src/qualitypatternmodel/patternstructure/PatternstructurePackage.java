@@ -97,22 +97,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___TO_XQUERY__LOCATION = 0;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION = 1;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_ALL_VARIABLES = 2;
+	int PATTERN_ELEMENT___GET_ALL_VARIABLES = 1;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT = 2;
 
 	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
@@ -161,15 +161,6 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___IS_VALID__BOOLEAN_LOCATION = PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,6 +168,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
@@ -243,15 +243,6 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING___TO_XQUERY__LOCATION = MAPPING___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___IS_VALID__BOOLEAN_LOCATION = MAPPING___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,6 +250,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING___GET_ALL_VARIABLES = MAPPING___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___IS_VALID__BOOLEAN_INT = MAPPING___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The number of operations of the '<em>Relation Mapping</em>' class.
@@ -307,15 +307,6 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___IS_VALID__BOOLEAN_LOCATION = PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,6 +314,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -407,15 +407,6 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___IS_VALID__BOOLEAN_LOCATION = CONDITION___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -423,6 +414,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int QUANTIFIED_CONDITION___GET_ALL_VARIABLES = CONDITION___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___IS_VALID__BOOLEAN_INT = CONDITION___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The number of operations of the '<em>Quantified Condition</em>' class.
@@ -498,15 +498,6 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___IS_VALID__BOOLEAN_LOCATION = PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -514,6 +505,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
@@ -580,15 +580,6 @@ public interface PatternstructurePackage extends EPackage {
 	int SINGLE_ELEMENT_MAPPING___TO_XQUERY__LOCATION = MAPPING___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT_MAPPING___IS_VALID__BOOLEAN_LOCATION = MAPPING___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -596,6 +587,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT_MAPPING___GET_ALL_VARIABLES = MAPPING___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING___IS_VALID__BOOLEAN_INT = MAPPING___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The number of operations of the '<em>Single Element Mapping</em>' class.
@@ -662,15 +662,6 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___IS_VALID__BOOLEAN_LOCATION = CONDITION___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -678,6 +669,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int FORMULA___GET_ALL_VARIABLES = CONDITION___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___IS_VALID__BOOLEAN_INT = CONDITION___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The number of operations of the '<em>Formula</em>' class.
@@ -726,15 +726,6 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE___IS_VALID__BOOLEAN_LOCATION = CONDITION___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -742,6 +733,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUE___GET_ALL_VARIABLES = CONDITION___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___IS_VALID__BOOLEAN_INT = CONDITION___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The number of operations of the '<em>True</em>' class.
@@ -817,15 +817,6 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___IS_VALID__BOOLEAN_LOCATION = PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -833,6 +824,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -908,15 +908,6 @@ public interface PatternstructurePackage extends EPackage {
 	int VARIABLE_LIST___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_LIST___IS_VALID__BOOLEAN_LOCATION = PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -924,6 +915,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_LIST___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The number of operations of the '<em>Variable List</em>' class.
@@ -1283,16 +1283,6 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__ToXQuery__Location();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, qualitypatternmodel.patternstructure.Location) <em>Is Valid</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	EOperation getPatternElement__IsValid__boolean_Location();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllVariables() <em>Get All Variables</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1301,6 +1291,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__GetAllVariables();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, int) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, int)
+	 * @generated
+	 */
+	EOperation getPatternElement__IsValid__boolean_int();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.VariableList <em>Variable List</em>}'.
@@ -1651,20 +1651,20 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___TO_XQUERY__LOCATION = eINSTANCE.getPatternElement__ToXQuery__Location();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN_ELEMENT___IS_VALID__BOOLEAN_LOCATION = eINSTANCE.getPatternElement__IsValid__boolean_Location();
-
-		/**
 		 * The meta object literal for the '<em><b>Get All Variables</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___GET_ALL_VARIABLES = eINSTANCE.getPatternElement__GetAllVariables();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT = eINSTANCE.getPatternElement__IsValid__boolean_int();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.VariableListImpl <em>Variable List</em>}' class.

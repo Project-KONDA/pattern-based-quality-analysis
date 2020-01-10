@@ -21,7 +21,6 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.impl.InputImpl;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -75,19 +74,19 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
 		if (argument1 == null)
 			throw new InvalidTranslationException("argument1 null");
 		if (argument2 == null)
 			throw new InvalidTranslationException("argument2 null");
 
 		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl)
-			argument1.isValid(isDefinedPattern, loc);
+			argument1.isValid(isDefinedPattern, depth);
 		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof InputImpl)
-			argument2.isValid(isDefinedPattern, loc);
+			argument2.isValid(isDefinedPattern, depth);
 
 		if (option != null) {
-			option.isValid(isDefinedPattern, loc);
+			option.isValid(isDefinedPattern, depth);
 		} else {
 			throw new InvalidTranslationException("operator Options invalid");
 		}

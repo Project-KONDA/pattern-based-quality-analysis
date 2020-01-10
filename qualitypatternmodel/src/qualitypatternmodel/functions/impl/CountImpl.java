@@ -14,12 +14,10 @@ import qualitypatternmodel.functions.FunctionsPackage;
 
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Count</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Count</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -32,8 +30,7 @@ import qualitypatternmodel.patternstructure.Location;
 public class CountImpl extends NumberOperatorsImpl implements Count {
 	/**
 	 * The cached value of the '{@link #getArgument() <em>Argument</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArgument()
 	 * @generated
 	 * @ordered
@@ -41,22 +38,21 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	protected SetElement argument;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected CountImpl() {
 		super();
 	}
-	
+
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
-		if (argument == null) throw new InvalidTranslationException ("argument null");
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+		if (argument == null)
+			throw new InvalidTranslationException("argument null");
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -65,8 +61,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public SetElement getArgument() {
@@ -82,8 +77,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public SetElement basicGetArgument() {
@@ -91,8 +85,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setArgument(SetElement newArgument) {
@@ -103,8 +96,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -118,8 +110,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -133,8 +124,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -148,8 +138,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -161,4 +150,4 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 		return super.eIsSet(featureID);
 	}
 
-} //CountImpl
+} // CountImpl

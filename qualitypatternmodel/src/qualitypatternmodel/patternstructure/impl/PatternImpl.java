@@ -60,8 +60,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * The cached value of the '{@link #getVariableList() <em>Variable List</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVariableList()
 	 * @generated
 	 * @ordered
@@ -75,22 +74,22 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	protected PatternImpl() {
 		super();
 	}
-	
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException{
-		this.isValid(isDefinedPattern, Location.OUTSIDE);
+
+	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+		this.isValid(isDefinedPattern, 0);
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
-		if (variableList == null) 
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+		if (variableList == null)
 			throw new InvalidTranslationException("variableList null");
-		variableList.isValid(isDefinedPattern, loc);
+		variableList.isValid(isDefinedPattern, depth);
 		if (returnGraph == null)
 			throw new InvalidTranslationException("returnGraph null");
-		returnGraph.isValid(isDefinedPattern, Location.RETURN);
+		returnGraph.isValid(isDefinedPattern, depth);
 		if (condition == null)
 			throw new InvalidTranslationException("condition null");
-		condition.isValid(isDefinedPattern, loc);
+		condition.isValid(isDefinedPattern, depth);
 	}
 
 	@Override
@@ -101,13 +100,12 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		}
 		returnVariables = returnVariables.substring(0, returnVariables.length() - 2);
 		returnVariables += ")";
-		return returnGraph.toXQuery(Location.RETURN) + "\nwhere "
-				+ condition.toXQuery(Location.OUTSIDE) + "\nreturn " + returnVariables;
+		return returnGraph.toXQuery(Location.RETURN) + "\nwhere " + condition.toXQuery(Location.OUTSIDE) + "\nreturn "
+				+ returnVariables;
 	}
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public EList<Input> getAllVariables() throws InvalidTranslationException {
 		EList<Input> inputs = returnGraph.getAllVariables();
@@ -205,8 +203,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public VariableList getVariableList() {
@@ -214,8 +211,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
@@ -229,8 +225,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setVariableList(VariableList newVariableList) {
@@ -248,8 +243,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -355,8 +349,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

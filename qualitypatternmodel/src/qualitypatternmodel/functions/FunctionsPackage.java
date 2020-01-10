@@ -97,15 +97,6 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___TO_XQUERY__LOCATION = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR___IS_VALID__BOOLEAN_LOCATION = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,6 +104,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR___GET_ALL_VARIABLES = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___IS_VALID__BOOLEAN_INT = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -179,15 +179,6 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_LOCATION = OPERATOR___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,6 +186,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_INT = OPERATOR___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -261,15 +261,6 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATORS___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OPERATORS___IS_VALID__BOOLEAN_LOCATION = OPERATOR___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -277,6 +268,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATORS___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS___IS_VALID__BOOLEAN_INT = OPERATOR___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -352,15 +352,6 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT___TO_XQUERY__LOCATION = NUMBER_OPERATORS___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT___IS_VALID__BOOLEAN_LOCATION = NUMBER_OPERATORS___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -368,6 +359,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT___GET_ALL_VARIABLES = NUMBER_OPERATORS___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___IS_VALID__BOOLEAN_INT = NUMBER_OPERATORS___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -434,15 +434,6 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATORS___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_OPERATORS___IS_VALID__BOOLEAN_LOCATION = OPERATOR___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -450,6 +441,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OTHER_OPERATORS___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS___IS_VALID__BOOLEAN_INT = OPERATOR___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -543,15 +543,6 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___TO_XQUERY__LOCATION = BOOLEAN_OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___IS_VALID__BOOLEAN_LOCATION = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -559,6 +550,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___GET_ALL_VARIABLES = BOOLEAN_OPERATOR___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___IS_VALID__BOOLEAN_INT = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -652,15 +652,6 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___TO_XQUERY__LOCATION = BOOLEAN_OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___IS_VALID__BOOLEAN_LOCATION = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -668,6 +659,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___GET_ALL_VARIABLES = BOOLEAN_OPERATOR___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___IS_VALID__BOOLEAN_INT = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -743,15 +743,6 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER___TO_XQUERY__LOCATION = NUMBER_OPERATORS___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___IS_VALID__BOOLEAN_LOCATION = NUMBER_OPERATORS___IS_VALID__BOOLEAN_LOCATION;
-
-	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -759,6 +750,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TO_NUMBER___GET_ALL_VARIABLES = NUMBER_OPERATORS___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER___IS_VALID__BOOLEAN_INT = NUMBER_OPERATORS___IS_VALID__BOOLEAN_INT;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.

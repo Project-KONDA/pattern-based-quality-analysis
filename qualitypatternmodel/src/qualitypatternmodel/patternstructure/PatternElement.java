@@ -56,17 +56,17 @@ public interface PatternElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
-	 * @generated
-	 */
-	void isValid(boolean isDefinedPattern, Location location) throws InvalidTranslationException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
 	 * @generated
 	 */
 	EList<Input> getAllVariables() throws InvalidTranslationException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException;
 
 } // PatternElement

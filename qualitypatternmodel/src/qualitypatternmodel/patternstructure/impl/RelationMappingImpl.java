@@ -13,14 +13,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Relation Mapping</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Relation Mapping</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -33,9 +31,9 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  */
 public class RelationMappingImpl extends MappingImpl implements RelationMapping {
 	/**
-	 * The cached value of the '{@link #getTo() <em>To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getTo() <em>To</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getTo()
 	 * @generated
 	 * @ordered
@@ -43,9 +41,9 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	protected Relation to;
 
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getFrom()
 	 * @generated
 	 * @ordered
@@ -53,8 +51,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	protected Relation from;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected RelationMappingImpl() {
@@ -62,14 +59,17 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException {
-		if (from == null) throw new InvalidTranslationException ("from null");
-		if (to == null) throw new InvalidTranslationException ("to null");
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != depth)
+			throw new InvalidTranslationException("invalid target relations");
+		if (from == null)
+			throw new InvalidTranslationException("from null");
+		if (to == null)
+			throw new InvalidTranslationException("to null");
 	}
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -78,8 +78,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Relation getTo() {
@@ -95,8 +94,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Relation basicGetTo() {
@@ -104,8 +102,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetTo(Relation newTo, NotificationChain msgs) {
@@ -119,8 +116,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTo(Relation newTo) {
@@ -138,8 +134,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Relation getFrom() {
@@ -155,8 +150,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Relation basicGetFrom() {
@@ -164,8 +158,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetFrom(Relation newFrom, NotificationChain msgs) {
@@ -179,8 +172,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setFrom(Relation newFrom) {
@@ -198,8 +190,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -218,8 +209,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -234,8 +224,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -252,8 +241,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -270,8 +258,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -288,8 +275,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -303,4 +289,4 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		return super.eIsSet(featureID);
 	}
 
-} //RelationMappingImpl
+} // RelationMappingImpl

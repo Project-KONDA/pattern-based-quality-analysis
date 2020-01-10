@@ -13,7 +13,6 @@ import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.TranslationLocation;
@@ -30,6 +29,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getAxis <em>Axis</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getGraphDepth <em>Graph Depth</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,6 +76,26 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	protected Axis axis = AXIS_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGraphDepth()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int GRAPH_DEPTH_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGraphDepth()
+	 * @generated
+	 * @ordered
+	 */
+	protected int graphDepth = GRAPH_DEPTH_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -85,11 +105,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}	
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, Location loc) throws InvalidTranslationException  {	
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException  {	
+		graphDepth = depth;
 		if (axis == null){
 			throw new InvalidTranslationException("axis invalid");
 		}
-		if (loc == Location.RETURN && mappingFrom != null)
+		if (depth == 0 && mappingFrom != null)
 			throw new InvalidTranslationException("invalid RelationMapping to returnGraph");
 	}
 
@@ -259,6 +280,27 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getGraphDepth() {
+		return graphDepth;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGraphDepth(int newGraphDepth) {
+		int oldGraphDepth = graphDepth;
+		graphDepth = newGraphDepth;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__GRAPH_DEPTH, oldGraphDepth, graphDepth));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -306,6 +348,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicGetMappingTo();
 			case GraphstructurePackage.RELATION__AXIS:
 				return getAxis();
+			case GraphstructurePackage.RELATION__GRAPH_DEPTH:
+				return getGraphDepth();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -328,6 +372,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__AXIS:
 				setAxis((Axis)newValue);
 				return;
+			case GraphstructurePackage.RELATION__GRAPH_DEPTH:
+				setGraphDepth((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -349,6 +396,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__AXIS:
 				setAxis(AXIS_EDEFAULT);
 				return;
+			case GraphstructurePackage.RELATION__GRAPH_DEPTH:
+				setGraphDepth(GRAPH_DEPTH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -367,6 +417,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return mappingTo != null;
 			case GraphstructurePackage.RELATION__AXIS:
 				return axis != AXIS_EDEFAULT;
+			case GraphstructurePackage.RELATION__GRAPH_DEPTH:
+				return graphDepth != GRAPH_DEPTH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -383,6 +435,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (axis: ");
 		result.append(axis);
+		result.append(", graphDepth: ");
+		result.append(graphDepth);
 		result.append(')');
 		return result.toString();
 	}
