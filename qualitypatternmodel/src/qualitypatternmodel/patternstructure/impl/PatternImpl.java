@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import static qualitypatternmodel.utilityclasses.Constants.*;
+
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -20,10 +22,8 @@ import qualitypatternmodel.patternstructure.InvalidTranslationException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.TranslationLocation;
 
 import qualitypatternmodel.patternstructure.VariableList;
-import static utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -93,10 +93,13 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	@Override
-	public String toXQuery(TranslationLocation translationLocation) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		if(returnGraph.getReturnElements() == null || returnGraph.getReturnElements().isEmpty()) {
+			throw new InvalidTranslationException("return elements missing");
+		}
 		String returnVariables = "(";
 		for (SingleElement returnElement : returnGraph.getReturnElements()) {
-			returnVariables += "" + VARIABLE + returnElement.getId() + ", ";
+			returnVariables += VARIABLE + returnElement.getOriginalID() + ", ";
 		}
 		returnVariables = returnVariables.substring(0, returnVariables.length() - 2);
 		returnVariables += ")";

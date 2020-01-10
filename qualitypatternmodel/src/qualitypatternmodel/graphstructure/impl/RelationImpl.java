@@ -13,9 +13,9 @@ import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
-import qualitypatternmodel.patternstructure.TranslationLocation;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -115,7 +115,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	@Override
-	public String toXQuery(TranslationLocation tranlsationLocation) throws InvalidTranslationException {		
+	public String toXQuery(Location location) throws InvalidTranslationException {		
 		if(axis != null)
 			return "/" + axis.getLiteral() + "::*";
 		else 

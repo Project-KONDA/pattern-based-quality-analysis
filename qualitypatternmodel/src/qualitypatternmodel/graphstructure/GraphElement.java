@@ -23,4 +23,12 @@ public interface GraphElement extends PatternElement {
 	 */
 	ReturnType getReturnType();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isTranslatable();
+
 } // GraphElement

@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,7 +19,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SetElement;
+import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,13 +66,54 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	protected SetElementImpl() {
 		super();
 	}
-
+	
+	@Override
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		if(previous == null) {
+			throw new InvalidTranslationException("previous null");
+		}
+		if (previous instanceof SingleElement){
+			return previous.getXQueryRepresentation();
+		}			
+		String xPathExpression = translatePathFromPrevious() + translatePredicates(location) 
+			+ translateElementExistencePredicates(location);
+		translated = true;	
+		return previous.toXQuery(location) + xPathExpression;
+	}
 
 	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
 		if (depth == 0)
 			throw new InvalidTranslationException("SetElement in ReturnGraph");
 		super.isValid(isDefinedPattern, depth);
+	}
+	
+	@Override
+	public boolean isTranslatable() {
+		return previous.isTranslatable();
+	}	
+
+	@Override
+	public String translatePathFromPrevious() {
+		return "/" + relationFromPrevious.getAxis() + "::*";
+	}
+	
+	@Override
+	public String getXQueryRepresentation() throws InvalidTranslationException {		
+		return ".";		
+	}
+	
+	@Override
+	public String translateElementExistencePredicates(Location location) throws InvalidTranslationException {
+		String predicates = "";
+		for (SetElement nextSetElement : next){
+			if (!nextSetElement.isTranslated()){
+				nextSetElement.setTranslated(true);
+				predicates += "[." + nextSetElement.translatePathFromPrevious() + nextSetElement.translatePredicates(location)
+					+ nextSetElement.translateElementExistencePredicates(location) + "]"; 			
+			}										
+		}
+		return predicates;
 	}
 	
 	/**
@@ -215,6 +259,25 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 				return previous != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case GraphstructurePackage.SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION:
+				try {
+					return translateElementExistencePredicates((Location)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override

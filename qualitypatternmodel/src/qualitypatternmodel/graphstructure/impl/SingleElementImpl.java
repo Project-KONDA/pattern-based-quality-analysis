@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
+import static qualitypatternmodel.utilityclasses.Constants.*;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
@@ -20,8 +22,10 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
+import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -109,6 +113,50 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	protected SingleElementImpl() {
 		super();
 	}
+	
+	@Override
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		String xPathExpression = translatePathFromPrevious();	
+		String xPredicates = translatePredicates(location);		
+		
+		String result = "";
+		if(location == Location.RETURN) {
+			result = FOR + getXQueryVariable() + IN + xPathExpression + xPredicates + "\n";
+		} else  {
+			if(location == Location.EXISTS) {		
+				result += SOME;				
+			} else if(location == Location.FORALL) {
+				result += EVERY;
+			} else {
+				throw new InvalidTranslationException("invalid location");
+			}
+			result += getXQueryVariable();
+			if (mappingFrom == null){					
+				result += IN + xPathExpression + xPredicates + SATISFIES;			
+			} else if (!getPredicates().isEmpty()) {		
+				result += IN + getXQueryVariable() + xPredicates + SATISFIES;
+			}
+		}
+		
+		translated = true;
+		
+		for (Element nextElement : getNextElements()){
+			if(nextElement instanceof SingleElement) {
+				result += nextElement.toXQuery(location);
+			}
+		}
+		
+		return result;
+	}
+	
+	@Override
+	public String translatePathFromPrevious() {
+		if(previous != null){
+			return previous.getXQueryVariable() + "/" + relationFromPrevious.getAxis() + "::*";
+		} else {
+			return "/*";
+		}
+	}
 
 	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
@@ -117,6 +165,24 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			throw new InvalidTranslationException("invalid SingleElementMapping to returnGraph");
 		super.isValid(isDefinedPattern, depth);
 	}	
+	
+	@Override
+	public boolean isTranslatable() {
+		return translated;
+	}
+	
+	@Override
+	public String getXQueryRepresentation() throws InvalidTranslationException {
+		if (predicatesAreBeingTranslated) {
+			return ".";
+		} else {
+			if(translated) {
+				return getXQueryVariable();
+			} else {
+				throw new InvalidTranslationException("element not yet translated");
+			}
+		}
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -329,6 +395,16 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		else 
 			return mappingFrom.getFrom().getOriginalID();		
 	}
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
+	public String getXQueryVariable() {
+		return VARIABLE + getOriginalID();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -481,6 +557,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		switch (operationID) {
 			case GraphstructurePackage.SINGLE_ELEMENT___GET_ORIGINAL_ID:
 				return getOriginalID();
+			case GraphstructurePackage.SINGLE_ELEMENT___GET_XQUERY_VARIABLE:
+				return getXQueryVariable();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

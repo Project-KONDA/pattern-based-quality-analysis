@@ -6,6 +6,7 @@ import junit.textui.TestRunner;
 
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.OperatorList;
+
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**

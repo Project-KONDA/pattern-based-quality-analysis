@@ -14,6 +14,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -86,6 +87,18 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	protected QuantifiedConditionImpl() {
 		super();
+	}
+	
+	@Override
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		if(quantifier == Quantifier.EXISTS) {
+			return graph.toXQuery(Location.EXISTS) + condition.toXQuery(location);
+		} else if(quantifier == Quantifier.FORALL) {
+			return graph.toXQuery(Location.FORALL) + condition.toXQuery(location);
+		} else {
+			throw new InvalidTranslationException("invalid quantifier");
+		}
+		
 	}
 
 	@Override

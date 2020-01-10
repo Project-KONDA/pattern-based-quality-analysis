@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.graphstructure.GraphElement;
+
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
 
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;

@@ -11,7 +11,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.Text;
-import qualitypatternmodel.patternstructure.TranslationLocation;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,8 +58,12 @@ public class TextImpl extends InputImpl implements Text {
 	}
 	
 	@Override
-	public String toXQuery(TranslationLocation translationLocation) {
-		return "\""+text+"\"";
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		if(text != null) {
+			return "\""+text+"\"";
+		} else {
+			throw new InvalidTranslationException("invalid number");
+		}
 	}
 	
 	@Override

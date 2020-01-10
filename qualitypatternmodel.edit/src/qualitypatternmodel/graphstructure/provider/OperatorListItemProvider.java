@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -21,6 +22,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.OperatorList;
 
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
+
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -29,8 +31,7 @@ import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class OperatorListItemProvider 
-	extends PatternElementItemProvider {
+public class OperatorListItemProvider extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

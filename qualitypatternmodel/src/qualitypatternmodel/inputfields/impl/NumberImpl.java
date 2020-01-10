@@ -10,7 +10,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.patternstructure.TranslationLocation;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,8 +57,12 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	}
 	
 	@Override
-	public String toXQuery(TranslationLocation translationLocation) {
-		return Double.toString(number);
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		if(number != null) {
+			return Double.toString(number);
+		} else {
+			throw new InvalidTranslationException("invalid number");
+		}
 	}
 	
 	@Override

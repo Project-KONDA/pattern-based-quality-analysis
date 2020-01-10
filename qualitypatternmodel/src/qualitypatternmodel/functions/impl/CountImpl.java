@@ -14,6 +14,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
 
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -44,6 +45,15 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	protected CountImpl() {
 		super();
 	}
+	
+	@Override
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		if (argument != null) {
+			return "count(" + argument.toXQuery(location) + ")";
+		} else {
+			throw new InvalidTranslationException("argument null");
+		}
+	}
 
 	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
@@ -51,6 +61,11 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 			throw new InvalidTranslationException("argument null");
 	}
 
+	@Override
+	public boolean isTranslatable() {
+		return argument.isTranslatable();
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

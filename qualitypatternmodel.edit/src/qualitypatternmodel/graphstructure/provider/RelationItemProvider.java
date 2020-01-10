@@ -10,12 +10,15 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
 
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
@@ -57,28 +60,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Mapping To feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMappingToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Relation_mappingTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_mappingTo_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__MAPPING_TO,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Mapping From feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +73,28 @@ public class RelationItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Relation_mappingFrom_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_mappingFrom_feature", "_UI_Relation_type"),
 				 GraphstructurePackage.Literals.RELATION__MAPPING_FROM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Mapping To feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMappingToPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Relation_mappingTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_mappingTo_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__MAPPING_TO,
 				 true,
 				 false,
 				 true,

@@ -21,7 +21,7 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
-import qualitypatternmodel.patternstructure.TranslationLocation;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -81,26 +81,25 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	}
 
 	@Override
-	public String toXQuery(TranslationLocation translationLocation) throws InvalidTranslationException {		
+	public String toXQuery(Location location) throws InvalidTranslationException {		
 		if(propertyOption == null || propertyOption.getSelection() == null) {
 			throw new InvalidTranslationException("propertyOptions invalid");
 		}				
+		String propertyElementTranslation = getElement().getXQueryRepresentation();
 		switch (propertyOption.getSelection()) {
-		case ATTRIBUTE: 
-			if(attributeName == null || attributeName.getText() == null) {
-				throw new InvalidTranslationException("attributeName invalid");
-			} else {
-				return "data(@" + attributeName.getText() + ")";
-			}
-		case DATA: return "data()";
-		case TAG: return "name()";
-		default:
-			throw new InvalidTranslationException("error in location specification");
+			case ATTRIBUTE: 
+				if(attributeName == null || attributeName.getText() == null) {
+					throw new InvalidTranslationException("attributeName invalid");
+				} else {
+					return propertyElementTranslation + "/data(@" + attributeName.getText() + ")";
+				}
+			case DATA: return propertyElementTranslation + "/data()";
+			case TAG: return propertyElementTranslation + "/name()";
+			default:
+				throw new InvalidTranslationException("error in location specification");
 		}
 		
 	}
-
-	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,6 +115,11 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.STRING;
+	}
+	
+	@Override
+	public boolean isTranslatable() {
+		return getElement().isTranslatable();
 	}
 
 	/**

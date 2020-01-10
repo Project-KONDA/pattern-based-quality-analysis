@@ -57,11 +57,24 @@ public abstract class GraphElementImpl extends PatternElementImpl implements Gra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isTranslatable() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case GraphstructurePackage.GRAPH_ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
+			case GraphstructurePackage.GRAPH_ELEMENT___IS_TRANSLATABLE:
+				return isTranslatable();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

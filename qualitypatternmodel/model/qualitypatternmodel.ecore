@@ -103,6 +103,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SingleElement" eSuperTypes="#//graphstructure/Element">
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" eType="#//patternstructure/SingleElementMapping"
           eOpposite="#//patternstructure/SingleElementMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/SingleElementMapping"
@@ -113,28 +114,39 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SetElement" eSuperTypes="#//graphstructure/Element">
+      <eOperations name="translateElementExistencePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper">
+        <eParameters name="location" eType="#//patternstructure/Location"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1"
           eType="#//graphstructure/SetElement" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="previous" lowerBound="1"
           eType="#//graphstructure/Element"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true" eSuperTypes="#//graphstructure/GraphElement">
-      <eOperations name="generateXPredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="generateXPathExpression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getNextElements" upperBound="-1" eType="#//graphstructure/Element"/>
       <eOperations name="getPreviousElement" eType="#//graphstructure/Element"/>
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
           eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
       <eOperations name="getAllVariables" upperBound="-1" eType="#//inputfields/Input"
           eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
+      <eOperations name="translatePathFromPrevious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="translatePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper">
+        <eParameters name="location" eType="#//patternstructure/Location"/>
+      </eOperations>
+      <eOperations name="getXQueryRepresentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidTranslationExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="predicates" upperBound="-1"
           eType="#//functions/BooleanOperator"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationFromPrevious"
           eType="#//graphstructure/Relation" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTranslated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRoot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
           eType="#//graphstructure/Property" containment="true" eOpposite="#//graphstructure/Property/element"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="predicatesAreBeingTranslated"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
@@ -149,6 +161,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GraphElement" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>
+      <eOperations name="isTranslatable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PropertyLocation">
       <eLiterals name="DATA" literal="DATA"/>

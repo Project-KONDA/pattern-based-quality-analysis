@@ -13,6 +13,7 @@ import qualitypatternmodel.functions.ToNumber;
 
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,10 +49,24 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	}
 	
 	@Override
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		if (property != null) {
+			return "number(" + property.toXQuery(location) + ")";
+		} else {
+			throw new InvalidTranslationException("property null");
+		}
+	}
+	
+	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
 		if (property == null)
 			throw new InvalidTranslationException("property null");
 		property.isValid(isDefinedPattern, depth);
+	}
+	
+	@Override
+	public boolean isTranslatable() {
+		return property.isTranslatable();
 	}
 
 	/**

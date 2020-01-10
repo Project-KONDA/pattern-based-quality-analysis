@@ -10,11 +10,12 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
@@ -56,28 +57,6 @@ public class SingleElementItemProvider extends ElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Mapping From feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMappingFromPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SingleElement_mappingFrom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_mappingFrom_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__MAPPING_FROM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Mapping To feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,6 +70,28 @@ public class SingleElementItemProvider extends ElementItemProvider {
 				 getString("_UI_SingleElement_mappingTo_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_mappingTo_feature", "_UI_SingleElement_type"),
 				 GraphstructurePackage.Literals.SINGLE_ELEMENT__MAPPING_TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Mapping From feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMappingFromPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleElement_mappingFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_mappingFrom_feature", "_UI_SingleElement_type"),
+				 GraphstructurePackage.Literals.SINGLE_ELEMENT__MAPPING_FROM,
 				 true,
 				 false,
 				 true,

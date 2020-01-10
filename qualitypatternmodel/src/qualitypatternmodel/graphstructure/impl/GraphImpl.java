@@ -23,6 +23,7 @@ import qualitypatternmodel.graphstructure.OperatorList;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -99,6 +100,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	protected GraphImpl() {
 		super();
+	}
+	
+	@Override
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		return rootElement.toXQuery(location);
 	}
 	
 	@Override

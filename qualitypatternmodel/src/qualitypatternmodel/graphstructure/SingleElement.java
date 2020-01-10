@@ -3,7 +3,6 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
 /**
@@ -138,5 +137,13 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	int getOriginalID();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getXQueryVariable();
 
 } // SingleElement

@@ -18,6 +18,7 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,6 +76,19 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		if(option!=null && option.getSelection()!=null && regularExpression != null && regularExpression.getText() != null && property != null) {
+			if (option.getSelection()){
+				return "match(" + property.toXQuery(location) + "," + regularExpression.getText() + ")";
+			} else {
+				return "not(match(" + property.toXQuery(location) + "," + regularExpression.getText() + "))";
+			}	
+		} else {
+			throw new InvalidTranslationException("invalid option");
+		}
+	}
+	
+	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
 		if (option == null)
 			throw new InvalidTranslationException("options null");
@@ -98,6 +112,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		return res;
 	}
 
+	@Override
+	public boolean isTranslatable() {
+		return property.isTranslatable();
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

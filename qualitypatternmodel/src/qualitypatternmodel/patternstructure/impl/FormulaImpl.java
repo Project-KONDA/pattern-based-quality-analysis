@@ -80,6 +80,27 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		if(operator != null) {
+			if (operator == LogicalOperator.NOT){
+				if(arguments.size() == 1 && arguments.get(0) != null) {
+					return "not(" + arguments.get(0).toXQuery(location) + ")";
+				} else {
+					throw new InvalidTranslationException("invalid argument");
+				}
+			} else {
+				if(arguments.size() == 2 && arguments.get(0) != null && arguments.get(1) != null) {
+					return "((" + arguments.get(0).toXQuery(location) + ")" + operator.getLiteral() + "(" + arguments.get(1).toXQuery(location) + "))"; 
+				} else {
+					throw new InvalidTranslationException("invalid arguments");
+				}
+			}	
+		} else {
+			throw new InvalidTranslationException("operator null");
+		}
+	}
+	
+	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException  {
 		if(operator == null) 
 			throw new InvalidTranslationException("operator null");
@@ -95,15 +116,6 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				throw new InvalidTranslationException("arguments invalid");
 			arguments.get(0).isValid(isDefinedPattern, depth);
 			arguments.get(1).isValid(isDefinedPattern, depth);
-	}
-	
-	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
-		if(operator == LogicalOperator.NOT) {
-			return operator.getLiteral() + "(" + arguments.get(0).toXQuery(location) + ")";
-		} else {
-			return "(" + arguments.get(0).toXQuery(location) + ") " + operator.getLiteral() + " (" + arguments.get(1).toXQuery(location) + ")";
-		}
 	}
 	
 	@Override

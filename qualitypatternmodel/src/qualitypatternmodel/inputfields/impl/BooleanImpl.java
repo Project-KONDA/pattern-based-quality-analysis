@@ -12,7 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.patternstructure.TranslationLocation;
+import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,8 +59,12 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	}
 
 	@Override
-	public String toXQuery(TranslationLocation tranlsationLocation) {
-		return bool + "()";
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		if(bool != null) {
+			return bool + "()";
+		} else {
+			throw new InvalidTranslationException("invalid number");
+		}
 	}
 	
 	@Override

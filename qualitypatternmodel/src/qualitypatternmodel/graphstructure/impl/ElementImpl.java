@@ -28,6 +28,7 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -38,9 +39,10 @@ import qualitypatternmodel.patternstructure.InvalidTranslationException;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isIsTranslated <em>Is Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isIsRoot <em>Is Root</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isTranslated <em>Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isRoot <em>Root</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,40 +68,44 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected Relation relationFromPrevious;
 
 	/**
-	 * The default value of the '{@link #isIsTranslated() <em>Is Translated</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsTranslated()
+	 * The default value of the '{@link #isTranslated() <em>Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTranslated()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_TRANSLATED_EDEFAULT = false;
+	protected static final boolean TRANSLATED_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isIsTranslated() <em>Is Translated</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsTranslated()
+	 * The cached value of the '{@link #isTranslated() <em>Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTranslated()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isTranslated = IS_TRANSLATED_EDEFAULT;
+	protected boolean translated = TRANSLATED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isIsRoot() <em>Is Root</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsRoot()
+	 * The default value of the '{@link #isRoot() <em>Root</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRoot()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_ROOT_EDEFAULT = false;
+	protected static final boolean ROOT_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isIsRoot() <em>Is Root</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsRoot()
+	 * The cached value of the '{@link #isRoot() <em>Root</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRoot()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isRoot = IS_ROOT_EDEFAULT;
+	protected boolean root = ROOT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
@@ -112,13 +118,33 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected EList<Property> properties;
 
 	/**
+	 * The default value of the '{@link #isPredicatesAreBeingTranslated() <em>Predicates Are Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPredicatesAreBeingTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPredicatesAreBeingTranslated() <em>Predicates Are Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPredicatesAreBeingTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean predicatesAreBeingTranslated = PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ElementImpl() {
 		super();
 	}
-
+	
 	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
 		
@@ -136,9 +162,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			predicate.isValid(isDefinedPattern, depth);
 		}
 
-		if (!isRoot && getPreviousElement() == null) 
+		if (!root && getPreviousElement() == null) 
 			throw new InvalidTranslationException("previousElement null");
-		if (!isRoot) relationFromPrevious.isValid(isDefinedPattern, depth);
+		if (!root) relationFromPrevious.isValid(isDefinedPattern, depth);
 	}
 	
 
@@ -156,6 +182,45 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			res.addAll(op.getAllOperators());
 		}
 		return res;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String translatePathFromPrevious() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
+	public String translatePredicates(Location location) throws InvalidTranslationException {
+		String xPredicates = "";
+		predicatesAreBeingTranslated = true;
+		for (BooleanOperator predicate : predicates){
+			if (predicate.isTranslatable()){
+				xPredicates += "[" + predicate.toXQuery(location) + "]";
+			}
+		}
+		predicatesAreBeingTranslated = false;
+		return xPredicates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getXQueryRepresentation() throws InvalidTranslationException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -238,41 +303,45 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isIsTranslated() {
-		return isTranslated;
+	public boolean isTranslated() {
+		return translated;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIsTranslated(boolean newIsTranslated) {
-		boolean oldIsTranslated = isTranslated;
-		isTranslated = newIsTranslated;
+	public void setTranslated(boolean newTranslated) {
+		boolean oldTranslated = translated;
+		translated = newTranslated;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__IS_TRANSLATED, oldIsTranslated, isTranslated));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__TRANSLATED, oldTranslated, translated));
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isIsRoot() {
-		return isRoot;
+	public boolean isRoot() {
+		return root;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIsRoot(boolean newIsRoot) {
-		boolean oldIsRoot = isRoot;
-		isRoot = newIsRoot;
+	public void setRoot(boolean newRoot) {
+		boolean oldRoot = root;
+		root = newRoot;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__IS_ROOT, oldIsRoot, isRoot));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__ROOT, oldRoot, root));
 	}
 
 	/**
@@ -288,23 +357,24 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String generateXPredicates() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public boolean isPredicatesAreBeingTranslated() {
+		return predicatesAreBeingTranslated;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String generateXPathExpression() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setPredicatesAreBeingTranslated(boolean newPredicatesAreBeingTranslated) {
+		boolean oldPredicatesAreBeingTranslated = predicatesAreBeingTranslated;
+		predicatesAreBeingTranslated = newPredicatesAreBeingTranslated;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED, oldPredicatesAreBeingTranslated, predicatesAreBeingTranslated));
 	}
 
 	/**
@@ -359,12 +429,14 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return getPredicates();
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return getRelationFromPrevious();
-			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
-				return isIsTranslated();
-			case GraphstructurePackage.ELEMENT__IS_ROOT:
-				return isIsRoot();
+			case GraphstructurePackage.ELEMENT__TRANSLATED:
+				return isTranslated();
+			case GraphstructurePackage.ELEMENT__ROOT:
+				return isRoot();
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return getProperties();
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+				return isPredicatesAreBeingTranslated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -384,15 +456,18 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				setRelationFromPrevious((Relation)newValue);
 				return;
-			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
-				setIsTranslated((Boolean)newValue);
+			case GraphstructurePackage.ELEMENT__TRANSLATED:
+				setTranslated((Boolean)newValue);
 				return;
-			case GraphstructurePackage.ELEMENT__IS_ROOT:
-				setIsRoot((Boolean)newValue);
+			case GraphstructurePackage.ELEMENT__ROOT:
+				setRoot((Boolean)newValue);
 				return;
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				getProperties().clear();
 				getProperties().addAll((Collection<? extends Property>)newValue);
+				return;
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+				setPredicatesAreBeingTranslated((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -411,14 +486,17 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				setRelationFromPrevious((Relation)null);
 				return;
-			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
-				setIsTranslated(IS_TRANSLATED_EDEFAULT);
+			case GraphstructurePackage.ELEMENT__TRANSLATED:
+				setTranslated(TRANSLATED_EDEFAULT);
 				return;
-			case GraphstructurePackage.ELEMENT__IS_ROOT:
-				setIsRoot(IS_ROOT_EDEFAULT);
+			case GraphstructurePackage.ELEMENT__ROOT:
+				setRoot(ROOT_EDEFAULT);
 				return;
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				getProperties().clear();
+				return;
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -435,12 +513,14 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return predicates != null && !predicates.isEmpty();
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return relationFromPrevious != null;
-			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
-				return isTranslated != IS_TRANSLATED_EDEFAULT;
-			case GraphstructurePackage.ELEMENT__IS_ROOT:
-				return isRoot != IS_ROOT_EDEFAULT;
+			case GraphstructurePackage.ELEMENT__TRANSLATED:
+				return translated != TRANSLATED_EDEFAULT;
+			case GraphstructurePackage.ELEMENT__ROOT:
+				return root != ROOT_EDEFAULT;
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return properties != null && !properties.isEmpty();
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+				return predicatesAreBeingTranslated != PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -452,10 +532,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.ELEMENT___GENERATE_XPREDICATES:
-				return generateXPredicates();
-			case GraphstructurePackage.ELEMENT___GENERATE_XPATH_EXPRESSION:
-				return generateXPathExpression();
 			case GraphstructurePackage.ELEMENT___GET_NEXT_ELEMENTS:
 				return getNextElements();
 			case GraphstructurePackage.ELEMENT___GET_PREVIOUS_ELEMENT:
@@ -463,6 +539,22 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___GET_ALL_OPERATORS:
 				try {
 					return getAllOperators();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
+				return translatePathFromPrevious();
+			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES__LOCATION:
+				try {
+					return translatePredicates((Location)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.ELEMENT___GET_XQUERY_REPRESENTATION:
+				try {
+					return getXQueryRepresentation();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -480,10 +572,12 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (isTranslated: ");
-		result.append(isTranslated);
-		result.append(", isRoot: ");
-		result.append(isRoot);
+		result.append(" (translated: ");
+		result.append(translated);
+		result.append(", root: ");
+		result.append(root);
+		result.append(", predicatesAreBeingTranslated: ");
+		result.append(predicatesAreBeingTranslated);
 		result.append(')');
 		return result.toString();
 	}

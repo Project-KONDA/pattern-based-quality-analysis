@@ -21,6 +21,7 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.impl.InputImpl;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -73,6 +74,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		super();
 	}
 
+	@Override
+	public String toXQuery(Location location) throws InvalidTranslationException {
+		if(option!=null && option.getSelection()!=null && argument1 != null && argument2 != null) {
+			ComparisonOperator operator = option.getSelection();
+			return argument1.toXQuery(location) + operator.getLiteral() + argument2.toXQuery(location);
+		} else {
+			throw new InvalidTranslationException("invalid option");
+		}
+	}
+	
 	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
 		if (argument1 == null)
@@ -133,6 +144,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public ReturnType getReturnType() {
 		return ReturnType.ELEMENT;
 	}
+	
+	@Override
+	public boolean isTranslatable() {
+		return argument1.isTranslatable() && argument2.isTranslatable();
+	}
+
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -151,6 +151,15 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___GET_RETURN_TYPE = GraphstructurePackage.GRAPH_ELEMENT___GET_RETURN_TYPE;
 
 	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___IS_TRANSLATABLE = GraphstructurePackage.GRAPH_ELEMENT___IS_TRANSLATABLE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,6 +278,15 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
 
 	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -385,6 +403,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -514,6 +541,15 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
 
 	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -639,6 +675,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.

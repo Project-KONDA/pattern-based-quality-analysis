@@ -8,6 +8,7 @@ import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,9 +21,10 @@ import qualitypatternmodel.patternstructure.InvalidTranslationException;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#isIsTranslated <em>Is Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#isIsRoot <em>Is Root</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#isRoot <em>Root</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
@@ -65,48 +67,48 @@ public interface Element extends GraphElement {
 	void setRelationFromPrevious(Relation value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Translated</b></em>' attribute.
+	 * Returns the value of the '<em><b>Translated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Translated</em>' attribute.
-	 * @see #setIsTranslated(boolean)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_IsTranslated()
+	 * @return the value of the '<em>Translated</em>' attribute.
+	 * @see #setTranslated(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Translated()
 	 * @model
 	 * @generated
 	 */
-	boolean isIsTranslated();
+	boolean isTranslated();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isIsTranslated <em>Is Translated</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Translated</em>' attribute.
-	 * @see #isIsTranslated()
+	 * @param value the new value of the '<em>Translated</em>' attribute.
+	 * @see #isTranslated()
 	 * @generated
 	 */
-	void setIsTranslated(boolean value);
+	void setTranslated(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Root</b></em>' attribute.
+	 * Returns the value of the '<em><b>Root</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Root</em>' attribute.
-	 * @see #setIsRoot(boolean)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_IsRoot()
+	 * @return the value of the '<em>Root</em>' attribute.
+	 * @see #setRoot(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Root()
 	 * @model
 	 * @generated
 	 */
-	boolean isIsRoot();
+	boolean isRoot();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isIsRoot <em>Is Root</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isRoot <em>Root</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Root</em>' attribute.
-	 * @see #isIsRoot()
+	 * @param value the new value of the '<em>Root</em>' attribute.
+	 * @see #isRoot()
 	 * @generated
 	 */
-	void setIsRoot(boolean value);
+	void setRoot(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
@@ -123,20 +125,26 @@ public interface Element extends GraphElement {
 	EList<Property> getProperties();
 
 	/**
+	 * Returns the value of the '<em><b>Predicates Are Being Translated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Predicates Are Being Translated</em>' attribute.
+	 * @see #setPredicatesAreBeingTranslated(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_PredicatesAreBeingTranslated()
 	 * @model
 	 * @generated
 	 */
-	String generateXPredicates();
+	boolean isPredicatesAreBeingTranslated();
 
 	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @param value the new value of the '<em>Predicates Are Being Translated</em>' attribute.
+	 * @see #isPredicatesAreBeingTranslated()
 	 * @generated
 	 */
-	String generateXPathExpression();
+	void setPredicatesAreBeingTranslated(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -169,5 +177,29 @@ public interface Element extends GraphElement {
 	 * @generated
 	 */
 	EList<Input> getAllVariables() throws InvalidTranslationException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String translatePathFromPrevious();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	String translatePredicates(Location location) throws InvalidTranslationException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @generated
+	 */
+	String getXQueryRepresentation() throws InvalidTranslationException;
 
 } // Element

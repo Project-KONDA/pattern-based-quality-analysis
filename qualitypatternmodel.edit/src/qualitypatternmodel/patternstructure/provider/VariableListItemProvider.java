@@ -8,11 +8,14 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.inputfields.InputfieldsFactory;
+
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.VariableList;
 
@@ -22,8 +25,7 @@ import qualitypatternmodel.patternstructure.VariableList;
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableListItemProvider 
-	extends PatternElementItemProvider {
+public class VariableListItemProvider extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
