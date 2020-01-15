@@ -14,9 +14,8 @@ import qualitypatternmodel.graphstructure.Element;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getNextElements() <em>Get Next Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getPreviousElement() <em>Get Previous Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllOperators() <em>Get All Operators</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#translatePathFromPrevious() <em>Translate Path From Previous</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location, int) <em>Get XQuery Representation</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getContextRepresentation(int) <em>Get Context Representation</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -84,39 +83,26 @@ public abstract class ElementTest extends GraphElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#translatePathFromPrevious() <em>Translate Path From Previous</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location, int) <em>Get XQuery Representation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#translatePathFromPrevious()
+	 * @see qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location, int)
 	 * @generated
 	 */
-	public void testTranslatePathFromPrevious() {
+	public void testGetXQueryRepresentation__Location_int() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getContextRepresentation(int) <em>Get Context Representation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location)
+	 * @see qualitypatternmodel.graphstructure.Element#getContextRepresentation(int)
 	 * @generated
 	 */
-	public void testTranslatePredicates__Location() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	public void testGetXQueryRepresentation__Location() {
+	public void testGetContextRepresentation__int() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.graphstructure;
 
+import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -30,5 +32,13 @@ public interface GraphElement extends PatternElement {
 	 * @generated
 	 */
 	boolean isTranslatable();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String toXQuery(Location location, int depth) throws InvalidityException;
 
 } // GraphElement

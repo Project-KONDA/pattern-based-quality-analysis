@@ -85,7 +85,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 		if(propertyOption == null || propertyOption.getSelection() == null) {
 			throw new InvalidityException("propertyOptions invalid");
 		}				
-		String propertyElementTranslation = getElement().getXQueryRepresentation(location);
+		String propertyElementTranslation = ((SingleElementImpl) getElement()).getXQueryRepresentation(location, 1);
 		switch (propertyOption.getSelection()) {
 			case ATTRIBUTE: 
 				if(attributeName == null || attributeName.getText() == null) {
@@ -101,6 +101,32 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 		
 	}
 
+	@Override
+	public String toXQuery(Location location, int depth) throws InvalidityException {		
+		if(propertyOption == null || propertyOption.getSelection() == null) {
+			throw new InvalidityException("propertyOptions invalid");
+		}				
+		String propertyElementTranslation;
+		if (getElement() instanceof SingleElementImpl) {
+			propertyElementTranslation = ((SingleElementImpl) getElement()).getXQueryRepresentation(location, depth);
+		} else {
+			propertyElementTranslation = ((SetElementImpl) getElement()).getXQueryRepresentation(location, depth);
+		}
+		switch (propertyOption.getSelection()) {
+			case ATTRIBUTE: 
+				if(attributeName == null || attributeName.getText() == null) {
+					throw new InvalidityException("attributeName invalid");
+				} else {
+					return propertyElementTranslation + "/data(@" + attributeName.getText() + ")";
+				}
+			case DATA: return propertyElementTranslation + "/data()";
+			case TAG: return propertyElementTranslation + "/name()";
+			default:
+				throw new InvalidityException("error in location specification");
+		}
+		
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

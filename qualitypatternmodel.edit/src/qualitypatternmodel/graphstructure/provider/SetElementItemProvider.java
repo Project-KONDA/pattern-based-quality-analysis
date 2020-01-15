@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
@@ -48,6 +49,7 @@ public class SetElementItemProvider extends ElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPreviousPropertyDescriptor(object);
+			addNestingDepthPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -70,6 +72,28 @@ public class SetElementItemProvider extends ElementItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Nesting Depth feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNestingDepthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SetElement_nestingDepth_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SetElement_nestingDepth_feature", "_UI_SetElement_type"),
+				 GraphstructurePackage.Literals.SET_ELEMENT__NESTING_DEPTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -140,6 +164,9 @@ public class SetElementItemProvider extends ElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SetElement.class)) {
+			case GraphstructurePackage.SET_ELEMENT__NESTING_DEPTH:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case GraphstructurePackage.SET_ELEMENT__NEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

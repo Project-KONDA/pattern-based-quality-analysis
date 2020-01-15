@@ -18,8 +18,10 @@ public class ValidityTest {
         	if (input instanceof Option<?>) {
             	if (input.getId() == 10) {
         			((Option) input).getOptions().addAll(Arrays.asList(true,false));
+        			((Option) input).setSelection(false);
         		} else if ( input.getId() == 12) {
         			((Option) input).getOptions().addAll(Arrays.asList(PropertyLocation.ATTRIBUTE,PropertyLocation.DATA));
+           			((Option) input).setSelection(PropertyLocation.ATTRIBUTE);
         		}
         		
         	}
@@ -31,6 +33,12 @@ public class ValidityTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+			try {
+				System.out.println(pattern.toXQuery());
+			} catch (InvalidityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 	}
 }

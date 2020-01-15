@@ -3,6 +3,8 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
 /**
@@ -145,5 +147,21 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	String getXQueryVariable();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String translatePredicates(Location location) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String translatePathFromPrevious();
 
 } // SingleElement

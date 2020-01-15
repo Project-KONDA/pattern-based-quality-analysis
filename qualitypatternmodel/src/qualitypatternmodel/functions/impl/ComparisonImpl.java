@@ -83,6 +83,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throw new InvalidityException("invalid option");
 		}
 	}
+
+	@Override
+	public String toXQuery(Location location, int depth) throws InvalidityException {
+		if(option!=null && option.getSelection()!=null && argument1 != null && argument2 != null) {
+			ComparisonOperator operator = option.getSelection();
+			return argument1.toXQuery(location, depth) + operator.getLiteral() + argument2.toXQuery(location, depth);
+		} else {
+			throw new InvalidityException("invalid option");
+		}
+	}
 	
 	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {

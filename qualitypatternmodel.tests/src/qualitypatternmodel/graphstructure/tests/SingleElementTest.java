@@ -16,6 +16,8 @@ import qualitypatternmodel.graphstructure.SingleElement;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getOriginalID() <em>Get Original ID</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#translatePathFromPrevious() <em>Translate Path From Previous</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -95,6 +97,32 @@ public class SingleElementTest extends ElementTest {
 	 * @generated
 	 */
 	public void testGetXQueryVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#translatePredicates(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	public void testTranslatePredicates__Location() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#translatePathFromPrevious() <em>Translate Path From Previous</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#translatePathFromPrevious()
+	 * @generated
+	 */
+	public void testTranslatePathFromPrevious() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

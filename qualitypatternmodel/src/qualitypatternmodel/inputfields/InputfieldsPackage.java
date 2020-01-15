@@ -178,6 +178,15 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___IS_TRANSLATABLE = GraphstructurePackage.GRAPH_ELEMENT___IS_TRANSLATABLE;
 
 	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___TO_XQUERY__LOCATION_INT = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,6 +332,15 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
 
 	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___TO_XQUERY__LOCATION_INT = INPUT___TO_XQUERY__LOCATION_INT;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -466,6 +484,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___TO_XQUERY__LOCATION_INT = INPUT___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -622,6 +649,15 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
 
 	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION___TO_XQUERY__LOCATION_INT = INPUT___TO_XQUERY__LOCATION_INT;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -774,6 +810,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___TO_XQUERY__LOCATION_INT = INPUT___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.

@@ -99,4 +99,12 @@ public interface Pattern extends PatternElement {
 	 */
 	void isValid(boolean isDefinedPattern) throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String toXQuery() throws InvalidityException;
+
 } // Pattern

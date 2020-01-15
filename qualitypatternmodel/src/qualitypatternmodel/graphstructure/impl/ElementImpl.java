@@ -69,8 +69,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * The default value of the '{@link #isTranslated() <em>Translated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isTranslated()
 	 * @generated
 	 * @ordered
@@ -79,8 +78,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * The cached value of the '{@link #isTranslated() <em>Translated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isTranslated()
 	 * @generated
 	 * @ordered
@@ -88,9 +86,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected boolean translated = TRANSLATED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isRoot() <em>Root</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #isRoot() <em>Root</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isRoot()
 	 * @generated
 	 * @ordered
@@ -98,9 +96,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected static final boolean ROOT_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isRoot() <em>Root</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #isRoot() <em>Root</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #isRoot()
 	 * @generated
 	 * @ordered
@@ -109,8 +107,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated
 	 * @ordered
@@ -144,39 +141,38 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected ElementImpl() {
 		super();
 	}
-	
+
 	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
-		
+
 		for (Element next : getNextElements()) {
-			if (next == null) 
+			if (next == null)
 				throw new InvalidityException("nextElement null (" + next + ")");
 			next.isValid(isDefinedPattern, depth);
 			if (!next.getPreviousElement().equals(this))
 				throw new InvalidityException("nextElement not valid (" + next + ")");
 		}
-		
-		for(BooleanOperator predicate : getPredicates()) {
-			if (predicate == null) 
+
+		for (BooleanOperator predicate : getPredicates()) {
+			if (predicate == null)
 				throw new InvalidityException("predicate null (" + predicate + ")");
 			predicate.isValid(isDefinedPattern, depth);
 		}
 
-		if (!root && getPreviousElement() == null) 
+		if (!root && getPreviousElement() == null)
 			throw new InvalidityException("previousElement null");
-		if (!root) relationFromPrevious.isValid(isDefinedPattern, depth);
+		if (!root)
+			relationFromPrevious.isValid(isDefinedPattern, depth);
 	}
-	
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
-		for(Element element : getNextElements()) {
+		for (Element element : getNextElements()) {
 			res.addAll(element.getAllOperators());
-		}	
+		}
 		res.addAll(getPredicates());
 		for (Operator op : getPredicates()) {
 			res.addAll(op.getAllOperators());
@@ -185,60 +181,51 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String translatePathFromPrevious() {
+	public String getXQueryRepresentation(Location location, int depth) throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 */
-	public String translatePredicates(Location location) throws InvalidityException {
-		String xPredicates = "";
-		predicatesAreBeingTranslated = true;
-		for (BooleanOperator predicate : predicates){
-			if (predicate.isTranslatable()){
-				xPredicates += "[" + predicate.toXQuery(location) + "]";
+	public String getContextRepresentation(int depth) throws InvalidityException {
+		if (depth<1) throw new InvalidityException("invalid depth");
+		switch (depth) {
+		case 1:
+			return ".";
+		case 2:
+			return "..";
+		default: {
+			String res = "..";
+			for (int i = 3; i <= depth; i++) {
+				res += "/..";
 			}
+			return res;
 		}
-		predicatesAreBeingTranslated = false;
-		return xPredicates;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getXQueryRepresentation(Location location) throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		}
 	}
 
 	@Override
 	public void prepareTranslation() {
 		translated = false;
 		predicatesAreBeingTranslated = false;
-		for(Element element : getNextElements()) {
+		for (Element element : getNextElements()) {
 			element.prepareTranslation();
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> res = new BasicEList<Input>();
-		for(Element element : getNextElements()) {
+		for (Element element : getNextElements()) {
 			res.addAll(element.getAllVariables());
 		}
 //		res.addAll(getRelationFromPrevious().getAllVariables());
@@ -312,8 +299,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isTranslated() {
@@ -321,8 +307,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setTranslated(boolean newTranslated) {
@@ -333,8 +318,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isRoot() {
@@ -342,8 +326,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRoot(boolean newRoot) {
@@ -354,8 +337,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<Property> getProperties() {
@@ -366,8 +348,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isPredicatesAreBeingTranslated() {
@@ -375,8 +356,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setPredicatesAreBeingTranslated(boolean newPredicatesAreBeingTranslated) {
@@ -396,10 +376,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 */
 	public abstract Element getPreviousElement();
 
-
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -552,18 +530,16 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
-				return translatePathFromPrevious();
-			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES__LOCATION:
+			case GraphstructurePackage.ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION_INT:
 				try {
-					return translatePredicates((Location)arguments.get(0));
+					return getXQueryRepresentation((Location)arguments.get(0), (Integer)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION:
+			case GraphstructurePackage.ELEMENT___GET_CONTEXT_REPRESENTATION__INT:
 				try {
-					return getXQueryRepresentation((Location)arguments.get(0));
+					return getContextRepresentation((Integer)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

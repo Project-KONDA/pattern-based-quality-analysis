@@ -1024,13 +1024,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___IS_VALID__BOOLEAN = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___TO_XQUERY = PATTERN_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.VariableListImpl <em>Variable List</em>}' class.
@@ -1449,6 +1458,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPattern__IsValid__boolean();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#toXQuery() <em>To XQuery</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To XQuery</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.Pattern#toXQuery()
+	 * @generated
+	 */
+	EOperation getPattern__ToXQuery();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1840,6 +1859,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN___IS_VALID__BOOLEAN = eINSTANCE.getPattern__IsValid__boolean();
+
+		/**
+		 * The meta object literal for the '<em><b>To XQuery</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN___TO_XQUERY = eINSTANCE.getPattern__ToXQuery();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.

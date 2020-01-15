@@ -181,10 +181,10 @@ public interface Element extends GraphElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String translatePathFromPrevious();
+	String getXQueryRepresentation(Location location, int depth) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,14 +192,6 @@ public interface Element extends GraphElement {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String translatePredicates(Location location) throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String getXQueryRepresentation(Location location) throws InvalidityException;
+	String getContextRepresentation(int depth) throws InvalidityException;
 
 } // Element

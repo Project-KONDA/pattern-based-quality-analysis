@@ -12,6 +12,8 @@ import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ReturnType;
 
+import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -68,6 +70,17 @@ public abstract class GraphElementImpl extends PatternElementImpl implements Gra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String toXQuery(Location location, int depth) throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
@@ -75,6 +88,13 @@ public abstract class GraphElementImpl extends PatternElementImpl implements Gra
 				return getReturnType();
 			case GraphstructurePackage.GRAPH_ELEMENT___IS_TRANSLATABLE:
 				return isTranslatable();
+			case GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT:
+				try {
+					return toXQuery((Location)arguments.get(0), (Integer)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

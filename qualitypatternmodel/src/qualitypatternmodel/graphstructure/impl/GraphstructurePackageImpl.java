@@ -354,6 +354,24 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getSingleElement__TranslatePredicates__Location() {
+		return singleElementEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSingleElement__TranslatePathFromPrevious() {
+		return singleElementEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSetElement() {
 		return setElementEClass;
 	}
@@ -381,8 +399,35 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSetElement__TranslateElementExistencePredicates__Location() {
+	public EAttribute getSetElement_NestingDepth() {
+		return (EAttribute)setElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSetElement__TranslateElementExistencePredicates__Location_int() {
 		return setElementEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSetElement__TranslatePathFromPrevious__int() {
+		return setElementEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSetElement__TranslatePredicates__Location_int() {
+		return setElementEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -489,7 +534,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getElement__TranslatePathFromPrevious() {
+	public EOperation getElement__GetXQueryRepresentation__Location_int() {
 		return elementEClass.getEOperations().get(4);
 	}
 
@@ -498,17 +543,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getElement__TranslatePredicates__Location() {
+	public EOperation getElement__GetContextRepresentation__int() {
 		return elementEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getElement__GetXQueryRepresentation__Location() {
-		return elementEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -590,6 +626,15 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	public EOperation getGraphElement__IsTranslatable() {
 		return graphElementEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGraphElement__ToXQuery__Location_int() {
+		return graphElementEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -693,11 +738,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEAttribute(singleElementEClass, SINGLE_ELEMENT__GRAPH_DEPTH);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_ORIGINAL_ID);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_XQUERY_VARIABLE);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___TRANSLATE_PREDICATES__LOCATION);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS);
 
 		setElementEClass = createEClass(SET_ELEMENT);
 		createEReference(setElementEClass, SET_ELEMENT__NEXT);
 		createEReference(setElementEClass, SET_ELEMENT__PREVIOUS);
-		createEOperation(setElementEClass, SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION);
+		createEAttribute(setElementEClass, SET_ELEMENT__NESTING_DEPTH);
+		createEOperation(setElementEClass, SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT);
+		createEOperation(setElementEClass, SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS__INT);
+		createEOperation(setElementEClass, SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT);
 
 		elementEClass = createEClass(ELEMENT);
 		createEReference(elementEClass, ELEMENT__PREDICATES);
@@ -710,9 +760,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(elementEClass, ELEMENT___GET_PREVIOUS_ELEMENT);
 		createEOperation(elementEClass, ELEMENT___GET_ALL_OPERATORS);
 		createEOperation(elementEClass, ELEMENT___GET_ALL_VARIABLES);
-		createEOperation(elementEClass, ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS);
-		createEOperation(elementEClass, ELEMENT___TRANSLATE_PREDICATES__LOCATION);
-		createEOperation(elementEClass, ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION);
+		createEOperation(elementEClass, ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION_INT);
+		createEOperation(elementEClass, ELEMENT___GET_CONTEXT_REPRESENTATION__INT);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__RETURN_ELEMENTS);
@@ -724,6 +773,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		graphElementEClass = createEClass(GRAPH_ELEMENT);
 		createEOperation(graphElementEClass, GRAPH_ELEMENT___GET_RETURN_TYPE);
 		createEOperation(graphElementEClass, GRAPH_ELEMENT___IS_TRANSLATABLE);
+		createEOperation(graphElementEClass, GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT);
 
 		operatorListEClass = createEClass(OPERATOR_LIST);
 		createEReference(operatorListEClass, OPERATOR_LIST__OPERATORS);
@@ -803,12 +853,28 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getSingleElement__GetXQueryVariable(), ecorePackage.getEString(), "getXQueryVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		EOperation op = initEOperation(getSingleElement__TranslatePredicates__Location(), ecorePackage.getEString(), "translatePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getSingleElement__TranslatePathFromPrevious(), ecorePackage.getEString(), "translatePathFromPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(setElementEClass, SetElement.class, "SetElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSetElement_Next(), this.getSetElement(), null, "next", null, 0, -1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSetElement_Previous(), this.getElement(), null, "previous", null, 1, 1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSetElement_NestingDepth(), ecorePackage.getEInt(), "nestingDepth", null, 0, 1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getSetElement__TranslateElementExistencePredicates__Location(), ecorePackage.getEString(), "translateElementExistencePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSetElement__TranslateElementExistencePredicates__Location_int(), ecorePackage.getEString(), "translateElementExistencePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "depth", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getSetElement__TranslatePathFromPrevious__int(), ecorePackage.getEString(), "translatePathFromPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "depth", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSetElement__TranslatePredicates__Location_int(), ecorePackage.getEString(), "translatePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "depth", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -829,14 +895,13 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getElement__GetAllVariables(), theInputfieldsPackage.getInput(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getElement__TranslatePathFromPrevious(), ecorePackage.getEString(), "translatePathFromPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getElement__TranslatePredicates__Location(), ecorePackage.getEString(), "translatePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getElement__GetXQueryRepresentation__Location_int(), ecorePackage.getEString(), "getXQueryRepresentation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "depth", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getElement__GetXQueryRepresentation__Location(), ecorePackage.getEString(), "getXQueryRepresentation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getElement__GetContextRepresentation__int(), ecorePackage.getEString(), "getContextRepresentation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "depth", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -853,6 +918,11 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEOperation(getGraphElement__GetReturnType(), this.getReturnType(), "getReturnType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getGraphElement__IsTranslatable(), ecorePackage.getEBoolean(), "isTranslatable", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getGraphElement__ToXQuery__Location_int(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "depth", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(operatorListEClass, OperatorList.class, "OperatorList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperatorList_Operators(), theFunctionsPackage.getOperator(), null, "operators", null, 0, -1, OperatorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

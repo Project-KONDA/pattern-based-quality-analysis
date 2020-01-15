@@ -14,7 +14,9 @@ import qualitypatternmodel.graphstructure.SetElement;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Element Existence Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Element Existence Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SetElement#translatePathFromPrevious(int) <em>Translate Path From Previous</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SetElement#translatePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Predicates</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -74,13 +76,39 @@ public class SetElementTest extends ElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Element Existence Predicates</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Element Existence Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location)
+	 * @see qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int)
 	 * @generated
 	 */
-	public void testTranslateElementExistencePredicates__Location() {
+	public void testTranslateElementExistencePredicates__Location_int() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SetElement#translatePathFromPrevious(int) <em>Translate Path From Previous</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SetElement#translatePathFromPrevious(int)
+	 * @generated
+	 */
+	public void testTranslatePathFromPrevious__int() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SetElement#translatePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SetElement#translatePredicates(qualitypatternmodel.patternstructure.Location, int)
+	 * @generated
+	 */
+	public void testTranslatePredicates__Location_int() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

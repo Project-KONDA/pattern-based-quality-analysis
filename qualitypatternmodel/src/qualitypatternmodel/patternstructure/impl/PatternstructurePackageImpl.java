@@ -468,6 +468,15 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPattern__ToXQuery() {
+		return patternEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPatternElement() {
 		return patternElementEClass;
 	}
@@ -651,6 +660,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(patternEClass, PATTERN__CONDITION);
 		createEReference(patternEClass, PATTERN__VARIABLE_LIST);
 		createEOperation(patternEClass, PATTERN___IS_VALID__BOOLEAN);
+		createEOperation(patternEClass, PATTERN___TO_XQUERY);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
@@ -753,6 +763,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		EOperation op = initEOperation(getPattern__IsValid__boolean(), null, "isValid", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getPattern__ToXQuery(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

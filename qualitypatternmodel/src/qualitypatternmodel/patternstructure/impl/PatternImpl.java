@@ -109,6 +109,10 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				+ returnVariables;
 	}
 	
+	public String toXQuery() throws InvalidityException {
+		return toXQuery(Location.OUTSIDE);
+	}
+	
 	@Override
 	public void prepareTranslation() {
 		returnGraph.prepareTranslation();
@@ -370,6 +374,13 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				try {
 					isValid((Boolean)arguments.get(0));
 					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN___TO_XQUERY:
+				try {
+					return toXQuery();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

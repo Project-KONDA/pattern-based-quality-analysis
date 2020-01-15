@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
@@ -116,6 +118,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
+		translated = true;
 		String xPathExpression = translatePathFromPrevious();	
 		String xPredicates = translatePredicates(location);		
 		
@@ -138,7 +141,6 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			}
 		}
 		
-		translated = true;
 		
 		for (Element nextElement : getNextElements()){
 			if(nextElement instanceof SingleElement) {
@@ -157,6 +159,24 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			return "/*";
 		}
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param depth 
+	 * 
+	 */
+	public String translatePredicates(Location location) throws InvalidityException {
+		String xPredicates = "";
+		predicatesAreBeingTranslated = true;
+		for (BooleanOperator predicate : predicates){
+			if (predicate.isTranslatable()){
+				xPredicates += "[" + predicate.toXQuery(location) + "]";
+			}
+		}
+		predicatesAreBeingTranslated = false;
+		return xPredicates;
+	}
 
 	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
@@ -172,9 +192,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 	
 	@Override
-	public String getXQueryRepresentation(Location location) throws InvalidityException {
+	public String getXQueryRepresentation(Location location, int depth) throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
-			return ".";
+			return getContextRepresentation(depth);
 		} else {
 			if(translated) {
 				return getXQueryVariable();
@@ -559,6 +579,15 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return getOriginalID();
 			case GraphstructurePackage.SINGLE_ELEMENT___GET_XQUERY_VARIABLE:
 				return getXQueryVariable();
+			case GraphstructurePackage.SINGLE_ELEMENT___TRANSLATE_PREDICATES__LOCATION:
+				try {
+					return translatePredicates((Location)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
+				return translatePathFromPrevious();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
