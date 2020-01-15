@@ -136,7 +136,9 @@
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>
       <eOperations name="getXQueryRepresentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="location" eType="#//patternstructure/Location"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="predicates" upperBound="-1"
           eType="#//functions/BooleanOperator"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationFromPrevious"

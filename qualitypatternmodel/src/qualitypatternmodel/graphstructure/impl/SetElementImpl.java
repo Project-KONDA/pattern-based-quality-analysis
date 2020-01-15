@@ -73,7 +73,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			throw new InvalidityException("previous null");
 		}
 		if (previous instanceof SingleElement){
-			return previous.getXQueryRepresentation();
+			return previous.getXQueryRepresentation(location);
 		}			
 		String xPathExpression = translatePathFromPrevious() + translatePredicates(location) 
 			+ translateElementExistencePredicates(location);
@@ -99,9 +99,22 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	}
 	
 	@Override
-	public String getXQueryRepresentation() throws InvalidityException {		
-		return ".";		
+	public String getXQueryRepresentation(Location location) throws InvalidityException {
+		if (predicatesAreBeingTranslated) {
+			return ".";
+		} else {
+			if(translated) {
+				return toXQuery(location);
+			} else {
+				throw new InvalidityException("element not yet translated");
+			}
+		}
 	}
+	
+//	@Override
+//	public String getXQueryRepresentation() throws InvalidityException {		
+//		return ".";		
+//	}
 	
 	@Override
 	public String translateElementExistencePredicates(Location location) throws InvalidityException {

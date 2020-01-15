@@ -40,7 +40,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * 
 	 * @ordered
 	 */
-	protected static final int ID_EDEFAULT = 0;
+	protected static int ID_EDEFAULT = 0;
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -54,10 +54,12 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
 	protected PatternElementImpl() {
 		super();
+		ID_EDEFAULT++;
+		
 	}
 	
 

@@ -197,9 +197,9 @@ public interface Element extends GraphElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String getXQueryRepresentation() throws InvalidityException;
+	String getXQueryRepresentation(Location location) throws InvalidityException;
 
 } // Element

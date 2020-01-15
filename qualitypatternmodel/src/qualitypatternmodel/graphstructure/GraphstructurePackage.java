@@ -602,7 +602,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_XQUERY_REPRESENTATION = GRAPH_ELEMENT_OPERATION_COUNT + 6;
+	int ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = GRAPH_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -855,7 +855,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___GET_XQUERY_REPRESENTATION = ELEMENT___GET_XQUERY_REPRESENTATION;
+	int SINGLE_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
@@ -1099,7 +1099,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_XQUERY_REPRESENTATION = ELEMENT___GET_XQUERY_REPRESENTATION;
+	int SET_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Translate Element Existence Predicates</em>' operation.
@@ -1738,14 +1738,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__TranslatePredicates__Location();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get XQuery Representation</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getXQueryRepresentation()
+	 * @see qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
-	EOperation getElement__GetXQueryRepresentation();
+	EOperation getElement__GetXQueryRepresentation__Location();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -2214,7 +2214,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ELEMENT___GET_XQUERY_REPRESENTATION = eINSTANCE.getElement__GetXQueryRepresentation();
+		EOperation ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = eINSTANCE.getElement__GetXQueryRepresentation__Location();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

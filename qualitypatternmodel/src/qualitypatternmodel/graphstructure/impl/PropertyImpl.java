@@ -85,7 +85,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 		if(propertyOption == null || propertyOption.getSelection() == null) {
 			throw new InvalidityException("propertyOptions invalid");
 		}				
-		String propertyElementTranslation = getElement().getXQueryRepresentation();
+		String propertyElementTranslation = getElement().getXQueryRepresentation(location);
 		switch (propertyOption.getSelection()) {
 			case ATTRIBUTE: 
 				if(attributeName == null || attributeName.getText() == null) {

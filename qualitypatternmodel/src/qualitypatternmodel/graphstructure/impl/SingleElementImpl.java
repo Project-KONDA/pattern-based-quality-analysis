@@ -172,7 +172,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 	
 	@Override
-	public String getXQueryRepresentation() throws InvalidityException {
+	public String getXQueryRepresentation(Location location) throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
 			return ".";
 		} else {

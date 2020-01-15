@@ -217,12 +217,12 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getXQueryRepresentation() throws InvalidityException {
+	public String getXQueryRepresentation(Location location) throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	public void prepareTranslation() {
 		translated = false;
@@ -561,9 +561,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.ELEMENT___GET_XQUERY_REPRESENTATION:
+			case GraphstructurePackage.ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION:
 				try {
-					return getXQueryRepresentation();
+					return getXQueryRepresentation((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
