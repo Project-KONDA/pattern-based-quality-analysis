@@ -77,4 +77,12 @@ public interface PatternElement extends EObject {
 	 */
 	int getNewId() throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void prepareTranslation();
+
 } // PatternElement

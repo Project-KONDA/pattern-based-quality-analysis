@@ -119,6 +119,13 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
+	public void prepareTranslation() {
+		for(Condition condition : arguments) {
+			condition.prepareTranslation();
+		}
+	}
+	
+	@Override
 	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> inputs = new BasicEList<Input>();
 		for(Condition condition : arguments) {

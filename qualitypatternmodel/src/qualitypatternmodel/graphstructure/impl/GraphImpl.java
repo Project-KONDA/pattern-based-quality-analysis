@@ -120,6 +120,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		operatorList.isValid(isDefinedPattern, depth);
 	}
 	
+	@Override
+	public void prepareTranslation() {
+		rootElement.prepareTranslation();
+	}
+	
 	@Override 
 	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> res = rootElement.getAllVariables();

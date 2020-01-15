@@ -124,13 +124,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___GET_NEW_ID = 3;
 
 	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___PREPARE_TRANSLATION = 4;
+
+	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 4;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -195,6 +204,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
@@ -288,6 +306,15 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING___GET_NEW_ID = MAPPING___GET_NEW_ID;
 
 	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___PREPARE_TRANSLATION = MAPPING___PREPARE_TRANSLATION;
+
+	/**
 	 * The number of operations of the '<em>Relation Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,6 +386,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -470,6 +506,15 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___GET_NEW_ID = CONDITION___GET_NEW_ID;
 
 	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
+
+	/**
 	 * The number of operations of the '<em>Quantified Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -570,6 +615,15 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
 
 	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,6 +713,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT_MAPPING___GET_NEW_ID = MAPPING___GET_NEW_ID;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING___PREPARE_TRANSLATION = MAPPING___PREPARE_TRANSLATION;
 
 	/**
 	 * The number of operations of the '<em>Single Element Mapping</em>' class.
@@ -752,6 +815,15 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___GET_NEW_ID = CONDITION___GET_NEW_ID;
 
 	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
+
+	/**
 	 * The number of operations of the '<em>Formula</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -823,6 +895,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUE___GET_NEW_ID = CONDITION___GET_NEW_ID;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
 
 	/**
 	 * The number of operations of the '<em>True</em>' class.
@@ -925,6 +1006,15 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
 
 	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1023,6 +1113,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_LIST___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
 	 * The number of operations of the '<em>Variable List</em>' class.
@@ -1411,6 +1510,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__GetNewId();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Prepare Translation</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#prepareTranslation()
+	 * @generated
+	 */
+	EOperation getPatternElement__PrepareTranslation();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.VariableList <em>Variable List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1781,6 +1890,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___GET_NEW_ID = eINSTANCE.getPatternElement__GetNewId();
+
+		/**
+		 * The meta object literal for the '<em><b>Prepare Translation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___PREPARE_TRANSLATION = eINSTANCE.getPatternElement__PrepareTranslation();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.VariableListImpl <em>Variable List</em>}' class.

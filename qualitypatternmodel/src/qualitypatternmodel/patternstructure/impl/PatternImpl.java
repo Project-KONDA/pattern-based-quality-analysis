@@ -106,6 +106,12 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		return returnGraph.toXQuery(Location.RETURN) + "\nwhere " + condition.toXQuery(Location.OUTSIDE) + "\nreturn "
 				+ returnVariables;
 	}
+	
+	@Override
+	public void prepareTranslation() {
+		returnGraph.prepareTranslation();
+		condition.prepareTranslation();
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

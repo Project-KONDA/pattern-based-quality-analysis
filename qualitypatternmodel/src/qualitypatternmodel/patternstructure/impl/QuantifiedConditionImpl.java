@@ -119,6 +119,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		morphism.isValid(isDefinedPattern, depth);
 		condition.isValid(isDefinedPattern, depth);
 	}
+	
+	@Override
+	public void prepareTranslation() {
+		graph.prepareTranslation();
+		condition.prepareTranslation();
+	}
 
 	@Override
 	public EList<Input> getAllVariables() throws InvalidityException {

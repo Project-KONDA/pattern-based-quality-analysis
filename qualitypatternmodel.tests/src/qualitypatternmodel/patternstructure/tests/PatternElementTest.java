@@ -17,6 +17,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAllVariables() <em>Get All Variables</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, int) <em>Is Valid</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getNewId() <em>Get New Id</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -108,6 +109,19 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetNewId() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#prepareTranslation()
+	 * @generated
+	 */
+	public void testPrepareTranslation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

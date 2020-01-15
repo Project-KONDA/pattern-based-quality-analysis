@@ -222,6 +222,15 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
+	
+	@Override
+	public void prepareTranslation() {
+		translated = false;
+		predicatesAreBeingTranslated = false;
+		for(Element element : getNextElements()) {
+			element.prepareTranslation();
+		}
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
