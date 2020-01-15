@@ -96,10 +96,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	protected GraphImpl() {
+	public GraphImpl() {
 		super();
+		setOperatorList(new OperatorListImpl());
+		setRootElement(new SingleElementImpl());
 	}
 	
 	@Override

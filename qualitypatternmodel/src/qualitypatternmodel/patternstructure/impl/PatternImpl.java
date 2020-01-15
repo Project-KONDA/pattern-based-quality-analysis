@@ -69,10 +69,12 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected PatternImpl() {
 		super();
+		returnGraph = new qualitypatternmodel.graphstructure.impl.GraphImpl();
+		variableList = new VariableListImpl(this);
+		
 	}
 
 	public void isValid(boolean isDefinedPattern) throws InvalidityException {

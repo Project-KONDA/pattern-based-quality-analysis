@@ -58,6 +58,11 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 		super();
 	}
 	
+	public VariableListImpl(PatternImpl patternImpl) {
+		super();
+		setPattern(patternImpl);
+	}
+
 	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		EList<Input> patternVars = getPattern().getAllVariables();

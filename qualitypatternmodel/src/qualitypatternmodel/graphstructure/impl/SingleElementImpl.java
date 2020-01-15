@@ -113,7 +113,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	protected SingleElementImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		String xPathExpression = translatePathFromPrevious();	

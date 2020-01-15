@@ -57,6 +57,11 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 		super();
 	}
 	
+	public OperatorListImpl(GraphImpl graphImpl) {
+		super();
+		setGraph(graphImpl);
+	}
+
 	@Override
 	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		if (getGraph() == null)

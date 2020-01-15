@@ -151,7 +151,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicates">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicates/location"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getXQueryRepresentation"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getXQueryRepresentation">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/getXQueryRepresentation/location"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
