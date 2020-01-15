@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -68,9 +68,9 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		if(previous == null) {
-			throw new InvalidTranslationException("previous null");
+			throw new InvalidityException("previous null");
 		}
 		if (previous instanceof SingleElement){
 			return previous.getXQueryRepresentation();
@@ -82,9 +82,9 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		if (depth == 0)
-			throw new InvalidTranslationException("SetElement in ReturnGraph");
+			throw new InvalidityException("SetElement in ReturnGraph");
 		super.isValid(isDefinedPattern, depth);
 	}
 	
@@ -99,12 +99,12 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	}
 	
 	@Override
-	public String getXQueryRepresentation() throws InvalidTranslationException {		
+	public String getXQueryRepresentation() throws InvalidityException {		
 		return ".";		
 	}
 	
 	@Override
-	public String translateElementExistencePredicates(Location location) throws InvalidTranslationException {
+	public String translateElementExistencePredicates(Location location) throws InvalidityException {
 		String predicates = "";
 		for (SetElement nextSetElement : next){
 			if (!nextSetElement.isTranslated()){

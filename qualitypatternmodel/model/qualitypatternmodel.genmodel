@@ -125,6 +125,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SingleElement/next"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/SingleElement/graphDepth"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/getOriginalID"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/getXQueryVariable"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/SetElement">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SetElement/next"/>
@@ -162,7 +163,7 @@
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//graphstructure/GraphElement">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/GraphElement/getReturnType"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/GraphElement/isReady"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/GraphElement/isTranslatable"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/OperatorList">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/OperatorList/operators"/>
@@ -189,7 +190,7 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Location/EXISTS"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Location/FORALL"/>
       </genEnums>
-      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/InvalidTranslationExceptionWrapper"/>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/InvalidityExceptionWrapper"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/RelationMapping">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/RelationMapping/to"/>
@@ -240,6 +241,7 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValid/isDefinedPattern"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValid/depth"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getNewId"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/VariableList">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/VariableList/variables"/>

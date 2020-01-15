@@ -11,6 +11,12 @@ import qualitypatternmodel.graphstructure.SetElement;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Set Element</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Element Existence Predicates</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class SetElementTest extends ElementTest {
@@ -65,6 +71,19 @@ public class SetElementTest extends ElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Element Existence Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	public void testTranslateElementExistencePredicates__Location() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //SetElementTest

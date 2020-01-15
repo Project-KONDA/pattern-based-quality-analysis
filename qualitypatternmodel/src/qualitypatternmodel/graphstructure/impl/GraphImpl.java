@@ -22,7 +22,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.OperatorList;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -103,31 +103,31 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		return rootElement.toXQuery(location);
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		graphDepth = depth;
 		if(returnElements == null || returnElements.isEmpty()) 
-			throw new InvalidTranslationException("returnElement empty");
+			throw new InvalidityException("returnElement empty");
 		if (rootElement == null) 
-			throw new InvalidTranslationException("rootElement null");
+			throw new InvalidityException("rootElement null");
 		rootElement.isValid(isDefinedPattern, depth);
 		if (operatorList == null) 
-			throw new InvalidTranslationException("operatorList null");
+			throw new InvalidityException("operatorList null");
 		operatorList.isValid(isDefinedPattern, depth);
 	}
 	
 	@Override 
-	public EList<Input> getAllVariables() throws InvalidTranslationException {
+	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> res = rootElement.getAllVariables();
 		return res;
 	}
 
 	@Override 
-	public EList<Operator> getAllOperators() throws InvalidTranslationException {
+	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = rootElement.getAllOperators();
 		return res;
 	}

@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -66,7 +66,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllVariables() throws InvalidTranslationException {
+	public EList<Input> getAllVariables() throws InvalidityException {
 		return new BasicEList<Input>();
 	}
 
@@ -74,7 +74,20 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
+		throw new UnsupportedOperationException();
+	}
+
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getNewId() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
@@ -115,7 +128,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -203,6 +216,13 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				try {
 					isValid((Boolean)arguments.get(0), (Integer)arguments.get(1));
 					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID:
+				try {
+					return getNewId();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

@@ -12,7 +12,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.ToNumber;
 
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -49,18 +49,18 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		if (property != null) {
 			return "number(" + property.toXQuery(location) + ")";
 		} else {
-			throw new InvalidTranslationException("property null");
+			throw new InvalidityException("property null");
 		}
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		if (property == null)
-			throw new InvalidTranslationException("property null");
+			throw new InvalidityException("property null");
 		property.isValid(isDefinedPattern, depth);
 	}
 	

@@ -3,7 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -61,10 +61,10 @@ public interface SetElement extends Element {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String translateElementExistencePredicates(Location location) throws InvalidTranslationException;
+	String translateElementExistencePredicates(Location location) throws InvalidityException;
 	
 
 } // SetElement

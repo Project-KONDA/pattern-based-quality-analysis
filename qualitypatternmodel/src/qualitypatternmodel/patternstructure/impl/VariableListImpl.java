@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.VariableList;
@@ -59,10 +59,10 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		EList<Input> patternVars = getPattern().getAllVariables();
 		if (!patternVars.containsAll(variables))
-			throw new InvalidTranslationException("not all variables from VariableList in Graph");	
+			throw new InvalidityException("not all variables from VariableList in Graph");	
 		if (!variables.containsAll(patternVars)) {
 			String msg = "not all variables from graph in VariableList:\n";
 			for (Input variable : variables) {
@@ -72,7 +72,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 			for (Input variable : patternVars) {
 				msg += " " + variable;
 			}			
-			throw new InvalidTranslationException(msg);				
+			throw new InvalidityException(msg);				
 		}
 	}
 

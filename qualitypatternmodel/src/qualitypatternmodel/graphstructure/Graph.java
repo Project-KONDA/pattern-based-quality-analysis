@@ -5,7 +5,7 @@ package qualitypatternmodel.graphstructure;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.functions.Operator;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -111,9 +111,9 @@ public interface Graph extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<Operator> getAllOperators() throws InvalidTranslationException;
+	EList<Operator> getAllOperators() throws InvalidityException;
 
 } // Graph

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Pattern;
 
 public class ValidityTest {
@@ -27,7 +27,7 @@ public class ValidityTest {
         
         try {
 			pattern.isValid(false);
-		} catch (InvalidTranslationException e) {
+		} catch (InvalidityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

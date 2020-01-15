@@ -142,6 +142,15 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___IS_VALID__BOOLEAN_INT = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___GET_NEW_ID = GraphstructurePackage.GRAPH_ELEMENT___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,6 +278,15 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___GET_NEW_ID = INPUT___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -394,6 +412,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___GET_NEW_ID = INPUT___GET_NEW_ID;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -532,6 +559,15 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION___GET_NEW_ID = INPUT___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -666,6 +702,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___GET_NEW_ID = INPUT___GET_NEW_ID;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.

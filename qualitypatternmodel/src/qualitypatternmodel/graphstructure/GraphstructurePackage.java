@@ -152,6 +152,15 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
+
+	/**
 	 * The number of operations of the '<em>Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -214,6 +223,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ELEMENT___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -323,6 +341,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY___IS_VALID__BOOLEAN_INT = GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_NEW_ID = GRAPH_ELEMENT___GET_NEW_ID;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -450,6 +477,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT___IS_VALID__BOOLEAN_INT = GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___GET_NEW_ID = GRAPH_ELEMENT___GET_NEW_ID;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -687,6 +723,15 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___IS_VALID__BOOLEAN_INT = ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___GET_NEW_ID = ELEMENT___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -913,6 +958,15 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___IS_VALID__BOOLEAN_INT = ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___GET_NEW_ID = ELEMENT___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1103,6 +1157,15 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1192,6 +1255,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
 
 	/**
 	 * The number of operations of the '<em>Operator List</em>' class.

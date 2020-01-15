@@ -27,7 +27,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -146,24 +146,24 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		
 		for (Element next : getNextElements()) {
 			if (next == null) 
-				throw new InvalidTranslationException("nextElement null (" + next + ")");
+				throw new InvalidityException("nextElement null (" + next + ")");
 			next.isValid(isDefinedPattern, depth);
 			if (!next.getPreviousElement().equals(this))
-				throw new InvalidTranslationException("nextElement not valid (" + next + ")");
+				throw new InvalidityException("nextElement not valid (" + next + ")");
 		}
 		
 		for(BooleanOperator predicate : getPredicates()) {
 			if (predicate == null) 
-				throw new InvalidTranslationException("predicate null (" + predicate + ")");
+				throw new InvalidityException("predicate null (" + predicate + ")");
 			predicate.isValid(isDefinedPattern, depth);
 		}
 
 		if (!root && getPreviousElement() == null) 
-			throw new InvalidTranslationException("previousElement null");
+			throw new InvalidityException("previousElement null");
 		if (!root) relationFromPrevious.isValid(isDefinedPattern, depth);
 	}
 	
@@ -172,7 +172,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Operator> getAllOperators() throws InvalidTranslationException {
+	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
 		for(Element element : getNextElements()) {
 			res.addAll(element.getAllOperators());
@@ -200,7 +200,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * 
 	 */
-	public String translatePredicates(Location location) throws InvalidTranslationException {
+	public String translatePredicates(Location location) throws InvalidityException {
 		String xPredicates = "";
 		predicatesAreBeingTranslated = true;
 		for (BooleanOperator predicate : predicates){
@@ -217,7 +217,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getXQueryRepresentation() throws InvalidTranslationException {
+	public String getXQueryRepresentation() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -227,7 +227,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllVariables() throws InvalidTranslationException {
+	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> res = new BasicEList<Input>();
 		for(Element element : getNextElements()) {
 			res.addAll(element.getAllVariables());

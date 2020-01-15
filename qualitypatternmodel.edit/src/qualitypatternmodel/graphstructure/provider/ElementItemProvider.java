@@ -49,8 +49,9 @@ public class ElementItemProvider extends GraphElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPredicatesPropertyDescriptor(object);
-			addIsTranslatedPropertyDescriptor(object);
-			addIsRootPropertyDescriptor(object);
+			addTranslatedPropertyDescriptor(object);
+			addRootPropertyDescriptor(object);
+			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -78,19 +79,19 @@ public class ElementItemProvider extends GraphElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Translated feature.
+	 * This adds a property descriptor for the Translated feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsTranslatedPropertyDescriptor(Object object) {
+	protected void addTranslatedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Element_isTranslated_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Element_isTranslated_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__IS_TRANSLATED,
+				 getString("_UI_Element_translated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_translated_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__TRANSLATED,
 				 true,
 				 false,
 				 false,
@@ -100,19 +101,41 @@ public class ElementItemProvider extends GraphElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Root feature.
+	 * This adds a property descriptor for the Root feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsRootPropertyDescriptor(Object object) {
+	protected void addRootPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Element_isRoot_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Element_isRoot_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__IS_ROOT,
+				 getString("_UI_Element_root_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_root_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__ROOT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Predicates Are Being Translated feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPredicatesAreBeingTranslatedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Element_predicatesAreBeingTranslated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_predicatesAreBeingTranslated_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED,
 				 true,
 				 false,
 				 false,
@@ -177,8 +200,9 @@ public class ElementItemProvider extends GraphElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Element.class)) {
-			case GraphstructurePackage.ELEMENT__IS_TRANSLATED:
-			case GraphstructurePackage.ELEMENT__IS_ROOT:
+			case GraphstructurePackage.ELEMENT__TRANSLATED:
+			case GraphstructurePackage.ELEMENT__ROOT:
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:

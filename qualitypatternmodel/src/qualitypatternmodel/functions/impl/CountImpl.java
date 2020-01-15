@@ -13,7 +13,7 @@ import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 
 import qualitypatternmodel.graphstructure.SetElement;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -47,18 +47,18 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		if (argument != null) {
 			return "count(" + argument.toXQuery(location) + ")";
 		} else {
-			throw new InvalidTranslationException("argument null");
+			throw new InvalidityException("argument null");
 		}
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		if (argument == null)
-			throw new InvalidTranslationException("argument null");
+			throw new InvalidityException("argument null");
 	}
 
 	@Override

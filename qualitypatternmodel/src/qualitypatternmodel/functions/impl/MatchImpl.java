@@ -17,7 +17,7 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -76,7 +76,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		if(option!=null && option.getSelection()!=null && regularExpression != null && regularExpression.getText() != null && property != null) {
 			if (option.getSelection()){
 				return "match(" + property.toXQuery(location) + "," + regularExpression.getText() + ")";
@@ -84,20 +84,20 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return "not(match(" + property.toXQuery(location) + "," + regularExpression.getText() + "))";
 			}	
 		} else {
-			throw new InvalidTranslationException("invalid option");
+			throw new InvalidityException("invalid option");
 		}
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		if (option == null)
-			throw new InvalidTranslationException("options null");
+			throw new InvalidityException("options null");
 		option.isValid(isDefinedPattern, depth);		
 		if (regularExpression == null)
-			throw new InvalidTranslationException("regularExpression null");
+			throw new InvalidityException("regularExpression null");
 		regularExpression.isValid(isDefinedPattern, depth);		
 		if (property == null)
-			throw new InvalidTranslationException("property null");
+			throw new InvalidityException("property null");
 		property.isValid(isDefinedPattern, depth);
 	}
 	
@@ -105,7 +105,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllVariables() throws InvalidTranslationException {
+	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> res = new BasicEList<Input>();
 		res.add(regularExpression);
 		res.add(option);

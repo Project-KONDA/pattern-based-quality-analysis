@@ -26,7 +26,7 @@ import qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl;
 
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.Mapping;
@@ -152,7 +152,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType invalidTranslationExceptionWrapperEDataType = null;
+	private EDataType invalidityExceptionWrapperEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -513,6 +513,15 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPatternElement__GetNewId() {
+		return patternElementEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVariableList() {
 		return variableListEClass;
 	}
@@ -567,8 +576,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getInvalidTranslationExceptionWrapper() {
-		return invalidTranslationExceptionWrapperEDataType;
+	public EDataType getInvalidityExceptionWrapper() {
+		return invalidityExceptionWrapperEDataType;
 	}
 
 	/**
@@ -639,6 +648,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___TO_XQUERY__LOCATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_VARIABLES);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_NEW_ID);
 
 		variableListEClass = createEClass(VARIABLE_LIST);
 		createEReference(variableListEClass, VARIABLE_LIST__VARIABLES);
@@ -650,7 +660,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		locationEEnum = createEEnum(LOCATION);
 
 		// Create data types
-		invalidTranslationExceptionWrapperEDataType = createEDataType(INVALID_TRANSLATION_EXCEPTION_WRAPPER);
+		invalidityExceptionWrapperEDataType = createEDataType(INVALIDITY_EXCEPTION_WRAPPER);
 	}
 
 	/**
@@ -733,22 +743,25 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		EOperation op = initEOperation(getPattern__IsValid__boolean(), null, "isValid", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidTranslationExceptionWrapper());
+		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternElement_Id(), ecorePackage.getEInt(), "id", null, 0, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPatternElement__ToXQuery__Location(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidTranslationExceptionWrapper());
+		addEException(op, this.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getPatternElement__GetAllVariables(), theInputfieldsPackage.getInput(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidTranslationExceptionWrapper());
+		addEException(op, this.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getPatternElement__IsValid__boolean_int(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "depth", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidTranslationExceptionWrapper());
+		addEException(op, this.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getPatternElement__GetNewId(), ecorePackage.getEInt(), "getNewId", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEClass(variableListEClass, VariableList.class, "VariableList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableList_Variables(), theInputfieldsPackage.getInput(), theInputfieldsPackage.getInput_VariableList(), "variables", null, 0, -1, VariableList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -774,7 +787,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEEnumLiteral(locationEEnum, Location.FORALL);
 
 		// Initialize data types
-		initEDataType(invalidTranslationExceptionWrapperEDataType, InvalidTranslationException.class, "InvalidTranslationExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(invalidityExceptionWrapperEDataType, InvalidityException.class, "InvalidityExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

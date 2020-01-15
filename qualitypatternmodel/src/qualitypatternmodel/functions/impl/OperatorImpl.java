@@ -13,7 +13,7 @@ import qualitypatternmodel.functions.Operator;
 
 import qualitypatternmodel.graphstructure.impl.GraphElementImpl;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Operator> getAllOperators() throws InvalidTranslationException {
+	public EList<Operator> getAllOperators() throws InvalidityException {
 		return new BasicEList<Operator>();
 	}
 	
@@ -54,7 +54,7 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllVariables() throws InvalidTranslationException {
+	public EList<Input> getAllVariables() throws InvalidityException {
 		return new BasicEList<Input>();
 	}
 

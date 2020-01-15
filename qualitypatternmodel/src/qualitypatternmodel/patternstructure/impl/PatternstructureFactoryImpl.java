@@ -84,8 +84,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return createQuantifierFromString(eDataType, initialValue);
 			case PatternstructurePackage.LOCATION:
 				return createLocationFromString(eDataType, initialValue);
-			case PatternstructurePackage.INVALID_TRANSLATION_EXCEPTION_WRAPPER:
-				return createInvalidTranslationExceptionWrapperFromString(eDataType, initialValue);
+			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
+				return createInvalidityExceptionWrapperFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -105,8 +105,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return convertQuantifierToString(eDataType, instanceValue);
 			case PatternstructurePackage.LOCATION:
 				return convertLocationToString(eDataType, instanceValue);
-			case PatternstructurePackage.INVALID_TRANSLATION_EXCEPTION_WRAPPER:
-				return convertInvalidTranslationExceptionWrapperToString(eDataType, instanceValue);
+			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
+				return convertInvalidityExceptionWrapperToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -257,8 +257,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InvalidTranslationException createInvalidTranslationExceptionWrapperFromString(EDataType eDataType, String initialValue) {
-		return (InvalidTranslationException)super.createFromString(eDataType, initialValue);
+	public InvalidityException createInvalidityExceptionWrapperFromString(EDataType eDataType, String initialValue) {
+		return (InvalidityException)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -266,7 +266,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertInvalidTranslationExceptionWrapperToString(EDataType eDataType, Object instanceValue) {
+	public String convertInvalidityExceptionWrapperToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

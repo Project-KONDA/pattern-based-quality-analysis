@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -76,7 +76,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 //		if (from == null || to == null) 
 //			return false;
 //		for(Mapping m : mappings) 
@@ -84,14 +84,14 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 //				return false;
 //		return true;
 		if (from == null)
-			throw new InvalidTranslationException("from null");
+			throw new InvalidityException("from null");
 		if (to == null)
-			throw new InvalidTranslationException("to null");
+			throw new InvalidityException("to null");
 		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != depth)
-			throw new InvalidTranslationException("invalid target graphs");
+			throw new InvalidityException("invalid target graphs");
 		for (Mapping mapping : mappings) {
 			if (mapping == null)
-				throw new InvalidTranslationException("mapping invalid (" + mapping + ")");
+				throw new InvalidityException("mapping invalid (" + mapping + ")");
 			mapping.isValid(isDefinedPattern, depth);
 		}
 	}

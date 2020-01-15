@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -165,18 +165,18 @@ public interface Element extends GraphElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<Operator> getAllOperators() throws InvalidTranslationException;
+	EList<Operator> getAllOperators() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<Input> getAllVariables() throws InvalidTranslationException;
+	EList<Input> getAllVariables() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,17 +189,17 @@ public interface Element extends GraphElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String translatePredicates(Location location) throws InvalidTranslationException;
+	String translatePredicates(Location location) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String getXQueryRepresentation() throws InvalidTranslationException;
+	String getXQueryRepresentation() throws InvalidityException;
 
 } // Element

@@ -1,17 +1,17 @@
 package qualitypatternmodel.patternstructure;
 
-public class InvalidTranslationException extends Exception {
+public class InvalidityException extends Exception {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3415085844526634564L;
 
-	public InvalidTranslationException() {
+	public InvalidityException() {
 		super();
 	}
 	
-	public InvalidTranslationException(String message) {
+	public InvalidityException(String message) {
 		super(message);
 	}
 }

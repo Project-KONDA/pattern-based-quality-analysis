@@ -4,7 +4,7 @@ package qualitypatternmodel.patternstructure.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.True;
@@ -27,7 +27,7 @@ public class TrueImpl extends ConditionImpl implements True {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		return "true";
 	}
 	

@@ -115,6 +115,15 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___IS_VALID__BOOLEAN_INT = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GET_NEW_ID = GraphstructurePackage.GRAPH_ELEMENT___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,6 +215,15 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_INT = OPERATOR___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GET_NEW_ID = OPERATOR___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -295,6 +313,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATORS___IS_VALID__BOOLEAN_INT = OPERATOR___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS___GET_NEW_ID = OPERATOR___GET_NEW_ID;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -397,6 +424,15 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT___IS_VALID__BOOLEAN_INT = NUMBER_OPERATORS___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___GET_NEW_ID = NUMBER_OPERATORS___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -486,6 +522,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OTHER_OPERATORS___IS_VALID__BOOLEAN_INT = OPERATOR___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS___GET_NEW_ID = OPERATOR___GET_NEW_ID;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -606,6 +651,15 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___IS_VALID__BOOLEAN_INT = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GET_NEW_ID = BOOLEAN_OPERATOR___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -724,6 +778,15 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___IS_VALID__BOOLEAN_INT = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GET_NEW_ID = BOOLEAN_OPERATOR___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -822,6 +885,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TO_NUMBER___IS_VALID__BOOLEAN_INT = NUMBER_OPERATORS___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER___GET_NEW_ID = NUMBER_OPERATORS___GET_NEW_ID;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.

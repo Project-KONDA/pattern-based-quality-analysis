@@ -115,13 +115,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT = 2;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_NEW_ID = 3;
+
+	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 3;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -177,6 +186,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
 
 	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
@@ -261,6 +279,15 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING___IS_VALID__BOOLEAN_INT = MAPPING___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___GET_NEW_ID = MAPPING___GET_NEW_ID;
+
+	/**
 	 * The number of operations of the '<em>Relation Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,6 +350,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -425,6 +461,15 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___IS_VALID__BOOLEAN_INT = CONDITION___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GET_NEW_ID = CONDITION___GET_NEW_ID;
+
+	/**
 	 * The number of operations of the '<em>Quantified Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -516,6 +561,15 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
+
+	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -596,6 +650,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT_MAPPING___IS_VALID__BOOLEAN_INT = MAPPING___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING___GET_NEW_ID = MAPPING___GET_NEW_ID;
 
 	/**
 	 * The number of operations of the '<em>Single Element Mapping</em>' class.
@@ -680,6 +743,15 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___IS_VALID__BOOLEAN_INT = CONDITION___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GET_NEW_ID = CONDITION___GET_NEW_ID;
+
+	/**
 	 * The number of operations of the '<em>Formula</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -742,6 +814,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUE___IS_VALID__BOOLEAN_INT = CONDITION___IS_VALID__BOOLEAN_INT;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___GET_NEW_ID = CONDITION___GET_NEW_ID;
 
 	/**
 	 * The number of operations of the '<em>True</em>' class.
@@ -835,6 +916,15 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
+
+	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -926,6 +1016,15 @@ public interface PatternstructurePackage extends EPackage {
 	int VARIABLE_LIST___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
 
 	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
+
+	/**
 	 * The number of operations of the '<em>Variable List</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -965,15 +1064,14 @@ public interface PatternstructurePackage extends EPackage {
 	int LOCATION = 13;
 
 	/**
-	 * The meta object id for the '<em>Invalid Translation Exception Wrapper</em>' data type.
+	 * The meta object id for the '<em>Invalidity Exception Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.InvalidTranslationException
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidTranslationExceptionWrapper()
+	 * @see qualitypatternmodel.patternstructure.InvalidityException
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 	 * @generated
 	 */
-	int INVALID_TRANSLATION_EXCEPTION_WRAPPER = 14;
-
+	int INVALIDITY_EXCEPTION_WRAPPER = 14;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.RelationMapping <em>Relation Mapping</em>}'.
@@ -1303,6 +1401,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__IsValid__boolean_int();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getNewId() <em>Get New Id</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get New Id</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getNewId()
+	 * @generated
+	 */
+	EOperation getPatternElement__GetNewId();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.VariableList <em>Variable List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1365,15 +1473,15 @@ public interface PatternstructurePackage extends EPackage {
 	EEnum getLocation();
 
 	/**
-	 * Returns the meta object for data type '{@link qualitypatternmodel.patternstructure.InvalidTranslationException <em>Invalid Translation Exception Wrapper</em>}'.
+	 * Returns the meta object for data type '{@link qualitypatternmodel.patternstructure.InvalidityException <em>Invalidity Exception Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Invalid Translation Exception Wrapper</em>'.
-	 * @see qualitypatternmodel.patternstructure.InvalidTranslationException
-	 * @model instanceClass="qualitypatternmodel.patternstructure.InvalidTranslationException"
+	 * @return the meta object for data type '<em>Invalidity Exception Wrapper</em>'.
+	 * @see qualitypatternmodel.patternstructure.InvalidityException
+	 * @model instanceClass="qualitypatternmodel.patternstructure.InvalidityException"
 	 * @generated
 	 */
-	EDataType getInvalidTranslationExceptionWrapper();
+	EDataType getInvalidityExceptionWrapper();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1667,6 +1775,14 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT = eINSTANCE.getPatternElement__IsValid__boolean_int();
 
 		/**
+		 * The meta object literal for the '<em><b>Get New Id</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GET_NEW_ID = eINSTANCE.getPatternElement__GetNewId();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.VariableListImpl <em>Variable List</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1723,14 +1839,14 @@ public interface PatternstructurePackage extends EPackage {
 		EEnum LOCATION = eINSTANCE.getLocation();
 
 		/**
-		 * The meta object literal for the '<em>Invalid Translation Exception Wrapper</em>' data type.
+		 * The meta object literal for the '<em>Invalidity Exception Wrapper</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.InvalidTranslationException
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidTranslationExceptionWrapper()
+		 * @see qualitypatternmodel.patternstructure.InvalidityException
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 		 * @generated
 		 */
-		EDataType INVALID_TRANSLATION_EXCEPTION_WRAPPER = eINSTANCE.getInvalidTranslationExceptionWrapper();
+		EDataType INVALIDITY_EXCEPTION_WRAPPER = eINSTANCE.getInvalidityExceptionWrapper();
 
 	}
 

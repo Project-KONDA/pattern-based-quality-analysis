@@ -18,7 +18,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -75,27 +75,27 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		super();
 	}
 
-	public void isValid(boolean isDefinedPattern) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
 		this.isValid(isDefinedPattern, 0);
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		if (variableList == null)
-			throw new InvalidTranslationException("variableList null");
+			throw new InvalidityException("variableList null");
 		variableList.isValid(isDefinedPattern, depth);
 		if (returnGraph == null)
-			throw new InvalidTranslationException("returnGraph null");
+			throw new InvalidityException("returnGraph null");
 		returnGraph.isValid(isDefinedPattern, depth);
 		if (condition == null)
-			throw new InvalidTranslationException("condition null");
+			throw new InvalidityException("condition null");
 		condition.isValid(isDefinedPattern, depth);
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		if(returnGraph.getReturnElements() == null || returnGraph.getReturnElements().isEmpty()) {
-			throw new InvalidTranslationException("return elements missing");
+			throw new InvalidityException("return elements missing");
 		}
 		String returnVariables = "(";
 		for (SingleElement returnElement : returnGraph.getReturnElements()) {
@@ -110,7 +110,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllVariables() throws InvalidTranslationException {
+	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> inputs = returnGraph.getAllVariables();
 		inputs.addAll(condition.getAllVariables());
 		return inputs;

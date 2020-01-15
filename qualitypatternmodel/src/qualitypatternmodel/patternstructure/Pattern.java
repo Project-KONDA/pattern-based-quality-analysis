@@ -94,9 +94,9 @@ public interface Pattern extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void isValid(boolean isDefinedPattern) throws InvalidTranslationException;
+	void isValid(boolean isDefinedPattern) throws InvalidityException;
 
 } // Pattern

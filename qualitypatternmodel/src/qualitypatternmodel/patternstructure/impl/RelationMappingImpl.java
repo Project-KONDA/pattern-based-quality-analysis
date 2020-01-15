@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -59,13 +59,13 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != depth)
-			throw new InvalidTranslationException("invalid target relations");
+			throw new InvalidityException("invalid target relations");
 		if (from == null)
-			throw new InvalidTranslationException("from null");
+			throw new InvalidityException("from null");
 		if (to == null)
-			throw new InvalidTranslationException("to null");
+			throw new InvalidityException("to null");
 	}
 
 	/**

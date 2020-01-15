@@ -4,7 +4,7 @@ package qualitypatternmodel.inputfields;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,9 +60,9 @@ public interface Option<T> extends Input {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidTranslationExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void isValid(boolean isDefinedBattern, int depth, Class cls) throws InvalidTranslationException;
+	void isValid(boolean isDefinedBattern, int depth, Class cls) throws InvalidityException;
 
 } // Option

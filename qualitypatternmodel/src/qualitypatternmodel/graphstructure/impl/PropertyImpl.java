@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -67,36 +67,36 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException  {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException  {
 		if (getElement() == null) 
-			throw new InvalidTranslationException("element null");
+			throw new InvalidityException("element null");
 		if (propertyOption == null) {
-			throw new InvalidTranslationException("location or propertyOptions invalid");
+			throw new InvalidityException("location or propertyOptions invalid");
 		} else {
 			propertyOption.isValid(isDefinedPattern, depth);
 		}
 		
 		if (propertyOption.getSelection() != null && propertyOption.getSelection() == PropertyLocation.ATTRIBUTE && attributeName == null)
-			throw new InvalidTranslationException("attributeName null");
+			throw new InvalidityException("attributeName null");
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {		
+	public String toXQuery(Location location) throws InvalidityException {		
 		if(propertyOption == null || propertyOption.getSelection() == null) {
-			throw new InvalidTranslationException("propertyOptions invalid");
+			throw new InvalidityException("propertyOptions invalid");
 		}				
 		String propertyElementTranslation = getElement().getXQueryRepresentation();
 		switch (propertyOption.getSelection()) {
 			case ATTRIBUTE: 
 				if(attributeName == null || attributeName.getText() == null) {
-					throw new InvalidTranslationException("attributeName invalid");
+					throw new InvalidityException("attributeName invalid");
 				} else {
 					return propertyElementTranslation + "/data(@" + attributeName.getText() + ")";
 				}
 			case DATA: return propertyElementTranslation + "/data()";
 			case TAG: return propertyElementTranslation + "/name()";
 			default:
-				throw new InvalidTranslationException("error in location specification");
+				throw new InvalidityException("error in location specification");
 		}
 		
 	}
@@ -105,7 +105,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllVariables() throws InvalidTranslationException {
+	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> res = new BasicEList<Input>();
 		res.add(attributeName);
 		res.add(propertyOption);

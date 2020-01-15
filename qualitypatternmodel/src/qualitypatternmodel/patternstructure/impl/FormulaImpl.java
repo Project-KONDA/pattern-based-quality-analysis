@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -80,46 +80,46 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		if(operator != null) {
 			if (operator == LogicalOperator.NOT){
 				if(arguments.size() == 1 && arguments.get(0) != null) {
 					return "not(" + arguments.get(0).toXQuery(location) + ")";
 				} else {
-					throw new InvalidTranslationException("invalid argument");
+					throw new InvalidityException("invalid argument");
 				}
 			} else {
 				if(arguments.size() == 2 && arguments.get(0) != null && arguments.get(1) != null) {
 					return "((" + arguments.get(0).toXQuery(location) + ")" + operator.getLiteral() + "(" + arguments.get(1).toXQuery(location) + "))"; 
 				} else {
-					throw new InvalidTranslationException("invalid arguments");
+					throw new InvalidityException("invalid arguments");
 				}
 			}	
 		} else {
-			throw new InvalidTranslationException("operator null");
+			throw new InvalidityException("operator null");
 		}
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException  {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException  {
 		if(operator == null) 
-			throw new InvalidTranslationException("operator null");
+			throw new InvalidityException("operator null");
 		if(arguments == null) 
-			throw new InvalidTranslationException("arguments null");
+			throw new InvalidityException("arguments null");
 		
 		if(operator == LogicalOperator.NOT) {
 			if (arguments.size() != 1 || arguments.get(0) == null)
-				throw new InvalidTranslationException("argument invalid (op:NOT)");
+				throw new InvalidityException("argument invalid (op:NOT)");
 			arguments.get(0).isValid(isDefinedPattern, depth);
 		} else 
 			if (arguments.size() != 2 || arguments.get(0) == null || arguments.get(1) == null)
-				throw new InvalidTranslationException("arguments invalid");
+				throw new InvalidityException("arguments invalid");
 			arguments.get(0).isValid(isDefinedPattern, depth);
 			arguments.get(1).isValid(isDefinedPattern, depth);
 	}
 	
 	@Override
-	public EList<Input> getAllVariables() throws InvalidTranslationException {
+	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> inputs = new BasicEList<Input>();
 		for(Condition condition : arguments) {
 			inputs.addAll(condition.getAllVariables());

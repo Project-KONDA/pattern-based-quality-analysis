@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
@@ -115,7 +115,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		String xPathExpression = translatePathFromPrevious();	
 		String xPredicates = translatePredicates(location);		
 		
@@ -128,7 +128,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			} else if(location == Location.FORALL) {
 				result += EVERY;
 			} else {
-				throw new InvalidTranslationException("invalid location");
+				throw new InvalidityException("invalid location");
 			}
 			result += getXQueryVariable();
 			if (mappingFrom == null){					
@@ -159,10 +159,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		graphDepth = depth;
 		if (depth == 0 && mappingFrom != null) // depth=0 => ReturnGraph
-			throw new InvalidTranslationException("invalid SingleElementMapping to returnGraph");
+			throw new InvalidityException("invalid SingleElementMapping to returnGraph");
 		super.isValid(isDefinedPattern, depth);
 	}	
 	
@@ -172,14 +172,14 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 	
 	@Override
-	public String getXQueryRepresentation() throws InvalidTranslationException {
+	public String getXQueryRepresentation() throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
 			return ".";
 		} else {
 			if(translated) {
 				return getXQueryVariable();
 			} else {
-				throw new InvalidTranslationException("element not yet translated");
+				throw new InvalidityException("element not yet translated");
 			}
 		}
 	}

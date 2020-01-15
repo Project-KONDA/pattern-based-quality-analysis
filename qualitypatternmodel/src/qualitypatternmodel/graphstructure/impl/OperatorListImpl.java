@@ -21,7 +21,7 @@ import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.OperatorList;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -58,15 +58,15 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		if (getGraph() == null)
-			throw new InvalidTranslationException("OperatorList not in Graph");	
+			throw new InvalidityException("OperatorList not in Graph");	
 		if(getGraph().getAllOperators() == null)
-			throw new InvalidTranslationException("invalid Operators of Graph");				
+			throw new InvalidityException("invalid Operators of Graph");				
 		if (!getGraph().getAllOperators().containsAll(getOperators()))
-			throw new InvalidTranslationException("not all operators from OperatorList in Graph");	
+			throw new InvalidityException("not all operators from OperatorList in Graph");	
 		if (!operators.containsAll(getGraph().getAllOperators()))
-			throw new InvalidTranslationException("not all operators from graph in OperatorList");		
+			throw new InvalidityException("not all operators from graph in OperatorList");		
 	}
 
 	/**

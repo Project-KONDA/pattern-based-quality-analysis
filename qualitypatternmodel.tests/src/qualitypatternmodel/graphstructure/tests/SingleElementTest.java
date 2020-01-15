@@ -15,6 +15,7 @@ import qualitypatternmodel.graphstructure.SingleElement;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getOriginalID() <em>Get Original ID</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -81,6 +82,19 @@ public class SingleElementTest extends ElementTest {
 	 * @generated
 	 */
 	public void testGetOriginalID() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getXQueryVariable()
+	 * @generated
+	 */
+	public void testGetXQueryVariable() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

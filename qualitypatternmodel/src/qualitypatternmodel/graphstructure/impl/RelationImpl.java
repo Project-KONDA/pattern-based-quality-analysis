@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
@@ -105,21 +105,21 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}	
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException  {	
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException  {	
 		graphDepth = depth;
 		if (axis == null){
-			throw new InvalidTranslationException("axis invalid");
+			throw new InvalidityException("axis invalid");
 		}
 		if (depth == 0 && mappingFrom != null)
-			throw new InvalidTranslationException("invalid RelationMapping to returnGraph");
+			throw new InvalidityException("invalid RelationMapping to returnGraph");
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {		
+	public String toXQuery(Location location) throws InvalidityException {		
 		if(axis != null)
 			return "/" + axis.getLiteral() + "::*";
 		else 
-			throw new InvalidTranslationException("axis invalid");	
+			throw new InvalidityException("axis invalid");	
 	}
 	
 

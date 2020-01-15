@@ -14,6 +14,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.GraphElement#getReturnType() <em>Get Return Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.GraphElement#isTranslatable() <em>Is Translatable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -49,6 +50,19 @@ public abstract class GraphElementTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetReturnType() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.GraphElement#isTranslatable() <em>Is Translatable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.GraphElement#isTranslatable()
+	 * @generated
+	 */
+	public void testIsTranslatable() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

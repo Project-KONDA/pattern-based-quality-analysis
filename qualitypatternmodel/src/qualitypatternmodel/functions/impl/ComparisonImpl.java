@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.impl.InputImpl;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -75,21 +75,21 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		if(option!=null && option.getSelection()!=null && argument1 != null && argument2 != null) {
 			ComparisonOperator operator = option.getSelection();
 			return argument1.toXQuery(location) + operator.getLiteral() + argument2.toXQuery(location);
 		} else {
-			throw new InvalidTranslationException("invalid option");
+			throw new InvalidityException("invalid option");
 		}
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		if (argument1 == null)
-			throw new InvalidTranslationException("argument1 null");
+			throw new InvalidityException("argument1 null");
 		if (argument2 == null)
-			throw new InvalidTranslationException("argument2 null");
+			throw new InvalidityException("argument2 null");
 
 		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl)
 			argument1.isValid(isDefinedPattern, depth);
@@ -99,16 +99,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		if (option != null) {
 			option.isValid(isDefinedPattern, depth);
 		} else {
-			throw new InvalidTranslationException("operator Options invalid");
+			throw new InvalidityException("operator Options invalid");
 		}
 		if (!(argument1.getReturnType() == argument2.getReturnType()))
-			throw new InvalidTranslationException("unmatching types");
+			throw new InvalidityException("unmatching types");
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Operator> getAllOperators() throws InvalidTranslationException {
+	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
 		if (argument1 instanceof Operator) {
 			res.add((Operator) argument1);
@@ -125,7 +125,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	@Override
-	public EList<Input> getAllVariables() throws InvalidTranslationException {
+	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> res = new BasicEList<Input>();
 		if (argument1 instanceof Input) {
 			res.add((Input) argument1);

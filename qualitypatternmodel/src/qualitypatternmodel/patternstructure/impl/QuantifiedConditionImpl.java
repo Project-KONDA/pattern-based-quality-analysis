@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.InvalidTranslationException;
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -90,30 +90,30 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidTranslationException {
+	public String toXQuery(Location location) throws InvalidityException {
 		if(quantifier == Quantifier.EXISTS) {
 			return graph.toXQuery(Location.EXISTS) + condition.toXQuery(location);
 		} else if(quantifier == Quantifier.FORALL) {
 			return graph.toXQuery(Location.FORALL) + condition.toXQuery(location);
 		} else {
-			throw new InvalidTranslationException("invalid quantifier");
+			throw new InvalidityException("invalid quantifier");
 		}
 		
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidTranslationException {
+	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
 		depth += 1;
 		if (quantifier == null)
-			throw new InvalidTranslationException("quantifier null");
+			throw new InvalidityException("quantifier null");
 		if (condition == null)
-			throw new InvalidTranslationException("condition null");
+			throw new InvalidityException("condition null");
 		if (graph == null)
-			throw new InvalidTranslationException("graph null");
+			throw new InvalidityException("graph null");
 		if (morphism == null)
-			throw new InvalidTranslationException("morphism null");
+			throw new InvalidityException("morphism null");
 		if (quantifier != Quantifier.EXISTS && quantifier != Quantifier.FORALL)
-			throw new InvalidTranslationException("quantifier invalid");
+			throw new InvalidityException("quantifier invalid");
 
 		graph.isValid(isDefinedPattern, depth);
 		morphism.isValid(isDefinedPattern, depth);
@@ -121,7 +121,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public EList<Input> getAllVariables() throws InvalidTranslationException {
+	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> inputs = graph.getAllVariables();
 		inputs.addAll(condition.getAllVariables());
 		return inputs;
