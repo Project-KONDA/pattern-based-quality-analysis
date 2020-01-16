@@ -21,6 +21,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGraphDepth <em>Graph Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph <em>Return Graph</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph()
@@ -88,12 +89,13 @@ public interface Graph extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Graph Depth</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Graph Depth</em>' attribute.
 	 * @see #setGraphDepth(int)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_GraphDepth()
-	 * @model
+	 * @model default="-1"
 	 * @generated
 	 */
 	int getGraphDepth();
@@ -107,6 +109,29 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	void setGraphDepth(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Return Graph</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Return Graph</em>' attribute.
+	 * @see #setReturnGraph(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_ReturnGraph()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isReturnGraph();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph <em>Return Graph</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Return Graph</em>' attribute.
+	 * @see #isReturnGraph()
+	 * @generated
+	 */
+	void setReturnGraph(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

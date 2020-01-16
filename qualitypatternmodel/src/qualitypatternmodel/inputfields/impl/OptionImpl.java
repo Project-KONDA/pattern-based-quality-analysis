@@ -65,20 +65,20 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth, Class cls) throws InvalidityException {
+	public void isValidLocal(boolean isDefinedPattern, int depth, Class cls) throws InvalidityException {
 		if(selection != null && selection.getClass() != cls || options.get(0).getClass() != cls) {
 			throw new InvalidityException("options of wrong type");
 		}
-		this.isValid(isDefinedPattern, depth);
+		this.isValidLocal(isDefinedPattern, depth);
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (options == null) 
 			throw new InvalidityException("options null");
 		if (options.size() < 1) 
 			throw new InvalidityException("not enough options");
-		super.isValid(isDefinedPattern, depth);
+		super.isValidLocal(isDefinedPattern);
 	}
 	
 	@Override
@@ -207,9 +207,9 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case InputfieldsPackage.OPTION___IS_VALID__BOOLEAN_INT_CLASS:
+			case InputfieldsPackage.OPTION___IS_VALID_LOCAL__BOOLEAN_INT_CLASS:
 				try {
-					isValid((Boolean)arguments.get(0), (Integer)arguments.get(1), (Class)arguments.get(2));
+					isValidLocal((Boolean)arguments.get(0), (Integer)arguments.get(1), (Class)arguments.get(2));
 					return null;
 				}
 				catch (Throwable throwable) {

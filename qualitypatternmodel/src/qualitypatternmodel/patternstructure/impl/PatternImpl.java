@@ -7,15 +7,14 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -72,31 +71,30 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 */
 	protected PatternImpl() {
 		super();
-		returnGraph = new qualitypatternmodel.graphstructure.impl.GraphImpl();
-		variableList = new VariableListImpl(this);
-		
-	}
-
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
-		this.isValid(isDefinedPattern, 0);
+		setReturnGraph(new GraphImpl());
+		setVariableList(new VariableListImpl(this));
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+		variableList.isValid(isDefinedPattern);
+		returnGraph.isValid(isDefinedPattern);
+		condition.isValid(isDefinedPattern);
+	}
+	
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (variableList == null)
 			throw new InvalidityException("variableList null");
-		variableList.isValid(isDefinedPattern, depth);
 		if (returnGraph == null)
 			throw new InvalidityException("returnGraph null");
-		returnGraph.isValid(isDefinedPattern, depth);
 		if (condition == null)
 			throw new InvalidityException("condition null");
-		condition.isValid(isDefinedPattern, depth);
 	}
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		if(returnGraph.getReturnElements() == null || returnGraph.getReturnElements().isEmpty()) {
+		if (returnGraph.getReturnElements() == null || returnGraph.getReturnElements().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
 		String returnVariables = "(";
@@ -108,11 +106,11 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		return returnGraph.toXQuery(Location.RETURN) + "\nwhere " + condition.toXQuery(Location.OUTSIDE) + "\nreturn "
 				+ returnVariables;
 	}
-	
+
 	public String toXQuery() throws InvalidityException {
 		return toXQuery(Location.OUTSIDE);
 	}
-	
+
 	@Override
 	public void prepareTranslation() {
 		returnGraph.prepareTranslation();
@@ -161,7 +159,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void setReturnGraph(Graph newReturnGraph) {
 		if (newReturnGraph != returnGraph) {
@@ -170,6 +167,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				msgs = ((InternalEObject)returnGraph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
 			if (newReturnGraph != null)
 				msgs = ((InternalEObject)newReturnGraph).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
+			newReturnGraph.setReturnGraph(true);
+			newReturnGraph.setGraphDepth(0);
 			msgs = basicSetReturnGraph(newReturnGraph, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -201,15 +200,15 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void setCondition(Condition newCondition) {
 		if (newCondition != condition) {
 			NotificationChain msgs = null;
 			if (condition != null)
 				msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
-			if (newCondition != null)
-				msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
+			if (newCondition != null) {
+				newCondition.setCondDepth(1);
+				msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);}
 			msgs = basicSetCondition(newCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -370,14 +369,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.PATTERN___IS_VALID__BOOLEAN:
-				try {
-					isValid((Boolean)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case PatternstructurePackage.PATTERN___TO_XQUERY:
 				try {
 					return toXQuery();

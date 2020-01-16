@@ -64,21 +64,26 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+	}
+	
+	@Override
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		EList<Input> patternVars = getPattern().getAllVariables();
-		if (!patternVars.containsAll(variables))
+		if (!patternVars.containsAll(getVariables()))
 			throw new InvalidityException("not all variables from VariableList in Graph");	
-		if (!variables.containsAll(patternVars)) {
+		if (!getVariables().containsAll(patternVars)) {
 			String msg = "not all variables from graph in VariableList:\n";
-			for (Input variable : variables) {
+			for (Input variable : getVariables()) {
 				msg += variable + ", ";
 			}
 			msg += "\n";
 			for (Input variable : patternVars) {
 				msg += " " + variable;
 			}			
-			throw new InvalidityException(msg);				
-		}
+			throw new InvalidityException(msg);		
+		}		
 	}
 
 	/**

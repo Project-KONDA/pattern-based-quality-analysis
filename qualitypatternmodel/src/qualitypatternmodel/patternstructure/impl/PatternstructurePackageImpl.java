@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import qualitypatternmodel.functions.FunctionsPackage;
@@ -41,6 +42,7 @@ import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 import qualitypatternmodel.patternstructure.True;
 import qualitypatternmodel.patternstructure.VariableList;
+import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -221,6 +223,15 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		theFunctionsPackage.initializePackageContents();
 		theGraphstructurePackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(thePatternstructurePackage,
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return PatternstructureValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		thePatternstructurePackage.freeze();
 
@@ -315,6 +326,15 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCondition_CondDepth() {
+		return (EAttribute)conditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMorphism() {
 		return morphismEClass;
 	}
@@ -351,6 +371,15 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMorphism_MorphDepth() {
+		return (EAttribute)morphismEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSingleElementMapping() {
 		return singleElementMappingEClass;
 	}
@@ -380,6 +409,15 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	public EClass getMapping() {
 		return mappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMapping_MappingDepth() {
+		return (EAttribute)mappingEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -513,7 +551,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPatternElement__IsValid__boolean_int() {
+	public EOperation getPatternElement__GetNewId() {
 		return patternElementEClass.getEOperations().get(2);
 	}
 
@@ -522,7 +560,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPatternElement__GetNewId() {
+	public EOperation getPatternElement__PrepareTranslation() {
 		return patternElementEClass.getEOperations().get(3);
 	}
 
@@ -531,8 +569,26 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPatternElement__PrepareTranslation() {
+	public EOperation getPatternElement__Validate__DiagnosticChain_Map() {
 		return patternElementEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPatternElement__IsValid__boolean() {
+		return patternElementEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPatternElement__IsValidLocal__boolean() {
+		return patternElementEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -637,17 +693,20 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(quantifiedConditionEClass, QUANTIFIED_CONDITION__QUANTIFIER);
 
 		conditionEClass = createEClass(CONDITION);
+		createEAttribute(conditionEClass, CONDITION__COND_DEPTH);
 
 		morphismEClass = createEClass(MORPHISM);
 		createEReference(morphismEClass, MORPHISM__MAPPINGS);
 		createEReference(morphismEClass, MORPHISM__FROM);
 		createEReference(morphismEClass, MORPHISM__TO);
+		createEAttribute(morphismEClass, MORPHISM__MORPH_DEPTH);
 
 		singleElementMappingEClass = createEClass(SINGLE_ELEMENT_MAPPING);
 		createEReference(singleElementMappingEClass, SINGLE_ELEMENT_MAPPING__FROM);
 		createEReference(singleElementMappingEClass, SINGLE_ELEMENT_MAPPING__TO);
 
 		mappingEClass = createEClass(MAPPING);
+		createEAttribute(mappingEClass, MAPPING__MAPPING_DEPTH);
 
 		formulaEClass = createEClass(FORMULA);
 		createEReference(formulaEClass, FORMULA__ARGUMENTS);
@@ -666,9 +725,11 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___TO_XQUERY__LOCATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_VARIABLES);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_NEW_ID);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___PREPARE_TRANSLATION);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN);
 
 		variableListEClass = createEClass(VARIABLE_LIST);
 		createEReference(variableListEClass, VARIABLE_LIST__VARIABLES);
@@ -738,17 +799,20 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getQuantifiedCondition_Quantifier(), this.getQuantifier(), "quantifier", null, 0, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCondition_CondDepth(), ecorePackage.getEInt(), "condDepth", "-1", 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(morphismEClass, Morphism.class, "Morphism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMorphism_Mappings(), this.getMapping(), null, "mappings", null, 0, -1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_From(), theGraphstructurePackage.getGraph(), null, "from", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_To(), theGraphstructurePackage.getGraph(), null, "to", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMorphism_MorphDepth(), ecorePackage.getEInt(), "morphDepth", "-1", 0, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(singleElementMappingEClass, SingleElementMapping.class, "SingleElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSingleElementMapping_From(), theGraphstructurePackage.getSingleElement(), theGraphstructurePackage.getSingleElement_MappingTo(), "from", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSingleElementMapping_To(), theGraphstructurePackage.getSingleElement(), theGraphstructurePackage.getSingleElement_MappingFrom(), "to", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mappingEClass, Mapping.class, "Mapping", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMapping_MappingDepth(), ecorePackage.getEInt(), "mappingDepth", "-1", 0, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formulaEClass, Formula.class, "Formula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFormula_Arguments(), this.getCondition(), null, "arguments", null, 1, -1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -778,15 +842,22 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		op = initEOperation(getPatternElement__GetAllVariables(), theInputfieldsPackage.getInput(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getPatternElement__IsValid__boolean_int(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "depth", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidityExceptionWrapper());
-
 		op = initEOperation(getPatternElement__GetNewId(), ecorePackage.getEInt(), "getNewId", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEOperation(getPatternElement__PrepareTranslation(), null, "prepareTranslation", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPatternElement__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPatternElement__IsValid__boolean(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getPatternElement__IsValidLocal__boolean(), null, "isValidLocal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEClass(variableListEClass, VariableList.class, "VariableList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableList_Variables(), theInputfieldsPackage.getInput(), theInputfieldsPackage.getInput_VariableList(), "variables", null, 0, -1, VariableList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

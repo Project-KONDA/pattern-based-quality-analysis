@@ -63,6 +63,6 @@ public interface Option<T> extends Input {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void isValid(boolean isDefinedBattern, int depth, Class cls) throws InvalidityException;
+	void isValidLocal(boolean isDefinedBattern, int depth, Class cls) throws InvalidityException;
 
 } // Option

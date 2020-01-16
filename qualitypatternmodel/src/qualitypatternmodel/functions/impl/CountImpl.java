@@ -56,9 +56,13 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+	}
+	
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (argument == null)
-			throw new InvalidityException("argument null");
+			throw new InvalidityException("argument null");		
 	}
 
 	@Override

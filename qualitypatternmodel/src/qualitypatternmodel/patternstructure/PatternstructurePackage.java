@@ -106,22 +106,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___GET_ALL_VARIABLES = 1;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT = 2;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_NEW_ID = 3;
+	int PATTERN_ELEMENT___GET_NEW_ID = 2;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -130,7 +121,34 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___PREPARE_TRANSLATION = 4;
+	int PATTERN_ELEMENT___PREPARE_TRANSLATION = 3;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = 4;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___IS_VALID__BOOLEAN = 5;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN = 6;
 
 	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
@@ -139,7 +157,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 5;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -161,13 +179,22 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING__ID = PATTERN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING__MAPPING_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int MAPPING_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -188,15 +215,6 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -213,6 +231,33 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
@@ -241,6 +286,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING__ID = MAPPING__ID;
+
+	/**
+	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING__MAPPING_DEPTH = MAPPING__MAPPING_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' reference.
@@ -288,15 +342,6 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING___GET_ALL_VARIABLES = MAPPING___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___IS_VALID__BOOLEAN_INT = MAPPING___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,6 +358,33 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING___PREPARE_TRANSLATION = MAPPING___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___IS_VALID_LOCAL__BOOLEAN = MAPPING___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Relation Mapping</em>' class.
@@ -343,13 +415,22 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION__ID = PATTERN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__COND_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int CONDITION_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -370,15 +451,6 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -395,6 +467,33 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -423,6 +522,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int QUANTIFIED_CONDITION__ID = CONDITION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION__COND_DEPTH = CONDITION__COND_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -488,15 +596,6 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___GET_ALL_VARIABLES = CONDITION___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___IS_VALID__BOOLEAN_INT = CONDITION___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -513,6 +612,33 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int QUANTIFIED_CONDITION___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Quantified Condition</em>' class.
@@ -570,13 +696,22 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM__TO = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Morph Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM__MORPH_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Morphism</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -597,15 +732,6 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -622,6 +748,33 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
@@ -650,6 +803,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT_MAPPING__ID = MAPPING__ID;
+
+	/**
+	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING__MAPPING_DEPTH = MAPPING__MAPPING_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
@@ -697,15 +859,6 @@ public interface PatternstructurePackage extends EPackage {
 	int SINGLE_ELEMENT_MAPPING___GET_ALL_VARIABLES = MAPPING___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT_MAPPING___IS_VALID__BOOLEAN_INT = MAPPING___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -722,6 +875,33 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT_MAPPING___PREPARE_TRANSLATION = MAPPING___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING___IS_VALID_LOCAL__BOOLEAN = MAPPING___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Single Element Mapping</em>' class.
@@ -750,6 +930,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int FORMULA__ID = CONDITION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA__COND_DEPTH = CONDITION__COND_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
@@ -797,15 +986,6 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___GET_ALL_VARIABLES = CONDITION___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___IS_VALID__BOOLEAN_INT = CONDITION___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -822,6 +1002,33 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int FORMULA___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Formula</em>' class.
@@ -852,6 +1059,15 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE__ID = CONDITION__ID;
 
 	/**
+	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE__COND_DEPTH = CONDITION__COND_DEPTH;
+
+	/**
 	 * The number of structural features of the '<em>True</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -879,15 +1095,6 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE___GET_ALL_VARIABLES = CONDITION___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE___IS_VALID__BOOLEAN_INT = CONDITION___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -904,6 +1111,33 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUE___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>True</em>' class.
@@ -988,15 +1222,6 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1013,6 +1238,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1106,15 +1349,6 @@ public interface PatternstructurePackage extends EPackage {
 	int VARIABLE_LIST___GET_ALL_VARIABLES = PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_LIST___IS_VALID__BOOLEAN_INT = PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1131,6 +1365,33 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_LIST___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Variable List</em>' class.
@@ -1278,6 +1539,17 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getCondition();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Condition#getCondDepth <em>Cond Depth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cond Depth</em>'.
+	 * @see qualitypatternmodel.patternstructure.Condition#getCondDepth()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EAttribute getCondition_CondDepth();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Morphism <em>Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1321,6 +1593,17 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getMorphism_To();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Morph Depth</em>'.
+	 * @see qualitypatternmodel.patternstructure.Morphism#getMorphDepth()
+	 * @see #getMorphism()
+	 * @generated
+	 */
+	EAttribute getMorphism_MorphDepth();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.SingleElementMapping <em>Single Element Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1361,6 +1644,17 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMapping();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Mapping#getMappingDepth <em>Mapping Depth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapping Depth</em>'.
+	 * @see qualitypatternmodel.patternstructure.Mapping#getMappingDepth()
+	 * @see #getMapping()
+	 * @generated
+	 */
+	EAttribute getMapping_MappingDepth();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Formula <em>Formula</em>}'.
@@ -1509,16 +1803,6 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__GetAllVariables();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, int) <em>Is Valid</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(boolean, int)
-	 * @generated
-	 */
-	EOperation getPatternElement__IsValid__boolean_int();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getNewId() <em>Get New Id</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1537,6 +1821,36 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__PrepareTranslation();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Validate</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getPatternElement__Validate__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(boolean)
+	 * @generated
+	 */
+	EOperation getPatternElement__IsValid__boolean();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValidLocal(boolean) <em>Is Valid Local</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Local</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#isValidLocal(boolean)
+	 * @generated
+	 */
+	EOperation getPatternElement__IsValidLocal__boolean();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.VariableList <em>Variable List</em>}'.
@@ -1713,6 +2027,14 @@ public interface PatternstructurePackage extends EPackage {
 		EClass CONDITION = eINSTANCE.getCondition();
 
 		/**
+		 * The meta object literal for the '<em><b>Cond Depth</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION__COND_DEPTH = eINSTANCE.getCondition_CondDepth();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.MorphismImpl <em>Morphism</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1745,6 +2067,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference MORPHISM__TO = eINSTANCE.getMorphism_To();
+
+		/**
+		 * The meta object literal for the '<em><b>Morph Depth</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MORPHISM__MORPH_DEPTH = eINSTANCE.getMorphism_MorphDepth();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl <em>Single Element Mapping</em>}' class.
@@ -1781,6 +2111,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EClass MAPPING = eINSTANCE.getMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapping Depth</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MAPPING__MAPPING_DEPTH = eINSTANCE.getMapping_MappingDepth();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.FormulaImpl <em>Formula</em>}' class.
@@ -1903,14 +2241,6 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___GET_ALL_VARIABLES = eINSTANCE.getPatternElement__GetAllVariables();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT = eINSTANCE.getPatternElement__IsValid__boolean_int();
-
-		/**
 		 * The meta object literal for the '<em><b>Get New Id</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1925,6 +2255,30 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___PREPARE_TRANSLATION = eINSTANCE.getPatternElement__PrepareTranslation();
+
+		/**
+		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getPatternElement__Validate__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___IS_VALID__BOOLEAN = eINSTANCE.getPatternElement__IsValid__boolean();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Local</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN = eINSTANCE.getPatternElement__IsValidLocal__boolean();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.VariableListImpl <em>Variable List</em>}' class.

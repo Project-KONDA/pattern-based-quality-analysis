@@ -18,6 +18,7 @@ import qualitypatternmodel.graphstructure.Graph;
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism()
@@ -80,5 +81,28 @@ public interface Morphism extends PatternElement {
 	 * @generated
 	 */
 	void setTo(Graph value);
+
+	/**
+	 * Returns the value of the '<em><b>Morph Depth</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Morph Depth</em>' attribute.
+	 * @see #setMorphDepth(int)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_MorphDepth()
+	 * @model default="-1"
+	 * @generated
+	 */
+	int getMorphDepth();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Morph Depth</em>' attribute.
+	 * @see #getMorphDepth()
+	 * @generated
+	 */
+	void setMorphDepth(int value);
 
 } // Morphism

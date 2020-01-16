@@ -50,8 +50,8 @@ public class ElementItemProvider extends GraphElementItemProvider {
 
 			addPredicatesPropertyDescriptor(object);
 			addTranslatedPropertyDescriptor(object);
-			addRootPropertyDescriptor(object);
 			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
+			addGraphDepthPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -101,28 +101,6 @@ public class ElementItemProvider extends GraphElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Root feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRootPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Element_root_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Element_root_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__ROOT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Predicates Are Being Translated feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,6 +118,28 @@ public class ElementItemProvider extends GraphElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Graph Depth feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGraphDepthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Element_graphDepth_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_graphDepth_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__GRAPH_DEPTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -201,8 +201,8 @@ public class ElementItemProvider extends GraphElementItemProvider {
 
 		switch (notification.getFeatureID(Element.class)) {
 			case GraphstructurePackage.ELEMENT__TRANSLATED:
-			case GraphstructurePackage.ELEMENT__ROOT:
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+			case GraphstructurePackage.ELEMENT__GRAPH_DEPTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:

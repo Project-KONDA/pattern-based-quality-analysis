@@ -38,6 +38,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getRootElement <em>Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGraphDepth <em>Graph Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#isReturnGraph <em>Return Graph</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,7 +82,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int GRAPH_DEPTH_EDEFAULT = 0;
+	protected static final int GRAPH_DEPTH_EDEFAULT = -1;
 
 	/**
 	 * The cached value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
@@ -92,6 +93,26 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @ordered
 	 */
 	protected int graphDepth = GRAPH_DEPTH_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isReturnGraph() <em>Return Graph</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnGraph()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RETURN_GRAPH_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReturnGraph() <em>Return Graph</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnGraph()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean returnGraph = RETURN_GRAPH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,16 +130,19 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
-		graphDepth = depth;
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+		rootElement.isValid(isDefinedPattern);
+		operatorList.isValid(isDefinedPattern);
+	}
+	
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if(returnElements == null || returnElements.isEmpty()) 
 			throw new InvalidityException("returnElement empty");
-		if (rootElement == null) 
-			throw new InvalidityException("rootElement null");
-		rootElement.isValid(isDefinedPattern, depth);
 		if (operatorList == null) 
 			throw new InvalidityException("operatorList null");
-		operatorList.isValid(isDefinedPattern, depth);
+		if (rootElement == null) 
+			throw new InvalidityException("rootElement null");
 	}
 	
 	@Override
@@ -202,7 +226,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void setRootElement(SingleElement newRootElement) {
 		if (newRootElement != rootElement) {
@@ -211,6 +234,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				msgs = ((InternalEObject)rootElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
 			if (newRootElement != null)
 				msgs = ((InternalEObject)newRootElement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
+			newRootElement.setRoot(true);
 			msgs = basicSetRootElement(newRootElement, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -287,6 +311,27 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isReturnGraph() {
+		return returnGraph;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReturnGraph(boolean newReturnGraph) {
+		boolean oldReturnGraph = returnGraph;
+		returnGraph = newReturnGraph;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__RETURN_GRAPH, oldReturnGraph, returnGraph));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -314,6 +359,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getOperatorList();
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
 				return getGraphDepth();
+			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
+				return isReturnGraph();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -340,6 +387,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
 				setGraphDepth((Integer)newValue);
 				return;
+			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
+				setReturnGraph((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -364,6 +414,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
 				setGraphDepth(GRAPH_DEPTH_EDEFAULT);
 				return;
+			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
+				setReturnGraph(RETURN_GRAPH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -384,6 +437,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return operatorList != null;
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
 				return graphDepth != GRAPH_DEPTH_EDEFAULT;
+			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
+				return returnGraph != RETURN_GRAPH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -419,6 +474,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (graphDepth: ");
 		result.append(graphDepth);
+		result.append(", returnGraph: ");
+		result.append(returnGraph);
 		result.append(')');
 		return result.toString();
 	}

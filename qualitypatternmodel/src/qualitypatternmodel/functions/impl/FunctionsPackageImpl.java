@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import qualitypatternmodel.functions.BooleanOperator;
@@ -22,7 +22,7 @@ import qualitypatternmodel.functions.NumberOperators;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OtherOperators;
 import qualitypatternmodel.functions.ToNumber;
-
+import qualitypatternmodel.functions.util.FunctionsValidator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
@@ -172,6 +172,15 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		theGraphstructurePackage.initializePackageContents();
 		thePatternstructurePackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theFunctionsPackage,
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return FunctionsValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theFunctionsPackage.freeze();
 
@@ -205,6 +214,15 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 */
 	public EOperation getOperator__GetAllOperators() {
 		return operatorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getOperator__Validate__DiagnosticChain_Map() {
+		return operatorEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -374,6 +392,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		operatorEClass = createEClass(OPERATOR);
 		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
+		createEOperation(operatorEClass, OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		countEClass = createEClass(COUNT);
 		createEReference(countEClass, COUNT__ARGUMENT);
@@ -448,6 +467,10 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		EOperation op = initEOperation(getOperator__GetAllOperators(), this.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getOperator__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(countEClass, Count.class, "Count", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCount_Argument(), theGraphstructurePackage.getSetElement(), null, "argument", null, 1, 1, Count.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

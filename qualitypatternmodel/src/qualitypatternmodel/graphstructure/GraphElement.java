@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.graphstructure;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -40,5 +42,13 @@ public interface GraphElement extends PatternElement {
 	 * @generated
 	 */
 	String toXQuery(Location location, int depth) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean validate(DiagnosticChain chain, Map context);
 
 } // GraphElement

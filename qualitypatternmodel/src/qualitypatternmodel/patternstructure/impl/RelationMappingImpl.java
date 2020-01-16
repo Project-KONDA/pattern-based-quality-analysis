@@ -59,8 +59,12 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
-		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != depth)
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+	}
+
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth())
 			throw new InvalidityException("invalid target relations");
 		if (from == null)
 			throw new InvalidityException("from null");

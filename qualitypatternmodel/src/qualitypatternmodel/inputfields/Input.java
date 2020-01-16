@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.inputfields;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.patternstructure.VariableList;
 
@@ -99,5 +101,13 @@ public interface Input extends GraphElement {
 	 * @generated
 	 */
 	boolean inputIsValid();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean validate(DiagnosticChain chain, Map context);
 
 } // Input

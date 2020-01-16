@@ -40,9 +40,9 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isTranslated <em>Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isRoot <em>Root</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGraphDepth <em>Graph Depth</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,26 +86,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected boolean translated = TRANSLATED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isRoot() <em>Root</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #isRoot()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ROOT_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isRoot() <em>Root</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #isRoot()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean root = ROOT_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getProperties()
@@ -135,6 +115,26 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected boolean predicatesAreBeingTranslated = PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGraphDepth()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int GRAPH_DEPTH_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGraphDepth()
+	 * @generated
+	 * @ordered
+	 */
+	protected int graphDepth = GRAPH_DEPTH_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -143,26 +143,24 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+		for (Element next : getNextElements())
+			next.isValid(isDefinedPattern);
+		for (BooleanOperator predicate : getPredicates())
+			predicate.isValid(isDefinedPattern);
+	}
 
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		for (Element next : getNextElements()) {
 			if (next == null)
 				throw new InvalidityException("nextElement null (" + next + ")");
-			next.isValid(isDefinedPattern, depth);
-			if (!next.getPreviousElement().equals(this))
+			if (next.getPreviousElement() == null || !next.getPreviousElement().equals(this))
 				throw new InvalidityException("nextElement not valid (" + next + ")");
 		}
-
-		for (BooleanOperator predicate : getPredicates()) {
+		for (BooleanOperator predicate : getPredicates())
 			if (predicate == null)
 				throw new InvalidityException("predicate null (" + predicate + ")");
-			predicate.isValid(isDefinedPattern, depth);
-		}
-
-		if (!root && getPreviousElement() == null)
-			throw new InvalidityException("previousElement null");
-		if (!root)
-			relationFromPrevious.isValid(isDefinedPattern, depth);
 	}
 
 	/**
@@ -192,10 +190,12 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @throws InvalidityException 
+	 * 
+	 * @throws InvalidityException
 	 */
 	public String getContextRepresentation(int depth) throws InvalidityException {
-		if (depth<1) throw new InvalidityException("invalid depth");
+		if (depth < 1)
+			throw new InvalidityException("invalid depth");
 		switch (depth) {
 		case 1:
 			return ".";
@@ -282,7 +282,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void setRelationFromPrevious(Relation newRelationFromPrevious) {
 		if (newRelationFromPrevious != relationFromPrevious) {
@@ -291,6 +290,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				msgs = ((InternalEObject)relationFromPrevious).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, null, msgs);
 			if (newRelationFromPrevious != null)
 				msgs = ((InternalEObject)newRelationFromPrevious).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, null, msgs);
+			newRelationFromPrevious.setGraphDepth(getGraphDepth());
 			msgs = basicSetRelationFromPrevious(newRelationFromPrevious, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -321,25 +321,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isRoot() {
-		return root;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRoot(boolean newRoot) {
-		boolean oldRoot = root;
-		root = newRoot;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__ROOT, oldRoot, root));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Property> getProperties() {
 		if (properties == null) {
 			properties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, GraphstructurePackage.ELEMENT__PROPERTIES, GraphstructurePackage.PROPERTY__ELEMENT);
@@ -364,6 +345,29 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		predicatesAreBeingTranslated = newPredicatesAreBeingTranslated;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED, oldPredicatesAreBeingTranslated, predicatesAreBeingTranslated));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getGraphDepth() {
+		return graphDepth;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void setGraphDepth(int newGraphDepth) {
+		int oldGraphDepth = graphDepth;
+		graphDepth = newGraphDepth;
+		for (Element e : getNextElements()) {
+			e.setGraphDepth(graphDepth);
+		}
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__GRAPH_DEPTH, oldGraphDepth, graphDepth));
 	}
 
 	/**
@@ -418,12 +422,12 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return getRelationFromPrevious();
 			case GraphstructurePackage.ELEMENT__TRANSLATED:
 				return isTranslated();
-			case GraphstructurePackage.ELEMENT__ROOT:
-				return isRoot();
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return getProperties();
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				return isPredicatesAreBeingTranslated();
+			case GraphstructurePackage.ELEMENT__GRAPH_DEPTH:
+				return getGraphDepth();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -446,15 +450,15 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__TRANSLATED:
 				setTranslated((Boolean)newValue);
 				return;
-			case GraphstructurePackage.ELEMENT__ROOT:
-				setRoot((Boolean)newValue);
-				return;
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				getProperties().clear();
 				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated((Boolean)newValue);
+				return;
+			case GraphstructurePackage.ELEMENT__GRAPH_DEPTH:
+				setGraphDepth((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -476,14 +480,14 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__TRANSLATED:
 				setTranslated(TRANSLATED_EDEFAULT);
 				return;
-			case GraphstructurePackage.ELEMENT__ROOT:
-				setRoot(ROOT_EDEFAULT);
-				return;
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				getProperties().clear();
 				return;
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
+				return;
+			case GraphstructurePackage.ELEMENT__GRAPH_DEPTH:
+				setGraphDepth(GRAPH_DEPTH_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -502,12 +506,12 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return relationFromPrevious != null;
 			case GraphstructurePackage.ELEMENT__TRANSLATED:
 				return translated != TRANSLATED_EDEFAULT;
-			case GraphstructurePackage.ELEMENT__ROOT:
-				return root != ROOT_EDEFAULT;
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return properties != null && !properties.isEmpty();
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				return predicatesAreBeingTranslated != PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
+			case GraphstructurePackage.ELEMENT__GRAPH_DEPTH:
+				return graphDepth != GRAPH_DEPTH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -559,10 +563,10 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (translated: ");
 		result.append(translated);
-		result.append(", root: ");
-		result.append(root);
 		result.append(", predicatesAreBeingTranslated: ");
 		result.append(predicatesAreBeingTranslated);
+		result.append(", graphDepth: ");
+		result.append(graphDepth);
 		result.append(')');
 		return result.toString();
 	}

@@ -33,6 +33,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMappings <em>Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getFrom <em>From</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getTo <em>To</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMorphDepth <em>Morph Depth</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +69,26 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	protected Graph to;
 
 	/**
+	 * The default value of the '{@link #getMorphDepth() <em>Morph Depth</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMorphDepth()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MORPH_DEPTH_EDEFAULT = -1;
+
+	/**
+	 * The cached value of the '{@link #getMorphDepth() <em>Morph Depth</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMorphDepth()
+	 * @generated
+	 * @ordered
+	 */
+	protected int morphDepth = MORPH_DEPTH_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -76,24 +97,23 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
-//		if (from == null || to == null) 
-//			return false;
-//		for(Mapping m : mappings) 
-//			if(m == null || !m.isValid(isDefinedPattern)) 
-//				return false;
-//		return true;
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+		for (Mapping mapping : mappings) {
+			mapping.isValid(isDefinedPattern);
+		}
+	}
+
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (from == null)
 			throw new InvalidityException("from null");
 		if (to == null)
 			throw new InvalidityException("to null");
-		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != depth)
+		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMorphDepth())
 			throw new InvalidityException("invalid target graphs");
-		for (Mapping mapping : mappings) {
+		for (Mapping mapping : mappings)
 			if (mapping == null)
 				throw new InvalidityException("mapping invalid (" + mapping + ")");
-			mapping.isValid(isDefinedPattern, depth);
-		}
 	}
 
 	/**
@@ -187,6 +207,27 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMorphDepth() {
+		return morphDepth;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMorphDepth(int newMorphDepth) {
+		int oldMorphDepth = morphDepth;
+		morphDepth = newMorphDepth;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__MORPH_DEPTH, oldMorphDepth, morphDepth));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -214,6 +255,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__TO:
 				if (resolve) return getTo();
 				return basicGetTo();
+			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
+				return getMorphDepth();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,6 +279,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__TO:
 				setTo((Graph)newValue);
 				return;
+			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
+				setMorphDepth((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -256,6 +302,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__TO:
 				setTo((Graph)null);
 				return;
+			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
+				setMorphDepth(MORPH_DEPTH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -273,8 +322,26 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return from != null;
 			case PatternstructurePackage.MORPHISM__TO:
 				return to != null;
+			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
+				return morphDepth != MORPH_DEPTH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (morphDepth: ");
+		result.append(morphDepth);
+		result.append(')');
+		return result.toString();
 	}
 
 } // MorphismImpl

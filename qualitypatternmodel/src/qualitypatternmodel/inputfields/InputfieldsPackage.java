@@ -133,15 +133,6 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___GET_ALL_VARIABLES = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT___IS_VALID__BOOLEAN_INT = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,6 +149,24 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT___PREPARE_TRANSLATION = GraphstructurePackage.GRAPH_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___IS_VALID__BOOLEAN = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___IS_VALID_LOCAL__BOOLEAN = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -196,13 +205,22 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___INPUT_IS_VALID = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Input</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 1;
+	int INPUT_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.NumberImpl <em>Number</em>}' class.
@@ -287,15 +305,6 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -312,6 +321,24 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -348,6 +375,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Number</em>' class.
@@ -441,15 +477,6 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -466,6 +493,24 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -502,6 +547,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Boolean</em>' class.
@@ -604,15 +658,6 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -629,6 +674,24 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPTION___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -667,13 +730,22 @@ public interface InputfieldsPackage extends EPackage {
 	int OPTION___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPTION___IS_VALID__BOOLEAN_INT_CLASS = INPUT_OPERATION_COUNT + 0;
+	int OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION___IS_VALID_LOCAL__BOOLEAN_INT_CLASS = INPUT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Option</em>' class.
@@ -767,15 +839,6 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT___IS_VALID__BOOLEAN_INT = INPUT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -792,6 +855,24 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -828,6 +909,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Text</em>' class.
@@ -891,6 +981,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getInput__InputIsValid();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Input#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Validate</em>' operation.
+	 * @see qualitypatternmodel.inputfields.Input#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getInput__Validate__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Number <em>Number</em>}'.
@@ -967,14 +1067,14 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getOption_Selection();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Option#isValid(boolean, int, java.lang.Class) <em>Is Valid</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Option#isValidLocal(boolean, int, java.lang.Class) <em>Is Valid Local</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid</em>' operation.
-	 * @see qualitypatternmodel.inputfields.Option#isValid(boolean, int, java.lang.Class)
+	 * @return the meta object for the '<em>Is Valid Local</em>' operation.
+	 * @see qualitypatternmodel.inputfields.Option#isValidLocal(boolean, int, java.lang.Class)
 	 * @generated
 	 */
-	EOperation getOption__IsValid__boolean_int_Class();
+	EOperation getOption__IsValidLocal__boolean_int_Class();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Text <em>Text</em>}'.
@@ -1063,6 +1163,14 @@ public interface InputfieldsPackage extends EPackage {
 		EOperation INPUT___INPUT_IS_VALID = eINSTANCE.getInput__InputIsValid();
 
 		/**
+		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getInput__Validate__DiagnosticChain_Map();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.NumberImpl <em>Number</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1125,12 +1233,12 @@ public interface InputfieldsPackage extends EPackage {
 		EAttribute OPTION__SELECTION = eINSTANCE.getOption_Selection();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
+		 * The meta object literal for the '<em><b>Is Valid Local</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation OPTION___IS_VALID__BOOLEAN_INT_CLASS = eINSTANCE.getOption__IsValid__boolean_int_Class();
+		EOperation OPTION___IS_VALID_LOCAL__BOOLEAN_INT_CLASS = eINSTANCE.getOption__IsValidLocal__boolean_int_Class();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.TextImpl <em>Text</em>}' class.

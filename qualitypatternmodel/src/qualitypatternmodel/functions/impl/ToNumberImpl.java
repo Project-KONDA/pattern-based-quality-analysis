@@ -58,10 +58,14 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+		property.isValid(isDefinedPattern);
+	}
+	
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (property == null)
-			throw new InvalidityException("property null");
-		property.isValid(isDefinedPattern, depth);
+			throw new InvalidityException("property null");		
 	}
 	
 	@Override

@@ -106,15 +106,6 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___GET_ALL_VARIABLES = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR___IS_VALID__BOOLEAN_INT = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,6 +122,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR___PREPARE_TRANSLATION = GraphstructurePackage.GRAPH_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___IS_VALID__BOOLEAN = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___IS_VALID_LOCAL__BOOLEAN = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -169,13 +178,22 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___GET_ALL_OPERATORS = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 1;
+	int OPERATOR_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.BooleanOperatorImpl <em>Boolean Operator</em>}' class.
@@ -224,15 +242,6 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_INT = OPERATOR___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,6 +258,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___PREPARE_TRANSLATION = OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___IS_VALID_LOCAL__BOOLEAN = OPERATOR___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -285,6 +312,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
@@ -342,15 +378,6 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATORS___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OPERATORS___IS_VALID__BOOLEAN_INT = OPERATOR___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -367,6 +394,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATORS___PREPARE_TRANSLATION = OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS___IS_VALID_LOCAL__BOOLEAN = OPERATOR___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -403,6 +448,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATORS___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS___VALIDATE__DIAGNOSTICCHAIN_MAP = OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Number Operators</em>' class.
@@ -469,15 +523,6 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT___GET_ALL_VARIABLES = NUMBER_OPERATORS___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT___IS_VALID__BOOLEAN_INT = NUMBER_OPERATORS___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -494,6 +539,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT___PREPARE_TRANSLATION = NUMBER_OPERATORS___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___IS_VALID__BOOLEAN = NUMBER_OPERATORS___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___IS_VALID_LOCAL__BOOLEAN = NUMBER_OPERATORS___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -530,6 +593,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT___GET_ALL_OPERATORS = NUMBER_OPERATORS___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___VALIDATE__DIAGNOSTICCHAIN_MAP = NUMBER_OPERATORS___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Count</em>' class.
@@ -587,15 +659,6 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATORS___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_OPERATORS___IS_VALID__BOOLEAN_INT = OPERATOR___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -612,6 +675,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OTHER_OPERATORS___PREPARE_TRANSLATION = OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS___IS_VALID_LOCAL__BOOLEAN = OPERATOR___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -648,6 +729,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OTHER_OPERATORS___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS___VALIDATE__DIAGNOSTICCHAIN_MAP = OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Other Operators</em>' class.
@@ -732,15 +822,6 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___GET_ALL_VARIABLES = BOOLEAN_OPERATOR___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___IS_VALID__BOOLEAN_INT = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -757,6 +838,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___PREPARE_TRANSLATION = BOOLEAN_OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___IS_VALID__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___IS_VALID_LOCAL__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -793,6 +892,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Match</em>' class.
@@ -877,15 +985,6 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___GET_ALL_VARIABLES = BOOLEAN_OPERATOR___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___IS_VALID__BOOLEAN_INT = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -902,6 +1001,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___PREPARE_TRANSLATION = BOOLEAN_OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___IS_VALID__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___IS_VALID_LOCAL__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -938,6 +1055,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Comparison</em>' class.
@@ -1004,15 +1130,6 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER___GET_ALL_VARIABLES = NUMBER_OPERATORS___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___IS_VALID__BOOLEAN_INT = NUMBER_OPERATORS___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1029,6 +1146,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TO_NUMBER___PREPARE_TRANSLATION = NUMBER_OPERATORS___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER___IS_VALID__BOOLEAN = NUMBER_OPERATORS___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER___IS_VALID_LOCAL__BOOLEAN = NUMBER_OPERATORS___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1065,6 +1200,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TO_NUMBER___GET_ALL_OPERATORS = NUMBER_OPERATORS___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER___VALIDATE__DIAGNOSTICCHAIN_MAP = NUMBER_OPERATORS___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>To Number</em>' class.
@@ -1115,6 +1259,16 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getOperator__GetAllOperators();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Operator#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Validate</em>' operation.
+	 * @see qualitypatternmodel.functions.Operator#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getOperator__Validate__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Count <em>Count</em>}'.
@@ -1324,6 +1478,14 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation OPERATOR___GET_ALL_OPERATORS = eINSTANCE.getOperator__GetAllOperators();
+
+		/**
+		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getOperator__Validate__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.CountImpl <em>Count</em>}' class.

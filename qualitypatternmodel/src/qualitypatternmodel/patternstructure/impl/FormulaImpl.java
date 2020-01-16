@@ -26,9 +26,8 @@ import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Formula</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Formula</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -42,8 +41,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 public class FormulaImpl extends ConditionImpl implements Formula {
 	/**
 	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getArguments()
 	 * @generated
 	 * @ordered
@@ -52,8 +50,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	/**
 	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getOperator()
 	 * @generated
 	 * @ordered
@@ -62,8 +59,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	/**
 	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getOperator()
 	 * @generated
 	 * @ordered
@@ -71,72 +67,76 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	protected LogicalOperator operator = OPERATOR_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected FormulaImpl() {
 		super();
 	}
-	
+
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		if(operator != null) {
-			if (operator == LogicalOperator.NOT){
-				if(arguments.size() == 1 && arguments.get(0) != null) {
+		if (operator != null) {
+			if (operator == LogicalOperator.NOT) {
+				if (arguments.size() == 1 && arguments.get(0) != null) {
 					return "not(" + arguments.get(0).toXQuery(location) + ")";
 				} else {
 					throw new InvalidityException("invalid argument");
 				}
 			} else {
-				if(arguments.size() == 2 && arguments.get(0) != null && arguments.get(1) != null) {
-					return "((" + arguments.get(0).toXQuery(location) + ")" + operator.getLiteral() + "(" + arguments.get(1).toXQuery(location) + "))"; 
+				if (arguments.size() == 2 && arguments.get(0) != null && arguments.get(1) != null) {
+					return "((" + arguments.get(0).toXQuery(location) + ")" + operator.getLiteral() + "("
+							+ arguments.get(1).toXQuery(location) + "))";
 				} else {
 					throw new InvalidityException("invalid arguments");
 				}
-			}	
+			}
 		} else {
 			throw new InvalidityException("operator null");
 		}
 	}
-	
+
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException  {
-		if(operator == null) 
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+
+		if (operator == LogicalOperator.NOT)
+			arguments.get(0).isValid(isDefinedPattern);
+		else
+			arguments.get(0).isValid(isDefinedPattern);
+		arguments.get(1).isValid(isDefinedPattern);
+	}
+
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+		if (operator == null)
 			throw new InvalidityException("operator null");
-		if(arguments == null) 
+		if (arguments == null)
 			throw new InvalidityException("arguments null");
-		
-		if(operator == LogicalOperator.NOT) {
+		if (operator == LogicalOperator.NOT)
 			if (arguments.size() != 1 || arguments.get(0) == null)
 				throw new InvalidityException("argument invalid (op:NOT)");
-			arguments.get(0).isValid(isDefinedPattern, depth);
-		} else 
-			if (arguments.size() != 2 || arguments.get(0) == null || arguments.get(1) == null)
+			else if (arguments.size() != 2 || arguments.get(0) == null || arguments.get(1) == null)
 				throw new InvalidityException("arguments invalid");
-			arguments.get(0).isValid(isDefinedPattern, depth);
-			arguments.get(1).isValid(isDefinedPattern, depth);
 	}
-	
+
 	@Override
 	public void prepareTranslation() {
-		for(Condition condition : arguments) {
+		for (Condition condition : arguments) {
 			condition.prepareTranslation();
 		}
 	}
-	
+
 	@Override
 	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> inputs = new BasicEList<Input>();
-		for(Condition condition : arguments) {
+		for (Condition condition : arguments) {
 			inputs.addAll(condition.getAllVariables());
-		}	
-		return inputs;	
+		}
+		return inputs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -145,8 +145,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<Condition> getArguments() {
@@ -157,8 +156,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public LogicalOperator getOperator() {
@@ -166,8 +164,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setOperator(LogicalOperator newOperator) {
@@ -178,8 +175,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -192,8 +188,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -208,8 +203,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -228,8 +222,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -246,8 +239,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -262,8 +254,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -277,4 +268,4 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		return result.toString();
 	}
 
-} //FormulaImpl
+} // FormulaImpl
