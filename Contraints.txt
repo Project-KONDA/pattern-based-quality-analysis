@@ -1,11 +1,133 @@
 +++ Constraints for the quality pattern model +++
 
+each Element has exactly one previousElement except for Graph.rootElement, which has no previousElement
++ context SetElement inv SetElementHasPrevious: self.previous != null
++ context SingleElement inv SingleElementHasPrevious: self.previous != null or self.root = true
+
+
+for each Graph only the rootElement has root = true
++ context Graph inv GraphRootAttributeValid: self->GraphRootAttributeValid()
+
++ context Graph::GraphRootAttributeValid: boolean derive:
+	self.rootElement.root = true and self.rootElement->getNextElements()->select(e|e.oclIsTypeOf(SingleElement))->forall(e|e->NotRoot())
+	
++ context SingleElement::NotRoot: boolean derive:
+	self.root = false and self->getNextElements()->select(e|e.oclIsTypeOf(SingleElement))->forall(e|e->NotRoot())
+
+for a defined pattern:
+- Text.text must be defined
+	+ context Text inv TextDefined: text->notEmpty()
+- Number.number must be defined
+	+ context Number inv NumberDefined: number->notEmpty()
+- Boolean.bool must be defined
+	+ context Boolean inv BooleanDefined: bool->notEmpty()
+- Option.selection must be defined
+	+ context Option inv OptionDefined: selection->notEmpty()
+
+QuantifiedCondition.morphsim.from = QuantifiedCondition.getParentGraph()
+QuantifiedCondition.morphsim.to = QuantifiedCondition.graph
+	+ context QuantifiedCondition::checkMorphismOfNextGraph: boolean derive:		
+		if self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.morphism.from and self.condition.graph = self.condition.morphism.to
+		else self.condition->getNextGraphs()->forall(e|self.graph = e.morphism.from and e.graph = e.morphism.to)
+		
+	+ context Condition::getNextGraphs: Set(Graph) derive:
+		if self.oclIsTypeOf(QuantifiedCondition) then Set{self.graph}
+		else if self.oclIsTypeOf(Formula) then Set{self.arguments[1]->getNextGraphs(), self.arguments[1]->getNextGraphs()}->flatten()
+		else empty
+		
+	+ context Pattern::checkMorphismOfNextGraph: boolean derive:		
+		if self.condition.oclIsTypeOf(QuantifiedCondition) then self.returnGraph = self.condition.morphism.from and self.condition.graph = self.condition.morphism.to
+		else self.condition->getNextGraphs()->forall(e|self.returnGraph = e.morphism.from and e.graph = e.morphism.to)
+			
+	
+	+ context QuantifiedCondition inv QuantifiedConditionMorphismValid: self->checkMorphismOfNextGraph()
+	+ context Pattern inv PatternMorphismValid: self->checkMorphismOfNextGraph()		
+		
+
+SingleElementMapping.from.getGraph() = SingleElementMapping.getParent().from
+SingleElementMapping.to.getGraph() = SingleElementMapping.getParent().to
+RelationMapping.from.getGraph() = RelationMapping.getParent().from
+RelationMapping.to.getGraph() = RelationMapping.getParent().to
+
+context Morphism::checkMappings: boolean derive:
+	self.mappings->filter(f|f.oclIsTypeOf(SingleElement))->forall(m|self.from->getAllElements()->includes(m.from))
+	and
+	self.mappings->select(f|f.oclIsTypeOf(SingleElement))->forall(m|self.to->getAllElements()->includes(m.to))
+	
+context Graph::getAllElements: Set{Element} derive:
+	self.rootElement->getAllElements()
+	
+context Element::getAllElements: Set{Element} derive:
+	Set{self, self->getNextElements()->getAllElements()}
+	
+context Morphism::checkMappings: boolean derive:
+	self.mappings->filter(f|f.oclIsTypeOf(SetElement))->forall(m|self.from->getAllRelations()->includes(m.from))
+	and
+	self.mappings->select(f|f.oclIsTypeOf(SetElement))->forall(m|self.to->getAllRelations()->includes(m.to))
+		
+context Graph::getAllRelations: Set{Element} derive:
+	self.rootElement->getAllRelations()
+	
+context Element::getAllRelations: Set{Element} derive:
+	Set{self.relationFromPrevious, self->getNextElements()->getAllRelations()}
+	
+----
+
+Annahme: predicates Kante ist bidirektional
+
+context BooleanOperator inv PredicateValid: self->PredicateValid()
+
+context BooleanOperator::PredicateValid: boolean derive:
+	self.elements->forall(e|self->getAllArgumentElements()->includes(e))
+	and
+	self->getAllArgumentElements()->forall(l|l->exists(e|elements.includes(e)))
+
+context BooleanOperator::getAllArgumentElements: Set{Set{Element}} derive:
+	if self.oclIsTypeOf(Comparison) then 
+		argument1->getAllArgumentElements()->union(argument2->getAllArgumentElements())
+	else if self.oclIsTypeOf(Match) then
+		self.property->getAllArgumentElements()
+	else Set{}
+	
+context GraphElement::getAllArgumentElements: Set{Set{Element}} derive:
+	if self.oclIsTypeOf(SingleElement) then
+		Set{self}
+	else if self.oclIsTypeOf(SetElement) then
+		Set{self->getSetPrevious()}
+	else if self.oclIsTypeOf(Count) then
+		argument->getAllArgumentElements()
+	else if self.oclIsTypeOf(ToNumber) then
+		property->getAllArgumentElements()	
+	else if self.oclIsTypeOf(Property) then
+		self.element->getAllArgumentElements()
+	else Set{}
+	
+context SetElement::getSetPrevious: Set{Element} derive:
+	if self.previous.oclIsTypeOf(SetElement) then	
+		self.previous->getSetPrevious()->including(self)
+	if self.previous.oclIsTypeOf(SingleElement) then	
+		Set{self.previous}
+
+
+for each BooleanOperator with elements != null:
+	List<List<Element>> arguments := getAllArgumentElements()
+	for each x in elements:
+		x must be in arguments.flatten()
+	for each list in arguments:
+		boolean b = false;
+		for each element in list:
+			if element in elements:
+				b = true
+		b must be true
+		
+SingleElement.getAllArgumentElements() adds this to the list
+SetElement.getAllArgumentElements() adds a list of all SetElements between this and the first SingleElement reached via getPreviousElement() as well as the SingleElement to the list
+
+(
 When using a set operator:
 - let e of type ELEMENT be the element(s) which reference(s) the predicate containing the set operator
 - let s of type SETELEMENT be the element(s) which serve(s) as an argument to the set operator
 - there has to exist a path from each e to at least one s in the graph
 - for each s there must exist a path from one e to s in the graph
-- between e and s only SETELEMENTs are allowed (connected via RELATION) and they are not allowed to be the argument of a set operator
-
-
-Each ELEMENT x has exactly one previousElement except for GRAPH.root, which has no previousElement.
+- between e and s only SETELEMENTs are allowed (connected via RELATION) [and they are not allowed to be the argument of a set operator]
+)
