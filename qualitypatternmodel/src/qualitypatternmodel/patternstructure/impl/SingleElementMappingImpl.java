@@ -59,14 +59,17 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
-		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != depth)
-			throw new InvalidityException("invalid target elements");
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+	}
+	
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (from == null)
 			throw new InvalidityException("from null");
 		if (to == null)
-			throw new InvalidityException("to null");
-//		return from != null && to != null;
+			throw new InvalidityException("to null");	
+		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth())
+			throw new InvalidityException("invalid target elements");	
 	}
 
 	/**

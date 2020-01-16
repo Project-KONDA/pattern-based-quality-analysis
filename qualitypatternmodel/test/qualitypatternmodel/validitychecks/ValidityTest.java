@@ -2,6 +2,8 @@ package qualitypatternmodel.validitychecks;
 
 import java.util.Arrays;
 
+import org.eclipse.emf.ecore.util.Diagnostician;
+
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Option;
@@ -26,6 +28,7 @@ public class ValidityTest {
         		
         	}
         }       
+        System.out.println(Diagnostician.INSTANCE.validate(pattern));
         
         try {
 			pattern.isValid(false);

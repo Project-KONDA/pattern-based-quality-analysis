@@ -32,7 +32,7 @@ public class TrueImpl extends ConditionImpl implements True {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) {}
+	public void isValidLocal(boolean isDefinedPattern) {}
 
 	/**
 	 * <!-- begin-user-doc -->

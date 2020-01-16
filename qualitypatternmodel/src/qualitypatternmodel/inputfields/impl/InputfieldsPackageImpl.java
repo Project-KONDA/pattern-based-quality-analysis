@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
-
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import qualitypatternmodel.functions.FunctionsPackage;
@@ -25,7 +25,7 @@ import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.Text;
-
+import qualitypatternmodel.inputfields.util.InputfieldsValidator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
@@ -139,6 +139,15 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		theGraphstructurePackage.initializePackageContents();
 		thePatternstructurePackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theInputfieldsPackage,
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return InputfieldsValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theInputfieldsPackage.freeze();
 
@@ -190,6 +199,15 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 */
 	public EOperation getInput__InputIsValid() {
 		return inputEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getInput__Validate__DiagnosticChain_Map() {
+		return inputEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -260,7 +278,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getOption__IsValid__boolean_int_Class() {
+	public EOperation getOption__IsValidLocal__boolean_int_Class() {
 		return optionEClass.getEOperations().get(0);
 	}
 
@@ -315,6 +333,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		createEAttribute(inputEClass, INPUT__DESCRIPTION);
 		createEAttribute(inputEClass, INPUT__IS_PREDEFINED);
 		createEOperation(inputEClass, INPUT___INPUT_IS_VALID);
+		createEOperation(inputEClass, INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		numberEClass = createEClass(NUMBER);
 		createEAttribute(numberEClass, NUMBER__NUMBER);
@@ -325,7 +344,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		optionEClass = createEClass(OPTION);
 		createEAttribute(optionEClass, OPTION__OPTIONS);
 		createEAttribute(optionEClass, OPTION__SELECTION);
-		createEOperation(optionEClass, OPTION___IS_VALID__BOOLEAN_INT_CLASS);
+		createEOperation(optionEClass, OPTION___IS_VALID_LOCAL__BOOLEAN_INT_CLASS);
 
 		textEClass = createEClass(TEXT);
 		createEAttribute(textEClass, TEXT__TEXT);
@@ -378,6 +397,10 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 
 		initEOperation(getInput__InputIsValid(), ecorePackage.getEBoolean(), "inputIsValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		EOperation op = initEOperation(getInput__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(numberEClass, qualitypatternmodel.inputfields.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumber_Number(), ecorePackage.getEDoubleObject(), "number", null, 0, 1, qualitypatternmodel.inputfields.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -390,7 +413,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		g1 = createEGenericType(optionEClass_T);
 		initEAttribute(getOption_Selection(), g1, "selection", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getOption__IsValid__boolean_int_Class(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getOption__IsValidLocal__boolean_int_Class(), null, "isValidLocal", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedBattern", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "depth", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEJavaClass(), "cls", 0, 1, IS_UNIQUE, IS_ORDERED);

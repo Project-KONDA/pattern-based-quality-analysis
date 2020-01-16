@@ -41,7 +41,7 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getNext <em>Next</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getGraphDepth <em>Graph Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#isRoot <em>Root</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,24 +88,24 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	protected EList<Element> next;
 
 	/**
-	 * The default value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
+	 * The default value of the '{@link #isRoot() <em>Root</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGraphDepth()
+	 * @see #isRoot()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int GRAPH_DEPTH_EDEFAULT = 0;
+	protected static final boolean ROOT_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
+	 * The cached value of the '{@link #isRoot() <em>Root</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGraphDepth()
+	 * @see #isRoot()
 	 * @generated
 	 * @ordered
 	 */
-	protected int graphDepth = GRAPH_DEPTH_EDEFAULT;
+	protected boolean root = ROOT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,11 +179,20 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
-		graphDepth = depth;
-		if (depth == 0 && mappingFrom != null) // depth=0 => ReturnGraph
-			throw new InvalidityException("invalid SingleElementMapping to returnGraph");
-		super.isValid(isDefinedPattern, depth);
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		super.isValid(isDefinedPattern);
+		if (!root)
+			relationFromPrevious.isValid(isDefinedPattern);
+	}
+	@Override
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+		if ( graphDepth == 0 && mappingFrom != null) // depth=0 => ReturnGraph
+			throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + mappingFrom + " " + mappingFrom.getId() + " - (" + mappingTo + ")");
+		if (!root)
+			relationFromPrevious.isValid(isDefinedPattern);
+		if (!root && getPreviousElement() == null)
+			throw new InvalidityException("previousElement null");
+		super.isValidLocal(isDefinedPattern);
 	}	
 	
 	@Override
@@ -389,8 +398,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getGraphDepth() {
-		return graphDepth;
+	public boolean isRoot() {
+		return root;
 	}
 
 	/**
@@ -398,11 +407,11 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGraphDepth(int newGraphDepth) {
-		int oldGraphDepth = graphDepth;
-		graphDepth = newGraphDepth;
+	public void setRoot(boolean newRoot) {
+		boolean oldRoot = root;
+		root = newRoot;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__GRAPH_DEPTH, oldGraphDepth, graphDepth));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__ROOT, oldRoot, root));
 	}
 
 	/**
@@ -483,8 +492,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return basicGetPrevious();
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT:
 				return getNext();
-			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH_DEPTH:
-				return getGraphDepth();
+			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+				return isRoot();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -511,8 +520,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				getNext().clear();
 				getNext().addAll((Collection<? extends Element>)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH_DEPTH:
-				setGraphDepth((Integer)newValue);
+			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+				setRoot((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -538,8 +547,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT:
 				getNext().clear();
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH_DEPTH:
-				setGraphDepth(GRAPH_DEPTH_EDEFAULT);
+			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+				setRoot(ROOT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -561,8 +570,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return previous != null;
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT:
 				return next != null && !next.isEmpty();
-			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH_DEPTH:
-				return graphDepth != GRAPH_DEPTH_EDEFAULT;
+			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+				return root != ROOT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -602,8 +611,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (graphDepth: ");
-		result.append(graphDepth);
+		result.append(" (root: ");
+		result.append(root);
 		result.append(')');
 		return result.toString();
 	}

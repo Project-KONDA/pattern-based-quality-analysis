@@ -61,9 +61,8 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 		super();
 		setGraph(graphImpl);
 	}
-
-	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
+	
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (getGraph() == null)
 			throw new InvalidityException("OperatorList not in Graph");	
 		if(getGraph().getAllOperators() == null)
@@ -71,7 +70,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 		if (!getGraph().getAllOperators().containsAll(getOperators()))
 			throw new InvalidityException("not all operators from OperatorList in Graph");	
 		if (!operators.containsAll(getGraph().getAllOperators()))
-			throw new InvalidityException("not all operators from graph in OperatorList");		
+			throw new InvalidityException("not all operators from graph in OperatorList");			
 	}
 
 	/**

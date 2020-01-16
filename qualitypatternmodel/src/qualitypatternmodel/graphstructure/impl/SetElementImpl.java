@@ -87,10 +87,12 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
-		if (depth == 0)
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+		super.isValidLocal(isDefinedPattern);
+		if (getGraphDepth() == 0)
 			throw new InvalidityException("SetElement in ReturnGraph");
-		super.isValid(isDefinedPattern, depth);
+		if (getPreviousElement() == null)
+			throw new InvalidityException("previousElement null");
 	}
 
 	@Override
@@ -219,11 +221,11 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void setPrevious(Element newPrevious) {
 		Element oldPrevious = previous;
 		previous = newPrevious;
+		setGraphDepth(newPrevious.getGraphDepth());
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SET_ELEMENT__PREVIOUS, oldPrevious, previous));
 	}

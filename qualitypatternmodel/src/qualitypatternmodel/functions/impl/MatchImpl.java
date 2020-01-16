@@ -89,16 +89,20 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+		option.isValid(isDefinedPattern);		
+		regularExpression.isValid(isDefinedPattern);		
+		property.isValid(isDefinedPattern);
+	}
+	
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (option == null)
 			throw new InvalidityException("options null");
-		option.isValid(isDefinedPattern, depth);		
 		if (regularExpression == null)
 			throw new InvalidityException("regularExpression null");
-		regularExpression.isValid(isDefinedPattern, depth);		
 		if (property == null)
-			throw new InvalidityException("property null");
-		property.isValid(isDefinedPattern, depth);
+			throw new InvalidityException("property null");		
 	}
 	
 	/**

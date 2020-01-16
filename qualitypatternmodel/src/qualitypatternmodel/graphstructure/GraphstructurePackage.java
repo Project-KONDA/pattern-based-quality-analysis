@@ -143,15 +143,6 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -168,6 +159,33 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Relation</em>' class.
@@ -225,15 +243,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_ELEMENT___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -250,6 +259,24 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int GRAPH_ELEMENT___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ELEMENT___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ELEMENT___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -279,13 +306,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Graph Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int GRAPH_ELEMENT_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
@@ -361,15 +397,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___GET_ALL_VARIABLES = GRAPH_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___IS_VALID__BOOLEAN_INT = GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +413,24 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY___PREPARE_TRANSLATION = GRAPH_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_VALID__BOOLEAN = GRAPH_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_VALID_LOCAL__BOOLEAN = GRAPH_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -413,6 +458,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY___TO_XQUERY__LOCATION_INT = GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Property</em>' class.
@@ -470,22 +524,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__TRANSLATED = GRAPH_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__ROOT = GRAPH_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PROPERTIES = GRAPH_ELEMENT_FEATURE_COUNT + 4;
+	int ELEMENT__PROPERTIES = GRAPH_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
@@ -494,7 +539,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = GRAPH_ELEMENT_FEATURE_COUNT + 5;
+	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = GRAPH_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__GRAPH_DEPTH = GRAPH_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -515,15 +569,6 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___TO_XQUERY__LOCATION = GRAPH_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___IS_VALID__BOOLEAN_INT = GRAPH_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -540,6 +585,24 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT___PREPARE_TRANSLATION = GRAPH_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___IS_VALID__BOOLEAN = GRAPH_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___IS_VALID_LOCAL__BOOLEAN = GRAPH_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -567,6 +630,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT___TO_XQUERY__LOCATION_INT = GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Next Elements</em>' operation.
@@ -678,15 +750,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__TRANSLATED = ELEMENT__TRANSLATED;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__ROOT = ELEMENT__ROOT;
-
-	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -703,6 +766,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = ELEMENT__PREDICATES_ARE_BEING_TRANSLATED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__GRAPH_DEPTH = ELEMENT__GRAPH_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Mapping To</b></em>' reference.
@@ -741,13 +813,13 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__NEXT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
+	 * The feature id for the '<em><b>Root</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__GRAPH_DEPTH = ELEMENT_FEATURE_COUNT + 4;
+	int SINGLE_ELEMENT__ROOT = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Single Element</em>' class.
@@ -768,15 +840,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___TO_XQUERY__LOCATION = ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___IS_VALID__BOOLEAN_INT = ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -793,6 +856,24 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT___PREPARE_TRANSLATION = ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___IS_VALID__BOOLEAN = ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___IS_VALID_LOCAL__BOOLEAN = ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -820,6 +901,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT___TO_XQUERY__LOCATION_INT = ELEMENT___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Next Elements</em>' operation.
@@ -967,15 +1057,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__TRANSLATED = ELEMENT__TRANSLATED;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__ROOT = ELEMENT__ROOT;
-
-	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -992,6 +1073,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = ELEMENT__PREDICATES_ARE_BEING_TRANSLATED;
+
+	/**
+	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT__GRAPH_DEPTH = ELEMENT__GRAPH_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
@@ -1039,15 +1129,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___TO_XQUERY__LOCATION = ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___IS_VALID__BOOLEAN_INT = ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1064,6 +1145,24 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT___PREPARE_TRANSLATION = ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___IS_VALID__BOOLEAN = ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___IS_VALID_LOCAL__BOOLEAN = ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1091,6 +1190,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT___TO_XQUERY__LOCATION_INT = ELEMENT___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Next Elements</em>' operation.
@@ -1238,13 +1346,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__GRAPH_DEPTH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Return Graph</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__RETURN_GRAPH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1265,15 +1382,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1290,6 +1398,33 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int GRAPH___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1374,15 +1509,6 @@ public interface GraphstructurePackage extends EPackage {
 	int OPERATOR_LIST___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___IS_VALID__BOOLEAN_INT = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN_INT;
-
-	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1399,6 +1525,33 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The number of operations of the '<em>Operator List</em>' class.
@@ -1592,15 +1745,15 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getSingleElement_Next();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.SingleElement#getGraphDepth <em>Graph Depth</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.SingleElement#isRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Graph Depth</em>'.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getGraphDepth()
+	 * @return the meta object for the attribute '<em>Root</em>'.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#isRoot()
 	 * @see #getSingleElement()
 	 * @generated
 	 */
-	EAttribute getSingleElement_GraphDepth();
+	EAttribute getSingleElement_Root();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getOriginalID() <em>Get Original ID</em>}' operation.
@@ -1759,17 +1912,6 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getElement_Translated();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Element#isRoot <em>Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Root</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#isRoot()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EAttribute getElement_Root();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1790,6 +1932,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElement_PredicatesAreBeingTranslated();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Element#getGraphDepth <em>Graph Depth</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Graph Depth</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#getGraphDepth()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EAttribute getElement_GraphDepth();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getNextElements() <em>Get Next Elements</em>}' operation.
@@ -1906,6 +2059,17 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getGraph_GraphDepth();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph <em>Return Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Graph</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#isReturnGraph()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EAttribute getGraph_ReturnGraph();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1954,6 +2118,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGraphElement__ToXQuery__Location_int();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.GraphElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Validate</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.GraphElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getGraphElement__Validate__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.OperatorList <em>Operator List</em>}'.
@@ -2159,12 +2333,12 @@ public interface GraphstructurePackage extends EPackage {
 		EReference SINGLE_ELEMENT__NEXT = eINSTANCE.getSingleElement_Next();
 
 		/**
-		 * The meta object literal for the '<em><b>Graph Depth</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SINGLE_ELEMENT__GRAPH_DEPTH = eINSTANCE.getSingleElement_GraphDepth();
+		EAttribute SINGLE_ELEMENT__ROOT = eINSTANCE.getSingleElement_Root();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Original ID</b></em>' operation.
@@ -2291,14 +2465,6 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute ELEMENT__TRANSLATED = eINSTANCE.getElement_Translated();
 
 		/**
-		 * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ELEMENT__ROOT = eINSTANCE.getElement_Root();
-
-		/**
 		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2313,6 +2479,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = eINSTANCE.getElement_PredicatesAreBeingTranslated();
+
+		/**
+		 * The meta object literal for the '<em><b>Graph Depth</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT__GRAPH_DEPTH = eINSTANCE.getElement_GraphDepth();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Next Elements</b></em>' operation.
@@ -2405,6 +2579,14 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute GRAPH__GRAPH_DEPTH = eINSTANCE.getGraph_GraphDepth();
 
 		/**
+		 * The meta object literal for the '<em><b>Return Graph</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GRAPH__RETURN_GRAPH = eINSTANCE.getGraph_ReturnGraph();
+
+		/**
 		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2445,6 +2627,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT = eINSTANCE.getGraphElement__ToXQuery__Location_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGraphElement__Validate__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.OperatorListImpl <em>Operator List</em>}' class.

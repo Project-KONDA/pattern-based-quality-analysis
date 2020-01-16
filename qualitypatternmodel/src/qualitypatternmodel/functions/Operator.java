@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.functions;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -25,4 +27,12 @@ public interface Operator extends GraphElement {
 	 * @generated
 	 */
 	EList<Operator> getAllOperators() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean validate(DiagnosticChain chain, Map context);
 } // Operator

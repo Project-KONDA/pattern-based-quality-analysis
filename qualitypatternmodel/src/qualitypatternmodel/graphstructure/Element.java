@@ -22,9 +22,9 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#isRoot <em>Root</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraphDepth <em>Graph Depth</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
@@ -89,28 +89,6 @@ public interface Element extends GraphElement {
 	void setTranslated(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Root</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root</em>' attribute.
-	 * @see #setRoot(boolean)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Root()
-	 * @model
-	 * @generated
-	 */
-	boolean isRoot();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isRoot <em>Root</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root</em>' attribute.
-	 * @see #isRoot()
-	 * @generated
-	 */
-	void setRoot(boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Property}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}'.
@@ -145,6 +123,28 @@ public interface Element extends GraphElement {
 	 * @generated
 	 */
 	void setPredicatesAreBeingTranslated(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Graph Depth</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Graph Depth</em>' attribute.
+	 * @see #setGraphDepth(int)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_GraphDepth()
+	 * @model
+	 * @generated
+	 */
+	int getGraphDepth();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getGraphDepth <em>Graph Depth</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Graph Depth</em>' attribute.
+	 * @see #getGraphDepth()
+	 * @generated
+	 */
+	void setGraphDepth(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -19,9 +19,8 @@ import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Relation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Relation</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -37,8 +36,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * The cached value of the '{@link #getMappingFrom() <em>Mapping From</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMappingFrom()
 	 * @generated
 	 * @ordered
@@ -47,8 +45,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	/**
 	 * The cached value of the '{@link #getMappingTo() <em>Mapping To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMappingTo()
 	 * @generated
 	 * @ordered
@@ -56,9 +53,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	protected RelationMapping mappingTo;
 
 	/**
-	 * The default value of the '{@link #getAxis() <em>Axis</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getAxis() <em>Axis</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getAxis()
 	 * @generated
 	 * @ordered
@@ -66,9 +63,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	protected static final Axis AXIS_EDEFAULT = Axis.CHILD;
 
 	/**
-	 * The cached value of the '{@link #getAxis() <em>Axis</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getAxis() <em>Axis</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getAxis()
 	 * @generated
 	 * @ordered
@@ -77,8 +74,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	/**
 	 * The default value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGraphDepth()
 	 * @generated
 	 * @ordered
@@ -87,8 +83,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	/**
 	 * The cached value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGraphDepth()
 	 * @generated
 	 * @ordered
@@ -96,36 +91,30 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	protected int graphDepth = GRAPH_DEPTH_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected RelationImpl() {
 		super();
-	}	
-	
-	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException  {	
-		graphDepth = depth;
-		if (axis == null){
+	}
+
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+		if (axis == null)
 			throw new InvalidityException("axis invalid");
-		}
-		if (depth == 0 && mappingFrom != null)
+		if (getGraphDepth() == 0 && mappingFrom != null)
 			throw new InvalidityException("invalid RelationMapping to returnGraph");
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {		
-		if(axis != null)
+	public String toXQuery(Location location) throws InvalidityException {
+		if (axis != null)
 			return "/" + axis.getLiteral() + "::*";
-		else 
-			throw new InvalidityException("axis invalid");	
+		else
+			throw new InvalidityException("axis invalid");
 	}
-	
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -134,8 +123,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public RelationMapping getMappingTo() {
@@ -151,8 +139,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public RelationMapping basicGetMappingTo() {
@@ -160,8 +147,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetMappingTo(RelationMapping newMappingTo, NotificationChain msgs) {
@@ -175,8 +161,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setMappingTo(RelationMapping newMappingTo) {
@@ -194,8 +179,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public RelationMapping getMappingFrom() {
@@ -211,8 +195,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public RelationMapping basicGetMappingFrom() {
@@ -220,8 +203,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetMappingFrom(RelationMapping newMappingFrom, NotificationChain msgs) {
@@ -235,8 +217,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setMappingFrom(RelationMapping newMappingFrom) {
@@ -253,10 +234,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__MAPPING_FROM, newMappingFrom, newMappingFrom));
 	}
 
-
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Axis getAxis() {
@@ -264,8 +243,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setAxis(Axis newAxis) {
@@ -276,8 +254,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public int getGraphDepth() {
@@ -285,8 +262,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setGraphDepth(int newGraphDepth) {
@@ -297,8 +273,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -317,8 +292,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -333,8 +307,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -355,8 +328,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -380,8 +352,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -404,8 +375,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -424,8 +394,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -441,4 +410,4 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		return result.toString();
 	}
 
-} //RelationImpl
+} // RelationImpl

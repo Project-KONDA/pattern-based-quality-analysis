@@ -172,9 +172,8 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.INPUT__IS_PREDEFINED, oldIsPredefined, isPredefined));
 	}
 
-	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
-//		return (!isDefinedPattern || inputIsValid()) && variableList != null;
+	@Override	
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (getVariableList() == null)
 			throw new InvalidityException("variableList null");
 		if ((isDefinedPattern && !inputIsValid()))

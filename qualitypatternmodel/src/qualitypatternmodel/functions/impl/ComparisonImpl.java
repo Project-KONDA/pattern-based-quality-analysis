@@ -95,22 +95,24 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+
+		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl)
+			argument1.isValid(isDefinedPattern);
+		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof InputImpl)
+			argument2.isValid(isDefinedPattern);
+			option.isValid(isDefinedPattern);
+
+	}
+	
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (argument1 == null)
 			throw new InvalidityException("argument1 null");
 		if (argument2 == null)
 			throw new InvalidityException("argument2 null");
-
-		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl)
-			argument1.isValid(isDefinedPattern, depth);
-		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof InputImpl)
-			argument2.isValid(isDefinedPattern, depth);
-
-		if (option != null) {
-			option.isValid(isDefinedPattern, depth);
-		} else {
+		if (option == null) 
 			throw new InvalidityException("operator Options invalid");
-		}
 		if (!(argument1.getReturnType() == argument2.getReturnType()))
 			throw new InvalidityException("unmatching types");
 	}

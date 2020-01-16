@@ -51,7 +51,7 @@ public class SingleElementItemProvider extends ElementItemProvider {
 			addMappingToPropertyDescriptor(object);
 			addMappingFromPropertyDescriptor(object);
 			addPreviousPropertyDescriptor(object);
-			addGraphDepthPropertyDescriptor(object);
+			addRootPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -123,23 +123,23 @@ public class SingleElementItemProvider extends ElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Graph Depth feature.
+	 * This adds a property descriptor for the Root feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addGraphDepthPropertyDescriptor(Object object) {
+	protected void addRootPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SingleElement_graphDepth_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_graphDepth_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__GRAPH_DEPTH,
+				 getString("_UI_SingleElement_root_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_root_feature", "_UI_SingleElement_type"),
+				 GraphstructurePackage.Literals.SINGLE_ELEMENT__ROOT,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -210,7 +210,7 @@ public class SingleElementItemProvider extends ElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SingleElement.class)) {
-			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH_DEPTH:
+			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT:

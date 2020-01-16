@@ -20,7 +20,7 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNext <em>Next</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getGraphDepth <em>Graph Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#isRoot <em>Root</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement()
@@ -111,26 +111,26 @@ public interface SingleElement extends Element {
 	EList<Element> getNext();
 
 	/**
-	 * Returns the value of the '<em><b>Graph Depth</b></em>' attribute.
+	 * Returns the value of the '<em><b>Root</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Graph Depth</em>' attribute.
-	 * @see #setGraphDepth(int)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_GraphDepth()
+	 * @return the value of the '<em>Root</em>' attribute.
+	 * @see #setRoot(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Root()
 	 * @model
 	 * @generated
 	 */
-	int getGraphDepth();
+	boolean isRoot();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getGraphDepth <em>Graph Depth</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#isRoot <em>Root</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Graph Depth</em>' attribute.
-	 * @see #getGraphDepth()
+	 * @param value the new value of the '<em>Root</em>' attribute.
+	 * @see #isRoot()
 	 * @generated
 	 */
-	void setGraphDepth(int value);
+	void setRoot(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

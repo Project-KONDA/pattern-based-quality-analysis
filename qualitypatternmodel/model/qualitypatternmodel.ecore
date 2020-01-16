@@ -4,6 +4,10 @@
   <eSubpackages name="inputfields" nsURI="inputfields" nsPrefix="inputfields">
     <eClassifiers xsi:type="ecore:EClass" name="Input" abstract="true" eSuperTypes="#//graphstructure/GraphElement">
       <eOperations name="inputIsValid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="chain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+        <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
           eType="#//patternstructure/VariableList" eOpposite="#//patternstructure/VariableList/variables"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -17,7 +21,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Option" eSuperTypes="#//inputfields/Input">
       <eTypeParameters name="T"/>
-      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="isDefinedBattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
         <eParameters name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
         <eParameters name="cls" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass"/>
@@ -39,6 +43,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//graphstructure/GraphElement">
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="chain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+        <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//functions/NumberOperators">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
@@ -116,7 +124,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//graphstructure/SingleElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1"
           eType="#//graphstructure/Element" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SetElement" eSuperTypes="#//graphstructure/Element">
       <eOperations name="translateElementExistencePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -159,11 +167,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationFromPrevious"
           eType="#//graphstructure/Relation" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="root" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
           eType="#//graphstructure/Property" containment="true" eOpposite="#//graphstructure/Property/element"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="predicatesAreBeingTranslated"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
@@ -174,7 +182,10 @@
           eType="#//graphstructure/SingleElement" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
           eType="#//graphstructure/OperatorList" containment="true" eOpposite="#//graphstructure/OperatorList/graph"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="-1"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnGraph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="GraphElement" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>
@@ -183,6 +194,10 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="location" eType="#//patternstructure/Location"/>
         <eParameters name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
+      <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="chain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+        <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PropertyLocation">
@@ -232,13 +247,18 @@
           eType="#//patternstructure/Morphism" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//patternstructure/PatternElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="condDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="-1"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Morphism" eSuperTypes="#//patternstructure/PatternElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
           eType="#//patternstructure/Mapping" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
           eType="#//graphstructure/Graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/Graph"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="morphDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="-1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SingleElementMapping" eSuperTypes="#//patternstructure/Mapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
@@ -246,7 +266,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/SingleElement"
           eOpposite="#//graphstructure/SingleElement/mappingFrom"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Mapping" abstract="true" eSuperTypes="#//patternstructure/PatternElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Mapping" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappingDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          defaultValueLiteral="-1"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Formula" eSuperTypes="#//patternstructure/Condition">
       <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" lowerBound="1"
           upperBound="-1" eType="#//patternstructure/Condition" containment="true"/>
@@ -285,13 +308,19 @@
       </eOperations>
       <eOperations name="getAllVariables" upperBound="-1" eType="#//inputfields/Input"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="isDefinedPattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-        <eParameters name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      </eOperations>
       <eOperations name="getNewId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="prepareTranslation"/>
+      <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="chain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+        <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+      </eOperations>
+      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="isDefinedPattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+      <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="isDefinedPattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           iD="true"/>
     </eClassifiers>

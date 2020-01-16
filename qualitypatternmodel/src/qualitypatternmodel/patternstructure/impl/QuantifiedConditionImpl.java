@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -83,10 +84,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected QuantifiedConditionImpl() {
 		super();
+		setGraph(new GraphImpl());
+		setMorphism(new MorphismImpl());
 	}
 	
 	@Override
@@ -102,8 +104,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException {
-		depth += 1;
+	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+		isValidLocal(isDefinedPattern);
+		graph.isValid(isDefinedPattern);
+		morphism.isValid(isDefinedPattern);
+		condition.isValid(isDefinedPattern);
+	}
+	
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (quantifier == null)
 			throw new InvalidityException("quantifier null");
 		if (condition == null)
@@ -113,11 +121,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (morphism == null)
 			throw new InvalidityException("morphism null");
 		if (quantifier != Quantifier.EXISTS && quantifier != Quantifier.FORALL)
-			throw new InvalidityException("quantifier invalid");
-
-		graph.isValid(isDefinedPattern, depth);
-		morphism.isValid(isDefinedPattern, depth);
-		condition.isValid(isDefinedPattern, depth);
+			throw new InvalidityException("quantifier invalid");		
 	}
 	
 	@Override
@@ -166,7 +170,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void setCondition(Condition newCondition) {
 		if (newCondition != condition) {
@@ -175,6 +178,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, null, msgs);
 			if (newCondition != null)
 				msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, null, msgs);
+			newCondition.setCondDepth(condDepth+1);
 			msgs = basicSetCondition(newCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -206,7 +210,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void setGraph(Graph newGraph) {
 		if (newGraph != graph) {
@@ -215,6 +218,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				msgs = ((InternalEObject)graph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, null, msgs);
 			if (newGraph != null)
 				msgs = ((InternalEObject)newGraph).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, null, msgs);
+			newGraph.setReturnGraph(true);
+			newGraph.setGraphDepth(condDepth);
 			msgs = basicSetGraph(newGraph, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -246,7 +251,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void setMorphism(Morphism newMorphism) {
 		if (newMorphism != morphism) {
@@ -255,6 +259,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				msgs = ((InternalEObject)morphism).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, null, msgs);
 			if (newMorphism != null)
 				msgs = ((InternalEObject)newMorphism).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, null, msgs);
+			newMorphism.setTo(getGraph());
+			newMorphism.setMorphDepth(condDepth);
 			msgs = basicSetMorphism(newMorphism, msgs);
 			if (msgs != null) msgs.dispatch();
 		}

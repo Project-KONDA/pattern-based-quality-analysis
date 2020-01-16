@@ -67,17 +67,18 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern, int depth) throws InvalidityException  {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException  {
+		isValidLocal(isDefinedPattern);
+		propertyOption.isValid(isDefinedPattern);
+	}
+	
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (getElement() == null) 
 			throw new InvalidityException("element null");
-		if (propertyOption == null) {
+		if (propertyOption == null) 
 			throw new InvalidityException("location or propertyOptions invalid");
-		} else {
-			propertyOption.isValid(isDefinedPattern, depth);
-		}
-		
 		if (propertyOption.getSelection() != null && propertyOption.getSelection() == PropertyLocation.ATTRIBUTE && attributeName == null)
-			throw new InvalidityException("attributeName null");
+			throw new InvalidityException("attributeName null");		
 	}
 
 	@Override
