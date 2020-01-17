@@ -163,6 +163,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public PropertyOption getPropertyOption() {
 		if (propertyOption != null && propertyOption.eIsProxy()) {
@@ -190,6 +191,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPropertyOption(PropertyOption newPropertyOption) {
 		PropertyOption oldPropertyOption = propertyOption;
 		propertyOption = newPropertyOption;
@@ -201,6 +203,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Element getElement() {
 		if (eContainerFeatureID() != GraphstructurePackage.PROPERTY__ELEMENT) return null;
 		return (Element)eInternalContainer();
@@ -220,6 +223,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setElement(Element newElement) {
 		if (newElement != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.PROPERTY__ELEMENT && newElement != null)) {
 			if (EcoreUtil.isAncestor(this, newElement))
@@ -241,6 +245,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Text getAttributeName() {
 		if (attributeName != null && attributeName.eIsProxy()) {
 			InternalEObject oldAttributeName = (InternalEObject)attributeName;
@@ -267,6 +272,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAttributeName(Text newAttributeName) {
 		Text oldAttributeName = attributeName;
 		attributeName = newAttributeName;

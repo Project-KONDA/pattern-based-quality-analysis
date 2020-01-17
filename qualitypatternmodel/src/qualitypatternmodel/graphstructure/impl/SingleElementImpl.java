@@ -18,10 +18,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -31,9 +33,8 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
 import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Single Element</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Single
+ * Element</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -42,7 +43,7 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getNext <em>Next</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#isRoot <em>Root</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getRoot <em>Root</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,8 +51,7 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
 public class SingleElementImpl extends ElementImpl implements SingleElement {
 	/**
 	 * The cached value of the '{@link #getMappingTo() <em>Mapping To</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMappingTo()
 	 * @generated
 	 * @ordered
@@ -60,8 +60,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 	/**
 	 * The cached value of the '{@link #getMappingFrom() <em>Mapping From</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMappingFrom()
 	 * @generated
 	 * @ordered
@@ -70,8 +69,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 	/**
 	 * The cached value of the '{@link #getPrevious() <em>Previous</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getPrevious()
 	 * @generated
 	 * @ordered
@@ -80,8 +78,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 	/**
 	 * The cached value of the '{@link #getNext() <em>Next</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNext()
 	 * @generated
 	 * @ordered
@@ -89,28 +86,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	protected EList<Element> next;
 
 	/**
-	 * The default value of the '{@link #isRoot() <em>Root</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isRoot()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ROOT_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isRoot() <em>Root</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isRoot()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean root = ROOT_EDEFAULT;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected SingleElementImpl() {
@@ -120,58 +96,57 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		translated = true;
-		String xPathExpression = translatePathFromPrevious();	
-		String xPredicates = translatePredicates(location);		
-		
+		String xPathExpression = translatePathFromPrevious();
+		String xPredicates = translatePredicates(location);
+
 		String result = "";
-		if(location == Location.RETURN) {
+		if (location == Location.RETURN) {
 			result = FOR + getXQueryVariable() + IN + xPathExpression + xPredicates + "\n";
-		} else  {
-			if(location == Location.EXISTS) {		
-				result += SOME;				
-			} else if(location == Location.FORALL) {
+		} else {
+			if (location == Location.EXISTS) {
+				result += SOME;
+			} else if (location == Location.FORALL) {
 				result += EVERY;
 			} else {
 				throw new InvalidityException("invalid location");
 			}
 			result += getXQueryVariable();
-			if (mappingFrom == null){					
-				result += IN + xPathExpression + xPredicates + SATISFIES;			
-			} else if (!getPredicates().isEmpty()) {		
+			if (mappingFrom == null) {
+				result += IN + xPathExpression + xPredicates + SATISFIES;
+			} else if (!getPredicates().isEmpty()) {
 				result += IN + getXQueryVariable() + xPredicates + SATISFIES;
 			}
 		}
-		
-		
-		for (Element nextElement : getNextElements()){
-			if(nextElement instanceof SingleElement) {
+
+		for (Element nextElement : getNextElements()) {
+			if (nextElement instanceof SingleElement) {
 				result += nextElement.toXQuery(location);
 			}
 		}
-		
+
 		return result;
 	}
-	
+
 	@Override
 	public String translatePathFromPrevious() {
-		if(previous != null){
+		if (previous != null) {
 			return previous.getXQueryVariable() + "/" + relationFromPrevious.getAxis() + "::*";
 		} else {
 			return "/*";
 		}
 	}
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param depth 
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param depth
 	 * 
 	 */
 	public String translatePredicates(Location location) throws InvalidityException {
 		String xPredicates = "";
 		predicatesAreBeingTranslated = true;
-		for (BooleanOperator predicate : predicates){
-			if (predicate.isTranslatable()){
+		for (BooleanOperator predicate : predicates) {
+			if (predicate.isTranslatable()) {
 				xPredicates += "[" + predicate.toXQuery(location) + "]";
 			}
 		}
@@ -182,41 +157,56 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidityException {
 		super.isValid(isDefinedPattern);
-		if (!root)
+		if (isRoot())
 			relationFromPrevious.isValid(isDefinedPattern);
 	}
+
 	@Override
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		if ( graphDepth == 0 && mappingFrom != null) // depth=0 => ReturnGraph
-			throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + mappingFrom + " " + mappingFrom.getId() + " - (" + mappingTo + ")");
-		if (!root)
-			relationFromPrevious.isValid(isDefinedPattern);
-		if (!root && getPreviousElement() == null)
-			throw new InvalidityException("previousElement null");
+		if (getGraphDepth() == 0 && mappingFrom != null) // depth=0 => ReturnGraph
+			throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + mappingFrom + " "
+					+ mappingFrom.getId() + " - (" + mappingTo + ")");
+		if (!isRoot() && getPreviousElement() == null)
+			throw new InvalidityException("previousElement null at SingleElement " + getId());
+		if (isRoot() && getPreviousElement() != null)
+			throw new InvalidityException("root has previous Element");
 		super.isValidLocal(isDefinedPattern);
-	}	
-	
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public int getGraphDepth() {
+		if (getRoot() instanceof Graph)
+			return getRoot().getGraphDepth();
+		else
+			return super.getGraphDepth();
+	}
+
 	@Override
 	public boolean isTranslatable() {
 		return translated;
 	}
-	
+
+	public boolean isRoot() {
+		return getRoot() != null;
+	}
+
 	@Override
 	public String getXQueryRepresentation(Location location, int depth) throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
 			return getContextRepresentation(depth);
 		} else {
-			if(translated) {
+			if (translated) {
 				return getXQueryVariable();
 			} else {
 				throw new InvalidityException("element not yet translated");
 			}
 		}
 	}
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -225,10 +215,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SingleElementMapping getMappingFrom() {
 		if (mappingFrom != null && mappingFrom.eIsProxy()) {
 			InternalEObject oldMappingFrom = (InternalEObject)mappingFrom;
@@ -242,8 +232,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public SingleElementMapping basicGetMappingFrom() {
@@ -251,8 +240,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetMappingFrom(SingleElementMapping newMappingFrom, NotificationChain msgs) {
@@ -266,10 +254,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMappingFrom(SingleElementMapping newMappingFrom) {
 		if (newMappingFrom != mappingFrom) {
 			NotificationChain msgs = null;
@@ -285,10 +273,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SingleElementMapping> getMappingTo() {
 		if (mappingTo == null) {
 			mappingTo = new EObjectWithInverseResolvingEList<SingleElementMapping>(SingleElementMapping.class, this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM);
@@ -297,10 +285,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SingleElement getPrevious() {
 		if (previous != null && previous.eIsProxy()) {
 			InternalEObject oldPrevious = (InternalEObject)previous;
@@ -314,8 +302,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public SingleElement basicGetPrevious() {
@@ -323,10 +310,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPrevious(SingleElement newPrevious) {
 		SingleElement oldPrevious = previous;
 		previous = newPrevious;
@@ -335,10 +322,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Element> getNext() {
 		if (next == null) {
 			next = new EObjectContainmentEList<Element>(Element.class, this, GraphstructurePackage.SINGLE_ELEMENT__NEXT);
@@ -347,41 +334,57 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isRoot() {
-		return root;
+	@Override
+	public Graph getRoot() {
+		if (eContainerFeatureID() != GraphstructurePackage.SINGLE_ELEMENT__ROOT) return null;
+		return (Graph)eInternalContainer();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRoot(boolean newRoot) {
-		boolean oldRoot = root;
-		root = newRoot;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__ROOT, oldRoot, root));
+	public NotificationChain basicSetRoot(Graph newRoot, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newRoot, GraphstructurePackage.SINGLE_ELEMENT__ROOT, msgs);
+		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRoot(Graph newRoot) {
+		if (newRoot != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.SINGLE_ELEMENT__ROOT && newRoot != null)) {
+			if (EcoreUtil.isAncestor(this, newRoot))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newRoot != null)
+				msgs = ((InternalEObject)newRoot).eInverseAdd(this, GraphstructurePackage.GRAPH__ROOT_ELEMENT, Graph.class, msgs);
+			msgs = basicSetRoot(newRoot, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__ROOT, newRoot, newRoot));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public int getOriginalID() {
-		if (mappingFrom == null) 
+		if (mappingFrom == null)
 			return this.id;
-		else 
-			return mappingFrom.getFrom().getOriginalID();		
+		else
+			return mappingFrom.getFrom().getOriginalID();
 	}
-	
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 */
 	public String getXQueryVariable() {
@@ -389,8 +392,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -403,13 +405,16 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				if (mappingFrom != null)
 					msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, SingleElementMapping.class, msgs);
 				return basicSetMappingFrom((SingleElementMapping)otherEnd, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetRoot((Graph)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -421,13 +426,27 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return basicSetMappingFrom(null, msgs);
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT:
 				return ((InternalEList<?>)getNext()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+				return basicSetRoot(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.GRAPH__ROOT_ELEMENT, Graph.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -444,14 +463,13 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT:
 				return getNext();
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
-				return isRoot();
+				return getRoot();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -473,15 +491,14 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				getNext().addAll((Collection<? extends Element>)newValue);
 				return;
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
-				setRoot((Boolean)newValue);
+				setRoot((Graph)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -500,15 +517,14 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				getNext().clear();
 				return;
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
-				setRoot(ROOT_EDEFAULT);
+				setRoot((Graph)null);
 				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -523,14 +539,13 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT:
 				return next != null && !next.isEmpty();
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
-				return root != ROOT_EDEFAULT;
+				return getRoot() != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -553,22 +568,6 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		return super.eInvoke(operationID, arguments);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (root: ");
-		result.append(root);
-		result.append(')');
-		return result.toString();
-	}
-
 	@Override
 	public EList<Element> getNextElements() {
 		return getNext();
@@ -579,4 +578,4 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		return getPrevious();
 	}
 
-} //SingleElementImpl
+} // SingleElementImpl

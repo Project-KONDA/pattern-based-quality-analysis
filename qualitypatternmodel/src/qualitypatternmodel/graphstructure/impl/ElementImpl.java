@@ -42,7 +42,6 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGraphDepth <em>Graph Depth</em>}</li>
  * </ul>
  *
  * @generated
@@ -115,26 +114,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	protected boolean predicatesAreBeingTranslated = PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGraphDepth()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int GRAPH_DEPTH_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGraphDepth()
-	 * @generated
-	 * @ordered
-	 */
-	protected int graphDepth = GRAPH_DEPTH_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -171,7 +150,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		for (Element element : getNextElements()) {
 			res.addAll(element.getAllOperators());
 		}
-		res.addAll(getPredicates());
 		for (Operator op : getPredicates()) {
 			res.addAll(op.getAllOperators());
 		}
@@ -180,8 +158,25 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public EList<Input> getAllVariables() throws InvalidityException {
+		EList<Input> res = new BasicEList<Input>();
+		for (Element element : getNextElements()) {
+			res.addAll(element.getAllVariables());
+		}
+//		res.addAll(getRelationFromPrevious().getAllVariables());
+		for (Property p : getProperties()) 
+			res.addAll(p.getAllVariables());		
+		for (Operator op : getPredicates()) 
+			res.addAll(op.getAllVariables());
+		return res;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getXQueryRepresentation(Location location, int depth) throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -222,24 +217,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public EList<Input> getAllVariables() throws InvalidityException {
-		EList<Input> res = new BasicEList<Input>();
-		for (Element element : getNextElements()) {
-			res.addAll(element.getAllVariables());
-		}
-//		res.addAll(getRelationFromPrevious().getAllVariables());
-		for (Property p : getProperties()) {
-			res.addAll(p.getAllVariables());
-		}
-		for (Operator op : getPredicates()) {
-			res.addAll(op.getAllVariables());
-		}
-		return res;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -251,6 +228,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<BooleanOperator> getPredicates() {
 		if (predicates == null) {
 			predicates = new EObjectResolvingEList<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES);
@@ -262,6 +240,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Relation getRelationFromPrevious() {
 		return relationFromPrevious;
 	}
@@ -282,15 +261,16 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
 	 */
+	@Override
 	public void setRelationFromPrevious(Relation newRelationFromPrevious) {
 		if (newRelationFromPrevious != relationFromPrevious) {
 			NotificationChain msgs = null;
 			if (relationFromPrevious != null)
-				msgs = ((InternalEObject)relationFromPrevious).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, null, msgs);
+				msgs = ((InternalEObject)relationFromPrevious).eInverseRemove(this, GraphstructurePackage.RELATION__RELATION_TO, Relation.class, msgs);
 			if (newRelationFromPrevious != null)
-				msgs = ((InternalEObject)newRelationFromPrevious).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, null, msgs);
-			newRelationFromPrevious.setGraphDepth(getGraphDepth());
+				msgs = ((InternalEObject)newRelationFromPrevious).eInverseAdd(this, GraphstructurePackage.RELATION__RELATION_TO, Relation.class, msgs);
 			msgs = basicSetRelationFromPrevious(newRelationFromPrevious, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -302,6 +282,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isTranslated() {
 		return translated;
 	}
@@ -310,6 +291,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTranslated(boolean newTranslated) {
 		boolean oldTranslated = translated;
 		translated = newTranslated;
@@ -321,6 +303,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Property> getProperties() {
 		if (properties == null) {
 			properties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, GraphstructurePackage.ELEMENT__PROPERTIES, GraphstructurePackage.PROPERTY__ELEMENT);
@@ -332,6 +315,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isPredicatesAreBeingTranslated() {
 		return predicatesAreBeingTranslated;
 	}
@@ -340,6 +324,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPredicatesAreBeingTranslated(boolean newPredicatesAreBeingTranslated) {
 		boolean oldPredicatesAreBeingTranslated = predicatesAreBeingTranslated;
 		predicatesAreBeingTranslated = newPredicatesAreBeingTranslated;
@@ -348,26 +333,12 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public int getGraphDepth() {
-		return graphDepth;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void setGraphDepth(int newGraphDepth) {
-		int oldGraphDepth = graphDepth;
-		graphDepth = newGraphDepth;
-		for (Element e : getNextElements()) {
-			e.setGraphDepth(graphDepth);
-		}
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__GRAPH_DEPTH, oldGraphDepth, graphDepth));
+		if (getPreviousElement() instanceof Element)
+			return getPreviousElement().getGraphDepth();
+		return -1;
 	}
 
 	/**
@@ -388,6 +359,10 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
+				if (relationFromPrevious != null)
+					msgs = ((InternalEObject)relationFromPrevious).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, null, msgs);
+				return basicSetRelationFromPrevious((Relation)otherEnd, msgs);
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
 		}
@@ -426,8 +401,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return getProperties();
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				return isPredicatesAreBeingTranslated();
-			case GraphstructurePackage.ELEMENT__GRAPH_DEPTH:
-				return getGraphDepth();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -457,9 +430,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated((Boolean)newValue);
 				return;
-			case GraphstructurePackage.ELEMENT__GRAPH_DEPTH:
-				setGraphDepth((Integer)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -486,9 +456,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
 				return;
-			case GraphstructurePackage.ELEMENT__GRAPH_DEPTH:
-				setGraphDepth(GRAPH_DEPTH_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -510,8 +477,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return properties != null && !properties.isEmpty();
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				return predicatesAreBeingTranslated != PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
-			case GraphstructurePackage.ELEMENT__GRAPH_DEPTH:
-				return graphDepth != GRAPH_DEPTH_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -548,6 +513,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.ELEMENT___GET_GRAPH_DEPTH:
+				return getGraphDepth();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -565,8 +532,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 		result.append(translated);
 		result.append(", predicatesAreBeingTranslated: ");
 		result.append(predicatesAreBeingTranslated);
-		result.append(", graphDepth: ");
-		result.append(graphDepth);
 		result.append(')');
 		return result.toString();
 	}

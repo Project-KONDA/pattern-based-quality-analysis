@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -25,9 +24,8 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.VariableList;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Variable List</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Variable List</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -41,8 +39,7 @@ import qualitypatternmodel.patternstructure.VariableList;
 public class VariableListImpl extends PatternElementImpl implements VariableList {
 	/**
 	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVariables()
 	 * @generated
 	 * @ordered
@@ -50,14 +47,13 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	protected EList<Input> variables;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected VariableListImpl() {
 		super();
 	}
-	
+
 	public VariableListImpl(PatternImpl patternImpl) {
 		super();
 		setPattern(patternImpl);
@@ -67,28 +63,39 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	public void isValid(boolean isDefinedPattern) throws InvalidityException {
 		isValidLocal(isDefinedPattern);
 	}
-	
+
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+		if (getPattern() == null)
+			throw new InvalidityException("VariableList not in Pattern");
+
 		EList<Input> patternVars = getPattern().getAllVariables();
-		if (!patternVars.containsAll(getVariables()))
-			throw new InvalidityException("not all variables from VariableList in Graph");	
-		if (!getVariables().containsAll(patternVars)) {
-			String msg = "not all variables from graph in VariableList:\n";
-			for (Input variable : getVariables()) {
-				msg += variable + ", ";
+		if (patternVars == null)
+			throw new InvalidityException("invalid Operators of Graph");
+
+		if (!(patternVars.containsAll(getVariables()) && getVariables().containsAll(patternVars))) {
+			String msg = "variables from VariableList not equal amount of variables used in Graph: \n";
+			for (Input var : patternVars) {
+				msg += var.getId();
+				if (!getVariables().contains(var))
+					msg += "- ";
+				else
+					msg += "+ ";
 			}
 			msg += "\n";
-			for (Input variable : patternVars) {
-				msg += " " + variable;
-			}			
-			throw new InvalidityException(msg);		
-		}		
+			for (Input var : getVariables()) {
+				msg += var.getId();
+				if (!patternVars.contains(var))
+					msg += "- ";
+				else
+					msg += "+ ";
+			}
+			throw new InvalidityException(msg);
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -97,10 +104,10 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Input> getVariables() {
 		if (variables == null) {
 			variables = new EObjectContainmentWithInverseEList<Input>(Input.class, this, PatternstructurePackage.VARIABLE_LIST__VARIABLES, InputfieldsPackage.INPUT__VARIABLE_LIST);
@@ -109,18 +116,17 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Pattern getPattern() {
 		if (eContainerFeatureID() != PatternstructurePackage.VARIABLE_LIST__PATTERN) return null;
 		return (Pattern)eInternalContainer();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
@@ -129,10 +135,10 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPattern(Pattern newPattern) {
 		if (newPattern != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.VARIABLE_LIST__PATTERN && newPattern != null)) {
 			if (EcoreUtil.isAncestor(this, newPattern))
@@ -150,8 +156,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -169,8 +174,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -185,8 +189,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -199,8 +202,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -215,8 +217,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -235,8 +236,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -253,8 +253,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -268,4 +267,4 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 		return super.eIsSet(featureID);
 	}
 
-} //VariableListImpl
+} // VariableListImpl

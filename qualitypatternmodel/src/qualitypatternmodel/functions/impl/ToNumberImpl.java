@@ -88,6 +88,7 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Property getProperty() {
 		if (property != null && property.eIsProxy()) {
 			InternalEObject oldProperty = (InternalEObject)property;
@@ -114,6 +115,7 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProperty(Property newProperty) {
 		Property oldProperty = property;
 		property = newProperty;

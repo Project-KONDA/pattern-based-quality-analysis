@@ -66,6 +66,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getCondDepth() {
 		return condDepth;
 	}
@@ -75,6 +76,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCondDepth(int newCondDepth) {
 		int oldCondDepth = condDepth;
 		condDepth = newCondDepth;

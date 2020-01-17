@@ -175,6 +175,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		EValidator.Registry.INSTANCE.put
 			(theFunctionsPackage,
 			 new EValidator.Descriptor() {
+				 @Override
 				 public EValidator getEValidator() {
 					 return FunctionsValidator.INSTANCE;
 				 }
@@ -193,6 +194,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBooleanOperator() {
 		return booleanOperatorEClass;
 	}
@@ -202,6 +204,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOperator() {
 		return operatorEClass;
 	}
@@ -211,6 +214,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getOperator__GetAllOperators() {
 		return operatorEClass.getEOperations().get(0);
 	}
@@ -220,6 +224,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getOperator__Validate__DiagnosticChain_Map() {
 		return operatorEClass.getEOperations().get(1);
 	}
@@ -229,6 +234,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCount() {
 		return countEClass;
 	}
@@ -238,6 +244,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCount_Argument() {
 		return (EReference)countEClass.getEStructuralFeatures().get(0);
 	}
@@ -247,6 +254,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOtherOperators() {
 		return otherOperatorsEClass;
 	}
@@ -256,6 +264,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNumberOperators() {
 		return numberOperatorsEClass;
 	}
@@ -265,6 +274,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMatch() {
 		return matchEClass;
 	}
@@ -274,6 +284,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMatch_Property() {
 		return (EReference)matchEClass.getEStructuralFeatures().get(0);
 	}
@@ -283,6 +294,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMatch_RegularExpression() {
 		return (EReference)matchEClass.getEStructuralFeatures().get(1);
 	}
@@ -292,6 +304,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMatch_Option() {
 		return (EReference)matchEClass.getEStructuralFeatures().get(2);
 	}
@@ -301,6 +314,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getComparison() {
 		return comparisonEClass;
 	}
@@ -310,6 +324,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComparison_Argument1() {
 		return (EReference)comparisonEClass.getEStructuralFeatures().get(0);
 	}
@@ -319,6 +334,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComparison_Option() {
 		return (EReference)comparisonEClass.getEStructuralFeatures().get(1);
 	}
@@ -328,6 +344,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComparison_Argument2() {
 		return (EReference)comparisonEClass.getEStructuralFeatures().get(2);
 	}
@@ -337,6 +354,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getToNumber() {
 		return toNumberEClass;
 	}
@@ -346,6 +364,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getToNumber_Property() {
 		return (EReference)toNumberEClass.getEStructuralFeatures().get(0);
 	}
@@ -355,6 +374,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getComparisonOperator() {
 		return comparisonOperatorEEnum;
 	}
@@ -364,6 +384,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FunctionsFactory getFunctionsFactory() {
 		return (FunctionsFactory)getEFactoryInstance();
 	}

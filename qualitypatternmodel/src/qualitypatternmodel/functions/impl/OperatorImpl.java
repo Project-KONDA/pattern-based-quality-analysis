@@ -37,7 +37,9 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 	 * <!-- end-user-doc -->
 	 */
 	public EList<Operator> getAllOperators() throws InvalidityException {
-		return new BasicEList<Operator>();
+		BasicEList<Operator> operators = new BasicEList<Operator>();
+		operators.add(this);
+		return operators;
 	}
 	
 	/**

@@ -77,6 +77,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public qualitypatternmodel.inputfields.Number createNumber() {
 		NumberImpl number = new NumberImpl();
 		return number;
@@ -87,6 +88,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public qualitypatternmodel.inputfields.Boolean createBoolean() {
 		BooleanImpl boolean_ = new BooleanImpl();
 		return boolean_;
@@ -97,6 +99,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Text createText() {
 		TextImpl text = new TextImpl();
 		return text;
@@ -107,6 +110,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CompOption createCompOption() {
 		CompOptionImpl compOption = new CompOptionImpl();
 		return compOption;
@@ -117,6 +121,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PropertyOption createPropertyOption() {
 		PropertyOptionImpl propertyOption = new PropertyOptionImpl();
 		return propertyOption;
@@ -127,6 +132,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BoolOption createBoolOption() {
 		BoolOptionImpl boolOption = new BoolOptionImpl();
 		return boolOption;
@@ -137,6 +143,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InputfieldsPackage getInputfieldsPackage() {
 		return (InputfieldsPackage)getEPackage();
 	}

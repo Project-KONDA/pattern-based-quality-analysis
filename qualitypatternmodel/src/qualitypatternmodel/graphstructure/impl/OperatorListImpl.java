@@ -25,9 +25,8 @@ import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Operator List</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Operator List</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -41,41 +40,57 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 public class OperatorListImpl extends PatternElementImpl implements OperatorList {
 	/**
 	 * The cached value of the '{@link #getOperators() <em>Operators</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getOperators()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<Operator> operators;
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected OperatorListImpl() {
 		super();
 	}
-	
+
 	public OperatorListImpl(GraphImpl graphImpl) {
 		super();
 		setGraph(graphImpl);
 	}
-	
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
+
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (getGraph() == null)
-			throw new InvalidityException("OperatorList not in Graph");	
-		if(getGraph().getAllOperators() == null)
-			throw new InvalidityException("invalid Operators of Graph");				
-		if (!getGraph().getAllOperators().containsAll(getOperators()))
-			throw new InvalidityException("not all operators from OperatorList in Graph");	
-		if (!operators.containsAll(getGraph().getAllOperators()))
-			throw new InvalidityException("not all operators from graph in OperatorList");			
+			throw new InvalidityException("OperatorList not in Graph");
+		if (getGraph().getAllOperators() == null)
+			throw new InvalidityException("invalid Operators of Graph");
+
+		EList<Operator> graphOps = getGraph().getAllOperators();
+		if (!(graphOps.containsAll(getOperators()) && getOperators().containsAll(graphOps))) {
+			String msg = "operators from OperatorList not equal amount of operators used in Graph: \n";
+			msg += getOperators();
+			for (Operator op : graphOps) {
+				msg += op.getId();
+				if (!getOperators().contains(op))
+					msg += "- ";
+				else
+					msg += "+ ";
+			}
+			msg += "; ";
+			for (Operator op : getOperators()) {
+				msg += op.getId();
+				if (!getOperators().contains(op))
+					msg += "- ";
+				else
+					msg += "+ ";
+			}
+			throw new InvalidityException(msg);
+		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -84,10 +99,10 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Operator> getOperators() {
 		if (operators == null) {
 			operators = new EObjectContainmentEList<Operator>(Operator.class, this, GraphstructurePackage.OPERATOR_LIST__OPERATORS);
@@ -96,18 +111,17 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Graph getGraph() {
 		if (eContainerFeatureID() != GraphstructurePackage.OPERATOR_LIST__GRAPH) return null;
 		return (Graph)eInternalContainer();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
@@ -116,10 +130,10 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGraph(Graph newGraph) {
 		if (newGraph != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.OPERATOR_LIST__GRAPH && newGraph != null)) {
 			if (EcoreUtil.isAncestor(this, newGraph))
@@ -137,8 +151,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -153,8 +166,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -169,8 +181,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -183,8 +194,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -199,8 +209,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -219,8 +228,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -237,8 +245,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -252,4 +259,4 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 		return super.eIsSet(featureID);
 	}
 
-} //OperatorListImpl
+} // OperatorListImpl

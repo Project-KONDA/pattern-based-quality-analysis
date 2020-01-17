@@ -129,6 +129,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Mapping> getMappings() {
 		if (mappings == null) {
 			mappings = new EObjectContainmentEList<Mapping>(Mapping.class, this, PatternstructurePackage.MORPHISM__MAPPINGS);
@@ -140,6 +141,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Graph getFrom() {
 		if (from != null && from.eIsProxy()) {
 			InternalEObject oldFrom = (InternalEObject)from;
@@ -164,6 +166,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFrom(Graph newFrom) {
 		Graph oldFrom = from;
 		from = newFrom;
@@ -175,6 +178,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Graph getTo() {
 		if (to != null && to.eIsProxy()) {
 			InternalEObject oldTo = (InternalEObject)to;
@@ -199,6 +203,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTo(Graph newTo) {
 		Graph oldTo = to;
 		to = newTo;
@@ -211,6 +216,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getMorphDepth() {
 		return morphDepth;
 	}
@@ -220,6 +226,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMorphDepth(int newMorphDepth) {
 		int oldMorphDepth = morphDepth;
 		morphDepth = newMorphDepth;

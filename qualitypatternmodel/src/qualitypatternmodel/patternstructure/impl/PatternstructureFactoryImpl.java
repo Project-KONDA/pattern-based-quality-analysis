@@ -117,6 +117,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RelationMapping createRelationMapping() {
 		RelationMappingImpl relationMapping = new RelationMappingImpl();
 		return relationMapping;
@@ -127,6 +128,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public QuantifiedCondition createQuantifiedCondition() {
 		QuantifiedConditionImpl quantifiedCondition = new QuantifiedConditionImpl();
 		return quantifiedCondition;
@@ -137,6 +139,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Morphism createMorphism() {
 		MorphismImpl morphism = new MorphismImpl();
 		return morphism;
@@ -147,6 +150,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SingleElementMapping createSingleElementMapping() {
 		SingleElementMappingImpl singleElementMapping = new SingleElementMappingImpl();
 		return singleElementMapping;
@@ -157,6 +161,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Formula createFormula() {
 		FormulaImpl formula = new FormulaImpl();
 		return formula;
@@ -167,6 +172,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public True createTrue() {
 		TrueImpl true_ = new TrueImpl();
 		return true_;
@@ -177,6 +183,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Pattern createPattern() {
 		PatternImpl pattern = new PatternImpl();
 		return pattern;
@@ -187,6 +194,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public VariableList createVariableList() {
 		VariableListImpl variableList = new VariableListImpl();
 		return variableList;
@@ -275,6 +283,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatternstructurePackage getPatternstructurePackage() {
 		return (PatternstructurePackage)getEPackage();
 	}

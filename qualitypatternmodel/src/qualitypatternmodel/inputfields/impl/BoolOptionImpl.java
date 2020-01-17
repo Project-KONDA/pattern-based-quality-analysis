@@ -101,6 +101,7 @@ public class BoolOptionImpl extends InputImpl implements BoolOption {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Boolean> getOptions() {
 		if (options == null) {
 			options = new EDataTypeUniqueEList<Boolean>(Boolean.class, this, InputfieldsPackage.BOOL_OPTION__OPTIONS);
@@ -113,6 +114,7 @@ public class BoolOptionImpl extends InputImpl implements BoolOption {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getSelection() {
 		return selection;
 	}
@@ -122,6 +124,7 @@ public class BoolOptionImpl extends InputImpl implements BoolOption {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSelection(Boolean newSelection) {
 		Boolean oldSelection = selection;
 		selection = newSelection;

@@ -20,7 +20,7 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNext <em>Next</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#isRoot <em>Root</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement()
@@ -101,26 +101,28 @@ public interface SingleElement extends Element {
 	EList<Element> getNext();
 
 	/**
-	 * Returns the value of the '<em><b>Root</b></em>' attribute.
+	 * Returns the value of the '<em><b>Root</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root</em>' attribute.
-	 * @see #setRoot(boolean)
+	 * @return the value of the '<em>Root</em>' container reference.
+	 * @see #setRoot(Graph)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Root()
-	 * @model
+	 * @see qualitypatternmodel.graphstructure.Graph#getRootElement
+	 * @model opposite="rootElement" transient="false"
 	 * @generated
 	 */
-	boolean isRoot();
+	Graph getRoot();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#isRoot <em>Root</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root</em>' attribute.
-	 * @see #isRoot()
+	 * @param value the new value of the '<em>Root</em>' container reference.
+	 * @see #getRoot()
 	 * @generated
 	 */
-	void setRoot(boolean value);
+	void setRoot(Graph value);
 
 	/**
 	 * <!-- begin-user-doc -->

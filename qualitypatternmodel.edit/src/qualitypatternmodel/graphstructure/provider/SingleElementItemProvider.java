@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
@@ -51,7 +50,6 @@ public class SingleElementItemProvider extends ElementItemProvider {
 			addMappingToPropertyDescriptor(object);
 			addMappingFromPropertyDescriptor(object);
 			addPreviousPropertyDescriptor(object);
-			addRootPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -123,28 +121,6 @@ public class SingleElementItemProvider extends ElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Root feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRootPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SingleElement_root_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_root_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__ROOT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -210,9 +186,6 @@ public class SingleElementItemProvider extends ElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SingleElement.class)) {
-			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

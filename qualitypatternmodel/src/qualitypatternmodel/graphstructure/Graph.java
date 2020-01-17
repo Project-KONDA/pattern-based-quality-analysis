@@ -43,12 +43,14 @@ public interface Graph extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Root Element</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root Element</em>' containment reference.
 	 * @see #setRootElement(SingleElement)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_RootElement()
-	 * @model containment="true" required="true"
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getRoot
+	 * @model opposite="root" containment="true" required="true"
 	 * @generated
 	 */
 	SingleElement getRootElement();

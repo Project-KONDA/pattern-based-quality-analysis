@@ -90,6 +90,7 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Double getNumber() {
 		return number;
 	}
@@ -99,6 +100,7 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNumber(Double newNumber) {
 		Double oldNumber = number;
 		number = newNumber;

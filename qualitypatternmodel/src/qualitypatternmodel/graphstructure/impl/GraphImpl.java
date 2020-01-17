@@ -169,6 +169,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
+				if (rootElement != null)
+					msgs = ((InternalEObject)rootElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
+				return basicSetRootElement((SingleElement)otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				if (operatorList != null)
 					msgs = ((InternalEObject)operatorList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__OPERATOR_LIST, null, msgs);
@@ -192,6 +196,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SingleElement> getReturnElements() {
 		if (returnElements == null) {
 			returnElements = new EObjectResolvingEList<SingleElement>(SingleElement.class, this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS);
@@ -204,6 +209,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SingleElement getRootElement() {
 		return rootElement;
 	}
@@ -234,7 +240,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				msgs = ((InternalEObject)rootElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
 			if (newRootElement != null)
 				msgs = ((InternalEObject)newRootElement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
-			newRootElement.setRoot(true);
+			newRootElement.setRoot(this);
 			msgs = basicSetRootElement(newRootElement, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -247,6 +253,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OperatorList getOperatorList() {
 		return operatorList;
 	}
@@ -271,6 +278,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOperatorList(OperatorList newOperatorList) {
 		if (newOperatorList != operatorList) {
 			NotificationChain msgs = null;
@@ -290,6 +298,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getGraphDepth() {
 		return graphDepth;
 	}
@@ -299,6 +308,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setGraphDepth(int newGraphDepth) {
 		int oldGraphDepth = graphDepth;
 		graphDepth = newGraphDepth;
@@ -311,6 +321,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isReturnGraph() {
 		return returnGraph;
 	}
@@ -320,6 +331,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReturnGraph(boolean newReturnGraph) {
 		boolean oldReturnGraph = returnGraph;
 		returnGraph = newReturnGraph;

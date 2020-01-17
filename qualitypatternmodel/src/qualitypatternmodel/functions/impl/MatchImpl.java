@@ -135,6 +135,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Property getProperty() {
 		if (property != null && property.eIsProxy()) {
 			InternalEObject oldProperty = (InternalEObject)property;
@@ -161,6 +162,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProperty(Property newProperty) {
 		Property oldProperty = property;
 		property = newProperty;
@@ -173,6 +175,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Text getRegularExpression() {
 		if (regularExpression != null && regularExpression.eIsProxy()) {
 			InternalEObject oldRegularExpression = (InternalEObject)regularExpression;
@@ -199,6 +202,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRegularExpression(Text newRegularExpression) {
 		Text oldRegularExpression = regularExpression;
 		regularExpression = newRegularExpression;
@@ -211,6 +215,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public BoolOption getOption() {
 		if (option != null && option.eIsProxy()) {
@@ -238,6 +243,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOption(BoolOption newOption) {
 		BoolOption oldOption = option;
 		option = newOption;

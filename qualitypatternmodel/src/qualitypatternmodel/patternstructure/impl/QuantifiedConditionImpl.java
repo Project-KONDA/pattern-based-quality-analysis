@@ -150,6 +150,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Condition getCondition() {
 		return condition;
 	}
@@ -190,6 +191,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Graph getGraph() {
 		return graph;
 	}
@@ -231,6 +233,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Morphism getMorphism() {
 		return morphism;
 	}
@@ -272,6 +275,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Quantifier getQuantifier() {
 		return quantifier;
 	}
@@ -280,6 +284,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setQuantifier(Quantifier newQuantifier) {
 		Quantifier oldQuantifier = quantifier;
 		quantifier = newQuantifier == null ? QUANTIFIER_EDEFAULT : newQuantifier;

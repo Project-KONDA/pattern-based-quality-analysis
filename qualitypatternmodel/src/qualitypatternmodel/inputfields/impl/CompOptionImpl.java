@@ -102,6 +102,7 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ComparisonOperator> getOptions() {
 		if (options == null) {
 			options = new EDataTypeUniqueEList<ComparisonOperator>(ComparisonOperator.class, this, InputfieldsPackage.COMP_OPTION__OPTIONS);
@@ -114,6 +115,7 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComparisonOperator getSelection() {
 		return selection;
 	}
@@ -123,6 +125,7 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSelection(ComparisonOperator newSelection) {
 		ComparisonOperator oldSelection = selection;
 		selection = newSelection == null ? SELECTION_EDEFAULT : newSelection;

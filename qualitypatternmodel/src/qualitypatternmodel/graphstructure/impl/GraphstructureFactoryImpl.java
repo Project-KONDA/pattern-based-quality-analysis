@@ -111,6 +111,7 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Relation createRelation() {
 		RelationImpl relation = new RelationImpl();
 		return relation;
@@ -121,6 +122,7 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Property createProperty() {
 		PropertyImpl property = new PropertyImpl();
 		return property;
@@ -131,6 +133,7 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SingleElement createSingleElement() {
 		SingleElementImpl singleElement = new SingleElementImpl();
 		return singleElement;
@@ -141,6 +144,7 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SetElement createSetElement() {
 		SetElementImpl setElement = new SetElementImpl();
 		return setElement;
@@ -151,6 +155,7 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Graph createGraph() {
 		GraphImpl graph = new GraphImpl();
 		return graph;
@@ -161,6 +166,7 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OperatorList createOperatorList() {
 		OperatorListImpl operatorList = new OperatorListImpl();
 		return operatorList;
@@ -231,6 +237,7 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GraphstructurePackage getGraphstructurePackage() {
 		return (GraphstructurePackage)getEPackage();
 	}

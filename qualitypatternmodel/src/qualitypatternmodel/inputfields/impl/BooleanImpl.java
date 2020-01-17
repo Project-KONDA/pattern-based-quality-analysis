@@ -92,6 +92,7 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Boolean getBool() {
 		return bool;
 	}
@@ -101,6 +102,7 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBool(Boolean newBool) {
 		Boolean oldBool = bool;
 		bool = newBool;

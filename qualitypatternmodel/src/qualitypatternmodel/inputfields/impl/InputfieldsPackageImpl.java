@@ -157,6 +157,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		EValidator.Registry.INSTANCE.put
 			(theInputfieldsPackage,
 			 new EValidator.Descriptor() {
+				 @Override
 				 public EValidator getEValidator() {
 					 return InputfieldsValidator.INSTANCE;
 				 }
@@ -175,6 +176,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInput() {
 		return inputEClass;
 	}
@@ -184,6 +186,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInput_VariableList() {
 		return (EReference)inputEClass.getEStructuralFeatures().get(0);
 	}
@@ -193,6 +196,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInput_Description() {
 		return (EAttribute)inputEClass.getEStructuralFeatures().get(1);
 	}
@@ -202,6 +206,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInput_IsPredefined() {
 		return (EAttribute)inputEClass.getEStructuralFeatures().get(2);
 	}
@@ -211,6 +216,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getInput__InputIsValid() {
 		return inputEClass.getEOperations().get(0);
 	}
@@ -220,6 +226,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getInput__Validate__DiagnosticChain_Map() {
 		return inputEClass.getEOperations().get(1);
 	}
@@ -229,6 +236,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNumber() {
 		return numberEClass;
 	}
@@ -238,6 +246,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNumber_Number() {
 		return (EAttribute)numberEClass.getEStructuralFeatures().get(0);
 	}
@@ -247,6 +256,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBoolean() {
 		return booleanEClass;
 	}
@@ -256,6 +266,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBoolean_Bool() {
 		return (EAttribute)booleanEClass.getEStructuralFeatures().get(0);
 	}
@@ -265,6 +276,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getText() {
 		return textEClass;
 	}
@@ -274,6 +286,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getText_Text() {
 		return (EAttribute)textEClass.getEStructuralFeatures().get(0);
 	}
@@ -283,6 +296,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCompOption() {
 		return compOptionEClass;
 	}
@@ -292,6 +306,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCompOption_Options() {
 		return (EAttribute)compOptionEClass.getEStructuralFeatures().get(0);
 	}
@@ -301,6 +316,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCompOption_Selection() {
 		return (EAttribute)compOptionEClass.getEStructuralFeatures().get(1);
 	}
@@ -310,6 +326,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPropertyOption() {
 		return propertyOptionEClass;
 	}
@@ -319,6 +336,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPropertyOption_Options() {
 		return (EAttribute)propertyOptionEClass.getEStructuralFeatures().get(0);
 	}
@@ -328,6 +346,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPropertyOption_Selection() {
 		return (EAttribute)propertyOptionEClass.getEStructuralFeatures().get(1);
 	}
@@ -337,6 +356,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBoolOption() {
 		return boolOptionEClass;
 	}
@@ -346,6 +366,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBoolOption_Options() {
 		return (EAttribute)boolOptionEClass.getEStructuralFeatures().get(0);
 	}
@@ -355,6 +376,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBoolOption_Selection() {
 		return (EAttribute)boolOptionEClass.getEStructuralFeatures().get(1);
 	}
@@ -364,6 +386,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InputfieldsFactory getInputfieldsFactory() {
 		return (InputfieldsFactory)getEFactoryInstance();
 	}

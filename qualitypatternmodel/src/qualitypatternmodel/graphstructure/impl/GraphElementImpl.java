@@ -48,6 +48,7 @@ public abstract class GraphElementImpl extends PatternElementImpl implements Gra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ReturnType getReturnType() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -59,6 +60,7 @@ public abstract class GraphElementImpl extends PatternElementImpl implements Gra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isTranslatable() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -70,6 +72,7 @@ public abstract class GraphElementImpl extends PatternElementImpl implements Gra
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toXQuery(Location location, int depth) throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT

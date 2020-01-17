@@ -103,6 +103,7 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<PropertyLocation> getOptions() {
 		if (options == null) {
 			options = new EDataTypeUniqueEList<PropertyLocation>(PropertyLocation.class, this, InputfieldsPackage.PROPERTY_OPTION__OPTIONS);
@@ -115,6 +116,7 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PropertyLocation getSelection() {
 		return selection;
 	}
@@ -124,6 +126,7 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSelection(PropertyLocation newSelection) {
 		PropertyLocation oldSelection = selection;
 		selection = newSelection == null ? SELECTION_EDEFAULT : newSelection;

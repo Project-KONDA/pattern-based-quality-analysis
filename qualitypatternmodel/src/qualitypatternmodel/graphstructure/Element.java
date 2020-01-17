@@ -24,7 +24,6 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraphDepth <em>Graph Depth</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
@@ -46,12 +45,14 @@ public interface Element extends GraphElement {
 
 	/**
 	 * Returns the value of the '<em><b>Relation From Previous</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Relation From Previous</em>' containment reference.
 	 * @see #setRelationFromPrevious(Relation)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_RelationFromPrevious()
-	 * @model containment="true"
+	 * @see qualitypatternmodel.graphstructure.Relation#getRelationTo
+	 * @model opposite="relationTo" containment="true"
 	 * @generated
 	 */
 	Relation getRelationFromPrevious();
@@ -125,26 +126,12 @@ public interface Element extends GraphElement {
 	void setPredicatesAreBeingTranslated(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Graph Depth</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Graph Depth</em>' attribute.
-	 * @see #setGraphDepth(int)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_GraphDepth()
-	 * @model
+	 * @model kind="operation"
 	 * @generated
 	 */
 	int getGraphDepth();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getGraphDepth <em>Graph Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Graph Depth</em>' attribute.
-	 * @see #getGraphDepth()
-	 * @generated
-	 */
-	void setGraphDepth(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

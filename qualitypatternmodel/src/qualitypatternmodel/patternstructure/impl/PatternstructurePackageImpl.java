@@ -227,6 +227,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		EValidator.Registry.INSTANCE.put
 			(thePatternstructurePackage,
 			 new EValidator.Descriptor() {
+				 @Override
 				 public EValidator getEValidator() {
 					 return PatternstructureValidator.INSTANCE;
 				 }
@@ -245,6 +246,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRelationMapping() {
 		return relationMappingEClass;
 	}
@@ -254,6 +256,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRelationMapping_To() {
 		return (EReference)relationMappingEClass.getEStructuralFeatures().get(0);
 	}
@@ -263,6 +266,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRelationMapping_From() {
 		return (EReference)relationMappingEClass.getEStructuralFeatures().get(1);
 	}
@@ -272,6 +276,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getQuantifiedCondition() {
 		return quantifiedConditionEClass;
 	}
@@ -281,6 +286,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getQuantifiedCondition_Condition() {
 		return (EReference)quantifiedConditionEClass.getEStructuralFeatures().get(0);
 	}
@@ -290,6 +296,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getQuantifiedCondition_Graph() {
 		return (EReference)quantifiedConditionEClass.getEStructuralFeatures().get(1);
 	}
@@ -299,6 +306,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getQuantifiedCondition_Morphism() {
 		return (EReference)quantifiedConditionEClass.getEStructuralFeatures().get(2);
 	}
@@ -308,6 +316,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getQuantifiedCondition_Quantifier() {
 		return (EAttribute)quantifiedConditionEClass.getEStructuralFeatures().get(3);
 	}
@@ -317,6 +326,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCondition() {
 		return conditionEClass;
 	}
@@ -326,6 +336,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCondition_CondDepth() {
 		return (EAttribute)conditionEClass.getEStructuralFeatures().get(0);
 	}
@@ -335,6 +346,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMorphism() {
 		return morphismEClass;
 	}
@@ -344,6 +356,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMorphism_Mappings() {
 		return (EReference)morphismEClass.getEStructuralFeatures().get(0);
 	}
@@ -353,6 +366,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMorphism_From() {
 		return (EReference)morphismEClass.getEStructuralFeatures().get(1);
 	}
@@ -362,6 +376,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMorphism_To() {
 		return (EReference)morphismEClass.getEStructuralFeatures().get(2);
 	}
@@ -371,6 +386,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMorphism_MorphDepth() {
 		return (EAttribute)morphismEClass.getEStructuralFeatures().get(3);
 	}
@@ -380,6 +396,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSingleElementMapping() {
 		return singleElementMappingEClass;
 	}
@@ -389,6 +406,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSingleElementMapping_From() {
 		return (EReference)singleElementMappingEClass.getEStructuralFeatures().get(0);
 	}
@@ -398,6 +416,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSingleElementMapping_To() {
 		return (EReference)singleElementMappingEClass.getEStructuralFeatures().get(1);
 	}
@@ -407,6 +426,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMapping() {
 		return mappingEClass;
 	}
@@ -416,6 +436,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMapping_MappingDepth() {
 		return (EAttribute)mappingEClass.getEStructuralFeatures().get(0);
 	}
@@ -425,6 +446,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFormula() {
 		return formulaEClass;
 	}
@@ -434,6 +456,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFormula_Arguments() {
 		return (EReference)formulaEClass.getEStructuralFeatures().get(0);
 	}
@@ -443,6 +466,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFormula_Operator() {
 		return (EAttribute)formulaEClass.getEStructuralFeatures().get(1);
 	}
@@ -452,6 +476,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTrue() {
 		return trueEClass;
 	}
@@ -461,6 +486,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPattern() {
 		return patternEClass;
 	}
@@ -470,6 +496,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPattern_ReturnGraph() {
 		return (EReference)patternEClass.getEStructuralFeatures().get(0);
 	}
@@ -479,6 +506,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPattern_Condition() {
 		return (EReference)patternEClass.getEStructuralFeatures().get(1);
 	}
@@ -488,6 +516,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPattern_VariableList() {
 		return (EReference)patternEClass.getEStructuralFeatures().get(2);
 	}
@@ -497,6 +526,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getPattern__IsValid__boolean() {
 		return patternEClass.getEOperations().get(0);
 	}
@@ -506,6 +536,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getPattern__ToXQuery() {
 		return patternEClass.getEOperations().get(1);
 	}
@@ -515,6 +546,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPatternElement() {
 		return patternElementEClass;
 	}
@@ -524,6 +556,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPatternElement_Id() {
 		return (EAttribute)patternElementEClass.getEStructuralFeatures().get(0);
 	}
@@ -533,6 +566,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getPatternElement__ToXQuery__Location() {
 		return patternElementEClass.getEOperations().get(0);
 	}
@@ -542,6 +576,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getPatternElement__GetAllVariables() {
 		return patternElementEClass.getEOperations().get(1);
 	}
@@ -551,6 +586,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getPatternElement__GetNewId() {
 		return patternElementEClass.getEOperations().get(2);
 	}
@@ -560,6 +596,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getPatternElement__PrepareTranslation() {
 		return patternElementEClass.getEOperations().get(3);
 	}
@@ -569,6 +606,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getPatternElement__Validate__DiagnosticChain_Map() {
 		return patternElementEClass.getEOperations().get(4);
 	}
@@ -578,6 +616,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getPatternElement__IsValid__boolean() {
 		return patternElementEClass.getEOperations().get(5);
 	}
@@ -587,6 +626,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getPatternElement__IsValidLocal__boolean() {
 		return patternElementEClass.getEOperations().get(6);
 	}
@@ -596,6 +636,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getVariableList() {
 		return variableListEClass;
 	}
@@ -605,6 +646,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getVariableList_Variables() {
 		return (EReference)variableListEClass.getEStructuralFeatures().get(0);
 	}
@@ -614,6 +656,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getVariableList_Pattern() {
 		return (EReference)variableListEClass.getEStructuralFeatures().get(1);
 	}
@@ -623,6 +666,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getLogicalOperator() {
 		return logicalOperatorEEnum;
 	}
@@ -632,6 +676,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getQuantifier() {
 		return quantifierEEnum;
 	}
@@ -641,6 +686,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getLocation() {
 		return locationEEnum;
 	}
@@ -650,6 +696,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EDataType getInvalidityExceptionWrapper() {
 		return invalidityExceptionWrapperEDataType;
 	}
@@ -659,6 +706,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatternstructureFactory getPatternstructureFactory() {
 		return (PatternstructureFactory)getEFactoryInstance();
 	}
