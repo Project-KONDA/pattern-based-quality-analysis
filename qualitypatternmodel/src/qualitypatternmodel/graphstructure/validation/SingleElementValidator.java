@@ -7,6 +7,7 @@ package qualitypatternmodel.graphstructure.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.SingleElement;
 
 import qualitypatternmodel.patternstructure.SingleElementMapping;
@@ -20,9 +21,13 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
 public interface SingleElementValidator {
 	boolean validate();
 
+	boolean validateMappingTo(EList<SingleElementMapping> value);
+
 	boolean validateMappingTo(SingleElementMapping value);
 	boolean validateMappingFrom(SingleElementMapping value);
 	boolean validatePrevious(SingleElement value);
 	boolean validateNext(EList<Element> value);
+	boolean validateRoot(Graph value);
+
 	boolean validateGraphDepth(int value);
 }

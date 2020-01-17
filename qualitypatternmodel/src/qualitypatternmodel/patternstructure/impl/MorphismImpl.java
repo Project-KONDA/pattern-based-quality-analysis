@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -34,6 +35,8 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getFrom <em>From</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getTo <em>To</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMorphDepth <em>Morph Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getCheckSingleElementMappings <em>Check Single Element Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getCheckRelationMappings <em>Check Relation Mappings</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +90,26 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @ordered
 	 */
 	protected int morphDepth = MORPH_DEPTH_EDEFAULT;
+
+	/**
+	 * The cached setting delegate for the '{@link #getCheckSingleElementMappings() <em>Check Single Element Mappings</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCheckSingleElementMappings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate CHECK_SINGLE_ELEMENT_MAPPINGS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS).getSettingDelegate();
+
+	/**
+	 * The cached setting delegate for the '{@link #getCheckRelationMappings() <em>Check Relation Mappings</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCheckRelationMappings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.MORPHISM__CHECK_RELATION_MAPPINGS).getSettingDelegate();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -235,6 +258,46 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Boolean getCheckSingleElementMappings() {
+		return (Boolean)CHECK_SINGLE_ELEMENT_MAPPINGS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCheckSingleElementMappings(Boolean newCheckSingleElementMappings) {
+		CHECK_SINGLE_ELEMENT_MAPPINGS__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckSingleElementMappings);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Boolean getCheckRelationMappings() {
+		return (Boolean)CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCheckRelationMappings(Boolean newCheckRelationMappings) {
+		CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckRelationMappings);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -264,6 +327,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return basicGetTo();
 			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
 				return getMorphDepth();
+			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS:
+				return getCheckSingleElementMappings();
+			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
+				return getCheckRelationMappings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -289,6 +356,12 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
 				setMorphDepth((Integer)newValue);
 				return;
+			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS:
+				setCheckSingleElementMappings((Boolean)newValue);
+				return;
+			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
+				setCheckRelationMappings((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -312,6 +385,12 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
 				setMorphDepth(MORPH_DEPTH_EDEFAULT);
 				return;
+			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS:
+				CHECK_SINGLE_ELEMENT_MAPPINGS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+				return;
+			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
+				CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -331,6 +410,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return to != null;
 			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
 				return morphDepth != MORPH_DEPTH_EDEFAULT;
+			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS:
+				return CHECK_SINGLE_ELEMENT_MAPPINGS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
+				return CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 		}
 		return super.eIsSet(featureID);
 	}

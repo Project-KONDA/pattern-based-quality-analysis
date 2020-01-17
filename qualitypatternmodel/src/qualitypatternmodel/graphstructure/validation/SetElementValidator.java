@@ -20,4 +20,6 @@ public interface SetElementValidator {
 
 	boolean validateNext(EList<SetElement> value);
 	boolean validatePrevious(Element value);
+
+	boolean validateNestingDepth(int value);
 }

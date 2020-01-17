@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -34,6 +35,7 @@ import qualitypatternmodel.patternstructure.VariableList;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getVariableList <em>Variable List</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +67,16 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * @ordered
 	 */
 	protected VariableList variableList;
+
+	/**
+	 * The cached setting delegate for the '{@link #isCheckMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCheckMorphismOfNextGraph()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH).getSettingDelegate();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -269,6 +281,26 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isCheckMorphismOfNextGraph() {
+		return (Boolean)CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCheckMorphismOfNextGraph(boolean newCheckMorphismOfNextGraph) {
+		CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckMorphismOfNextGraph);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -313,6 +345,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return getCondition();
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				return getVariableList();
+			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
+				return isCheckMorphismOfNextGraph();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -332,6 +366,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return;
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				setVariableList((VariableList)newValue);
+				return;
+			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
+				setCheckMorphismOfNextGraph((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -353,6 +390,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				setVariableList((VariableList)null);
 				return;
+			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
+				CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -370,6 +410,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return condition != null;
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				return variableList != null;
+			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
+				return CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 		}
 		return super.eIsSet(featureID);
 	}

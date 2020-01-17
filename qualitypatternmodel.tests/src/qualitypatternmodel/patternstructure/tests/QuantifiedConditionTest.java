@@ -11,6 +11,12 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Quantified Condition</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#isCheckMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class QuantifiedConditionTest extends ConditionTest {
@@ -65,6 +71,32 @@ public class QuantifiedConditionTest extends ConditionTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#isCheckMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#isCheckMorphismOfNextGraph()
+	 * @generated
+	 */
+	public void testIsCheckMorphismOfNextGraph() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#setCheckMorphismOfNextGraph(boolean) <em>Check Morphism Of Next Graph</em>}' feature setter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#setCheckMorphismOfNextGraph(boolean)
+	 * @generated
+	 */
+	public void testSetCheckMorphismOfNextGraph() {
+		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //QuantifiedConditionTest

@@ -79,7 +79,7 @@ public interface Input extends GraphElement {
 	 * @return the value of the '<em>Is Predefined</em>' attribute.
 	 * @see #setIsPredefined(boolean)
 	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput_IsPredefined()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	boolean isIsPredefined();
@@ -97,7 +97,7 @@ public interface Input extends GraphElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	boolean inputIsValid();
@@ -108,6 +108,6 @@ public interface Input extends GraphElement {
 	 * @model
 	 * @generated
 	 */
-	boolean validate(DiagnosticChain chain, Map context);
+	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Input

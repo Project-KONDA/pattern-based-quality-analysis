@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -17,9 +18,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.OperatorList;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -39,6 +42,8 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGraphDepth <em>Graph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#isReturnGraph <em>Return Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGetAllElements <em>Get All Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGetAllRelations <em>Get All Relations</em>}</li>
  * </ul>
  *
  * @generated
@@ -113,6 +118,26 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @ordered
 	 */
 	protected boolean returnGraph = RETURN_GRAPH_EDEFAULT;
+
+	/**
+	 * The cached setting delegate for the '{@link #getGetAllElements() <em>Get All Elements</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGetAllElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_ELEMENTS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.GRAPH__GET_ALL_ELEMENTS).getSettingDelegate();
+
+	/**
+	 * The cached setting delegate for the '{@link #getGetAllRelations() <em>Get All Relations</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGetAllRelations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_RELATIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.GRAPH__GET_ALL_RELATIONS).getSettingDelegate();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -344,6 +369,28 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Element> getGetAllElements() {
+		return (EList<Element>)GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Relation> getGetAllRelations() {
+		return (EList<Relation>)GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -373,6 +420,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getGraphDepth();
 			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
 				return isReturnGraph();
+			case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
+				return getGetAllElements();
+			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
+				return getGetAllRelations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -402,6 +453,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
 				setReturnGraph((Boolean)newValue);
 				return;
+			case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
+				getGetAllElements().clear();
+				getGetAllElements().addAll((Collection<? extends Element>)newValue);
+				return;
+			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
+				getGetAllRelations().clear();
+				getGetAllRelations().addAll((Collection<? extends Relation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -429,6 +488,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
 				setReturnGraph(RETURN_GRAPH_EDEFAULT);
 				return;
+			case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
+				getGetAllElements().clear();
+				return;
+			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
+				getGetAllRelations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -451,6 +516,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return graphDepth != GRAPH_DEPTH_EDEFAULT;
 			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
 				return returnGraph != RETURN_GRAPH_EDEFAULT;
+			case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
+				return GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
+				return GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 		}
 		return super.eIsSet(featureID);
 	}

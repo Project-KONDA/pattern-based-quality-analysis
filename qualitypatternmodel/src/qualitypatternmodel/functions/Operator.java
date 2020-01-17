@@ -34,5 +34,5 @@ public interface Operator extends GraphElement {
 	 * @model
 	 * @generated
 	 */
-	boolean validate(DiagnosticChain chain, Map context);
+	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
 } // Operator

@@ -57,6 +57,8 @@ public class GraphItemProvider extends PatternElementItemProvider {
 			addReturnElementsPropertyDescriptor(object);
 			addGraphDepthPropertyDescriptor(object);
 			addReturnGraphPropertyDescriptor(object);
+			addGetAllElementsPropertyDescriptor(object);
+			addGetAllRelationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -123,6 +125,50 @@ public class GraphItemProvider extends PatternElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Get All Elements feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGetAllElementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Graph_getAllElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_getAllElements_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__GET_ALL_ELEMENTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Get All Relations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGetAllRelationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Graph_getAllRelations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_getAllRelations_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__GET_ALL_RELATIONS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

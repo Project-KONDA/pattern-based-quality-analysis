@@ -19,10 +19,13 @@ import qualitypatternmodel.graphstructure.Graph;
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings <em>Check Single Element Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings <em>Check Relation Mappings</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='singleElementMappingsValid relationMappingsValid'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot singleElementMappingsValid='self.checkSingleElementMappings' relationMappingsValid='self.checkRelationMappings'"
  * @generated
  */
 public interface Morphism extends PatternElement {
@@ -90,7 +93,7 @@ public interface Morphism extends PatternElement {
 	 * @return the value of the '<em>Morph Depth</em>' attribute.
 	 * @see #setMorphDepth(int)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_MorphDepth()
-	 * @model default="-1"
+	 * @model default="-1" required="true"
 	 * @generated
 	 */
 	int getMorphDepth();
@@ -104,5 +107,51 @@ public interface Morphism extends PatternElement {
 	 * @generated
 	 */
 	void setMorphDepth(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Check Single Element Mappings</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Check Single Element Mappings</em>' attribute.
+	 * @see #setCheckSingleElementMappings(Boolean)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckSingleElementMappings()
+	 * @model volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;forAll(m : Mapping | self.from.getAllElements-&gt;includes(m.oclAsType(SingleElementMapping).from))\n\t\t\t\t\t\tand\n\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;forAll(m : Mapping | self.to.getAllElements-&gt;includes(m.oclAsType(SingleElementMapping).to))'"
+	 * @generated
+	 */
+	Boolean getCheckSingleElementMappings();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings <em>Check Single Element Mappings</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Check Single Element Mappings</em>' attribute.
+	 * @see #getCheckSingleElementMappings()
+	 * @generated
+	 */
+	void setCheckSingleElementMappings(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Check Relation Mappings</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Check Relation Mappings</em>' attribute.
+	 * @see #setCheckRelationMappings(Boolean)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckRelationMappings()
+	 * @model volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;forAll(m : Mapping | self.from.getAllRelations-&gt;includes(m.oclAsType(RelationMapping).from))\n\t\t\t\t\t\tand\n\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;forAll(m : Mapping | self.to.getAllRelations-&gt;includes(m.oclAsType(RelationMapping).to))'"
+	 * @generated
+	 */
+	Boolean getCheckRelationMappings();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings <em>Check Relation Mappings</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Check Relation Mappings</em>' attribute.
+	 * @see #getCheckRelationMappings()
+	 * @generated
+	 */
+	void setCheckRelationMappings(Boolean value);
 
 } // Morphism

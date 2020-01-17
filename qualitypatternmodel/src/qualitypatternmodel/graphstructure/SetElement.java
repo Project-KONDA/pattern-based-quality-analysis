@@ -21,7 +21,8 @@ import qualitypatternmodel.patternstructure.Location;
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasPrevious'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot hasPrevious='self.previous-&gt;notEmpty()'"
  * @generated
  */
 public interface SetElement extends Element {
@@ -66,7 +67,7 @@ public interface SetElement extends Element {
 	 * @return the value of the '<em>Nesting Depth</em>' attribute.
 	 * @see #setNestingDepth(int)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement_NestingDepth()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getNestingDepth();
@@ -84,7 +85,7 @@ public interface SetElement extends Element {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" depthRequired="true"
 	 * @generated
 	 */
 	String translateElementExistencePredicates(Location location, int depth) throws InvalidityException;
@@ -92,7 +93,7 @@ public interface SetElement extends Element {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model depthRequired="true"
 	 * @generated
 	 */
 	String translatePathFromPrevious(int depth);
@@ -100,7 +101,7 @@ public interface SetElement extends Element {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" depthRequired="true"
 	 * @generated
 	 */
 	String translatePredicates(Location location, int depth) throws InvalidityException;

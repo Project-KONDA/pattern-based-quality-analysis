@@ -4,8 +4,6 @@
  */
 package qualitypatternmodel.functions.validation;
 
-import qualitypatternmodel.functions.ComparisonOperator;
-
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.inputfields.CompOption;
 

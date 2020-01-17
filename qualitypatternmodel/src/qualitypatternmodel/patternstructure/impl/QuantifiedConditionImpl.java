@@ -6,6 +6,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -32,6 +33,7 @@ import qualitypatternmodel.patternstructure.Quantifier;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getMorphism <em>Morphism</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getQuantifier <em>Quantifier</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +83,16 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @ordered
 	 */
 	protected Quantifier quantifier = QUANTIFIER_EDEFAULT;
+
+	/**
+	 * The cached setting delegate for the '{@link #isCheckMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCheckMorphismOfNextGraph()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH).getSettingDelegate();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -293,6 +305,26 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isCheckMorphismOfNextGraph() {
+		return (Boolean)CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCheckMorphismOfNextGraph(boolean newCheckMorphismOfNextGraph) {
+		CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckMorphismOfNextGraph);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -324,6 +356,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				return getMorphism();
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
 				return getQuantifier();
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
+				return isCheckMorphismOfNextGraph();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -346,6 +380,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				return;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
 				setQuantifier((Quantifier)newValue);
+				return;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
+				setCheckMorphismOfNextGraph((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -370,6 +407,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
 				setQuantifier(QUANTIFIER_EDEFAULT);
 				return;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
+				CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -389,6 +429,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				return morphism != null;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
 				return quantifier != QUANTIFIER_EDEFAULT;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
+				return CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 		}
 		return super.eIsSet(featureID);
 	}

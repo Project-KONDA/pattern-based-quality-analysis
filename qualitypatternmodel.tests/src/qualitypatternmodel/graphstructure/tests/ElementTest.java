@@ -9,6 +9,13 @@ import qualitypatternmodel.graphstructure.Element;
  * A test case for the model object '<em><b>Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllElements() <em>Get All Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllRelations() <em>Get All Relations</em>}</li>
+ * </ul>
+ * </p>
+ * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getNextElements() <em>Get Next Elements</em>}</li>
@@ -42,6 +49,32 @@ public abstract class ElementTest extends GraphElementTest {
 	@Override
 	protected Element getFixture() {
 		return (Element)fixture;
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getGetAllElements() <em>Get All Elements</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Element#getGetAllElements()
+	 * @generated
+	 */
+	public void testGetGetAllElements() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getGetAllRelations() <em>Get All Relations</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Element#getGetAllRelations()
+	 * @generated
+	 */
+	public void testGetGetAllRelations() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

@@ -24,7 +24,8 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasPreviousOrIsRoot'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot hasPreviousOrIsRoot='self.previous-&gt;notEmpty() or self.root-&gt;notEmpty()'"
  * @generated
  */
 public interface SingleElement extends Element {

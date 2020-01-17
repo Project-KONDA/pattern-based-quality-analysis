@@ -6,7 +6,9 @@ package qualitypatternmodel.graphstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.OperatorList;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
 
 /**
@@ -22,4 +24,10 @@ public interface GraphValidator {
 	boolean validateRootElement(SingleElement value);
 	boolean validateOperatorList(OperatorList value);
 	boolean validateGraphDepth(int value);
+
+	boolean validateReturnGraph(boolean value);
+
+	boolean validateGetAllElements(EList<Element> value);
+
+	boolean validateGetAllRelations(EList<Relation> value);
 }

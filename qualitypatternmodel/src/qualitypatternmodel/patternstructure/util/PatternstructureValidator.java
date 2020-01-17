@@ -4,6 +4,7 @@ package qualitypatternmodel.patternstructure.util;
 
 import java.util.Map;
 
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -163,7 +164,37 @@ public class PatternstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(quantifiedCondition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(quantifiedCondition, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePatternElement_validate(quantifiedCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validateQuantifiedCondition_morphismValid(quantifiedCondition, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the morphismValid constraint of '<em>Quantified Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String QUANTIFIED_CONDITION__MORPHISM_VALID__EEXPRESSION = "self.checkMorphismOfNextGraph";
+
+	/**
+	 * Validates the morphismValid constraint of '<em>Quantified Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateQuantifiedCondition_morphismValid(QuantifiedCondition quantifiedCondition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION,
+				 quantifiedCondition,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "morphismValid",
+				 QUANTIFIED_CONDITION__MORPHISM_VALID__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -201,7 +232,67 @@ public class PatternstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(morphism, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(morphism, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePatternElement_validate(morphism, diagnostics, context);
+		if (result || diagnostics != null) result &= validateMorphism_singleElementMappingsValid(morphism, diagnostics, context);
+		if (result || diagnostics != null) result &= validateMorphism_relationMappingsValid(morphism, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the singleElementMappingsValid constraint of '<em>Morphism</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String MORPHISM__SINGLE_ELEMENT_MAPPINGS_VALID__EEXPRESSION = "self.checkSingleElementMappings";
+
+	/**
+	 * Validates the singleElementMappingsValid constraint of '<em>Morphism</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMorphism_singleElementMappingsValid(Morphism morphism, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(PatternstructurePackage.Literals.MORPHISM,
+				 morphism,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "singleElementMappingsValid",
+				 MORPHISM__SINGLE_ELEMENT_MAPPINGS_VALID__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the relationMappingsValid constraint of '<em>Morphism</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String MORPHISM__RELATION_MAPPINGS_VALID__EEXPRESSION = "self.checkRelationMappings";
+
+	/**
+	 * Validates the relationMappingsValid constraint of '<em>Morphism</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMorphism_relationMappingsValid(Morphism morphism, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(PatternstructurePackage.Literals.MORPHISM,
+				 morphism,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "relationMappingsValid",
+				 MORPHISM__RELATION_MAPPINGS_VALID__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -296,7 +387,37 @@ public class PatternstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pattern, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pattern, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePatternElement_validate(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePattern_morphismValid(pattern, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the morphismValid constraint of '<em>Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String PATTERN__MORPHISM_VALID__EEXPRESSION = "self.checkMorphismOfNextGraph";
+
+	/**
+	 * Validates the morphismValid constraint of '<em>Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePattern_morphismValid(Pattern pattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(PatternstructurePackage.Literals.PATTERN,
+				 pattern,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "morphismValid",
+				 PATTERN__MORPHISM_VALID__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

@@ -6,6 +6,7 @@ package qualitypatternmodel.graphstructure.validation;
 
 import qualitypatternmodel.graphstructure.Axis;
 
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
 /**
@@ -20,5 +21,7 @@ public interface RelationValidator {
 	boolean validateMappingFrom(RelationMapping value);
 	boolean validateMappingTo(RelationMapping value);
 	boolean validateAxis(Axis value);
+	boolean validateRelationTo(Element value);
+
 	boolean validateGraphDepth(int value);
 }

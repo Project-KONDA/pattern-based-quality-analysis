@@ -22,6 +22,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGraphDepth <em>Graph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph <em>Return Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGetAllElements <em>Get All Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGetAllRelations <em>Get All Relations</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph()
@@ -97,7 +99,7 @@ public interface Graph extends PatternElement {
 	 * @return the value of the '<em>Graph Depth</em>' attribute.
 	 * @see #setGraphDepth(int)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_GraphDepth()
-	 * @model default="-1"
+	 * @model default="-1" required="true"
 	 * @generated
 	 */
 	int getGraphDepth();
@@ -120,7 +122,7 @@ public interface Graph extends PatternElement {
 	 * @return the value of the '<em>Return Graph</em>' attribute.
 	 * @see #setReturnGraph(boolean)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_ReturnGraph()
-	 * @model default="false"
+	 * @model default="false" required="true"
 	 * @generated
 	 */
 	boolean isReturnGraph();
@@ -134,6 +136,34 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	void setReturnGraph(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Get All Elements</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Get All Elements</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_GetAllElements()
+	 * @model volatile="true" derived="true" ordered="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\tself.rootElement.getAllElements'"
+	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
+	 * @generated
+	 */
+	EList<Element> getGetAllElements();
+
+	/**
+	 * Returns the value of the '<em><b>Get All Relations</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Relation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Get All Relations</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_GetAllRelations()
+	 * @model volatile="true" derived="true" ordered="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\tself.rootElement.getAllRelations'"
+	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
+	 * @generated
+	 */
+	EList<Relation> getGetAllRelations();
 
 	/**
 	 * <!-- begin-user-doc -->

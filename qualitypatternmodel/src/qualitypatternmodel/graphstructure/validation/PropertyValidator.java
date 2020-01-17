@@ -5,8 +5,6 @@
 package qualitypatternmodel.graphstructure.validation;
 
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.graphstructure.PropertyLocation;
-
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 

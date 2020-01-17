@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.functions.BooleanOperator;
 
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 
@@ -31,4 +32,8 @@ public interface ElementValidator {
 	boolean validateProperties(EList<Property> value);
 
 	boolean validatePredicatesAreBeingTranslated(boolean value);
+
+	boolean validateGetAllElements(EList<Element> value);
+
+	boolean validateGetAllRelations(EList<Relation> value);
 }

@@ -23,4 +23,6 @@ public interface QuantifiedConditionValidator {
 	boolean validateGraph(Graph value);
 	boolean validateMorphism(Morphism value);
 	boolean validateQuantifier(Quantifier value);
+
+	boolean validateCheckMorphismOfNextGraph(boolean value);
 }

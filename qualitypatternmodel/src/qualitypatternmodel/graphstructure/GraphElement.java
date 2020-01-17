@@ -30,7 +30,7 @@ public interface GraphElement extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
 	boolean isTranslatable();
@@ -38,7 +38,7 @@ public interface GraphElement extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" depthRequired="true"
 	 * @generated
 	 */
 	String toXQuery(Location location, int depth) throws InvalidityException;
@@ -49,6 +49,6 @@ public interface GraphElement extends PatternElement {
 	 * @model
 	 * @generated
 	 */
-	boolean validate(DiagnosticChain chain, Map context);
+	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // GraphElement

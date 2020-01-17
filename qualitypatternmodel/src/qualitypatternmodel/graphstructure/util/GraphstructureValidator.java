@@ -4,6 +4,7 @@ package qualitypatternmodel.graphstructure.util;
 
 import java.util.Map;
 
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -185,7 +186,37 @@ public class GraphstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(singleElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(singleElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGraphElement_validate(singleElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSingleElement_hasPreviousOrIsRoot(singleElement, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the hasPreviousOrIsRoot constraint of '<em>Single Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String SINGLE_ELEMENT__HAS_PREVIOUS_OR_IS_ROOT__EEXPRESSION = "self.previous->notEmpty() or self.root->notEmpty()";
+
+	/**
+	 * Validates the hasPreviousOrIsRoot constraint of '<em>Single Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSingleElement_hasPreviousOrIsRoot(SingleElement singleElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GraphstructurePackage.Literals.SINGLE_ELEMENT,
+				 singleElement,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "hasPreviousOrIsRoot",
+				 SINGLE_ELEMENT__HAS_PREVIOUS_OR_IS_ROOT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -204,7 +235,37 @@ public class GraphstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(setElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(setElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGraphElement_validate(setElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSetElement_hasPrevious(setElement, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the hasPrevious constraint of '<em>Set Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String SET_ELEMENT__HAS_PREVIOUS__EEXPRESSION = "self.previous->notEmpty()";
+
+	/**
+	 * Validates the hasPrevious constraint of '<em>Set Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSetElement_hasPrevious(SetElement setElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GraphstructurePackage.Literals.SET_ELEMENT,
+				 setElement,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "hasPrevious",
+				 SET_ELEMENT__HAS_PREVIOUS__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**

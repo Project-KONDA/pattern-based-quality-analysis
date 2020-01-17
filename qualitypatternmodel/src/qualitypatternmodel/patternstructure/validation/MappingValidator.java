@@ -14,4 +14,6 @@ package qualitypatternmodel.patternstructure.validation;
 public interface MappingValidator {
 	boolean validate();
 
+	boolean validateMappingDepth(int value);
+
 }

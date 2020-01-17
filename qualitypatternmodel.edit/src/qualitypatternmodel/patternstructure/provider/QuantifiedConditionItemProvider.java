@@ -51,6 +51,7 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addQuantifierPropertyDescriptor(object);
+			addCheckMorphismOfNextGraphPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,6 +74,28 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Check Morphism Of Next Graph feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCheckMorphismOfNextGraphPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_QuantifiedCondition_checkMorphismOfNextGraph_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_QuantifiedCondition_checkMorphismOfNextGraph_feature", "_UI_QuantifiedCondition_type"),
+				 PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -146,6 +169,7 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 
 		switch (notification.getFeatureID(QuantifiedCondition.class)) {
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:

@@ -103,7 +103,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				chain.add(new BasicDiagnostic(Diagnostic.ERROR, PatternstructureValidator.DIAGNOSTIC_SOURCE,
 						PatternstructureValidator.PATTERN_ELEMENT__VALIDATE,
 						EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-								new Object[] { "validate", EObjectValidator.getObjectLabel(this, context) }),
+								new Object[] { "not " + e.getMessage(), EObjectValidator.getObjectLabel(this, context) }),
 						new Object[] { this }));
 			}
 			System.out.println("Validation failed at " + this.getClass().getSimpleName() + " " + this.getId()
@@ -233,6 +233,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION:
@@ -259,8 +260,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION:
 				prepareTranslation();
 				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP:
-				return validate((DiagnosticChain)arguments.get(0), (Map)arguments.get(1));
 			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN:
 				try {
 					isValid((Boolean)arguments.get(0));
@@ -277,6 +276,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP:
+				return validate((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

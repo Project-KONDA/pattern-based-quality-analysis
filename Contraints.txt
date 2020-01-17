@@ -1,10 +1,15 @@
 +++ Constraints for the quality pattern model +++
 
+
 each Element has exactly one previousElement except for Graph.rootElement, which has no previousElement
-+ context SetElement inv SetElementHasPrevious: self.previous != null
-+ context SingleElement inv SingleElementHasPrevious: self.previous != null or self.root = true
 
+SetElement:
+invariant hasPrevious: self.previous->notEmpty();
 
+SingleElement:
+invariant hasPreviousOrIsRoot: self.previous->notEmpty() or self.root->notEmpty();
+
+(
 for each Graph only the rootElement has root = true
 + context Graph inv GraphRootAttributeValid: self->GraphRootAttributeValid()
 
@@ -13,7 +18,8 @@ for each Graph only the rootElement has root = true
 	
 + context SingleElement::NotRoot: boolean derive:
 	self.root = false and self->getNextElements()->select(e|e.oclIsTypeOf(SingleElement))->forall(e|e->NotRoot())
-
+)
+(
 for a defined pattern:
 - Text.text must be defined
 	+ context Text inv TextDefined: text->notEmpty()
@@ -23,25 +29,43 @@ for a defined pattern:
 	+ context Boolean inv BooleanDefined: bool->notEmpty()
 - Option.selection must be defined
 	+ context Option inv OptionDefined: selection->notEmpty()
+)
 
 QuantifiedCondition.morphsim.from = QuantifiedCondition.getParentGraph()
 QuantifiedCondition.morphsim.to = QuantifiedCondition.graph
-	+ context QuantifiedCondition::checkMorphismOfNextGraph: boolean derive:		
-		if self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.morphism.from and self.condition.graph = self.condition.morphism.to
-		else self.condition->getNextGraphs()->forall(e|self.graph = e.morphism.from and e.graph = e.morphism.to)
+
+QuantifiedCondition:
+attribute checkMorphismOfNextGraph : Boolean[1] { derived volatile }
+{
+	initial: 					
+	if self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to
+	else self.condition.getNextQuantifiedConditions->forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif;
+}
+invariant morphismValid: self.checkMorphismOfNextGraph;
+				
+Condition:
+property getNextQuantifiedConditions : QuantifiedCondition[*] { derived volatile }
+{
+	initial: 				
+	if self.oclIsTypeOf(QuantifiedCondition) then 
+		Set{self.oclAsType(QuantifiedCondition)}
+	else 
+		if self.oclIsTypeOf(Formula) then 					
+			self.oclAsType(Formula).arguments->collect(element: Condition | element.getNextQuantifiedConditions)->asSet()
+		else 
+			Set{}
+		endif
+	endif;
+}	
 		
-	+ context Condition::getNextGraphs: Set(Graph) derive:
-		if self.oclIsTypeOf(QuantifiedCondition) then Set{self.graph}
-		else if self.oclIsTypeOf(Formula) then Set{self.arguments[1]->getNextGraphs(), self.arguments[1]->getNextGraphs()}->flatten()
-		else empty
-		
-	+ context Pattern::checkMorphismOfNextGraph: boolean derive:		
-		if self.condition.oclIsTypeOf(QuantifiedCondition) then self.returnGraph = self.condition.morphism.from and self.condition.graph = self.condition.morphism.to
-		else self.condition->getNextGraphs()->forall(e|self.returnGraph = e.morphism.from and e.graph = e.morphism.to)
-			
-	
-	+ context QuantifiedCondition inv QuantifiedConditionMorphismValid: self->checkMorphismOfNextGraph()
-	+ context Pattern inv PatternMorphismValid: self->checkMorphismOfNextGraph()		
+Pattern:
+attribute checkMorphismOfNextGraph : Boolean[1] { derived volatile }
+{
+	initial: 					
+		if self.condition.oclIsTypeOf(QuantifiedCondition) then self.returnGraph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to
+		else self.condition.getNextQuantifiedConditions->forAll(e|self.returnGraph = e.morphism.from and e.graph = e.morphism.to) endif;
+}
+invariant morphismValid: self.checkMorphismOfNextGraph;
 		
 
 SingleElementMapping.from.getGraph() = SingleElementMapping.getParent().from
@@ -49,27 +73,47 @@ SingleElementMapping.to.getGraph() = SingleElementMapping.getParent().to
 RelationMapping.from.getGraph() = RelationMapping.getParent().from
 RelationMapping.to.getGraph() = RelationMapping.getParent().to
 
-context Morphism::checkMappings: boolean derive:
-	self.mappings->filter(f|f.oclIsTypeOf(SingleElement))->forall(m|self.from->getAllElements()->includes(m.from))
-	and
-	self.mappings->select(f|f.oclIsTypeOf(SingleElement))->forall(m|self.to->getAllElements()->includes(m.to))
-	
-context Graph::getAllElements: Set{Element} derive:
-	self.rootElement->getAllElements()
-	
-context Element::getAllElements: Set{Element} derive:
-	Set{self, self->getNextElements()->getAllElements()}
-	
-context Morphism::checkMappings: boolean derive:
-	self.mappings->filter(f|f.oclIsTypeOf(SetElement))->forall(m|self.from->getAllRelations()->includes(m.from))
-	and
-	self.mappings->select(f|f.oclIsTypeOf(SetElement))->forall(m|self.to->getAllRelations()->includes(m.to))
-		
-context Graph::getAllRelations: Set{Element} derive:
-	self.rootElement->getAllRelations()
-	
-context Element::getAllRelations: Set{Element} derive:
-	Set{self.relationFromPrevious, self->getNextElements()->getAllRelations()}
+Morphism:
+attribute checkSingleElementMappings : Boolean[?] { derived volatile }
+{
+	initial: 
+		self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->forAll(m : Mapping | self.from.getAllElements->includes(m.oclAsType(SingleElementMapping).from))
+		and
+		self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->forAll(m : Mapping | self.to.getAllElements->includes(m.oclAsType(SingleElementMapping).to));
+}
+attribute checkRelationMappings : Boolean[?] { derived volatile }
+	{
+		initial: 
+		self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->forAll(m : Mapping | self.from.getAllRelations->includes(m.oclAsType(RelationMapping).from))
+		and
+		self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->forAll(m : Mapping | self.to.getAllRelations->includes(m.oclAsType(RelationMapping).to));
+	}
+invariant singleElementMappingsValid : self.checkSingleElementMappings;	
+invariant relationMappingsValid : self.checkRelationMappings;	
+
+Graph :	
+property getAllElements : Element[*] { derived volatile }
+{
+	initial: 
+	self.rootElement.getAllElements;
+}
+property getAllRelations : Relation[*] { derived volatile }
+{
+	initial: 
+	self.rootElement.getAllRelations;
+}
+
+Element:	
+property getAllElements : Element[*] { derived volatile }
+{
+	initial: 
+	 self.getNextElements()->collect(e: Element | e.getAllElements)->asSet()->including(self);
+}
+property getAllRelations : Relation[*] { derived volatile }
+{
+	initial: 
+	 self.getNextElements()->collect(e: Element | e.getAllRelations)->asSet()->including(self.relationFromPrevious);
+}
 	
 ----
 

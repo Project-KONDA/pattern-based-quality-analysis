@@ -9,7 +9,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
-public class Pattern1 {
+public class ProgrammaticalCreation {
 	
 	public static void main(String[] args) {
 		PatternstructurePackage.eINSTANCE.eClass();		

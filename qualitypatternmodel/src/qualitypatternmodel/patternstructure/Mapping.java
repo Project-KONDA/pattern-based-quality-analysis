@@ -29,7 +29,7 @@ public interface Mapping extends PatternElement {
 	 * @return the value of the '<em>Mapping Depth</em>' attribute.
 	 * @see #setMappingDepth(int)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMapping_MappingDepth()
-	 * @model default="-1"
+	 * @model default="-1" required="true"
 	 * @generated
 	 */
 	int getMappingDepth();

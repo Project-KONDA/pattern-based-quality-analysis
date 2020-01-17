@@ -11,6 +11,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Morphism</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings() <em>Check Single Element Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings() <em>Check Relation Mappings</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class MorphismTest extends PatternElementTest {
@@ -65,6 +72,58 @@ public class MorphismTest extends PatternElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings() <em>Check Single Element Mappings</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings()
+	 * @generated
+	 */
+	public void testGetCheckSingleElementMappings() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#setCheckSingleElementMappings(java.lang.Boolean) <em>Check Single Element Mappings</em>}' feature setter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#setCheckSingleElementMappings(java.lang.Boolean)
+	 * @generated
+	 */
+	public void testSetCheckSingleElementMappings() {
+		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings() <em>Check Relation Mappings</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings()
+	 * @generated
+	 */
+	public void testGetCheckRelationMappings() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#setCheckRelationMappings(java.lang.Boolean) <em>Check Relation Mappings</em>}' feature setter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#setCheckRelationMappings(java.lang.Boolean)
+	 * @generated
+	 */
+	public void testSetCheckRelationMappings() {
+		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //MorphismTest

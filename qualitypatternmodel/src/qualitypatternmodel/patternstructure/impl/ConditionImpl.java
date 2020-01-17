@@ -2,12 +2,16 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +22,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getCondDepth <em>Cond Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getGetNextQuantifiedConditions <em>Get Next Quantified Conditions</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,6 +46,16 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * @ordered
 	 */
 	protected int condDepth = COND_DEPTH_EDEFAULT;
+
+	/**
+	 * The cached setting delegate for the '{@link #getGetNextQuantifiedConditions() <em>Get Next Quantified Conditions</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGetNextQuantifiedConditions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate GET_NEXT_QUANTIFIED_CONDITIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS).getSettingDelegate();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,11 +104,24 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<QuantifiedCondition> getGetNextQuantifiedConditions() {
+		return (EList<QuantifiedCondition>)GET_NEXT_QUANTIFIED_CONDITIONS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case PatternstructurePackage.CONDITION__COND_DEPTH:
 				return getCondDepth();
+			case PatternstructurePackage.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS:
+				return getGetNextQuantifiedConditions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -103,11 +131,16 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case PatternstructurePackage.CONDITION__COND_DEPTH:
 				setCondDepth((Integer)newValue);
+				return;
+			case PatternstructurePackage.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS:
+				getGetNextQuantifiedConditions().clear();
+				getGetNextQuantifiedConditions().addAll((Collection<? extends QuantifiedCondition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -124,6 +157,9 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			case PatternstructurePackage.CONDITION__COND_DEPTH:
 				setCondDepth(COND_DEPTH_EDEFAULT);
 				return;
+			case PatternstructurePackage.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS:
+				getGetNextQuantifiedConditions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -138,6 +174,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		switch (featureID) {
 			case PatternstructurePackage.CONDITION__COND_DEPTH:
 				return condDepth != COND_DEPTH_EDEFAULT;
+			case PatternstructurePackage.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS:
+				return GET_NEXT_QUANTIFIED_CONDITIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 		}
 		return super.eIsSet(featureID);
 	}

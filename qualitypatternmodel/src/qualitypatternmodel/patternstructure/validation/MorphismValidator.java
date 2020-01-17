@@ -22,4 +22,10 @@ public interface MorphismValidator {
 	boolean validateMappings(EList<Mapping> value);
 	boolean validateFrom(Graph value);
 	boolean validateTo(Graph value);
+
+	boolean validateMorphDepth(int value);
+
+	boolean validateCheckSingleElementMappings(Boolean value);
+
+	boolean validateCheckRelationMappings(Boolean value);
 }

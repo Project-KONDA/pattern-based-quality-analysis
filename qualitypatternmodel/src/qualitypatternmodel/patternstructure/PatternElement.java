@@ -32,7 +32,7 @@ public interface PatternElement extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(int)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPatternElement_Id()
-	 * @model id="true"
+	 * @model id="true" required="true"
 	 * @generated
 	 */
 	int getId();
@@ -85,12 +85,12 @@ public interface PatternElement extends EObject {
 	 * @model
 	 * @generated
 	 */
-	boolean validate(DiagnosticChain chain, Map context);
+	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
 	 */
 	void isValid(boolean isDefinedPattern) throws InvalidityException;
@@ -98,7 +98,7 @@ public interface PatternElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
 	 */
 	void isValidLocal(boolean isDefinedPattern) throws InvalidityException;

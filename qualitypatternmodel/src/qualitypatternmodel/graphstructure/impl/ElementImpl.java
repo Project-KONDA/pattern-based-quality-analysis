@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -42,6 +43,8 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllElements <em>Get All Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllRelations <em>Get All Relations</em>}</li>
  * </ul>
  *
  * @generated
@@ -112,6 +115,26 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * @ordered
 	 */
 	protected boolean predicatesAreBeingTranslated = PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
+
+	/**
+	 * The cached setting delegate for the '{@link #getGetAllElements() <em>Get All Elements</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGetAllElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_ELEMENTS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.ELEMENT__GET_ALL_ELEMENTS).getSettingDelegate();
+
+	/**
+	 * The cached setting delegate for the '{@link #getGetAllRelations() <em>Get All Relations</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGetAllRelations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_RELATIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.ELEMENT__GET_ALL_RELATIONS).getSettingDelegate();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -333,6 +356,28 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Element> getGetAllElements() {
+		return (EList<Element>)GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Relation> getGetAllRelations() {
+		return (EList<Relation>)GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public int getGraphDepth() {
@@ -401,6 +446,10 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return getProperties();
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				return isPredicatesAreBeingTranslated();
+			case GraphstructurePackage.ELEMENT__GET_ALL_ELEMENTS:
+				return getGetAllElements();
+			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
+				return getGetAllRelations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -430,6 +479,14 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated((Boolean)newValue);
 				return;
+			case GraphstructurePackage.ELEMENT__GET_ALL_ELEMENTS:
+				getGetAllElements().clear();
+				getGetAllElements().addAll((Collection<? extends Element>)newValue);
+				return;
+			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
+				getGetAllRelations().clear();
+				getGetAllRelations().addAll((Collection<? extends Relation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -456,6 +513,12 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
 				return;
+			case GraphstructurePackage.ELEMENT__GET_ALL_ELEMENTS:
+				getGetAllElements().clear();
+				return;
+			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
+				getGetAllRelations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -477,6 +540,10 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return properties != null && !properties.isEmpty();
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				return predicatesAreBeingTranslated != PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
+			case GraphstructurePackage.ELEMENT__GET_ALL_ELEMENTS:
+				return GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
+				return GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 		}
 		return super.eIsSet(featureID);
 	}
