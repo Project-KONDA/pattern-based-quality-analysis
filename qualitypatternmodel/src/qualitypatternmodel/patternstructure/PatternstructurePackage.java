@@ -179,13 +179,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING__ID = PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
+	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING__MAPPING_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int MAPPING__MORPHISM = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Mapping</em>' class.
@@ -288,13 +288,13 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING__ID = MAPPING__ID;
 
 	/**
-	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
+	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING__MAPPING_DEPTH = MAPPING__MAPPING_DEPTH;
+	int RELATION_MAPPING__MORPHISM = MAPPING__MORPHISM;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' reference.
@@ -805,13 +805,13 @@ public interface PatternstructurePackage extends EPackage {
 	int SINGLE_ELEMENT_MAPPING__ID = MAPPING__ID;
 
 	/**
-	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
+	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING__MAPPING_DEPTH = MAPPING__MAPPING_DEPTH;
+	int SINGLE_ELEMENT_MAPPING__MORPHISM = MAPPING__MORPHISM;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
@@ -1646,15 +1646,15 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getMapping();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Mapping#getMappingDepth <em>Mapping Depth</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Mapping#getMorphism <em>Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mapping Depth</em>'.
-	 * @see qualitypatternmodel.patternstructure.Mapping#getMappingDepth()
+	 * @return the meta object for the container reference '<em>Morphism</em>'.
+	 * @see qualitypatternmodel.patternstructure.Mapping#getMorphism()
 	 * @see #getMapping()
 	 * @generated
 	 */
-	EAttribute getMapping_MappingDepth();
+	EReference getMapping_Morphism();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Formula <em>Formula</em>}'.
@@ -2113,12 +2113,12 @@ public interface PatternstructurePackage extends EPackage {
 		EClass MAPPING = eINSTANCE.getMapping();
 
 		/**
-		 * The meta object literal for the '<em><b>Mapping Depth</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Morphism</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MAPPING__MAPPING_DEPTH = eINSTANCE.getMapping_MappingDepth();
+		EReference MAPPING__MORPHISM = eINSTANCE.getMapping_Morphism();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.FormulaImpl <em>Formula</em>}' class.

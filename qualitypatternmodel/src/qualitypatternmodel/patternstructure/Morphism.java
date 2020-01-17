@@ -29,11 +29,13 @@ public interface Morphism extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Mappings</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.patternstructure.Mapping}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Mapping#getMorphism <em>Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mappings</em>' containment reference list.
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Mappings()
-	 * @model containment="true"
+	 * @see qualitypatternmodel.patternstructure.Mapping#getMorphism
+	 * @model opposite="morphism" containment="true"
 	 * @generated
 	 */
 	EList<Mapping> getMappings();

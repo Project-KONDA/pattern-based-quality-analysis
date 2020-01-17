@@ -26,10 +26,8 @@ import qualitypatternmodel.patternstructure.InvalidityException;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link qualitypatternmodel.inputfields.impl.BoolOptionImpl#getOptions
- * <em>Options</em>}</li>
- * <li>{@link qualitypatternmodel.inputfields.impl.BoolOptionImpl#getSelection
- * <em>Selection</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.BoolOptionImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.BoolOptionImpl#getSelection <em>Selection</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,9 +43,8 @@ public class BoolOptionImpl extends InputImpl implements BoolOption {
 	protected EList<Boolean> options = new BasicEList<Boolean>();
 
 	/**
-	 * The default value of the '{@link #getSelection() <em>Selection</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getSelection() <em>Selection</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSelection()
 	 * @generated
 	 * @ordered
@@ -55,9 +52,8 @@ public class BoolOptionImpl extends InputImpl implements BoolOption {
 	protected static final Boolean SELECTION_EDEFAULT = Boolean.TRUE;
 
 	/**
-	 * The cached value of the '{@link #getSelection() <em>Selection</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSelection()
 	 * @generated
 	 * @ordered
@@ -88,7 +84,6 @@ public class BoolOptionImpl extends InputImpl implements BoolOption {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -98,7 +93,6 @@ public class BoolOptionImpl extends InputImpl implements BoolOption {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -111,7 +105,6 @@ public class BoolOptionImpl extends InputImpl implements BoolOption {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -121,7 +114,6 @@ public class BoolOptionImpl extends InputImpl implements BoolOption {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -129,89 +121,82 @@ public class BoolOptionImpl extends InputImpl implements BoolOption {
 		Boolean oldSelection = selection;
 		selection = newSelection;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.BOOL_OPTION__SELECTION,
-					oldSelection, selection));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.BOOL_OPTION__SELECTION, oldSelection, selection));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case InputfieldsPackage.BOOL_OPTION__OPTIONS:
-			return getOptions();
-		case InputfieldsPackage.BOOL_OPTION__SELECTION:
-			return getSelection();
+			case InputfieldsPackage.BOOL_OPTION__OPTIONS:
+				return getOptions();
+			case InputfieldsPackage.BOOL_OPTION__SELECTION:
+				return getSelection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case InputfieldsPackage.BOOL_OPTION__OPTIONS:
-			getOptions().clear();
-			getOptions().addAll((Collection<? extends Boolean>) newValue);
-			return;
-		case InputfieldsPackage.BOOL_OPTION__SELECTION:
-			setSelection((Boolean) newValue);
-			return;
+			case InputfieldsPackage.BOOL_OPTION__OPTIONS:
+				getOptions().clear();
+				getOptions().addAll((Collection<? extends Boolean>)newValue);
+				return;
+			case InputfieldsPackage.BOOL_OPTION__SELECTION:
+				setSelection((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case InputfieldsPackage.BOOL_OPTION__OPTIONS:
-			getOptions().clear();
-			return;
-		case InputfieldsPackage.BOOL_OPTION__SELECTION:
-			setSelection(SELECTION_EDEFAULT);
-			return;
+			case InputfieldsPackage.BOOL_OPTION__OPTIONS:
+				getOptions().clear();
+				return;
+			case InputfieldsPackage.BOOL_OPTION__SELECTION:
+				setSelection(SELECTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case InputfieldsPackage.BOOL_OPTION__OPTIONS:
-			return options != null && !options.isEmpty();
-		case InputfieldsPackage.BOOL_OPTION__SELECTION:
-			return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
+			case InputfieldsPackage.BOOL_OPTION__OPTIONS:
+				return options != null && !options.isEmpty();
+			case InputfieldsPackage.BOOL_OPTION__SELECTION:
+				return SELECTION_EDEFAULT == null ? selection != null : !SELECTION_EDEFAULT.equals(selection);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (options: ");

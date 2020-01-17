@@ -13,8 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.graphstructure.Graph;
@@ -99,7 +98,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidityException {
 		isValidLocal(isDefinedPattern);
-		for (Mapping mapping : mappings) {
+		for (Mapping mapping : getMappings()) {
 			mapping.isValid(isDefinedPattern);
 		}
 	}
@@ -111,7 +110,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			throw new InvalidityException("to null");
 		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMorphDepth())
 			throw new InvalidityException("invalid target graphs");
-		for (Mapping mapping : mappings)
+		for (Mapping mapping : getMappings())
 			if (mapping == null)
 				throw new InvalidityException("mapping invalid (" + mapping + ")");
 	}
@@ -132,7 +131,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public EList<Mapping> getMappings() {
 		if (mappings == null) {
-			mappings = new EObjectContainmentEList<Mapping>(Mapping.class, this, PatternstructurePackage.MORPHISM__MAPPINGS);
+			mappings = new EObjectContainmentWithInverseEList<Mapping>(Mapping.class, this, PatternstructurePackage.MORPHISM__MAPPINGS, PatternstructurePackage.MAPPING__MORPHISM);
 		}
 		return mappings;
 	}
@@ -232,6 +231,21 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		morphDepth = newMorphDepth;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__MORPH_DEPTH, oldMorphDepth, morphDepth));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PatternstructurePackage.MORPHISM__MAPPINGS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappings()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

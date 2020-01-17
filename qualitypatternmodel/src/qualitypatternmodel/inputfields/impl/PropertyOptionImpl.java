@@ -28,10 +28,8 @@ import qualitypatternmodel.patternstructure.InvalidityException;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl#getOptions
- * <em>Options</em>}</li>
- * <li>{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl#getSelection
- * <em>Selection</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl#getSelection <em>Selection</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,9 +45,8 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	protected EList<PropertyLocation> options = new BasicEList<PropertyLocation>();
 
 	/**
-	 * The default value of the '{@link #getSelection() <em>Selection</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getSelection() <em>Selection</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSelection()
 	 * @generated
 	 * @ordered
@@ -57,9 +54,8 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	protected static final PropertyLocation SELECTION_EDEFAULT = PropertyLocation.DATA;
 
 	/**
-	 * The cached value of the '{@link #getSelection() <em>Selection</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSelection()
 	 * @generated
 	 * @ordered
@@ -92,7 +88,6 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -102,21 +97,18 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<PropertyLocation> getOptions() {
 		if (options == null) {
-			options = new EDataTypeUniqueEList<PropertyLocation>(PropertyLocation.class, this,
-					InputfieldsPackage.PROPERTY_OPTION__OPTIONS);
+			options = new EDataTypeUniqueEList<PropertyLocation>(PropertyLocation.class, this, InputfieldsPackage.PROPERTY_OPTION__OPTIONS);
 		}
 		return options;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -126,7 +118,6 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -134,89 +125,82 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 		PropertyLocation oldSelection = selection;
 		selection = newSelection == null ? SELECTION_EDEFAULT : newSelection;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.PROPERTY_OPTION__SELECTION,
-					oldSelection, selection));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.PROPERTY_OPTION__SELECTION, oldSelection, selection));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
-			return getOptions();
-		case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
-			return getSelection();
+			case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
+				return getOptions();
+			case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
+				return getSelection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
-			getOptions().clear();
-			getOptions().addAll((Collection<? extends PropertyLocation>) newValue);
-			return;
-		case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
-			setSelection((PropertyLocation) newValue);
-			return;
+			case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
+				getOptions().clear();
+				getOptions().addAll((Collection<? extends PropertyLocation>)newValue);
+				return;
+			case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
+				setSelection((PropertyLocation)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
-			getOptions().clear();
-			return;
-		case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
-			setSelection(SELECTION_EDEFAULT);
-			return;
+			case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
+				getOptions().clear();
+				return;
+			case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
+				setSelection(SELECTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
-			return options != null && !options.isEmpty();
-		case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
-			return selection != SELECTION_EDEFAULT;
+			case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
+				return options != null && !options.isEmpty();
+			case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
+				return selection != SELECTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (options: ");

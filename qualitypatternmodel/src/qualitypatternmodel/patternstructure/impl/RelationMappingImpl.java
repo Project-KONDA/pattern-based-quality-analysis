@@ -65,12 +65,12 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (from == null)
-			throw new InvalidityException("from-element null");
+			throw new InvalidityException("from-relation null");
 		if (to == null)
-			throw new InvalidityException("to null");
-		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
-			throw new InvalidityException("invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
-					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
+			throw new InvalidityException("to-relation null");
+		if (from.getGraphDepth() + 1 != to.getGraphDepth() || to.getGraphDepth() != getMorphism().getMorphDepth()) {
+			throw new InvalidityException("invalid target relations: " + from.getId() + "(" + from.getGraphDepth() + ")"
+					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")");
 		}
 	}
 

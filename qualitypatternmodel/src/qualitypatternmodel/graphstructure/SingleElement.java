@@ -18,8 +18,6 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingFrom <em>Mapping From</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNext <em>Next</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}</li>
  * </ul>
  *
@@ -65,40 +63,6 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	EList<SingleElementMapping> getMappingTo();
-
-	/**
-	 * Returns the value of the '<em><b>Previous</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Previous</em>' reference.
-	 * @see #setPrevious(SingleElement)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Previous()
-	 * @model
-	 * @generated
-	 */
-	SingleElement getPrevious();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Previous</em>' reference.
-	 * @see #getPrevious()
-	 * @generated
-	 */
-	void setPrevious(SingleElement value);
-
-	/**
-	 * Returns the value of the '<em><b>Next</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Next()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Element> getNext();
 
 	/**
 	 * Returns the value of the '<em><b>Root</b></em>' container reference.

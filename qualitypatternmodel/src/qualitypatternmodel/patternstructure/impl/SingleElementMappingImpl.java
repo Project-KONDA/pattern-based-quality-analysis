@@ -62,12 +62,14 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		if (from == null)
 			throw new InvalidityException("from-element null");
 		if (to == null)
-			throw new InvalidityException("to null");
-		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
+			throw new InvalidityException("to-element null");
+		if (from.getGraphDepth() + 1 != to.getGraphDepth() || to.getGraphDepth() != getMorphism().getMorphDepth()) {
 			throw new InvalidityException("invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
-					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
+					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")");
 		}
 	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
