@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:graphstructure="graphstructure" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure" id="61">
+  <returnGraph id="62" returnElements="85" graphDepth="0" returnGraph="true">
+    <rootElement id="64" mappingTo="1166">
+      <next xsi:type="graphstructure:SingleElement" id="85" mappingTo="1183" previous="64">
+        <relationFromPrevious id="103" mappingTo="1199"/>
+      </next>
+    </rootElement>
+    <operatorList id="63"/>
+  </returnGraph>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="220" condDepth="1">
+    <condition xsi:type="patternstructure:True" id="613" condDepth="2"/>
+    <graph id="221" returnElements="283" returnGraph="true">
+      <rootElement id="223" mappingFrom="1166">
+        <next xsi:type="graphstructure:SingleElement" id="283" mappingFrom="1183" previous="223">
+          <relationFromPrevious id="284" mappingFrom="1199"/>
+          <next xsi:type="graphstructure:SingleElement" id="887" predicates="1120" previous="283">
+            <relationFromPrevious id="888"/>
+            <properties id="1060" propertyOption="1270" attributeName="1218"/>
+          </next>
+        </next>
+      </rootElement>
+      <operatorList id="222">
+        <operators xsi:type="functions:Match" id="1120" property="1060" regularExpression="1243" option="1296"/>
+      </operatorList>
+    </graph>
+    <morphism id="225" from="62" to="221">
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="1166" from="64" to="223"/>
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="1183" from="85" to="283"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="1199" to="284" from="103"/>
+    </morphism>
+  </condition>
+  <variableList id="65">
+    <variables xsi:type="inputfields:Text" id="1218"/>
+    <variables xsi:type="inputfields:Text" id="1243"/>
+    <variables xsi:type="inputfields:PropertyOption" id="1270">
+      <options>DATA</options>
+    </variables>
+    <variables xsi:type="inputfields:BoolOption" id="1296" selection="true">
+      <options>true</options>
+    </variables>
+  </variableList>
+</patternstructure:Pattern>
