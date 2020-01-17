@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.patternstructure.provider;
+package qualitypatternmodel.inputfields.provider;
 
 
 import java.util.Collection;
@@ -14,23 +14,23 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.inputfields.InputfieldsPackage;
+import qualitypatternmodel.inputfields.PropertyOption;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.Condition} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.PropertyOption} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConditionItemProvider extends PatternElementItemProvider {
+public class PropertyOptionItemProvider extends InputItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConditionItemProvider(AdapterFactory adapterFactory) {
+	public PropertyOptionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,31 +45,65 @@ public class ConditionItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCondDepthPropertyDescriptor(object);
+			addOptionsPropertyDescriptor(object);
+			addSelectionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Cond Depth feature.
+	 * This adds a property descriptor for the Options feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCondDepthPropertyDescriptor(Object object) {
+	protected void addOptionsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Condition_condDepth_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Condition_condDepth_feature", "_UI_Condition_type"),
-				 PatternstructurePackage.Literals.CONDITION__COND_DEPTH,
+				 getString("_UI_PropertyOption_options_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyOption_options_feature", "_UI_PropertyOption_type"),
+				 InputfieldsPackage.Literals.PROPERTY_OPTION__OPTIONS,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Selection feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyOption_selection_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyOption_selection_feature", "_UI_PropertyOption_type"),
+				 InputfieldsPackage.Literals.PROPERTY_OPTION__SELECTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns PropertyOption.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PropertyOption"));
 	}
 
 	/**
@@ -80,8 +114,8 @@ public class ConditionItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Condition condition = (Condition)object;
-		return getString("_UI_Condition_type") + " " + condition.getId();
+		PropertyOption propertyOption = (PropertyOption)object;
+		return getString("_UI_PropertyOption_type") + " " + propertyOption.getId();
 	}
 
 
@@ -96,8 +130,9 @@ public class ConditionItemProvider extends PatternElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Condition.class)) {
-			case PatternstructurePackage.CONDITION__COND_DEPTH:
+		switch (notification.getFeatureID(PropertyOption.class)) {
+			case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
+			case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

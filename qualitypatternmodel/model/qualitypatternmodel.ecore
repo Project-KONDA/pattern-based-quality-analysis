@@ -19,23 +19,24 @@
     <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//inputfields/Input">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="bool" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Option" eSuperTypes="#//inputfields/Input">
-      <eTypeParameters name="T"/>
-      <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="isDefinedBattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-        <eParameters name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-        <eParameters name="cls" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass"/>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1">
-        <eGenericType eTypeParameter="#//inputfields/Option/T"/>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="selection">
-        <eGenericType eTypeParameter="#//inputfields/Option/T"/>
-      </eStructuralFeatures>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//inputfields/Input">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CompOption" eSuperTypes="#//inputfields/Input">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
+          eType="#//functions/ComparisonOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="selection" eType="#//functions/ComparisonOperator"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PropertyOption" eSuperTypes="#//inputfields/Input">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
+          eType="#//graphstructure/PropertyLocation"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="selection" eType="#//graphstructure/PropertyLocation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BoolOption" eSuperTypes="#//inputfields/Input">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="selection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="functions" nsURI="functions" nsPrefix="functions">
@@ -59,20 +60,14 @@
           eType="#//graphstructure/Property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="regularExpression" lowerBound="1"
           eType="#//inputfields/Text"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1">
-        <eGenericType eClassifier="#//inputfields/Option">
-          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-        </eGenericType>
-      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
+          eType="#//inputfields/BoolOption"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//functions/BooleanOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
           eType="#//graphstructure/GraphElement"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1">
-        <eGenericType eClassifier="#//inputfields/Option">
-          <eTypeArguments eClassifier="#//functions/ComparisonOperator"/>
-        </eGenericType>
-      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
+          eType="#//inputfields/CompOption"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
           eType="#//graphstructure/GraphElement"/>
     </eClassifiers>
@@ -99,11 +94,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/GraphElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOption" lowerBound="1">
-        <eGenericType eClassifier="#//inputfields/Option">
-          <eTypeArguments eClassifier="#//graphstructure/PropertyLocation"/>
-        </eGenericType>
-      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOption" lowerBound="1"
+          eType="#//inputfields/PropertyOption"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" lowerBound="1"
@@ -117,8 +109,8 @@
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>
       <eOperations name="translatePathFromPrevious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" eType="#//patternstructure/SingleElementMapping"
-          eOpposite="#//patternstructure/SingleElementMapping/from"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
+          eType="#//patternstructure/SingleElementMapping" eOpposite="#//patternstructure/SingleElementMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/SingleElementMapping"
           eOpposite="#//patternstructure/SingleElementMapping/to"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//graphstructure/SingleElement"/>

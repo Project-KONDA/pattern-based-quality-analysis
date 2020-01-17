@@ -4,7 +4,7 @@ package qualitypatternmodel.functions;
 
 import qualitypatternmodel.graphstructure.GraphElement;
 
-import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.CompOption;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,12 +52,12 @@ public interface Comparison extends BooleanOperator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
-	 * @see #setOption(Option)
+	 * @see #setOption(CompOption)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getComparison_Option()
 	 * @model required="true"
 	 * @generated
 	 */
-	Option<ComparisonOperator> getOption();
+	CompOption getOption();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.functions.Comparison#getOption <em>Option</em>}' reference.
@@ -67,7 +67,7 @@ public interface Comparison extends BooleanOperator {
 	 * @see #getOption()
 	 * @generated
 	 */
-	void setOption(Option<ComparisonOperator> value);
+	void setOption(CompOption value);
 
 	/**
 	 * Returns the value of the '<em><b>Argument2</b></em>' reference.

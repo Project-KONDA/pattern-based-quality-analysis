@@ -40,15 +40,6 @@ public interface InputfieldsFactory extends EFactory {
 	Boolean createBoolean();
 
 	/**
-	 * Returns a new object of class '<em>Option</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Option</em>'.
-	 * @generated
-	 */
-	<T> Option<T> createOption();
-
-	/**
 	 * Returns a new object of class '<em>Text</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,6 +47,33 @@ public interface InputfieldsFactory extends EFactory {
 	 * @generated
 	 */
 	Text createText();
+
+	/**
+	 * Returns a new object of class '<em>Comp Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Comp Option</em>'.
+	 * @generated
+	 */
+	CompOption createCompOption();
+
+	/**
+	 * Returns a new object of class '<em>Property Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Property Option</em>'.
+	 * @generated
+	 */
+	PropertyOption createPropertyOption();
+
+	/**
+	 * Returns a new object of class '<em>Bool Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bool Option</em>'.
+	 * @generated
+	 */
+	BoolOption createBoolOption();
 
 	/**
 	 * Returns the package supported by this factory.

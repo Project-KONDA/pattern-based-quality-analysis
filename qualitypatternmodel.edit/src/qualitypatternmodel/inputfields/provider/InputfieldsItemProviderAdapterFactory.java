@@ -118,29 +118,6 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.Option} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OptionItemProvider optionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.Option}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOptionAdapter() {
-		if (optionItemProvider == null) {
-			optionItemProvider = new OptionItemProvider(this);
-		}
-
-		return optionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.Text} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,6 +138,75 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 		}
 
 		return textItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.CompOption} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompOptionItemProvider compOptionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.CompOption}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompOptionAdapter() {
+		if (compOptionItemProvider == null) {
+			compOptionItemProvider = new CompOptionItemProvider(this);
+		}
+
+		return compOptionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.PropertyOption} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PropertyOptionItemProvider propertyOptionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.PropertyOption}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPropertyOptionAdapter() {
+		if (propertyOptionItemProvider == null) {
+			propertyOptionItemProvider = new PropertyOptionItemProvider(this);
+		}
+
+		return propertyOptionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.BoolOption} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoolOptionItemProvider boolOptionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.BoolOption}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoolOptionAdapter() {
+		if (boolOptionItemProvider == null) {
+			boolOptionItemProvider = new BoolOptionItemProvider(this);
+		}
+
+		return boolOptionItemProvider;
 	}
 
 	/**
@@ -264,8 +310,10 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	public void dispose() {
 		if (numberItemProvider != null) numberItemProvider.dispose();
 		if (booleanItemProvider != null) booleanItemProvider.dispose();
-		if (optionItemProvider != null) optionItemProvider.dispose();
 		if (textItemProvider != null) textItemProvider.dispose();
+		if (compOptionItemProvider != null) compOptionItemProvider.dispose();
+		if (propertyOptionItemProvider != null) propertyOptionItemProvider.dispose();
+		if (boolOptionItemProvider != null) boolOptionItemProvider.dispose();
 	}
 
 }

@@ -777,7 +777,7 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__GRAPH_DEPTH = ELEMENT__GRAPH_DEPTH;
 
 	/**
-	 * The feature id for the '<em><b>Mapping To</b></em>' reference.
+	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1712,10 +1712,10 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getSingleElement_MappingFrom();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.SingleElement#getMappingTo <em>Mapping To</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.SingleElement#getMappingTo <em>Mapping To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Mapping To</em>'.
+	 * @return the meta object for the reference list '<em>Mapping To</em>'.
 	 * @see qualitypatternmodel.graphstructure.SingleElement#getMappingTo()
 	 * @see #getSingleElement()
 	 * @generated
@@ -2309,7 +2309,7 @@ public interface GraphstructurePackage extends EPackage {
 		EReference SINGLE_ELEMENT__MAPPING_FROM = eINSTANCE.getSingleElement_MappingFrom();
 
 		/**
-		 * The meta object literal for the '<em><b>Mapping To</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Mapping To</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

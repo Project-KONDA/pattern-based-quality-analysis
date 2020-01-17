@@ -33,8 +33,10 @@ public class InputfieldsTests extends TestSuite {
 		TestSuite suite = new InputfieldsTests("inputfields Tests");
 		suite.addTestSuite(NumberTest.class);
 		suite.addTestSuite(BooleanTest.class);
-		suite.addTestSuite(OptionTest.class);
 		suite.addTestSuite(TextTest.class);
+		suite.addTestSuite(CompOptionTest.class);
+		suite.addTestSuite(PropertyOptionTest.class);
+		suite.addTestSuite(BoolOptionTest.class);
 		return suite;
 	}
 

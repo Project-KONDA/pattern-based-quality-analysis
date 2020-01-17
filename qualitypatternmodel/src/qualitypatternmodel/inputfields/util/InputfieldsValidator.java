@@ -12,9 +12,11 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import qualitypatternmodel.graphstructure.util.GraphstructureValidator;
+import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.BoolOption;
+import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
@@ -123,10 +125,14 @@ public class InputfieldsValidator extends EObjectValidator {
 				return validateNumber((qualitypatternmodel.inputfields.Number)value, diagnostics, context);
 			case InputfieldsPackage.BOOLEAN:
 				return validateBoolean((qualitypatternmodel.inputfields.Boolean)value, diagnostics, context);
-			case InputfieldsPackage.OPTION:
-				return validateOption((Option<?>)value, diagnostics, context);
 			case InputfieldsPackage.TEXT:
 				return validateText((Text)value, diagnostics, context);
+			case InputfieldsPackage.COMP_OPTION:
+				return validateCompOption((CompOption)value, diagnostics, context);
+			case InputfieldsPackage.PROPERTY_OPTION:
+				return validatePropertyOption((PropertyOption)value, diagnostics, context);
+			case InputfieldsPackage.BOOL_OPTION:
+				return validateBoolOption((BoolOption)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -204,25 +210,6 @@ public class InputfieldsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateOption(Option<?> option, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(option, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(option, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(option, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(option, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(option, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(option, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(option, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(option, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(option, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(option, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateText(Text text, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(text, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(text, diagnostics, context);
@@ -234,6 +221,63 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(text, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(text, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInput_validate(text, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCompOption(CompOption compOption, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(compOption, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(compOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(compOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(compOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(compOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(compOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(compOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(compOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(compOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInput_validate(compOption, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePropertyOption(PropertyOption propertyOption, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(propertyOption, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(propertyOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(propertyOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(propertyOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(propertyOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(propertyOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(propertyOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(propertyOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(propertyOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInput_validate(propertyOption, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBoolOption(BoolOption boolOption, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(boolOption, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(boolOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(boolOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(boolOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(boolOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(boolOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(boolOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(boolOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(boolOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInput_validate(boolOption, diagnostics, context);
 		return result;
 	}
 

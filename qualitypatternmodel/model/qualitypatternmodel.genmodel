@@ -24,18 +24,20 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/Boolean">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Boolean/bool"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/Option">
-        <genTypeParameters ecoreTypeParameter="qualitypatternmodel.ecore#//inputfields/Option/T"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Option/options"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Option/selection"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//inputfields/Option/isValidLocal">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//inputfields/Option/isValidLocal/isDefinedBattern"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//inputfields/Option/isValidLocal/depth"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//inputfields/Option/isValidLocal/cls"/>
-        </genOperations>
-      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/Text">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Text/text"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/CompOption">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/CompOption/options"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/CompOption/selection"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/PropertyOption">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/PropertyOption/options"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/PropertyOption/selection"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/MatchOption">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/MatchOption/options"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/MatchOption/selection"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Functions" basePackage="qualitypatternmodel" disposableProviderFactory="true"

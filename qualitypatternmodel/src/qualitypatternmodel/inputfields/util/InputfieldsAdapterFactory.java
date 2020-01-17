@@ -11,9 +11,11 @@ import org.eclipse.emf.ecore.EObject;
 
 import qualitypatternmodel.graphstructure.GraphElement;
 
+import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.BoolOption;
+import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -87,12 +89,20 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 				return createBooleanAdapter();
 			}
 			@Override
-			public <T> Adapter caseOption(Option<T> object) {
-				return createOptionAdapter();
-			}
-			@Override
 			public Adapter caseText(Text object) {
 				return createTextAdapter();
+			}
+			@Override
+			public Adapter caseCompOption(CompOption object) {
+				return createCompOptionAdapter();
+			}
+			@Override
+			public Adapter casePropertyOption(PropertyOption object) {
+				return createPropertyOptionAdapter();
+			}
+			@Override
+			public Adapter caseBoolOption(BoolOption object) {
+				return createBoolOptionAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -165,20 +175,6 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Option <em>Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.inputfields.Option
-	 * @generated
-	 */
-	public Adapter createOptionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Text <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -189,6 +185,48 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.CompOption <em>Comp Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.CompOption
+	 * @generated
+	 */
+	public Adapter createCompOptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.PropertyOption <em>Property Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.PropertyOption
+	 * @generated
+	 */
+	public Adapter createPropertyOptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.BoolOption <em>Bool Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.BoolOption
+	 * @generated
+	 */
+	public Adapter createBoolOptionAdapter() {
 		return null;
 	}
 

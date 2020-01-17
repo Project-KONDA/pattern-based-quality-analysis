@@ -4,7 +4,7 @@ package qualitypatternmodel.functions;
 
 import qualitypatternmodel.graphstructure.Property;
 
-import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.BoolOption;
 import qualitypatternmodel.inputfields.Text;
 
 /**
@@ -75,12 +75,12 @@ public interface Match extends BooleanOperator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
-	 * @see #setOption(Option)
+	 * @see #setOption(BoolOption)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_Option()
-	 * @model type="qualitypatternmodel.inputfields.Option&lt;org.eclipse.emf.ecore.EBooleanObject&gt;" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
-	Option<Boolean> getOption();
+	BoolOption getOption();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}' reference.
@@ -90,6 +90,6 @@ public interface Match extends BooleanOperator {
 	 * @see #getOption()
 	 * @generated
 	 */
-	void setOption(Option<Boolean> value);
+	void setOption(BoolOption value);
 
 } // Match

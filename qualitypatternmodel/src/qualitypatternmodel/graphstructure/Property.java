@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.graphstructure;
 
-import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
 /**
@@ -29,12 +29,12 @@ public interface Property extends GraphElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property Option</em>' reference.
-	 * @see #setPropertyOption(Option)
+	 * @see #setPropertyOption(PropertyOption)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_PropertyOption()
 	 * @model required="true"
 	 * @generated
 	 */
-	Option<PropertyLocation> getPropertyOption();
+	PropertyOption getPropertyOption();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getPropertyOption <em>Property Option</em>}' reference.
@@ -44,7 +44,7 @@ public interface Property extends GraphElement {
 	 * @see #getPropertyOption()
 	 * @generated
 	 */
-	void setPropertyOption(Option<PropertyLocation> value);
+	void setPropertyOption(PropertyOption value);
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.

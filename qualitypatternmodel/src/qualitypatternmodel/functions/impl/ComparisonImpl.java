@@ -17,8 +17,8 @@ import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
+import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.impl.InputImpl;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
@@ -55,7 +55,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 * @ordered
 	 */
-	protected Option<ComparisonOperator> option;
+	protected CompOption option;
 
 	/**
 	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' reference.
@@ -213,10 +213,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public Option<ComparisonOperator> getOption() {
+	public CompOption getOption() {
 		if (option != null && option.eIsProxy()) {
 			InternalEObject oldOption = (InternalEObject)option;
-			option = (Option<ComparisonOperator>)eResolveProxy(oldOption);
+			option = (CompOption)eResolveProxy(oldOption);
 			if (option != oldOption) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.COMPARISON__OPTION, oldOption, option));
@@ -230,7 +230,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Option<ComparisonOperator> basicGetOption() {
+	public CompOption basicGetOption() {
 		return option;
 	}
 
@@ -239,8 +239,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOption(Option<ComparisonOperator> newOption) {
-		Option<ComparisonOperator> oldOption = option;
+	public void setOption(CompOption newOption) {
+		CompOption oldOption = option;
 		option = newOption;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTION, oldOption, option));
@@ -313,7 +313,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				setArgument1((GraphElement)newValue);
 				return;
 			case FunctionsPackage.COMPARISON__OPTION:
-				setOption((Option<ComparisonOperator>)newValue);
+				setOption((CompOption)newValue);
 				return;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((GraphElement)newValue);
@@ -333,7 +333,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				setArgument1((GraphElement)null);
 				return;
 			case FunctionsPackage.COMPARISON__OPTION:
-				setOption((Option<ComparisonOperator>)null);
+				setOption((CompOption)null);
 				return;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((GraphElement)null);

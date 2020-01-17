@@ -12,10 +12,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
-
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.BoolOption;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
@@ -64,7 +63,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 * @ordered
 	 */
-	protected Option<Boolean> option;
+	protected BoolOption option;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -213,10 +212,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-	public Option<Boolean> getOption() {
+	public BoolOption getOption() {
 		if (option != null && option.eIsProxy()) {
 			InternalEObject oldOption = (InternalEObject)option;
-			option = (Option<Boolean>)eResolveProxy(oldOption);
+			option = (BoolOption)eResolveProxy(oldOption);
 			if (option != oldOption) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.MATCH__OPTION, oldOption, option));
@@ -230,7 +229,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Option<Boolean> basicGetOption() {
+	public BoolOption basicGetOption() {
 		return option;
 	}
 
@@ -239,8 +238,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOption(Option<Boolean> newOption) {
-		Option<Boolean> oldOption = option;
+	public void setOption(BoolOption newOption) {
+		BoolOption oldOption = option;
 		option = newOption;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTION, oldOption, option));
@@ -283,7 +282,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setRegularExpression((Text)newValue);
 				return;
 			case FunctionsPackage.MATCH__OPTION:
-				setOption((Option<Boolean>)newValue);
+				setOption((BoolOption)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -304,7 +303,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setRegularExpression((Text)null);
 				return;
 			case FunctionsPackage.MATCH__OPTION:
-				setOption((Option<Boolean>)null);
+				setOption((BoolOption)null);
 				return;
 		}
 		super.eUnset(featureID);

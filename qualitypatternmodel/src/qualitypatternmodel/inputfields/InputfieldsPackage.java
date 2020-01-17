@@ -567,196 +567,6 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.OptionImpl <em>Option</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.inputfields.impl.OptionImpl
-	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getOption()
-	 * @generated
-	 */
-	int OPTION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION__ID = INPUT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION__VARIABLE_LIST = INPUT__VARIABLE_LIST;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION__DESCRIPTION = INPUT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION__IS_PREDEFINED = INPUT__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION__OPTIONS = INPUT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Selection</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION__SELECTION = INPUT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Option</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
-
-	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
-
-	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___GET_NEW_ID = INPUT___GET_NEW_ID;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Get Return Type</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
-
-	/**
-	 * The operation id for the '<em>Is Translatable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___TO_XQUERY__LOCATION_INT = INPUT___TO_XQUERY__LOCATION_INT;
-
-	/**
-	 * The operation id for the '<em>Input Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION___IS_VALID_LOCAL__BOOLEAN_INT_CLASS = INPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Option</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_OPERATION_COUNT = INPUT_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.TextImpl <em>Text</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -764,7 +574,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getText()
 	 * @generated
 	 */
-	int TEXT = 4;
+	int TEXT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -930,6 +740,550 @@ public interface InputfieldsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.CompOptionImpl <em>Comp Option</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.inputfields.impl.CompOptionImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getCompOption()
+	 * @generated
+	 */
+	int COMP_OPTION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__DESCRIPTION = INPUT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__IS_PREDEFINED = INPUT__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__OPTIONS = INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__SELECTION = INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Comp Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___GET_NEW_ID = INPUT___GET_NEW_ID;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___TO_XQUERY__LOCATION_INT = INPUT___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Comp Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl <em>Property Option</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.inputfields.impl.PropertyOptionImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getPropertyOption()
+	 * @generated
+	 */
+	int PROPERTY_OPTION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__DESCRIPTION = INPUT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__IS_PREDEFINED = INPUT__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__OPTIONS = INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__SELECTION = INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Property Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___GET_NEW_ID = INPUT___GET_NEW_ID;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___TO_XQUERY__LOCATION_INT = INPUT___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Property Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.BoolOptionImpl <em>Bool Option</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.inputfields.impl.BoolOptionImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getBoolOption()
+	 * @generated
+	 */
+	int BOOL_OPTION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION__DESCRIPTION = INPUT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION__IS_PREDEFINED = INPUT__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION__OPTIONS = INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION__SELECTION = INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Bool Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION___GET_NEW_ID = INPUT___GET_NEW_ID;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION___TO_XQUERY__LOCATION_INT = INPUT___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Bool Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_OPTION_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Input <em>Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1035,48 +1389,6 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getBoolean_Bool();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Option <em>Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Option</em>'.
-	 * @see qualitypatternmodel.inputfields.Option
-	 * @generated
-	 */
-	EClass getOption();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.inputfields.Option#getOptions <em>Options</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Options</em>'.
-	 * @see qualitypatternmodel.inputfields.Option#getOptions()
-	 * @see #getOption()
-	 * @generated
-	 */
-	EAttribute getOption_Options();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Option#getSelection <em>Selection</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Selection</em>'.
-	 * @see qualitypatternmodel.inputfields.Option#getSelection()
-	 * @see #getOption()
-	 * @generated
-	 */
-	EAttribute getOption_Selection();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Option#isValidLocal(boolean, int, java.lang.Class) <em>Is Valid Local</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid Local</em>' operation.
-	 * @see qualitypatternmodel.inputfields.Option#isValidLocal(boolean, int, java.lang.Class)
-	 * @generated
-	 */
-	EOperation getOption__IsValidLocal__boolean_int_Class();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Text <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1096,6 +1408,102 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getText_Text();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.CompOption <em>Comp Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Comp Option</em>'.
+	 * @see qualitypatternmodel.inputfields.CompOption
+	 * @generated
+	 */
+	EClass getCompOption();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.inputfields.CompOption#getOptions <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Options</em>'.
+	 * @see qualitypatternmodel.inputfields.CompOption#getOptions()
+	 * @see #getCompOption()
+	 * @generated
+	 */
+	EAttribute getCompOption_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.CompOption#getSelection <em>Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection</em>'.
+	 * @see qualitypatternmodel.inputfields.CompOption#getSelection()
+	 * @see #getCompOption()
+	 * @generated
+	 */
+	EAttribute getCompOption_Selection();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.PropertyOption <em>Property Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property Option</em>'.
+	 * @see qualitypatternmodel.inputfields.PropertyOption
+	 * @generated
+	 */
+	EClass getPropertyOption();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.inputfields.PropertyOption#getOptions <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Options</em>'.
+	 * @see qualitypatternmodel.inputfields.PropertyOption#getOptions()
+	 * @see #getPropertyOption()
+	 * @generated
+	 */
+	EAttribute getPropertyOption_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.PropertyOption#getSelection <em>Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection</em>'.
+	 * @see qualitypatternmodel.inputfields.PropertyOption#getSelection()
+	 * @see #getPropertyOption()
+	 * @generated
+	 */
+	EAttribute getPropertyOption_Selection();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.BoolOption <em>Bool Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bool Option</em>'.
+	 * @see qualitypatternmodel.inputfields.BoolOption
+	 * @generated
+	 */
+	EClass getBoolOption();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.inputfields.BoolOption#getOptions <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Options</em>'.
+	 * @see qualitypatternmodel.inputfields.BoolOption#getOptions()
+	 * @see #getBoolOption()
+	 * @generated
+	 */
+	EAttribute getBoolOption_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.BoolOption#getSelection <em>Selection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selection</em>'.
+	 * @see qualitypatternmodel.inputfields.BoolOption#getSelection()
+	 * @see #getBoolOption()
+	 * @generated
+	 */
+	EAttribute getBoolOption_Selection();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1207,40 +1615,6 @@ public interface InputfieldsPackage extends EPackage {
 		EAttribute BOOLEAN__BOOL = eINSTANCE.getBoolean_Bool();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.OptionImpl <em>Option</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.inputfields.impl.OptionImpl
-		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getOption()
-		 * @generated
-		 */
-		EClass OPTION = eINSTANCE.getOption();
-
-		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OPTION__OPTIONS = eINSTANCE.getOption_Options();
-
-		/**
-		 * The meta object literal for the '<em><b>Selection</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OPTION__SELECTION = eINSTANCE.getOption_Selection();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Valid Local</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation OPTION___IS_VALID_LOCAL__BOOLEAN_INT_CLASS = eINSTANCE.getOption__IsValidLocal__boolean_int_Class();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.TextImpl <em>Text</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1257,6 +1631,84 @@ public interface InputfieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT__TEXT = eINSTANCE.getText_Text();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.CompOptionImpl <em>Comp Option</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.inputfields.impl.CompOptionImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getCompOption()
+		 * @generated
+		 */
+		EClass COMP_OPTION = eINSTANCE.getCompOption();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMP_OPTION__OPTIONS = eINSTANCE.getCompOption_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMP_OPTION__SELECTION = eINSTANCE.getCompOption_Selection();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl <em>Property Option</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.inputfields.impl.PropertyOptionImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getPropertyOption()
+		 * @generated
+		 */
+		EClass PROPERTY_OPTION = eINSTANCE.getPropertyOption();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY_OPTION__OPTIONS = eINSTANCE.getPropertyOption_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY_OPTION__SELECTION = eINSTANCE.getPropertyOption_Selection();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.BoolOptionImpl <em>Bool Option</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.inputfields.impl.BoolOptionImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getBoolOption()
+		 * @generated
+		 */
+		EClass BOOL_OPTION = eINSTANCE.getBoolOption();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOL_OPTION__OPTIONS = eINSTANCE.getBoolOption_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Selection</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOL_OPTION__SELECTION = eINSTANCE.getBoolOption_Selection();
 
 	}
 
