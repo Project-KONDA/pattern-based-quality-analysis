@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -81,6 +82,13 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 		super();
 	}
 
+	@Override
+	public EList<Input> getAllVariables() throws InvalidityException {
+		EList<Input> res = new BasicEList<Input>();
+		res.add(this);
+		return res;
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -94,6 +102,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public VariableList getVariableList() {
 		if (eContainerFeatureID() != InputfieldsPackage.INPUT__VARIABLE_LIST) return null;
 		return (VariableList)eInternalContainer();
@@ -114,6 +123,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVariableList(VariableList newVariableList) {
 		if (newVariableList != eInternalContainer() || (eContainerFeatureID() != InputfieldsPackage.INPUT__VARIABLE_LIST && newVariableList != null)) {
 			if (EcoreUtil.isAncestor(this, newVariableList))
@@ -135,6 +145,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -144,6 +155,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
@@ -156,6 +168,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsPredefined() {
 		return isPredefined;
 	}
@@ -165,6 +178,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsPredefined(boolean newIsPredefined) {
 		boolean oldIsPredefined = isPredefined;
 		isPredefined = newIsPredefined;

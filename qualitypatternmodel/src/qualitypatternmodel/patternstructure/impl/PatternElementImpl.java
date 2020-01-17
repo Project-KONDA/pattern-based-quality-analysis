@@ -119,6 +119,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getNewId() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -129,6 +130,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void prepareTranslation() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -148,6 +150,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getId() {
 		return id;
 	}
@@ -156,6 +159,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setId(int newId) {
 		int oldId = id;
 		id = newId;

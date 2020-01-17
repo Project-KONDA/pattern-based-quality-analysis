@@ -60,8 +60,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 
 	/**
 	 * The default value of the '{@link #getNestingDepth() <em>Nesting Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNestingDepth()
 	 * @generated
 	 * @ordered
@@ -70,8 +69,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 
 	/**
 	 * The cached value of the '{@link #getNestingDepth() <em>Nesting Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getNestingDepth()
 	 * @generated
 	 * @ordered
@@ -99,7 +97,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	public String toXQuery(Location location) throws InvalidityException {
 		return toXQuery(location, 1);
 	}
-	
+
 	public String toXQuery(Location location, int depth) throws InvalidityException {
 		translated = true;
 		nestingDepth = depth;
@@ -109,9 +107,9 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 		if (previous instanceof SingleElement) {
 			return ((SingleElement) previous).getXQueryRepresentation(location, depth);
 		}
-		String xPathExpression = translatePathFromPrevious(depth);		
-		xPathExpression += translatePredicates(location, depth+1);		
-		xPathExpression += translateElementExistencePredicates(location, depth+1);	
+		String xPathExpression = translatePathFromPrevious(depth);
+		xPathExpression += translatePredicates(location, depth + 1);
+		xPathExpression += translateElementExistencePredicates(location, depth + 1);
 		return previous.toXQuery(location) + xPathExpression;
 	}
 
@@ -119,25 +117,25 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	public boolean isTranslatable() {
 		return previous.isTranslatable();
 	}
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param depth 
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @param depth
 	 * 
 	 */
 	public String translatePredicates(Location location, int depth) throws InvalidityException {
 		String xPredicates = "";
 		predicatesAreBeingTranslated = true;
-		for (BooleanOperator predicate : predicates){
-			if (predicate.isTranslatable()){
+		for (BooleanOperator predicate : predicates) {
+			if (predicate.isTranslatable()) {
 				xPredicates += "[" + predicate.toXQuery(location, depth) + "]";
 			}
 		}
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
 	}
-	
+
 	@Override
 	public String translatePathFromPrevious(int depth) {
 		return "/" + relationFromPrevious.getAxis() + "::*";
@@ -146,8 +144,8 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	@Override
 	public String getXQueryRepresentation(Location location, int depth) throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
-			
-			return getContextRepresentation(depth-nestingDepth);
+
+			return getContextRepresentation(depth - nestingDepth);
 		} else {
 			if (translated) {
 				return toXQuery(location, depth);
@@ -188,6 +186,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SetElement> getNext() {
 		if (next == null) {
 			next = new EObjectContainmentEList<SetElement>(SetElement.class, this, GraphstructurePackage.SET_ELEMENT__NEXT);
@@ -199,6 +198,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Element getPrevious() {
 		if (previous != null && previous.eIsProxy()) {
 			InternalEObject oldPrevious = (InternalEObject)previous;
@@ -225,25 +225,25 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	public void setPrevious(Element newPrevious) {
 		Element oldPrevious = previous;
 		previous = newPrevious;
-		setGraphDepth(newPrevious.getGraphDepth());
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SET_ELEMENT__PREVIOUS, oldPrevious, previous));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SET_ELEMENT__PREVIOUS,
+					oldPrevious, previous));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getNestingDepth() {
 		return nestingDepth;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNestingDepth(int newNestingDepth) {
 		int oldNestingDepth = nestingDepth;
 		nestingDepth = newNestingDepth;
@@ -369,8 +369,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

@@ -107,13 +107,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__AXIS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
+	 * The feature id for the '<em><b>Relation To</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__GRAPH_DEPTH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int RELATION__RELATION_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Relation</em>' class.
@@ -188,13 +188,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get Graph Depth</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___GET_GRAPH_DEPTH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphElementImpl <em>Graph Element</em>}' class.
@@ -542,22 +551,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = GRAPH_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__GRAPH_DEPTH = GRAPH_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = GRAPH_ELEMENT_FEATURE_COUNT + 6;
+	int ELEMENT_FEATURE_COUNT = GRAPH_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -695,13 +695,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___GET_CONTEXT_REPRESENTATION__INT = GRAPH_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Get Graph Depth</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___GET_GRAPH_DEPTH = GRAPH_ELEMENT_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = GRAPH_ELEMENT_OPERATION_COUNT + 6;
+	int ELEMENT_OPERATION_COUNT = GRAPH_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
@@ -768,16 +777,7 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = ELEMENT__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
-	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__GRAPH_DEPTH = ELEMENT__GRAPH_DEPTH;
-
-	/**
-	 * The feature id for the '<em><b>Mapping To</b></em>' reference.
+	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -813,7 +813,7 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__NEXT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' attribute.
+	 * The feature id for the '<em><b>Root</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -966,6 +966,15 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___GET_CONTEXT_REPRESENTATION__INT = ELEMENT___GET_CONTEXT_REPRESENTATION__INT;
 
 	/**
+	 * The operation id for the '<em>Get Graph Depth</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___GET_GRAPH_DEPTH = ELEMENT___GET_GRAPH_DEPTH;
+
+	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1073,15 +1082,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = ELEMENT__PREDICATES_ARE_BEING_TRANSLATED;
-
-	/**
-	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__GRAPH_DEPTH = ELEMENT__GRAPH_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
@@ -1253,6 +1253,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT___GET_CONTEXT_REPRESENTATION__INT = ELEMENT___GET_CONTEXT_REPRESENTATION__INT;
+
+	/**
+	 * The operation id for the '<em>Get Graph Depth</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___GET_GRAPH_DEPTH = ELEMENT___GET_GRAPH_DEPTH;
 
 	/**
 	 * The operation id for the '<em>Translate Element Existence Predicates</em>' operation.
@@ -1637,15 +1646,25 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getRelation_Axis();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth <em>Graph Depth</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Graph Depth</em>'.
-	 * @see qualitypatternmodel.graphstructure.Relation#getGraphDepth()
+	 * @return the meta object for the container reference '<em>Relation To</em>'.
+	 * @see qualitypatternmodel.graphstructure.Relation#getRelationTo()
 	 * @see #getRelation()
 	 * @generated
 	 */
-	EAttribute getRelation_GraphDepth();
+	EReference getRelation_RelationTo();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth() <em>Get Graph Depth</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Graph Depth</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#getGraphDepth()
+	 * @generated
+	 */
+	EOperation getRelation__GetGraphDepth();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Property <em>Property</em>}'.
@@ -1712,10 +1731,10 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getSingleElement_MappingFrom();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.SingleElement#getMappingTo <em>Mapping To</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.SingleElement#getMappingTo <em>Mapping To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Mapping To</em>'.
+	 * @return the meta object for the reference list '<em>Mapping To</em>'.
 	 * @see qualitypatternmodel.graphstructure.SingleElement#getMappingTo()
 	 * @see #getSingleElement()
 	 * @generated
@@ -1745,15 +1764,15 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getSingleElement_Next();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.SingleElement#isRoot <em>Root</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Root</em>'.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#isRoot()
+	 * @return the meta object for the container reference '<em>Root</em>'.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getRoot()
 	 * @see #getSingleElement()
 	 * @generated
 	 */
-	EAttribute getSingleElement_Root();
+	EReference getSingleElement_Root();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getOriginalID() <em>Get Original ID</em>}' operation.
@@ -1934,17 +1953,6 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getElement_PredicatesAreBeingTranslated();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Element#getGraphDepth <em>Graph Depth</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Graph Depth</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getGraphDepth()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EAttribute getElement_GraphDepth();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getNextElements() <em>Get Next Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2003,6 +2011,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getElement__GetContextRepresentation__int();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getGraphDepth() <em>Get Graph Depth</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Graph Depth</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#getGraphDepth()
+	 * @generated
+	 */
+	EOperation getElement__GetGraphDepth();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -2249,12 +2267,20 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute RELATION__AXIS = eINSTANCE.getRelation_Axis();
 
 		/**
-		 * The meta object literal for the '<em><b>Graph Depth</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Relation To</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RELATION__GRAPH_DEPTH = eINSTANCE.getRelation_GraphDepth();
+		EReference RELATION__RELATION_TO = eINSTANCE.getRelation_RelationTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Graph Depth</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION___GET_GRAPH_DEPTH = eINSTANCE.getRelation__GetGraphDepth();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
@@ -2309,7 +2335,7 @@ public interface GraphstructurePackage extends EPackage {
 		EReference SINGLE_ELEMENT__MAPPING_FROM = eINSTANCE.getSingleElement_MappingFrom();
 
 		/**
-		 * The meta object literal for the '<em><b>Mapping To</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Mapping To</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2333,12 +2359,12 @@ public interface GraphstructurePackage extends EPackage {
 		EReference SINGLE_ELEMENT__NEXT = eINSTANCE.getSingleElement_Next();
 
 		/**
-		 * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Root</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SINGLE_ELEMENT__ROOT = eINSTANCE.getSingleElement_Root();
+		EReference SINGLE_ELEMENT__ROOT = eINSTANCE.getSingleElement_Root();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Original ID</b></em>' operation.
@@ -2481,14 +2507,6 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = eINSTANCE.getElement_PredicatesAreBeingTranslated();
 
 		/**
-		 * The meta object literal for the '<em><b>Graph Depth</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ELEMENT__GRAPH_DEPTH = eINSTANCE.getElement_GraphDepth();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Next Elements</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2535,6 +2553,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___GET_CONTEXT_REPRESENTATION__INT = eINSTANCE.getElement__GetContextRepresentation__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Graph Depth</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___GET_GRAPH_DEPTH = eINSTANCE.getElement__GetGraphDepth();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

@@ -16,6 +16,7 @@ import qualitypatternmodel.graphstructure.Element;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllOperators() <em>Get All Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location, int) <em>Get XQuery Representation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getContextRepresentation(int) <em>Get Context Representation</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraphDepth() <em>Get Graph Depth</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -103,6 +104,19 @@ public abstract class ElementTest extends GraphElementTest {
 	 * @generated
 	 */
 	public void testGetContextRepresentation__int() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getGraphDepth() <em>Get Graph Depth</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Element#getGraphDepth()
+	 * @generated
+	 */
+	public void testGetGraphDepth() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

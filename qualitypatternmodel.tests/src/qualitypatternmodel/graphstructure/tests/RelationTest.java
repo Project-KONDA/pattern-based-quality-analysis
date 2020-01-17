@@ -13,6 +13,12 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Relation</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth() <em>Get Graph Depth</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class RelationTest extends PatternElementTest {
@@ -67,6 +73,19 @@ public class RelationTest extends PatternElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth() <em>Get Graph Depth</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#getGraphDepth()
+	 * @generated
+	 */
+	public void testGetGraphDepth() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //RelationTest

@@ -17,8 +17,8 @@ import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
+import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.inputfields.impl.InputImpl;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
@@ -55,7 +55,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 * @ordered
 	 */
-	protected Option<ComparisonOperator> option;
+	protected CompOption option;
 
 	/**
 	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' reference.
@@ -122,12 +122,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
+		res.add(this);
 		if (argument1 instanceof Operator) {
-			res.add((Operator) argument1);
 			res.addAll(((Operator) argument1).getAllOperators());
 		}
 		if (argument2 instanceof Operator) {
-			res.add((Operator) argument2);
 			res.addAll(((Operator) argument2).getAllOperators());
 		}
 		return res;
@@ -176,6 +175,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GraphElement getArgument1() {
 		if (argument1 != null && argument1.eIsProxy()) {
 			InternalEObject oldArgument1 = (InternalEObject)argument1;
@@ -200,6 +200,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setArgument1(GraphElement newArgument1) {
 		GraphElement oldArgument1 = argument1;
 		argument1 = newArgument1;
@@ -212,11 +213,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
-	public Option<ComparisonOperator> getOption() {
+	public CompOption getOption() {
 		if (option != null && option.eIsProxy()) {
 			InternalEObject oldOption = (InternalEObject)option;
-			option = (Option<ComparisonOperator>)eResolveProxy(oldOption);
+			option = (CompOption)eResolveProxy(oldOption);
 			if (option != oldOption) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.COMPARISON__OPTION, oldOption, option));
@@ -230,7 +232,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Option<ComparisonOperator> basicGetOption() {
+	public CompOption basicGetOption() {
 		return option;
 	}
 
@@ -239,8 +241,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOption(Option<ComparisonOperator> newOption) {
-		Option<ComparisonOperator> oldOption = option;
+	@Override
+	public void setOption(CompOption newOption) {
+		CompOption oldOption = option;
 		option = newOption;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTION, oldOption, option));
@@ -250,6 +253,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public GraphElement getArgument2() {
 		if (argument2 != null && argument2.eIsProxy()) {
 			InternalEObject oldArgument2 = (InternalEObject)argument2;
@@ -274,6 +278,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setArgument2(GraphElement newArgument2) {
 		GraphElement oldArgument2 = argument2;
 		argument2 = newArgument2;
@@ -313,7 +318,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				setArgument1((GraphElement)newValue);
 				return;
 			case FunctionsPackage.COMPARISON__OPTION:
-				setOption((Option<ComparisonOperator>)newValue);
+				setOption((CompOption)newValue);
 				return;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((GraphElement)newValue);
@@ -333,7 +338,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				setArgument1((GraphElement)null);
 				return;
 			case FunctionsPackage.COMPARISON__OPTION:
-				setOption((Option<ComparisonOperator>)null);
+				setOption((CompOption)null);
 				return;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((GraphElement)null);

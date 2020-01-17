@@ -58,18 +58,15 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		super();
 	}
 
-	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
-		isValidLocal(isDefinedPattern);
-	}
-	
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (from == null)
-			throw new InvalidityException("from null");
+			throw new InvalidityException("from-element null");
 		if (to == null)
-			throw new InvalidityException("to null");	
-		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth())
-			throw new InvalidityException("invalid target elements");	
+			throw new InvalidityException("to null");
+		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
+			throw new InvalidityException("invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
+					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
+		}
 	}
 
 	/**
@@ -85,6 +82,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SingleElement getFrom() {
 		if (from != null && from.eIsProxy()) {
 			InternalEObject oldFrom = (InternalEObject)from;
@@ -123,6 +121,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFrom(SingleElement newFrom) {
 		if (newFrom != from) {
 			NotificationChain msgs = null;
@@ -141,6 +140,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SingleElement getTo() {
 		if (to != null && to.eIsProxy()) {
 			InternalEObject oldTo = (InternalEObject)to;
@@ -179,6 +179,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTo(SingleElement newTo) {
 		if (newTo != to) {
 			NotificationChain msgs = null;

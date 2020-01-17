@@ -64,12 +64,14 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth())
-			throw new InvalidityException("invalid target relations");
 		if (from == null)
-			throw new InvalidityException("from null");
+			throw new InvalidityException("from-element null");
 		if (to == null)
 			throw new InvalidityException("to null");
+		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
+			throw new InvalidityException("invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
+					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
+		}
 	}
 
 	/**
@@ -85,6 +87,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Relation getTo() {
 		if (to != null && to.eIsProxy()) {
 			InternalEObject oldTo = (InternalEObject)to;
@@ -123,6 +126,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTo(Relation newTo) {
 		if (newTo != to) {
 			NotificationChain msgs = null;
@@ -141,6 +145,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Relation getFrom() {
 		if (from != null && from.eIsProxy()) {
 			InternalEObject oldFrom = (InternalEObject)from;
@@ -179,6 +184,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFrom(Relation newFrom) {
 		if (newFrom != from) {
 			NotificationChain msgs = null;

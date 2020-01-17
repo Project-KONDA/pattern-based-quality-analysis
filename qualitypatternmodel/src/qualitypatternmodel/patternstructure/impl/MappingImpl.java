@@ -69,6 +69,7 @@ public abstract class MappingImpl extends PatternElementImpl implements Mapping 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getMappingDepth() {
 		return mappingDepth;
 	}
@@ -79,6 +80,7 @@ public abstract class MappingImpl extends PatternElementImpl implements Mapping 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMappingDepth(int newMappingDepth) {
 		int oldMappingDepth = mappingDepth;
 		mappingDepth = newMappingDepth;

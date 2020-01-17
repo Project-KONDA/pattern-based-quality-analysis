@@ -5,8 +5,7 @@
 package qualitypatternmodel.functions.validation;
 
 import qualitypatternmodel.graphstructure.Property;
-
-import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.BoolOption;
 import qualitypatternmodel.inputfields.Text;
 
 /**
@@ -20,5 +19,5 @@ public interface MatchValidator {
 
 	boolean validateProperty(Property value);
 	boolean validateRegularExpression(Text value);
-	boolean validateOption(Option<Boolean> value);
+	boolean validateOption(BoolOption value);
 }

@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.inputfields.impl;
 
-import java.lang.Boolean;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -16,25 +14,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
+import qualitypatternmodel.functions.ComparisonOperator;
+import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.Option;
 import qualitypatternmodel.patternstructure.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Option</b></em>'.
+ * An implementation of the model object '<em><b>Comp Option</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.impl.OptionImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.impl.OptionImpl#getSelection <em>Selection</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.CompOptionImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.CompOptionImpl#getSelection <em>Selection</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class OptionImpl<T> extends InputImpl implements Option<T> {
+public class CompOptionImpl extends InputImpl implements CompOption {
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -43,7 +42,17 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<T> options;
+	protected EList<ComparisonOperator> options;
+
+	/**
+	 * The default value of the '{@link #getSelection() <em>Selection</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelection()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ComparisonOperator SELECTION_EDEFAULT = ComparisonOperator.EQUAL;
 
 	/**
 	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
@@ -53,23 +62,15 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	 * @generated
 	 * @ordered
 	 */
-	protected T selection;
+	protected ComparisonOperator selection = SELECTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OptionImpl() {
+	protected CompOptionImpl() {
 		super();
-	}
-	
-	@Override
-	public void isValidLocal(boolean isDefinedPattern, int depth, Class cls) throws InvalidityException {
-		if(selection != null && selection.getClass() != cls || options.get(0).getClass() != cls) {
-			throw new InvalidityException("options of wrong type");
-		}
-		this.isValidLocal(isDefinedPattern, depth);
 	}
 	
 	@Override
@@ -93,7 +94,7 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return InputfieldsPackage.Literals.OPTION;
+		return InputfieldsPackage.Literals.COMP_OPTION;
 	}
 
 	/**
@@ -101,9 +102,10 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<T> getOptions() {
+	@Override
+	public EList<ComparisonOperator> getOptions() {
 		if (options == null) {
-			options = new EDataTypeUniqueEList<T>(Object.class, this, InputfieldsPackage.OPTION__OPTIONS);
+			options = new EDataTypeUniqueEList<ComparisonOperator>(ComparisonOperator.class, this, InputfieldsPackage.COMP_OPTION__OPTIONS);
 		}
 		return options;
 	}
@@ -113,7 +115,8 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public T getSelection() {
+	@Override
+	public ComparisonOperator getSelection() {
 		return selection;
 	}
 
@@ -122,11 +125,12 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelection(T newSelection) {
-		T oldSelection = selection;
-		selection = newSelection;
+	@Override
+	public void setSelection(ComparisonOperator newSelection) {
+		ComparisonOperator oldSelection = selection;
+		selection = newSelection == null ? SELECTION_EDEFAULT : newSelection;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.OPTION__SELECTION, oldSelection, selection));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.COMP_OPTION__SELECTION, oldSelection, selection));
 	}
 
 	/**
@@ -137,9 +141,9 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InputfieldsPackage.OPTION__OPTIONS:
+			case InputfieldsPackage.COMP_OPTION__OPTIONS:
 				return getOptions();
-			case InputfieldsPackage.OPTION__SELECTION:
+			case InputfieldsPackage.COMP_OPTION__SELECTION:
 				return getSelection();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -154,12 +158,12 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InputfieldsPackage.OPTION__OPTIONS:
+			case InputfieldsPackage.COMP_OPTION__OPTIONS:
 				getOptions().clear();
-				getOptions().addAll((Collection<? extends T>)newValue);
+				getOptions().addAll((Collection<? extends ComparisonOperator>)newValue);
 				return;
-			case InputfieldsPackage.OPTION__SELECTION:
-				setSelection((T)newValue);
+			case InputfieldsPackage.COMP_OPTION__SELECTION:
+				setSelection((ComparisonOperator)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -173,11 +177,11 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.OPTION__OPTIONS:
+			case InputfieldsPackage.COMP_OPTION__OPTIONS:
 				getOptions().clear();
 				return;
-			case InputfieldsPackage.OPTION__SELECTION:
-				setSelection((T)null);
+			case InputfieldsPackage.COMP_OPTION__SELECTION:
+				setSelection(SELECTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -191,32 +195,12 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.OPTION__OPTIONS:
+			case InputfieldsPackage.COMP_OPTION__OPTIONS:
 				return options != null && !options.isEmpty();
-			case InputfieldsPackage.OPTION__SELECTION:
-				return selection != null;
+			case InputfieldsPackage.COMP_OPTION__SELECTION:
+				return selection != SELECTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case InputfieldsPackage.OPTION___IS_VALID_LOCAL__BOOLEAN_INT_CLASS:
-				try {
-					isValidLocal((Boolean)arguments.get(0), (Integer)arguments.get(1), (Class)arguments.get(2));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -237,4 +221,4 @@ public class OptionImpl<T> extends InputImpl implements Option<T> {
 		return result.toString();
 	}
 
-} //OptionImpl
+} //CompOptionImpl

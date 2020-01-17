@@ -101,6 +101,7 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Count createCount() {
 		CountImpl count = new CountImpl();
 		return count;
@@ -111,6 +112,7 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Match createMatch() {
 		MatchImpl match = new MatchImpl();
 		return match;
@@ -121,6 +123,7 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Comparison createComparison() {
 		ComparisonImpl comparison = new ComparisonImpl();
 		return comparison;
@@ -131,6 +134,7 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ToNumber createToNumber() {
 		ToNumberImpl toNumber = new ToNumberImpl();
 		return toNumber;
@@ -161,6 +165,7 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FunctionsPackage getFunctionsPackage() {
 		return (FunctionsPackage)getEPackage();
 	}

@@ -7,7 +7,7 @@ package qualitypatternmodel.graphstructure.validation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 
-import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
 /**
@@ -19,7 +19,7 @@ import qualitypatternmodel.inputfields.Text;
 public interface PropertyValidator {
 	boolean validate();
 
-	boolean validatePropertyOption(Option<PropertyLocation> value);
+	boolean validatePropertyOption(PropertyOption value);
 	boolean validateElement(Element value);
 	boolean validateAttributeName(Text value);
 }

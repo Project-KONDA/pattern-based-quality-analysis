@@ -14,23 +14,23 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import qualitypatternmodel.inputfields.BoolOption;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.Option;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.Option} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.BoolOption} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class OptionItemProvider extends InputItemProvider {
+public class BoolOptionItemProvider extends InputItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OptionItemProvider(AdapterFactory adapterFactory) {
+	public BoolOptionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,9 +62,9 @@ public class OptionItemProvider extends InputItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Option_options_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Option_options_feature", "_UI_Option_type"),
-				 InputfieldsPackage.Literals.OPTION__OPTIONS,
+				 getString("_UI_BoolOption_options_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BoolOption_options_feature", "_UI_BoolOption_type"),
+				 InputfieldsPackage.Literals.BOOL_OPTION__OPTIONS,
 				 true,
 				 false,
 				 false,
@@ -84,9 +84,9 @@ public class OptionItemProvider extends InputItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Option_selection_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Option_selection_feature", "_UI_Option_type"),
-				 InputfieldsPackage.Literals.OPTION__SELECTION,
+				 getString("_UI_BoolOption_selection_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BoolOption_selection_feature", "_UI_BoolOption_type"),
+				 InputfieldsPackage.Literals.BOOL_OPTION__SELECTION,
 				 true,
 				 false,
 				 false,
@@ -96,14 +96,14 @@ public class OptionItemProvider extends InputItemProvider {
 	}
 
 	/**
-	 * This returns Option.gif.
+	 * This returns BoolOption.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Option"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BoolOption"));
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class OptionItemProvider extends InputItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Option<?> option = (Option<?>)object;
-		return getString("_UI_Option_type") + " " + option.getId();
+		BoolOption boolOption = (BoolOption)object;
+		return getString("_UI_BoolOption_type") + " " + boolOption.getId();
 	}
 
 
@@ -130,9 +130,9 @@ public class OptionItemProvider extends InputItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Option.class)) {
-			case InputfieldsPackage.OPTION__OPTIONS:
-			case InputfieldsPackage.OPTION__SELECTION:
+		switch (notification.getFeatureID(BoolOption.class)) {
+			case InputfieldsPackage.BOOL_OPTION__OPTIONS:
+			case InputfieldsPackage.BOOL_OPTION__SELECTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

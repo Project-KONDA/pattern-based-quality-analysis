@@ -4,11 +4,9 @@ package qualitypatternmodel.inputfields.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -20,10 +18,12 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 
+import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.BoolOption;
+import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.inputfields.util.InputfieldsValidator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -63,14 +63,28 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass optionEClass = null;
+	private EClass textEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass textEClass = null;
+	private EClass compOptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertyOptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boolOptionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -143,6 +157,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		EValidator.Registry.INSTANCE.put
 			(theInputfieldsPackage,
 			 new EValidator.Descriptor() {
+				 @Override
 				 public EValidator getEValidator() {
 					 return InputfieldsValidator.INSTANCE;
 				 }
@@ -161,6 +176,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInput() {
 		return inputEClass;
 	}
@@ -170,6 +186,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInput_VariableList() {
 		return (EReference)inputEClass.getEStructuralFeatures().get(0);
 	}
@@ -179,6 +196,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInput_Description() {
 		return (EAttribute)inputEClass.getEStructuralFeatures().get(1);
 	}
@@ -188,6 +206,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInput_IsPredefined() {
 		return (EAttribute)inputEClass.getEStructuralFeatures().get(2);
 	}
@@ -197,6 +216,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getInput__InputIsValid() {
 		return inputEClass.getEOperations().get(0);
 	}
@@ -206,6 +226,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EOperation getInput__Validate__DiagnosticChain_Map() {
 		return inputEClass.getEOperations().get(1);
 	}
@@ -215,6 +236,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNumber() {
 		return numberEClass;
 	}
@@ -224,6 +246,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getNumber_Number() {
 		return (EAttribute)numberEClass.getEStructuralFeatures().get(0);
 	}
@@ -233,6 +256,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBoolean() {
 		return booleanEClass;
 	}
@@ -242,6 +266,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBoolean_Bool() {
 		return (EAttribute)booleanEClass.getEStructuralFeatures().get(0);
 	}
@@ -251,42 +276,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getOption() {
-		return optionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOption_Options() {
-		return (EAttribute)optionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOption_Selection() {
-		return (EAttribute)optionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getOption__IsValidLocal__boolean_int_Class() {
-		return optionEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public EClass getText() {
 		return textEClass;
 	}
@@ -296,6 +286,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getText_Text() {
 		return (EAttribute)textEClass.getEStructuralFeatures().get(0);
 	}
@@ -305,6 +296,97 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EClass getCompOption() {
+		return compOptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompOption_Options() {
+		return (EAttribute)compOptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCompOption_Selection() {
+		return (EAttribute)compOptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getPropertyOption() {
+		return propertyOptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPropertyOption_Options() {
+		return (EAttribute)propertyOptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPropertyOption_Selection() {
+		return (EAttribute)propertyOptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBoolOption() {
+		return boolOptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBoolOption_Options() {
+		return (EAttribute)boolOptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBoolOption_Selection() {
+		return (EAttribute)boolOptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public InputfieldsFactory getInputfieldsFactory() {
 		return (InputfieldsFactory)getEFactoryInstance();
 	}
@@ -341,13 +423,20 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		booleanEClass = createEClass(BOOLEAN);
 		createEAttribute(booleanEClass, BOOLEAN__BOOL);
 
-		optionEClass = createEClass(OPTION);
-		createEAttribute(optionEClass, OPTION__OPTIONS);
-		createEAttribute(optionEClass, OPTION__SELECTION);
-		createEOperation(optionEClass, OPTION___IS_VALID_LOCAL__BOOLEAN_INT_CLASS);
-
 		textEClass = createEClass(TEXT);
 		createEAttribute(textEClass, TEXT__TEXT);
+
+		compOptionEClass = createEClass(COMP_OPTION);
+		createEAttribute(compOptionEClass, COMP_OPTION__OPTIONS);
+		createEAttribute(compOptionEClass, COMP_OPTION__SELECTION);
+
+		propertyOptionEClass = createEClass(PROPERTY_OPTION);
+		createEAttribute(propertyOptionEClass, PROPERTY_OPTION__OPTIONS);
+		createEAttribute(propertyOptionEClass, PROPERTY_OPTION__SELECTION);
+
+		boolOptionEClass = createEClass(BOOL_OPTION);
+		createEAttribute(boolOptionEClass, BOOL_OPTION__OPTIONS);
+		createEAttribute(boolOptionEClass, BOOL_OPTION__SELECTION);
 	}
 
 	/**
@@ -376,9 +465,9 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		// Obtain other dependent packages
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
+		FunctionsPackage theFunctionsPackage = (FunctionsPackage)EPackage.Registry.INSTANCE.getEPackage(FunctionsPackage.eNS_URI);
 
 		// Create type parameters
-		ETypeParameter optionEClass_T = addETypeParameter(optionEClass, "T");
 
 		// Set bounds for type parameters
 
@@ -386,8 +475,10 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		inputEClass.getESuperTypes().add(theGraphstructurePackage.getGraphElement());
 		numberEClass.getESuperTypes().add(this.getInput());
 		booleanEClass.getESuperTypes().add(this.getInput());
-		optionEClass.getESuperTypes().add(this.getInput());
 		textEClass.getESuperTypes().add(this.getInput());
+		compOptionEClass.getESuperTypes().add(this.getInput());
+		propertyOptionEClass.getESuperTypes().add(this.getInput());
+		boolOptionEClass.getESuperTypes().add(this.getInput());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -407,20 +498,20 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		initEClass(booleanEClass, qualitypatternmodel.inputfields.Boolean.class, "Boolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBoolean_Bool(), ecorePackage.getEBooleanObject(), "bool", null, 0, 1, qualitypatternmodel.inputfields.Boolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		EGenericType g1 = createEGenericType(optionEClass_T);
-		initEAttribute(getOption_Options(), g1, "options", null, 0, -1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(optionEClass_T);
-		initEAttribute(getOption_Selection(), g1, "selection", null, 0, 1, Option.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getOption__IsValidLocal__boolean_int_Class(), null, "isValidLocal", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedBattern", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "depth", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaClass(), "cls", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
 		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getText_Text(), ecorePackage.getEString(), "text", "", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(compOptionEClass, CompOption.class, "CompOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCompOption_Options(), theFunctionsPackage.getComparisonOperator(), "options", null, 0, -1, CompOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompOption_Selection(), theFunctionsPackage.getComparisonOperator(), "selection", null, 0, 1, CompOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(propertyOptionEClass, PropertyOption.class, "PropertyOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPropertyOption_Options(), theGraphstructurePackage.getPropertyLocation(), "options", null, 0, -1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPropertyOption_Selection(), theGraphstructurePackage.getPropertyLocation(), "selection", null, 0, 1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(boolOptionEClass, BoolOption.class, "BoolOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBoolOption_Options(), ecorePackage.getEBooleanObject(), "options", null, 0, -1, BoolOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBoolOption_Selection(), ecorePackage.getEBooleanObject(), "selection", null, 0, 1, BoolOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

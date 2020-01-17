@@ -148,6 +148,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Condition> getArguments() {
 		if (arguments == null) {
 			arguments = new EObjectContainmentEList<Condition>(Condition.class, this, PatternstructurePackage.FORMULA__ARGUMENTS);
@@ -159,6 +160,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LogicalOperator getOperator() {
 		return operator;
 	}
@@ -167,6 +169,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOperator(LogicalOperator newOperator) {
 		LogicalOperator oldOperator = operator;
 		operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;

@@ -9,9 +9,11 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import qualitypatternmodel.graphstructure.GraphElement;
 
+import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.Option;
+import qualitypatternmodel.inputfields.BoolOption;
+import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -29,7 +31,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @see qualitypatternmodel.inputfields.InputfieldsPackage
  * @generated
  */
-public class InputfieldsSwitch<T1> extends Switch<T1> {
+public class InputfieldsSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -71,11 +73,11 @@ public class InputfieldsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	protected T1 doSwitch(int classifierID, EObject theEObject) {
+	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case InputfieldsPackage.INPUT: {
 				Input input = (Input)theEObject;
-				T1 result = caseInput(input);
+				T result = caseInput(input);
 				if (result == null) result = caseGraphElement(input);
 				if (result == null) result = casePatternElement(input);
 				if (result == null) result = defaultCase(theEObject);
@@ -83,7 +85,7 @@ public class InputfieldsSwitch<T1> extends Switch<T1> {
 			}
 			case InputfieldsPackage.NUMBER: {
 				qualitypatternmodel.inputfields.Number number = (qualitypatternmodel.inputfields.Number)theEObject;
-				T1 result = caseNumber(number);
+				T result = caseNumber(number);
 				if (result == null) result = caseInput(number);
 				if (result == null) result = caseGraphElement(number);
 				if (result == null) result = casePatternElement(number);
@@ -92,28 +94,46 @@ public class InputfieldsSwitch<T1> extends Switch<T1> {
 			}
 			case InputfieldsPackage.BOOLEAN: {
 				qualitypatternmodel.inputfields.Boolean boolean_ = (qualitypatternmodel.inputfields.Boolean)theEObject;
-				T1 result = caseBoolean(boolean_);
+				T result = caseBoolean(boolean_);
 				if (result == null) result = caseInput(boolean_);
 				if (result == null) result = caseGraphElement(boolean_);
 				if (result == null) result = casePatternElement(boolean_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case InputfieldsPackage.OPTION: {
-				Option<?> option = (Option<?>)theEObject;
-				T1 result = caseOption(option);
-				if (result == null) result = caseInput(option);
-				if (result == null) result = caseGraphElement(option);
-				if (result == null) result = casePatternElement(option);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case InputfieldsPackage.TEXT: {
 				Text text = (Text)theEObject;
-				T1 result = caseText(text);
+				T result = caseText(text);
 				if (result == null) result = caseInput(text);
 				if (result == null) result = caseGraphElement(text);
 				if (result == null) result = casePatternElement(text);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InputfieldsPackage.COMP_OPTION: {
+				CompOption compOption = (CompOption)theEObject;
+				T result = caseCompOption(compOption);
+				if (result == null) result = caseInput(compOption);
+				if (result == null) result = caseGraphElement(compOption);
+				if (result == null) result = casePatternElement(compOption);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InputfieldsPackage.PROPERTY_OPTION: {
+				PropertyOption propertyOption = (PropertyOption)theEObject;
+				T result = casePropertyOption(propertyOption);
+				if (result == null) result = caseInput(propertyOption);
+				if (result == null) result = caseGraphElement(propertyOption);
+				if (result == null) result = casePatternElement(propertyOption);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InputfieldsPackage.BOOL_OPTION: {
+				BoolOption boolOption = (BoolOption)theEObject;
+				T result = caseBoolOption(boolOption);
+				if (result == null) result = caseInput(boolOption);
+				if (result == null) result = caseGraphElement(boolOption);
+				if (result == null) result = casePatternElement(boolOption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,7 +152,7 @@ public class InputfieldsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseInput(Input object) {
+	public T caseInput(Input object) {
 		return null;
 	}
 
@@ -147,7 +167,7 @@ public class InputfieldsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseNumber(qualitypatternmodel.inputfields.Number object) {
+	public T caseNumber(qualitypatternmodel.inputfields.Number object) {
 		return null;
 	}
 
@@ -162,22 +182,7 @@ public class InputfieldsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseBoolean(qualitypatternmodel.inputfields.Boolean object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Option</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Option</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public <T> T1 caseOption(Option<T> object) {
+	public T caseBoolean(qualitypatternmodel.inputfields.Boolean object) {
 		return null;
 	}
 
@@ -192,7 +197,52 @@ public class InputfieldsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseText(Text object) {
+	public T caseText(Text object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Comp Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Comp Option</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompOption(CompOption object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Property Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Property Option</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePropertyOption(PropertyOption object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bool Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bool Option</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBoolOption(BoolOption object) {
 		return null;
 	}
 
@@ -207,7 +257,7 @@ public class InputfieldsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 casePatternElement(PatternElement object) {
+	public T casePatternElement(PatternElement object) {
 		return null;
 	}
 
@@ -222,7 +272,7 @@ public class InputfieldsSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseGraphElement(GraphElement object) {
+	public T caseGraphElement(GraphElement object) {
 		return null;
 	}
 
@@ -238,7 +288,7 @@ public class InputfieldsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	public T1 defaultCase(EObject object) {
+	public T defaultCase(EObject object) {
 		return null;
 	}
 

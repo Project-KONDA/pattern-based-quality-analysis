@@ -17,7 +17,7 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getAxis <em>Axis</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth <em>Graph Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation()
@@ -99,25 +99,35 @@ public interface Relation extends PatternElement {
 	void setAxis(Axis value);
 
 	/**
-	 * Returns the value of the '<em><b>Graph Depth</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Graph Depth</em>' attribute.
-	 * @see #setGraphDepth(int)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_GraphDepth()
-	 * @model
+	 * @model kind="operation"
 	 * @generated
 	 */
 	int getGraphDepth();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth <em>Graph Depth</em>}' attribute.
+	 * Returns the value of the '<em><b>Relation To</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Graph Depth</em>' attribute.
-	 * @see #getGraphDepth()
+	 * @return the value of the '<em>Relation To</em>' container reference.
+	 * @see #setRelationTo(Element)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_RelationTo()
+	 * @see qualitypatternmodel.graphstructure.Element#getRelationFromPrevious
+	 * @model opposite="relationFromPrevious" required="true" transient="false"
 	 * @generated
 	 */
-	void setGraphDepth(int value);
+	Element getRelationTo();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Relation To</em>' container reference.
+	 * @see #getRelationTo()
+	 * @generated
+	 */
+	void setRelationTo(Element value);
 
 } // Relation

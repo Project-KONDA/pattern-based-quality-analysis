@@ -83,6 +83,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SetElement getArgument() {
 		if (argument != null && argument.eIsProxy()) {
 			InternalEObject oldArgument = (InternalEObject)argument;
@@ -107,6 +108,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setArgument(SetElement newArgument) {
 		SetElement oldArgument = argument;
 		argument = newArgument;

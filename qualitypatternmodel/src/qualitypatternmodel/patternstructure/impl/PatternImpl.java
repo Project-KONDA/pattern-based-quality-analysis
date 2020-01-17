@@ -82,8 +82,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		returnGraph.isValid(isDefinedPattern);
 		condition.isValid(isDefinedPattern);
 	}
-	
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
+
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (variableList == null)
 			throw new InvalidityException("variableList null");
 		if (returnGraph == null)
@@ -122,7 +122,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 */
 	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> inputs = returnGraph.getAllVariables();
-		inputs.addAll(condition.getAllVariables());
+		if (condition != null)
+			inputs.addAll(condition.getAllVariables());
 		return inputs;
 	}
 
@@ -139,6 +140,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Graph getReturnGraph() {
 		return returnGraph;
 	}
@@ -164,22 +166,26 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		if (newReturnGraph != returnGraph) {
 			NotificationChain msgs = null;
 			if (returnGraph != null)
-				msgs = ((InternalEObject)returnGraph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
+				msgs = ((InternalEObject) returnGraph).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
 			if (newReturnGraph != null)
-				msgs = ((InternalEObject)newReturnGraph).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
+				msgs = ((InternalEObject) newReturnGraph).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
 			newReturnGraph.setReturnGraph(true);
 			newReturnGraph.setGraphDepth(0);
 			msgs = basicSetReturnGraph(newReturnGraph, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__RETURN_GRAPH, newReturnGraph, newReturnGraph));
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__RETURN_GRAPH,
+					newReturnGraph, newReturnGraph));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Condition getCondition() {
 		return condition;
 	}
@@ -205,21 +211,26 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		if (newCondition != condition) {
 			NotificationChain msgs = null;
 			if (condition != null)
-				msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
+				msgs = ((InternalEObject) condition).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
 			if (newCondition != null) {
 				newCondition.setCondDepth(1);
-				msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);}
+				msgs = ((InternalEObject) newCondition).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
+			}
 			msgs = basicSetCondition(newCondition, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__CONDITION, newCondition, newCondition));
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__CONDITION,
+					newCondition, newCondition));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public VariableList getVariableList() {
 		return variableList;
 	}
@@ -242,6 +253,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVariableList(VariableList newVariableList) {
 		if (newVariableList != variableList) {
 			NotificationChain msgs = null;
