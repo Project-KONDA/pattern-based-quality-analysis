@@ -52,12 +52,13 @@ public interface Input extends GraphElement {
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput_Description()
-	 * @model
+	 * @model default=""
 	 * @generated
 	 */
 	String getDescription();

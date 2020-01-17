@@ -61,10 +61,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * The cached value of the '{@link #getVariableList() <em>Variable List</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVariableList()
-	 * @generated
 	 * @ordered
 	 */
-	protected VariableList variableList;
+	protected VariableList variableList = new VariableListImpl();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -72,7 +71,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	protected PatternImpl() {
 		super();
 		setReturnGraph(new GraphImpl());
-		setVariableList(new VariableListImpl(this));
 	}
 
 	@Override
@@ -147,38 +145,38 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	public NotificationChain basicSetReturnGraph(Graph newReturnGraph, NotificationChain msgs) {
 		Graph oldReturnGraph = returnGraph;
 		returnGraph = newReturnGraph;
+		returnGraph.setReturnGraph(true);
+		returnGraph.setGraphDepth(0);
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__RETURN_GRAPH, oldReturnGraph, newReturnGraph);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		returnGraph.setReturnGraph(true);
+		returnGraph.setGraphDepth(0);
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
 	 */
+	@Override
 	public void setReturnGraph(Graph newReturnGraph) {
 		if (newReturnGraph != returnGraph) {
 			NotificationChain msgs = null;
 			if (returnGraph != null)
-				msgs = ((InternalEObject) returnGraph).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
+				msgs = ((InternalEObject)returnGraph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
 			if (newReturnGraph != null)
-				msgs = ((InternalEObject) newReturnGraph).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
-			newReturnGraph.setReturnGraph(true);
-			newReturnGraph.setGraphDepth(0);
+				msgs = ((InternalEObject)newReturnGraph).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
 			msgs = basicSetReturnGraph(newReturnGraph, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__RETURN_GRAPH,
-					newReturnGraph, newReturnGraph));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__RETURN_GRAPH, newReturnGraph, newReturnGraph));
 	}
 
 	/**
@@ -192,11 +190,11 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
 	 */
 	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
 		Condition oldCondition = condition;
 		condition = newCondition;
+		condition.setCondDepth(1);
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__CONDITION, oldCondition, newCondition);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -206,24 +204,21 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
 	 */
+	@Override
 	public void setCondition(Condition newCondition) {
 		if (newCondition != condition) {
 			NotificationChain msgs = null;
 			if (condition != null)
-				msgs = ((InternalEObject) condition).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
-			if (newCondition != null) {
-				newCondition.setCondDepth(1);
-				msgs = ((InternalEObject) newCondition).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
-			}
+				msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
+			if (newCondition != null)
+				msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
 			msgs = basicSetCondition(newCondition, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__CONDITION,
-					newCondition, newCondition));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__CONDITION, newCondition, newCondition));
 	}
 
 	/**

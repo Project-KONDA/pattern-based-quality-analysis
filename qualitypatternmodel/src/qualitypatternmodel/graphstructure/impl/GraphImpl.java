@@ -69,10 +69,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOperatorList()
-	 * @generated
 	 * @ordered
 	 */
-	protected OperatorList operatorList;
+	protected OperatorList operatorList = new OperatorListImpl();
 
 	/**
 	 * The default value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
@@ -120,7 +119,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	public GraphImpl() {
 		super();
-		setOperatorList(new OperatorListImpl());
 		setRootElement(new SingleElementImpl());
 	}
 	
@@ -217,11 +215,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public NotificationChain basicSetRootElement(SingleElement newRootElement, NotificationChain msgs) {
 		SingleElement oldRootElement = rootElement;
 		rootElement = newRootElement;
+		rootElement.setRoot(this);
+		rootElement.setRelationFromPrevious(null);
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__ROOT_ELEMENT, oldRootElement, newRootElement);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -232,15 +231,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
+	@Override
 	public void setRootElement(SingleElement newRootElement) {
 		if (newRootElement != rootElement) {
 			NotificationChain msgs = null;
 			if (rootElement != null)
-				msgs = ((InternalEObject)rootElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
+				msgs = ((InternalEObject)rootElement).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__ROOT, SingleElement.class, msgs);
 			if (newRootElement != null)
-				msgs = ((InternalEObject)newRootElement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
-			newRootElement.setRoot(this);
+				msgs = ((InternalEObject)newRootElement).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__ROOT, SingleElement.class, msgs);
 			msgs = basicSetRootElement(newRootElement, msgs);
 			if (msgs != null) msgs.dispatch();
 		}

@@ -26,7 +26,7 @@ public class EMFModelLoad {
 
         // Get the resource
         Resource resource = resSet.getResource(URI
-                .createURI("instances/My1.patternstructure"), true);
+                .createURI("instances/MyNewMatch.patternstructure"), true);
         // Get the first model element and cast it to the right type
         Pattern pattern = (Pattern) resource.getContents().get(0);
         return pattern;

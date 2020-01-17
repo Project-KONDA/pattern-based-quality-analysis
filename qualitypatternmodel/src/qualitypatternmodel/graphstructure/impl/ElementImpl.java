@@ -5,13 +5,11 @@ package qualitypatternmodel.graphstructure.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -61,10 +59,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * @see #getRelationFromPrevious()
-	 * @generated
 	 * @ordered
 	 */
-	protected Relation relationFromPrevious;
+	protected Relation relationFromPrevious = new RelationImpl();
 
 	/**
 	 * The default value of the '{@link #isTranslated() <em>Translated</em>}' attribute.

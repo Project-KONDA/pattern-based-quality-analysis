@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:graphstructure="graphstructure" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure">
-  <returnGraph returnElements="1">
-    <rootElement mappingTo="//@condition/@morphism/@mappings.0">
-      <next xsi:type="graphstructure:SingleElement" id="1" isRoot="true" mappingTo="1" previous="//@returnGraph/@rootElement">
-        <relationFromPrevious id="1"/>
+<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:graphstructure="graphstructure" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure" id="0">
+  <returnGraph id="1" returnElements="12331" graphDepth="0" returnGraph="true">
+    <rootElement id="2" mappingTo="18">
+      <next xsi:type="graphstructure:SingleElement" id="12331" mappingTo="19" previous="2">
+        <relationFromPrevious id="139" mappingTo="20"/>
       </next>
     </rootElement>
-    <operatorList/>
+    <operatorList id="5"/>
   </returnGraph>
-  <condition xsi:type="patternstructure:QuantifiedCondition" id="1">
-    <condition xsi:type="patternstructure:True" id="1"/>
-    <graph id="1" returnElements="3">
-      <rootElement id="2" mappingFrom="//@condition/@morphism/@mappings.0">
-        <next xsi:type="graphstructure:SingleElement" id="3" mappingFrom="1" previous="2">
-          <relationFromPrevious id="3"/>
-          <next xsi:type="graphstructure:SingleElement" id="4">
-            <relationFromPrevious id="4"/>
-            <properties/>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="6" condDepth="1">
+    <condition xsi:type="patternstructure:True" id="7" condDepth="2"/>
+    <graph id="8" returnElements="10" graphDepth="1" returnGraph="true">
+      <rootElement id="9" mappingFrom="18">
+        <next xsi:type="graphstructure:SingleElement" id="10" predicates="122" mappingFrom="19" previous="9">
+          <relationFromPrevious id="252" mappingFrom="20"/>
+          <next xsi:type="graphstructure:SingleElement" id="180" previous="10">
+            <relationFromPrevious id="186"/>
+            <properties id="199" propertyOption="224" attributeName="682"/>
           </next>
         </next>
       </rootElement>
-      <operatorList>
-        <operators xsi:type="functions:Match" property="//@condition/@graph/@rootElement/@next.0/@next.0/@properties.0"/>
+      <operatorList id="109">
+        <operators xsi:type="functions:Match" id="122" property="199" regularExpression="744" option="148"/>
       </operatorList>
     </graph>
-    <morphism id="1" from="//@returnGraph">
-      <mappings xsi:type="patternstructure:SingleElementMapping" from="//@returnGraph/@rootElement" to="2"/>
-      <mappings xsi:type="patternstructure:SingleElementMapping" id="1" from="1" to="3"/>
-      <mappings xsi:type="patternstructure:RelationMapping" id="1"/>
+    <morphism id="17" from="1" to="8" morphDepth="1">
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="18" from="2" to="9"/>
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="19" from="12331" to="10"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="20" to="252" from="139"/>
     </morphism>
   </condition>
-  <variableList>
-    <variables xsi:type="inputfields:Option" id="1"/>
-    <variables xsi:type="inputfields:Option" id="2"/>
-    <variables xsi:type="inputfields:Text" id="1"/>
-    <variables xsi:type="inputfields:Text" id="2"/>
+  <variableList id="21">
+    <variables xsi:type="inputfields:Text" id="682"/>
+    <variables xsi:type="inputfields:Text" id="744"/>
+    <variables xsi:type="inputfields:PropertyOption" id="224" isPredefined="true">
+      <options>DATA</options>
+    </variables>
+    <variables xsi:type="inputfields:BoolOption" id="148" selection="true">
+      <options>true</options>
+      <options>false</options>
+    </variables>
   </variableList>
 </patternstructure:Pattern>

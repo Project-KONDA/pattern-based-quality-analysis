@@ -37,12 +37,13 @@ public interface BoolOption extends Input {
 
 	/**
 	 * Returns the value of the '<em><b>Selection</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Selection</em>' attribute.
 	 * @see #setSelection(Boolean)
 	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getBoolOption_Selection()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	Boolean getSelection();

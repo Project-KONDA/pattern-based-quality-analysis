@@ -157,7 +157,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidityException {
 		super.isValid(isDefinedPattern);
-		if (isRoot())
+		if (!eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT))
 			relationFromPrevious.isValid(isDefinedPattern);
 	}
 
@@ -166,9 +166,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		if (getGraphDepth() == 0 && mappingFrom != null) // depth=0 => ReturnGraph
 			throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + mappingFrom + " "
 					+ mappingFrom.getId() + " - (" + mappingTo + ")");
-		if (!isRoot() && getPreviousElement() == null)
+		if (!eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT) && getPreviousElement() == null)
 			throw new InvalidityException("previousElement null at SingleElement " + getId());
-		if (isRoot() && getPreviousElement() != null)
+		if (eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT) && getPreviousElement() != null)
 			throw new InvalidityException("root has previous Element");
 		super.isValidLocal(isDefinedPattern);
 	}
@@ -186,10 +186,6 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public boolean isTranslatable() {
 		return translated;
-	}
-
-	public boolean isRoot() {
-		return getRoot() != null;
 	}
 
 	@Override

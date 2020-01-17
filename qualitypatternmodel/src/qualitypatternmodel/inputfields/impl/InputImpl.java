@@ -46,16 +46,15 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String DESCRIPTION_EDEFAULT = "";
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDescription()
-	 * @generated
 	 * @ordered
 	 */
-	protected String description = DESCRIPTION_EDEFAULT;
+	protected String description = this.getClass().getSimpleName() + " " + getId();
 	/**
 	 * The default value of the '{@link #isIsPredefined() <em>Is Predefined</em>}' attribute.
 	 * <!-- begin-user-doc -->
