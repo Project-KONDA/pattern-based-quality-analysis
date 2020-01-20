@@ -517,7 +517,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 
 		initEClass(boolOptionEClass, BoolOption.class, "BoolOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBoolOption_Options(), ecorePackage.getEBooleanObject(), "options", null, 0, -1, BoolOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBoolOption_Selection(), ecorePackage.getEBooleanObject(), "selection", null, 0, 1, BoolOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBoolOption_Selection(), ecorePackage.getEBooleanObject(), "selection", "true", 0, 1, BoolOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

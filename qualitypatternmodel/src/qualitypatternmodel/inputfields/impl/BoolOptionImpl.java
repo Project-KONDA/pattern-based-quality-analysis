@@ -51,7 +51,7 @@ public class BoolOptionImpl extends InputImpl implements BoolOption {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean SELECTION_EDEFAULT = null;
+	protected static final Boolean SELECTION_EDEFAULT = Boolean.TRUE;
 
 	/**
 	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.

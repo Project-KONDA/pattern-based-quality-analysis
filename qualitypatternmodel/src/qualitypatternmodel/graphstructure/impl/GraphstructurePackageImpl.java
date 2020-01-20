@@ -343,28 +343,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getSingleElement_Previous() {
-		return (EReference)singleElementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSingleElement_Next() {
-		return (EReference)singleElementEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getSingleElement_Root() {
-		return (EReference)singleElementEClass.getEStructuralFeatures().get(4);
+		return (EReference)singleElementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -423,28 +403,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getSetElement_Next() {
-		return (EReference)setElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSetElement_Previous() {
-		return (EReference)setElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getSetElement_NestingDepth() {
-		return (EAttribute)setElementEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)setElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -555,6 +515,26 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EReference getElement_GetAllRelations() {
 		return (EReference)elementEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getElement_Next() {
+		return (EReference)elementEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getElement_Previous() {
+		return (EReference)elementEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -871,8 +851,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		singleElementEClass = createEClass(SINGLE_ELEMENT);
 		createEReference(singleElementEClass, SINGLE_ELEMENT__MAPPING_TO);
 		createEReference(singleElementEClass, SINGLE_ELEMENT__MAPPING_FROM);
-		createEReference(singleElementEClass, SINGLE_ELEMENT__PREVIOUS);
-		createEReference(singleElementEClass, SINGLE_ELEMENT__NEXT);
 		createEReference(singleElementEClass, SINGLE_ELEMENT__ROOT);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_ORIGINAL_ID);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_XQUERY_VARIABLE);
@@ -880,8 +858,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS);
 
 		setElementEClass = createEClass(SET_ELEMENT);
-		createEReference(setElementEClass, SET_ELEMENT__NEXT);
-		createEReference(setElementEClass, SET_ELEMENT__PREVIOUS);
 		createEAttribute(setElementEClass, SET_ELEMENT__NESTING_DEPTH);
 		createEOperation(setElementEClass, SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT);
 		createEOperation(setElementEClass, SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS__INT);
@@ -895,6 +871,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEAttribute(elementEClass, ELEMENT__PREDICATES_ARE_BEING_TRANSLATED);
 		createEReference(elementEClass, ELEMENT__GET_ALL_ELEMENTS);
 		createEReference(elementEClass, ELEMENT__GET_ALL_RELATIONS);
+		createEReference(elementEClass, ELEMENT__NEXT);
+		createEReference(elementEClass, ELEMENT__PREVIOUS);
 		createEOperation(elementEClass, ELEMENT___GET_NEXT_ELEMENTS);
 		createEOperation(elementEClass, ELEMENT___GET_PREVIOUS_ELEMENT);
 		createEOperation(elementEClass, ELEMENT___GET_ALL_OPERATORS);
@@ -988,8 +966,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEClass(singleElementEClass, SingleElement.class, "SingleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSingleElement_MappingTo(), thePatternstructurePackage.getSingleElementMapping(), thePatternstructurePackage.getSingleElementMapping_From(), "mappingTo", null, 0, -1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSingleElement_MappingFrom(), thePatternstructurePackage.getSingleElementMapping(), thePatternstructurePackage.getSingleElementMapping_To(), "mappingFrom", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSingleElement_Previous(), this.getSingleElement(), null, "previous", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSingleElement_Next(), this.getElement(), null, "next", null, 0, -1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSingleElement_Root(), this.getGraph(), this.getGraph_RootElement(), "root", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getSingleElement__GetOriginalID(), ecorePackage.getEInt(), "getOriginalID", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1003,8 +979,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEOperation(getSingleElement__TranslatePathFromPrevious(), ecorePackage.getEString(), "translatePathFromPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(setElementEClass, SetElement.class, "SetElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSetElement_Next(), this.getSetElement(), null, "next", null, 0, -1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSetElement_Previous(), this.getElement(), null, "previous", null, 1, 1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSetElement_NestingDepth(), ecorePackage.getEInt(), "nestingDepth", null, 1, 1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getSetElement__TranslateElementExistencePredicates__Location_int(), ecorePackage.getEString(), "translateElementExistencePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1028,6 +1002,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEAttribute(getElement_PredicatesAreBeingTranslated(), ecorePackage.getEBoolean(), "predicatesAreBeingTranslated", null, 1, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_GetAllElements(), this.getElement(), null, "getAllElements", null, 0, -1, Element.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getElement_GetAllRelations(), this.getRelation(), null, "getAllRelations", null, 0, -1, Element.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getElement_Next(), this.getElement(), this.getElement_Previous(), "next", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_Previous(), this.getElement(), this.getElement_Next(), "previous", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getElement__GetNextElements(), this.getElement(), "getNextElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 

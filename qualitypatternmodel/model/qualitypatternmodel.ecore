@@ -45,7 +45,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="BoolOption" eSuperTypes="#//inputfields/Input">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="selection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="selection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          defaultValueLiteral="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="functions" nsURI="functions" nsPrefix="functions">
@@ -140,9 +141,6 @@
           eType="#//patternstructure/SingleElementMapping" eOpposite="#//patternstructure/SingleElementMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/SingleElementMapping"
           eOpposite="#//patternstructure/SingleElementMapping/to"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//graphstructure/SingleElement"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1"
-          eType="#//graphstructure/Element" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//graphstructure/Graph"
           eOpposite="#//graphstructure/Graph/rootElement"/>
     </eClassifiers>
@@ -166,10 +164,6 @@
         <eParameters name="location" eType="#//patternstructure/Location"/>
         <eParameters name="depth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1"
-          eType="#//graphstructure/SetElement" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="previous" lowerBound="1"
-          eType="#//graphstructure/Element"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="nestingDepth" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
@@ -218,6 +212,10 @@
           <details key="nullFree" value="false"/>
         </eAnnotations>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1"
+          eType="#//graphstructure/Element" containment="true" eOpposite="#//graphstructure/Element/previous"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//graphstructure/Element"
+          eOpposite="#//graphstructure/Element/next"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"

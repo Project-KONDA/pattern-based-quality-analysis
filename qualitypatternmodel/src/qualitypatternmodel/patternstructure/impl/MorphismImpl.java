@@ -134,7 +134,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			throw new InvalidityException("to null");
 		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMorphDepth())
 			throw new InvalidityException("invalid target graphs");
-		for (Mapping mapping : mappings)
+		for (Mapping mapping : getMappings())
 			if (mapping == null)
 				throw new InvalidityException("mapping invalid (" + mapping + ")");
 	}

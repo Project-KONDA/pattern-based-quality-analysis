@@ -3,20 +3,12 @@
 package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -32,32 +24,12 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SetElementImpl#getNext <em>Next</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SetElementImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SetElementImpl#getNestingDepth <em>Nesting Depth</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SetElementImpl extends ElementImpl implements SetElement {
-	/**
-	 * The cached value of the '{@link #getNext() <em>Next</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getNext()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SetElement> next;
-
-	/**
-	 * The cached value of the '{@link #getPrevious() <em>Previous</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getPrevious()
-	 * @generated
-	 * @ordered
-	 */
-	protected Element previous;
-
 	/**
 	 * The default value of the '{@link #getNestingDepth() <em>Nesting Depth</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -91,6 +63,8 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			throw new InvalidityException("SetElement in ReturnGraph");
 		if (getPreviousElement() == null)
 			throw new InvalidityException("previousElement null");
+		if (getRelationFromPrevious() == null)
+			throw new InvalidityException("relation not specified");
 	}
 
 	@Override
@@ -101,21 +75,21 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	public String toXQuery(Location location, int depth) throws InvalidityException {
 		translated = true;
 		nestingDepth = depth;
-		if (previous == null) {
+		if (getPrevious() == null) {
 			throw new InvalidityException("previous null");
 		}
-		if (previous instanceof SingleElement) {
-			return ((SingleElement) previous).getXQueryRepresentation(location, depth);
+		if (getPrevious() instanceof SingleElement) {
+			return ((SingleElement) getPrevious()).getXQueryRepresentation(location, depth);
 		}
 		String xPathExpression = translatePathFromPrevious(depth);
 		xPathExpression += translatePredicates(location, depth + 1);
 		xPathExpression += translateElementExistencePredicates(location, depth + 1);
-		return previous.toXQuery(location) + xPathExpression;
+		return getPrevious().toXQuery(location) + xPathExpression;
 	}
 
 	@Override
 	public boolean isTranslatable() {
-		return previous.isTranslatable();
+		return getPrevious().isTranslatable();
 	}
 
 	/**
@@ -162,12 +136,14 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 
 	public String translateElementExistencePredicates(Location location, int depth) throws InvalidityException {
 		String predicates = "";
-		for (SetElement nextSetElement : next) {
-			if (!nextSetElement.isTranslated()) {
-				nextSetElement.setTranslated(true);
-				predicates += "[." + nextSetElement.translatePathFromPrevious(depth)
-						+ nextSetElement.translatePredicates(location, depth)
-						+ nextSetElement.translateElementExistencePredicates(location, depth) + "]";
+		for (Element nextElement : getNext()) {
+			if (!(nextElement instanceof SetElement)) 
+				throw new InvalidityException( "following element " + nextElement + " must be SetElement");
+			if (!nextElement.isTranslated()) {
+				nextElement.setTranslated(true);
+				predicates += "[." + ((SetElement) nextElement).translatePathFromPrevious(depth)
+						+ ((SetElement) nextElement).translatePredicates(location, depth)
+						+ ((SetElement) nextElement).translateElementExistencePredicates(location, depth) + "]";
 			}
 		}
 		return predicates;
@@ -180,54 +156,6 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	@Override
 	protected EClass eStaticClass() {
 		return GraphstructurePackage.Literals.SET_ELEMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<SetElement> getNext() {
-		if (next == null) {
-			next = new EObjectContainmentEList<SetElement>(SetElement.class, this, GraphstructurePackage.SET_ELEMENT__NEXT);
-		}
-		return next;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Element getPrevious() {
-		if (previous != null && previous.eIsProxy()) {
-			InternalEObject oldPrevious = (InternalEObject)previous;
-			previous = (Element)eResolveProxy(oldPrevious);
-			if (previous != oldPrevious) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.SET_ELEMENT__PREVIOUS, oldPrevious, previous));
-			}
-		}
-		return previous;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Element basicGetPrevious() {
-		return previous;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public void setPrevious(Element newPrevious) {
-		Element oldPrevious = previous;
-		previous = newPrevious;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SET_ELEMENT__PREVIOUS,
-					oldPrevious, previous));
 	}
 
 	/**
@@ -256,26 +184,8 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case GraphstructurePackage.SET_ELEMENT__NEXT:
-				return ((InternalEList<?>)getNext()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.SET_ELEMENT__NEXT:
-				return getNext();
-			case GraphstructurePackage.SET_ELEMENT__PREVIOUS:
-				if (resolve) return getPrevious();
-				return basicGetPrevious();
 			case GraphstructurePackage.SET_ELEMENT__NESTING_DEPTH:
 				return getNestingDepth();
 		}
@@ -290,13 +200,6 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.SET_ELEMENT__NEXT:
-				getNext().clear();
-				getNext().addAll((Collection<? extends SetElement>)newValue);
-				return;
-			case GraphstructurePackage.SET_ELEMENT__PREVIOUS:
-				setPrevious((Element)newValue);
-				return;
 			case GraphstructurePackage.SET_ELEMENT__NESTING_DEPTH:
 				setNestingDepth((Integer)newValue);
 				return;
@@ -311,12 +214,6 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.SET_ELEMENT__NEXT:
-				getNext().clear();
-				return;
-			case GraphstructurePackage.SET_ELEMENT__PREVIOUS:
-				setPrevious((Element)null);
-				return;
 			case GraphstructurePackage.SET_ELEMENT__NESTING_DEPTH:
 				setNestingDepth(NESTING_DEPTH_EDEFAULT);
 				return;
@@ -331,10 +228,6 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.SET_ELEMENT__NEXT:
-				return next != null && !next.isEmpty();
-			case GraphstructurePackage.SET_ELEMENT__PREVIOUS:
-				return previous != null;
 			case GraphstructurePackage.SET_ELEMENT__NESTING_DEPTH:
 				return nestingDepth != NESTING_DEPTH_EDEFAULT;
 		}

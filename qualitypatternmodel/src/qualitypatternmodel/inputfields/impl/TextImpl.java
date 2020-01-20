@@ -73,7 +73,7 @@ public class TextImpl extends InputImpl implements Text {
 	
 	@Override
 	public boolean inputIsValid() {
-		return text != null;
+		return text != null && text != "";
 	}
 
 	/**

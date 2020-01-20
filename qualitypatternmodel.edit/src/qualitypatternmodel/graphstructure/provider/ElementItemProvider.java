@@ -181,6 +181,7 @@ public class ElementItemProvider extends GraphElementItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__RELATION_FROM_PREVIOUS);
 			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__PROPERTIES);
+			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__NEXT);
 		}
 		return childrenFeatures;
 	}
@@ -229,6 +230,7 @@ public class ElementItemProvider extends GraphElementItemProvider {
 				return;
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
+			case GraphstructurePackage.ELEMENT__NEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -255,6 +257,16 @@ public class ElementItemProvider extends GraphElementItemProvider {
 			(createChildParameter
 				(GraphstructurePackage.Literals.ELEMENT__PROPERTIES,
 				 GraphstructureFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.ELEMENT__NEXT,
+				 GraphstructureFactory.eINSTANCE.createSingleElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.ELEMENT__NEXT,
+				 GraphstructureFactory.eINSTANCE.createSetElement()));
 	}
 
 }

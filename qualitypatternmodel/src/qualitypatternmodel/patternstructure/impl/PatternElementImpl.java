@@ -65,7 +65,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	protected PatternElementImpl() {
 		super();
 		ID_EDEFAULT++;
-
 	}
 
 	/**
@@ -111,7 +110,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			e.printStackTrace();
 			return false;
 		}
-		System.out.println("Validation successfull at " + this.getClass().getSimpleName() + " " + this.getId() + "!");
+//		System.out.println("Validation successfull at " + this.getClass().getSimpleName() + " " + this.getId() + "!");
 		return true;
 	}
 

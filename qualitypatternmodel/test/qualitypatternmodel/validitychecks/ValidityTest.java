@@ -1,11 +1,7 @@
 package qualitypatternmodel.validitychecks;
 
-import java.util.Arrays;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 
-import qualitypatternmodel.graphstructure.PropertyLocation;
-import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Pattern;
 

@@ -80,7 +80,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			if (option.getSelection()){
 				return "matches(" + property.toXQuery(location) + "," + regularExpression.getText() + ")";
 			} else {
-				return "not(matches(" + property.toXQuery(location) + "," + regularExpression.getText() + "))";
+				return "not(matches(" + property.toXQuery(location) + ",\"" + regularExpression.getText() + "\"))";
 			}	
 		} else {
 			throw new InvalidityException("invalid option");

@@ -30,9 +30,8 @@ import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Graph</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object
+ * '<em><b>Graph</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -51,8 +50,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * The cached value of the '{@link #getReturnElements() <em>Return Elements</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReturnElements()
 	 * @generated
 	 * @ordered
@@ -61,8 +59,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * The cached value of the '{@link #getRootElement() <em>Root Element</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRootElement()
 	 * @generated
 	 * @ordered
@@ -71,8 +68,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * The cached value of the '{@link #getOperatorList() <em>Operator List</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getOperatorList()
 	 * @generated
 	 * @ordered
@@ -81,8 +77,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * The default value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGraphDepth()
 	 * @generated
 	 * @ordered
@@ -91,8 +86,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * The cached value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGraphDepth()
 	 * @generated
 	 * @ordered
@@ -101,8 +95,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * The default value of the '{@link #isReturnGraph() <em>Return Graph</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isReturnGraph()
 	 * @generated
 	 * @ordered
@@ -111,8 +104,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * The cached value of the '{@link #isReturnGraph() <em>Return Graph</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isReturnGraph()
 	 * @generated
 	 * @ordered
@@ -121,8 +113,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * The cached setting delegate for the '{@link #getGetAllElements() <em>Get All Elements</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGetAllElements()
 	 * @generated
 	 * @ordered
@@ -130,9 +121,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_ELEMENTS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.GRAPH__GET_ALL_ELEMENTS).getSettingDelegate();
 
 	/**
-	 * The cached setting delegate for the '{@link #getGetAllRelations() <em>Get All Relations</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached setting delegate for the '{@link #getGetAllRelations() <em>Get All
+	 * Relations</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #getGetAllRelations()
 	 * @generated
 	 * @ordered
@@ -140,55 +132,54 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_RELATIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.GRAPH__GET_ALL_RELATIONS).getSettingDelegate();
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public GraphImpl() {
 		super();
 		setOperatorList(new OperatorListImpl());
 		setRootElement(new SingleElementImpl());
 	}
-	
+
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		return rootElement.toXQuery(location);
 	}
-	
+
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidityException {
 		isValidLocal(isDefinedPattern);
 		rootElement.isValid(isDefinedPattern);
 		operatorList.isValid(isDefinedPattern);
 	}
-	
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
-		if(returnElements == null || returnElements.isEmpty()) 
+
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+		if (returnElements == null || returnElements.isEmpty())
 			throw new InvalidityException("returnElement empty");
-		if (operatorList == null) 
+		if (operatorList == null)
 			throw new InvalidityException("operatorList null");
-		if (rootElement == null) 
+		if (rootElement == null)
 			throw new InvalidityException("rootElement null");
 	}
-	
+
 	@Override
 	public void prepareTranslation() {
 		rootElement.prepareTranslation();
 	}
-	
-	@Override 
+
+	@Override
 	public EList<Input> getAllVariables() throws InvalidityException {
 		EList<Input> res = rootElement.getAllVariables();
 		return res;
 	}
 
-	@Override 
+	@Override
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = rootElement.getAllOperators();
 		return res;
 	}
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -207,8 +198,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -217,8 +207,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -230,8 +219,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -240,32 +228,38 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 */
 	public NotificationChain basicSetRootElement(SingleElement newRootElement, NotificationChain msgs) {
 		SingleElement oldRootElement = rootElement;
 		rootElement = newRootElement;
+		if (rootElement != null) {
+			rootElement.setRelationFromPrevious(null);
+		}
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__ROOT_ELEMENT, oldRootElement, newRootElement);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					GraphstructurePackage.GRAPH__ROOT_ELEMENT, oldRootElement, newRootElement);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
 	 */
+	@Override
 	public void setRootElement(SingleElement newRootElement) {
 		if (newRootElement != rootElement) {
 			NotificationChain msgs = null;
 			if (rootElement != null)
-				msgs = ((InternalEObject)rootElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
+				msgs = ((InternalEObject)rootElement).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__ROOT, SingleElement.class, msgs);
 			if (newRootElement != null)
-				msgs = ((InternalEObject)newRootElement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
-			newRootElement.setRoot(this);
+				msgs = ((InternalEObject)newRootElement).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__ROOT, SingleElement.class, msgs);
 			msgs = basicSetRootElement(newRootElement, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -274,8 +268,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -284,8 +277,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
@@ -299,8 +291,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -319,8 +310,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -329,8 +319,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -342,8 +331,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -352,8 +340,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -365,8 +352,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -376,8 +362,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -387,8 +372,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -403,8 +387,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -429,8 +412,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -466,8 +448,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -499,8 +480,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -525,8 +505,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -544,8 +523,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -561,4 +539,4 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return result.toString();
 	}
 
-} //GraphImpl
+} // GraphImpl

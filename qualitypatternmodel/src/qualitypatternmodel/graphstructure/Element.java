@@ -26,6 +26,8 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllElements <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllRelations <em>Get All Relations</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getNext <em>Next</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getPrevious <em>Previous</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
@@ -154,6 +156,44 @@ public interface Element extends GraphElement {
 	 * @generated
 	 */
 	EList<Relation> getGetAllRelations();
+
+	/**
+	 * Returns the value of the '<em><b>Next</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getPrevious <em>Previous</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Next()
+	 * @see qualitypatternmodel.graphstructure.Element#getPrevious
+	 * @model opposite="previous" containment="true"
+	 * @generated
+	 */
+	EList<Element> getNext();
+
+	/**
+	 * Returns the value of the '<em><b>Previous</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getNext <em>Next</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Previous</em>' container reference.
+	 * @see #setPrevious(Element)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Previous()
+	 * @see qualitypatternmodel.graphstructure.Element#getNext
+	 * @model opposite="next" transient="false"
+	 * @generated
+	 */
+	Element getPrevious();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getPrevious <em>Previous</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Previous</em>' container reference.
+	 * @see #getPrevious()
+	 * @generated
+	 */
+	void setPrevious(Element value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -570,13 +570,31 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__GET_ALL_RELATIONS = GRAPH_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__NEXT = GRAPH_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__PREVIOUS = GRAPH_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = GRAPH_ELEMENT_FEATURE_COUNT + 7;
+	int ELEMENT_FEATURE_COUNT = GRAPH_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -814,6 +832,24 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__GET_ALL_RELATIONS = ELEMENT__GET_ALL_RELATIONS;
 
 	/**
+	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__NEXT = ELEMENT__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__PREVIOUS = ELEMENT__PREVIOUS;
+
+	/**
 	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -832,31 +868,13 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__MAPPING_FROM = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Previous</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__PREVIOUS = ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__NEXT = ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__ROOT = ELEMENT_FEATURE_COUNT + 4;
+	int SINGLE_ELEMENT__ROOT = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Single Element</em>' class.
@@ -865,7 +883,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
+	int SINGLE_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1145,16 +1163,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__NEXT = ELEMENT_FEATURE_COUNT + 0;
+	int SET_ELEMENT__NEXT = ELEMENT__NEXT;
 
 	/**
-	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * The feature id for the '<em><b>Previous</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__PREVIOUS = ELEMENT_FEATURE_COUNT + 1;
+	int SET_ELEMENT__PREVIOUS = ELEMENT__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Nesting Depth</b></em>' attribute.
@@ -1163,7 +1181,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__NESTING_DEPTH = ELEMENT_FEATURE_COUNT + 2;
+	int SET_ELEMENT__NESTING_DEPTH = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Set Element</em>' class.
@@ -1172,7 +1190,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+	int SET_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1815,28 +1833,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getSingleElement_MappingTo();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Previous</em>'.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getPrevious()
-	 * @see #getSingleElement()
-	 * @generated
-	 */
-	EReference getSingleElement_Previous();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.SingleElement#getNext <em>Next</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Next</em>'.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getNext()
-	 * @see #getSingleElement()
-	 * @generated
-	 */
-	EReference getSingleElement_Next();
-
-	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1896,28 +1892,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSetElement();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.SetElement#getNext <em>Next</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Next</em>'.
-	 * @see qualitypatternmodel.graphstructure.SetElement#getNext()
-	 * @see #getSetElement()
-	 * @generated
-	 */
-	EReference getSetElement_Next();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.SetElement#getPrevious <em>Previous</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Previous</em>'.
-	 * @see qualitypatternmodel.graphstructure.SetElement#getPrevious()
-	 * @see #getSetElement()
-	 * @generated
-	 */
-	EReference getSetElement_Previous();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.SetElement#getNestingDepth <em>Nesting Depth</em>}'.
@@ -2046,6 +2020,28 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getElement_GetAllRelations();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Element#getNext <em>Next</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Next</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#getNext()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EReference getElement_Next();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Element#getPrevious <em>Previous</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Previous</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#getPrevious()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EReference getElement_Previous();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getNextElements() <em>Get Next Elements</em>}' operation.
@@ -2460,22 +2456,6 @@ public interface GraphstructurePackage extends EPackage {
 		EReference SINGLE_ELEMENT__MAPPING_TO = eINSTANCE.getSingleElement_MappingTo();
 
 		/**
-		 * The meta object literal for the '<em><b>Previous</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SINGLE_ELEMENT__PREVIOUS = eINSTANCE.getSingleElement_Previous();
-
-		/**
-		 * The meta object literal for the '<em><b>Next</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SINGLE_ELEMENT__NEXT = eINSTANCE.getSingleElement_Next();
-
-		/**
 		 * The meta object literal for the '<em><b>Root</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2524,22 +2504,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EClass SET_ELEMENT = eINSTANCE.getSetElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Next</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SET_ELEMENT__NEXT = eINSTANCE.getSetElement_Next();
-
-		/**
-		 * The meta object literal for the '<em><b>Previous</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SET_ELEMENT__PREVIOUS = eINSTANCE.getSetElement_Previous();
 
 		/**
 		 * The meta object literal for the '<em><b>Nesting Depth</b></em>' attribute feature.
@@ -2638,6 +2602,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT__GET_ALL_RELATIONS = eINSTANCE.getElement_GetAllRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Next</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT__NEXT = eINSTANCE.getElement_Next();
+
+		/**
+		 * The meta object literal for the '<em><b>Previous</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT__PREVIOUS = eINSTANCE.getElement_Previous();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Next Elements</b></em>' operation.
