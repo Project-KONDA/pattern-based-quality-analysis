@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.BoolOption;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
@@ -66,7 +65,6 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 			case InputfieldsPackage.TEXT: return createText();
 			case InputfieldsPackage.COMP_OPTION: return createCompOption();
 			case InputfieldsPackage.PROPERTY_OPTION: return createPropertyOption();
-			case InputfieldsPackage.BOOL_OPTION: return createBoolOption();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -125,17 +123,6 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	public PropertyOption createPropertyOption() {
 		PropertyOptionImpl propertyOption = new PropertyOptionImpl();
 		return propertyOption;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public BoolOption createBoolOption() {
-		BoolOptionImpl boolOption = new BoolOptionImpl();
-		return boolOption;
 	}
 
 	/**

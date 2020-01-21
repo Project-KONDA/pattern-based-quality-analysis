@@ -23,7 +23,6 @@ import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.BoolOption;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.inputfields.util.InputfieldsValidator;
@@ -79,13 +78,6 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	private EClass propertyOptionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass boolOptionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -358,36 +350,6 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EClass getBoolOption() {
-		return boolOptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getBoolOption_Options() {
-		return (EAttribute)boolOptionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getBoolOption_Selection() {
-		return (EAttribute)boolOptionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public InputfieldsFactory getInputfieldsFactory() {
 		return (InputfieldsFactory)getEFactoryInstance();
 	}
@@ -434,10 +396,6 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		propertyOptionEClass = createEClass(PROPERTY_OPTION);
 		createEAttribute(propertyOptionEClass, PROPERTY_OPTION__OPTIONS);
 		createEAttribute(propertyOptionEClass, PROPERTY_OPTION__SELECTION);
-
-		boolOptionEClass = createEClass(BOOL_OPTION);
-		createEAttribute(boolOptionEClass, BOOL_OPTION__OPTIONS);
-		createEAttribute(boolOptionEClass, BOOL_OPTION__SELECTION);
 	}
 
 	/**
@@ -479,7 +437,6 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		textEClass.getESuperTypes().add(this.getInput());
 		compOptionEClass.getESuperTypes().add(this.getInput());
 		propertyOptionEClass.getESuperTypes().add(this.getInput());
-		boolOptionEClass.getESuperTypes().add(this.getInput());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -514,10 +471,6 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		initEClass(propertyOptionEClass, PropertyOption.class, "PropertyOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPropertyOption_Options(), theGraphstructurePackage.getPropertyLocation(), "options", null, 0, -1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropertyOption_Selection(), theGraphstructurePackage.getPropertyLocation(), "selection", null, 0, 1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(boolOptionEClass, BoolOption.class, "BoolOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBoolOption_Options(), ecorePackage.getEBooleanObject(), "options", null, 0, -1, BoolOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBoolOption_Selection(), ecorePackage.getEBooleanObject(), "selection", "true", 0, 1, BoolOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

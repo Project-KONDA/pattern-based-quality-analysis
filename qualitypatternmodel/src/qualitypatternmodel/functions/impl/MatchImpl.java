@@ -14,7 +14,6 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.inputfields.BoolOption;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
@@ -63,7 +62,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 * @ordered
 	 */
-	protected BoolOption option;
+	protected qualitypatternmodel.inputfields.Boolean option;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,8 +75,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		if(option!=null && option.getSelection()!=null && regularExpression != null && regularExpression.getText() != null && property != null) {
-			if (option.getSelection()){
+		if(option!=null && regularExpression != null && regularExpression.getText() != null && property != null) {
+			if (option.getBool()){
 				return "matches(" + property.toXQuery(location) + "," + regularExpression.getText() + ")";
 			} else {
 				return "not(matches(" + property.toXQuery(location) + ",\"" + regularExpression.getText() + "\"))";
@@ -217,10 +216,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public BoolOption getOption() {
+	public qualitypatternmodel.inputfields.Boolean getOption() {
 		if (option != null && option.eIsProxy()) {
 			InternalEObject oldOption = (InternalEObject)option;
-			option = (BoolOption)eResolveProxy(oldOption);
+			option = (qualitypatternmodel.inputfields.Boolean)eResolveProxy(oldOption);
 			if (option != oldOption) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.MATCH__OPTION, oldOption, option));
@@ -234,7 +233,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BoolOption basicGetOption() {
+	public qualitypatternmodel.inputfields.Boolean basicGetOption() {
 		return option;
 	}
 
@@ -244,8 +243,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@Override
-	public void setOption(BoolOption newOption) {
-		BoolOption oldOption = option;
+	public void setOption(qualitypatternmodel.inputfields.Boolean newOption) {
+		qualitypatternmodel.inputfields.Boolean oldOption = option;
 		option = newOption;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTION, oldOption, option));
@@ -288,7 +287,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setRegularExpression((Text)newValue);
 				return;
 			case FunctionsPackage.MATCH__OPTION:
-				setOption((BoolOption)newValue);
+				setOption((qualitypatternmodel.inputfields.Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -309,7 +308,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setRegularExpression((Text)null);
 				return;
 			case FunctionsPackage.MATCH__OPTION:
-				setOption((BoolOption)null);
+				setOption((qualitypatternmodel.inputfields.Boolean)null);
 				return;
 		}
 		super.eUnset(featureID);

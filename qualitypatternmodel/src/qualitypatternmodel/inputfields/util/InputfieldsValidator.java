@@ -15,7 +15,6 @@ import qualitypatternmodel.graphstructure.util.GraphstructureValidator;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.BoolOption;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
@@ -131,8 +130,6 @@ public class InputfieldsValidator extends EObjectValidator {
 				return validateCompOption((CompOption)value, diagnostics, context);
 			case InputfieldsPackage.PROPERTY_OPTION:
 				return validatePropertyOption((PropertyOption)value, diagnostics, context);
-			case InputfieldsPackage.BOOL_OPTION:
-				return validateBoolOption((BoolOption)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -259,25 +256,6 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(propertyOption, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(propertyOption, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInput_validate(propertyOption, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBoolOption(BoolOption boolOption, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(boolOption, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(boolOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(boolOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(boolOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(boolOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(boolOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(boolOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(boolOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(boolOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(boolOption, diagnostics, context);
 		return result;
 	}
 

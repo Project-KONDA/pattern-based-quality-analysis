@@ -14,7 +14,6 @@ import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.BoolOption;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
@@ -99,10 +98,6 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePropertyOption(PropertyOption object) {
 				return createPropertyOptionAdapter();
-			}
-			@Override
-			public Adapter caseBoolOption(BoolOption object) {
-				return createBoolOptionAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -213,20 +208,6 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyOptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.BoolOption <em>Bool Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.inputfields.BoolOption
-	 * @generated
-	 */
-	public Adapter createBoolOptionAdapter() {
 		return null;
 	}
 

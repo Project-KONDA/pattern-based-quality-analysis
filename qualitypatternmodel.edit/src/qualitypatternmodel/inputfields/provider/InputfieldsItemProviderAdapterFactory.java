@@ -187,29 +187,6 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.BoolOption} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BoolOptionItemProvider boolOptionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.BoolOption}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBoolOptionAdapter() {
-		if (boolOptionItemProvider == null) {
-			boolOptionItemProvider = new BoolOptionItemProvider(this);
-		}
-
-		return boolOptionItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -319,7 +296,6 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 		if (textItemProvider != null) textItemProvider.dispose();
 		if (compOptionItemProvider != null) compOptionItemProvider.dispose();
 		if (propertyOptionItemProvider != null) propertyOptionItemProvider.dispose();
-		if (boolOptionItemProvider != null) boolOptionItemProvider.dispose();
 	}
 
 }

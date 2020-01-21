@@ -3,8 +3,6 @@
 package qualitypatternmodel.functions;
 
 import qualitypatternmodel.graphstructure.Property;
-
-import qualitypatternmodel.inputfields.BoolOption;
 import qualitypatternmodel.inputfields.Text;
 
 /**
@@ -75,12 +73,12 @@ public interface Match extends BooleanOperator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
-	 * @see #setOption(BoolOption)
+	 * @see #setOption(qualitypatternmodel.inputfields.Boolean)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_Option()
 	 * @model required="true"
 	 * @generated
 	 */
-	BoolOption getOption();
+	qualitypatternmodel.inputfields.Boolean getOption();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}' reference.
@@ -90,6 +88,6 @@ public interface Match extends BooleanOperator {
 	 * @see #getOption()
 	 * @generated
 	 */
-	void setOption(BoolOption value);
+	void setOption(qualitypatternmodel.inputfields.Boolean value);
 
 } // Match

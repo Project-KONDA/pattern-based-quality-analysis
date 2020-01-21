@@ -206,7 +206,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
 		Condition oldCondition = condition;
 		condition = newCondition;
-        condition.setCondDepth(1);
+		if(condition != null) {
+			condition.setCondDepth(1);
+		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__CONDITION, oldCondition, newCondition);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

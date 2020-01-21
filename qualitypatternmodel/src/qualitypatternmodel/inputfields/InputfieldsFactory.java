@@ -67,15 +67,6 @@ public interface InputfieldsFactory extends EFactory {
 	PropertyOption createPropertyOption();
 
 	/**
-	 * Returns a new object of class '<em>Bool Option</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bool Option</em>'.
-	 * @generated
-	 */
-	BoolOption createBoolOption();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

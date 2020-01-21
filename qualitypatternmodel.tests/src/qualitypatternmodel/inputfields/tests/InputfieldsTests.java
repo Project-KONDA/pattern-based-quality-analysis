@@ -36,7 +36,6 @@ public class InputfieldsTests extends TestSuite {
 		suite.addTestSuite(TextTest.class);
 		suite.addTestSuite(CompOptionTest.class);
 		suite.addTestSuite(PropertyOptionTest.class);
-		suite.addTestSuite(BoolOptionTest.class);
 		return suite;
 	}
 

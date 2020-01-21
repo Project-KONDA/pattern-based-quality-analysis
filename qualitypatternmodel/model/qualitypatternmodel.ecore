@@ -42,12 +42,6 @@
           eType="#//graphstructure/PropertyLocation"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="selection" eType="#//graphstructure/PropertyLocation"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BoolOption" eSuperTypes="#//inputfields/Input">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="selection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-          defaultValueLiteral="true"/>
-    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="functions" nsURI="functions" nsPrefix="functions">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//functions/Operator"/>
@@ -76,7 +70,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="regularExpression" lowerBound="1"
           eType="#//inputfields/Text"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//inputfields/BoolOption"/>
+          eType="#//inputfields/Boolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//functions/BooleanOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
