@@ -17,12 +17,15 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 public class ProgrammaticalValidation {
 	public static void main(String[] args) {
-		PatternstructurePackage.eINSTANCE.eClass();		
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;		
-		Pattern pattern = factory.createPattern();
-		pattern.setId(0);
+	
 		
-		// org.eclipse.ocl.examples.pivot plug-in has been promoted to org.eclipse.ocl.pivot
+		/*
+		 *  org.eclipse.ocl.examples.pivot plug-in has been promoted to org.eclipse.ocl.pivot
+		 */
+		
+		/* https://bugs.eclipse.org/bugs/show_bug.cgi?id=420208#c0
+		 * "SettingDelegateFactory registration must occur before the static initialization of the EMF generated classes."
+		 */
 
 //		String oclDelegateURI = OCLDelegateDomain.OCL_DELEGATE_URI+"/Pivot";
 //		String oclDelegateURI = OCLDelegateDomain.OCL_DELEGATE_URI;
@@ -36,6 +39,11 @@ public class ProgrammaticalValidation {
 		
 		OCLinEcoreStandaloneSetup.doSetup();
 		OCLstdlib.install();
+		
+		PatternstructurePackage.eINSTANCE.eClass();		
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;		
+		Pattern pattern = factory.createPattern();
+		pattern.setId(0);
 		
 		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);			
 		
