@@ -187,29 +187,6 @@ public class GraphstructureItemProviderAdapterFactory extends GraphstructureAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.graphstructure.OperatorList} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OperatorListItemProvider operatorListItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.graphstructure.OperatorList}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOperatorListAdapter() {
-		if (operatorListItemProvider == null) {
-			operatorListItemProvider = new OperatorListItemProvider(this);
-		}
-
-		return operatorListItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -319,7 +296,6 @@ public class GraphstructureItemProviderAdapterFactory extends GraphstructureAdap
 		if (singleElementItemProvider != null) singleElementItemProvider.dispose();
 		if (setElementItemProvider != null) setElementItemProvider.dispose();
 		if (graphItemProvider != null) graphItemProvider.dispose();
-		if (operatorListItemProvider != null) operatorListItemProvider.dispose();
 	}
 
 }

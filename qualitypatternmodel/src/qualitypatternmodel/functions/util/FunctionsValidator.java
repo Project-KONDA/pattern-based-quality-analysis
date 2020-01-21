@@ -130,6 +130,8 @@ public class FunctionsValidator extends EObjectValidator {
 				return validateComparison((Comparison)value, diagnostics, context);
 			case FunctionsPackage.TO_NUMBER:
 				return validateToNumber((ToNumber)value, diagnostics, context);
+			case FunctionsPackage.OPERATOR_LIST:
+				return validateOperatorList((OperatorList)value, diagnostics, context);
 			case FunctionsPackage.COMPARISON_OPERATOR:
 				return validateComparisonOperator((ComparisonOperator)value, diagnostics, context);
 			default:
@@ -296,6 +298,25 @@ public class FunctionsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(toNumber, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(toNumber, diagnostics, context);
 		if (result || diagnostics != null) result &= validateOperator_validate(toNumber, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateOperatorList(OperatorList operatorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(operatorList, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(operatorList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(operatorList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(operatorList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(operatorList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(operatorList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(operatorList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(operatorList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(operatorList, diagnostics, context);
+		if (result || diagnostics != null) result &= patternstructureValidator.validatePatternElement_validate(operatorList, diagnostics, context);
 		return result;
 	}
 

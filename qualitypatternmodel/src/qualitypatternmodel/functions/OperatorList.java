@@ -1,9 +1,10 @@
 /**
  */
-package qualitypatternmodel.graphstructure;
+package qualitypatternmodel.functions;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.functions.Operator;
+
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -15,11 +16,11 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.OperatorList#getOperators <em>Operators</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.OperatorList#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.OperatorList#getOperators <em>Operators</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.OperatorList#getGraph <em>Graph</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getOperatorList()
+ * @see qualitypatternmodel.functions.FunctionsPackage#getOperatorList()
  * @model
  * @generated
  */
@@ -30,7 +31,7 @@ public interface OperatorList extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operators</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getOperatorList_Operators()
+	 * @see qualitypatternmodel.functions.FunctionsPackage#getOperatorList_Operators()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -43,7 +44,7 @@ public interface OperatorList extends PatternElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Graph</em>' container reference.
 	 * @see #setGraph(Graph)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getOperatorList_Graph()
+	 * @see qualitypatternmodel.functions.FunctionsPackage#getOperatorList_Graph()
 	 * @see qualitypatternmodel.graphstructure.Graph#getOperatorList
 	 * @model opposite="operatorList" required="true" transient="false"
 	 * @generated
@@ -51,7 +52,7 @@ public interface OperatorList extends PatternElement {
 	Graph getGraph();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.OperatorList#getGraph <em>Graph</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.functions.OperatorList#getGraph <em>Graph</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Graph</em>' container reference.

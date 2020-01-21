@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -97,13 +98,13 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___TO_XQUERY__LOCATION = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_ALL_VARIABLES = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_VARIABLES;
+	int OPERATOR___GET_ALL_INPUTS = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -233,13 +234,13 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
+	int BOOLEAN_OPERATOR___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -369,13 +370,13 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATORS___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
+	int NUMBER_OPERATORS___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -514,13 +515,13 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT___TO_XQUERY__LOCATION = NUMBER_OPERATORS___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___GET_ALL_VARIABLES = NUMBER_OPERATORS___GET_ALL_VARIABLES;
+	int COUNT___GET_ALL_INPUTS = NUMBER_OPERATORS___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -650,13 +651,13 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATORS___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___GET_ALL_VARIABLES = OPERATOR___GET_ALL_VARIABLES;
+	int OTHER_OPERATORS___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -813,13 +814,13 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___TO_XQUERY__LOCATION = BOOLEAN_OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___GET_ALL_VARIABLES = BOOLEAN_OPERATOR___GET_ALL_VARIABLES;
+	int MATCH___GET_ALL_INPUTS = BOOLEAN_OPERATOR___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -976,13 +977,13 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___TO_XQUERY__LOCATION = BOOLEAN_OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___GET_ALL_VARIABLES = BOOLEAN_OPERATOR___GET_ALL_VARIABLES;
+	int COMPARISON___GET_ALL_INPUTS = BOOLEAN_OPERATOR___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -1121,13 +1122,13 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER___TO_XQUERY__LOCATION = NUMBER_OPERATORS___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___GET_ALL_VARIABLES = NUMBER_OPERATORS___GET_ALL_VARIABLES;
+	int TO_NUMBER___GET_ALL_INPUTS = NUMBER_OPERATORS___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -1220,6 +1221,124 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER_OPERATION_COUNT = NUMBER_OPERATORS_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.OperatorListImpl <em>Operator List</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.impl.OperatorListImpl
+	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getOperatorList()
+	 * @generated
+	 */
+	int OPERATOR_LIST = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Operators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST__OPERATORS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Operator List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Operator List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.ComparisonOperator <em>Comparison Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1227,7 +1346,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getComparisonOperator()
 	 * @generated
 	 */
-	int COMPARISON_OPERATOR = 8;
+	int COMPARISON_OPERATOR = 9;
 
 
 	/**
@@ -1417,6 +1536,38 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getToNumber_Property();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.functions.OperatorList <em>Operator List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operator List</em>'.
+	 * @see qualitypatternmodel.functions.OperatorList
+	 * @generated
+	 */
+	EClass getOperatorList();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.functions.OperatorList#getOperators <em>Operators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operators</em>'.
+	 * @see qualitypatternmodel.functions.OperatorList#getOperators()
+	 * @see #getOperatorList()
+	 * @generated
+	 */
+	EReference getOperatorList_Operators();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.functions.OperatorList#getGraph <em>Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Graph</em>'.
+	 * @see qualitypatternmodel.functions.OperatorList#getGraph()
+	 * @see #getOperatorList()
+	 * @generated
+	 */
+	EReference getOperatorList_Graph();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.functions.ComparisonOperator <em>Comparison Operator</em>}'.
@@ -1610,6 +1761,32 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TO_NUMBER__PROPERTY = eINSTANCE.getToNumber_Property();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OperatorListImpl <em>Operator List</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.functions.impl.OperatorListImpl
+		 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getOperatorList()
+		 * @generated
+		 */
+		EClass OPERATOR_LIST = eINSTANCE.getOperatorList();
+
+		/**
+		 * The meta object literal for the '<em><b>Operators</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATOR_LIST__OPERATORS = eINSTANCE.getOperatorList_Operators();
+
+		/**
+		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATOR_LIST__GRAPH = eINSTANCE.getOperatorList_Graph();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.ComparisonOperator <em>Comparison Operator</em>}' enum.

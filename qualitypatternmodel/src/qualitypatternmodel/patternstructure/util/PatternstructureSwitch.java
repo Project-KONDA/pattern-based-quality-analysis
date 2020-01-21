@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-
 import qualitypatternmodel.patternstructure.*;
 
 /**
@@ -137,13 +136,6 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 			case PatternstructurePackage.PATTERN_ELEMENT: {
 				PatternElement patternElement = (PatternElement)theEObject;
 				T result = casePatternElement(patternElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case PatternstructurePackage.VARIABLE_LIST: {
-				VariableList variableList = (VariableList)theEObject;
-				T result = caseVariableList(variableList);
-				if (result == null) result = casePatternElement(variableList);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -298,21 +290,6 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePatternElement(PatternElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable List</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable List</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseVariableList(VariableList object) {
 		return null;
 	}
 

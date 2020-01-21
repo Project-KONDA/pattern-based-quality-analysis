@@ -45,25 +45,25 @@ public class TextItemProvider extends InputItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTextPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Text feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTextPropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Text_text_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Text_text_feature", "_UI_Text_type"),
-				 InputfieldsPackage.Literals.TEXT__TEXT,
+				 getString("_UI_Text_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Text_value_feature", "_UI_Text_type"),
+				 InputfieldsPackage.Literals.TEXT__VALUE,
 				 true,
 				 false,
 				 false,
@@ -108,7 +108,7 @@ public class TextItemProvider extends InputItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Text.class)) {
-			case InputfieldsPackage.TEXT__TEXT:
+			case InputfieldsPackage.TEXT__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -19,9 +19,8 @@ import qualitypatternmodel.graphstructure.impl.GraphElementImpl;
 
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
+import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.InvalidityException;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.VariableList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -83,7 +82,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	}
 
 	@Override
-	public EList<Input> getAllVariables() throws InvalidityException {
+	public EList<Input> getAllInputs() throws InvalidityException {
 		EList<Input> res = new BasicEList<Input>();
 		res.add(this);
 		return res;
@@ -132,7 +131,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newVariableList != null)
-				msgs = ((InternalEObject)newVariableList).eInverseAdd(this, PatternstructurePackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
+				msgs = ((InternalEObject)newVariableList).eInverseAdd(this, InputfieldsPackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
 			msgs = basicSetVariableList(newVariableList, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -237,7 +236,7 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
+				return eInternalContainer().eInverseRemove(this, InputfieldsPackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

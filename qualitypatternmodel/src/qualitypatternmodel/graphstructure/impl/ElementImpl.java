@@ -192,18 +192,30 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Input> getAllVariables() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllVariables() throws InvalidityException {
+	public EList<Input> getAllInputs() throws InvalidityException {
 		EList<Input> res = new BasicEList<Input>();
 		for (Element element : getNextElements()) {
-			res.addAll(element.getAllVariables());
+			res.addAll(element.getAllInputs());
 		}
 //		res.addAll(getRelationFromPrevious().getAllVariables());
 		for (Property p : getProperties()) 
-			res.addAll(p.getAllVariables());		
+			res.addAll(p.getAllInputs());		
 		for (Operator op : getPredicates()) 
-			res.addAll(op.getAllVariables());
+			res.addAll(op.getAllInputs());
 		return res;
 	}
 
@@ -675,6 +687,13 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___GET_ALL_OPERATORS:
 				try {
 					return getAllOperators();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.ELEMENT___GET_ALL_VARIABLES:
+				try {
+					return getAllVariables();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

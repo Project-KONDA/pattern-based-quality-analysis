@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-
 import qualitypatternmodel.graphstructure.*;
 
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -123,13 +122,6 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GraphstructurePackage.OPERATOR_LIST: {
-				OperatorList operatorList = (OperatorList)theEObject;
-				T result = caseOperatorList(operatorList);
-				if (result == null) result = casePatternElement(operatorList);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -236,21 +228,6 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGraphElement(GraphElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Operator List</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Operator List</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOperatorList(OperatorList object) {
 		return null;
 	}
 

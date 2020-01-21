@@ -187,6 +187,29 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.VariableList} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VariableListItemProvider variableListItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.VariableList}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVariableListAdapter() {
+		if (variableListItemProvider == null) {
+			variableListItemProvider = new VariableListItemProvider(this);
+		}
+
+		return variableListItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,6 +319,7 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 		if (textItemProvider != null) textItemProvider.dispose();
 		if (compOptionItemProvider != null) compOptionItemProvider.dispose();
 		if (propertyOptionItemProvider != null) propertyOptionItemProvider.dispose();
+		if (variableListItemProvider != null) variableListItemProvider.dispose();
 	}
 
 }

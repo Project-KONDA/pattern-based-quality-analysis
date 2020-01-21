@@ -127,10 +127,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	@Override
-	public EList<Input> getAllVariables() throws InvalidityException {
+	public EList<Input> getAllInputs() throws InvalidityException {
 		EList<Input> inputs = new BasicEList<Input>();
 		for (Condition condition : arguments) {
-			inputs.addAll(condition.getAllVariables());
+			inputs.addAll(condition.getAllInputs());
 		}
 		return inputs;
 	}

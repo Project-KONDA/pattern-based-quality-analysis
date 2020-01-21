@@ -23,31 +23,31 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.impl.BooleanImpl#getBool <em>Bool</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.BooleanImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputfields.Boolean {
 	/**
-	 * The default value of the '{@link #getBool() <em>Bool</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBool()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean BOOL_EDEFAULT = null;
+	protected static final Boolean VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBool() <em>Bool</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBool()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected Boolean bool = BOOL_EDEFAULT;
+	protected Boolean value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -60,8 +60,8 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		if(bool != null) {
-			return bool + "()";
+		if(getValue() != null) {
+			return getValue() + "()";
 		} else {
 			throw new InvalidityException("invalid number");
 		}
@@ -74,7 +74,7 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	
 	@Override
 	public boolean inputIsValid() {
-		return bool != null;
+		return getValue() != null;
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	 * @generated
 	 */
 	@Override
-	public Boolean getBool() {
-		return bool;
+	public Boolean getValue() {
+		return value;
 	}
 
 	/**
@@ -103,11 +103,11 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	 * @generated
 	 */
 	@Override
-	public void setBool(Boolean newBool) {
-		Boolean oldBool = bool;
-		bool = newBool;
+	public void setValue(Boolean newValue) {
+		Boolean oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.BOOLEAN__BOOL, oldBool, bool));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.BOOLEAN__VALUE, oldValue, value));
 	}
 
 	/**
@@ -118,8 +118,8 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InputfieldsPackage.BOOLEAN__BOOL:
-				return getBool();
+			case InputfieldsPackage.BOOLEAN__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -132,8 +132,8 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InputfieldsPackage.BOOLEAN__BOOL:
-				setBool((Boolean)newValue);
+			case InputfieldsPackage.BOOLEAN__VALUE:
+				setValue((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -147,8 +147,8 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.BOOLEAN__BOOL:
-				setBool(BOOL_EDEFAULT);
+			case InputfieldsPackage.BOOLEAN__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -162,8 +162,8 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.BOOLEAN__BOOL:
-				return BOOL_EDEFAULT == null ? bool != null : !BOOL_EDEFAULT.equals(bool);
+			case InputfieldsPackage.BOOLEAN__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -178,8 +178,8 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (bool: ");
-		result.append(bool);
+		result.append(" (value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

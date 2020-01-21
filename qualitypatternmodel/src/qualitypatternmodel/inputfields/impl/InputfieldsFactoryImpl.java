@@ -15,6 +15,7 @@ import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
+import qualitypatternmodel.inputfields.VariableList;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,6 +66,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 			case InputfieldsPackage.TEXT: return createText();
 			case InputfieldsPackage.COMP_OPTION: return createCompOption();
 			case InputfieldsPackage.PROPERTY_OPTION: return createPropertyOption();
+			case InputfieldsPackage.VARIABLE_LIST: return createVariableList();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -123,6 +125,17 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	public PropertyOption createPropertyOption() {
 		PropertyOptionImpl propertyOption = new PropertyOptionImpl();
 		return propertyOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public VariableList createVariableList() {
+		VariableListImpl variableList = new VariableListImpl();
+		return variableList;
 	}
 
 	/**

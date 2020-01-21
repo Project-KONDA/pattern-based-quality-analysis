@@ -38,7 +38,6 @@ public class PatternstructureTests extends TestSuite {
 		suite.addTestSuite(FormulaTest.class);
 		suite.addTestSuite(TrueTest.class);
 		suite.addTestSuite(PatternTest.class);
-		suite.addTestSuite(VariableListTest.class);
 		return suite;
 	}
 

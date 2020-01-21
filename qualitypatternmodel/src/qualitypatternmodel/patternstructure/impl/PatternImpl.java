@@ -17,13 +17,14 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.InputfieldsPackage;
+import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.impl.VariableListImpl;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-
-import qualitypatternmodel.patternstructure.VariableList;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -132,10 +133,10 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllVariables() throws InvalidityException {
-		EList<Input> inputs = returnGraph.getAllVariables();
+	public EList<Input> getAllInputs() throws InvalidityException {
+		EList<Input> inputs = returnGraph.getAllInputs();
 		if (condition != null)
-			inputs.addAll(condition.getAllVariables());
+			inputs.addAll(condition.getAllInputs());
 		return inputs;
 	}
 
@@ -267,9 +268,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		if (newVariableList != variableList) {
 			NotificationChain msgs = null;
 			if (variableList != null)
-				msgs = ((InternalEObject)variableList).eInverseRemove(this, PatternstructurePackage.VARIABLE_LIST__PATTERN, VariableList.class, msgs);
+				msgs = ((InternalEObject)variableList).eInverseRemove(this, InputfieldsPackage.VARIABLE_LIST__PATTERN, VariableList.class, msgs);
 			if (newVariableList != null)
-				msgs = ((InternalEObject)newVariableList).eInverseAdd(this, PatternstructurePackage.VARIABLE_LIST__PATTERN, VariableList.class, msgs);
+				msgs = ((InternalEObject)newVariableList).eInverseAdd(this, InputfieldsPackage.VARIABLE_LIST__PATTERN, VariableList.class, msgs);
 			msgs = basicSetVariableList(newVariableList, msgs);
 			if (msgs != null) msgs.dispatch();
 		}

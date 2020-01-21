@@ -6,8 +6,8 @@ package qualitypatternmodel.graphstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.graphstructure.OperatorList;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
 

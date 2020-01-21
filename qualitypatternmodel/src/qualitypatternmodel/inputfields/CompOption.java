@@ -15,7 +15,7 @@ import qualitypatternmodel.functions.ComparisonOperator;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.CompOption#getOptions <em>Options</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.CompOption#getSelection <em>Selection</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.CompOption#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.inputfields.InputfieldsPackage#getCompOption()
@@ -38,28 +38,28 @@ public interface CompOption extends Input {
 	EList<ComparisonOperator> getOptions();
 
 	/**
-	 * Returns the value of the '<em><b>Selection</b></em>' attribute.
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * The literals are from the enumeration {@link qualitypatternmodel.functions.ComparisonOperator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selection</em>' attribute.
+	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see qualitypatternmodel.functions.ComparisonOperator
-	 * @see #setSelection(ComparisonOperator)
-	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getCompOption_Selection()
+	 * @see #setValue(ComparisonOperator)
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getCompOption_Value()
 	 * @model
 	 * @generated
 	 */
-	ComparisonOperator getSelection();
+	ComparisonOperator getValue();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.inputfields.CompOption#getSelection <em>Selection</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.CompOption#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Selection</em>' attribute.
+	 * @param value the new value of the '<em>Value</em>' attribute.
 	 * @see qualitypatternmodel.functions.ComparisonOperator
-	 * @see #getSelection()
+	 * @see #getValue()
 	 * @generated
 	 */
-	void setSelection(ComparisonOperator value);
+	void setValue(ComparisonOperator value);
 
 } // CompOption

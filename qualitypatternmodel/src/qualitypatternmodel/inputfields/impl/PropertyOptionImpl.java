@@ -29,7 +29,7 @@ import qualitypatternmodel.patternstructure.InvalidityException;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl#getSelection <em>Selection</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,24 +46,24 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	protected EList<PropertyLocation> options;
 
 	/**
-	 * The default value of the '{@link #getSelection() <em>Selection</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelection()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PropertyLocation SELECTION_EDEFAULT = PropertyLocation.DATA;
+	protected static final PropertyLocation VALUE_EDEFAULT = PropertyLocation.DATA;
 
 	/**
-	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelection()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected PropertyLocation selection = SELECTION_EDEFAULT;
+	protected PropertyLocation value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,16 +76,16 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	
 	@Override
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		if (options == null) 
+		if (getOptions() == null) 
 			throw new InvalidityException("options null");
-		if (options.size() < 1) 
+		if (getOptions().size() < 1) 
 			throw new InvalidityException("not enough options");
 		super.isValidLocal(isDefinedPattern);
 	}
 	
 	@Override
 	public boolean inputIsValid() {
-		return selection != null && options.contains(selection);
+		return getValue() != null && getOptions().contains(getValue());
 	}
 
 	/**
@@ -117,8 +117,8 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	 * @generated
 	 */
 	@Override
-	public PropertyLocation getSelection() {
-		return selection;
+	public PropertyLocation getValue() {
+		return value;
 	}
 
 	/**
@@ -127,11 +127,11 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	 * @generated
 	 */
 	@Override
-	public void setSelection(PropertyLocation newSelection) {
-		PropertyLocation oldSelection = selection;
-		selection = newSelection == null ? SELECTION_EDEFAULT : newSelection;
+	public void setValue(PropertyLocation newValue) {
+		PropertyLocation oldValue = value;
+		value = newValue == null ? VALUE_EDEFAULT : newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.PROPERTY_OPTION__SELECTION, oldSelection, selection));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.PROPERTY_OPTION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -144,8 +144,8 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 		switch (featureID) {
 			case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
 				return getOptions();
-			case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
-				return getSelection();
+			case InputfieldsPackage.PROPERTY_OPTION__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,8 +163,8 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 				getOptions().clear();
 				getOptions().addAll((Collection<? extends PropertyLocation>)newValue);
 				return;
-			case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
-				setSelection((PropertyLocation)newValue);
+			case InputfieldsPackage.PROPERTY_OPTION__VALUE:
+				setValue((PropertyLocation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -181,8 +181,8 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 			case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
 				getOptions().clear();
 				return;
-			case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
-				setSelection(SELECTION_EDEFAULT);
+			case InputfieldsPackage.PROPERTY_OPTION__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -198,8 +198,8 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 		switch (featureID) {
 			case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
 				return options != null && !options.isEmpty();
-			case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
-				return selection != SELECTION_EDEFAULT;
+			case InputfieldsPackage.PROPERTY_OPTION__VALUE:
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -216,8 +216,8 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (options: ");
 		result.append(options);
-		result.append(", selection: ");
-		result.append(selection);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

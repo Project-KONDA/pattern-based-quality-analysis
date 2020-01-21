@@ -12,7 +12,7 @@ package qualitypatternmodel.inputfields;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.Number#getNumber <em>Number</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.Number#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.inputfields.InputfieldsPackage#getNumber()
@@ -21,25 +21,25 @@ package qualitypatternmodel.inputfields;
  */
 public interface Number extends Input {
 	/**
-	 * Returns the value of the '<em><b>Number</b></em>' attribute.
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Number</em>' attribute.
-	 * @see #setNumber(Double)
-	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getNumber_Number()
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(Double)
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getNumber_Value()
 	 * @model
 	 * @generated
 	 */
-	Double getNumber();
+	Double getValue();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Number#getNumber <em>Number</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Number#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number</em>' attribute.
-	 * @see #getNumber()
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
 	 * @generated
 	 */
-	void setNumber(Double value);
+	void setValue(Double value);
 
 } // Number

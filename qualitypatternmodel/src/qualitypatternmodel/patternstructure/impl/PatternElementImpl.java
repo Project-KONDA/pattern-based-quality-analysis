@@ -70,7 +70,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllVariables() throws InvalidityException {
+	public EList<Input> getAllInputs() throws InvalidityException {
 		return new BasicEList<Input>();
 	}
 
@@ -242,9 +242,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES:
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS:
 				try {
-					return getAllVariables();
+					return getAllInputs();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

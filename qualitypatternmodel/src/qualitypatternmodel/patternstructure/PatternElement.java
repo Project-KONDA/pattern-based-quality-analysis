@@ -61,7 +61,7 @@ public interface PatternElement extends EObject {
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<Input> getAllVariables() throws InvalidityException;
+	EList<Input> getAllInputs() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

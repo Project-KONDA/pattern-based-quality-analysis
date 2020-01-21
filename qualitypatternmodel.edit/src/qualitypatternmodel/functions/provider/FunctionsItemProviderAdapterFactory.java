@@ -164,6 +164,29 @@ public class FunctionsItemProviderAdapterFactory extends FunctionsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.functions.OperatorList} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperatorListItemProvider operatorListItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.functions.OperatorList}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperatorListAdapter() {
+		if (operatorListItemProvider == null) {
+			operatorListItemProvider = new OperatorListItemProvider(this);
+		}
+
+		return operatorListItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -272,6 +295,7 @@ public class FunctionsItemProviderAdapterFactory extends FunctionsAdapterFactory
 		if (matchItemProvider != null) matchItemProvider.dispose();
 		if (comparisonItemProvider != null) comparisonItemProvider.dispose();
 		if (toNumberItemProvider != null) toNumberItemProvider.dispose();
+		if (operatorListItemProvider != null) operatorListItemProvider.dispose();
 	}
 
 }

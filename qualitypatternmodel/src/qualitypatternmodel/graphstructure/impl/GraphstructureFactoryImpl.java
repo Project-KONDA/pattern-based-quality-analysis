@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import qualitypatternmodel.graphstructure.*;
 
 /**
@@ -62,7 +61,6 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 			case GraphstructurePackage.SINGLE_ELEMENT: return createSingleElement();
 			case GraphstructurePackage.SET_ELEMENT: return createSetElement();
 			case GraphstructurePackage.GRAPH: return createGraph();
-			case GraphstructurePackage.OPERATOR_LIST: return createOperatorList();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -159,17 +157,6 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	public Graph createGraph() {
 		GraphImpl graph = new GraphImpl();
 		return graph;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public OperatorList createOperatorList() {
-		OperatorListImpl operatorList = new OperatorListImpl();
-		return operatorList;
 	}
 
 	/**

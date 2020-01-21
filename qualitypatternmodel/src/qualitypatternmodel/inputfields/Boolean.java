@@ -12,7 +12,7 @@ package qualitypatternmodel.inputfields;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.Boolean#getBool <em>Bool</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.Boolean#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.inputfields.InputfieldsPackage#getBoolean()
@@ -21,25 +21,25 @@ package qualitypatternmodel.inputfields;
  */
 public interface Boolean extends Input {
 	/**
-	 * Returns the value of the '<em><b>Bool</b></em>' attribute.
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bool</em>' attribute.
-	 * @see #setBool(java.lang.Boolean)
-	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getBoolean_Bool()
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(java.lang.Boolean)
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getBoolean_Value()
 	 * @model
 	 * @generated
 	 */
-	java.lang.Boolean getBool();
+	java.lang.Boolean getValue();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Boolean#getBool <em>Bool</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Boolean#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bool</em>' attribute.
-	 * @see #getBool()
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
 	 * @generated
 	 */
-	void setBool(java.lang.Boolean value);
+	void setValue(java.lang.Boolean value);
 
 } // Boolean

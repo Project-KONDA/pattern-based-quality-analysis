@@ -16,7 +16,7 @@ import qualitypatternmodel.graphstructure.PropertyLocation;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.PropertyOption#getOptions <em>Options</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.PropertyOption#getSelection <em>Selection</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.PropertyOption#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.inputfields.InputfieldsPackage#getPropertyOption()
@@ -39,28 +39,28 @@ public interface PropertyOption extends Input {
 	EList<PropertyLocation> getOptions();
 
 	/**
-	 * Returns the value of the '<em><b>Selection</b></em>' attribute.
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.PropertyLocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selection</em>' attribute.
+	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see qualitypatternmodel.graphstructure.PropertyLocation
-	 * @see #setSelection(PropertyLocation)
-	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getPropertyOption_Selection()
+	 * @see #setValue(PropertyLocation)
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getPropertyOption_Value()
 	 * @model
 	 * @generated
 	 */
-	PropertyLocation getSelection();
+	PropertyLocation getValue();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.inputfields.PropertyOption#getSelection <em>Selection</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.PropertyOption#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Selection</em>' attribute.
+	 * @param value the new value of the '<em>Value</em>' attribute.
 	 * @see qualitypatternmodel.graphstructure.PropertyLocation
-	 * @see #getSelection()
+	 * @see #getValue()
 	 * @generated
 	 */
-	void setSelection(PropertyLocation value);
+	void setValue(PropertyLocation value);
 
 } // PropertyOption

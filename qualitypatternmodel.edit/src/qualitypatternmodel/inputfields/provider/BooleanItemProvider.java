@@ -44,25 +44,25 @@ public class BooleanItemProvider extends InputItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBoolPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Bool feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBoolPropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Boolean_bool_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Boolean_bool_feature", "_UI_Boolean_type"),
-				 InputfieldsPackage.Literals.BOOLEAN__BOOL,
+				 getString("_UI_Boolean_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Boolean_value_feature", "_UI_Boolean_type"),
+				 InputfieldsPackage.Literals.BOOLEAN__VALUE,
 				 true,
 				 false,
 				 false,
@@ -107,7 +107,7 @@ public class BooleanItemProvider extends InputItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(qualitypatternmodel.inputfields.Boolean.class)) {
-			case InputfieldsPackage.BOOLEAN__BOOL:
+			case InputfieldsPackage.BOOLEAN__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

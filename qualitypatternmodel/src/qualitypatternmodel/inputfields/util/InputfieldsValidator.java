@@ -18,6 +18,7 @@ import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
+import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
 
 /**
@@ -130,6 +131,8 @@ public class InputfieldsValidator extends EObjectValidator {
 				return validateCompOption((CompOption)value, diagnostics, context);
 			case InputfieldsPackage.PROPERTY_OPTION:
 				return validatePropertyOption((PropertyOption)value, diagnostics, context);
+			case InputfieldsPackage.VARIABLE_LIST:
+				return validateVariableList((VariableList)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -256,6 +259,25 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(propertyOption, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(propertyOption, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInput_validate(propertyOption, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVariableList(VariableList variableList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(variableList, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(variableList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(variableList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(variableList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(variableList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(variableList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(variableList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(variableList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(variableList, diagnostics, context);
+		if (result || diagnostics != null) result &= patternstructureValidator.validatePatternElement_validate(variableList, diagnostics, context);
 		return result;
 	}
 

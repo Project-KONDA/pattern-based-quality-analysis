@@ -46,7 +46,7 @@ public class PropertyOptionItemProvider extends InputItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOptionsPropertyDescriptor(object);
-			addSelectionPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,19 +74,19 @@ public class PropertyOptionItemProvider extends InputItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Selection feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSelectionPropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PropertyOption_selection_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyOption_selection_feature", "_UI_PropertyOption_type"),
-				 InputfieldsPackage.Literals.PROPERTY_OPTION__SELECTION,
+				 getString("_UI_PropertyOption_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyOption_value_feature", "_UI_PropertyOption_type"),
+				 InputfieldsPackage.Literals.PROPERTY_OPTION__VALUE,
 				 true,
 				 false,
 				 false,
@@ -132,7 +132,7 @@ public class PropertyOptionItemProvider extends InputItemProvider {
 
 		switch (notification.getFeatureID(PropertyOption.class)) {
 			case InputfieldsPackage.PROPERTY_OPTION__OPTIONS:
-			case InputfieldsPackage.PROPERTY_OPTION__SELECTION:
+			case InputfieldsPackage.PROPERTY_OPTION__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

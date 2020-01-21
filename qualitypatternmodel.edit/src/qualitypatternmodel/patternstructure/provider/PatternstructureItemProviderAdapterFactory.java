@@ -233,29 +233,6 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.VariableList} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VariableListItemProvider variableListItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.VariableList}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createVariableListAdapter() {
-		if (variableListItemProvider == null) {
-			variableListItemProvider = new VariableListItemProvider(this);
-		}
-
-		return variableListItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -367,7 +344,6 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
 		if (trueItemProvider != null) trueItemProvider.dispose();
 		if (patternItemProvider != null) patternItemProvider.dispose();
-		if (variableListItemProvider != null) variableListItemProvider.dispose();
 	}
 
 }

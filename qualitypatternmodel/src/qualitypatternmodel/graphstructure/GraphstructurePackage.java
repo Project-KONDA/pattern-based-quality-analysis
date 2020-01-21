@@ -135,13 +135,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
+	int RELATION___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -244,13 +244,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_ELEMENT___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
+	int GRAPH_ELEMENT___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -398,13 +398,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___TO_XQUERY__LOCATION = GRAPH_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_ALL_VARIABLES = GRAPH_ELEMENT___GET_ALL_VARIABLES;
+	int PROPERTY___GET_ALL_INPUTS = GRAPH_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -604,6 +604,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT___TO_XQUERY__LOCATION = GRAPH_ELEMENT___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___GET_ALL_INPUTS = GRAPH_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -893,6 +902,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT___TO_XQUERY__LOCATION = ELEMENT___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___GET_ALL_INPUTS = ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -1202,6 +1220,15 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___TO_XQUERY__LOCATION = ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___GET_ALL_INPUTS = ELEMENT___GET_ALL_INPUTS;
+
+	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1473,13 +1500,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
+	int GRAPH___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -1545,124 +1572,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.OperatorListImpl <em>Operator List</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.impl.OperatorListImpl
-	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getOperatorList()
-	 * @generated
-	 */
-	int OPERATOR_LIST = 7;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Operators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST__OPERATORS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Graph</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Operator List</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
-
-	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___GET_ALL_VARIABLES = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_VARIABLES;
-
-	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The number of operations of the '<em>Operator List</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1670,7 +1579,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getPropertyLocation()
 	 * @generated
 	 */
-	int PROPERTY_LOCATION = 8;
+	int PROPERTY_LOCATION = 7;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Axis <em>Axis</em>}' enum.
@@ -1680,7 +1589,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getAxis()
 	 * @generated
 	 */
-	int AXIS = 9;
+	int AXIS = 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}' enum.
@@ -1690,7 +1599,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getReturnType()
 	 * @generated
 	 */
-	int RETURN_TYPE = 10;
+	int RETURN_TYPE = 9;
 
 
 	/**
@@ -2261,38 +2170,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getGraphElement__Validate__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.OperatorList <em>Operator List</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Operator List</em>'.
-	 * @see qualitypatternmodel.graphstructure.OperatorList
-	 * @generated
-	 */
-	EClass getOperatorList();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.OperatorList#getOperators <em>Operators</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Operators</em>'.
-	 * @see qualitypatternmodel.graphstructure.OperatorList#getOperators()
-	 * @see #getOperatorList()
-	 * @generated
-	 */
-	EReference getOperatorList_Operators();
-
-	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.OperatorList#getGraph <em>Graph</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Graph</em>'.
-	 * @see qualitypatternmodel.graphstructure.OperatorList#getGraph()
-	 * @see #getOperatorList()
-	 * @generated
-	 */
-	EReference getOperatorList_Graph();
-
-	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2790,32 +2667,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGraphElement__Validate__DiagnosticChain_Map();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.OperatorListImpl <em>Operator List</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.graphstructure.impl.OperatorListImpl
-		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getOperatorList()
-		 * @generated
-		 */
-		EClass OPERATOR_LIST = eINSTANCE.getOperatorList();
-
-		/**
-		 * The meta object literal for the '<em><b>Operators</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPERATOR_LIST__OPERATORS = eINSTANCE.getOperatorList_Operators();
-
-		/**
-		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPERATOR_LIST__GRAPH = eINSTANCE.getOperatorList_Graph();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.

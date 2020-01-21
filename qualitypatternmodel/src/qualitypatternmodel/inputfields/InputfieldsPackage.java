@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -124,13 +125,13 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___TO_XQUERY__LOCATION = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___GET_ALL_VARIABLES = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_VARIABLES;
+	int INPUT___GET_ALL_INPUTS = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -269,13 +270,13 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER__IS_PREDEFINED = INPUT__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Number</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__NUMBER = INPUT_FEATURE_COUNT + 0;
+	int NUMBER__VALUE = INPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Number</em>' class.
@@ -296,13 +297,13 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+	int NUMBER___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -441,13 +442,13 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN__IS_PREDEFINED = INPUT__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Bool</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__BOOL = INPUT_FEATURE_COUNT + 0;
+	int BOOLEAN__VALUE = INPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Boolean</em>' class.
@@ -468,13 +469,13 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+	int BOOLEAN___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -613,13 +614,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT__IS_PREDEFINED = INPUT__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__TEXT = INPUT_FEATURE_COUNT + 0;
+	int TEXT__VALUE = INPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Text</em>' class.
@@ -640,13 +641,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+	int TEXT___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -795,13 +796,13 @@ public interface InputfieldsPackage extends EPackage {
 	int COMP_OPTION__OPTIONS = INPUT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__SELECTION = INPUT_FEATURE_COUNT + 1;
+	int COMP_OPTION__VALUE = INPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Comp Option</em>' class.
@@ -822,13 +823,13 @@ public interface InputfieldsPackage extends EPackage {
 	int COMP_OPTION___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+	int COMP_OPTION___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -977,13 +978,13 @@ public interface InputfieldsPackage extends EPackage {
 	int PROPERTY_OPTION__OPTIONS = INPUT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Selection</b></em>' attribute.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__SELECTION = INPUT_FEATURE_COUNT + 1;
+	int PROPERTY_OPTION__VALUE = INPUT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Property Option</em>' class.
@@ -1004,13 +1005,13 @@ public interface InputfieldsPackage extends EPackage {
 	int PROPERTY_OPTION___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_ALL_VARIABLES = INPUT___GET_ALL_VARIABLES;
+	int PROPERTY_OPTION___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Get New Id</em>' operation.
@@ -1103,6 +1104,124 @@ public interface InputfieldsPackage extends EPackage {
 	int PROPERTY_OPTION_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.VariableListImpl <em>Variable List</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.inputfields.impl.VariableListImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getVariableList()
+	 * @generated
+	 */
+	int VARIABLE_LIST = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST__VARIABLES = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST__PATTERN = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Variable List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Get New Id</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Variable List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Input <em>Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1176,15 +1295,15 @@ public interface InputfieldsPackage extends EPackage {
 	EClass getNumber();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Number#getNumber <em>Number</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Number#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Number</em>'.
-	 * @see qualitypatternmodel.inputfields.Number#getNumber()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.inputfields.Number#getValue()
 	 * @see #getNumber()
 	 * @generated
 	 */
-	EAttribute getNumber_Number();
+	EAttribute getNumber_Value();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Boolean <em>Boolean</em>}'.
@@ -1197,15 +1316,15 @@ public interface InputfieldsPackage extends EPackage {
 	EClass getBoolean();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Boolean#getBool <em>Bool</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Boolean#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Bool</em>'.
-	 * @see qualitypatternmodel.inputfields.Boolean#getBool()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.inputfields.Boolean#getValue()
 	 * @see #getBoolean()
 	 * @generated
 	 */
-	EAttribute getBoolean_Bool();
+	EAttribute getBoolean_Value();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Text <em>Text</em>}'.
@@ -1218,15 +1337,15 @@ public interface InputfieldsPackage extends EPackage {
 	EClass getText();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Text#getText <em>Text</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Text#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see qualitypatternmodel.inputfields.Text#getText()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.inputfields.Text#getValue()
 	 * @see #getText()
 	 * @generated
 	 */
-	EAttribute getText_Text();
+	EAttribute getText_Value();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.CompOption <em>Comp Option</em>}'.
@@ -1250,15 +1369,15 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getCompOption_Options();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.CompOption#getSelection <em>Selection</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.CompOption#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Selection</em>'.
-	 * @see qualitypatternmodel.inputfields.CompOption#getSelection()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.inputfields.CompOption#getValue()
 	 * @see #getCompOption()
 	 * @generated
 	 */
-	EAttribute getCompOption_Selection();
+	EAttribute getCompOption_Value();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.PropertyOption <em>Property Option</em>}'.
@@ -1282,15 +1401,47 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getPropertyOption_Options();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.PropertyOption#getSelection <em>Selection</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.PropertyOption#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Selection</em>'.
-	 * @see qualitypatternmodel.inputfields.PropertyOption#getSelection()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.inputfields.PropertyOption#getValue()
 	 * @see #getPropertyOption()
 	 * @generated
 	 */
-	EAttribute getPropertyOption_Selection();
+	EAttribute getPropertyOption_Value();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.VariableList <em>Variable List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable List</em>'.
+	 * @see qualitypatternmodel.inputfields.VariableList
+	 * @generated
+	 */
+	EClass getVariableList();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.inputfields.VariableList#getVariables <em>Variables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Variables</em>'.
+	 * @see qualitypatternmodel.inputfields.VariableList#getVariables()
+	 * @see #getVariableList()
+	 * @generated
+	 */
+	EReference getVariableList_Variables();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.inputfields.VariableList#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Pattern</em>'.
+	 * @see qualitypatternmodel.inputfields.VariableList#getPattern()
+	 * @see #getVariableList()
+	 * @generated
+	 */
+	EReference getVariableList_Pattern();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1376,12 +1527,12 @@ public interface InputfieldsPackage extends EPackage {
 		EClass NUMBER = eINSTANCE.getNumber();
 
 		/**
-		 * The meta object literal for the '<em><b>Number</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NUMBER__NUMBER = eINSTANCE.getNumber_Number();
+		EAttribute NUMBER__VALUE = eINSTANCE.getNumber_Value();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.BooleanImpl <em>Boolean</em>}' class.
@@ -1394,12 +1545,12 @@ public interface InputfieldsPackage extends EPackage {
 		EClass BOOLEAN = eINSTANCE.getBoolean();
 
 		/**
-		 * The meta object literal for the '<em><b>Bool</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BOOLEAN__BOOL = eINSTANCE.getBoolean_Bool();
+		EAttribute BOOLEAN__VALUE = eINSTANCE.getBoolean_Value();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.TextImpl <em>Text</em>}' class.
@@ -1412,12 +1563,12 @@ public interface InputfieldsPackage extends EPackage {
 		EClass TEXT = eINSTANCE.getText();
 
 		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TEXT__TEXT = eINSTANCE.getText_Text();
+		EAttribute TEXT__VALUE = eINSTANCE.getText_Value();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.CompOptionImpl <em>Comp Option</em>}' class.
@@ -1438,12 +1589,12 @@ public interface InputfieldsPackage extends EPackage {
 		EAttribute COMP_OPTION__OPTIONS = eINSTANCE.getCompOption_Options();
 
 		/**
-		 * The meta object literal for the '<em><b>Selection</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMP_OPTION__SELECTION = eINSTANCE.getCompOption_Selection();
+		EAttribute COMP_OPTION__VALUE = eINSTANCE.getCompOption_Value();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl <em>Property Option</em>}' class.
@@ -1464,12 +1615,38 @@ public interface InputfieldsPackage extends EPackage {
 		EAttribute PROPERTY_OPTION__OPTIONS = eINSTANCE.getPropertyOption_Options();
 
 		/**
-		 * The meta object literal for the '<em><b>Selection</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROPERTY_OPTION__SELECTION = eINSTANCE.getPropertyOption_Selection();
+		EAttribute PROPERTY_OPTION__VALUE = eINSTANCE.getPropertyOption_Value();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.VariableListImpl <em>Variable List</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.inputfields.impl.VariableListImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getVariableList()
+		 * @generated
+		 */
+		EClass VARIABLE_LIST = eINSTANCE.getVariableList();
+
+		/**
+		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_LIST__VARIABLES = eINSTANCE.getVariableList_Variables();
+
+		/**
+		 * The meta object literal for the '<em><b>Pattern</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_LIST__PATTERN = eINSTANCE.getVariableList_Pattern();
 
 	}
 

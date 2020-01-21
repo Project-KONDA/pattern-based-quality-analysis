@@ -21,31 +21,31 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.impl.NumberImpl#getNumber <em>Number</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.NumberImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfields.Number {
 	/**
-	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumber()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double NUMBER_EDEFAULT = null;
+	protected static final Double VALUE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getNumber() <em>Number</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumber()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected Double number = NUMBER_EDEFAULT;
+	protected Double value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -58,8 +58,8 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		if(number != null) {
-			return Double.toString(number);
+		if(getValue() != null) {
+			return Double.toString(getValue());
 		} else {
 			throw new InvalidityException("invalid number");
 		}
@@ -72,7 +72,7 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	
 	@Override
 	public boolean inputIsValid() {
-		return number != null;
+		return getValue() != null;
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	 * @generated
 	 */
 	@Override
-	public Double getNumber() {
-		return number;
+	public Double getValue() {
+		return value;
 	}
 
 	/**
@@ -101,11 +101,11 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	 * @generated
 	 */
 	@Override
-	public void setNumber(Double newNumber) {
-		Double oldNumber = number;
-		number = newNumber;
+	public void setValue(Double newValue) {
+		Double oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.NUMBER__NUMBER, oldNumber, number));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.NUMBER__VALUE, oldValue, value));
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InputfieldsPackage.NUMBER__NUMBER:
-				return getNumber();
+			case InputfieldsPackage.NUMBER__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -130,8 +130,8 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InputfieldsPackage.NUMBER__NUMBER:
-				setNumber((Double)newValue);
+			case InputfieldsPackage.NUMBER__VALUE:
+				setValue((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -145,8 +145,8 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.NUMBER__NUMBER:
-				setNumber(NUMBER_EDEFAULT);
+			case InputfieldsPackage.NUMBER__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -160,8 +160,8 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.NUMBER__NUMBER:
-				return NUMBER_EDEFAULT == null ? number != null : !NUMBER_EDEFAULT.equals(number);
+			case InputfieldsPackage.NUMBER__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -176,8 +176,8 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (number: ");
-		result.append(number);
+		result.append(" (value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

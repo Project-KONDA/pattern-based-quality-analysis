@@ -67,6 +67,15 @@ public interface InputfieldsFactory extends EFactory {
 	PropertyOption createPropertyOption();
 
 	/**
+	 * Returns a new object of class '<em>Variable List</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable List</em>'.
+	 * @generated
+	 */
+	VariableList createVariableList();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

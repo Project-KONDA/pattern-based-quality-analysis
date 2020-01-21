@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure;
 
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.inputfields.VariableList;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,13 +72,13 @@ public interface Pattern extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Variable List</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.VariableList#getPattern <em>Pattern</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.VariableList#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variable List</em>' containment reference.
 	 * @see #setVariableList(VariableList)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_VariableList()
-	 * @see qualitypatternmodel.patternstructure.VariableList#getPattern
+	 * @see qualitypatternmodel.inputfields.VariableList#getPattern
 	 * @model opposite="pattern" containment="true" required="true"
 	 * @generated
 	 */

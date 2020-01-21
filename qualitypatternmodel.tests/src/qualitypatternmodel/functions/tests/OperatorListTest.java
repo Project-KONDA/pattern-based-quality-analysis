@@ -1,19 +1,19 @@
 /**
  */
-package qualitypatternmodel.patternstructure.tests;
+package qualitypatternmodel.functions.tests;
 
 import junit.textui.TestRunner;
-
-import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.VariableList;
+import qualitypatternmodel.functions.FunctionsFactory;
+import qualitypatternmodel.functions.OperatorList;
+import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Variable List</b></em>'.
+ * A test case for the model object '<em><b>Operator List</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableListTest extends PatternElementTest {
+public class OperatorListTest extends PatternElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class VariableListTest extends PatternElementTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(VariableListTest.class);
+		TestRunner.run(OperatorListTest.class);
 	}
 
 	/**
-	 * Constructs a new Variable List test case with the given name.
+	 * Constructs a new Operator List test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableListTest(String name) {
+	public OperatorListTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Variable List test case.
+	 * Returns the fixture for this Operator List test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected VariableList getFixture() {
-		return (VariableList)fixture;
+	protected OperatorList getFixture() {
+		return (OperatorList)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class VariableListTest extends PatternElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PatternstructureFactory.eINSTANCE.createVariableList());
+		setFixture(FunctionsFactory.eINSTANCE.createOperatorList());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class VariableListTest extends PatternElementTest {
 		setFixture(null);
 	}
 
-} //VariableListTest
+} //OperatorListTest

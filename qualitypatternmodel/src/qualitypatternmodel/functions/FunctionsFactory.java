@@ -58,6 +58,15 @@ public interface FunctionsFactory extends EFactory {
 	ToNumber createToNumber();
 
 	/**
+	 * Returns a new object of class '<em>Operator List</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operator List</em>'.
+	 * @generated
+	 */
+	OperatorList createOperatorList();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

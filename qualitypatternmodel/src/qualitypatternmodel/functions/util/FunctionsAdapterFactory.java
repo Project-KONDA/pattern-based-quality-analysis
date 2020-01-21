@@ -104,6 +104,10 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 				return createToNumberAdapter();
 			}
 			@Override
+			public Adapter caseOperatorList(OperatorList object) {
+				return createOperatorListAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -240,6 +244,20 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createToNumberAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.functions.OperatorList <em>Operator List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.functions.OperatorList
+	 * @generated
+	 */
+	public Adapter createOperatorListAdapter() {
 		return null;
 	}
 

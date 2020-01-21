@@ -17,11 +17,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.functions.OperatorList;
+import qualitypatternmodel.functions.impl.OperatorListImpl;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.OperatorList;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.Input;
@@ -167,8 +169,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public EList<Input> getAllVariables() throws InvalidityException {
-		EList<Input> res = rootElement.getAllVariables();
+	public EList<Input> getAllInputs() throws InvalidityException {
+		EList<Input> res = rootElement.getAllInputs();
 		return res;
 	}
 
@@ -299,9 +301,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (newOperatorList != operatorList) {
 			NotificationChain msgs = null;
 			if (operatorList != null)
-				msgs = ((InternalEObject)operatorList).eInverseRemove(this, GraphstructurePackage.OPERATOR_LIST__GRAPH, OperatorList.class, msgs);
+				msgs = ((InternalEObject)operatorList).eInverseRemove(this, FunctionsPackage.OPERATOR_LIST__GRAPH, OperatorList.class, msgs);
 			if (newOperatorList != null)
-				msgs = ((InternalEObject)newOperatorList).eInverseAdd(this, GraphstructurePackage.OPERATOR_LIST__GRAPH, OperatorList.class, msgs);
+				msgs = ((InternalEObject)newOperatorList).eInverseAdd(this, FunctionsPackage.OPERATOR_LIST__GRAPH, OperatorList.class, msgs);
 			msgs = basicSetOperatorList(newOperatorList, msgs);
 			if (msgs != null) msgs.dispatch();
 		}

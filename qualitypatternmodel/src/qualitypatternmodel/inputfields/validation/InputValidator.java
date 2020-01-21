@@ -4,7 +4,7 @@
  */
 package qualitypatternmodel.inputfields.validation;
 
-import qualitypatternmodel.patternstructure.VariableList;
+import qualitypatternmodel.inputfields.VariableList;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.inputfields.Input}.

@@ -5,9 +5,8 @@
 package qualitypatternmodel.patternstructure.validation;
 
 import qualitypatternmodel.graphstructure.Graph;
-
+import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.VariableList;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.patternstructure.Pattern}.

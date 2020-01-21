@@ -143,9 +143,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public EList<Input> getAllVariables() throws InvalidityException {
-		EList<Input> inputs = graph.getAllVariables();
-		inputs.addAll(condition.getAllVariables());
+	public EList<Input> getAllInputs() throws InvalidityException {
+		EList<Input> inputs = graph.getAllInputs();
+		inputs.addAll(condition.getAllInputs());
 		return inputs;
 	}
 

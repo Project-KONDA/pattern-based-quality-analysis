@@ -56,7 +56,7 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllVariables() throws InvalidityException {
+	public EList<Input> getAllInputs() throws InvalidityException {
 		return new BasicEList<Input>();
 	}
 

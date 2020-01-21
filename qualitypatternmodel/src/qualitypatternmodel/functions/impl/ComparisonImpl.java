@@ -76,8 +76,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		if(option!=null && option.getSelection()!=null && argument1 != null && argument2 != null) {
-			ComparisonOperator operator = option.getSelection();
+		if(option!=null && option.getValue()!=null && argument1 != null && argument2 != null) {
+			ComparisonOperator operator = option.getValue();
 			return argument1.toXQuery(location) + operator.getLiteral() + argument2.toXQuery(location);
 		} else {
 			throw new InvalidityException("invalid option");
@@ -86,8 +86,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	@Override
 	public String toXQuery(Location location, int depth) throws InvalidityException {
-		if(option!=null && option.getSelection()!=null && argument1 != null && argument2 != null) {
-			ComparisonOperator operator = option.getSelection();
+		if(option!=null && option.getValue()!=null && argument1 != null && argument2 != null) {
+			ComparisonOperator operator = option.getValue();
 			return argument1.toXQuery(location, depth) + operator.getLiteral() + argument2.toXQuery(location, depth);
 		} else {
 			throw new InvalidityException("invalid option");
@@ -136,17 +136,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	@Override
-	public EList<Input> getAllVariables() throws InvalidityException {
+	public EList<Input> getAllInputs() throws InvalidityException {
 		EList<Input> res = new BasicEList<Input>();
 		if (argument1 instanceof Input) {
 			res.add((Input) argument1);
 		} else if (argument1 instanceof Operator) {
-			res.addAll(((Operator) argument1).getAllVariables());
+			res.addAll(((Operator) argument1).getAllInputs());
 		}
 		if (argument2 instanceof Input) {
 			res.add((Input) argument2);
 		} else if (argument2 instanceof Operator) {
-			res.addAll(((Operator) argument2).getAllVariables());
+			res.addAll(((Operator) argument2).getAllInputs());
 		}
 		return res;
 	}

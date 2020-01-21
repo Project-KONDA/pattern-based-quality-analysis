@@ -46,7 +46,7 @@ public class CompOptionItemProvider extends InputItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOptionsPropertyDescriptor(object);
-			addSelectionPropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,19 +74,19 @@ public class CompOptionItemProvider extends InputItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Selection feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSelectionPropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompOption_selection_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompOption_selection_feature", "_UI_CompOption_type"),
-				 InputfieldsPackage.Literals.COMP_OPTION__SELECTION,
+				 getString("_UI_CompOption_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompOption_value_feature", "_UI_CompOption_type"),
+				 InputfieldsPackage.Literals.COMP_OPTION__VALUE,
 				 true,
 				 false,
 				 false,
@@ -132,7 +132,7 @@ public class CompOptionItemProvider extends InputItemProvider {
 
 		switch (notification.getFeatureID(CompOption.class)) {
 			case InputfieldsPackage.COMP_OPTION__OPTIONS:
-			case InputfieldsPackage.COMP_OPTION__SELECTION:
+			case InputfieldsPackage.COMP_OPTION__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

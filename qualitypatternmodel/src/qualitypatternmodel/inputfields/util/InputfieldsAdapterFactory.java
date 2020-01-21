@@ -17,6 +17,7 @@ import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
+import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -98,6 +99,10 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePropertyOption(PropertyOption object) {
 				return createPropertyOptionAdapter();
+			}
+			@Override
+			public Adapter caseVariableList(VariableList object) {
+				return createVariableListAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -208,6 +213,20 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyOptionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.VariableList <em>Variable List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.VariableList
+	 * @generated
+	 */
+	public Adapter createVariableListAdapter() {
 		return null;
 	}
 

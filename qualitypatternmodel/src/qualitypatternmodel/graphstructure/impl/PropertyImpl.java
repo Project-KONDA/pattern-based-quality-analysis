@@ -77,22 +77,22 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 			throw new InvalidityException("element null");
 		if (propertyOption == null) 
 			throw new InvalidityException("location or propertyOptions invalid");
-		if (propertyOption.getSelection() != null && propertyOption.getSelection() == PropertyLocation.ATTRIBUTE && attributeName == null)
+		if (propertyOption.getValue() != null && propertyOption.getValue() == PropertyLocation.ATTRIBUTE && attributeName == null)
 			throw new InvalidityException("attributeName null");		
 	}
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {		
-		if(propertyOption == null || propertyOption.getSelection() == null) {
+		if(propertyOption == null || propertyOption.getValue() == null) {
 			throw new InvalidityException("propertyOptions invalid");
 		}				
 		String propertyElementTranslation = ((SingleElementImpl) getElement()).getXQueryRepresentation(location, 1);
-		switch (propertyOption.getSelection()) {
+		switch (propertyOption.getValue()) {
 			case ATTRIBUTE: 
-				if(attributeName == null || attributeName.getText() == null) {
+				if(attributeName == null || attributeName.getValue() == null) {
 					throw new InvalidityException("attributeName invalid");
 				} else {
-					return propertyElementTranslation + "/data(@" + attributeName.getText() + ")";
+					return propertyElementTranslation + "/data(@" + attributeName.getValue() + ")";
 				}
 			case DATA: return propertyElementTranslation + "/data()";
 			case TAG: return propertyElementTranslation + "/name()";
@@ -104,7 +104,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 
 	@Override
 	public String toXQuery(Location location, int depth) throws InvalidityException {		
-		if(propertyOption == null || propertyOption.getSelection() == null) {
+		if(getPropertyOption() == null || getPropertyOption().getValue() == null) {
 			throw new InvalidityException("propertyOptions invalid");
 		}				
 		String propertyElementTranslation;
@@ -113,12 +113,12 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 		} else {
 			propertyElementTranslation = ((SetElementImpl) getElement()).getXQueryRepresentation(location, depth);
 		}
-		switch (propertyOption.getSelection()) {
+		switch (propertyOption.getValue()) {
 			case ATTRIBUTE: 
-				if(attributeName == null || attributeName.getText() == null) {
+				if(getAttributeName() == null || getAttributeName().getValue() == null) {
 					throw new InvalidityException("attributeName invalid");
 				} else {
-					return propertyElementTranslation + "/data(@" + attributeName.getText() + ")";
+					return propertyElementTranslation + "/data(@" + getAttributeName().getValue() + ")";
 				}
 			case DATA: return propertyElementTranslation + "/data()";
 			case TAG: return propertyElementTranslation + "/name()";
@@ -132,10 +132,10 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllVariables() throws InvalidityException {
+	public EList<Input> getAllInputs() throws InvalidityException {
 		EList<Input> res = new BasicEList<Input>();
-		res.add(attributeName);
-		res.add(propertyOption);
+		res.add(getAttributeName());
+		res.add(getPropertyOption());
 		return res;
 	}
 

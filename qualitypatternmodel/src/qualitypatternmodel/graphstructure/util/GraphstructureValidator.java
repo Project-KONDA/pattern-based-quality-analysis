@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
 import qualitypatternmodel.graphstructure.*;
 
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
@@ -119,8 +118,6 @@ public class GraphstructureValidator extends EObjectValidator {
 				return validateGraph((Graph)value, diagnostics, context);
 			case GraphstructurePackage.GRAPH_ELEMENT:
 				return validateGraphElement((GraphElement)value, diagnostics, context);
-			case GraphstructurePackage.OPERATOR_LIST:
-				return validateOperatorList((OperatorList)value, diagnostics, context);
 			case GraphstructurePackage.PROPERTY_LOCATION:
 				return validatePropertyLocation((PropertyLocation)value, diagnostics, context);
 			case GraphstructurePackage.AXIS:
@@ -333,25 +330,6 @@ public class GraphstructureValidator extends EObjectValidator {
 	 */
 	public boolean validateGraphElement_validate(GraphElement graphElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return graphElement.validate(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateOperatorList(OperatorList operatorList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(operatorList, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(operatorList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(operatorList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(operatorList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(operatorList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(operatorList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(operatorList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(operatorList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(operatorList, diagnostics, context);
-		if (result || diagnostics != null) result &= patternstructureValidator.validatePatternElement_validate(operatorList, diagnostics, context);
-		return result;
 	}
 
 	/**

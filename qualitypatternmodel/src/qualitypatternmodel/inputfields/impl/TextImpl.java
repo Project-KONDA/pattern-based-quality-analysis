@@ -22,31 +22,31 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.impl.TextImpl#getText <em>Text</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.TextImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TextImpl extends InputImpl implements Text {
 	/**
-	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getText()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_EDEFAULT = "";
+	protected static final String VALUE_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getText()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected String text = TEXT_EDEFAULT;
+	protected String value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,8 +59,8 @@ public class TextImpl extends InputImpl implements Text {
 	
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		if(text != null) {
-			return "\""+text+"\"";
+		if(getValue() != null) {
+			return "\"" + getValue() + "\"";
 		} else {
 			throw new InvalidityException("invalid number");
 		}
@@ -73,7 +73,7 @@ public class TextImpl extends InputImpl implements Text {
 	
 	@Override
 	public boolean inputIsValid() {
-		return text != null && text != "";
+		return getValue() != null && getValue() != "";
 	}
 
 	/**
@@ -92,8 +92,8 @@ public class TextImpl extends InputImpl implements Text {
 	 * @generated
 	 */
 	@Override
-	public String getText() {
-		return text;
+	public String getValue() {
+		return value;
 	}
 
 	/**
@@ -102,11 +102,11 @@ public class TextImpl extends InputImpl implements Text {
 	 * @generated
 	 */
 	@Override
-	public void setText(String newText) {
-		String oldText = text;
-		text = newText;
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.TEXT__TEXT, oldText, text));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.TEXT__VALUE, oldValue, value));
 	}
 
 	/**
@@ -117,8 +117,8 @@ public class TextImpl extends InputImpl implements Text {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InputfieldsPackage.TEXT__TEXT:
-				return getText();
+			case InputfieldsPackage.TEXT__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -131,8 +131,8 @@ public class TextImpl extends InputImpl implements Text {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InputfieldsPackage.TEXT__TEXT:
-				setText((String)newValue);
+			case InputfieldsPackage.TEXT__VALUE:
+				setValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -146,8 +146,8 @@ public class TextImpl extends InputImpl implements Text {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.TEXT__TEXT:
-				setText(TEXT_EDEFAULT);
+			case InputfieldsPackage.TEXT__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -161,8 +161,8 @@ public class TextImpl extends InputImpl implements Text {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.TEXT__TEXT:
-				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case InputfieldsPackage.TEXT__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -177,8 +177,8 @@ public class TextImpl extends InputImpl implements Text {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (text: ");
-		result.append(text);
+		result.append(" (value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

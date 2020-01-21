@@ -5,7 +5,6 @@ package qualitypatternmodel.inputfields;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import qualitypatternmodel.graphstructure.GraphElement;
-import qualitypatternmodel.patternstructure.VariableList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,13 +27,13 @@ import qualitypatternmodel.patternstructure.VariableList;
 public interface Input extends GraphElement {
 	/**
 	 * Returns the value of the '<em><b>Variable List</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.VariableList#getVariables <em>Variables</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.VariableList#getVariables <em>Variables</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variable List</em>' container reference.
 	 * @see #setVariableList(VariableList)
 	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput_VariableList()
-	 * @see qualitypatternmodel.patternstructure.VariableList#getVariables
+	 * @see qualitypatternmodel.inputfields.VariableList#getVariables
 	 * @model opposite="variables" required="true" transient="false"
 	 * @generated
 	 */

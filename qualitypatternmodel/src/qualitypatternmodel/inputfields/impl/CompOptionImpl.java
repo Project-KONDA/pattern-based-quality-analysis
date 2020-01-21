@@ -28,7 +28,7 @@ import qualitypatternmodel.patternstructure.InvalidityException;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.impl.CompOptionImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.impl.CompOptionImpl#getSelection <em>Selection</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.CompOptionImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,24 +45,24 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 	protected EList<ComparisonOperator> options;
 
 	/**
-	 * The default value of the '{@link #getSelection() <em>Selection</em>}' attribute.
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelection()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ComparisonOperator SELECTION_EDEFAULT = ComparisonOperator.EQUAL;
+	protected static final ComparisonOperator VALUE_EDEFAULT = ComparisonOperator.EQUAL;
 
 	/**
-	 * The cached value of the '{@link #getSelection() <em>Selection</em>}' attribute.
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSelection()
+	 * @see #getValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected ComparisonOperator selection = SELECTION_EDEFAULT;
+	protected ComparisonOperator value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,16 +75,16 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 	
 	@Override
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		if (options == null) 
+		if (getOptions() == null) 
 			throw new InvalidityException("options null");
-		if (options.size() < 1) 
+		if (getOptions().size() < 1) 
 			throw new InvalidityException("not enough options");
 		super.isValidLocal(isDefinedPattern);
 	}
 	
 	@Override
 	public boolean inputIsValid() {
-		return selection != null && options.contains(selection);
+		return getValue() != null && options.contains(getValue());
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 	 * @generated
 	 */
 	@Override
-	public ComparisonOperator getSelection() {
-		return selection;
+	public ComparisonOperator getValue() {
+		return value;
 	}
 
 	/**
@@ -126,11 +126,11 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 	 * @generated
 	 */
 	@Override
-	public void setSelection(ComparisonOperator newSelection) {
-		ComparisonOperator oldSelection = selection;
-		selection = newSelection == null ? SELECTION_EDEFAULT : newSelection;
+	public void setValue(ComparisonOperator newValue) {
+		ComparisonOperator oldValue = value;
+		value = newValue == null ? VALUE_EDEFAULT : newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.COMP_OPTION__SELECTION, oldSelection, selection));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.COMP_OPTION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -143,8 +143,8 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 		switch (featureID) {
 			case InputfieldsPackage.COMP_OPTION__OPTIONS:
 				return getOptions();
-			case InputfieldsPackage.COMP_OPTION__SELECTION:
-				return getSelection();
+			case InputfieldsPackage.COMP_OPTION__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,8 +162,8 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 				getOptions().clear();
 				getOptions().addAll((Collection<? extends ComparisonOperator>)newValue);
 				return;
-			case InputfieldsPackage.COMP_OPTION__SELECTION:
-				setSelection((ComparisonOperator)newValue);
+			case InputfieldsPackage.COMP_OPTION__VALUE:
+				setValue((ComparisonOperator)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,8 +180,8 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 			case InputfieldsPackage.COMP_OPTION__OPTIONS:
 				getOptions().clear();
 				return;
-			case InputfieldsPackage.COMP_OPTION__SELECTION:
-				setSelection(SELECTION_EDEFAULT);
+			case InputfieldsPackage.COMP_OPTION__VALUE:
+				setValue(VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -197,8 +197,8 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 		switch (featureID) {
 			case InputfieldsPackage.COMP_OPTION__OPTIONS:
 				return options != null && !options.isEmpty();
-			case InputfieldsPackage.COMP_OPTION__SELECTION:
-				return selection != SELECTION_EDEFAULT;
+			case InputfieldsPackage.COMP_OPTION__VALUE:
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -215,8 +215,8 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (options: ");
 		result.append(options);
-		result.append(", selection: ");
-		result.append(selection);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

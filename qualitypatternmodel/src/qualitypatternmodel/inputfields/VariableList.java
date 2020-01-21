@@ -1,9 +1,11 @@
 /**
  */
-package qualitypatternmodel.patternstructure;
+package qualitypatternmodel.inputfields;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.inputfields.Input;
+
+import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,11 +16,11 @@ import qualitypatternmodel.inputfields.Input;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.VariableList#getVariables <em>Variables</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.VariableList#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.VariableList#getVariables <em>Variables</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.VariableList#getPattern <em>Pattern</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getVariableList()
+ * @see qualitypatternmodel.inputfields.InputfieldsPackage#getVariableList()
  * @model
  * @generated
  */
@@ -30,7 +32,7 @@ public interface VariableList extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variables</em>' containment reference list.
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getVariableList_Variables()
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getVariableList_Variables()
 	 * @see qualitypatternmodel.inputfields.Input#getVariableList
 	 * @model opposite="variableList" containment="true"
 	 * @generated
@@ -44,7 +46,7 @@ public interface VariableList extends PatternElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pattern</em>' container reference.
 	 * @see #setPattern(Pattern)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getVariableList_Pattern()
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getVariableList_Pattern()
 	 * @see qualitypatternmodel.patternstructure.Pattern#getVariableList
 	 * @model opposite="variableList" required="true" transient="false"
 	 * @generated
@@ -52,7 +54,7 @@ public interface VariableList extends PatternElement {
 	Pattern getPattern();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.VariableList#getPattern <em>Pattern</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.VariableList#getPattern <em>Pattern</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Pattern</em>' container reference.

@@ -61,6 +61,7 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 			case FunctionsPackage.MATCH: return createMatch();
 			case FunctionsPackage.COMPARISON: return createComparison();
 			case FunctionsPackage.TO_NUMBER: return createToNumber();
+			case FunctionsPackage.OPERATOR_LIST: return createOperatorList();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -138,6 +139,17 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 	public ToNumber createToNumber() {
 		ToNumberImpl toNumber = new ToNumberImpl();
 		return toNumber;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public OperatorList createOperatorList() {
+		OperatorListImpl operatorList = new OperatorListImpl();
+		return operatorList;
 	}
 
 	/**

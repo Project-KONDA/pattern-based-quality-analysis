@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
 import qualitypatternmodel.patternstructure.*;
 
 /**
@@ -114,8 +113,6 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validatePattern((Pattern)value, diagnostics, context);
 			case PatternstructurePackage.PATTERN_ELEMENT:
 				return validatePatternElement((PatternElement)value, diagnostics, context);
-			case PatternstructurePackage.VARIABLE_LIST:
-				return validateVariableList((VariableList)value, diagnostics, context);
 			case PatternstructurePackage.LOGICAL_OPERATOR:
 				return validateLogicalOperator((LogicalOperator)value, diagnostics, context);
 			case PatternstructurePackage.QUANTIFIER:
@@ -447,25 +444,6 @@ public class PatternstructureValidator extends EObjectValidator {
 	 */
 	public boolean validatePatternElement_validate(PatternElement patternElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return patternElement.validate(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateVariableList(VariableList variableList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(variableList, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePatternElement_validate(variableList, diagnostics, context);
-		return result;
 	}
 
 	/**

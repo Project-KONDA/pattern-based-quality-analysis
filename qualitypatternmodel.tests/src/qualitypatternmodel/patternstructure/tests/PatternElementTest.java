@@ -14,7 +14,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location) <em>To XQuery</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAllVariables() <em>Get All Variables</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAllInputs() <em>Get All Inputs</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getNewId() <em>Get New Id</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}</li>
@@ -78,13 +78,13 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllVariables() <em>Get All Variables</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllInputs() <em>Get All Inputs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getAllVariables()
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getAllInputs()
 	 * @generated
 	 */
-	public void testGetAllVariables() {
+	public void testGetAllInputs() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

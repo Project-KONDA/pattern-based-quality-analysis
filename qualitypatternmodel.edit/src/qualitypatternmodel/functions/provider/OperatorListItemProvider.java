@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.graphstructure.provider;
+package qualitypatternmodel.functions.provider;
 
 
 import java.util.Collection;
@@ -17,16 +17,14 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.functions.FunctionsFactory;
-
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.OperatorList;
-
+import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
 
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.OperatorList} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.functions.OperatorList} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -69,7 +67,7 @@ public class OperatorListItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATORS);
+			childrenFeatures.add(FunctionsPackage.Literals.OPERATOR_LIST__OPERATORS);
 		}
 		return childrenFeatures;
 	}
@@ -123,7 +121,7 @@ public class OperatorListItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(OperatorList.class)) {
-			case GraphstructurePackage.OPERATOR_LIST__OPERATORS:
+			case FunctionsPackage.OPERATOR_LIST__OPERATORS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -143,22 +141,22 @@ public class OperatorListItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATORS,
+				(FunctionsPackage.Literals.OPERATOR_LIST__OPERATORS,
 				 FunctionsFactory.eINSTANCE.createCount()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATORS,
+				(FunctionsPackage.Literals.OPERATOR_LIST__OPERATORS,
 				 FunctionsFactory.eINSTANCE.createMatch()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATORS,
+				(FunctionsPackage.Literals.OPERATOR_LIST__OPERATORS,
 				 FunctionsFactory.eINSTANCE.createComparison()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.OPERATOR_LIST__OPERATORS,
+				(FunctionsPackage.Literals.OPERATOR_LIST__OPERATORS,
 				 FunctionsFactory.eINSTANCE.createToNumber()));
 	}
 
