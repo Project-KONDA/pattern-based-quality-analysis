@@ -110,12 +110,12 @@ public class CompOptionItemProvider extends InputItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		CompOption compOption = (CompOption)object;
-		return getString("_UI_CompOption_type") + " " + compOption.getId();
+		return getString("_UI_CompOption_type") + " " + compOption.getId() + " " + compOption.getValue().getName();
 	}
 
 

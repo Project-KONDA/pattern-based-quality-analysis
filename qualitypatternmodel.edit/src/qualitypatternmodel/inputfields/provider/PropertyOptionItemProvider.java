@@ -110,12 +110,12 @@ public class PropertyOptionItemProvider extends InputItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		PropertyOption propertyOption = (PropertyOption)object;
-		return getString("_UI_PropertyOption_type") + " " + propertyOption.getId();
+		return getString("_UI_PropertyOption_type") + " " + propertyOption.getId() + " " + propertyOption.getValue();
 	}
 
 

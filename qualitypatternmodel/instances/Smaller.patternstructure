@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:patternstructure="patternstructure" id="0">
-  <returnGraph id="1" returnElements="3" graphDepth="0" returnGraph="true">
-    <rootElement id="3"/>
-    <operatorList id="2"/>
-  </returnGraph>
-  <condition xsi:type="patternstructure:True" id="162" condDepth="1"/>
-  <variableList id="5"/>
-</patternstructure:Pattern>

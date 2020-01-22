@@ -86,12 +86,12 @@ public class NumberItemProvider extends InputItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
 		qualitypatternmodel.inputfields.Number number = (qualitypatternmodel.inputfields.Number)object;
-		return getString("_UI_Number_type") + " " + number.getId();
+		return getString("_UI_Number_type") + " " + number.getId() + " " + number.getValue();
 	}
 
 

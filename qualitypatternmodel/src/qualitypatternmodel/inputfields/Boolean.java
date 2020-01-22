@@ -22,12 +22,13 @@ package qualitypatternmodel.inputfields;
 public interface Boolean extends Input {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(java.lang.Boolean)
 	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getBoolean_Value()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	java.lang.Boolean getValue();

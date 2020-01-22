@@ -86,12 +86,12 @@ public class BooleanItemProvider extends InputItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT 
 	 */
 	@Override
 	public String getText(Object object) {
 		qualitypatternmodel.inputfields.Boolean boolean_ = (qualitypatternmodel.inputfields.Boolean)object;
-		return getString("_UI_Boolean_type") + " " + boolean_.getId();
+		return getString("_UI_Boolean_type") + " " + boolean_.getId() + " " + boolean_.getValue();
 	}
 
 

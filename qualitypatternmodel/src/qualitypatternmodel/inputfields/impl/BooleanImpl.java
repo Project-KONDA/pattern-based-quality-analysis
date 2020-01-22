@@ -37,7 +37,7 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean VALUE_EDEFAULT = null;
+	protected static final Boolean VALUE_EDEFAULT = Boolean.TRUE;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

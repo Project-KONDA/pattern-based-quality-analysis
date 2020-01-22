@@ -35,7 +35,7 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double VALUE_EDEFAULT = null;
+	protected static final Double VALUE_EDEFAULT = new Double(0.0);
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

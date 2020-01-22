@@ -11,8 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import qualitypatternmodel.patternstructure.True;
-
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.True} object.
  * <!-- begin-user-doc -->
@@ -60,12 +58,11 @@ public class TrueItemProvider extends ConditionItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		True true_ = (True)object;
-		return getString("_UI_True_type") + " " + true_.getId();
+		return getString("_UI_True_type");
 	}
 
 
