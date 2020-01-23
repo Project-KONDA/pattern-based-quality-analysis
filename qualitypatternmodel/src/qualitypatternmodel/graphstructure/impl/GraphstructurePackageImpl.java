@@ -4,6 +4,7 @@ package qualitypatternmodel.graphstructure.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
@@ -21,6 +22,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
@@ -112,6 +114,13 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	private EEnum returnTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType listOfElementsEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -494,6 +503,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getSetElement__GetPathToPreviousSingleElement() {
+		return setElementEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getElement() {
 		return elementEClass;
 	}
@@ -505,7 +524,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EReference getElement_Predicates() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(0);
+		return (EReference)elementEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -515,7 +534,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EReference getElement_RelationFromPrevious() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(1);
+		return (EReference)elementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -525,7 +544,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EAttribute getElement_Translated() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -535,7 +554,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EReference getElement_Properties() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(3);
+		return (EReference)elementEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -545,7 +564,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EAttribute getElement_PredicatesAreBeingTranslated() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)elementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -555,7 +574,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EReference getElement_GetAllElements() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(5);
+		return (EReference)elementEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -565,7 +584,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EReference getElement_GetAllRelations() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(6);
+		return (EReference)elementEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -784,6 +803,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getGraphElement__GetAllArgumentElements() {
+		return graphElementEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getPropertyLocation() {
 		return propertyLocationEEnum;
 	}
@@ -806,6 +835,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EEnum getReturnType() {
 		return returnTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getListOfElements() {
+		return listOfElementsEDataType;
 	}
 
 	/**
@@ -869,15 +908,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(setElementEClass, SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT);
 		createEOperation(setElementEClass, SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS__INT);
 		createEOperation(setElementEClass, SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT);
+		createEOperation(setElementEClass, SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT);
 
 		elementEClass = createEClass(ELEMENT);
-		createEReference(elementEClass, ELEMENT__PREDICATES);
 		createEReference(elementEClass, ELEMENT__RELATION_FROM_PREVIOUS);
 		createEAttribute(elementEClass, ELEMENT__TRANSLATED);
 		createEReference(elementEClass, ELEMENT__PROPERTIES);
 		createEAttribute(elementEClass, ELEMENT__PREDICATES_ARE_BEING_TRANSLATED);
 		createEReference(elementEClass, ELEMENT__GET_ALL_ELEMENTS);
 		createEReference(elementEClass, ELEMENT__GET_ALL_RELATIONS);
+		createEReference(elementEClass, ELEMENT__PREDICATES);
 		createEOperation(elementEClass, ELEMENT___GET_NEXT_ELEMENTS);
 		createEOperation(elementEClass, ELEMENT___GET_PREVIOUS_ELEMENT);
 		createEOperation(elementEClass, ELEMENT___GET_ALL_OPERATORS);
@@ -901,11 +941,15 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(graphElementEClass, GRAPH_ELEMENT___IS_TRANSLATABLE);
 		createEOperation(graphElementEClass, GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT);
 		createEOperation(graphElementEClass, GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP);
+		createEOperation(graphElementEClass, GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS);
 
 		// Create enums
 		propertyLocationEEnum = createEEnum(PROPERTY_LOCATION);
 		axisEEnum = createEEnum(AXIS);
 		returnTypeEEnum = createEEnum(RETURN_TYPE);
+
+		// Create data types
+		listOfElementsEDataType = createEDataType(LIST_OF_ELEMENTS);
 	}
 
 	/**
@@ -1001,14 +1045,17 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEParameter(op, ecorePackage.getEInt(), "depth", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
+		op = initEOperation(getSetElement__GetPathToPreviousSingleElement(), this.getListOfElements(), "getPathToPreviousSingleElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElement_Predicates(), theFunctionsPackage.getBooleanOperator(), null, "predicates", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_RelationFromPrevious(), this.getRelation(), this.getRelation_RelationTo(), "relationFromPrevious", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Translated(), ecorePackage.getEBoolean(), "translated", null, 1, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Properties(), this.getProperty(), this.getProperty_Element(), "properties", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_PredicatesAreBeingTranslated(), ecorePackage.getEBoolean(), "predicatesAreBeingTranslated", null, 1, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_GetAllElements(), this.getElement(), null, "getAllElements", null, 0, -1, Element.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getElement_GetAllRelations(), this.getRelation(), null, "getAllRelations", null, 0, -1, Element.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getElement_Predicates(), theFunctionsPackage.getBooleanOperator(), theFunctionsPackage.getBooleanOperator_Elements(), "predicates", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getElement__GetNextElements(), this.getElement(), "getNextElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 
@@ -1065,6 +1112,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getGraphElement__GetAllArgumentElements(), this.getListOfElements(), "getAllArgumentElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
 		// Initialize enums and add enum literals
 		initEEnum(propertyLocationEEnum, PropertyLocation.class, "PropertyLocation");
 		addEEnumLiteral(propertyLocationEEnum, PropertyLocation.DATA);
@@ -1089,6 +1139,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEEnumLiteral(returnTypeEEnum, ReturnType.BOOLEAN);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.NONE);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.ELEMENT);
+
+		// Initialize data types
+		initEDataType(listOfElementsEDataType, ListOfElements.class, "ListOfElements", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

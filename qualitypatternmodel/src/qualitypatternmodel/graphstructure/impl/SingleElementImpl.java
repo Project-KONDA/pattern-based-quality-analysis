@@ -25,6 +25,7 @@ import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -205,6 +206,20 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				throw new InvalidityException("element not yet translated");
 			}
 		}
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
+	@Override
+	public EList<ListOfElements> getAllArgumentElements() {
+		EList<ListOfElements> list = new BasicEList<ListOfElements>();		
+		ListOfElements listOfElements = new ListOfElements();
+		listOfElements.add(this);
+		list.add(listOfElements);
+		return list;
 	}
 
 	/**

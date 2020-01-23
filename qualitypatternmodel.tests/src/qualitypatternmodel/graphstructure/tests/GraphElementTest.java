@@ -16,6 +16,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.GraphElement#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.GraphElement#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.GraphElement#toXQuery(qualitypatternmodel.patternstructure.Location, int) <em>To XQuery</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.GraphElement#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -77,6 +78,19 @@ public abstract class GraphElementTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testToXQuery__Location_int() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.GraphElement#getAllArgumentElements() <em>Get All Argument Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.GraphElement#getAllArgumentElements()
+	 * @generated
+	 */
+	public void testGetAllArgumentElements() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

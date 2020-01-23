@@ -124,6 +124,8 @@ public class GraphstructureValidator extends EObjectValidator {
 				return validateAxis((Axis)value, diagnostics, context);
 			case GraphstructurePackage.RETURN_TYPE:
 				return validateReturnType((ReturnType)value, diagnostics, context);
+			case GraphstructurePackage.LIST_OF_ELEMENTS:
+				return validateListOfElements((ListOfElements)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -356,6 +358,15 @@ public class GraphstructureValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateReturnType(ReturnType returnType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateListOfElements(ListOfElements listOfElements, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

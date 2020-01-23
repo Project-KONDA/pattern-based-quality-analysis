@@ -48,11 +48,11 @@ public class ElementItemProvider extends GraphElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPredicatesPropertyDescriptor(object);
 			addTranslatedPropertyDescriptor(object);
 			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
 			addGetAllElementsPropertyDescriptor(object);
 			addGetAllRelationsPropertyDescriptor(object);
+			addPredicatesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

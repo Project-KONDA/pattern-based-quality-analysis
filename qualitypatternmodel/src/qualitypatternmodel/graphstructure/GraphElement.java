@@ -4,6 +4,7 @@ package qualitypatternmodel.graphstructure;
 
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -50,5 +51,13 @@ public interface GraphElement extends PatternElement {
 	 * @generated
 	 */
 	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="qualitypatternmodel.graphstructure.ListOfElements" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	EList<ListOfElements> getAllArgumentElements() throws InvalidityException;
 
 } // GraphElement

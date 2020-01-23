@@ -9,9 +9,11 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.functions.BooleanOperator;
+import qualitypatternmodel.functions.FunctionsPackage;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.functions.BooleanOperator} object.
@@ -41,8 +43,31 @@ public class BooleanOperatorItemProvider extends OperatorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addElementsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Elements feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addElementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BooleanOperator_elements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BooleanOperator_elements_feature", "_UI_BooleanOperator_type"),
+				 FunctionsPackage.Literals.BOOLEAN_OPERATOR__ELEMENTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

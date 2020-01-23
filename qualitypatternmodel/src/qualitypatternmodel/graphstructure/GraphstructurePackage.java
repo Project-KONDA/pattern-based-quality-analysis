@@ -4,6 +4,7 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -325,13 +326,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Graph Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int GRAPH_ELEMENT_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
@@ -479,6 +489,15 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_ALL_ARGUMENT_ELEMENTS = GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
 	 * The number of operations of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -507,22 +526,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__ID = GRAPH_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__PREDICATES = GRAPH_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__RELATION_FROM_PREVIOUS = GRAPH_ELEMENT_FEATURE_COUNT + 1;
+	int ELEMENT__RELATION_FROM_PREVIOUS = GRAPH_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Translated</b></em>' attribute.
@@ -531,7 +541,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__TRANSLATED = GRAPH_ELEMENT_FEATURE_COUNT + 2;
+	int ELEMENT__TRANSLATED = GRAPH_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -540,7 +550,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PROPERTIES = GRAPH_ELEMENT_FEATURE_COUNT + 3;
+	int ELEMENT__PROPERTIES = GRAPH_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
@@ -549,7 +559,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = GRAPH_ELEMENT_FEATURE_COUNT + 4;
+	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = GRAPH_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Get All Elements</b></em>' reference list.
@@ -558,7 +568,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__GET_ALL_ELEMENTS = GRAPH_ELEMENT_FEATURE_COUNT + 5;
+	int ELEMENT__GET_ALL_ELEMENTS = GRAPH_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Get All Relations</b></em>' reference list.
@@ -567,7 +577,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__GET_ALL_RELATIONS = GRAPH_ELEMENT_FEATURE_COUNT + 6;
+	int ELEMENT__GET_ALL_RELATIONS = GRAPH_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__PREDICATES = GRAPH_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -669,6 +688,15 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
 	 * The operation id for the '<em>Get Next Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -760,15 +788,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__ID = ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__PREDICATES = ELEMENT__PREDICATES;
-
-	/**
 	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -821,6 +840,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT__GET_ALL_RELATIONS = ELEMENT__GET_ALL_RELATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__PREDICATES = ELEMENT__PREDICATES;
 
 	/**
 	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
@@ -976,6 +1004,15 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
 	 * The operation id for the '<em>Get Next Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1103,15 +1140,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__ID = ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__PREDICATES = ELEMENT__PREDICATES;
-
-	/**
 	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1164,6 +1192,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT__GET_ALL_RELATIONS = ELEMENT__GET_ALL_RELATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT__PREDICATES = ELEMENT__PREDICATES;
 
 	/**
 	 * The feature id for the '<em><b>Nesting Depth</b></em>' attribute.
@@ -1301,6 +1338,15 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
 	 * The operation id for the '<em>Get Next Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1391,13 +1437,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT = ELEMENT_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get Path To Previous Single Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = ELEMENT_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Set Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 3;
+	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -1600,6 +1655,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	int RETURN_TYPE = 9;
+
+
+	/**
+	 * The meta object id for the '<em>List Of Elements</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.ListOfElements
+	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getListOfElements()
+	 * @generated
+	 */
+	int LIST_OF_ELEMENTS = 10;
 
 
 	/**
@@ -1910,6 +1976,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getSetElement__TranslatePredicates__Location_int();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#getPathToPreviousSingleElement() <em>Get Path To Previous Single Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Path To Previous Single Element</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SetElement#getPathToPreviousSingleElement()
+	 * @generated
+	 */
+	EOperation getSetElement__GetPathToPreviousSingleElement();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Element <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2214,6 +2290,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getGraphElement__Validate__DiagnosticChain_Map();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.GraphElement#getAllArgumentElements() <em>Get All Argument Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Argument Elements</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.GraphElement#getAllArgumentElements()
+	 * @generated
+	 */
+	EOperation getGraphElement__GetAllArgumentElements();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2242,6 +2328,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getReturnType();
+
+	/**
+	 * Returns the meta object for data type '{@link qualitypatternmodel.graphstructure.ListOfElements <em>List Of Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>List Of Elements</em>'.
+	 * @see qualitypatternmodel.graphstructure.ListOfElements
+	 * @model instanceClass="qualitypatternmodel.graphstructure.ListOfElements"
+	 * @generated
+	 */
+	EDataType getListOfElements();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2507,6 +2604,14 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT = eINSTANCE.getSetElement__TranslatePredicates__Location_int();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Path To Previous Single Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = eINSTANCE.getSetElement__GetPathToPreviousSingleElement();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2745,6 +2850,14 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGraphElement__Validate__DiagnosticChain_Map();
 
 		/**
+		 * The meta object literal for the '<em><b>Get All Argument Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = eINSTANCE.getGraphElement__GetAllArgumentElements();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2773,6 +2886,16 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum RETURN_TYPE = eINSTANCE.getReturnType();
+
+		/**
+		 * The meta object literal for the '<em>List Of Elements</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.graphstructure.ListOfElements
+		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getListOfElements()
+		 * @generated
+		 */
+		EDataType LIST_OF_ELEMENTS = eINSTANCE.getListOfElements();
 
 	}
 

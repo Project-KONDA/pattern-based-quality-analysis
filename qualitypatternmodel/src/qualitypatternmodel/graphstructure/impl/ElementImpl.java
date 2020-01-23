@@ -18,10 +18,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.functions.BooleanOperator;
 
+import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -38,27 +39,18 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllElements <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllRelations <em>Get All Relations</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getPredicates <em>Predicates</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class ElementImpl extends GraphElementImpl implements Element {
-	/**
-	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getPredicates()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BooleanOperator> predicates;
-
 	/**
 	 * The cached value of the '{@link #getRelationFromPrevious() <em>Relation From Previous</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
@@ -134,6 +126,15 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * @ordered
 	 */
 	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_RELATIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.ELEMENT__GET_ALL_RELATIONS).getSettingDelegate();
+
+	/**
+	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getPredicates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BooleanOperator> predicates;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -265,7 +266,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public EList<BooleanOperator> getPredicates() {
 		if (predicates == null) {
-			predicates = new EObjectResolvingEList<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES);
+			predicates = new EObjectWithInverseResolvingEList.ManyInverse<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES, FunctionsPackage.BOOLEAN_OPERATOR__ELEMENTS);
 		}
 		return predicates;
 	}
@@ -423,6 +424,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return basicSetRelationFromPrevious((Relation)otherEnd, msgs);
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.ELEMENT__PREDICATES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPredicates()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -438,6 +441,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return basicSetRelationFromPrevious(null, msgs);
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.ELEMENT__PREDICATES:
+				return ((InternalEList<?>)getPredicates()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -449,8 +454,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.ELEMENT__PREDICATES:
-				return getPredicates();
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return getRelationFromPrevious();
 			case GraphstructurePackage.ELEMENT__TRANSLATED:
@@ -463,6 +466,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return getGetAllElements();
 			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
 				return getGetAllRelations();
+			case GraphstructurePackage.ELEMENT__PREDICATES:
+				return getPredicates();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -475,10 +480,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.ELEMENT__PREDICATES:
-				getPredicates().clear();
-				getPredicates().addAll((Collection<? extends BooleanOperator>)newValue);
-				return;
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				setRelationFromPrevious((Relation)newValue);
 				return;
@@ -500,6 +501,10 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				getGetAllRelations().clear();
 				getGetAllRelations().addAll((Collection<? extends Relation>)newValue);
 				return;
+			case GraphstructurePackage.ELEMENT__PREDICATES:
+				getPredicates().clear();
+				getPredicates().addAll((Collection<? extends BooleanOperator>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -511,9 +516,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.ELEMENT__PREDICATES:
-				getPredicates().clear();
-				return;
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				setRelationFromPrevious((Relation)null);
 				return;
@@ -532,6 +534,9 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
 				getGetAllRelations().clear();
 				return;
+			case GraphstructurePackage.ELEMENT__PREDICATES:
+				getPredicates().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -543,8 +548,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.ELEMENT__PREDICATES:
-				return predicates != null && !predicates.isEmpty();
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return relationFromPrevious != null;
 			case GraphstructurePackage.ELEMENT__TRANSLATED:
@@ -557,6 +560,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
 				return GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case GraphstructurePackage.ELEMENT__PREDICATES:
+				return predicates != null && !predicates.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

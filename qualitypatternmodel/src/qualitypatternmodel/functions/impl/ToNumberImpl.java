@@ -3,6 +3,7 @@
 package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -10,7 +11,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.ToNumber;
-
+import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
@@ -71,6 +73,17 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
 		return property.isTranslatable();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * 
+	 */
+	@Override
+	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {		
+		return property.getAllArgumentElements();
 	}
 
 	/**

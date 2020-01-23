@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -138,6 +139,41 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 		}
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * 
+	 */
+	@Override
+	public ListOfElements getPathToPreviousSingleElement() throws InvalidityException {
+		if (getPreviousSingle() != null) {		
+			ListOfElements listOfElements = new ListOfElements();
+			listOfElements.add(this);
+			listOfElements.add(getPreviousSingle());
+			return listOfElements;
+		} else if (getPreviousSet() != null) {	
+			ListOfElements list = getPreviousSet().getPathToPreviousSingleElement();
+			list.add(this);
+			return list;
+		} else { 
+			throw new InvalidityException("previous null");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * 
+	 */
+	@Override
+	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {		
+		EList<ListOfElements> list = new BasicEList<ListOfElements>();
+		list.add(getPathToPreviousSingleElement());
+		return list;
 	}
 
 	/**
@@ -470,6 +506,13 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			case GraphstructurePackage.SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT:
 				try {
 					return translatePredicates((Location)arguments.get(0), (Integer)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT:
+				try {
+					return getPathToPreviousSingleElement();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

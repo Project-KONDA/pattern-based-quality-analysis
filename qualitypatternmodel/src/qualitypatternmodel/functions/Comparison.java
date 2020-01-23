@@ -3,7 +3,6 @@
 package qualitypatternmodel.functions;
 
 import qualitypatternmodel.graphstructure.GraphElement;
-
 import qualitypatternmodel.inputfields.CompOption;
 
 /**

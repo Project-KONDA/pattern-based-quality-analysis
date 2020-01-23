@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.Text;
@@ -117,6 +119,17 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
 		return property.isTranslatable();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * 
+	 */
+	@Override
+	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {		
+		return property.getAllArgumentElements();
 	}
 	
 	/**

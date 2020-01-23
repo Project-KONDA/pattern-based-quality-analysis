@@ -214,6 +214,16 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getBooleanOperator_Elements() {
+		return (EReference)booleanOperatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOperator() {
 		return operatorEClass;
 	}
@@ -448,6 +458,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		// Create classes and their features
 		booleanOperatorEClass = createEClass(BOOLEAN_OPERATOR);
+		createEReference(booleanOperatorEClass, BOOLEAN_OPERATOR__ELEMENTS);
 
 		operatorEClass = createEClass(OPERATOR);
 		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
@@ -526,6 +537,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(booleanOperatorEClass, BooleanOperator.class, "BooleanOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBooleanOperator_Elements(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_Predicates(), "elements", null, 0, -1, BooleanOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

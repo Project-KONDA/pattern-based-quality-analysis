@@ -4,12 +4,15 @@ package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
 
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -82,6 +85,18 @@ public abstract class GraphElementImpl extends PatternElementImpl implements Gra
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * 
+	 */
+	@Override
+	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {
+		EList<ListOfElements> list = new BasicEList<ListOfElements>();
+		return list;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -99,6 +114,13 @@ public abstract class GraphElementImpl extends PatternElementImpl implements Gra
 			case GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT:
 				try {
 					return toXQuery((Location)arguments.get(0), (Integer)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS:
+				try {
+					return getAllArgumentElements();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

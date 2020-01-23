@@ -4,6 +4,9 @@
  */
 package qualitypatternmodel.functions.validation;
 
+import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.graphstructure.Element;
+
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.functions.BooleanOperator}.
@@ -13,5 +16,7 @@ package qualitypatternmodel.functions.validation;
  */
 public interface BooleanOperatorValidator {
 	boolean validate();
+
+	boolean validateElements(EList<Element> value);
 
 }

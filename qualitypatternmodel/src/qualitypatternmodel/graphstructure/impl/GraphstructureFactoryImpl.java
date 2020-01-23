@@ -80,6 +80,8 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 				return createAxisFromString(eDataType, initialValue);
 			case GraphstructurePackage.RETURN_TYPE:
 				return createReturnTypeFromString(eDataType, initialValue);
+			case GraphstructurePackage.LIST_OF_ELEMENTS:
+				return createListOfElementsFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -99,6 +101,8 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 				return convertAxisToString(eDataType, instanceValue);
 			case GraphstructurePackage.RETURN_TYPE:
 				return convertReturnTypeToString(eDataType, instanceValue);
+			case GraphstructurePackage.LIST_OF_ELEMENTS:
+				return convertListOfElementsToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -217,6 +221,24 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 */
 	public String convertReturnTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ListOfElements createListOfElementsFromString(EDataType eDataType, String initialValue) {
+		return (ListOfElements)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertListOfElementsToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

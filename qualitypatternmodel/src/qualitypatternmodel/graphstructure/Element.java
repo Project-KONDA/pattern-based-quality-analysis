@@ -19,13 +19,13 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllElements <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllRelations <em>Get All Relations</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
@@ -36,11 +36,13 @@ public interface Element extends GraphElement {
 	/**
 	 * Returns the value of the '<em><b>Predicates</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.functions.BooleanOperator}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.BooleanOperator#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Predicates</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Predicates()
-	 * @model
+	 * @see qualitypatternmodel.functions.BooleanOperator#getElements
+	 * @model opposite="elements"
 	 * @generated
 	 */
 	EList<BooleanOperator> getPredicates();

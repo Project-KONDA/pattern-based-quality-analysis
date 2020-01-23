@@ -68,7 +68,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 
 		EList<Operator> graphOps = getGraph().getAllOperators();
 		if (!(graphOps.containsAll(getOperators()) && getOperators().containsAll(graphOps))) {
-			String msg = "operators from OperatorList not equal amount of operators used in Graph: \n";
+			String msg = "amount of operators in OperatorList not equal to amount of operators used in Graph: \n";
 			msg += getOperators();
 			for (Operator op : graphOps) {
 				msg += op.getId();

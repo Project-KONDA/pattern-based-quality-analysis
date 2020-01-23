@@ -170,6 +170,15 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___TO_XQUERY__LOCATION_INT = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT;
 
 	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,13 +225,22 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR__ID = OPERATOR__ID;
 
 	/**
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__ELEMENTS = OPERATOR_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 0;
+	int BOOLEAN_OPERATOR_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -304,6 +322,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___TO_XQUERY__LOCATION_INT = OPERATOR___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -440,6 +467,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATORS___TO_XQUERY__LOCATION_INT = OPERATOR___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS___GET_ALL_ARGUMENT_ELEMENTS = OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -587,6 +623,15 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT___TO_XQUERY__LOCATION_INT = NUMBER_OPERATORS___TO_XQUERY__LOCATION_INT;
 
 	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___GET_ALL_ARGUMENT_ELEMENTS = NUMBER_OPERATORS___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -723,6 +768,15 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATORS___TO_XQUERY__LOCATION_INT = OPERATOR___TO_XQUERY__LOCATION_INT;
 
 	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS___GET_ALL_ARGUMENT_ELEMENTS = OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -767,6 +821,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH__ID = BOOLEAN_OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH__ELEMENTS = BOOLEAN_OPERATOR__ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' reference.
@@ -886,6 +949,15 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___TO_XQUERY__LOCATION_INT = BOOLEAN_OPERATOR___TO_XQUERY__LOCATION_INT;
 
 	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GET_ALL_ARGUMENT_ELEMENTS = BOOLEAN_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -930,6 +1002,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON__ID = BOOLEAN_OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON__ELEMENTS = BOOLEAN_OPERATOR__ELEMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Argument1</b></em>' reference.
@@ -1047,6 +1128,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___TO_XQUERY__LOCATION_INT = BOOLEAN_OPERATOR___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GET_ALL_ARGUMENT_ELEMENTS = BOOLEAN_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1192,6 +1282,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TO_NUMBER___TO_XQUERY__LOCATION_INT = NUMBER_OPERATORS___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER___GET_ALL_ARGUMENT_ELEMENTS = NUMBER_OPERATORS___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1358,6 +1457,17 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBooleanOperator();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.functions.BooleanOperator#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Elements</em>'.
+	 * @see qualitypatternmodel.functions.BooleanOperator#getElements()
+	 * @see #getBooleanOperator()
+	 * @generated
+	 */
+	EReference getBooleanOperator_Elements();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Operator <em>Operator</em>}'.
@@ -1611,6 +1721,14 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOOLEAN_OPERATOR = eINSTANCE.getBooleanOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOLEAN_OPERATOR__ELEMENTS = eINSTANCE.getBooleanOperator_Elements();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OperatorImpl <em>Operator</em>}' class.

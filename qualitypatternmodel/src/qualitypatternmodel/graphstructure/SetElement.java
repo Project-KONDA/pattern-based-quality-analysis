@@ -134,6 +134,14 @@ public interface SetElement extends Element {
 	 * @generated
 	 */
 	String translatePredicates(Location location, int depth) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="qualitypatternmodel.graphstructure.ListOfElements" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	ListOfElements getPathToPreviousSingleElement() throws InvalidityException;
 	
 
 } // SetElement

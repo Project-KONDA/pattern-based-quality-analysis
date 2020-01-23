@@ -14,7 +14,9 @@ import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphElement;
+import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.CompOption;
@@ -114,7 +116,38 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		if (option == null) 
 			throw new InvalidityException("operator Options invalid");
 		if (!(argument1.getReturnType() == argument2.getReturnType()))
-			throw new InvalidityException("unmatching types");
+			throw new InvalidityException("unmatching types");		
+		
+		// ensure "predicate owner must be argument" constraint:	
+		
+		EList<ListOfElements> arguments = getAllArgumentElements();
+		
+		EList<Element> argumentsFlattened = new BasicEList<Element>();
+		arguments.forEach(argumentsFlattened::addAll);		
+		
+		boolean ownersInArguments = argumentsFlattened.containsAll(elements);
+
+		if(!ownersInArguments) {
+			throw new InvalidityException("invalid predicate argument");
+		}
+		
+		boolean argumentsInElements = true;
+		for(ListOfElements listOfElements : arguments) {
+			boolean isElement = false;
+			for(Element argument : listOfElements) {
+				for(Element owner : elements) {					
+					if(argument.equals(owner)) {	
+						// TODO: what if isElement is already true?
+						isElement = true;		
+					}
+				}
+			}
+			argumentsInElements &= isElement;
+		}		
+		if(!argumentsInElements) {
+			throw new InvalidityException("invalid predicate owner");
+		}
+		
 	}
 
 	/**
@@ -159,6 +192,19 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
 		return argument1.isTranslatable() && argument2.isTranslatable();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * 
+	 */
+	@Override
+	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {				
+		EList<ListOfElements> arguments = argument1.getAllArgumentElements();
+		arguments.addAll(argument2.getAllArgumentElements());
+		return arguments;
 	}
 
 
