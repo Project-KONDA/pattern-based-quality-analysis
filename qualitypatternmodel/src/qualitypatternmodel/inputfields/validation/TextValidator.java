@@ -14,5 +14,7 @@ package qualitypatternmodel.inputfields.validation;
 public interface TextValidator {
 	boolean validate();
 
+	boolean validateValue(String value);
+
 	boolean validateText(String value);
 }

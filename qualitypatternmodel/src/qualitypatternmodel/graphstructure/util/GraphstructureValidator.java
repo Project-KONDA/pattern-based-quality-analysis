@@ -242,7 +242,7 @@ public class GraphstructureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String SET_ELEMENT__HAS_PREVIOUS__EEXPRESSION = "self.previous->notEmpty()";
+	protected static final String SET_ELEMENT__HAS_PREVIOUS__EEXPRESSION = "self.previousSet->notEmpty() or self.previousSingle->notEmpty()";
 
 	/**
 	 * Validates the hasPrevious constraint of '<em>Set Element</em>'.

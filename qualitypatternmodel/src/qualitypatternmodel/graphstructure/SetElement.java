@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.graphstructure;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
@@ -15,11 +16,14 @@ import qualitypatternmodel.patternstructure.Location;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getNestingDepth <em>Nesting Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getNext <em>Next</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSet <em>Previous Set</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSingle <em>Previous Single</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasPrevious'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot hasPrevious='self.previous-&gt;notEmpty()'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot hasPrevious='self.previousSet-&gt;notEmpty() or self.previousSingle-&gt;notEmpty()'"
  * @generated
  */
 public interface SetElement extends Element {
@@ -44,6 +48,68 @@ public interface SetElement extends Element {
 	 * @generated
 	 */
 	void setNestingDepth(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Next</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.SetElement}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSet <em>Previous Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement_Next()
+	 * @see qualitypatternmodel.graphstructure.SetElement#getPreviousSet
+	 * @model opposite="previousSet" containment="true"
+	 * @generated
+	 */
+	EList<SetElement> getNext();
+
+	/**
+	 * Returns the value of the '<em><b>Previous Set</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SetElement#getNext <em>Next</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Previous Set</em>' container reference.
+	 * @see #setPreviousSet(SetElement)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement_PreviousSet()
+	 * @see qualitypatternmodel.graphstructure.SetElement#getNext
+	 * @model opposite="next" transient="false"
+	 * @generated
+	 */
+	SetElement getPreviousSet();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSet <em>Previous Set</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Previous Set</em>' container reference.
+	 * @see #getPreviousSet()
+	 * @generated
+	 */
+	void setPreviousSet(SetElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Previous Single</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getNextSet <em>Next Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Previous Single</em>' container reference.
+	 * @see #setPreviousSingle(SingleElement)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement_PreviousSingle()
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getNextSet
+	 * @model opposite="nextSet" transient="false"
+	 * @generated
+	 */
+	SingleElement getPreviousSingle();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSingle <em>Previous Single</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Previous Single</em>' container reference.
+	 * @see #getPreviousSingle()
+	 * @generated
+	 */
+	void setPreviousSingle(SingleElement value);
 
 	/**
 	 * <!-- begin-user-doc -->

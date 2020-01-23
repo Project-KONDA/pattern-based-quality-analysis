@@ -18,5 +18,7 @@ public interface PropertyOptionValidator {
 	boolean validate();
 
 	boolean validateOptions(EList<PropertyLocation> value);
+	boolean validateValue(PropertyLocation value);
+
 	boolean validateSelection(PropertyLocation value);
 }

@@ -19,5 +19,7 @@ public interface MatchValidator {
 
 	boolean validateProperty(Property value);
 	boolean validateRegularExpression(Text value);
+	boolean validateOption(qualitypatternmodel.inputfields.Boolean value);
+
 	boolean validateOption(BoolOption value);
 }

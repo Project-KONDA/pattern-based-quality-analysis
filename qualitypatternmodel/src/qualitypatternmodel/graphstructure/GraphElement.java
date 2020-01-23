@@ -30,10 +30,10 @@ public interface GraphElement extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
+	 * @model kind="operation" required="true" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	boolean isTranslatable();
+	boolean isTranslatable() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

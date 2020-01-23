@@ -66,7 +66,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 
 	@Override
-	public boolean isTranslatable() {
+	public boolean isTranslatable() throws InvalidityException {
 		return argument.isTranslatable();
 	}
 	

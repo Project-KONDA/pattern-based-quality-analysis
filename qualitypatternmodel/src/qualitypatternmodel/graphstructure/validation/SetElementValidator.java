@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.SetElement;
+import qualitypatternmodel.graphstructure.SingleElement;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.SetElement}.
@@ -19,6 +20,10 @@ public interface SetElementValidator {
 	boolean validate();
 
 	boolean validateNext(EList<SetElement> value);
+	boolean validatePreviousSet(SetElement value);
+
+	boolean validatePreviousSingle(SingleElement value);
+
 	boolean validatePrevious(Element value);
 
 	boolean validateNestingDepth(int value);

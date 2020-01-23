@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.graphstructure;
 
+import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -101,10 +102,10 @@ public interface Relation extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
+	 * @model kind="operation" required="true" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	int getGraphDepth();
+	int getGraphDepth() throws InvalidityException;
 
 	/**
 	 * Returns the value of the '<em><b>Relation To</b></em>' container reference.

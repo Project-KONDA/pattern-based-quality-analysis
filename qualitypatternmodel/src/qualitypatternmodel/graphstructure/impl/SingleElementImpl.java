@@ -9,13 +9,14 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -24,6 +25,7 @@ import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
@@ -41,6 +43,9 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getRoot <em>Root</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getNextSingle <em>Next Single</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getNextSet <em>Next Set</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +68,26 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * @ordered
 	 */
 	protected SingleElementMapping mappingFrom;
+
+	/**
+	 * The cached value of the '{@link #getNextSingle() <em>Next Single</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNextSingle()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SingleElement> nextSingle;
+
+	/**
+	 * The cached value of the '{@link #getNextSet() <em>Next Set</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNextSet()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SetElement> nextSet;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -97,10 +122,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			}
 		}
 
-		for (Element nextElement : getNextElements()) {
-			if (nextElement instanceof SingleElement) {
-				result += nextElement.toXQuery(location);
-			}
+		for (Element nextElement : getNextSingle()) {			
+			result += nextElement.toXQuery(location);			
 		}
 
 		return result;
@@ -156,9 +179,11 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 *  
 	 */
-	public int getGraphDepth() {
-		if (getRoot() instanceof Graph)
+	public int getGraphDepth() throws InvalidityException {
+		if (getRoot() != null)
 			return getRoot().getGraphDepth();
 		else
 			return super.getGraphDepth();
@@ -302,6 +327,75 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<SingleElement> getNextSingle() {
+		if (nextSingle == null) {
+			nextSingle = new EObjectContainmentWithInverseEList<SingleElement>(SingleElement.class, this, GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS);
+		}
+		return nextSingle;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SingleElement getPrevious() {
+		if (eContainerFeatureID() != GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS) return null;
+		return (SingleElement)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPrevious(SingleElement newPrevious, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPrevious, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPrevious(SingleElement newPrevious) {
+		if (newPrevious != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS && newPrevious != null)) {
+			if (EcoreUtil.isAncestor(this, newPrevious))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newPrevious != null)
+				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE, SingleElement.class, msgs);
+			msgs = basicSetPrevious(newPrevious, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, newPrevious, newPrevious));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<SetElement> getNextSet() {
+		if (nextSet == null) {
+			nextSet = new EObjectContainmentWithInverseEList<SetElement>(SetElement.class, this, GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET, GraphstructurePackage.SET_ELEMENT__PREVIOUS_SINGLE);
+		}
+		return nextSet;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public int getOriginalID() {
@@ -337,6 +431,14 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetRoot((Graph)otherEnd, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNextSingle()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPrevious((SingleElement)otherEnd, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNextSet()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -354,6 +456,12 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return basicSetMappingFrom(null, msgs);
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
 				return basicSetRoot(null, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+				return ((InternalEList<?>)getNextSingle()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
+				return basicSetPrevious(null, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET:
+				return ((InternalEList<?>)getNextSet()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -367,6 +475,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		switch (eContainerFeatureID()) {
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
 				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.GRAPH__ROOT_ELEMENT, Graph.class, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE, SingleElement.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -385,6 +495,12 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return basicGetMappingFrom();
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
 				return getRoot();
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+				return getNextSingle();
+			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
+				return getPrevious();
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET:
+				return getNextSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -407,6 +523,17 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
 				setRoot((Graph)newValue);
 				return;
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+				getNextSingle().clear();
+				getNextSingle().addAll((Collection<? extends SingleElement>)newValue);
+				return;
+			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
+				setPrevious((SingleElement)newValue);
+				return;
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET:
+				getNextSet().clear();
+				getNextSet().addAll((Collection<? extends SetElement>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -427,6 +554,15 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
 				setRoot((Graph)null);
 				return;
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+				getNextSingle().clear();
+				return;
+			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
+				setPrevious((SingleElement)null);
+				return;
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET:
+				getNextSet().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -444,6 +580,12 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return mappingFrom != null;
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
 				return getRoot() != null;
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+				return nextSingle != null && !nextSingle.isEmpty();
+			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
+				return getPrevious() != null;
+			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET:
+				return nextSet != null && !nextSet.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -474,7 +616,14 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 	@Override
 	public EList<Element> getNextElements() {
-		return getNext();
+		EList<Element> elementListNext = new BasicEList<Element>();
+		for (Element element : getNextSingle()) {
+			elementListNext.add(element);
+		}
+		for (Element element : getNextSet()) {
+			elementListNext.add(element);
+		}
+		return elementListNext;
 	}
 
 	@Override

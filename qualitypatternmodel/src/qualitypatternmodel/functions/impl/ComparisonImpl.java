@@ -157,7 +157,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 	
 	@Override
-	public boolean isTranslatable() {
+	public boolean isTranslatable() throws InvalidityException {
 		return argument1.isTranslatable() && argument2.isTranslatable();
 	}
 

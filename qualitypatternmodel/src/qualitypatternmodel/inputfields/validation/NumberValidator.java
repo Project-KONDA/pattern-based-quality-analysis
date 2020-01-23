@@ -14,5 +14,7 @@ package qualitypatternmodel.inputfields.validation;
 public interface NumberValidator {
 	boolean validate();
 
+	boolean validateValue(Double value);
+
 	boolean validateNumber(Double value);
 }

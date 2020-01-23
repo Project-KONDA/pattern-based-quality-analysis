@@ -18,5 +18,7 @@ public interface CompOptionValidator {
 	boolean validate();
 
 	boolean validateOptions(EList<ComparisonOperator> value);
+	boolean validateValue(ComparisonOperator value);
+
 	boolean validateSelection(ComparisonOperator value);
 }

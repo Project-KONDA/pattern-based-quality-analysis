@@ -247,9 +247,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 */
 	@Override
-	public int getGraphDepth() {
+	public int getGraphDepth() throws InvalidityException {
 		return getRelationTo().getGraphDepth();
 	}
 
@@ -446,7 +447,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case GraphstructurePackage.RELATION___GET_GRAPH_DEPTH:
-				return getGraphDepth();
+				try {
+					return getGraphDepth();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

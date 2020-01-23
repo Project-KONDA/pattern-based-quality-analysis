@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.functions.BooleanOperator;
 
@@ -46,8 +45,6 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllElements <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllRelations <em>Get All Relations</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getNext <em>Next</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getPrevious <em>Previous</em>}</li>
  * </ul>
  *
  * @generated
@@ -137,16 +134,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	 * @ordered
 	 */
 	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_RELATIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.ELEMENT__GET_ALL_RELATIONS).getSettingDelegate();
-
-	/**
-	 * The cached value of the '{@link #getNext() <em>Next</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNext()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Element> next;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -402,68 +389,13 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Element> getNext() {
-		if (next == null) {
-			next = new EObjectContainmentWithInverseEList<Element>(Element.class, this, GraphstructurePackage.ELEMENT__NEXT, GraphstructurePackage.ELEMENT__PREVIOUS);
-		}
-		return next;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Element getPrevious() {
-		if (eContainerFeatureID() != GraphstructurePackage.ELEMENT__PREVIOUS) return null;
-		return (Element)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPrevious(Element newPrevious, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newPrevious, GraphstructurePackage.ELEMENT__PREVIOUS, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setPrevious(Element newPrevious) {
-		if (newPrevious != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.ELEMENT__PREVIOUS && newPrevious != null)) {
-			if (EcoreUtil.isAncestor(this, newPrevious))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newPrevious != null)
-				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, GraphstructurePackage.ELEMENT__NEXT, Element.class, msgs);
-			msgs = basicSetPrevious(newPrevious, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__PREVIOUS, newPrevious, newPrevious));
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 */
-	public int getGraphDepth() {
-		if (getPreviousElement() instanceof Element)
+	public int getGraphDepth() throws InvalidityException {
+		if (getPreviousElement() != null)
 			return getPreviousElement().getGraphDepth();
-		return -1;
+		throw new InvalidityException("previous null");
 	}
 
 	/**
@@ -473,6 +405,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 *  
 	 */
 	public abstract Element getPreviousElement();
 
@@ -490,12 +423,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return basicSetRelationFromPrevious((Relation)otherEnd, msgs);
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.ELEMENT__NEXT:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNext()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.ELEMENT__PREVIOUS:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetPrevious((Element)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -511,26 +438,8 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return basicSetRelationFromPrevious(null, msgs);
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.ELEMENT__NEXT:
-				return ((InternalEList<?>)getNext()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.ELEMENT__PREVIOUS:
-				return basicSetPrevious(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case GraphstructurePackage.ELEMENT__PREVIOUS:
-				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.ELEMENT__NEXT, Element.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -554,10 +463,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return getGetAllElements();
 			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
 				return getGetAllRelations();
-			case GraphstructurePackage.ELEMENT__NEXT:
-				return getNext();
-			case GraphstructurePackage.ELEMENT__PREVIOUS:
-				return getPrevious();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -595,13 +500,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				getGetAllRelations().clear();
 				getGetAllRelations().addAll((Collection<? extends Relation>)newValue);
 				return;
-			case GraphstructurePackage.ELEMENT__NEXT:
-				getNext().clear();
-				getNext().addAll((Collection<? extends Element>)newValue);
-				return;
-			case GraphstructurePackage.ELEMENT__PREVIOUS:
-				setPrevious((Element)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -634,12 +532,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
 				getGetAllRelations().clear();
 				return;
-			case GraphstructurePackage.ELEMENT__NEXT:
-				getNext().clear();
-				return;
-			case GraphstructurePackage.ELEMENT__PREVIOUS:
-				setPrevious((Element)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -665,10 +557,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
 				return GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
-			case GraphstructurePackage.ELEMENT__NEXT:
-				return next != null && !next.isEmpty();
-			case GraphstructurePackage.ELEMENT__PREVIOUS:
-				return getPrevious() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -713,7 +601,12 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 					throw new InvocationTargetException(throwable);
 				}
 			case GraphstructurePackage.ELEMENT___GET_GRAPH_DEPTH:
-				return getGraphDepth();
+				try {
+					return getGraphDepth();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

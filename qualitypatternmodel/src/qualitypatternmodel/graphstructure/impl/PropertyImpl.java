@@ -145,7 +145,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	}
 	
 	@Override
-	public boolean isTranslatable() {
+	public boolean isTranslatable() throws InvalidityException {
 		return getElement().isTranslatable();
 	}
 

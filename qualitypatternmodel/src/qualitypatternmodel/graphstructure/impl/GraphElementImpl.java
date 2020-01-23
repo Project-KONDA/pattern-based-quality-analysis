@@ -61,7 +61,7 @@ public abstract class GraphElementImpl extends PatternElementImpl implements Gra
 	 * @generated
 	 */
 	@Override
-	public boolean isTranslatable() {
+	public boolean isTranslatable() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -90,7 +90,12 @@ public abstract class GraphElementImpl extends PatternElementImpl implements Gra
 			case GraphstructurePackage.GRAPH_ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.GRAPH_ELEMENT___IS_TRANSLATABLE:
-				return isTranslatable();
+				try {
+					return isTranslatable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT:
 				try {
 					return toXQuery((Location)arguments.get(0), (Integer)arguments.get(1));

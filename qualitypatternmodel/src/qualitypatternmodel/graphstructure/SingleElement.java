@@ -19,6 +19,9 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNextSingle <em>Next Single</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNextSet <em>Next Set</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement()
@@ -88,6 +91,58 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	void setRoot(Graph value);
+
+	/**
+	 * Returns the value of the '<em><b>Next Single</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.SingleElement}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next Single</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_NextSingle()
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getPrevious
+	 * @model opposite="previous" containment="true"
+	 * @generated
+	 */
+	EList<SingleElement> getNextSingle();
+
+	/**
+	 * Returns the value of the '<em><b>Previous</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getNextSingle <em>Next Single</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Previous</em>' container reference.
+	 * @see #setPrevious(SingleElement)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Previous()
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getNextSingle
+	 * @model opposite="nextSingle" transient="false"
+	 * @generated
+	 */
+	SingleElement getPrevious();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Previous</em>' container reference.
+	 * @see #getPrevious()
+	 * @generated
+	 */
+	void setPrevious(SingleElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Next Set</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.SetElement}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSingle <em>Previous Single</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next Set</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_NextSet()
+	 * @see qualitypatternmodel.graphstructure.SetElement#getPreviousSingle
+	 * @model opposite="previousSingle" containment="true"
+	 * @generated
+	 */
+	EList<SetElement> getNextSet();
 
 	/**
 	 * <!-- begin-user-doc -->

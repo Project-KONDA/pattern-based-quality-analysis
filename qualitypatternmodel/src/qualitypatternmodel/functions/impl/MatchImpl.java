@@ -115,7 +115,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 
 	@Override
-	public boolean isTranslatable() {
+	public boolean isTranslatable() throws InvalidityException {
 		return property.isTranslatable();
 	}
 	
