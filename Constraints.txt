@@ -181,3 +181,8 @@ When using a set operator:
 all mappings of a SingleElement target the same graph: included in existing constraint!
 
 in each morphism each SingleElement/Relation serves only in a single Mapping as the source/target
+
+check if this.mappingTo  SingleElements have next Elements that are the target of next.mappingTo
+
+check if this.mappingTo Relations have relationTo that are the target of relationTo.mappingTo
+
