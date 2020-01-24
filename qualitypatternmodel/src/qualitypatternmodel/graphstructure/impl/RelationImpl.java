@@ -89,7 +89,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			throw new InvalidityException("axis invalid");
 		if (getGraphDepth() == 0 && mappingFrom != null)
 			throw new InvalidityException("invalid RelationMapping to returnGraph");
-		// TODO: check if this.mappingTo Relations have relationTo that are the target of relationTo.mappingTo
 	}
 
 	@Override

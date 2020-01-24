@@ -122,6 +122,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 		if (getRelationFromPrevious() == null)
 			throw new InvalidityException("relation not specified");
 		
+		// TODO: delete the following, if we allow other set operators than count
 //		boolean countExists = false;
 //		ListOfElements listOfElements = getPathToPreviousSingleElement();
 //		for(Element element : listOfElements) {
