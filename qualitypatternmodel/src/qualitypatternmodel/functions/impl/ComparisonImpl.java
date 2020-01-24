@@ -181,12 +181,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		} else if (argument2 instanceof Operator) {
 			res.addAll(((Operator) argument2).getAllInputs());
 		}
+		if(getOption() != null) {
+			res.add(option);
+		} else {
+			throw new InvalidityException("option null");
+		}
 		return res;
 	}
 
 	@Override
 	public ReturnType getReturnType() {
-		return ReturnType.ELEMENT;
+		return ReturnType.BOOLEAN;
 	}
 	
 	@Override

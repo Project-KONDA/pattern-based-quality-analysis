@@ -35,6 +35,7 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SetElementImpl#getNext <em>Next</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SetElementImpl#getPreviousSet <em>Previous Set</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SetElementImpl#getPreviousSingle <em>Previous Single</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.SetElementImpl#isBeingTranslated <em>Being Translated</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,6 +70,26 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	protected EList<SetElement> next;
 
 	/**
+	 * The default value of the '{@link #isBeingTranslated() <em>Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBeingTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BEING_TRANSLATED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isBeingTranslated() <em>Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBeingTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean beingTranslated = BEING_TRANSLATED_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -96,31 +117,30 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 
 	public String toXQuery(Location location, int depth) throws InvalidityException {
 		translated = true;
+		beingTranslated = true;
 		nestingDepth = depth;
 		if (getPreviousSet() == null && getPreviousSingle() == null) {
 			throw new InvalidityException("previous null");
 		}
 		if (getPreviousSet() != null && getPreviousSingle() != null) {
 			throw new InvalidityException("previous invalid");
-		}
-		if (getPreviousSingle() != null) {
-			return getPreviousSingle().getXQueryRepresentation(location, depth);
-		}
+		}		
 		String xPathExpression = translatePathFromPrevious(depth);
 		xPathExpression += translatePredicates(location, depth + 1);
 		xPathExpression += translateElementExistencePredicates(location, depth + 1);
+		beingTranslated = false;
+		if (getPreviousSingle() != null) {
+			return getPreviousSingle().getXQueryRepresentation(location, depth) + xPathExpression;
+		}
+		if (getPreviousSet().isTranslatable()) {
+			return "." + xPathExpression;
+		}
 		return getPreviousSet().toXQuery(location) + xPathExpression;
 	}
 
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
-		if (getPreviousSingle() != null) {
-			return getPreviousSingle().isTranslatable();
-		} else if (getPreviousSet() != null) {
-			return getPreviousSet().isTranslatable();
-		} else {
-			throw new InvalidityException("previous null");
-		}
+		return beingTranslated;
 	}
 
 	/**
@@ -235,16 +255,16 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 
 	@Override
 	public String translatePathFromPrevious(int depth) {
+//		System.out.println("translatePathFromPrevious: " + relationFromPrevious.getAxis());
 		return "/" + relationFromPrevious.getAxis() + "::*";
 	}
 
 	@Override
 	public String getXQueryRepresentation(Location location, int depth) throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
-
 			return getContextRepresentation(depth - nestingDepth);
 		} else {
-			if (translated) {
+			if (translated) { // TODO: check if this is correct
 				return toXQuery(location, depth);
 			} else {
 				throw new InvalidityException("element not yet translated");
@@ -259,14 +279,12 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 
 	public String translateElementExistencePredicates(Location location, int depth) throws InvalidityException {
 		String predicates = "";
-		for (Element nextElement : getNext()) {
-			if (!(nextElement instanceof SetElement)) 
-				throw new InvalidityException( "following element " + nextElement + " must be SetElement");
+		for (SetElement nextElement : getNext()) {
 			if (!nextElement.isTranslated()) {
-				nextElement.setTranslated(true);
-				predicates += "[." + ((SetElement) nextElement).translatePathFromPrevious(depth)
-						+ ((SetElement) nextElement).translatePredicates(location, depth)
-						+ ((SetElement) nextElement).translateElementExistencePredicates(location, depth) + "]";
+				nextElement.setTranslated(true); // TODO: check if this is correct: need to distinguish "isBeingTranslated" and "translated"
+				predicates += "[." + nextElement.translatePathFromPrevious(depth)
+						+ nextElement.translatePredicates(location, depth) // TODO: depth+1 ?
+						+ nextElement.translateElementExistencePredicates(location, depth) + "]"; // TODO: depth+1 ?
 			}
 		}
 		return predicates;
@@ -402,6 +420,29 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isBeingTranslated() {
+		return beingTranslated;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setBeingTranslated(boolean newBeingTranslated) {
+		boolean oldBeingTranslated = beingTranslated;
+		beingTranslated = newBeingTranslated;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SET_ELEMENT__BEING_TRANSLATED, oldBeingTranslated, beingTranslated));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -416,6 +457,8 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 				return getPreviousSet();
 			case GraphstructurePackage.SET_ELEMENT__PREVIOUS_SINGLE:
 				return getPreviousSingle();
+			case GraphstructurePackage.SET_ELEMENT__BEING_TRANSLATED:
+				return isBeingTranslated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -441,6 +484,9 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			case GraphstructurePackage.SET_ELEMENT__PREVIOUS_SINGLE:
 				setPreviousSingle((SingleElement)newValue);
 				return;
+			case GraphstructurePackage.SET_ELEMENT__BEING_TRANSLATED:
+				setBeingTranslated((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -464,6 +510,9 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			case GraphstructurePackage.SET_ELEMENT__PREVIOUS_SINGLE:
 				setPreviousSingle((SingleElement)null);
 				return;
+			case GraphstructurePackage.SET_ELEMENT__BEING_TRANSLATED:
+				setBeingTranslated(BEING_TRANSLATED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -483,6 +532,8 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 				return getPreviousSet() != null;
 			case GraphstructurePackage.SET_ELEMENT__PREVIOUS_SINGLE:
 				return getPreviousSingle() != null;
+			case GraphstructurePackage.SET_ELEMENT__BEING_TRANSLATED:
+				return beingTranslated != BEING_TRANSLATED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -532,6 +583,8 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (nestingDepth: ");
 		result.append(nestingDepth);
+		result.append(", beingTranslated: ");
+		result.append(beingTranslated);
 		result.append(')');
 		return result.toString();
 	}

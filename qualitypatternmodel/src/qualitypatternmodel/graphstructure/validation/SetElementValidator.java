@@ -24,6 +24,8 @@ public interface SetElementValidator {
 
 	boolean validatePreviousSingle(SingleElement value);
 
+	boolean validateBeingTranslated(boolean value);
+
 	boolean validatePrevious(Element value);
 
 	boolean validateNestingDepth(int value);

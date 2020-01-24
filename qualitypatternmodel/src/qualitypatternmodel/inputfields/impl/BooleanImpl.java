@@ -68,6 +68,15 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 	}
 	
 	@Override
+	public String toXQuery(Location location, int depth) throws InvalidityException {
+		if(getValue() != null) {
+			return getValue() + "()";
+		} else {
+			throw new InvalidityException("invalid number");
+		}
+	}
+	
+	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.BOOLEAN;
 	}

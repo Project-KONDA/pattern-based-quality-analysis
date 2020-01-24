@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.NumberOperators;
+import qualitypatternmodel.graphstructure.ReturnType;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +23,11 @@ public abstract class NumberOperatorsImpl extends OperatorImpl implements Number
 	 */
 	protected NumberOperatorsImpl() {
 		super();
+	}
+	
+	@Override
+	public ReturnType getReturnType() {
+		return ReturnType.NUMBER;
 	}
 
 	/**

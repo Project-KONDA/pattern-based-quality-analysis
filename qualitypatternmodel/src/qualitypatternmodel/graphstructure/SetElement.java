@@ -19,6 +19,7 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getNext <em>Next</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSet <em>Previous Set</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSingle <em>Previous Single</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SetElement#isBeingTranslated <em>Being Translated</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement()
@@ -110,6 +111,28 @@ public interface SetElement extends Element {
 	 * @generated
 	 */
 	void setPreviousSingle(SingleElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Being Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Being Translated</em>' attribute.
+	 * @see #setBeingTranslated(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement_BeingTranslated()
+	 * @model
+	 * @generated
+	 */
+	boolean isBeingTranslated();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SetElement#isBeingTranslated <em>Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Being Translated</em>' attribute.
+	 * @see #isBeingTranslated()
+	 * @generated
+	 */
+	void setBeingTranslated(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

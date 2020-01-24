@@ -192,6 +192,7 @@
           eOpposite="#//graphstructure/SetElement/next"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="previousSingle" eType="#//graphstructure/SingleElement"
           eOpposite="#//graphstructure/SingleElement/nextSet"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="beingTranslated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true" eSuperTypes="#//graphstructure/GraphElement">
       <eOperations name="getNextElements" upperBound="-1" eType="#//graphstructure/Element"/>

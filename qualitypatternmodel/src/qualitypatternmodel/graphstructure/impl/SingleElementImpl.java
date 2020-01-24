@@ -120,6 +120,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				result += IN + xPathExpression + xPredicates + SATISFIES;
 			} else if (!getPredicates().isEmpty()) {
 				result += IN + getXQueryVariable() + xPredicates + SATISFIES;
+			} else {
+				result = "";
 			}
 		}
 

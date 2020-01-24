@@ -57,6 +57,15 @@ public class NumberImpl extends InputImpl implements qualitypatternmodel.inputfi
 	}
 	
 	@Override
+	public String toXQuery(Location location, int depth) throws InvalidityException {
+		if(getValue() != null) {
+			return Double.toString(getValue());
+		} else {
+			throw new InvalidityException("invalid number");
+		}
+	}
+	
+	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		if(getValue() != null) {
 			return Double.toString(getValue());

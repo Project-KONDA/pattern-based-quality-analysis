@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.ToNumber;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.patternstructure.InvalidityException;

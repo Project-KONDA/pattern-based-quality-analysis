@@ -46,6 +46,7 @@ public class SetElementItemProvider extends ElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNestingDepthPropertyDescriptor(object);
+			addBeingTranslatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,6 +69,28 @@ public class SetElementItemProvider extends ElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Being Translated feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBeingTranslatedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SetElement_beingTranslated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SetElement_beingTranslated_feature", "_UI_SetElement_type"),
+				 GraphstructurePackage.Literals.SET_ELEMENT__BEING_TRANSLATED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -139,6 +162,7 @@ public class SetElementItemProvider extends ElementItemProvider {
 
 		switch (notification.getFeatureID(SetElement.class)) {
 			case GraphstructurePackage.SET_ELEMENT__NESTING_DEPTH:
+			case GraphstructurePackage.SET_ELEMENT__BEING_TRANSLATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GraphstructurePackage.SET_ELEMENT__NEXT:

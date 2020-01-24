@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -55,6 +54,15 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 			throw new InvalidityException("argument null");
 		}
 	}
+	
+	@Override
+	public String toXQuery(Location location, int depth) throws InvalidityException {
+		if (argument != null) {
+			return "count(" + argument.toXQuery(location, depth) + ")";
+		} else {
+			throw new InvalidityException("argument null");
+		}
+	}
 
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidityException {
@@ -68,7 +76,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
-		return argument.isTranslatable();
+		return true;
 	}
 	
 	/**

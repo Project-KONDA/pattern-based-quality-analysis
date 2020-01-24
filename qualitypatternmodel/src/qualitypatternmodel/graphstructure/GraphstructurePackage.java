@@ -1239,13 +1239,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__PREVIOUS_SINGLE = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Being Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT__BEING_TRANSLATED = ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Set Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+	int SET_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1946,6 +1955,17 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getSetElement_PreviousSingle();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.SetElement#isBeingTranslated <em>Being Translated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Being Translated</em>'.
+	 * @see qualitypatternmodel.graphstructure.SetElement#isBeingTranslated()
+	 * @see #getSetElement()
+	 * @generated
+	 */
+	EAttribute getSetElement_BeingTranslated();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Element Existence Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2578,6 +2598,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SET_ELEMENT__PREVIOUS_SINGLE = eINSTANCE.getSetElement_PreviousSingle();
+
+		/**
+		 * The meta object literal for the '<em><b>Being Translated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SET_ELEMENT__BEING_TRANSLATED = eINSTANCE.getSetElement_BeingTranslated();
 
 		/**
 		 * The meta object literal for the '<em><b>Translate Element Existence Predicates</b></em>' operation.

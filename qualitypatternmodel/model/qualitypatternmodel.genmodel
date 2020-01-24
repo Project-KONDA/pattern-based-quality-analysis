@@ -153,6 +153,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SetElement/next"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SetElement/previousSet"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SetElement/previousSingle"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/SetElement/beingTranslated"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SetElement/translateElementExistencePredicates">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/SetElement/translateElementExistencePredicates/location"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/SetElement/translateElementExistencePredicates/depth"/>

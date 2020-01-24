@@ -87,6 +87,11 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 		res.add(this);
 		return res;
 	}
+	
+	@Override
+	public boolean isTranslatable() throws InvalidityException {
+		return true;
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
