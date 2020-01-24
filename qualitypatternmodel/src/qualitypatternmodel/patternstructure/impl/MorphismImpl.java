@@ -37,6 +37,8 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMorphDepth <em>Morph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getCheckSingleElementMappings <em>Check Single Element Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getCheckRelationMappings <em>Check Relation Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getCheckSingleElementMappingsUniqueness <em>Check Single Element Mappings Uniqueness</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getCheckRelationMappingsUniqueness <em>Check Relation Mappings Uniqueness</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMappings <em>Mappings</em>}</li>
  * </ul>
@@ -103,6 +105,26 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @ordered
 	 */
 	protected EStructuralFeature.Internal.SettingDelegate CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.MORPHISM__CHECK_RELATION_MAPPINGS).getSettingDelegate();
+
+	/**
+	 * The cached setting delegate for the '{@link #getCheckSingleElementMappingsUniqueness() <em>Check Single Element Mappings Uniqueness</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCheckSingleElementMappingsUniqueness()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS).getSettingDelegate();
+
+	/**
+	 * The cached setting delegate for the '{@link #getCheckRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCheckRelationMappingsUniqueness()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate CHECK_RELATION_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS).getSettingDelegate();
 
 	/**
 	 * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
@@ -324,6 +346,46 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated
 	 */
 	@Override
+	public Boolean getCheckSingleElementMappingsUniqueness() {
+		return (Boolean)CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCheckSingleElementMappingsUniqueness(Boolean newCheckSingleElementMappingsUniqueness) {
+		CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckSingleElementMappingsUniqueness);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Boolean getCheckRelationMappingsUniqueness() {
+		return (Boolean)CHECK_RELATION_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCheckRelationMappingsUniqueness(Boolean newCheckRelationMappingsUniqueness) {
+		CHECK_RELATION_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckRelationMappingsUniqueness);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public QuantifiedCondition getQuantifiedcondition() {
 		if (eContainerFeatureID() != PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION) return null;
 		return (QuantifiedCondition)eInternalContainer();
@@ -409,6 +471,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return getCheckSingleElementMappings();
 			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
 				return getCheckRelationMappings();
+			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS:
+				return getCheckSingleElementMappingsUniqueness();
+			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS:
+				return getCheckRelationMappingsUniqueness();
 			case PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION:
 				return getQuantifiedcondition();
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
@@ -439,6 +505,12 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return;
 			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
 				setCheckRelationMappings((Boolean)newValue);
+				return;
+			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS:
+				setCheckSingleElementMappingsUniqueness((Boolean)newValue);
+				return;
+			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS:
+				setCheckRelationMappingsUniqueness((Boolean)newValue);
 				return;
 			case PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION:
 				setQuantifiedcondition((QuantifiedCondition)newValue);
@@ -473,6 +545,12 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
 				CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
 				return;
+			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS:
+				CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+				return;
+			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS:
+				CHECK_RELATION_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+				return;
 			case PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION:
 				setQuantifiedcondition((QuantifiedCondition)null);
 				return;
@@ -500,6 +578,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return CHECK_SINGLE_ELEMENT_MAPPINGS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
 				return CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS:
+				return CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS:
+				return CHECK_RELATION_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION:
 				return getQuantifiedcondition() != null;
 			case PatternstructurePackage.MORPHISM__MAPPINGS:

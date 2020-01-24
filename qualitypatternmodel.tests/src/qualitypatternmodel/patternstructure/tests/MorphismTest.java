@@ -16,6 +16,8 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings() <em>Check Single Element Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings() <em>Check Relation Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness() <em>Check Single Element Mappings Uniqueness</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -121,6 +123,58 @@ public class MorphismTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testSetCheckRelationMappings() {
+		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness() <em>Check Single Element Mappings Uniqueness</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness()
+	 * @generated
+	 */
+	public void testGetCheckSingleElementMappingsUniqueness() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#setCheckSingleElementMappingsUniqueness(java.lang.Boolean) <em>Check Single Element Mappings Uniqueness</em>}' feature setter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#setCheckSingleElementMappingsUniqueness(java.lang.Boolean)
+	 * @generated
+	 */
+	public void testSetCheckSingleElementMappingsUniqueness() {
+		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness()
+	 * @generated
+	 */
+	public void testGetCheckRelationMappingsUniqueness() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#setCheckRelationMappingsUniqueness(java.lang.Boolean) <em>Check Relation Mappings Uniqueness</em>}' feature setter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#setCheckRelationMappingsUniqueness(java.lang.Boolean)
+	 * @generated
+	 */
+	public void testSetCheckRelationMappingsUniqueness() {
 		// TODO: implement this feature setter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

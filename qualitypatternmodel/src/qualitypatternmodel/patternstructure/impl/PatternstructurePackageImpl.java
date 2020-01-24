@@ -400,7 +400,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EReference getMorphism_Mappings() {
-		return (EReference)morphismEClass.getEStructuralFeatures().get(6);
+		return (EReference)morphismEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -459,8 +459,28 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMorphism_CheckSingleElementMappingsUniqueness() {
+		return (EAttribute)morphismEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMorphism_CheckRelationMappingsUniqueness() {
+		return (EAttribute)morphismEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getMorphism_Quantifiedcondition() {
-		return (EReference)morphismEClass.getEStructuralFeatures().get(5);
+		return (EReference)morphismEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -700,7 +720,27 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getPatternElement__Validate__DiagnosticChain_Map() {
+		return patternElementEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__GetContainer() {
 		return patternElementEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__GetAncestor__EClass() {
+		return patternElementEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -816,6 +856,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(morphismEClass, MORPHISM__MORPH_DEPTH);
 		createEAttribute(morphismEClass, MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS);
 		createEAttribute(morphismEClass, MORPHISM__CHECK_RELATION_MAPPINGS);
+		createEAttribute(morphismEClass, MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS);
+		createEAttribute(morphismEClass, MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS);
 		createEReference(morphismEClass, MORPHISM__QUANTIFIEDCONDITION);
 		createEReference(morphismEClass, MORPHISM__MAPPINGS);
 
@@ -849,6 +891,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___PREPARE_TRANSLATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_CONTAINER);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ANCESTOR__ECLASS);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		// Create enums
@@ -927,6 +971,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getMorphism_MorphDepth(), ecorePackage.getEInt(), "morphDepth", "-1", 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMorphism_CheckSingleElementMappings(), ecorePackage.getEBooleanObject(), "checkSingleElementMappings", null, 0, 1, Morphism.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMorphism_CheckRelationMappings(), ecorePackage.getEBooleanObject(), "checkRelationMappings", null, 0, 1, Morphism.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMorphism_CheckSingleElementMappingsUniqueness(), ecorePackage.getEBooleanObject(), "checkSingleElementMappingsUniqueness", null, 0, 1, Morphism.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMorphism_CheckRelationMappingsUniqueness(), ecorePackage.getEBooleanObject(), "checkRelationMappingsUniqueness", null, 0, 1, Morphism.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_Quantifiedcondition(), this.getQuantifiedCondition(), this.getQuantifiedCondition_Morphism(), "quantifiedcondition", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_Mappings(), this.getMapping(), this.getMapping_Morphism(), "mappings", null, 0, -1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -979,6 +1025,11 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		op = initEOperation(getPatternElement__IsValidLocal__boolean(), null, "isValidLocal", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
+
+		initEOperation(getPatternElement__GetContainer(), this.getPatternElement(), "getContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPatternElement__GetAncestor__EClass(), this.getPatternElement(), "getAncestor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEClass(), "cls", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getPatternElement__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1049,7 +1100,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		  (morphismEClass,
 		   source,
 		   new String[] {
-			   "constraints", "singleElementMappingsValid relationMappingsValid"
+			   "constraints", "singleElementMappingsValid relationMappingsValid singleElementMappingsUnique relationMappingsUnique"
 		   });
 		addAnnotation
 		  (patternEClass,
@@ -1090,7 +1141,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		   source,
 		   new String[] {
 			   "singleElementMappingsValid", "self.checkSingleElementMappings",
-			   "relationMappingsValid", "self.checkRelationMappings"
+			   "relationMappingsValid", "self.checkRelationMappings",
+			   "singleElementMappingsUnique", "self.checkSingleElementMappingsUniqueness",
+			   "relationMappingsUnique", "self.checkRelationMappingsUniqueness"
 		   });
 		addAnnotation
 		  (getMorphism_CheckSingleElementMappings(),
@@ -1103,6 +1156,18 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		   source,
 		   new String[] {
 			   "derivation", "\n\t\t\t\t\t\tself.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->forAll(m : Mapping | self.from.getAllRelations->includes(m.oclAsType(RelationMapping).from))\n\t\t\t\t\t\tand\n\t\t\t\t\t\tself.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->forAll(m : Mapping | self.to.getAllRelations->includes(m.oclAsType(RelationMapping).to))"
+		   });
+		addAnnotation
+		  (getMorphism_CheckSingleElementMappingsUniqueness(),
+		   source,
+		   new String[] {
+			   "derivation", "\n\t\t\t\t\t\t\tself.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).from)->size()\n\t\t\t\t\t\t\t= self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).from)->asSet()->size()\n\t\t\t\t\t\t\tand\n\t\t\t\t\t\t\tself.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).to)->size()\n\t\t\t\t\t\t\t= self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).to)->asSet()->size()"
+		   });
+		addAnnotation
+		  (getMorphism_CheckRelationMappingsUniqueness(),
+		   source,
+		   new String[] {
+			   "derivation", "\n\t\t\t\t\t\t\tself.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).from)->size()\n\t\t\t\t\t\t\t= self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).from)->asSet()->size()\n\t\t\t\t\t\t\tand\n\t\t\t\t\t\t\tself.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).to)->size()\n\t\t\t\t\t\t\t= self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).to)->asSet()->size()"
 		   });
 		addAnnotation
 		  (patternEClass,

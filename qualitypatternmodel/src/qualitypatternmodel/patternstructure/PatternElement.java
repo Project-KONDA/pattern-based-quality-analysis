@@ -5,6 +5,7 @@ package qualitypatternmodel.patternstructure;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.inputfields.Input;
 
@@ -86,6 +87,22 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	PatternElement getContainer();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	PatternElement getAncestor(EClass cls);
 
 	/**
 	 * <!-- begin-user-doc -->

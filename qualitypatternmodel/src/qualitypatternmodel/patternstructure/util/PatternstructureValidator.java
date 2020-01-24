@@ -231,6 +231,8 @@ public class PatternstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validatePatternElement_validate(morphism, diagnostics, context);
 		if (result || diagnostics != null) result &= validateMorphism_singleElementMappingsValid(morphism, diagnostics, context);
 		if (result || diagnostics != null) result &= validateMorphism_relationMappingsValid(morphism, diagnostics, context);
+		if (result || diagnostics != null) result &= validateMorphism_singleElementMappingsUnique(morphism, diagnostics, context);
+		if (result || diagnostics != null) result &= validateMorphism_relationMappingsUnique(morphism, diagnostics, context);
 		return result;
 	}
 
@@ -287,6 +289,64 @@ public class PatternstructureValidator extends EObjectValidator {
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 				 "relationMappingsValid",
 				 MORPHISM__RELATION_MAPPINGS_VALID__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the singleElementMappingsUnique constraint of '<em>Morphism</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String MORPHISM__SINGLE_ELEMENT_MAPPINGS_UNIQUE__EEXPRESSION = "self.checkSingleElementMappingsUniqueness";
+
+	/**
+	 * Validates the singleElementMappingsUnique constraint of '<em>Morphism</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMorphism_singleElementMappingsUnique(Morphism morphism, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(PatternstructurePackage.Literals.MORPHISM,
+				 morphism,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "singleElementMappingsUnique",
+				 MORPHISM__SINGLE_ELEMENT_MAPPINGS_UNIQUE__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the relationMappingsUnique constraint of '<em>Morphism</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String MORPHISM__RELATION_MAPPINGS_UNIQUE__EEXPRESSION = "self.checkRelationMappingsUniqueness";
+
+	/**
+	 * Validates the relationMappingsUnique constraint of '<em>Morphism</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMorphism_relationMappingsUnique(Morphism morphism, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(PatternstructurePackage.Literals.MORPHISM,
+				 morphism,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "relationMappingsUnique",
+				 MORPHISM__RELATION_MAPPINGS_UNIQUE__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);

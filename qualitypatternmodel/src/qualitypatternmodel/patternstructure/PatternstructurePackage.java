@@ -143,13 +143,31 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN = 5;
 
 	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_CONTAINER = 6;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_ANCESTOR__ECLASS = 7;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = 6;
+	int PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = 8;
 
 	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
@@ -158,7 +176,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 7;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -259,6 +277,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___GET_ANCESTOR__ECLASS = PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -395,6 +431,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING___IS_VALID_LOCAL__BOOLEAN = MAPPING___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___GET_CONTAINER = MAPPING___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___GET_ANCESTOR__ECLASS = MAPPING___GET_ANCESTOR__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -540,6 +594,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GET_ANCESTOR__ECLASS = PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -732,6 +804,24 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GET_CONTAINER = CONDITION___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GET_ANCESTOR__ECLASS = CONDITION___GET_ANCESTOR__ECLASS;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -814,13 +904,31 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM__CHECK_RELATION_MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Check Single Element Mappings Uniqueness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Check Relation Mappings Uniqueness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__QUANTIFIEDCONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int MORPHISM__QUANTIFIEDCONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Mappings</b></em>' containment reference list.
@@ -829,7 +937,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 6;
+	int MORPHISM__MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Morphism</em>' class.
@@ -838,7 +946,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 7;
+	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -893,6 +1001,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GET_ANCESTOR__ECLASS = PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1029,6 +1155,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT_MAPPING___IS_VALID_LOCAL__BOOLEAN = MAPPING___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING___GET_CONTAINER = MAPPING___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING___GET_ANCESTOR__ECLASS = MAPPING___GET_ANCESTOR__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1194,6 +1338,24 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GET_CONTAINER = CONDITION___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GET_ANCESTOR__ECLASS = CONDITION___GET_ANCESTOR__ECLASS;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1339,6 +1501,24 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___GET_CONTAINER = CONDITION___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___GET_ANCESTOR__ECLASS = CONDITION___GET_ANCESTOR__ECLASS;
+
+	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1464,6 +1644,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GET_ANCESTOR__ECLASS = PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1780,6 +1978,28 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getMorphism_CheckRelationMappings();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness <em>Check Single Element Mappings Uniqueness</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Check Single Element Mappings Uniqueness</em>'.
+	 * @see qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness()
+	 * @see #getMorphism()
+	 * @generated
+	 */
+	EAttribute getMorphism_CheckSingleElementMappingsUniqueness();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness <em>Check Relation Mappings Uniqueness</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Check Relation Mappings Uniqueness</em>'.
+	 * @see qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness()
+	 * @see #getMorphism()
+	 * @generated
+	 */
+	EAttribute getMorphism_CheckRelationMappingsUniqueness();
+
+	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition <em>Quantifiedcondition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2040,6 +2260,26 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__Validate__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Container</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getContainer()
+	 * @generated
+	 */
+	EOperation getPatternElement__GetContainer();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(org.eclipse.emf.ecore.EClass) <em>Get Ancestor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Ancestor</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getAncestor(org.eclipse.emf.ecore.EClass)
+	 * @generated
+	 */
+	EOperation getPatternElement__GetAncestor__EClass();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}' operation.
@@ -2310,6 +2550,22 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute MORPHISM__CHECK_RELATION_MAPPINGS = eINSTANCE.getMorphism_CheckRelationMappings();
 
 		/**
+		 * The meta object literal for the '<em><b>Check Single Element Mappings Uniqueness</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS = eINSTANCE.getMorphism_CheckSingleElementMappingsUniqueness();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Relation Mappings Uniqueness</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS = eINSTANCE.getMorphism_CheckRelationMappingsUniqueness();
+
+		/**
 		 * The meta object literal for the '<em><b>Quantifiedcondition</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2520,6 +2776,22 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getPatternElement__Validate__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Container</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GET_CONTAINER = eINSTANCE.getPatternElement__GetContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Ancestor</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GET_ANCESTOR__ECLASS = eINSTANCE.getPatternElement__GetAncestor__EClass();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.

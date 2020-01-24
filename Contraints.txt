@@ -175,3 +175,9 @@ When using a set operator:
 - for each s there must exist a path from one e to s in the graph
 - between e and s only SETELEMENTs are allowed (connected via RELATION) [and they are not allowed to be the argument of a set operator]
 )
+
+----
+
+all mappings of a SingleElement target the same graph: included in existing constraint!
+
+in each morphism each SingleElement/Relation serves only in a single Mapping as the source/target

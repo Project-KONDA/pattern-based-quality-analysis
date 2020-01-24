@@ -177,6 +177,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			throw new InvalidityException("root has previous Element");
 		if (!eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT) && !eIsSet(GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS))
 			throw new InvalidityException("relation not specified");
+		// TODO: check if this.mappingTo  SingleElements have next Elements that are the target of next.mappingTo
 		super.isValidLocal(isDefinedPattern);
 	}
 

@@ -30,5 +30,9 @@ public interface MorphismValidator {
 
 	boolean validateCheckRelationMappings(Boolean value);
 
+	boolean validateCheckSingleElementMappingsUniqueness(Boolean value);
+
+	boolean validateCheckRelationMappingsUniqueness(Boolean value);
+
 	boolean validateQuantifiedcondition(QuantifiedCondition value);
 }

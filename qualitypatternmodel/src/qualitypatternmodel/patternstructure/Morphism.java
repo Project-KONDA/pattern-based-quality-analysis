@@ -20,13 +20,15 @@ import qualitypatternmodel.graphstructure.Graph;
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings <em>Check Single Element Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings <em>Check Relation Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness <em>Check Single Element Mappings Uniqueness</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness <em>Check Relation Mappings Uniqueness</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='singleElementMappingsValid relationMappingsValid'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot singleElementMappingsValid='self.checkSingleElementMappings' relationMappingsValid='self.checkRelationMappings'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='singleElementMappingsValid relationMappingsValid singleElementMappingsUnique relationMappingsUnique'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot singleElementMappingsValid='self.checkSingleElementMappings' relationMappingsValid='self.checkRelationMappings' singleElementMappingsUnique='self.checkSingleElementMappingsUniqueness' relationMappingsUnique='self.checkRelationMappingsUniqueness'"
  * @generated
  */
 public interface Morphism extends PatternElement {
@@ -156,6 +158,52 @@ public interface Morphism extends PatternElement {
 	 * @generated
 	 */
 	void setCheckRelationMappings(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Check Single Element Mappings Uniqueness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Check Single Element Mappings Uniqueness</em>' attribute.
+	 * @see #setCheckSingleElementMappingsUniqueness(Boolean)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckSingleElementMappingsUniqueness()
+	 * @model volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;collect(m: Mapping | m.oclAsType(SingleElementMapping).from)-&gt;size()\n\t\t\t\t\t\t\t= self.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;collect(m: Mapping | m.oclAsType(SingleElementMapping).from)-&gt;asSet()-&gt;size()\n\t\t\t\t\t\t\tand\n\t\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;collect(m: Mapping | m.oclAsType(SingleElementMapping).to)-&gt;size()\n\t\t\t\t\t\t\t= self.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;collect(m: Mapping | m.oclAsType(SingleElementMapping).to)-&gt;asSet()-&gt;size()'"
+	 * @generated
+	 */
+	Boolean getCheckSingleElementMappingsUniqueness();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness <em>Check Single Element Mappings Uniqueness</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Check Single Element Mappings Uniqueness</em>' attribute.
+	 * @see #getCheckSingleElementMappingsUniqueness()
+	 * @generated
+	 */
+	void setCheckSingleElementMappingsUniqueness(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Check Relation Mappings Uniqueness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Check Relation Mappings Uniqueness</em>' attribute.
+	 * @see #setCheckRelationMappingsUniqueness(Boolean)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckRelationMappingsUniqueness()
+	 * @model volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;collect(m: Mapping | m.oclAsType(RelationMapping).from)-&gt;size()\n\t\t\t\t\t\t\t= self.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;collect(m: Mapping | m.oclAsType(RelationMapping).from)-&gt;asSet()-&gt;size()\n\t\t\t\t\t\t\tand\n\t\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;collect(m: Mapping | m.oclAsType(RelationMapping).to)-&gt;size()\n\t\t\t\t\t\t\t= self.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;collect(m: Mapping | m.oclAsType(RelationMapping).to)-&gt;asSet()-&gt;size()'"
+	 * @generated
+	 */
+	Boolean getCheckRelationMappingsUniqueness();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness <em>Check Relation Mappings Uniqueness</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Check Relation Mappings Uniqueness</em>' attribute.
+	 * @see #getCheckRelationMappingsUniqueness()
+	 * @generated
+	 */
+	void setCheckRelationMappingsUniqueness(Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantifiedcondition</b></em>' container reference.
