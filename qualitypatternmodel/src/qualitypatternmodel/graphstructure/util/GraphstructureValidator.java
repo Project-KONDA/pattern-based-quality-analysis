@@ -147,7 +147,37 @@ public class GraphstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(relation, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(relation, diagnostics, context);
 		if (result || diagnostics != null) result &= patternstructureValidator.validatePatternElement_validate(relation, diagnostics, context);
+		if (result || diagnostics != null) result &= validateRelation_correctMappingOfContainment(relation, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * The cached validation expression for the correctMappingOfContainment constraint of '<em>Relation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String RELATION__CORRECT_MAPPING_OF_CONTAINMENT__EEXPRESSION = "self.mappingTo->forAll(m | m.to.relationTo.oclIsTypeOf(SingleElement) implies m.to.relationTo.oclAsType(SingleElement).mappingFrom.from = self.relationTo)";
+
+	/**
+	 * Validates the correctMappingOfContainment constraint of '<em>Relation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRelation_correctMappingOfContainment(Relation relation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GraphstructurePackage.Literals.RELATION,
+				 relation,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "correctMappingOfContainment",
+				 RELATION__CORRECT_MAPPING_OF_CONTAINMENT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
 	}
 
 	/**
@@ -186,6 +216,7 @@ public class GraphstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(singleElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGraphElement_validate(singleElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validateSingleElement_hasPreviousOrIsRoot(singleElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateSingleElement_correctMappingOfContainment(singleElement, diagnostics, context);
 		return result;
 	}
 
@@ -213,6 +244,35 @@ public class GraphstructureValidator extends EObjectValidator {
 				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 				 "hasPreviousOrIsRoot",
 				 SINGLE_ELEMENT__HAS_PREVIOUS_OR_IS_ROOT__EEXPRESSION,
+				 Diagnostic.ERROR,
+				 DIAGNOSTIC_SOURCE,
+				 0);
+	}
+
+	/**
+	 * The cached validation expression for the correctMappingOfContainment constraint of '<em>Single Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected static final String SINGLE_ELEMENT__CORRECT_MAPPING_OF_CONTAINMENT__EEXPRESSION = "self.previous->notEmpty() implies self.mappingTo->forAll(m | m.to.previous.mappingFrom.from = self.previous)";
+
+	/**
+	 * Validates the correctMappingOfContainment constraint of '<em>Single Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateSingleElement_correctMappingOfContainment(SingleElement singleElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return
+			validate
+				(GraphstructurePackage.Literals.SINGLE_ELEMENT,
+				 singleElement,
+				 diagnostics,
+				 context,
+				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+				 "correctMappingOfContainment",
+				 SINGLE_ELEMENT__CORRECT_MAPPING_OF_CONTAINMENT__EEXPRESSION,
 				 Diagnostic.ERROR,
 				 DIAGNOSTIC_SOURCE,
 				 0);

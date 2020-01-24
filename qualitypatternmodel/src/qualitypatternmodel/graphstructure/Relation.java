@@ -22,7 +22,8 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='correctMappingOfContainment'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot correctMappingOfContainment='self.mappingTo-&gt;forAll(m | m.to.relationTo.oclIsTypeOf(SingleElement) implies m.to.relationTo.oclAsType(SingleElement).mappingFrom.from = self.relationTo)'"
  * @generated
  */
 public interface Relation extends PatternElement {

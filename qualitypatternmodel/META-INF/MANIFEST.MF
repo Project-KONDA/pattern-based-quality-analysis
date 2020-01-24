@@ -19,7 +19,8 @@ Export-Package: qualitypatternmodel.functions,
  qualitypatternmodel.inputfields.util,
  qualitypatternmodel.patternstructure,
  qualitypatternmodel.patternstructure.impl,
- qualitypatternmodel.patternstructure.util
+ qualitypatternmodel.patternstructure.util,
+ qualitypatternmodel.utilityclasses
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi,

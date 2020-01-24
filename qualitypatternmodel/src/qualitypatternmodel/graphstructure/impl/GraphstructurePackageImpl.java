@@ -1258,10 +1258,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
 		   });
 		addAnnotation
+		  (relationEClass,
+		   source,
+		   new String[] {
+			   "constraints", "correctMappingOfContainment"
+		   });
+		addAnnotation
 		  (singleElementEClass,
 		   source,
 		   new String[] {
-			   "constraints", "hasPreviousOrIsRoot"
+			   "constraints", "hasPreviousOrIsRoot correctMappingOfContainment"
 		   });
 		addAnnotation
 		  (setElementEClass,
@@ -1280,10 +1286,17 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	protected void createPivotAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
 		addAnnotation
+		  (relationEClass,
+		   source,
+		   new String[] {
+			   "correctMappingOfContainment", "self.mappingTo->forAll(m | m.to.relationTo.oclIsTypeOf(SingleElement) implies m.to.relationTo.oclAsType(SingleElement).mappingFrom.from = self.relationTo)"
+		   });
+		addAnnotation
 		  (singleElementEClass,
 		   source,
 		   new String[] {
-			   "hasPreviousOrIsRoot", "self.previous->notEmpty() or self.root->notEmpty()"
+			   "hasPreviousOrIsRoot", "self.previous->notEmpty() or self.root->notEmpty()",
+			   "correctMappingOfContainment", "self.previous->notEmpty() implies self.mappingTo->forAll(m | m.to.previous.mappingFrom.from = self.previous)"
 		   });
 		addAnnotation
 		  (setElementEClass,

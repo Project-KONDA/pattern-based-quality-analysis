@@ -117,6 +117,12 @@
       <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
     </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="correctMappingOfContainment"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="correctMappingOfContainment" value="self.mappingTo->forAll(m | m.to.relationTo.oclIsTypeOf(SingleElement) implies m.to.relationTo.oclAsType(SingleElement).mappingFrom.from = self.relationTo)"/>
+      </eAnnotations>
       <eOperations name="getGraphDepth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/RelationMapping"
@@ -137,10 +143,11 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SingleElement" eSuperTypes="#//graphstructure/Element">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="hasPreviousOrIsRoot"/>
+        <details key="constraints" value="hasPreviousOrIsRoot correctMappingOfContainment"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
         <details key="hasPreviousOrIsRoot" value="self.previous->notEmpty() or self.root->notEmpty()"/>
+        <details key="correctMappingOfContainment" value="self.previous->notEmpty() implies self.mappingTo->forAll(m | m.to.previous.mappingFrom.from = self.previous)"/>
       </eAnnotations>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
