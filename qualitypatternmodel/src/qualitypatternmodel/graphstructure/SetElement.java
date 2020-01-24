@@ -3,6 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
@@ -20,6 +21,7 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSet <em>Previous Set</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSingle <em>Previous Single</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#isBeingTranslated <em>Being Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getCount <em>Count</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement()
@@ -119,7 +121,7 @@ public interface SetElement extends Element {
 	 * @return the value of the '<em>Being Translated</em>' attribute.
 	 * @see #setBeingTranslated(boolean)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement_BeingTranslated()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	boolean isBeingTranslated();
@@ -133,6 +135,30 @@ public interface SetElement extends Element {
 	 * @generated
 	 */
 	void setBeingTranslated(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Count</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Count#getArgument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Count</em>' reference.
+	 * @see #setCount(Count)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSetElement_Count()
+	 * @see qualitypatternmodel.functions.Count#getArgument
+	 * @model opposite="argument"
+	 * @generated
+	 */
+	Count getCount();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SetElement#getCount <em>Count</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Count</em>' reference.
+	 * @see #getCount()
+	 * @generated
+	 */
+	void setCount(Count value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,6 +191,14 @@ public interface SetElement extends Element {
 	 * @generated
 	 */
 	ListOfElements getPathToPreviousSingleElement() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="qualitypatternmodel.graphstructure.ListOfElements" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	EList<ListOfElements> getAllArgumentElementsSetOperation() throws InvalidityException;
 	
 
 } // SetElement

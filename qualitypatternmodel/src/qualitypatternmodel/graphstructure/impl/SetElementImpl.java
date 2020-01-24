@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.functions.BooleanOperator;
+import qualitypatternmodel.functions.Count;
+import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -36,6 +38,7 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SetElementImpl#getPreviousSet <em>Previous Set</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SetElementImpl#getPreviousSingle <em>Previous Single</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SetElementImpl#isBeingTranslated <em>Being Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.SetElementImpl#getCount <em>Count</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +93,16 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	protected boolean beingTranslated = BEING_TRANSLATED_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getCount() <em>Count</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCount()
+	 * @generated
+	 * @ordered
+	 */
+	protected Count count;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -108,6 +121,21 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			throw new InvalidityException("previous invalid");		
 		if (getRelationFromPrevious() == null)
 			throw new InvalidityException("relation not specified");
+		
+//		boolean countExists = false;
+//		ListOfElements listOfElements = getPathToPreviousSingleElement();
+//		for(Element element : listOfElements) {
+//			if(element instanceof SetElement) {
+//				SetElement setElement = (SetElement) element;
+//				if(setElement.getCount() != null){
+//					countExists = true;
+//				}
+//			}
+//		}
+		// TODO: or next* has count
+//		if(count==null && !countExists) {
+//			throw new InvalidityException("missing count for SetElement");
+//		}
 	}
 
 	@Override
@@ -171,16 +199,28 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	public ListOfElements getPathToPreviousSingleElement() throws InvalidityException {
 		if (getPreviousSingle() != null) {		
 			ListOfElements listOfElements = new ListOfElements();
-			listOfElements.add(this);
+//			listOfElements.add(this);
 			listOfElements.add(getPreviousSingle());
 			return listOfElements;
 		} else if (getPreviousSet() != null) {	
 			ListOfElements list = getPreviousSet().getPathToPreviousSingleElement();
-			list.add(this);
+			list.add(getPreviousSet());
 			return list;
 		} else { 
 			throw new InvalidityException("previous null");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
+	@Override
+	public EList<ListOfElements> getAllArgumentElementsSetOperation() throws InvalidityException {
+		EList<ListOfElements> list = new BasicEList<ListOfElements>();
+		list.add(getPathToPreviousSingleElement());
+		return list;
 	}
 
 	/**
@@ -191,8 +231,10 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	 */
 	@Override
 	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {		
-		EList<ListOfElements> list = new BasicEList<ListOfElements>();
-		list.add(getPathToPreviousSingleElement());
+		EList<ListOfElements> list = new BasicEList<ListOfElements>();		
+		ListOfElements listOfElements = new ListOfElements();
+		listOfElements.add(this);
+		list.add(listOfElements);
 		return list;
 	}
 
@@ -215,6 +257,10 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPreviousSingle((SingleElement)otherEnd, msgs);
+			case GraphstructurePackage.SET_ELEMENT__COUNT:
+				if (count != null)
+					msgs = ((InternalEObject)count).eInverseRemove(this, FunctionsPackage.COUNT__ARGUMENT, Count.class, msgs);
+				return basicSetCount((Count)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -233,6 +279,8 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 				return basicSetPreviousSet(null, msgs);
 			case GraphstructurePackage.SET_ELEMENT__PREVIOUS_SINGLE:
 				return basicSetPreviousSingle(null, msgs);
+			case GraphstructurePackage.SET_ELEMENT__COUNT:
+				return basicSetCount(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -443,6 +491,68 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Count getCount() {
+		if (count != null && count.eIsProxy()) {
+			InternalEObject oldCount = (InternalEObject)count;
+			count = (Count)eResolveProxy(oldCount);
+			if (count != oldCount) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.SET_ELEMENT__COUNT, oldCount, count));
+			}
+		}
+		return count;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Count basicGetCount() {
+		return count;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCount(Count newCount, NotificationChain msgs) {
+		Count oldCount = count;
+		count = newCount;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SET_ELEMENT__COUNT, oldCount, newCount);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCount(Count newCount) {
+		if (newCount != count) {
+			NotificationChain msgs = null;
+			if (count != null)
+				msgs = ((InternalEObject)count).eInverseRemove(this, FunctionsPackage.COUNT__ARGUMENT, Count.class, msgs);
+			if (newCount != null)
+				msgs = ((InternalEObject)newCount).eInverseAdd(this, FunctionsPackage.COUNT__ARGUMENT, Count.class, msgs);
+			msgs = basicSetCount(newCount, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SET_ELEMENT__COUNT, newCount, newCount));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -459,6 +569,9 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 				return getPreviousSingle();
 			case GraphstructurePackage.SET_ELEMENT__BEING_TRANSLATED:
 				return isBeingTranslated();
+			case GraphstructurePackage.SET_ELEMENT__COUNT:
+				if (resolve) return getCount();
+				return basicGetCount();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -487,6 +600,9 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			case GraphstructurePackage.SET_ELEMENT__BEING_TRANSLATED:
 				setBeingTranslated((Boolean)newValue);
 				return;
+			case GraphstructurePackage.SET_ELEMENT__COUNT:
+				setCount((Count)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -513,6 +629,9 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			case GraphstructurePackage.SET_ELEMENT__BEING_TRANSLATED:
 				setBeingTranslated(BEING_TRANSLATED_EDEFAULT);
 				return;
+			case GraphstructurePackage.SET_ELEMENT__COUNT:
+				setCount((Count)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -534,6 +653,8 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 				return getPreviousSingle() != null;
 			case GraphstructurePackage.SET_ELEMENT__BEING_TRANSLATED:
 				return beingTranslated != BEING_TRANSLATED_EDEFAULT;
+			case GraphstructurePackage.SET_ELEMENT__COUNT:
+				return count != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -564,6 +685,13 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			case GraphstructurePackage.SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT:
 				try {
 					return getPathToPreviousSingleElement();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION:
+				try {
+					return getAllArgumentElementsSetOperation();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

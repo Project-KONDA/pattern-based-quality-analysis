@@ -227,13 +227,31 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_ELEMENT__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ELEMENT__COMPARISON1 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ELEMENT__COMPARISON2 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Graph Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int GRAPH_ELEMENT_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -317,22 +335,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Graph Element</em>' class.
@@ -361,6 +379,24 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY__ID = GRAPH_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__COMPARISON1 = GRAPH_ELEMENT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__COMPARISON2 = GRAPH_ELEMENT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Property Option</b></em>' reference.
@@ -480,15 +516,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___TO_XQUERY__LOCATION_INT = GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -496,6 +523,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY___GET_ALL_ARGUMENT_ELEMENTS = GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Property</em>' class.
@@ -524,6 +560,24 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT__ID = GRAPH_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__COMPARISON1 = GRAPH_ELEMENT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__COMPARISON2 = GRAPH_ELEMENT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
@@ -679,15 +733,6 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___TO_XQUERY__LOCATION_INT = GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -695,6 +740,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Next Elements</em>' operation.
@@ -786,6 +840,24 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT__ID = ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__COMPARISON1 = ELEMENT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__COMPARISON2 = ELEMENT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
@@ -995,15 +1067,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___TO_XQUERY__LOCATION_INT = ELEMENT___TO_XQUERY__LOCATION_INT;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1011,6 +1074,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Next Elements</em>' operation.
@@ -1140,6 +1212,24 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__ID = ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT__COMPARISON1 = ELEMENT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT__COMPARISON2 = ELEMENT__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1248,13 +1338,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__BEING_TRANSLATED = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Count</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT__COUNT = ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Set Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
+	int SET_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1338,15 +1437,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___TO_XQUERY__LOCATION_INT = ELEMENT___TO_XQUERY__LOCATION_INT;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1354,6 +1444,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Next Elements</em>' operation.
@@ -1455,13 +1554,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get All Argument Elements Set Operation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = ELEMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Set Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 4;
+	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -1546,13 +1654,31 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__GET_ALL_RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__QUANTIFIEDCONDITION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__PATTERN = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
+	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1966,6 +2092,17 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getSetElement_BeingTranslated();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.SetElement#getCount <em>Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Count</em>'.
+	 * @see qualitypatternmodel.graphstructure.SetElement#getCount()
+	 * @see #getSetElement()
+	 * @generated
+	 */
+	EReference getSetElement_Count();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Element Existence Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2004,6 +2141,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSetElement__GetPathToPreviousSingleElement();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#getAllArgumentElementsSetOperation() <em>Get All Argument Elements Set Operation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Argument Elements Set Operation</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SetElement#getAllArgumentElementsSetOperation()
+	 * @generated
+	 */
+	EOperation getSetElement__GetAllArgumentElementsSetOperation();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Element <em>Element</em>}'.
@@ -2250,6 +2397,28 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getGraph_GetAllRelations();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedcondition <em>Quantifiedcondition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Quantifiedcondition</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getQuantifiedcondition()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_Quantifiedcondition();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Pattern</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getPattern()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_Pattern();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2268,6 +2437,28 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGraphElement();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.GraphElement#getComparison1 <em>Comparison1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Comparison1</em>'.
+	 * @see qualitypatternmodel.graphstructure.GraphElement#getComparison1()
+	 * @see #getGraphElement()
+	 * @generated
+	 */
+	EReference getGraphElement_Comparison1();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.GraphElement#getComparison2 <em>Comparison2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Comparison2</em>'.
+	 * @see qualitypatternmodel.graphstructure.GraphElement#getComparison2()
+	 * @see #getGraphElement()
+	 * @generated
+	 */
+	EReference getGraphElement_Comparison2();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.GraphElement#getReturnType() <em>Get Return Type</em>}' operation.
@@ -2608,6 +2799,14 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute SET_ELEMENT__BEING_TRANSLATED = eINSTANCE.getSetElement_BeingTranslated();
 
 		/**
+		 * The meta object literal for the '<em><b>Count</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SET_ELEMENT__COUNT = eINSTANCE.getSetElement_Count();
+
+		/**
 		 * The meta object literal for the '<em><b>Translate Element Existence Predicates</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2638,6 +2837,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = eINSTANCE.getSetElement__GetPathToPreviousSingleElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Argument Elements Set Operation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = eINSTANCE.getSetElement__GetAllArgumentElementsSetOperation();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -2828,6 +3035,22 @@ public interface GraphstructurePackage extends EPackage {
 		EReference GRAPH__GET_ALL_RELATIONS = eINSTANCE.getGraph_GetAllRelations();
 
 		/**
+		 * The meta object literal for the '<em><b>Quantifiedcondition</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__QUANTIFIEDCONDITION = eINSTANCE.getGraph_Quantifiedcondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Pattern</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__PATTERN = eINSTANCE.getGraph_Pattern();
+
+		/**
 		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2844,6 +3067,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EClass GRAPH_ELEMENT = eINSTANCE.getGraphElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Comparison1</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH_ELEMENT__COMPARISON1 = eINSTANCE.getGraphElement_Comparison1();
+
+		/**
+		 * The meta object literal for the '<em><b>Comparison2</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH_ELEMENT__COMPARISON2 = eINSTANCE.getGraphElement_Comparison2();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Return Type</b></em>' operation.

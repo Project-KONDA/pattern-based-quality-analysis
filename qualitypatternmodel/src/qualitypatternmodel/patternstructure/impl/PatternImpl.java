@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.inputfields.Input;
@@ -33,33 +34,15 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getReturnGraph <em>Return Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getVariableList <em>Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getReturnGraph <em>Return Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PatternImpl extends PatternElementImpl implements Pattern {
-	/**
-	 * The cached value of the '{@link #getReturnGraph() <em>Return Graph</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getReturnGraph()
-	 * @generated
-	 * @ordered
-	 */
-	protected Graph returnGraph;
-
-	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getCondition()
-	 * @generated
-	 * @ordered
-	 */
-	protected Condition condition;
-
 	/**
 	 * The cached value of the '{@link #getVariableList() <em>Variable List</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -78,6 +61,24 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * @ordered
 	 */
 	protected EStructuralFeature.Internal.SettingDelegate CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH).getSettingDelegate();
+
+	/**
+	 * The cached value of the '{@link #getReturnGraph() <em>Return Graph</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getReturnGraph()
+	 * @generated
+	 * @ordered
+	 */
+	protected Graph returnGraph;
+
+	/**
+	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected Condition condition;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -182,9 +183,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		if (newReturnGraph != returnGraph) {
 			NotificationChain msgs = null;
 			if (returnGraph != null)
-				msgs = ((InternalEObject)returnGraph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
+				msgs = ((InternalEObject)returnGraph).eInverseRemove(this, GraphstructurePackage.GRAPH__PATTERN, Graph.class, msgs);
 			if (newReturnGraph != null)
-				msgs = ((InternalEObject)newReturnGraph).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
+				msgs = ((InternalEObject)newReturnGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__PATTERN, Graph.class, msgs);
 			msgs = basicSetReturnGraph(newReturnGraph, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -226,9 +227,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		if (newCondition != condition) {
 			NotificationChain msgs = null;
 			if (condition != null)
-				msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
+				msgs = ((InternalEObject)condition).eInverseRemove(this, PatternstructurePackage.CONDITION__PATTERN, Condition.class, msgs);
 			if (newCondition != null)
-				msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
+				msgs = ((InternalEObject)newCondition).eInverseAdd(this, PatternstructurePackage.CONDITION__PATTERN, Condition.class, msgs);
 			msgs = basicSetCondition(newCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -309,6 +310,14 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				if (variableList != null)
 					msgs = ((InternalEObject)variableList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__VARIABLE_LIST, null, msgs);
 				return basicSetVariableList((VariableList)otherEnd, msgs);
+			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
+				if (returnGraph != null)
+					msgs = ((InternalEObject)returnGraph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
+				return basicSetReturnGraph((Graph)otherEnd, msgs);
+			case PatternstructurePackage.PATTERN__CONDITION:
+				if (condition != null)
+					msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
+				return basicSetCondition((Condition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -320,12 +329,12 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
+				return basicSetVariableList(null, msgs);
 			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
 				return basicSetReturnGraph(null, msgs);
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return basicSetCondition(null, msgs);
-			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
-				return basicSetVariableList(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -337,14 +346,14 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
-				return getReturnGraph();
-			case PatternstructurePackage.PATTERN__CONDITION:
-				return getCondition();
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				return getVariableList();
 			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				return isCheckMorphismOfNextGraph();
+			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
+				return getReturnGraph();
+			case PatternstructurePackage.PATTERN__CONDITION:
+				return getCondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -356,17 +365,17 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
-				setReturnGraph((Graph)newValue);
-				return;
-			case PatternstructurePackage.PATTERN__CONDITION:
-				setCondition((Condition)newValue);
-				return;
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				setVariableList((VariableList)newValue);
 				return;
 			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				setCheckMorphismOfNextGraph((Boolean)newValue);
+				return;
+			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
+				setReturnGraph((Graph)newValue);
+				return;
+			case PatternstructurePackage.PATTERN__CONDITION:
+				setCondition((Condition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -379,17 +388,17 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
-				setReturnGraph((Graph)null);
-				return;
-			case PatternstructurePackage.PATTERN__CONDITION:
-				setCondition((Condition)null);
-				return;
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				setVariableList((VariableList)null);
 				return;
 			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+				return;
+			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
+				setReturnGraph((Graph)null);
+				return;
+			case PatternstructurePackage.PATTERN__CONDITION:
+				setCondition((Condition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -402,14 +411,14 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
-				return returnGraph != null;
-			case PatternstructurePackage.PATTERN__CONDITION:
-				return condition != null;
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				return variableList != null;
 			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				return CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
+				return returnGraph != null;
+			case PatternstructurePackage.PATTERN__CONDITION:
+				return condition != null;
 		}
 		return super.eIsSet(featureID);
 	}

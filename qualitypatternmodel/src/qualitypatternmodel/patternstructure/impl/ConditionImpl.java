@@ -4,12 +4,17 @@ package qualitypatternmodel.patternstructure.impl;
 
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
@@ -23,6 +28,9 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getCondDepth <em>Cond Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getGetNextQuantifiedConditions <em>Get Next Quantified Conditions</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getFormula <em>Formula</em>}</li>
  * </ul>
  *
  * @generated
@@ -116,12 +124,207 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * @generated
 	 */
 	@Override
+	public Pattern getPattern() {
+		if (eContainerFeatureID() != PatternstructurePackage.CONDITION__PATTERN) return null;
+		return (Pattern)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPattern, PatternstructurePackage.CONDITION__PATTERN, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPattern(Pattern newPattern) {
+		if (newPattern != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.CONDITION__PATTERN && newPattern != null)) {
+			if (EcoreUtil.isAncestor(this, newPattern))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newPattern != null)
+				msgs = ((InternalEObject)newPattern).eInverseAdd(this, PatternstructurePackage.PATTERN__CONDITION, Pattern.class, msgs);
+			msgs = basicSetPattern(newPattern, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.CONDITION__PATTERN, newPattern, newPattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public QuantifiedCondition getQuantifiedcondition() {
+		if (eContainerFeatureID() != PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION) return null;
+		return (QuantifiedCondition)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetQuantifiedcondition(QuantifiedCondition newQuantifiedcondition, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newQuantifiedcondition, PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setQuantifiedcondition(QuantifiedCondition newQuantifiedcondition) {
+		if (newQuantifiedcondition != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION && newQuantifiedcondition != null)) {
+			if (EcoreUtil.isAncestor(this, newQuantifiedcondition))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newQuantifiedcondition != null)
+				msgs = ((InternalEObject)newQuantifiedcondition).eInverseAdd(this, PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, QuantifiedCondition.class, msgs);
+			msgs = basicSetQuantifiedcondition(newQuantifiedcondition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, newQuantifiedcondition, newQuantifiedcondition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Formula getFormula() {
+		if (eContainerFeatureID() != PatternstructurePackage.CONDITION__FORMULA) return null;
+		return (Formula)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFormula(Formula newFormula, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newFormula, PatternstructurePackage.CONDITION__FORMULA, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setFormula(Formula newFormula) {
+		if (newFormula != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.CONDITION__FORMULA && newFormula != null)) {
+			if (EcoreUtil.isAncestor(this, newFormula))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newFormula != null)
+				msgs = ((InternalEObject)newFormula).eInverseAdd(this, PatternstructurePackage.FORMULA__ARGUMENTS, Formula.class, msgs);
+			msgs = basicSetFormula(newFormula, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.CONDITION__FORMULA, newFormula, newFormula));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PatternstructurePackage.CONDITION__PATTERN:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPattern((Pattern)otherEnd, msgs);
+			case PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetQuantifiedcondition((QuantifiedCondition)otherEnd, msgs);
+			case PatternstructurePackage.CONDITION__FORMULA:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetFormula((Formula)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PatternstructurePackage.CONDITION__PATTERN:
+				return basicSetPattern(null, msgs);
+			case PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION:
+				return basicSetQuantifiedcondition(null, msgs);
+			case PatternstructurePackage.CONDITION__FORMULA:
+				return basicSetFormula(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case PatternstructurePackage.CONDITION__PATTERN:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.PATTERN__CONDITION, Pattern.class, msgs);
+			case PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, QuantifiedCondition.class, msgs);
+			case PatternstructurePackage.CONDITION__FORMULA:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.FORMULA__ARGUMENTS, Formula.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case PatternstructurePackage.CONDITION__COND_DEPTH:
 				return getCondDepth();
 			case PatternstructurePackage.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS:
 				return getGetNextQuantifiedConditions();
+			case PatternstructurePackage.CONDITION__PATTERN:
+				return getPattern();
+			case PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION:
+				return getQuantifiedcondition();
+			case PatternstructurePackage.CONDITION__FORMULA:
+				return getFormula();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -142,6 +345,15 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				getGetNextQuantifiedConditions().clear();
 				getGetNextQuantifiedConditions().addAll((Collection<? extends QuantifiedCondition>)newValue);
 				return;
+			case PatternstructurePackage.CONDITION__PATTERN:
+				setPattern((Pattern)newValue);
+				return;
+			case PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION:
+				setQuantifiedcondition((QuantifiedCondition)newValue);
+				return;
+			case PatternstructurePackage.CONDITION__FORMULA:
+				setFormula((Formula)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -160,6 +372,15 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			case PatternstructurePackage.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS:
 				getGetNextQuantifiedConditions().clear();
 				return;
+			case PatternstructurePackage.CONDITION__PATTERN:
+				setPattern((Pattern)null);
+				return;
+			case PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION:
+				setQuantifiedcondition((QuantifiedCondition)null);
+				return;
+			case PatternstructurePackage.CONDITION__FORMULA:
+				setFormula((Formula)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -176,6 +397,12 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				return condDepth != COND_DEPTH_EDEFAULT;
 			case PatternstructurePackage.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS:
 				return GET_NEXT_QUANTIFIED_CONDITIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case PatternstructurePackage.CONDITION__PATTERN:
+				return getPattern() != null;
+			case PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION:
+				return getQuantifiedcondition() != null;
+			case PatternstructurePackage.CONDITION__FORMULA:
+				return getFormula() != null;
 		}
 		return super.eIsSet(featureID);
 	}

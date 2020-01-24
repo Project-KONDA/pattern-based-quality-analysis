@@ -15,12 +15,13 @@ import qualitypatternmodel.graphstructure.Graph;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings <em>Check Single Element Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings <em>Check Relation Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism()
@@ -32,11 +33,13 @@ public interface Morphism extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Mappings</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.patternstructure.Mapping}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Mapping#getMorphism <em>Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mappings</em>' containment reference list.
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Mappings()
-	 * @model containment="true"
+	 * @see qualitypatternmodel.patternstructure.Mapping#getMorphism
+	 * @model opposite="morphism" containment="true"
 	 * @generated
 	 */
 	EList<Mapping> getMappings();
@@ -153,5 +156,29 @@ public interface Morphism extends PatternElement {
 	 * @generated
 	 */
 	void setCheckRelationMappings(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getMorphism <em>Morphism</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantifiedcondition</em>' container reference.
+	 * @see #setQuantifiedcondition(QuantifiedCondition)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Quantifiedcondition()
+	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#getMorphism
+	 * @model opposite="morphism" required="true" transient="false"
+	 * @generated
+	 */
+	QuantifiedCondition getQuantifiedcondition();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition <em>Quantifiedcondition</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantifiedcondition</em>' container reference.
+	 * @see #getQuantifiedcondition()
+	 * @generated
+	 */
+	void setQuantifiedcondition(QuantifiedCondition value);
 
 } // Morphism

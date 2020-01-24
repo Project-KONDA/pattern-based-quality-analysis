@@ -280,7 +280,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EReference getQuantifiedCondition_Condition() {
-		return (EReference)quantifiedConditionEClass.getEStructuralFeatures().get(0);
+		return (EReference)quantifiedConditionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -290,16 +290,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EReference getQuantifiedCondition_Graph() {
-		return (EReference)quantifiedConditionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getQuantifiedCondition_Morphism() {
 		return (EReference)quantifiedConditionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -309,8 +299,18 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EReference getQuantifiedCondition_Morphism() {
+		return (EReference)quantifiedConditionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getQuantifiedCondition_Quantifier() {
-		return (EAttribute)quantifiedConditionEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)quantifiedConditionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -320,7 +320,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EAttribute getQuantifiedCondition_CheckMorphismOfNextGraph() {
-		return (EAttribute)quantifiedConditionEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)quantifiedConditionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -359,6 +359,36 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EReference getCondition_Pattern() {
+		return (EReference)conditionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCondition_Quantifiedcondition() {
+		return (EReference)conditionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCondition_Formula() {
+		return (EReference)conditionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMorphism() {
 		return morphismEClass;
 	}
@@ -370,7 +400,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EReference getMorphism_Mappings() {
-		return (EReference)morphismEClass.getEStructuralFeatures().get(0);
+		return (EReference)morphismEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -380,7 +410,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EReference getMorphism_From() {
-		return (EReference)morphismEClass.getEStructuralFeatures().get(1);
+		return (EReference)morphismEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -390,7 +420,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EReference getMorphism_To() {
-		return (EReference)morphismEClass.getEStructuralFeatures().get(2);
+		return (EReference)morphismEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -400,7 +430,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EAttribute getMorphism_MorphDepth() {
-		return (EAttribute)morphismEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)morphismEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -410,7 +440,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EAttribute getMorphism_CheckSingleElementMappings() {
-		return (EAttribute)morphismEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)morphismEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -420,7 +450,17 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EAttribute getMorphism_CheckRelationMappings() {
-		return (EAttribute)morphismEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)morphismEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMorphism_Quantifiedcondition() {
+		return (EReference)morphismEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -479,6 +519,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EReference getMapping_Morphism() {
+		return (EReference)mappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFormula() {
 		return formulaEClass;
 	}
@@ -490,7 +540,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EReference getFormula_Arguments() {
-		return (EReference)formulaEClass.getEStructuralFeatures().get(0);
+		return (EReference)formulaEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -500,7 +550,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EAttribute getFormula_Operator() {
-		return (EAttribute)formulaEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)formulaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -530,26 +580,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EReference getPattern_ReturnGraph() {
-		return (EReference)patternEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPattern_Condition() {
-		return (EReference)patternEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPattern_VariableList() {
 		return (EReference)patternEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -559,8 +589,28 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EReference getPattern_Condition() {
+		return (EReference)patternEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPattern_VariableList() {
+		return (EReference)patternEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getPattern_CheckMorphismOfNextGraph() {
-		return (EAttribute)patternEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)patternEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -747,23 +797,27 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(relationMappingEClass, RELATION_MAPPING__FROM);
 
 		quantifiedConditionEClass = createEClass(QUANTIFIED_CONDITION);
-		createEReference(quantifiedConditionEClass, QUANTIFIED_CONDITION__CONDITION);
-		createEReference(quantifiedConditionEClass, QUANTIFIED_CONDITION__GRAPH);
-		createEReference(quantifiedConditionEClass, QUANTIFIED_CONDITION__MORPHISM);
 		createEAttribute(quantifiedConditionEClass, QUANTIFIED_CONDITION__QUANTIFIER);
 		createEAttribute(quantifiedConditionEClass, QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH);
+		createEReference(quantifiedConditionEClass, QUANTIFIED_CONDITION__GRAPH);
+		createEReference(quantifiedConditionEClass, QUANTIFIED_CONDITION__CONDITION);
+		createEReference(quantifiedConditionEClass, QUANTIFIED_CONDITION__MORPHISM);
 
 		conditionEClass = createEClass(CONDITION);
 		createEAttribute(conditionEClass, CONDITION__COND_DEPTH);
 		createEReference(conditionEClass, CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS);
+		createEReference(conditionEClass, CONDITION__PATTERN);
+		createEReference(conditionEClass, CONDITION__QUANTIFIEDCONDITION);
+		createEReference(conditionEClass, CONDITION__FORMULA);
 
 		morphismEClass = createEClass(MORPHISM);
-		createEReference(morphismEClass, MORPHISM__MAPPINGS);
 		createEReference(morphismEClass, MORPHISM__FROM);
 		createEReference(morphismEClass, MORPHISM__TO);
 		createEAttribute(morphismEClass, MORPHISM__MORPH_DEPTH);
 		createEAttribute(morphismEClass, MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS);
 		createEAttribute(morphismEClass, MORPHISM__CHECK_RELATION_MAPPINGS);
+		createEReference(morphismEClass, MORPHISM__QUANTIFIEDCONDITION);
+		createEReference(morphismEClass, MORPHISM__MAPPINGS);
 
 		singleElementMappingEClass = createEClass(SINGLE_ELEMENT_MAPPING);
 		createEReference(singleElementMappingEClass, SINGLE_ELEMENT_MAPPING__FROM);
@@ -771,18 +825,19 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		mappingEClass = createEClass(MAPPING);
 		createEAttribute(mappingEClass, MAPPING__MAPPING_DEPTH);
+		createEReference(mappingEClass, MAPPING__MORPHISM);
 
 		formulaEClass = createEClass(FORMULA);
-		createEReference(formulaEClass, FORMULA__ARGUMENTS);
 		createEAttribute(formulaEClass, FORMULA__OPERATOR);
+		createEReference(formulaEClass, FORMULA__ARGUMENTS);
 
 		trueEClass = createEClass(TRUE);
 
 		patternEClass = createEClass(PATTERN);
-		createEReference(patternEClass, PATTERN__RETURN_GRAPH);
-		createEReference(patternEClass, PATTERN__CONDITION);
 		createEReference(patternEClass, PATTERN__VARIABLE_LIST);
 		createEAttribute(patternEClass, PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH);
+		createEReference(patternEClass, PATTERN__RETURN_GRAPH);
+		createEReference(patternEClass, PATTERN__CONDITION);
 		createEOperation(patternEClass, PATTERN___IS_VALID__BOOLEAN);
 		createEOperation(patternEClass, PATTERN___TO_XQUERY);
 
@@ -853,23 +908,27 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getRelationMapping_From(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_MappingTo(), "from", null, 1, 1, RelationMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(quantifiedConditionEClass, QuantifiedCondition.class, "QuantifiedCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQuantifiedCondition_Condition(), this.getCondition(), null, "condition", null, 1, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuantifiedCondition_Graph(), theGraphstructurePackage.getGraph(), null, "graph", null, 1, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuantifiedCondition_Morphism(), this.getMorphism(), null, "morphism", null, 1, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuantifiedCondition_Quantifier(), this.getQuantifier(), "quantifier", null, 0, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuantifiedCondition_CheckMorphismOfNextGraph(), ecorePackage.getEBoolean(), "checkMorphismOfNextGraph", null, 1, 1, QuantifiedCondition.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getQuantifiedCondition_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_Quantifiedcondition(), "graph", null, 1, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuantifiedCondition_Condition(), this.getCondition(), this.getCondition_Quantifiedcondition(), "condition", null, 1, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuantifiedCondition_Morphism(), this.getMorphism(), this.getMorphism_Quantifiedcondition(), "morphism", null, 1, 1, QuantifiedCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCondition_CondDepth(), ecorePackage.getEInt(), "condDepth", "-1", 1, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCondition_GetNextQuantifiedConditions(), this.getQuantifiedCondition(), null, "getNextQuantifiedConditions", null, 0, -1, Condition.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getCondition_Pattern(), this.getPattern(), this.getPattern_Condition(), "pattern", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCondition_Quantifiedcondition(), this.getQuantifiedCondition(), this.getQuantifiedCondition_Condition(), "quantifiedcondition", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCondition_Formula(), this.getFormula(), this.getFormula_Arguments(), "formula", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(morphismEClass, Morphism.class, "Morphism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMorphism_Mappings(), this.getMapping(), null, "mappings", null, 0, -1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_From(), theGraphstructurePackage.getGraph(), null, "from", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_To(), theGraphstructurePackage.getGraph(), null, "to", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMorphism_MorphDepth(), ecorePackage.getEInt(), "morphDepth", "-1", 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMorphism_CheckSingleElementMappings(), ecorePackage.getEBooleanObject(), "checkSingleElementMappings", null, 0, 1, Morphism.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMorphism_CheckRelationMappings(), ecorePackage.getEBooleanObject(), "checkRelationMappings", null, 0, 1, Morphism.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getMorphism_Quantifiedcondition(), this.getQuantifiedCondition(), this.getQuantifiedCondition_Morphism(), "quantifiedcondition", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMorphism_Mappings(), this.getMapping(), this.getMapping_Morphism(), "mappings", null, 0, -1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(singleElementMappingEClass, SingleElementMapping.class, "SingleElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSingleElementMapping_From(), theGraphstructurePackage.getSingleElement(), theGraphstructurePackage.getSingleElement_MappingTo(), "from", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -877,18 +936,19 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		initEClass(mappingEClass, Mapping.class, "Mapping", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMapping_MappingDepth(), ecorePackage.getEInt(), "mappingDepth", "-1", 1, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMapping_Morphism(), this.getMorphism(), this.getMorphism_Mappings(), "morphism", null, 1, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(formulaEClass, Formula.class, "Formula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFormula_Arguments(), this.getCondition(), null, "arguments", null, 1, -1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormula_Operator(), this.getLogicalOperator(), "operator", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFormula_Arguments(), this.getCondition(), this.getCondition_Formula(), "arguments", null, 1, 2, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(trueEClass, True.class, "True", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(patternEClass, Pattern.class, "Pattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPattern_ReturnGraph(), theGraphstructurePackage.getGraph(), null, "returnGraph", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPattern_Condition(), this.getCondition(), null, "condition", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_VariableList(), theInputfieldsPackage.getVariableList(), theInputfieldsPackage.getVariableList_Pattern(), "variableList", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPattern_CheckMorphismOfNextGraph(), ecorePackage.getEBoolean(), "checkMorphismOfNextGraph", null, 1, 1, Pattern.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getPattern_ReturnGraph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_Pattern(), "returnGraph", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPattern_Condition(), this.getCondition(), this.getCondition_Pattern(), "condition", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getPattern__IsValid__boolean(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 1, 1, IS_UNIQUE, IS_ORDERED);

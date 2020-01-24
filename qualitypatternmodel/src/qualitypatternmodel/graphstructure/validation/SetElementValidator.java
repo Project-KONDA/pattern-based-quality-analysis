@@ -6,6 +6,7 @@ package qualitypatternmodel.graphstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
@@ -25,6 +26,8 @@ public interface SetElementValidator {
 	boolean validatePreviousSingle(SingleElement value);
 
 	boolean validateBeingTranslated(boolean value);
+
+	boolean validateCount(Count value);
 
 	boolean validatePrevious(Element value);
 

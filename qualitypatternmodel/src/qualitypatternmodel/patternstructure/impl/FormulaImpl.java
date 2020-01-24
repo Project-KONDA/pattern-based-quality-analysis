@@ -13,8 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.inputfields.Input;
@@ -32,22 +31,13 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getArguments <em>Arguments</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getOperator <em>Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getArguments <em>Arguments</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class FormulaImpl extends ConditionImpl implements Formula {
-	/**
-	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getArguments()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Condition> arguments;
-
 	/**
 	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -65,6 +55,15 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * @ordered
 	 */
 	protected LogicalOperator operator = OPERATOR_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getArguments() <em>Arguments</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getArguments()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Condition> arguments;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -151,9 +150,24 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public EList<Condition> getArguments() {
 		if (arguments == null) {
-			arguments = new EObjectContainmentEList<Condition>(Condition.class, this, PatternstructurePackage.FORMULA__ARGUMENTS);
+			arguments = new EObjectContainmentWithInverseEList<Condition>(Condition.class, this, PatternstructurePackage.FORMULA__ARGUMENTS, PatternstructurePackage.CONDITION__FORMULA);
 		}
 		return arguments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PatternstructurePackage.FORMULA__ARGUMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getArguments()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -197,10 +211,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.FORMULA__ARGUMENTS:
-				return getArguments();
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				return getOperator();
+			case PatternstructurePackage.FORMULA__ARGUMENTS:
+				return getArguments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -213,12 +227,12 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case PatternstructurePackage.FORMULA__OPERATOR:
+				setOperator((LogicalOperator)newValue);
+				return;
 			case PatternstructurePackage.FORMULA__ARGUMENTS:
 				getArguments().clear();
 				getArguments().addAll((Collection<? extends Condition>)newValue);
-				return;
-			case PatternstructurePackage.FORMULA__OPERATOR:
-				setOperator((LogicalOperator)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -231,11 +245,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.FORMULA__ARGUMENTS:
-				getArguments().clear();
-				return;
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				setOperator(OPERATOR_EDEFAULT);
+				return;
+			case PatternstructurePackage.FORMULA__ARGUMENTS:
+				getArguments().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -248,10 +262,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.FORMULA__ARGUMENTS:
-				return arguments != null && !arguments.isEmpty();
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				return operator != OPERATOR_EDEFAULT;
+			case PatternstructurePackage.FORMULA__ARGUMENTS:
+				return arguments != null && !arguments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

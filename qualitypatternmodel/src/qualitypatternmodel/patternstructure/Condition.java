@@ -15,6 +15,9 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getCondDepth <em>Cond Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getGetNextQuantifiedConditions <em>Get Next Quantified Conditions</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Condition#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Condition#getFormula <em>Formula</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition()
@@ -59,4 +62,76 @@ public interface Condition extends PatternElement {
 	 * @generated
 	 */
 	EList<QuantifiedCondition> getGetNextQuantifiedConditions();
+
+	/**
+	 * Returns the value of the '<em><b>Pattern</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern</em>' container reference.
+	 * @see #setPattern(Pattern)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_Pattern()
+	 * @see qualitypatternmodel.patternstructure.Pattern#getCondition
+	 * @model opposite="condition" transient="false"
+	 * @generated
+	 */
+	Pattern getPattern();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Condition#getPattern <em>Pattern</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern</em>' container reference.
+	 * @see #getPattern()
+	 * @generated
+	 */
+	void setPattern(Pattern value);
+
+	/**
+	 * Returns the value of the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantifiedcondition</em>' container reference.
+	 * @see #setQuantifiedcondition(QuantifiedCondition)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_Quantifiedcondition()
+	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#getCondition
+	 * @model opposite="condition" transient="false"
+	 * @generated
+	 */
+	QuantifiedCondition getQuantifiedcondition();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition <em>Quantifiedcondition</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantifiedcondition</em>' container reference.
+	 * @see #getQuantifiedcondition()
+	 * @generated
+	 */
+	void setQuantifiedcondition(QuantifiedCondition value);
+
+	/**
+	 * Returns the value of the '<em><b>Formula</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Formula#getArguments <em>Arguments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Formula</em>' container reference.
+	 * @see #setFormula(Formula)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_Formula()
+	 * @see qualitypatternmodel.patternstructure.Formula#getArguments
+	 * @model opposite="arguments" transient="false"
+	 * @generated
+	 */
+	Formula getFormula();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Condition#getFormula <em>Formula</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Formula</em>' container reference.
+	 * @see #getFormula()
+	 * @generated
+	 */
+	void setFormula(Formula value);
 } // Condition

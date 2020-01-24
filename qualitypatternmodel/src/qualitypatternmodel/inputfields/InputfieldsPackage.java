@@ -80,6 +80,24 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT__ID = GraphstructurePackage.GRAPH_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__COMPARISON1 = GraphstructurePackage.GRAPH_ELEMENT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__COMPARISON2 = GraphstructurePackage.GRAPH_ELEMENT__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -250,6 +268,24 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__COMPARISON1 = INPUT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__COMPARISON2 = INPUT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -433,6 +469,24 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN__ID = INPUT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN__COMPARISON1 = INPUT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN__COMPARISON2 = INPUT__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -612,6 +666,24 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__COMPARISON1 = INPUT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__COMPARISON2 = INPUT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -794,6 +866,24 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMP_OPTION__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__COMPARISON1 = INPUT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__COMPARISON2 = INPUT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -985,6 +1075,24 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPTION__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__COMPARISON1 = INPUT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__COMPARISON2 = INPUT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.

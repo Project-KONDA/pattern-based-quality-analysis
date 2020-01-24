@@ -28,6 +28,7 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
@@ -278,6 +279,11 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public Relation getRelationFromPrevious() {
 		return relationFromPrevious;
+	}
+	
+	@Override
+	public ReturnType getReturnType() {
+		return ReturnType.ELEMENT;
 	}
 
 	/**

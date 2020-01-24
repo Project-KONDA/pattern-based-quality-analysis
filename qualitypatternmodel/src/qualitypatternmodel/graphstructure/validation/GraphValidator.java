@@ -10,6 +10,8 @@ import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.Graph}.
@@ -30,4 +32,8 @@ public interface GraphValidator {
 	boolean validateGetAllElements(EList<Element> value);
 
 	boolean validateGetAllRelations(EList<Relation> value);
+
+	boolean validateQuantifiedcondition(QuantifiedCondition value);
+
+	boolean validatePattern(Pattern value);
 }

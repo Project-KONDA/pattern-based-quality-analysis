@@ -47,6 +47,7 @@ public class SetElementItemProvider extends ElementItemProvider {
 
 			addNestingDepthPropertyDescriptor(object);
 			addBeingTranslatedPropertyDescriptor(object);
+			addCountPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -91,6 +92,28 @@ public class SetElementItemProvider extends ElementItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Count feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCountPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SetElement_count_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SetElement_count_feature", "_UI_SetElement_type"),
+				 GraphstructurePackage.Literals.SET_ELEMENT__COUNT,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

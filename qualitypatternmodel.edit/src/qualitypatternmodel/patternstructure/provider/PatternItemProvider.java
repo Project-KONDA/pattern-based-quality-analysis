@@ -90,9 +90,9 @@ public class PatternItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__VARIABLE_LIST);
 			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__RETURN_GRAPH);
 			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__CONDITION);
-			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__VARIABLE_LIST);
 		}
 		return childrenFeatures;
 	}
@@ -148,9 +148,9 @@ public class PatternItemProvider extends PatternElementItemProvider {
 			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
 			case PatternstructurePackage.PATTERN__CONDITION:
-			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -167,6 +167,11 @@ public class PatternItemProvider extends PatternElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.PATTERN__VARIABLE_LIST,
+				 InputfieldsFactory.eINSTANCE.createVariableList()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -187,11 +192,6 @@ public class PatternItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(PatternstructurePackage.Literals.PATTERN__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createTrue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PatternstructurePackage.Literals.PATTERN__VARIABLE_LIST,
-				 InputfieldsFactory.eINSTANCE.createVariableList()));
 	}
 
 }

@@ -3,7 +3,6 @@
 package qualitypatternmodel.functions.util;
 
 import java.util.Map;
-
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 

@@ -5,6 +5,7 @@ package qualitypatternmodel.graphstructure;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -14,12 +15,47 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * A representation of the model object '<em><b>Graph Element</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link qualitypatternmodel.graphstructure.GraphElement#getComparison1 <em>Comparison1</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.GraphElement#getComparison2 <em>Comparison2</em>}</li>
+ * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraphElement()
  * @model abstract="true"
  * @generated
  */
 public interface GraphElement extends PatternElement {
+	/**
+	 * Returns the value of the '<em><b>Comparison1</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.functions.Comparison}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Comparison#getArgument1 <em>Argument1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comparison1</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraphElement_Comparison1()
+	 * @see qualitypatternmodel.functions.Comparison#getArgument1
+	 * @model opposite="argument1"
+	 * @generated
+	 */
+	EList<Comparison> getComparison1();
+
+	/**
+	 * Returns the value of the '<em><b>Comparison2</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.functions.Comparison}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Comparison#getArgument2 <em>Argument2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comparison2</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraphElement_Comparison2()
+	 * @see qualitypatternmodel.functions.Comparison#getArgument2
+	 * @model opposite="argument2"
+	 * @generated
+	 */
+	EList<Comparison> getComparison2();
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

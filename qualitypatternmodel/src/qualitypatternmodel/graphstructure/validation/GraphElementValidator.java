@@ -4,6 +4,9 @@
  */
 package qualitypatternmodel.graphstructure.validation;
 
+import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.functions.Comparison;
+
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.GraphElement}.
@@ -13,5 +16,11 @@ package qualitypatternmodel.graphstructure.validation;
  */
 public interface GraphElementValidator {
 	boolean validate();
+
+	boolean validateComparison1(EList<Comparison> value);
+
+	boolean validateComparison2(EList<Comparison> value);
+
+	boolean validateComparison(Comparison value);
 
 }

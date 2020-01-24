@@ -13,11 +13,11 @@ import qualitypatternmodel.graphstructure.Graph;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCondition <em>Condition</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph <em>Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getMorphism <em>Morphism</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getQuantifier <em>Quantifier</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCondition <em>Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getMorphism <em>Morphism</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition()
@@ -28,12 +28,14 @@ import qualitypatternmodel.graphstructure.Graph;
 public interface QuantifiedCondition extends Condition {
 	/**
 	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition <em>Quantifiedcondition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Condition</em>' containment reference.
 	 * @see #setCondition(Condition)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_Condition()
-	 * @model containment="true" required="true"
+	 * @see qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition
+	 * @model opposite="quantifiedcondition" containment="true" required="true"
 	 * @generated
 	 */
 	Condition getCondition();
@@ -50,12 +52,14 @@ public interface QuantifiedCondition extends Condition {
 
 	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedcondition <em>Quantifiedcondition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Graph</em>' containment reference.
 	 * @see #setGraph(Graph)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_Graph()
-	 * @model containment="true" required="true"
+	 * @see qualitypatternmodel.graphstructure.Graph#getQuantifiedcondition
+	 * @model opposite="quantifiedcondition" containment="true" required="true"
 	 * @generated
 	 */
 	Graph getGraph();
@@ -72,12 +76,14 @@ public interface QuantifiedCondition extends Condition {
 
 	/**
 	 * Returns the value of the '<em><b>Morphism</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition <em>Quantifiedcondition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Morphism</em>' containment reference.
 	 * @see #setMorphism(Morphism)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_Morphism()
-	 * @model containment="true" required="true"
+	 * @see qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition
+	 * @model opposite="quantifiedcondition" containment="true" required="true"
 	 * @generated
 	 */
 	Morphism getMorphism();

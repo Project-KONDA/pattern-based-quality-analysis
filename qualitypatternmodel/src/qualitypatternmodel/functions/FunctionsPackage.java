@@ -80,6 +80,24 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR__ID = GraphstructurePackage.GRAPH_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__COMPARISON1 = GraphstructurePackage.GRAPH_ELEMENT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__COMPARISON2 = GraphstructurePackage.GRAPH_ELEMENT__COMPARISON2;
+
+	/**
 	 * The number of structural features of the '<em>Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -223,6 +241,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR__ID = OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__COMPARISON1 = OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__COMPARISON2 = OPERATOR__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -379,6 +415,24 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATORS__ID = OPERATOR__ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS__COMPARISON1 = OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS__COMPARISON2 = OPERATOR__COMPARISON2;
+
+	/**
 	 * The number of structural features of the '<em>Number Operators</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -522,6 +576,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT__ID = NUMBER_OPERATORS__ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT__COMPARISON1 = NUMBER_OPERATORS__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT__COMPARISON2 = NUMBER_OPERATORS__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Argument</b></em>' reference.
@@ -678,6 +750,24 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATORS__ID = OPERATOR__ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS__COMPARISON1 = OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS__COMPARISON2 = OPERATOR__COMPARISON2;
+
+	/**
 	 * The number of structural features of the '<em>Other Operators</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -821,6 +911,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH__ID = BOOLEAN_OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH__COMPARISON1 = BOOLEAN_OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH__COMPARISON2 = BOOLEAN_OPERATOR__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -1004,6 +1112,24 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON__ID = BOOLEAN_OPERATOR__ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON__COMPARISON1 = BOOLEAN_OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON__COMPARISON2 = BOOLEAN_OPERATOR__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1183,6 +1309,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TO_NUMBER__ID = NUMBER_OPERATORS__ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER__COMPARISON1 = NUMBER_OPERATORS__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER__COMPARISON2 = NUMBER_OPERATORS__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' reference.

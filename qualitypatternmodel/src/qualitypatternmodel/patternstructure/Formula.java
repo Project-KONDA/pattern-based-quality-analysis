@@ -13,8 +13,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Formula#getArguments <em>Arguments</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Formula#getOperator <em>Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Formula#getArguments <em>Arguments</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula()
@@ -25,11 +25,13 @@ public interface Formula extends Condition {
 	/**
 	 * Returns the value of the '<em><b>Arguments</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.patternstructure.Condition}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Condition#getFormula <em>Formula</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Arguments</em>' containment reference list.
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula_Arguments()
-	 * @model containment="true" required="true"
+	 * @see qualitypatternmodel.patternstructure.Condition#getFormula
+	 * @model opposite="formula" containment="true" required="true" upper="2"
 	 * @generated
 	 */
 	EList<Condition> getArguments();

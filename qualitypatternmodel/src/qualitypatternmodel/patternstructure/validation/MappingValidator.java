@@ -4,6 +4,8 @@
  */
 package qualitypatternmodel.patternstructure.validation;
 
+import qualitypatternmodel.patternstructure.Morphism;
+
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.patternstructure.Mapping}.
@@ -15,5 +17,7 @@ public interface MappingValidator {
 	boolean validate();
 
 	boolean validateMappingDepth(int value);
+
+	boolean validateMorphism(Morphism value);
 
 }

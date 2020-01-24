@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.graphstructure.Graph;
@@ -23,6 +23,7 @@ import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -31,26 +32,18 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMappings <em>Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getFrom <em>From</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getTo <em>To</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMorphDepth <em>Morph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getCheckSingleElementMappings <em>Check Single Element Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getCheckRelationMappings <em>Check Relation Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMappings <em>Mappings</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MorphismImpl extends PatternElementImpl implements Morphism {
-	/**
-	 * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getMappings()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Mapping> mappings;
-
 	/**
 	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -112,6 +105,15 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	protected EStructuralFeature.Internal.SettingDelegate CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.MORPHISM__CHECK_RELATION_MAPPINGS).getSettingDelegate();
 
 	/**
+	 * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getMappings()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Mapping> mappings;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -155,9 +157,28 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public EList<Mapping> getMappings() {
 		if (mappings == null) {
-			mappings = new EObjectContainmentEList<Mapping>(Mapping.class, this, PatternstructurePackage.MORPHISM__MAPPINGS);
+			mappings = new EObjectContainmentWithInverseEList<Mapping>(Mapping.class, this, PatternstructurePackage.MORPHISM__MAPPINGS, PatternstructurePackage.MAPPING__MORPHISM);
 		}
 		return mappings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetQuantifiedcondition((QuantifiedCondition)otherEnd, msgs);
+			case PatternstructurePackage.MORPHISM__MAPPINGS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappings()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -298,16 +319,75 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public QuantifiedCondition getQuantifiedcondition() {
+		if (eContainerFeatureID() != PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION) return null;
+		return (QuantifiedCondition)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetQuantifiedcondition(QuantifiedCondition newQuantifiedcondition, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newQuantifiedcondition, PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setQuantifiedcondition(QuantifiedCondition newQuantifiedcondition) {
+		if (newQuantifiedcondition != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION && newQuantifiedcondition != null)) {
+			if (EcoreUtil.isAncestor(this, newQuantifiedcondition))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newQuantifiedcondition != null)
+				msgs = ((InternalEObject)newQuantifiedcondition).eInverseAdd(this, PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, QuantifiedCondition.class, msgs);
+			msgs = basicSetQuantifiedcondition(newQuantifiedcondition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION, newQuantifiedcondition, newQuantifiedcondition));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION:
+				return basicSetQuantifiedcondition(null, msgs);
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				return ((InternalEList<?>)getMappings()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, QuantifiedCondition.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -317,8 +397,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPINGS:
-				return getMappings();
 			case PatternstructurePackage.MORPHISM__FROM:
 				if (resolve) return getFrom();
 				return basicGetFrom();
@@ -331,6 +409,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return getCheckSingleElementMappings();
 			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
 				return getCheckRelationMappings();
+			case PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION:
+				return getQuantifiedcondition();
+			case PatternstructurePackage.MORPHISM__MAPPINGS:
+				return getMappings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -343,10 +425,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPINGS:
-				getMappings().clear();
-				getMappings().addAll((Collection<? extends Mapping>)newValue);
-				return;
 			case PatternstructurePackage.MORPHISM__FROM:
 				setFrom((Graph)newValue);
 				return;
@@ -362,6 +440,13 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
 				setCheckRelationMappings((Boolean)newValue);
 				return;
+			case PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION:
+				setQuantifiedcondition((QuantifiedCondition)newValue);
+				return;
+			case PatternstructurePackage.MORPHISM__MAPPINGS:
+				getMappings().clear();
+				getMappings().addAll((Collection<? extends Mapping>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -373,9 +458,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPINGS:
-				getMappings().clear();
-				return;
 			case PatternstructurePackage.MORPHISM__FROM:
 				setFrom((Graph)null);
 				return;
@@ -391,6 +473,12 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
 				CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
 				return;
+			case PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION:
+				setQuantifiedcondition((QuantifiedCondition)null);
+				return;
+			case PatternstructurePackage.MORPHISM__MAPPINGS:
+				getMappings().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -402,8 +490,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MAPPINGS:
-				return mappings != null && !mappings.isEmpty();
 			case PatternstructurePackage.MORPHISM__FROM:
 				return from != null;
 			case PatternstructurePackage.MORPHISM__TO:
@@ -414,6 +500,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return CHECK_SINGLE_ELEMENT_MAPPINGS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
 				return CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case PatternstructurePackage.MORPHISM__QUANTIFIEDCONDITION:
+				return getQuantifiedcondition() != null;
+			case PatternstructurePackage.MORPHISM__MAPPINGS:
+				return mappings != null && !mappings.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

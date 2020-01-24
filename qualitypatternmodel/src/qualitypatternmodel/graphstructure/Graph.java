@@ -7,7 +7,9 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +27,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGetAllElements <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGetAllRelations <em>Get All Relations</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph()
@@ -165,6 +169,54 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	EList<Relation> getGetAllRelations();
+
+	/**
+	 * Returns the value of the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph <em>Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantifiedcondition</em>' container reference.
+	 * @see #setQuantifiedcondition(QuantifiedCondition)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_Quantifiedcondition()
+	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph
+	 * @model opposite="graph" transient="false"
+	 * @generated
+	 */
+	QuantifiedCondition getQuantifiedcondition();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedcondition <em>Quantifiedcondition</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Quantifiedcondition</em>' container reference.
+	 * @see #getQuantifiedcondition()
+	 * @generated
+	 */
+	void setQuantifiedcondition(QuantifiedCondition value);
+
+	/**
+	 * Returns the value of the '<em><b>Pattern</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Pattern#getReturnGraph <em>Return Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pattern</em>' container reference.
+	 * @see #setPattern(Pattern)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_Pattern()
+	 * @see qualitypatternmodel.patternstructure.Pattern#getReturnGraph
+	 * @model opposite="returnGraph" transient="false"
+	 * @generated
+	 */
+	Pattern getPattern();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pattern</em>' container reference.
+	 * @see #getPattern()
+	 * @generated
+	 */
+	void setPattern(Pattern value);
 
 	/**
 	 * <!-- begin-user-doc -->

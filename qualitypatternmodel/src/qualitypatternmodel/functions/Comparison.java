@@ -26,12 +26,14 @@ import qualitypatternmodel.inputfields.CompOption;
 public interface Comparison extends BooleanOperator {
 	/**
 	 * Returns the value of the '<em><b>Argument1</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.GraphElement#getComparison1 <em>Comparison1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument1</em>' reference.
 	 * @see #setArgument1(GraphElement)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getComparison_Argument1()
-	 * @model required="true"
+	 * @see qualitypatternmodel.graphstructure.GraphElement#getComparison1
+	 * @model opposite="comparison1" required="true"
 	 * @generated
 	 */
 	GraphElement getArgument1();
@@ -70,12 +72,14 @@ public interface Comparison extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Argument2</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.GraphElement#getComparison2 <em>Comparison2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument2</em>' reference.
 	 * @see #setArgument2(GraphElement)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getComparison_Argument2()
-	 * @model required="true"
+	 * @see qualitypatternmodel.graphstructure.GraphElement#getComparison2
+	 * @model opposite="comparison2" required="true"
 	 * @generated
 	 */
 	GraphElement getArgument2();

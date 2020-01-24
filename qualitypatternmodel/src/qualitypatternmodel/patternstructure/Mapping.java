@@ -13,6 +13,7 @@ package qualitypatternmodel.patternstructure;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Mapping#getMappingDepth <em>Mapping Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Mapping#getMorphism <em>Morphism</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMapping()
@@ -43,4 +44,28 @@ public interface Mapping extends PatternElement {
 	 * @generated
 	 */
 	void setMappingDepth(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Morphism</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Morphism</em>' container reference.
+	 * @see #setMorphism(Morphism)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMapping_Morphism()
+	 * @see qualitypatternmodel.patternstructure.Morphism#getMappings
+	 * @model opposite="mappings" required="true" transient="false"
+	 * @generated
+	 */
+	Morphism getMorphism();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Mapping#getMorphism <em>Morphism</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Morphism</em>' container reference.
+	 * @see #getMorphism()
+	 * @generated
+	 */
+	void setMorphism(Morphism value);
 } // Mapping

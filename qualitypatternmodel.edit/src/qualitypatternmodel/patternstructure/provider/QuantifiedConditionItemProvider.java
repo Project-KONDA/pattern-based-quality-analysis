@@ -112,8 +112,8 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION);
 			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__GRAPH);
+			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION);
 			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__MORPHISM);
 		}
 		return childrenFeatures;
@@ -172,8 +172,8 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
 			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
 			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -194,6 +194,11 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__GRAPH,
+				 GraphstructureFactory.eINSTANCE.createGraph()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createQuantifiedCondition()));
 
@@ -206,11 +211,6 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 			(createChildParameter
 				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createTrue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__GRAPH,
-				 GraphstructureFactory.eINSTANCE.createGraph()));
 
 		newChildDescriptors.add
 			(createChildParameter

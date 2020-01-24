@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Graph;
 
 import qualitypatternmodel.patternstructure.Mapping;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.patternstructure.Morphism}.
@@ -28,4 +29,6 @@ public interface MorphismValidator {
 	boolean validateCheckSingleElementMappings(Boolean value);
 
 	boolean validateCheckRelationMappings(Boolean value);
+
+	boolean validateQuantifiedcondition(QuantifiedCondition value);
 }

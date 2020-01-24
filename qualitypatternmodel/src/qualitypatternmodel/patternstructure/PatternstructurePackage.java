@@ -189,13 +189,22 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING__MAPPING_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING__MORPHISM = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int MAPPING_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -296,6 +305,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING__MAPPING_DEPTH = MAPPING__MAPPING_DEPTH;
+
+	/**
+	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING__MORPHISM = MAPPING__MORPHISM;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' reference.
@@ -434,13 +452,40 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__PATTERN = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__QUANTIFIEDCONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Formula</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__FORMULA = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int CONDITION_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -552,31 +597,31 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS;
 
 	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION__CONDITION = CONDITION_FEATURE_COUNT + 0;
+	int QUANTIFIED_CONDITION__PATTERN = CONDITION__PATTERN;
 
 	/**
-	 * The feature id for the '<em><b>Graph</b></em>' containment reference.
+	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION__GRAPH = CONDITION_FEATURE_COUNT + 1;
+	int QUANTIFIED_CONDITION__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
 
 	/**
-	 * The feature id for the '<em><b>Morphism</b></em>' containment reference.
+	 * The feature id for the '<em><b>Formula</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION__MORPHISM = CONDITION_FEATURE_COUNT + 2;
+	int QUANTIFIED_CONDITION__FORMULA = CONDITION__FORMULA;
 
 	/**
 	 * The feature id for the '<em><b>Quantifier</b></em>' attribute.
@@ -585,7 +630,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION__QUANTIFIER = CONDITION_FEATURE_COUNT + 3;
+	int QUANTIFIED_CONDITION__QUANTIFIER = CONDITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Check Morphism Of Next Graph</b></em>' attribute.
@@ -594,7 +639,34 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH = CONDITION_FEATURE_COUNT + 4;
+	int QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION__GRAPH = CONDITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION__CONDITION = CONDITION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Morphism</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION__MORPHISM = CONDITION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Quantified Condition</em>' class.
@@ -697,22 +769,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM__ID = PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Mappings</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM__MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__FROM = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int MORPHISM__FROM = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' reference.
@@ -721,7 +784,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__TO = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int MORPHISM__TO = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Morph Depth</b></em>' attribute.
@@ -730,7 +793,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__MORPH_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int MORPHISM__MORPH_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Check Single Element Mappings</b></em>' attribute.
@@ -739,7 +802,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Check Relation Mappings</b></em>' attribute.
@@ -748,7 +811,25 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__CHECK_RELATION_MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int MORPHISM__CHECK_RELATION_MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM__QUANTIFIEDCONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Mappings</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM__MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Morphism</em>' class.
@@ -757,7 +838,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 6;
+	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -858,6 +939,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT_MAPPING__MAPPING_DEPTH = MAPPING__MAPPING_DEPTH;
+
+	/**
+	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING__MORPHISM = MAPPING__MORPHISM;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
@@ -996,13 +1086,31 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA__GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS;
 
 	/**
-	 * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__ARGUMENTS = CONDITION_FEATURE_COUNT + 0;
+	int FORMULA__PATTERN = CONDITION__PATTERN;
+
+	/**
+	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Formula</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA__FORMULA = CONDITION__FORMULA;
 
 	/**
 	 * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -1011,7 +1119,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__OPERATOR = CONDITION_FEATURE_COUNT + 1;
+	int FORMULA__OPERATOR = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Arguments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA__ARGUMENTS = CONDITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Formula</em>' class.
@@ -1132,6 +1249,33 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE__GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS;
 
 	/**
+	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE__PATTERN = CONDITION__PATTERN;
+
+	/**
+	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Formula</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE__FORMULA = CONDITION__FORMULA;
+
+	/**
 	 * The number of structural features of the '<em>True</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1232,31 +1376,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__ID = PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Return Graph</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN__RETURN_GRAPH = PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN__CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__VARIABLE_LIST = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int PATTERN__VARIABLE_LIST = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Check Morphism Of Next Graph</b></em>' attribute.
@@ -1265,7 +1391,25 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Return Graph</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN__RETURN_GRAPH = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN__CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Pattern</em>' class.
@@ -1527,6 +1671,39 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCondition_GetNextQuantifiedConditions();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Condition#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Pattern</em>'.
+	 * @see qualitypatternmodel.patternstructure.Condition#getPattern()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EReference getCondition_Pattern();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition <em>Quantifiedcondition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Quantifiedcondition</em>'.
+	 * @see qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EReference getCondition_Quantifiedcondition();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Condition#getFormula <em>Formula</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Formula</em>'.
+	 * @see qualitypatternmodel.patternstructure.Condition#getFormula()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EReference getCondition_Formula();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Morphism <em>Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1603,6 +1780,17 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getMorphism_CheckRelationMappings();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition <em>Quantifiedcondition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Quantifiedcondition</em>'.
+	 * @see qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition()
+	 * @see #getMorphism()
+	 * @generated
+	 */
+	EReference getMorphism_Quantifiedcondition();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.SingleElementMapping <em>Single Element Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1654,6 +1842,17 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMapping_MappingDepth();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Mapping#getMorphism <em>Morphism</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Morphism</em>'.
+	 * @see qualitypatternmodel.patternstructure.Mapping#getMorphism()
+	 * @see #getMapping()
+	 * @generated
+	 */
+	EReference getMapping_Morphism();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Formula <em>Formula</em>}'.
@@ -2029,6 +2228,30 @@ public interface PatternstructurePackage extends EPackage {
 		EReference CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS = eINSTANCE.getCondition_GetNextQuantifiedConditions();
 
 		/**
+		 * The meta object literal for the '<em><b>Pattern</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION__PATTERN = eINSTANCE.getCondition_Pattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Quantifiedcondition</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION__QUANTIFIEDCONDITION = eINSTANCE.getCondition_Quantifiedcondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Formula</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONDITION__FORMULA = eINSTANCE.getCondition_Formula();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.MorphismImpl <em>Morphism</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2087,6 +2310,14 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute MORPHISM__CHECK_RELATION_MAPPINGS = eINSTANCE.getMorphism_CheckRelationMappings();
 
 		/**
+		 * The meta object literal for the '<em><b>Quantifiedcondition</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MORPHISM__QUANTIFIEDCONDITION = eINSTANCE.getMorphism_Quantifiedcondition();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl <em>Single Element Mapping</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2129,6 +2360,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MAPPING__MAPPING_DEPTH = eINSTANCE.getMapping_MappingDepth();
+
+		/**
+		 * The meta object literal for the '<em><b>Morphism</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAPPING__MORPHISM = eINSTANCE.getMapping_Morphism();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.FormulaImpl <em>Formula</em>}' class.

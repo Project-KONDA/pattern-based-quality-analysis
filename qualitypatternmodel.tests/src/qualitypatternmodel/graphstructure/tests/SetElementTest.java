@@ -18,6 +18,7 @@ import qualitypatternmodel.graphstructure.SetElement;
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#translatePathFromPrevious(int) <em>Translate Path From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#translatePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getPathToPreviousSingleElement() <em>Get Path To Previous Single Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getAllArgumentElementsSetOperation() <em>Get All Argument Elements Set Operation</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -123,6 +124,19 @@ public class SetElementTest extends ElementTest {
 	 * @generated
 	 */
 	public void testGetPathToPreviousSingleElement() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SetElement#getAllArgumentElementsSetOperation() <em>Get All Argument Elements Set Operation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SetElement#getAllArgumentElementsSetOperation()
+	 * @generated
+	 */
+	public void testGetAllArgumentElementsSetOperation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

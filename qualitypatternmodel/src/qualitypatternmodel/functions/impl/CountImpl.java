@@ -3,6 +3,7 @@
 package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -86,8 +88,8 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	 * 
 	 */
 	@Override
-	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {		
-		return argument.getAllArgumentElements();
+	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {	
+		return argument.getAllArgumentElementsSetOperation();	
 	}
 	
 	/**
@@ -125,15 +127,67 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetArgument(SetElement newArgument, NotificationChain msgs) {
+		SetElement oldArgument = argument;
+		argument = newArgument;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COUNT__ARGUMENT, oldArgument, newArgument);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void setArgument(SetElement newArgument) {
-		SetElement oldArgument = argument;
-		argument = newArgument;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COUNT__ARGUMENT, oldArgument, argument));
+		if (newArgument != argument) {
+			NotificationChain msgs = null;
+			if (argument != null)
+				msgs = ((InternalEObject)argument).eInverseRemove(this, GraphstructurePackage.SET_ELEMENT__COUNT, SetElement.class, msgs);
+			if (newArgument != null)
+				msgs = ((InternalEObject)newArgument).eInverseAdd(this, GraphstructurePackage.SET_ELEMENT__COUNT, SetElement.class, msgs);
+			msgs = basicSetArgument(newArgument, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COUNT__ARGUMENT, newArgument, newArgument));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FunctionsPackage.COUNT__ARGUMENT:
+				if (argument != null)
+					msgs = ((InternalEObject)argument).eInverseRemove(this, GraphstructurePackage.SET_ELEMENT__COUNT, SetElement.class, msgs);
+				return basicSetArgument((SetElement)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FunctionsPackage.COUNT__ARGUMENT:
+				return basicSetArgument(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

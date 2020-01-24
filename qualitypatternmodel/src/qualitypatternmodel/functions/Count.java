@@ -23,12 +23,14 @@ import qualitypatternmodel.graphstructure.SetElement;
 public interface Count extends NumberOperators {
 	/**
 	 * Returns the value of the '<em><b>Argument</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SetElement#getCount <em>Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Argument</em>' reference.
 	 * @see #setArgument(SetElement)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getCount_Argument()
-	 * @model required="true"
+	 * @see qualitypatternmodel.graphstructure.SetElement#getCount
+	 * @model opposite="count" required="true"
 	 * @generated
 	 */
 	SetElement getArgument();

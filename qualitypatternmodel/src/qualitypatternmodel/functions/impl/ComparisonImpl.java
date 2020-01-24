@@ -3,19 +3,20 @@
 package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphElement;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
@@ -42,7 +43,8 @@ import qualitypatternmodel.patternstructure.Location;
 public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * The cached value of the '{@link #getArgument1() <em>Argument1</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getArgument1()
 	 * @generated
 	 * @ordered
@@ -118,36 +120,55 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		if (!(argument1.getReturnType() == argument2.getReturnType()))
 			throw new InvalidityException("unmatching types");		
 		
+//		if(argument1 instanceof SetElement || argument1 instanceof OtherOperators || argument1 instanceof BooleanOperator) {
+//			throw new InvalidityException("invalid argument1 type");
+//		}
+//		if(argument2 instanceof SetElement || argument2 instanceof OtherOperators || argument2 instanceof BooleanOperator) {
+//			throw new InvalidityException("invalid argument2 type");
+//		}
+		
+		if(argument1 instanceof Element && argument2 instanceof Element) {
+			if(option.getValue() != ComparisonOperator.EQUAL && option.getValue() != ComparisonOperator.NOTEQUAL) {
+				throw new InvalidityException("invalid comparison operator for arguments of type Element");
+			}
+		}
+		
 		// ensure "predicate owner must be argument" constraint:	
 		
-		EList<ListOfElements> arguments = getAllArgumentElements();
+		if(getComparison1().isEmpty() && getComparison2().isEmpty()) {
 		
-		EList<Element> argumentsFlattened = new BasicEList<Element>();
-		arguments.forEach(argumentsFlattened::addAll);		
-		
-		boolean ownersInArguments = argumentsFlattened.containsAll(elements);
-
-		if(!ownersInArguments) {
-			throw new InvalidityException("invalid predicate argument");
-		}
-		
-		boolean argumentsInElements = true;
-		for(ListOfElements listOfElements : arguments) {
-			boolean isElement = false;
-			for(Element argument : listOfElements) {
-				for(Element owner : elements) {					
-					if(argument.equals(owner)) {	
-						// TODO: what if isElement is already true?
-						isElement = true;		
+			EList<ListOfElements> arguments = getAllArgumentElements();
+			
+			EList<Element> argumentsFlattened = new BasicEList<Element>();
+			arguments.forEach(argumentsFlattened::addAll);		
+			
+			boolean ownersInArguments = argumentsFlattened.containsAll(elements);
+	
+			if(!ownersInArguments) {
+				throw new InvalidityException("invalid predicate argument");
+			}
+			
+			boolean argumentsInElements = true;
+			for(ListOfElements listOfElements : arguments) {
+				boolean isElement = false;
+				for(Element argument : listOfElements) {
+					for(Element owner : elements) {					
+						if(argument.equals(owner)) {	
+							if(isElement) {
+								throw new InvalidityException("too many predicate owners");
+							}
+							isElement = true;		
+						}
 					}
 				}
-			}
-			argumentsInElements &= isElement;
-		}		
-		if(!argumentsInElements) {
-			throw new InvalidityException("invalid predicate owner");
-		}
+				argumentsInElements &= isElement;
+			}		
+			if(!argumentsInElements) {
+				throw new InvalidityException("invalid predicate owner");
+			}	
 		
+		}
+	
 	}
 
 	/**
@@ -248,15 +269,37 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetArgument1(GraphElement newArgument1, NotificationChain msgs) {
+		GraphElement oldArgument1 = argument1;
+		argument1 = newArgument1;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT1, oldArgument1, newArgument1);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void setArgument1(GraphElement newArgument1) {
-		GraphElement oldArgument1 = argument1;
-		argument1 = newArgument1;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT1, oldArgument1, argument1));
+		if (newArgument1 != argument1) {
+			NotificationChain msgs = null;
+			if (argument1 != null)
+				msgs = ((InternalEObject)argument1).eInverseRemove(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON1, GraphElement.class, msgs);
+			if (newArgument1 != null)
+				msgs = ((InternalEObject)newArgument1).eInverseAdd(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON1, GraphElement.class, msgs);
+			msgs = basicSetArgument1(newArgument1, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT1, newArgument1, newArgument1));
 	}
 
 	/**
@@ -326,15 +369,73 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetArgument2(GraphElement newArgument2, NotificationChain msgs) {
+		GraphElement oldArgument2 = argument2;
+		argument2 = newArgument2;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT2, oldArgument2, newArgument2);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public void setArgument2(GraphElement newArgument2) {
-		GraphElement oldArgument2 = argument2;
-		argument2 = newArgument2;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT2, oldArgument2, argument2));
+		if (newArgument2 != argument2) {
+			NotificationChain msgs = null;
+			if (argument2 != null)
+				msgs = ((InternalEObject)argument2).eInverseRemove(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON2, GraphElement.class, msgs);
+			if (newArgument2 != null)
+				msgs = ((InternalEObject)newArgument2).eInverseAdd(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON2, GraphElement.class, msgs);
+			msgs = basicSetArgument2(newArgument2, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT2, newArgument2, newArgument2));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FunctionsPackage.COMPARISON__ARGUMENT1:
+				if (argument1 != null)
+					msgs = ((InternalEObject)argument1).eInverseRemove(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON1, GraphElement.class, msgs);
+				return basicSetArgument1((GraphElement)otherEnd, msgs);
+			case FunctionsPackage.COMPARISON__ARGUMENT2:
+				if (argument2 != null)
+					msgs = ((InternalEObject)argument2).eInverseRemove(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON2, GraphElement.class, msgs);
+				return basicSetArgument2((GraphElement)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FunctionsPackage.COMPARISON__ARGUMENT1:
+				return basicSetArgument1(null, msgs);
+			case FunctionsPackage.COMPARISON__ARGUMENT2:
+				return basicSetArgument2(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

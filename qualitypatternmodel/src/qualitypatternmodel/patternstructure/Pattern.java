@@ -14,10 +14,10 @@ import qualitypatternmodel.inputfields.VariableList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getReturnGraph <em>Return Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getVariableList <em>Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getReturnGraph <em>Return Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern()
@@ -28,12 +28,14 @@ import qualitypatternmodel.inputfields.VariableList;
 public interface Pattern extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Return Graph</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Return Graph</em>' containment reference.
 	 * @see #setReturnGraph(Graph)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_ReturnGraph()
-	 * @model containment="true" required="true"
+	 * @see qualitypatternmodel.graphstructure.Graph#getPattern
+	 * @model opposite="pattern" containment="true" required="true"
 	 * @generated
 	 */
 	Graph getReturnGraph();
@@ -50,12 +52,14 @@ public interface Pattern extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Condition#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Condition</em>' containment reference.
 	 * @see #setCondition(Condition)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_Condition()
-	 * @model containment="true" required="true"
+	 * @see qualitypatternmodel.patternstructure.Condition#getPattern
+	 * @model opposite="pattern" containment="true" required="true"
 	 * @generated
 	 */
 	Condition getCondition();
