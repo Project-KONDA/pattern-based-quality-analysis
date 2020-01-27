@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_vVBf0EEDEeqYNZiLC_l8cA" name="patternbasedqualityanalysisUML">
+  <packagedElement xmi:type="uml:Actor" xmi:id="_FAJIcEEEEeqYNZiLC_l8cA" name="data manager">
+    <eAnnotations xmi:id="_FAMLwEEEEeqYNZiLC_l8cA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details xmi:id="_FAMLwUEEEeqYNZiLC_l8cA" key="Human"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_HytWsEEEEeqYNZiLC_l8cA" name="domain expert">
+    <eAnnotations xmi:id="_HytWsUEEEeqYNZiLC_l8cA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details xmi:id="_HytWskEEEeqYNZiLC_l8cA" key="Human"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_JNbBMEEEEeqYNZiLC_l8cA" name="create abstract pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_LnAHsEEEEeqYNZiLC_l8cA" name="load abstract pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_MmoYsEEEEeqYNZiLC_l8cA" name="save abstract pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_OFYOoEEEEeqYNZiLC_l8cA" name="modify abstract pattern"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_RmRigEEEEeqYNZiLC_l8cA" memberEnd="_RmhaIEEEEeqYNZiLC_l8cA _RmioQEEEEeqYNZiLC_l8cA">
+    <ownedEnd xmi:id="_RmhaIEEEEeqYNZiLC_l8cA" type="_FAJIcEEEEeqYNZiLC_l8cA" association="_RmRigEEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_RmioQEEEEeqYNZiLC_l8cA" type="_JNbBMEEEEeqYNZiLC_l8cA" association="_RmRigEEEEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_SKlJcEEEEeqYNZiLC_l8cA" memberEnd="_SKlwgEEEEeqYNZiLC_l8cA _SKlwgUEEEeqYNZiLC_l8cA">
+    <ownedEnd xmi:id="_SKlwgEEEEeqYNZiLC_l8cA" type="_FAJIcEEEEeqYNZiLC_l8cA" association="_SKlJcEEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_SKlwgUEEEeqYNZiLC_l8cA" type="_LnAHsEEEEeqYNZiLC_l8cA" association="_SKlJcEEEEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ShdYYEEEEeqYNZiLC_l8cA" memberEnd="_Shd_cEEEEeqYNZiLC_l8cA _ShemgEEEEeqYNZiLC_l8cA">
+    <ownedEnd xmi:id="_Shd_cEEEEeqYNZiLC_l8cA" type="_FAJIcEEEEeqYNZiLC_l8cA" association="_ShdYYEEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_ShemgEEEEeqYNZiLC_l8cA" type="_MmoYsEEEEeqYNZiLC_l8cA" association="_ShdYYEEEEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_S_v24EEEEeqYNZiLC_l8cA" memberEnd="_S_wd8EEEEeqYNZiLC_l8cA _S_xFAEEEEeqYNZiLC_l8cA">
+    <ownedEnd xmi:id="_S_wd8EEEEeqYNZiLC_l8cA" type="_FAJIcEEEEeqYNZiLC_l8cA" association="_S_v24EEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_S_xFAEEEEeqYNZiLC_l8cA" type="_OFYOoEEEEeqYNZiLC_l8cA" association="_S_v24EEEEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_VTgCMEEEEeqYNZiLC_l8cA" name="specify concrete pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_Y0HCMEEEEeqYNZiLC_l8cA" name="load concrete pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_aFcHMEEEEeqYNZiLC_l8cA" name="save concrete pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_a-f2IEEEEeqYNZiLC_l8cA" name="modify concrete pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_evv6MEEEEeqYNZiLC_l8cA" name="apply concrete pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_goEGsEEEEeqYNZiLC_l8cA" name="view results"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_jmpXsEEEEeqYNZiLC_l8cA" name="save results"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_mO6acEEEEeqYNZiLC_l8cA" memberEnd="_mO7BgEEEEeqYNZiLC_l8cA _mO7BgUEEEeqYNZiLC_l8cA">
+    <ownedEnd xmi:id="_mO7BgEEEEeqYNZiLC_l8cA" type="_HytWsEEEEeqYNZiLC_l8cA" association="_mO6acEEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_mO7BgUEEEeqYNZiLC_l8cA" type="_VTgCMEEEEeqYNZiLC_l8cA" association="_mO6acEEEEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_mq06YEEEEeqYNZiLC_l8cA" memberEnd="_mq06YUEEEeqYNZiLC_l8cA _mq1hcEEEEeqYNZiLC_l8cA">
+    <ownedEnd xmi:id="_mq06YUEEEeqYNZiLC_l8cA" type="_HytWsEEEEeqYNZiLC_l8cA" association="_mq06YEEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_mq1hcEEEEeqYNZiLC_l8cA" type="_Y0HCMEEEEeqYNZiLC_l8cA" association="_mq06YEEEEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_nCxgUEEEEeqYNZiLC_l8cA" memberEnd="_nCyHYEEEEeqYNZiLC_l8cA _nCyHYUEEEeqYNZiLC_l8cA">
+    <ownedEnd xmi:id="_nCyHYEEEEeqYNZiLC_l8cA" type="_HytWsEEEEeqYNZiLC_l8cA" association="_nCxgUEEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_nCyHYUEEEeqYNZiLC_l8cA" type="_aFcHMEEEEeqYNZiLC_l8cA" association="_nCxgUEEEEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ndUuUEEEEeqYNZiLC_l8cA" memberEnd="_ndVVYEEEEeqYNZiLC_l8cA _ndVVYUEEEeqYNZiLC_l8cA">
+    <ownedEnd xmi:id="_ndVVYEEEEeqYNZiLC_l8cA" type="_HytWsEEEEeqYNZiLC_l8cA" association="_ndUuUEEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_ndVVYUEEEeqYNZiLC_l8cA" type="_a-f2IEEEEeqYNZiLC_l8cA" association="_ndUuUEEEEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_n52SQEEEEeqYNZiLC_l8cA" memberEnd="_n52SQUEEEeqYNZiLC_l8cA _n525UEEEEeqYNZiLC_l8cA">
+    <ownedEnd xmi:id="_n52SQUEEEeqYNZiLC_l8cA" type="_HytWsEEEEeqYNZiLC_l8cA" association="_n52SQEEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_n525UEEEEeqYNZiLC_l8cA" type="_evv6MEEEEeqYNZiLC_l8cA" association="_n52SQEEEEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_oRv04EEEEeqYNZiLC_l8cA" memberEnd="_oRv04UEEEeqYNZiLC_l8cA _oRv04kEEEeqYNZiLC_l8cA">
+    <ownedEnd xmi:id="_oRv04UEEEeqYNZiLC_l8cA" type="_HytWsEEEEeqYNZiLC_l8cA" association="_oRv04EEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_oRv04kEEEeqYNZiLC_l8cA" type="_goEGsEEEEeqYNZiLC_l8cA" association="_oRv04EEEEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ov37UEEEEeqYNZiLC_l8cA" memberEnd="_ov4iYEEEEeqYNZiLC_l8cA _ov4iYUEEEeqYNZiLC_l8cA">
+    <ownedEnd xmi:id="_ov4iYEEEEeqYNZiLC_l8cA" type="_HytWsEEEEeqYNZiLC_l8cA" association="_ov37UEEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_ov4iYUEEEeqYNZiLC_l8cA" type="_jmpXsEEEEeqYNZiLC_l8cA" association="_ov37UEEEEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_578lwEEEEeqYNZiLC_l8cA" name="patternbasedqualityanalysisUML" node="_DH-3gEEFEeqYNZiLC_l8cA _MPB7kEEFEeqYNZiLC_l8cA _O2vksEEFEeqYNZiLC_l8cA _S1t7sEEFEeqYNZiLC_l8cA _U5ejMEEFEeqYNZiLC_l8cA _IgW_gEEHEeqYNZiLC_l8cA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_K87agEEFEeqYNZiLC_l8cA" source="_DH-3gEEFEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_K88BkEEFEeqYNZiLC_l8cA" name="Initial1_To_have an idea for a quality pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_K88ooEEFEeqYNZiLC_l8cA" name="Initial1_To_have an idea for a quality pattern_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_ODydwEEFEeqYNZiLC_l8cA" target="_MPB7kEEFEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_ODzE0EEFEeqYNZiLC_l8cA" name="have an idea for a quality pattern_To_create abstract pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_ODzE0UEFEeqYNZiLC_l8cA" name="have an idea for a quality pattern_To_create abstract pattern_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_R2ZzwEEFEeqYNZiLC_l8cA" target="_O2vksEEFEeqYNZiLC_l8cA" source="_MPB7kEEFEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_R2aa0EEFEeqYNZiLC_l8cA" name="create abstract pattern_To_create concrete pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_R2aa0UEFEeqYNZiLC_l8cA" name="create abstract pattern_To_create concrete pattern_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Ul-YYEEFEeqYNZiLC_l8cA" target="_S1t7sEEFEeqYNZiLC_l8cA" source="_O2vksEEFEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_Ul-_cEEFEeqYNZiLC_l8cA" name="create concrete pattern_To_apply concrete pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_Ul-_cUEFEeqYNZiLC_l8cA" name="create concrete pattern_To_apply concrete pattern_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_WrZz0EEFEeqYNZiLC_l8cA" target="_U5ejMEEFEeqYNZiLC_l8cA" source="_S1t7sEEFEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_Wraa4EEFEeqYNZiLC_l8cA" name="apply concrete pattern_To_view results_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_Wraa4UEFEeqYNZiLC_l8cA" name="apply concrete pattern_To_view results_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_JY-pkEEHEeqYNZiLC_l8cA" target="_IgW_gEEHEeqYNZiLC_l8cA" source="_U5ejMEEFEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_JY-pkUEHEeqYNZiLC_l8cA" name="view results_To__guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_JY_QoEEHEeqYNZiLC_l8cA" name="view results_To__weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_g-FSoEEHEeqYNZiLC_l8cA" target="_MPB7kEEFEeqYNZiLC_l8cA" source="_DH-3gEEFEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_g-FSoUEHEeqYNZiLC_l8cA" name="_To_create abstract pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_g-F5sEEHEeqYNZiLC_l8cA" name="_To_create abstract pattern_weight"/>
+    </edge>
+    <node xmi:type="uml:InitialNode" xmi:id="_DH-3gEEFEeqYNZiLC_l8cA" name="" outgoing="_K87agEEFEeqYNZiLC_l8cA _g-FSoEEHEeqYNZiLC_l8cA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_MPB7kEEFEeqYNZiLC_l8cA" name="create abstract pattern" incoming="_ODydwEEFEeqYNZiLC_l8cA _g-FSoEEHEeqYNZiLC_l8cA" outgoing="_R2ZzwEEFEeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction2</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_O2vksEEFEeqYNZiLC_l8cA" name="specify concrete pattern" incoming="_R2ZzwEEFEeqYNZiLC_l8cA" outgoing="_Ul-YYEEFEeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction3</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_S1t7sEEFEeqYNZiLC_l8cA" name="apply concrete pattern" incoming="_Ul-YYEEFEeqYNZiLC_l8cA" outgoing="_WrZz0EEFEeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction4</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_U5ejMEEFEeqYNZiLC_l8cA" name="view results" incoming="_WrZz0EEFEeqYNZiLC_l8cA" outgoing="_JY-pkEEHEeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction5</body>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_IgW_gEEHEeqYNZiLC_l8cA" name="" incoming="_JY-pkEEHEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_cp2vQEEFEeqYNZiLC_l8cA" name="AbstractPatternSpecificationSystem">
+    <interfaceRealization xmi:id="_oSS0MEEUEeqYNZiLC_l8cA" client="_cp2vQEEFEeqYNZiLC_l8cA" supplier="_e7bygEEUEeqYNZiLC_l8cA" contract="_e7bygEEUEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_mCJ7YEEFEeqYNZiLC_l8cA" name="PatternModel">
+    <interfaceRealization xmi:id="_PbkTkEEGEeqYNZiLC_l8cA" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_VAdXIEEUEeqYNZiLC_l8cA" client="_mCJ7YEEFEeqYNZiLC_l8cA" supplier="_OFizcEEUEeqYNZiLC_l8cA" contract="_OFizcEEUEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_VW46IEEUEeqYNZiLC_l8cA" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_VwrTIEEUEeqYNZiLC_l8cA" client="_mCJ7YEEFEeqYNZiLC_l8cA" supplier="_RGp0AEEUEeqYNZiLC_l8cA" contract="_RGp0AEEUEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_nJ9Q8EEFEeqYNZiLC_l8cA" name="PatternManagementSystem">
+    <interfaceRealization xmi:id="_tZmFMEEUEeqYNZiLC_l8cA" client="_nJ9Q8EEFEeqYNZiLC_l8cA" supplier="_ryRiEEEUEeqYNZiLC_l8cA" contract="_ryRiEEEUEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_xCcbMEEUEeqYNZiLC_l8cA" client="_nJ9Q8EEFEeqYNZiLC_l8cA" supplier="_vW2cEEEUEeqYNZiLC_l8cA" contract="_vW2cEEEUEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_omC0cEEFEeqYNZiLC_l8cA" name="PatternConcretizationSystem">
+    <interfaceRealization xmi:id="_RDCC0EEVEeqYNZiLC_l8cA" client="_omC0cEEFEeqYNZiLC_l8cA" supplier="_NsY3IEEVEeqYNZiLC_l8cA" contract="_NsY3IEEVEeqYNZiLC_l8cA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_q9t2cEEFEeqYNZiLC_l8cA" name="QueryExecutionSystem"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Q4in4EEGEeqYNZiLC_l8cA" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_b1pjwEEIEeqYNZiLC_l8cA" name="patternbasedqualityanalysisUML" node="_hrze0UEIEeqYNZiLC_l8cA _hrze0kEIEeqYNZiLC_l8cA _hrze00EIEeqYNZiLC_l8cA _hrze1UEIEeqYNZiLC_l8cA _p1VxwEEIEeqYNZiLC_l8cA _waVIwEEIEeqYNZiLC_l8cA _7rtWYEEIEeqYNZiLC_l8cA _bkwHYEEQEeqYNZiLC_l8cA _g9JvcEEQEeqYNZiLC_l8cA _AGm6wEEREeqYNZiLC_l8cA _IsFi0EEREeqYNZiLC_l8cA _Pv7ZAEEREeqYNZiLC_l8cA _bbnkEEEREeqYNZiLC_l8cA _H_wy4EESEeqYNZiLC_l8cA _QuNwwEESEeqYNZiLC_l8cA _mVyWIEESEeqYNZiLC_l8cA _oZAyIEESEeqYNZiLC_l8cA _1oMJMEESEeqYNZiLC_l8cA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_hrsxIEEIEeqYNZiLC_l8cA" target="_hrze0UEIEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_hrsxIUEIEeqYNZiLC_l8cA" name="create concrete pattern_To_apply concrete pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_hrsxIkEIEeqYNZiLC_l8cA" name="create concrete pattern_To_apply concrete pattern_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_hrsxLEEIEeqYNZiLC_l8cA" target="_hrze1UEIEeqYNZiLC_l8cA" source="_hrze0UEIEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_hrsxLUEIEeqYNZiLC_l8cA" name="apply concrete pattern_To_view results_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_hrsxLkEIEeqYNZiLC_l8cA" name="apply concrete pattern_To_view results_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_4GXnYEEIEeqYNZiLC_l8cA" source="_waVIwEEIEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_4GXnYUEIEeqYNZiLC_l8cA" name="create formular_To_specify concrete pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_4GYOcEEIEeqYNZiLC_l8cA" name="create formular_To_specify concrete pattern_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_EFrSAEEJEeqYNZiLC_l8cA" name="yes" target="_p1VxwEEIEeqYNZiLC_l8cA" source="_7rtWYEEIEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_EFr5EEEJEeqYNZiLC_l8cA" name="is valid?_To_save abstract pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_EFr5EUEJEeqYNZiLC_l8cA" name="is valid?_To_save abstract pattern_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="__Mk7cEEQEeqYNZiLC_l8cA" name="'concretize'" target="_waVIwEEIEeqYNZiLC_l8cA" source="_bkwHYEEQEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="__MligEEQEeqYNZiLC_l8cA" name="choice =_To_load pattern in form view_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="__MligUEQEeqYNZiLC_l8cA" name="choice =_To_load pattern in form view_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="__lg_4EEQEeqYNZiLC_l8cA" name="'modify'" target="_hrze00EIEeqYNZiLC_l8cA" source="_bkwHYEEQEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="__lg_4UEQEeqYNZiLC_l8cA" name="choice =_To_load pattern in model view_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="__lg_4kEQEeqYNZiLC_l8cA" name="choice =_To_load pattern in model view_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_DNsAcEEREeqYNZiLC_l8cA" name="'create'" target="_AGm6wEEREeqYNZiLC_l8cA" source="_bkwHYEEQEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_DNsAcUEREeqYNZiLC_l8cA" name="choice =_To_create pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_DNsngEEREeqYNZiLC_l8cA" name="choice =_To_create pattern_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_SEQzIEEREeqYNZiLC_l8cA" target="_QuNwwEESEeqYNZiLC_l8cA" source="_AGm6wEEREeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_SERaMEEREeqYNZiLC_l8cA" name="create pattern_To_modify pattern in model view_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_SERaMUEREeqYNZiLC_l8cA" name="create pattern_To_modify pattern in model view_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_SWHYIEEREeqYNZiLC_l8cA" target="_QuNwwEESEeqYNZiLC_l8cA" source="_hrze00EIEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_SWHYIUEREeqYNZiLC_l8cA" name="load pattern in model view_To_modify pattern in model view_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_SWH_MEEREeqYNZiLC_l8cA" name="load pattern in model view_To_modify pattern in model view_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_TJsKIEEREeqYNZiLC_l8cA" target="_7rtWYEEIEeqYNZiLC_l8cA" source="_Pv7ZAEEREeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_TJsxMEEREeqYNZiLC_l8cA" name="modify pattern in model view_To_is valid?_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_TJsxMUEREeqYNZiLC_l8cA" name="modify pattern in model view_To_is valid?_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_XEPUIEEREeqYNZiLC_l8cA" name="no" target="_Pv7ZAEEREeqYNZiLC_l8cA" source="_7rtWYEEIEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_XEP7MEEREeqYNZiLC_l8cA" name="is valid?_To_modify pattern in model view_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_XEP7MUEREeqYNZiLC_l8cA" name="is valid?_To_modify pattern in model view_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_dTuVMEEREeqYNZiLC_l8cA" target="_bbnkEEEREeqYNZiLC_l8cA" source="_waVIwEEIEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_dTu8QEEREeqYNZiLC_l8cA" name="load pattern in form view_To_modify pattern in form view_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_dTu8QUEREeqYNZiLC_l8cA" name="load pattern in form view_To_modify pattern in form view_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_gGySsEEREeqYNZiLC_l8cA" target="_7rtWYEEIEeqYNZiLC_l8cA" source="_bbnkEEEREeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_gGy5wEEREeqYNZiLC_l8cA" name="modify pattern in form view_To_is valid?_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_gGy5wUEREeqYNZiLC_l8cA" name="modify pattern in form view_To_is valid?_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_wb444EEREeqYNZiLC_l8cA" target="_g9JvcEEQEeqYNZiLC_l8cA" source="_hrze0kEIEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_wb444UEREeqYNZiLC_l8cA" name="_To_user chooses option_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_wb5f8EEREeqYNZiLC_l8cA" name="_To_user chooses option_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_wz7lcEEREeqYNZiLC_l8cA" target="_bkwHYEEQEeqYNZiLC_l8cA" source="_g9JvcEEQEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_wz8MgEEREeqYNZiLC_l8cA" name="user chooses option_To_choice =_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_wz8MgUEREeqYNZiLC_l8cA" name="user chooses option_To_choice =_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_JHR0kEESEeqYNZiLC_l8cA" target="_H_wy4EESEeqYNZiLC_l8cA" source="_p1VxwEEIEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_JHSboEESEeqYNZiLC_l8cA" name="save pattern_To__guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_JHTCsEESEeqYNZiLC_l8cA" name="save pattern_To__weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_Sp3lIEESEeqYNZiLC_l8cA" target="_Pv7ZAEEREeqYNZiLC_l8cA" source="_QuNwwEESEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_Sp4MMEESEeqYNZiLC_l8cA" name="_To_modify pattern in model view_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_Sp4MMUESEeqYNZiLC_l8cA" name="_To_modify pattern in model view_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_irgcwEESEeqYNZiLC_l8cA" name="'apply'" target="_IsFi0EEREeqYNZiLC_l8cA" source="_bkwHYEEQEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_irgcwUESEeqYNZiLC_l8cA" name="choice =_To_choose pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_irhD0EESEeqYNZiLC_l8cA" name="choice =_To_choose pattern_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_p60jIEESEeqYNZiLC_l8cA" name="yes" target="_oZAyIEESEeqYNZiLC_l8cA" source="_mVyWIEESEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_p61KMEESEeqYNZiLC_l8cA" name="is concrete?_To_choose data base_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_p61KMUESEeqYNZiLC_l8cA" name="is concrete?_To_choose data base_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_rCLMwEESEeqYNZiLC_l8cA" name="no" target="_IsFi0EEREeqYNZiLC_l8cA" source="_mVyWIEESEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_rCLMwUESEeqYNZiLC_l8cA" name="is concrete?_To_choose pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_rCLMwkESEeqYNZiLC_l8cA" name="is concrete?_To_choose pattern_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_yWZoUEESEeqYNZiLC_l8cA" target="_mVyWIEESEeqYNZiLC_l8cA" source="_IsFi0EEREeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_yWZoUUESEeqYNZiLC_l8cA" name="choose pattern_To_is concrete?_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_yWaPYEESEeqYNZiLC_l8cA" name="choose pattern_To_is concrete?_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_22nrMEESEeqYNZiLC_l8cA" target="_1oMJMEESEeqYNZiLC_l8cA" source="_hrze1UEIEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_22nrMUESEeqYNZiLC_l8cA" name="show results_To_save results_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_22nrMkESEeqYNZiLC_l8cA" name="show results_To_save results_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_3ao-QEESEeqYNZiLC_l8cA" target="_H_wy4EESEeqYNZiLC_l8cA" source="_1oMJMEESEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_3ao-QUESEeqYNZiLC_l8cA" name="save results_To__guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_3ao-QkESEeqYNZiLC_l8cA" name="save results_To__weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_6bTS4EESEeqYNZiLC_l8cA" target="_hrze0UEIEeqYNZiLC_l8cA" source="_oZAyIEESEeqYNZiLC_l8cA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_6bT58EESEeqYNZiLC_l8cA" name="choose data base_To_apply concrete pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_6bT58UESEeqYNZiLC_l8cA" name="choose data base_To_apply concrete pattern_weight"/>
+    </edge>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_hrze0UEIEeqYNZiLC_l8cA" name="apply concrete pattern" incoming="_hrsxIEEIEeqYNZiLC_l8cA _6bTS4EESEeqYNZiLC_l8cA" outgoing="_hrsxLEEIEeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction4</body>
+    </node>
+    <node xmi:type="uml:InitialNode" xmi:id="_hrze0kEIEeqYNZiLC_l8cA" name="" outgoing="_wb444EEREeqYNZiLC_l8cA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_hrze00EIEeqYNZiLC_l8cA" name="load pattern in model view" incoming="__lg_4EEQEeqYNZiLC_l8cA" outgoing="_SWHYIEEREeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction2</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_hrze1UEIEeqYNZiLC_l8cA" name="show results" incoming="_hrsxLEEIEeqYNZiLC_l8cA" outgoing="_22nrMEESEeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction5</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_p1VxwEEIEeqYNZiLC_l8cA" name="save pattern" incoming="_EFrSAEEJEeqYNZiLC_l8cA" outgoing="_JHR0kEESEeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction5</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_waVIwEEIEeqYNZiLC_l8cA" name="load pattern in form view" incoming="__Mk7cEEQEeqYNZiLC_l8cA" outgoing="_4GXnYEEIEeqYNZiLC_l8cA _dTuVMEEREeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction6</body>
+    </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_7rtWYEEIEeqYNZiLC_l8cA" name="is valid?" incoming="_TJsKIEEREeqYNZiLC_l8cA _gGySsEEREeqYNZiLC_l8cA" outgoing="_EFrSAEEJEeqYNZiLC_l8cA _XEPUIEEREeqYNZiLC_l8cA"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_bkwHYEEQEeqYNZiLC_l8cA" name="choice =" incoming="_wz7lcEEREeqYNZiLC_l8cA" outgoing="__Mk7cEEQEeqYNZiLC_l8cA __lg_4EEQEeqYNZiLC_l8cA _DNsAcEEREeqYNZiLC_l8cA _irgcwEESEeqYNZiLC_l8cA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_g9JvcEEQEeqYNZiLC_l8cA" name="user chooses option" incoming="_wb444EEREeqYNZiLC_l8cA" outgoing="_wz7lcEEREeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction7</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_AGm6wEEREeqYNZiLC_l8cA" name="create pattern" incoming="_DNsAcEEREeqYNZiLC_l8cA" outgoing="_SEQzIEEREeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction8</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_IsFi0EEREeqYNZiLC_l8cA" name="choose pattern" incoming="_irgcwEESEeqYNZiLC_l8cA _rCLMwEESEeqYNZiLC_l8cA" outgoing="_yWZoUEESEeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction9</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_Pv7ZAEEREeqYNZiLC_l8cA" name="modify pattern in model view" incoming="_XEPUIEEREeqYNZiLC_l8cA _Sp3lIEESEeqYNZiLC_l8cA" outgoing="_TJsKIEEREeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction10</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_bbnkEEEREeqYNZiLC_l8cA" name="modify pattern in form view" incoming="_dTuVMEEREeqYNZiLC_l8cA" outgoing="_gGySsEEREeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction11</body>
+    </node>
+    <node xmi:type="uml:ActivityFinalNode" xmi:id="_H_wy4EESEeqYNZiLC_l8cA" name="" incoming="_JHR0kEESEeqYNZiLC_l8cA _3ao-QEESEeqYNZiLC_l8cA"/>
+    <node xmi:type="uml:MergeNode" xmi:id="_QuNwwEESEeqYNZiLC_l8cA" name="" incoming="_SWHYIEEREeqYNZiLC_l8cA _SEQzIEEREeqYNZiLC_l8cA" outgoing="_Sp3lIEESEeqYNZiLC_l8cA"/>
+    <node xmi:type="uml:DecisionNode" xmi:id="_mVyWIEESEeqYNZiLC_l8cA" name="is concrete?" incoming="_yWZoUEESEeqYNZiLC_l8cA" outgoing="_p60jIEESEeqYNZiLC_l8cA _rCLMwEESEeqYNZiLC_l8cA"/>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_oZAyIEESEeqYNZiLC_l8cA" name="choose data base" incoming="_p60jIEESEeqYNZiLC_l8cA" outgoing="_6bTS4EESEeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction11</body>
+    </node>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_1oMJMEESEeqYNZiLC_l8cA" name="save results" incoming="_22nrMEESEeqYNZiLC_l8cA" outgoing="_3ao-QEESEeqYNZiLC_l8cA">
+      <body>// TODO body of OpaqueAction12</body>
+    </node>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_OFizcEEUEeqYNZiLC_l8cA" name="Pattern"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_RGp0AEEUEeqYNZiLC_l8cA" name="PatternQuery"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_Ua7oMEEUEeqYNZiLC_l8cA" client="_nJ9Q8EEFEeqYNZiLC_l8cA" supplier="_OFizcEEUEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_WzD9MEEUEeqYNZiLC_l8cA" client="_omC0cEEFEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_YHW2oEEUEeqYNZiLC_l8cA" client="_q9t2cEEFEeqYNZiLC_l8cA" supplier="_RGp0AEEUEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_e7bygEEUEeqYNZiLC_l8cA" name="ModifiedAbstractPattern"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_o3JNsEEUEeqYNZiLC_l8cA" client="_nJ9Q8EEFEeqYNZiLC_l8cA" supplier="_e7bygEEUEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_ryRiEEEUEeqYNZiLC_l8cA" name="DefinedAbstractPattern"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_t9nYQEEUEeqYNZiLC_l8cA" client="_cp2vQEEFEeqYNZiLC_l8cA" supplier="_ryRiEEEUEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_vW2cEEEUEeqYNZiLC_l8cA" name="DefinedConcretePattern"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_yBT3MEEUEeqYNZiLC_l8cA" client="_omC0cEEFEeqYNZiLC_l8cA" supplier="_vW2cEEEUEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_NsY3IEEVEeqYNZiLC_l8cA" name="ModifiedConcretePattern"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_SDuDwEEVEeqYNZiLC_l8cA" client="_nJ9Q8EEFEeqYNZiLC_l8cA" supplier="_NsY3IEEVEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_bf0KwEEVEeqYNZiLC_l8cA" client="_omC0cEEFEeqYNZiLC_l8cA" supplier="_OFizcEEUEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_cqcK0EEVEeqYNZiLC_l8cA" client="_cp2vQEEFEeqYNZiLC_l8cA" supplier="_OFizcEEUEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_ge4s0EEVEeqYNZiLC_l8cA" client="_q9t2cEEFEeqYNZiLC_l8cA" supplier="_vW2cEEEUEeqYNZiLC_l8cA"/>
+</uml:Model>
