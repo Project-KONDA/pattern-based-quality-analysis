@@ -247,7 +247,7 @@
       <body>// TODO body of OpaqueAction4</body>
     </node>
     <node xmi:type="uml:InitialNode" xmi:id="_hrze0kEIEeqYNZiLC_l8cA" name="" outgoing="_wb444EEREeqYNZiLC_l8cA"/>
-    <node xmi:type="uml:OpaqueAction" xmi:id="_hrze00EIEeqYNZiLC_l8cA" name="load pattern in modeling view" incoming="__lg_4EEQEeqYNZiLC_l8cA" outgoing="_SWHYIEEREeqYNZiLC_l8cA">
+    <node xmi:type="uml:OpaqueAction" xmi:id="_hrze00EIEeqYNZiLC_l8cA" name="load pattern in model view" incoming="__lg_4EEQEeqYNZiLC_l8cA" outgoing="_SWHYIEEREeqYNZiLC_l8cA">
       <body>// TODO body of OpaqueAction2</body>
     </node>
     <node xmi:type="uml:OpaqueAction" xmi:id="_hrze1UEIEeqYNZiLC_l8cA" name="show results" incoming="_hrsxLEEIEeqYNZiLC_l8cA" outgoing="_22nrMEESEeqYNZiLC_l8cA">
@@ -270,7 +270,7 @@
     <node xmi:type="uml:OpaqueAction" xmi:id="_IsFi0EEREeqYNZiLC_l8cA" name="choose pattern" incoming="_irgcwEESEeqYNZiLC_l8cA _rCLMwEESEeqYNZiLC_l8cA" outgoing="_yWZoUEESEeqYNZiLC_l8cA">
       <body>// TODO body of OpaqueAction9</body>
     </node>
-    <node xmi:type="uml:OpaqueAction" xmi:id="_Pv7ZAEEREeqYNZiLC_l8cA" name="modify pattern in modeling view" incoming="_XEPUIEEREeqYNZiLC_l8cA _Sp3lIEESEeqYNZiLC_l8cA" outgoing="_TJsKIEEREeqYNZiLC_l8cA">
+    <node xmi:type="uml:OpaqueAction" xmi:id="_Pv7ZAEEREeqYNZiLC_l8cA" name="modify pattern in model view" incoming="_XEPUIEEREeqYNZiLC_l8cA _Sp3lIEESEeqYNZiLC_l8cA" outgoing="_TJsKIEEREeqYNZiLC_l8cA">
       <body>// TODO body of OpaqueAction10</body>
     </node>
     <node xmi:type="uml:OpaqueAction" xmi:id="_bbnkEEEREeqYNZiLC_l8cA" name="modify pattern in form view" incoming="_dTuVMEEREeqYNZiLC_l8cA _XJiUwEEaEeqYNZiLC_l8cA" outgoing="_gGySsEEREeqYNZiLC_l8cA">
