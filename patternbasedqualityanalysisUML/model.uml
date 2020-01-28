@@ -10,10 +10,10 @@
       <details xmi:id="_HytWskEEEeqYNZiLC_l8cA" key="Human"/>
     </eAnnotations>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_JNbBMEEEEeqYNZiLC_l8cA" name="create abstract pattern"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_LnAHsEEEEeqYNZiLC_l8cA" name="load abstract pattern"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_MmoYsEEEEeqYNZiLC_l8cA" name="save abstract pattern"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_OFYOoEEEEeqYNZiLC_l8cA" name="modify abstract pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_JNbBMEEEEeqYNZiLC_l8cA" name="create new pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_LnAHsEEEEeqYNZiLC_l8cA" name="load pattern in model view"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_MmoYsEEEEeqYNZiLC_l8cA" name="save pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_OFYOoEEEEeqYNZiLC_l8cA" name="modify pattern in model view"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_RmRigEEEEeqYNZiLC_l8cA" memberEnd="_RmhaIEEEEeqYNZiLC_l8cA _RmioQEEEEeqYNZiLC_l8cA">
     <ownedEnd xmi:id="_RmhaIEEEEeqYNZiLC_l8cA" type="_FAJIcEEEEeqYNZiLC_l8cA" association="_RmRigEEEEeqYNZiLC_l8cA"/>
     <ownedEnd xmi:id="_RmioQEEEEeqYNZiLC_l8cA" type="_JNbBMEEEEeqYNZiLC_l8cA" association="_RmRigEEEEeqYNZiLC_l8cA"/>
@@ -30,16 +30,15 @@
     <ownedEnd xmi:id="_S_wd8EEEEeqYNZiLC_l8cA" type="_FAJIcEEEEeqYNZiLC_l8cA" association="_S_v24EEEEeqYNZiLC_l8cA"/>
     <ownedEnd xmi:id="_S_xFAEEEEeqYNZiLC_l8cA" type="_OFYOoEEEEeqYNZiLC_l8cA" association="_S_v24EEEEeqYNZiLC_l8cA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_VTgCMEEEEeqYNZiLC_l8cA" name="specify concrete pattern"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_Y0HCMEEEEeqYNZiLC_l8cA" name="load concrete pattern"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_aFcHMEEEEeqYNZiLC_l8cA" name="save concrete pattern"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_a-f2IEEEEeqYNZiLC_l8cA" name="modify concrete pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_Y0HCMEEEEeqYNZiLC_l8cA" name="load pattern in form view"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_aFcHMEEEEeqYNZiLC_l8cA" name="save pattern"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_a-f2IEEEEeqYNZiLC_l8cA" name="modify pattern in form view"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_evv6MEEEEeqYNZiLC_l8cA" name="apply concrete pattern"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_goEGsEEEEeqYNZiLC_l8cA" name="view results"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_jmpXsEEEEeqYNZiLC_l8cA" name="save results"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_mO6acEEEEeqYNZiLC_l8cA" memberEnd="_mO7BgEEEEeqYNZiLC_l8cA _mO7BgUEEEeqYNZiLC_l8cA">
     <ownedEnd xmi:id="_mO7BgEEEEeqYNZiLC_l8cA" type="_HytWsEEEEeqYNZiLC_l8cA" association="_mO6acEEEEeqYNZiLC_l8cA"/>
-    <ownedEnd xmi:id="_mO7BgUEEEeqYNZiLC_l8cA" type="_VTgCMEEEEeqYNZiLC_l8cA" association="_mO6acEEEEeqYNZiLC_l8cA"/>
+    <ownedEnd xmi:id="_mO7BgUEEEeqYNZiLC_l8cA" association="_mO6acEEEEeqYNZiLC_l8cA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_mq06YEEEEeqYNZiLC_l8cA" memberEnd="_mq06YUEEEeqYNZiLC_l8cA _mq1hcEEEEeqYNZiLC_l8cA">
     <ownedEnd xmi:id="_mq06YUEEEeqYNZiLC_l8cA" type="_HytWsEEEEeqYNZiLC_l8cA" association="_mq06YEEEEeqYNZiLC_l8cA"/>
@@ -127,7 +126,7 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Component" xmi:id="_q9t2cEEFEeqYNZiLC_l8cA" name="QueryExecutionSystem"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_Q4in4EEGEeqYNZiLC_l8cA" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
-  <packagedElement xmi:type="uml:Activity" xmi:id="_b1pjwEEIEeqYNZiLC_l8cA" name="patternbasedqualityanalysisUML" node="_hrze0UEIEeqYNZiLC_l8cA _hrze0kEIEeqYNZiLC_l8cA _hrze00EIEeqYNZiLC_l8cA _hrze1UEIEeqYNZiLC_l8cA _p1VxwEEIEeqYNZiLC_l8cA _waVIwEEIEeqYNZiLC_l8cA _7rtWYEEIEeqYNZiLC_l8cA _bkwHYEEQEeqYNZiLC_l8cA _g9JvcEEQEeqYNZiLC_l8cA _AGm6wEEREeqYNZiLC_l8cA _IsFi0EEREeqYNZiLC_l8cA _Pv7ZAEEREeqYNZiLC_l8cA _bbnkEEEREeqYNZiLC_l8cA _H_wy4EESEeqYNZiLC_l8cA _QuNwwEESEeqYNZiLC_l8cA _mVyWIEESEeqYNZiLC_l8cA _oZAyIEESEeqYNZiLC_l8cA _1oMJMEESEeqYNZiLC_l8cA _Olf3IEEaEeqYNZiLC_l8cA _ZfEBsEEaEeqYNZiLC_l8cA">
+  <packagedElement xmi:type="uml:Activity" xmi:id="_b1pjwEEIEeqYNZiLC_l8cA" name="patternbasedqualityanalysisUML" node="_hrze0UEIEeqYNZiLC_l8cA _hrze0kEIEeqYNZiLC_l8cA _hrze00EIEeqYNZiLC_l8cA _hrze1UEIEeqYNZiLC_l8cA _p1VxwEEIEeqYNZiLC_l8cA _waVIwEEIEeqYNZiLC_l8cA _7rtWYEEIEeqYNZiLC_l8cA _bkwHYEEQEeqYNZiLC_l8cA _g9JvcEEQEeqYNZiLC_l8cA _AGm6wEEREeqYNZiLC_l8cA _IsFi0EEREeqYNZiLC_l8cA _Pv7ZAEEREeqYNZiLC_l8cA _bbnkEEEREeqYNZiLC_l8cA _H_wy4EESEeqYNZiLC_l8cA _QuNwwEESEeqYNZiLC_l8cA _mVyWIEESEeqYNZiLC_l8cA _oZAyIEESEeqYNZiLC_l8cA _1oMJMEESEeqYNZiLC_l8cA _Olf3IEEaEeqYNZiLC_l8cA _ZfEBsEEaEeqYNZiLC_l8cA _oUJWcEGlEeqYL6HFZ9g9uA">
     <edge xmi:type="uml:ControlFlow" xmi:id="_hrsxIEEIEeqYNZiLC_l8cA" target="_hrze0UEIEeqYNZiLC_l8cA">
       <guard xmi:type="uml:LiteralBoolean" xmi:id="_hrsxIUEIEeqYNZiLC_l8cA" name="create concrete pattern_To_apply concrete pattern_guard" value="true"/>
       <weight xmi:type="uml:LiteralInteger" xmi:id="_hrsxIkEIEeqYNZiLC_l8cA" name="create concrete pattern_To_apply concrete pattern_weight"/>
@@ -220,7 +219,7 @@
       <guard xmi:type="uml:LiteralBoolean" xmi:id="_3ao-QUESEeqYNZiLC_l8cA" name="save results_To__guard" value="true"/>
       <weight xmi:type="uml:LiteralInteger" xmi:id="_3ao-QkESEeqYNZiLC_l8cA" name="save results_To__weight"/>
     </edge>
-    <edge xmi:type="uml:ControlFlow" xmi:id="_6bTS4EESEeqYNZiLC_l8cA" target="_hrze0UEIEeqYNZiLC_l8cA" source="_oZAyIEESEeqYNZiLC_l8cA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_6bTS4EESEeqYNZiLC_l8cA" target="_oUJWcEGlEeqYL6HFZ9g9uA" source="_oZAyIEESEeqYNZiLC_l8cA">
       <guard xmi:type="uml:LiteralBoolean" xmi:id="_6bT58EESEeqYNZiLC_l8cA" name="choose data base_To_apply concrete pattern_guard" value="true"/>
       <weight xmi:type="uml:LiteralInteger" xmi:id="_6bT58UESEeqYNZiLC_l8cA" name="choose data base_To_apply concrete pattern_weight"/>
     </edge>
@@ -236,7 +235,15 @@
       <guard xmi:type="uml:LiteralBoolean" xmi:id="_csr0QEEaEeqYNZiLC_l8cA" name="save pattern_To__guard" value="true"/>
       <weight xmi:type="uml:LiteralInteger" xmi:id="_csr0QUEaEeqYNZiLC_l8cA" name="save pattern_To__weight"/>
     </edge>
-    <node xmi:type="uml:OpaqueAction" xmi:id="_hrze0UEIEeqYNZiLC_l8cA" name="apply concrete pattern" incoming="_hrsxIEEIEeqYNZiLC_l8cA _6bTS4EESEeqYNZiLC_l8cA" outgoing="_hrsxLEEIEeqYNZiLC_l8cA">
+    <edge xmi:type="uml:ControlFlow" xmi:id="_qIxVwEGlEeqYL6HFZ9g9uA" name="no" target="_oZAyIEESEeqYNZiLC_l8cA" source="_oUJWcEGlEeqYL6HFZ9g9uA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_qIx80EGlEeqYL6HFZ9g9uA" name="is concrete?_To_choose data base_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_qIzyAEGlEeqYL6HFZ9g9uA" name="is concrete?_To_choose data base_weight"/>
+    </edge>
+    <edge xmi:type="uml:ControlFlow" xmi:id="_qrGmwEGlEeqYL6HFZ9g9uA" name="yes" target="_hrze0UEIEeqYNZiLC_l8cA" source="_oUJWcEGlEeqYL6HFZ9g9uA">
+      <guard xmi:type="uml:LiteralBoolean" xmi:id="_qrHN0EGlEeqYL6HFZ9g9uA" name="is concrete?_To_apply concrete pattern_guard" value="true"/>
+      <weight xmi:type="uml:LiteralInteger" xmi:id="_qrHN0UGlEeqYL6HFZ9g9uA" name="is concrete?_To_apply concrete pattern_weight"/>
+    </edge>
+    <node xmi:type="uml:OpaqueAction" xmi:id="_hrze0UEIEeqYNZiLC_l8cA" name="apply concrete pattern" incoming="_hrsxIEEIEeqYNZiLC_l8cA _qrGmwEGlEeqYL6HFZ9g9uA" outgoing="_hrsxLEEIEeqYNZiLC_l8cA">
       <body>// TODO body of OpaqueAction4</body>
     </node>
     <node xmi:type="uml:InitialNode" xmi:id="_hrze0kEIEeqYNZiLC_l8cA" name="" outgoing="_wb444EEREeqYNZiLC_l8cA"/>
@@ -257,7 +264,7 @@
     <node xmi:type="uml:OpaqueAction" xmi:id="_g9JvcEEQEeqYNZiLC_l8cA" name="user chooses option" incoming="_wb444EEREeqYNZiLC_l8cA" outgoing="_wz7lcEEREeqYNZiLC_l8cA">
       <body>// TODO body of OpaqueAction7</body>
     </node>
-    <node xmi:type="uml:OpaqueAction" xmi:id="_AGm6wEEREeqYNZiLC_l8cA" name="create pattern" incoming="_DNsAcEEREeqYNZiLC_l8cA" outgoing="_SEQzIEEREeqYNZiLC_l8cA">
+    <node xmi:type="uml:OpaqueAction" xmi:id="_AGm6wEEREeqYNZiLC_l8cA" name="create new pattern" incoming="_DNsAcEEREeqYNZiLC_l8cA" outgoing="_SEQzIEEREeqYNZiLC_l8cA">
       <body>// TODO body of OpaqueAction8</body>
     </node>
     <node xmi:type="uml:OpaqueAction" xmi:id="_IsFi0EEREeqYNZiLC_l8cA" name="choose pattern" incoming="_irgcwEESEeqYNZiLC_l8cA _rCLMwEESEeqYNZiLC_l8cA" outgoing="_yWZoUEESEeqYNZiLC_l8cA">
@@ -272,7 +279,7 @@
     <node xmi:type="uml:ActivityFinalNode" xmi:id="_H_wy4EESEeqYNZiLC_l8cA" name="" incoming="_JHR0kEESEeqYNZiLC_l8cA _3ao-QEESEeqYNZiLC_l8cA _csrNMEEaEeqYNZiLC_l8cA"/>
     <node xmi:type="uml:MergeNode" xmi:id="_QuNwwEESEeqYNZiLC_l8cA" name="" incoming="_SWHYIEEREeqYNZiLC_l8cA _SEQzIEEREeqYNZiLC_l8cA" outgoing="_Sp3lIEESEeqYNZiLC_l8cA"/>
     <node xmi:type="uml:DecisionNode" xmi:id="_mVyWIEESEeqYNZiLC_l8cA" name="is concrete?" incoming="_yWZoUEESEeqYNZiLC_l8cA" outgoing="_p60jIEESEeqYNZiLC_l8cA _rCLMwEESEeqYNZiLC_l8cA"/>
-    <node xmi:type="uml:OpaqueAction" xmi:id="_oZAyIEESEeqYNZiLC_l8cA" name="choose data base" incoming="_p60jIEESEeqYNZiLC_l8cA" outgoing="_6bTS4EESEeqYNZiLC_l8cA">
+    <node xmi:type="uml:OpaqueAction" xmi:id="_oZAyIEESEeqYNZiLC_l8cA" name="choose database" incoming="_p60jIEESEeqYNZiLC_l8cA _qIxVwEGlEeqYL6HFZ9g9uA" outgoing="_6bTS4EESEeqYNZiLC_l8cA">
       <body>// TODO body of OpaqueAction11</body>
     </node>
     <node xmi:type="uml:OpaqueAction" xmi:id="_1oMJMEESEeqYNZiLC_l8cA" name="save results" incoming="_22nrMEESEeqYNZiLC_l8cA" outgoing="_3ao-QEESEeqYNZiLC_l8cA">
@@ -282,6 +289,7 @@
     <node xmi:type="uml:OpaqueAction" xmi:id="_ZfEBsEEaEeqYNZiLC_l8cA" name="save pattern" incoming="_b9FjUEEaEeqYNZiLC_l8cA" outgoing="_csrNMEEaEeqYNZiLC_l8cA">
       <body>// TODO body of OpaqueAction13</body>
     </node>
+    <node xmi:type="uml:DecisionNode" xmi:id="_oUJWcEGlEeqYL6HFZ9g9uA" name="exists?" incoming="_6bTS4EESEeqYNZiLC_l8cA" outgoing="_qIxVwEGlEeqYL6HFZ9g9uA _qrGmwEGlEeqYL6HFZ9g9uA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interface" xmi:id="_OFizcEEUEeqYNZiLC_l8cA" name="Pattern"/>
   <packagedElement xmi:type="uml:Interface" xmi:id="_RGp0AEEUEeqYNZiLC_l8cA" name="PatternQuery"/>
