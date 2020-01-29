@@ -5,7 +5,6 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -108,12 +107,19 @@ public class SingleElementMappingItemProvider extends MappingItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		SingleElementMapping singleElementMapping = (SingleElementMapping)object;
-		return getString("_UI_SingleElementMapping_type") + " " + singleElementMapping.getId();
+		SingleElementMapping singleElementMapping = (SingleElementMapping) object;
+		String text = getString("_UI_SingleElementMapping_type") + " " + singleElementMapping.getRefNo();		
+//		if(singleElementMapping.getFrom() != null) {
+//			text += " from " + getString("_UI_SingleElement_type") + " " + singleElementMapping.getFrom().getRefNo();
+//		}
+//		if(singleElementMapping.getTo() != null) {
+//			text += " to " + getString("_UI_SingleElement_type") + " " + singleElementMapping.getTo().getRefNo();
+//		}
+		return text;		
 	}
 
 

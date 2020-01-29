@@ -5,7 +5,6 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -21,9 +20,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
-
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -63,6 +60,7 @@ public class PatternElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addIdPropertyDescriptor(object);
+			addRefNoPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,6 +82,28 @@ public class PatternElementItemProvider
 				 true,
 				 false,
 				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Ref No feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRefNoPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PatternElement_refNo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PatternElement_refNo_feature", "_UI_PatternElement_type"),
+				 PatternstructurePackage.Literals.PATTERN_ELEMENT__REF_NO,
+				 true,
+				 false,
+				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
@@ -97,8 +117,10 @@ public class PatternElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		PatternElement patternElement = (PatternElement)object;
-		return getString("_UI_PatternElement_type") + " " + patternElement.getId();
+		String label = ((PatternElement)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PatternElement_type") :
+			getString("_UI_PatternElement_type") + " " + label;
 	}
 
 
@@ -115,6 +137,7 @@ public class PatternElementItemProvider
 
 		switch (notification.getFeatureID(PatternElement.class)) {
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
+			case PatternstructurePackage.PATTERN_ELEMENT__REF_NO:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -26,7 +26,7 @@ public enum Quantifier implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EXISTS(0, "EXISTS", "exists"),
+	EXISTS(0, "EXISTS", "EXISTS"),
 
 	/**
 	 * The '<em><b>FORALL</b></em>' literal object.
@@ -36,14 +36,14 @@ public enum Quantifier implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FORALL(1, "FORALL", "forall");
+	FORALL(1, "FORALL", "FORALL");
 
 	/**
 	 * The '<em><b>EXISTS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #EXISTS
-	 * @model literal="exists"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
@@ -54,7 +54,7 @@ public enum Quantifier implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #FORALL
-	 * @model literal="forall"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */

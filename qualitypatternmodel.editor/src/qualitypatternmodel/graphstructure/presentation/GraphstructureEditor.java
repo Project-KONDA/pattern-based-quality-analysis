@@ -160,9 +160,7 @@ import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAda
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import qualitypatternmodel.functions.provider.FunctionsItemProviderAdapterFactory;
-
 import qualitypatternmodel.inputfields.presentation.QualitypatternmodelEditorPlugin;
-
 import qualitypatternmodel.inputfields.provider.InputfieldsItemProviderAdapterFactory;
 
 import qualitypatternmodel.patternstructure.provider.PatternstructureItemProviderAdapterFactory;

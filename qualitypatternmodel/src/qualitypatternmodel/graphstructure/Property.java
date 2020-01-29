@@ -3,7 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import qualitypatternmodel.inputfields.PropertyOption;
-import qualitypatternmodel.inputfields.Text;
+import qualitypatternmodel.inputfields.TextLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,12 +75,12 @@ public interface Property extends GraphElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute Name</em>' reference.
-	 * @see #setAttributeName(Text)
+	 * @see #setAttributeName(TextLiteral)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_AttributeName()
 	 * @model required="true"
 	 * @generated
 	 */
-	Text getAttributeName();
+	TextLiteral getAttributeName();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}' reference.
@@ -90,6 +90,6 @@ public interface Property extends GraphElement {
 	 * @see #getAttributeName()
 	 * @generated
 	 */
-	void setAttributeName(Text value);
+	void setAttributeName(TextLiteral value);
 
 } // Property

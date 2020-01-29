@@ -18,6 +18,7 @@ import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +81,11 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 		if (getOptions().size() < 1) 
 			throw new InvalidityException("not enough options");
 		super.isValidLocal(isDefinedPattern);
+	}
+	
+	@Override
+	public String toXQuery(Location location) throws InvalidityException {
+		return getValue().getLiteral();
 	}
 	
 	@Override

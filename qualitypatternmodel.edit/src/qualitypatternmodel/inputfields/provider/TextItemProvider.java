@@ -5,16 +5,9 @@ package qualitypatternmodel.inputfields.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.Text;
 
 /**
@@ -45,31 +38,8 @@ public class TextItemProvider extends InputItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Text_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Text_value_feature", "_UI_Text_type"),
-				 InputfieldsPackage.Literals.TEXT__VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -91,8 +61,12 @@ public class TextItemProvider extends InputItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Text text = (Text)object;
-		return getString("_UI_Text_type") + " " + text.getId() + " " + text.getValue();
+		Text txt = (Text) object;
+		String text = getString("_UI_Text_type") + " " + txt.getRefNo();
+//		if(txt.getValue() != null) {
+//			text += " " + txt.getValue();
+//		}
+		return text;
 	}
 
 
@@ -106,12 +80,6 @@ public class TextItemProvider extends InputItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Text.class)) {
-			case InputfieldsPackage.TEXT__VALUE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

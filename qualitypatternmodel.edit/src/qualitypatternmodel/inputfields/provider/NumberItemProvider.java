@@ -5,7 +5,6 @@ package qualitypatternmodel.inputfields.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -90,8 +89,12 @@ public class NumberItemProvider extends InputItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		qualitypatternmodel.inputfields.Number number = (qualitypatternmodel.inputfields.Number)object;
-		return getString("_UI_Number_type") + " " + number.getId() + " " + number.getValue();
+		qualitypatternmodel.inputfields.Number number = (qualitypatternmodel.inputfields.Number) object;
+		String text = getString("_UI_Number_type") + " " + number.getRefNo();
+		if(number.getValue() != null) {
+			text += " " + number.getValue();
+		}
+		return text;
 	}
 
 

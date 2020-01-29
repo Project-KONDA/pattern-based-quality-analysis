@@ -40,13 +40,13 @@ public interface InputfieldsFactory extends EFactory {
 	Boolean createBoolean();
 
 	/**
-	 * Returns a new object of class '<em>Text</em>'.
+	 * Returns a new object of class '<em>Text Literal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Text</em>'.
+	 * @return a new object of class '<em>Text Literal</em>'.
 	 * @generated
 	 */
-	Text createText();
+	TextLiteral createTextLiteral();
 
 	/**
 	 * Returns a new object of class '<em>Comp Option</em>'.
@@ -74,6 +74,15 @@ public interface InputfieldsFactory extends EFactory {
 	 * @generated
 	 */
 	VariableList createVariableList();
+
+	/**
+	 * Returns a new object of class '<em>Text List</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Text List</em>'.
+	 * @generated
+	 */
+	TextList createTextList();
 
 	/**
 	 * Returns the package supported by this factory.

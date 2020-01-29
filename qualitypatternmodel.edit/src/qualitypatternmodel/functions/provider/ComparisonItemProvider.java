@@ -5,13 +5,11 @@ package qualitypatternmodel.functions.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
 
@@ -131,12 +129,16 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		Comparison comparison = (Comparison)object;
-		return getString("_UI_Comparison_type") + " " + comparison.getId();
+		Comparison comp = (Comparison) object;
+		String text = getString("_UI_Comparison_type") + " " + comp.getRefNo();
+		if(comp.getOption() != null && comp.getOption().getValue() != null) {
+			text += " " + comp.getOption().getValue().getName();
+		}
+		return text;
 	}
 
 

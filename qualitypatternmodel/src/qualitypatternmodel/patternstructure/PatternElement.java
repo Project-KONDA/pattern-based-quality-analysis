@@ -5,7 +5,6 @@ package qualitypatternmodel.patternstructure;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.inputfields.Input;
 
@@ -19,6 +18,7 @@ import qualitypatternmodel.inputfields.Input;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getId <em>Id</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getRefNo <em>Ref No</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPatternElement()
@@ -31,12 +31,12 @@ public interface PatternElement extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(int)
+	 * @see #setId(String)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPatternElement_Id()
 	 * @model id="true" required="true"
 	 * @generated
 	 */
-	int getId();
+	String getId();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.PatternElement#getId <em>Id</em>}' attribute.
@@ -46,7 +46,30 @@ public interface PatternElement extends EObject {
 	 * @see #getId()
 	 * @generated
 	 */
-	void setId(int value);
+	void setId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Ref No</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ref No</em>' attribute.
+	 * @see #setRefNo(int)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPatternElement_RefNo()
+	 * @model default="-1" required="true"
+	 * @generated
+	 */
+	int getRefNo();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.PatternElement#getRefNo <em>Ref No</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ref No</em>' attribute.
+	 * @see #getRefNo()
+	 * @generated
+	 */
+	void setRefNo(int value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,14 +90,6 @@ public interface PatternElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	int getNewId() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -91,18 +106,10 @@ public interface PatternElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	PatternElement getContainer();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	PatternElement getAncestor(EClass cls);
+	PatternElement getContainer() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,5 +126,7 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	void isValidLocal(boolean isDefinedPattern) throws InvalidityException;
+
+	PatternElement getAncestor(Class<?> cls) throws InvalidityException;
 
 } // PatternElement

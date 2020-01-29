@@ -80,6 +80,15 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT__ID = GraphstructurePackage.GRAPH_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__REF_NO = GraphstructurePackage.GRAPH_ELEMENT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,15 +161,6 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___GET_ALL_INPUTS = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT___GET_NEW_ID = GraphstructurePackage.GRAPH_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,7 +203,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___GET_ANCESTOR__ECLASS = GraphstructurePackage.GRAPH_ELEMENT___GET_ANCESTOR__ECLASS;
+	int INPUT___GET_ANCESTOR__CLASS = GraphstructurePackage.GRAPH_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -288,6 +288,15 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER__ID = INPUT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__REF_NO = INPUT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -369,15 +378,6 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER___GET_NEW_ID = INPUT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -420,7 +420,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_ANCESTOR__ECLASS = INPUT___GET_ANCESTOR__ECLASS;
+	int NUMBER___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -505,6 +505,15 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN__ID = INPUT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN__REF_NO = INPUT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -586,15 +595,6 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN___GET_NEW_ID = INPUT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -637,7 +637,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_ANCESTOR__ECLASS = INPUT___GET_ANCESTOR__ECLASS;
+	int BOOLEAN___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -710,7 +710,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getText()
 	 * @generated
 	 */
-	int TEXT = 3;
+	int TEXT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -720,6 +720,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__REF_NO = INPUT__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -767,22 +776,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT__IS_PREDEFINED = INPUT__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT__VALUE = INPUT_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FEATURE_COUNT = INPUT_FEATURE_COUNT + 1;
+	int TEXT_FEATURE_COUNT = INPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -801,15 +801,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
-
-	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT___GET_NEW_ID = INPUT___GET_NEW_ID;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -854,7 +845,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_ANCESTOR__ECLASS = INPUT___GET_ANCESTOR__ECLASS;
+	int TEXT___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -921,6 +912,223 @@ public interface InputfieldsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.TextLiteralImpl <em>Text Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.inputfields.impl.TextLiteralImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getTextLiteral()
+	 * @generated
+	 */
+	int TEXT_LITERAL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__ID = TEXT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__REF_NO = TEXT__REF_NO;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__COMPARISON1 = TEXT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__COMPARISON2 = TEXT__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__VARIABLE_LIST = TEXT__VARIABLE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__DESCRIPTION = TEXT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__IS_PREDEFINED = TEXT__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__VALUE = TEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Text Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_FEATURE_COUNT = TEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___TO_XQUERY__LOCATION = TEXT___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___GET_ALL_INPUTS = TEXT___GET_ALL_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___PREPARE_TRANSLATION = TEXT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___IS_VALID__BOOLEAN = TEXT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___IS_VALID_LOCAL__BOOLEAN = TEXT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___GET_CONTAINER = TEXT___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___GET_ANCESTOR__CLASS = TEXT___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___GET_RETURN_TYPE = TEXT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___IS_TRANSLATABLE = TEXT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___TO_XQUERY__LOCATION_INT = TEXT___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___GET_ALL_ARGUMENT_ELEMENTS = TEXT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___INPUT_IS_VALID = TEXT___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___VALIDATE__DIAGNOSTICCHAIN_MAP = TEXT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Text Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_OPERATION_COUNT = TEXT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.CompOptionImpl <em>Comp Option</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -938,6 +1146,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMP_OPTION__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__REF_NO = INPUT__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1030,15 +1247,6 @@ public interface InputfieldsPackage extends EPackage {
 	int COMP_OPTION___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMP_OPTION___GET_NEW_ID = INPUT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1081,7 +1289,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_ANCESTOR__ECLASS = INPUT___GET_ANCESTOR__ECLASS;
+	int COMP_OPTION___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1165,6 +1373,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPTION__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__REF_NO = INPUT__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1257,15 +1474,6 @@ public interface InputfieldsPackage extends EPackage {
 	int PROPERTY_OPTION___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_OPTION___GET_NEW_ID = INPUT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1308,7 +1516,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_ANCESTOR__ECLASS = INPUT___GET_ANCESTOR__ECLASS;
+	int PROPERTY_OPTION___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1393,6 +1601,15 @@ public interface InputfieldsPackage extends EPackage {
 	int VARIABLE_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1438,15 +1655,6 @@ public interface InputfieldsPackage extends EPackage {
 	int VARIABLE_LIST___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_LIST___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1489,7 +1697,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___GET_ANCESTOR__ECLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
+	int VARIABLE_LIST___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1508,6 +1716,241 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.TextListImpl <em>Text List</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.inputfields.impl.TextListImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getTextList()
+	 * @generated
+	 */
+	int TEXT_LIST = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST__ID = TEXT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST__REF_NO = TEXT__REF_NO;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST__COMPARISON1 = TEXT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST__COMPARISON2 = TEXT__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST__VARIABLE_LIST = TEXT__VARIABLE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST__DESCRIPTION = TEXT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST__IS_PREDEFINED = TEXT__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST__VALUES = TEXT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Text List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_FEATURE_COUNT = TEXT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___TO_XQUERY__LOCATION = TEXT___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___GET_ALL_INPUTS = TEXT___GET_ALL_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___PREPARE_TRANSLATION = TEXT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___IS_VALID__BOOLEAN = TEXT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___IS_VALID_LOCAL__BOOLEAN = TEXT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___GET_CONTAINER = TEXT___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___GET_ANCESTOR__CLASS = TEXT___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___GET_RETURN_TYPE = TEXT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___IS_TRANSLATABLE = TEXT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___TO_XQUERY__LOCATION_INT = TEXT___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___GET_ALL_ARGUMENT_ELEMENTS = TEXT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___INPUT_IS_VALID = TEXT___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = TEXT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get List Declaration</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___GET_LIST_DECLARATION = TEXT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get List Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___GET_LIST_VAR = TEXT_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Text List</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_OPERATION_COUNT = TEXT_OPERATION_COUNT + 2;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Input <em>Input</em>}'.
@@ -1615,6 +2058,27 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getBoolean_Value();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.TextLiteral <em>Text Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text Literal</em>'.
+	 * @see qualitypatternmodel.inputfields.TextLiteral
+	 * @generated
+	 */
+	EClass getTextLiteral();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.TextLiteral#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.inputfields.TextLiteral#getValue()
+	 * @see #getTextLiteral()
+	 * @generated
+	 */
+	EAttribute getTextLiteral_Value();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Text <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1623,17 +2087,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getText();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Text#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.inputfields.Text#getValue()
-	 * @see #getText()
-	 * @generated
-	 */
-	EAttribute getText_Value();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.CompOption <em>Comp Option</em>}'.
@@ -1730,6 +2183,47 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getVariableList_Pattern();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.TextList <em>Text List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text List</em>'.
+	 * @see qualitypatternmodel.inputfields.TextList
+	 * @generated
+	 */
+	EClass getTextList();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.inputfields.TextList#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Values</em>'.
+	 * @see qualitypatternmodel.inputfields.TextList#getValues()
+	 * @see #getTextList()
+	 * @generated
+	 */
+	EAttribute getTextList_Values();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.TextList#getListDeclaration() <em>Get List Declaration</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get List Declaration</em>' operation.
+	 * @see qualitypatternmodel.inputfields.TextList#getListDeclaration()
+	 * @generated
+	 */
+	EOperation getTextList__GetListDeclaration();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.TextList#getListVar() <em>Get List Var</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get List Var</em>' operation.
+	 * @see qualitypatternmodel.inputfields.TextList#getListVar()
+	 * @generated
+	 */
+	EOperation getTextList__GetListVar();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1841,6 +2335,24 @@ public interface InputfieldsPackage extends EPackage {
 		EAttribute BOOLEAN__VALUE = eINSTANCE.getBoolean_Value();
 
 		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.TextLiteralImpl <em>Text Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.inputfields.impl.TextLiteralImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getTextLiteral()
+		 * @generated
+		 */
+		EClass TEXT_LITERAL = eINSTANCE.getTextLiteral();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_LITERAL__VALUE = eINSTANCE.getTextLiteral_Value();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.TextImpl <em>Text</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1849,14 +2361,6 @@ public interface InputfieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TEXT = eINSTANCE.getText();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEXT__VALUE = eINSTANCE.getText_Value();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.CompOptionImpl <em>Comp Option</em>}' class.
@@ -1935,6 +2439,40 @@ public interface InputfieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VARIABLE_LIST__PATTERN = eINSTANCE.getVariableList_Pattern();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.TextListImpl <em>Text List</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.inputfields.impl.TextListImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getTextList()
+		 * @generated
+		 */
+		EClass TEXT_LIST = eINSTANCE.getTextList();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_LIST__VALUES = eINSTANCE.getTextList_Values();
+
+		/**
+		 * The meta object literal for the '<em><b>Get List Declaration</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEXT_LIST___GET_LIST_DECLARATION = eINSTANCE.getTextList__GetListDeclaration();
+
+		/**
+		 * The meta object literal for the '<em><b>Get List Var</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEXT_LIST___GET_LIST_VAR = eINSTANCE.getTextList__GetListVar();
 
 	}
 

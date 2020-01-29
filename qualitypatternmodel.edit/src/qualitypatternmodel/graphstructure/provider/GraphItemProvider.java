@@ -5,7 +5,6 @@ package qualitypatternmodel.graphstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -22,9 +21,7 @@ import qualitypatternmodel.functions.FunctionsFactory;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
-
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -220,12 +217,14 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		Graph graph = (Graph)object;
-		return getString("_UI_Graph_type") + " " + graph.getId();
+		Graph graph = (Graph) object;
+		if (graph.isReturnGraph()) 
+			return "Return" + getString("_UI_Graph_type") + " " + graph.getRefNo();	
+		return getString("_UI_Graph_type") + " " + graph.getRefNo();			
 	}
 
 

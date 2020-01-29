@@ -18,6 +18,8 @@ import qualitypatternmodel.inputfields.VariableList;
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getElementCounter <em>Element Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern()
@@ -73,6 +75,51 @@ public interface Pattern extends PatternElement {
 	 * @generated
 	 */
 	void setCondition(Condition value);
+
+	/**
+	 * Returns the value of the '<em><b>Element Counter</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Element Counter</em>' attribute.
+	 * @see #setElementCounter(int)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_ElementCounter()
+	 * @model default="0" required="true"
+	 * @generated
+	 */
+	int getElementCounter();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getElementCounter <em>Element Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Element Counter</em>' attribute.
+	 * @see #getElementCounter()
+	 * @generated
+	 */
+	void setElementCounter(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Variable List</b></em>' containment reference.
@@ -136,5 +183,13 @@ public interface Pattern extends PatternElement {
 	 * @generated
 	 */
 	String toXQuery() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	int getNewRefNo() throws InvalidityException;
 
 } // Pattern

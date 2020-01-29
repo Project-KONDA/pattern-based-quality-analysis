@@ -5,7 +5,6 @@ package qualitypatternmodel.inputfields.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -13,7 +12,6 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 
 /**
@@ -90,8 +88,12 @@ public class BooleanItemProvider extends InputItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		qualitypatternmodel.inputfields.Boolean boolean_ = (qualitypatternmodel.inputfields.Boolean)object;
-		return getString("_UI_Boolean_type") + " " + boolean_.getId() + " " + boolean_.getValue();
+		qualitypatternmodel.inputfields.Boolean bool = (qualitypatternmodel.inputfields.Boolean) object;
+		String text = getString("_UI_Boolean_type") + " " + bool.getRefNo();
+		if(bool.getValue() != null) {
+			text += " " + bool.getValue();
+		}
+		return text;
 	}
 
 

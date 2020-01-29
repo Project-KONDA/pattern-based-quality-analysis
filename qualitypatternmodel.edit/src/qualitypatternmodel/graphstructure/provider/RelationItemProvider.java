@@ -5,7 +5,6 @@ package qualitypatternmodel.graphstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -18,9 +17,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
-
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -139,12 +136,12 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		Relation relation = (Relation)object;
-		return getString("_UI_Relation_type") + " " + relation.getId();
+		Relation relation = (Relation) object;
+		return getString("_UI_Relation_type") + " " + relation.getRefNo() + " " + relation.getAxis().getName();
 	}
 
 

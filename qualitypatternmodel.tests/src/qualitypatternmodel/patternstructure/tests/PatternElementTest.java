@@ -15,12 +15,11 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location) <em>To XQuery</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAllInputs() <em>Get All Inputs</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getNewId() <em>Get New Id</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValidLocal(boolean) <em>Is Valid Local</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(org.eclipse.emf.ecore.EClass) <em>Get Ancestor</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class) <em>Get Ancestor</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}</li>
  * </ul>
  * </p>
@@ -93,19 +92,6 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getNewId() <em>Get New Id</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getNewId()
-	 * @generated
-	 */
-	public void testGetNewId() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,13 +131,13 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(org.eclipse.emf.ecore.EClass) <em>Get Ancestor</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class) <em>Get Ancestor</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getAncestor(org.eclipse.emf.ecore.EClass)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class)
 	 * @generated
 	 */
-	public void testGetAncestor__EClass() {
+	public void testGetAncestor__Class() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

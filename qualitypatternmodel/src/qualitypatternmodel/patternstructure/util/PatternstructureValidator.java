@@ -3,7 +3,6 @@
 package qualitypatternmodel.patternstructure.util;
 
 import java.util.Map;
-
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -121,6 +120,8 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validateLocation((Location)value, diagnostics, context);
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
 				return validateInvalidityExceptionWrapper((InvalidityException)value, diagnostics, context);
+			case PatternstructurePackage.CLASS_WRAPPER:
+				return validateClassWrapper((Class)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -539,6 +540,15 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateInvalidityExceptionWrapper(InvalidityException invalidityExceptionWrapper, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateClassWrapper(Class classWrapper, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

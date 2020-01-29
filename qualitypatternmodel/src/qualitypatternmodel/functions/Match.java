@@ -3,7 +3,7 @@
 package qualitypatternmodel.functions;
 
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.inputfields.Text;
+import qualitypatternmodel.inputfields.TextLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,12 +51,12 @@ public interface Match extends BooleanOperator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Regular Expression</em>' reference.
-	 * @see #setRegularExpression(Text)
+	 * @see #setRegularExpression(TextLiteral)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_RegularExpression()
 	 * @model required="true"
 	 * @generated
 	 */
-	Text getRegularExpression();
+	TextLiteral getRegularExpression();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.functions.Match#getRegularExpression <em>Regular Expression</em>}' reference.
@@ -66,7 +66,7 @@ public interface Match extends BooleanOperator {
 	 * @see #getRegularExpression()
 	 * @generated
 	 */
-	void setRegularExpression(Text value);
+	void setRegularExpression(TextLiteral value);
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.

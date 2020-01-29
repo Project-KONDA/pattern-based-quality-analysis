@@ -417,7 +417,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 */
 	public int getOriginalID() {
 		if (mappingFrom == null)
-			return this.id;
+			return this.getRefNo();
 		else
 			return mappingFrom.getFrom().getOriginalID();
 	}

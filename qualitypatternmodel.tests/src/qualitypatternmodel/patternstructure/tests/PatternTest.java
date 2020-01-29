@@ -21,6 +21,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#toXQuery() <em>To XQuery</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getNewRefNo() <em>Get New Ref No</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -113,6 +114,19 @@ public class PatternTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testToXQuery() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Pattern#getNewRefNo() <em>Get New Ref No</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Pattern#getNewRefNo()
+	 * @generated
+	 */
+	public void testGetNewRefNo() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -43,7 +43,6 @@ public class ProgrammaticalValidation {
 		PatternstructurePackage.eINSTANCE.eClass();		
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;		
 		Pattern pattern = factory.createPattern();
-		pattern.setId(0);
 		
 		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);			
 		

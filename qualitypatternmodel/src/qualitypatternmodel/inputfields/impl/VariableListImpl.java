@@ -20,6 +20,7 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -94,6 +95,15 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 			}
 			throw new InvalidityException(msg);
 		}
+	}
+	
+	@Override
+	public String toXQuery(Location location) throws InvalidityException {
+		String res = "";
+		for (Input input : getVariables()) 
+			if (input instanceof TextListImpl) 
+				res += ((TextListImpl) input).getListDeclaration();
+		return res;
 	}
 
 	/**

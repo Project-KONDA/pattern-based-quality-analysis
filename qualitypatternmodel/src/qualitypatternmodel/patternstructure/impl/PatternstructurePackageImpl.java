@@ -149,6 +149,13 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	private EDataType invalidityExceptionWrapperEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType classWrapperEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -619,6 +626,26 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPattern_ElementCounter() {
+		return (EAttribute)patternEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPattern_Name() {
+		return (EAttribute)patternEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getPattern_VariableList() {
 		return (EReference)patternEClass.getEStructuralFeatures().get(0);
 	}
@@ -659,6 +686,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getPattern__GetNewRefNo() {
+		return patternEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPatternElement() {
 		return patternElementEClass;
 	}
@@ -671,6 +708,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EAttribute getPatternElement_Id() {
 		return (EAttribute)patternElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPatternElement_RefNo() {
+		return (EAttribute)patternElementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -699,7 +746,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__GetNewId() {
+	public EOperation getPatternElement__PrepareTranslation() {
 		return patternElementEClass.getEOperations().get(2);
 	}
 
@@ -709,37 +756,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__PrepareTranslation() {
-		return patternElementEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getPatternElement__Validate__DiagnosticChain_Map() {
-		return patternElementEClass.getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getPatternElement__GetContainer() {
-		return patternElementEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getPatternElement__GetAncestor__EClass() {
 		return patternElementEClass.getEOperations().get(7);
 	}
 
@@ -749,8 +766,28 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternElement__GetContainer() {
+		return patternElementEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__GetAncestor__Class() {
+		return patternElementEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternElement__IsValid__boolean() {
-		return patternElementEClass.getEOperations().get(4);
+		return patternElementEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -760,7 +797,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EOperation getPatternElement__IsValidLocal__boolean() {
-		return patternElementEClass.getEOperations().get(5);
+		return patternElementEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -801,6 +838,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EDataType getInvalidityExceptionWrapper() {
 		return invalidityExceptionWrapperEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getClassWrapper() {
+		return classWrapperEDataType;
 	}
 
 	/**
@@ -880,19 +927,22 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(patternEClass, PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH);
 		createEReference(patternEClass, PATTERN__RETURN_GRAPH);
 		createEReference(patternEClass, PATTERN__CONDITION);
+		createEAttribute(patternEClass, PATTERN__ELEMENT_COUNTER);
+		createEAttribute(patternEClass, PATTERN__NAME);
 		createEOperation(patternEClass, PATTERN___IS_VALID__BOOLEAN);
 		createEOperation(patternEClass, PATTERN___TO_XQUERY);
+		createEOperation(patternEClass, PATTERN___GET_NEW_REF_NO);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
+		createEAttribute(patternElementEClass, PATTERN_ELEMENT__REF_NO);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___TO_XQUERY__LOCATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_INPUTS);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_NEW_ID);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___PREPARE_TRANSLATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_CONTAINER);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ANCESTOR__ECLASS);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ANCESTOR__CLASS);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		// Create enums
@@ -902,6 +952,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		// Create data types
 		invalidityExceptionWrapperEDataType = createEDataType(INVALIDITY_EXCEPTION_WRAPPER);
+		classWrapperEDataType = createEDataType(CLASS_WRAPPER);
 	}
 
 	/**
@@ -995,6 +1046,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getPattern_CheckMorphismOfNextGraph(), ecorePackage.getEBoolean(), "checkMorphismOfNextGraph", null, 1, 1, Pattern.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_ReturnGraph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_Pattern(), "returnGraph", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_Condition(), this.getCondition(), this.getCondition_Pattern(), "condition", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPattern_ElementCounter(), ecorePackage.getEInt(), "elementCounter", "0", 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPattern_Name(), ecorePackage.getEString(), "name", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getPattern__IsValid__boolean(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1003,17 +1056,18 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		op = initEOperation(getPattern__ToXQuery(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
+		op = initEOperation(getPattern__GetNewRefNo(), ecorePackage.getEInt(), "getNewRefNo", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
+
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPatternElement_Id(), ecorePackage.getEInt(), "id", null, 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPatternElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPatternElement_RefNo(), ecorePackage.getEInt(), "refNo", "-1", 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPatternElement__ToXQuery__Location(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getPatternElement__GetAllInputs(), theInputfieldsPackage.getInput(), "getAllInputs", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getPatternElement__GetNewId(), ecorePackage.getEInt(), "getNewId", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEOperation(getPatternElement__PrepareTranslation(), null, "prepareTranslation", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1026,10 +1080,12 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
-		initEOperation(getPatternElement__GetContainer(), this.getPatternElement(), "getContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__GetContainer(), this.getPatternElement(), "getContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getPatternElement__GetAncestor__EClass(), this.getPatternElement(), "getAncestor", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEClass(), "cls", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__GetAncestor__Class(), this.getPatternElement(), "getAncestor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getClassWrapper(), "cls", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getPatternElement__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1061,6 +1117,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		// Initialize data types
 		initEDataType(invalidityExceptionWrapperEDataType, InvalidityException.class, "InvalidityExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(classWrapperEDataType, Class.class, "ClassWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

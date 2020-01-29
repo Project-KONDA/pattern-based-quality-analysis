@@ -5,7 +5,6 @@ package qualitypatternmodel.graphstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -107,12 +106,12 @@ public class PropertyItemProvider extends GraphElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		Property property = (Property)object;
-		return getString("_UI_Property_type") + " " + property.getId();
+		Property property = (Property) object;
+		return getString("_UI_Property_type") + " " + property.getRefNo();			
 	}
 
 

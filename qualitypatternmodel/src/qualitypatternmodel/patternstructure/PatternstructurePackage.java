@@ -80,13 +80,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT__ID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT__REF_NO = 1;
+
+	/**
 	 * The number of structural features of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_FEATURE_COUNT = 1;
+	int PATTERN_ELEMENT_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -107,22 +116,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___GET_ALL_INPUTS = 1;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___GET_NEW_ID = 2;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___PREPARE_TRANSLATION = 3;
+	int PATTERN_ELEMENT___PREPARE_TRANSLATION = 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -131,7 +131,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___IS_VALID__BOOLEAN = 4;
+	int PATTERN_ELEMENT___IS_VALID__BOOLEAN = 3;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -140,7 +140,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN = 5;
+	int PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN = 4;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -149,7 +149,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_CONTAINER = 6;
+	int PATTERN_ELEMENT___GET_CONTAINER = 5;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -158,7 +158,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_ANCESTOR__ECLASS = 7;
+	int PATTERN_ELEMENT___GET_ANCESTOR__CLASS = 6;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -167,7 +167,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = 8;
+	int PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = 7;
 
 	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
@@ -176,7 +176,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 9;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -196,6 +196,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING__ID = PATTERN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING__REF_NO = PATTERN_ELEMENT__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
@@ -243,15 +252,6 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,7 +294,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING___GET_ANCESTOR__ECLASS = PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
+	int MAPPING___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -332,6 +332,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING__ID = MAPPING__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING__REF_NO = MAPPING__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
@@ -397,15 +406,6 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING___GET_ALL_INPUTS = MAPPING___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___GET_NEW_ID = MAPPING___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -448,7 +448,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING___GET_ANCESTOR__ECLASS = MAPPING___GET_ANCESTOR__ECLASS;
+	int RELATION_MAPPING___GET_ANCESTOR__CLASS = MAPPING___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -486,6 +486,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION__ID = PATTERN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__REF_NO = PATTERN_ELEMENT__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -560,15 +569,6 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -611,7 +611,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___GET_ANCESTOR__ECLASS = PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
+	int CONDITION___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -649,6 +649,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int QUANTIFIED_CONDITION__ID = CONDITION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION__REF_NO = CONDITION__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -768,15 +777,6 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___GET_NEW_ID = CONDITION___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -819,7 +819,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___GET_ANCESTOR__ECLASS = CONDITION___GET_ANCESTOR__ECLASS;
+	int QUANTIFIED_CONDITION___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -857,6 +857,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM__ID = PATTERN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM__REF_NO = PATTERN_ELEMENT__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
@@ -967,15 +976,6 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1018,7 +1018,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___GET_ANCESTOR__ECLASS = PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
+	int MORPHISM___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1056,6 +1056,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT_MAPPING__ID = MAPPING__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING__REF_NO = MAPPING__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
@@ -1121,15 +1130,6 @@ public interface PatternstructurePackage extends EPackage {
 	int SINGLE_ELEMENT_MAPPING___GET_ALL_INPUTS = MAPPING___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT_MAPPING___GET_NEW_ID = MAPPING___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1172,7 +1172,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___GET_ANCESTOR__ECLASS = MAPPING___GET_ANCESTOR__ECLASS;
+	int SINGLE_ELEMENT_MAPPING___GET_ANCESTOR__CLASS = MAPPING___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1210,6 +1210,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int FORMULA__ID = CONDITION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA__REF_NO = CONDITION__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -1302,15 +1311,6 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___GET_NEW_ID = CONDITION___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1353,7 +1353,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___GET_ANCESTOR__ECLASS = CONDITION___GET_ANCESTOR__ECLASS;
+	int FORMULA___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1391,6 +1391,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUE__ID = CONDITION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE__REF_NO = CONDITION__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -1465,15 +1474,6 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE___GET_NEW_ID = CONDITION___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1516,7 +1516,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___GET_ANCESTOR__ECLASS = CONDITION___GET_ANCESTOR__ECLASS;
+	int TRUE___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1556,6 +1556,15 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__ID = PATTERN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN__REF_NO = PATTERN_ELEMENT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1592,13 +1601,31 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Element Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN__ELEMENT_COUNTER = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN__NAME = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1617,15 +1644,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
-
-	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___GET_NEW_ID = PATTERN_ELEMENT___GET_NEW_ID;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1661,7 +1679,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___GET_ANCESTOR__ECLASS = PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
+	int PATTERN___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1691,13 +1709,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___TO_XQUERY = PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get New Ref No</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GET_NEW_REF_NO = PATTERN_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 2;
+	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.LogicalOperator <em>Logical Operator</em>}' enum.
@@ -1738,6 +1765,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	int INVALIDITY_EXCEPTION_WRAPPER = 13;
+
+	/**
+	 * The meta object id for the '<em>Class Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Class
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getClassWrapper()
+	 * @generated
+	 */
+	int CLASS_WRAPPER = 14;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.RelationMapping <em>Relation Mapping</em>}'.
@@ -2149,6 +2186,28 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getPattern_Condition();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getElementCounter <em>Element Counter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Element Counter</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getElementCounter()
+	 * @see #getPattern()
+	 * @generated
+	 */
+	EAttribute getPattern_ElementCounter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getName()
+	 * @see #getPattern()
+	 * @generated
+	 */
+	EAttribute getPattern_Name();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getVariableList <em>Variable List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2191,6 +2250,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPattern__ToXQuery();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#getNewRefNo() <em>Get New Ref No</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get New Ref No</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getNewRefNo()
+	 * @generated
+	 */
+	EOperation getPattern__GetNewRefNo();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2212,6 +2281,17 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getPatternElement_Id();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.PatternElement#getRefNo <em>Ref No</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ref No</em>'.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getRefNo()
+	 * @see #getPatternElement()
+	 * @generated
+	 */
+	EAttribute getPatternElement_RefNo();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location) <em>To XQuery</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2230,16 +2310,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__GetAllInputs();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getNewId() <em>Get New Id</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get New Id</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getNewId()
-	 * @generated
-	 */
-	EOperation getPatternElement__GetNewId();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}' operation.
@@ -2272,14 +2342,14 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__GetContainer();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(org.eclipse.emf.ecore.EClass) <em>Get Ancestor</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class) <em>Get Ancestor</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Ancestor</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getAncestor(org.eclipse.emf.ecore.EClass)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class)
 	 * @generated
 	 */
-	EOperation getPatternElement__GetAncestor__EClass();
+	EOperation getPatternElement__GetAncestor__Class();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}' operation.
@@ -2341,6 +2411,17 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getInvalidityExceptionWrapper();
+
+	/**
+	 * Returns the meta object for data type '{@link java.lang.Class <em>Class Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Class Wrapper</em>'.
+	 * @see java.lang.Class
+	 * @model instanceClass="java.lang.Class"
+	 * @generated
+	 */
+	EDataType getClassWrapper();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2688,6 +2769,22 @@ public interface PatternstructurePackage extends EPackage {
 		EReference PATTERN__CONDITION = eINSTANCE.getPattern_Condition();
 
 		/**
+		 * The meta object literal for the '<em><b>Element Counter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PATTERN__ELEMENT_COUNTER = eINSTANCE.getPattern_ElementCounter();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PATTERN__NAME = eINSTANCE.getPattern_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Variable List</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2720,6 +2817,14 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN___TO_XQUERY = eINSTANCE.getPattern__ToXQuery();
 
 		/**
+		 * The meta object literal for the '<em><b>Get New Ref No</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN___GET_NEW_REF_NO = eINSTANCE.getPattern__GetNewRefNo();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2738,6 +2843,14 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute PATTERN_ELEMENT__ID = eINSTANCE.getPatternElement_Id();
 
 		/**
+		 * The meta object literal for the '<em><b>Ref No</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PATTERN_ELEMENT__REF_NO = eINSTANCE.getPatternElement_RefNo();
+
+		/**
 		 * The meta object literal for the '<em><b>To XQuery</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2752,14 +2865,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___GET_ALL_INPUTS = eINSTANCE.getPatternElement__GetAllInputs();
-
-		/**
-		 * The meta object literal for the '<em><b>Get New Id</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN_ELEMENT___GET_NEW_ID = eINSTANCE.getPatternElement__GetNewId();
 
 		/**
 		 * The meta object literal for the '<em><b>Prepare Translation</b></em>' operation.
@@ -2791,7 +2896,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_ELEMENT___GET_ANCESTOR__ECLASS = eINSTANCE.getPatternElement__GetAncestor__EClass();
+		EOperation PATTERN_ELEMENT___GET_ANCESTOR__CLASS = eINSTANCE.getPatternElement__GetAncestor__Class();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
@@ -2848,6 +2953,16 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EDataType INVALIDITY_EXCEPTION_WRAPPER = eINSTANCE.getInvalidityExceptionWrapper();
+
+		/**
+		 * The meta object literal for the '<em>Class Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Class
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getClassWrapper()
+		 * @generated
+		 */
+		EDataType CLASS_WRAPPER = eINSTANCE.getClassWrapper();
 
 	}
 

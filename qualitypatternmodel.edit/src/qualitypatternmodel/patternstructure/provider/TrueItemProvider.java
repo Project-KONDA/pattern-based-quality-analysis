@@ -5,7 +5,6 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -62,7 +61,7 @@ public class TrueItemProvider extends ConditionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_True_type");
+		return getString("_UI_True_type");	
 	}
 
 

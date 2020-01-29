@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.PropertyOption;
-import qualitypatternmodel.inputfields.Text;
+import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
@@ -57,7 +57,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * @generated
 	 * @ordered
 	 */
-	protected Text attributeName;
+	protected TextLiteral attributeName;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -258,10 +258,10 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
-	public Text getAttributeName() {
+	public TextLiteral getAttributeName() {
 		if (attributeName != null && attributeName.eIsProxy()) {
 			InternalEObject oldAttributeName = (InternalEObject)attributeName;
-			attributeName = (Text)eResolveProxy(oldAttributeName);
+			attributeName = (TextLiteral)eResolveProxy(oldAttributeName);
 			if (attributeName != oldAttributeName) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, oldAttributeName, attributeName));
@@ -275,7 +275,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Text basicGetAttributeName() {
+	public TextLiteral basicGetAttributeName() {
 		return attributeName;
 	}
 
@@ -285,13 +285,12 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
-	public void setAttributeName(Text newAttributeName) {
-		Text oldAttributeName = attributeName;
+	public void setAttributeName(TextLiteral newAttributeName) {
+		TextLiteral oldAttributeName = attributeName;
 		attributeName = newAttributeName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, oldAttributeName, attributeName));
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -371,7 +370,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 				setElement((Element)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				setAttributeName((Text)newValue);
+				setAttributeName((TextLiteral)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -391,7 +390,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 				setElement((Element)null);
 				return;
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				setAttributeName((Text)null);
+				setAttributeName((TextLiteral)null);
 				return;
 		}
 		super.eUnset(featureID);

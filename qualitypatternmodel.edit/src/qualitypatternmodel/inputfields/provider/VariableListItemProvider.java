@@ -5,7 +5,6 @@ package qualitypatternmodel.inputfields.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -101,7 +100,9 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
+		VariableList variableList = (VariableList) object;
 		return getString("_UI_VariableList_type");
+//		+ " " + variableList.getRefNo();
 	}
 
 
@@ -148,7 +149,7 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
-				 InputfieldsFactory.eINSTANCE.createText()));
+				 InputfieldsFactory.eINSTANCE.createTextLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -159,6 +160,11 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
 				 InputfieldsFactory.eINSTANCE.createPropertyOption()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				 InputfieldsFactory.eINSTANCE.createTextList()));
 	}
 
 	/**

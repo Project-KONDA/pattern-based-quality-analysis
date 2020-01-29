@@ -15,6 +15,8 @@ import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
+import qualitypatternmodel.inputfields.TextList;
+import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -101,12 +103,13 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case InputfieldsPackage.TEXT: {
-				Text text = (Text)theEObject;
-				T result = caseText(text);
-				if (result == null) result = caseInput(text);
-				if (result == null) result = caseGraphElement(text);
-				if (result == null) result = casePatternElement(text);
+			case InputfieldsPackage.TEXT_LITERAL: {
+				TextLiteral textLiteral = (TextLiteral)theEObject;
+				T result = caseTextLiteral(textLiteral);
+				if (result == null) result = caseText(textLiteral);
+				if (result == null) result = caseInput(textLiteral);
+				if (result == null) result = caseGraphElement(textLiteral);
+				if (result == null) result = casePatternElement(textLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,6 +135,25 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				VariableList variableList = (VariableList)theEObject;
 				T result = caseVariableList(variableList);
 				if (result == null) result = casePatternElement(variableList);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InputfieldsPackage.TEXT_LIST: {
+				TextList textList = (TextList)theEObject;
+				T result = caseTextList(textList);
+				if (result == null) result = caseText(textList);
+				if (result == null) result = caseInput(textList);
+				if (result == null) result = caseGraphElement(textList);
+				if (result == null) result = casePatternElement(textList);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InputfieldsPackage.TEXT: {
+				Text text = (Text)theEObject;
+				T result = caseText(text);
+				if (result == null) result = caseInput(text);
+				if (result == null) result = caseGraphElement(text);
+				if (result == null) result = casePatternElement(text);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -181,6 +203,21 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBoolean(qualitypatternmodel.inputfields.Boolean object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Literal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextLiteral(TextLiteral object) {
 		return null;
 	}
 
@@ -241,6 +278,21 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVariableList(VariableList object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text List</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text List</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextList(TextList object) {
 		return null;
 	}
 

@@ -4,7 +4,6 @@ package qualitypatternmodel.patternstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.BasicEList;
@@ -18,7 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
@@ -34,37 +33,55 @@ import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl#getId <em>Id</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl#getRefNo <em>Ref No</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class PatternElementImpl extends MinimalEObjectImpl.Container implements PatternElement {
+
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getId()
-	 * 
-	 * @ordered
-	 */
-	protected static int ID_EDEFAULT = 0;
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected int id = ID_EDEFAULT;
+	protected static final String ID_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getId()
+	 * @ordered
+	 */
+	protected String id = EcoreUtil.generateUUID();
+
+	/**
+	 * The default value of the '{@link #getRefNo() <em>Ref No</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getRefNo()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int REF_NO_EDEFAULT = -1;
+	/**
+	 * The cached value of the '{@link #getRefNo() <em>Ref No</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getRefNo()
+	 * @generated
+	 * @ordered
+	 */
+	protected int refNo = REF_NO_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * @generated
 	 */
 	protected PatternElementImpl() {
 		super();
-		ID_EDEFAULT++;
 	}
 
 	/**
@@ -99,14 +116,16 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			isValidLocal(false);
 		} catch (Exception e) {
 			if (chain != null) {
-				chain.add(new BasicDiagnostic(Diagnostic.ERROR, PatternstructureValidator.DIAGNOSTIC_SOURCE,
-						PatternstructureValidator.PATTERN_ELEMENT__VALIDATE,
-						EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-								new Object[] { "not " + e.getMessage(), EObjectValidator.getObjectLabel(this, context) }),
-						new Object[] { this }));
+				chain.add(
+						new BasicDiagnostic(Diagnostic.ERROR, PatternstructureValidator.DIAGNOSTIC_SOURCE,
+								PatternstructureValidator.PATTERN_ELEMENT__VALIDATE,
+								EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+										new Object[] { "not " + e.getMessage(),
+												EObjectValidator.getObjectLabel(this, context) }),
+								new Object[] { this }));
 			}
-			System.out.println("Validation failed at " + this.getClass().getSimpleName() + " " + this.getId()
-					+ " with message: ");
+			System.out.println(
+					"Validation failed at " + this.getClass().getSimpleName() + " " + this.getId() + " with message: ");
 			e.printStackTrace();
 			return false;
 		}
@@ -115,38 +134,30 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws Exception 
+	 * 
+	 * @generated NOT
 	 */
 	@Override
-	public PatternElement getContainer() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public PatternElement getAncestor(EClass cls) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public PatternElement getContainer() throws InvalidityException {
+		if (eInternalContainer() instanceof PatternElement)
+			return (PatternElement)eInternalContainer(); 
+		throw new InvalidityException("container object invalid");
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @throws InvalidityException 
+	 * 
+	 * @generated NOT
 	 */
 	@Override
-	public int getNewId() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public PatternElement getAncestor(Class cls) throws InvalidityException {
+		if (cls.isInstance(this))
+			return this;
+		else
+			return getContainer().getAncestor(cls);
 	}
 
 	/**
@@ -174,7 +185,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -183,11 +194,42 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public void setId(int newId) {
-		int oldId = id;
+	public void setId(String newId) {
+		String oldId = id;
 		id = newId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN_ELEMENT__ID, oldId, id));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public int getRefNo() {
+		if (refNo == -1) {
+				try {
+					refNo = ((PatternImpl) this.getAncestor(PatternImpl.class)).getNewRefNo();
+				} catch (InvalidityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+		}
+		return refNo;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRefNo(int newRefNo) {
+		int oldRefNo = refNo;
+		refNo = newRefNo;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN_ELEMENT__REF_NO, oldRefNo, refNo));
 	}
 
 	/**
@@ -206,6 +248,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
 				return getId();
+			case PatternstructurePackage.PATTERN_ELEMENT__REF_NO:
+				return getRefNo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,7 +262,10 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
-				setId((Integer)newValue);
+				setId((String)newValue);
+				return;
+			case PatternstructurePackage.PATTERN_ELEMENT__REF_NO:
+				setRefNo((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -234,6 +281,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
 				setId(ID_EDEFAULT);
 				return;
+			case PatternstructurePackage.PATTERN_ELEMENT__REF_NO:
+				setRefNo(REF_NO_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -246,7 +296,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
-				return id != ID_EDEFAULT;
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case PatternstructurePackage.PATTERN_ELEMENT__REF_NO:
+				return refNo != REF_NO_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -273,13 +325,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID:
-				try {
-					return getNewId();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION:
 				prepareTranslation();
 				return null;
@@ -300,9 +345,19 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 					throw new InvocationTargetException(throwable);
 				}
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER:
-				return getContainer();
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__ECLASS:
-				return getAncestor((EClass)arguments.get(0));
+				try {
+					return getContainer();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS:
+				try {
+					return getAncestor((Class)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP:
 				return validate((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 		}
@@ -320,6 +375,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: ");
 		result.append(id);
+		result.append(", refNo: ");
+		result.append(refNo);
 		result.append(')');
 		return result.toString();
 	}

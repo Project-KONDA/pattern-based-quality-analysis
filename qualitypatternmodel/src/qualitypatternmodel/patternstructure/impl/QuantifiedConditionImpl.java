@@ -256,7 +256,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				msgs = ((InternalEObject)graph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, null, msgs);
 			if (newGraph != null)
 				msgs = ((InternalEObject)newGraph).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, null, msgs);
-			newGraph.setReturnGraph(true);
 			newGraph.setGraphDepth(condDepth);
 			msgs = basicSetGraph(newGraph, msgs);
 			if (msgs != null) msgs.dispatch();

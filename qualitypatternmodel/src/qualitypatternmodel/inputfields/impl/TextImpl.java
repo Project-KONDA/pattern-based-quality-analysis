@@ -2,52 +2,19 @@
  */
 package qualitypatternmodel.inputfields.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.Text;
-import qualitypatternmodel.patternstructure.InvalidityException;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Text</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.impl.TextImpl#getValue <em>Value</em>}</li>
- * </ul>
  *
  * @generated
  */
-public class TextImpl extends InputImpl implements Text {
-	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String VALUE_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected String value = VALUE_EDEFAULT;
-
+public abstract class TextImpl extends InputImpl implements Text {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,32 +25,32 @@ public class TextImpl extends InputImpl implements Text {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
-		if(getValue() != null) {
-			return "\"" + getValue() + "\"";
-		} else {
-			throw new InvalidityException("invalid number");
-		}
-	}
-	
-	@Override
-	public String toXQuery(Location location, int depth) throws InvalidityException {
-		if(getValue() != null) {
-			return "\"" + getValue() + "\"";
-		} else {
-			throw new InvalidityException("invalid number");
-		}
-	}
-	
-	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.STRING;
 	}
+//	
+//	@Override
+//	public String toXQuery(Location location) throws InvalidityException {
+//		if(getValue() != null) {
+//			return "\"" + getValue() + "\"";
+//		} else {
+//			throw new InvalidityException("invalid number");
+//		}
+//	}
+//	
+//	@Override
+//	public String toXQuery(Location location, int depth) throws InvalidityException {
+//		if(getValue() != null) {
+//			return "\"" + getValue() + "\"";
+//		} else {
+//			throw new InvalidityException("invalid number");
+//		}
+//	}
 	
-	@Override
-	public boolean inputIsValid() {
-		return getValue() != null && getValue() != "";
-	}
+//	@Override
+//	public boolean inputIsValid() {
+//		return getValue() != null && getValue() != "";
+//	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,103 +60,6 @@ public class TextImpl extends InputImpl implements Text {
 	@Override
 	protected EClass eStaticClass() {
 		return InputfieldsPackage.Literals.TEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getValue() {
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setValue(String newValue) {
-		String oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.TEXT__VALUE, oldValue, value));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case InputfieldsPackage.TEXT__VALUE:
-				return getValue();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case InputfieldsPackage.TEXT__VALUE:
-				setValue((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case InputfieldsPackage.TEXT__VALUE:
-				setValue(VALUE_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case InputfieldsPackage.TEXT__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(')');
-		return result.toString();
 	}
 
 } //TextImpl

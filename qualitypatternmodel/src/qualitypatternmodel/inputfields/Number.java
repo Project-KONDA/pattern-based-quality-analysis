@@ -22,13 +22,13 @@ package qualitypatternmodel.inputfields;
 public interface Number extends Input {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
+	 * The default value is <code>"0.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(Double)
 	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getNumber_Value()
-	 * @model default="0"
+	 * @model default="0.0"
 	 * @generated
 	 */
 	Double getValue();

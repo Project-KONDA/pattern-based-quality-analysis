@@ -80,6 +80,15 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR__ID = GraphstructurePackage.GRAPH_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__REF_NO = GraphstructurePackage.GRAPH_ELEMENT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,15 +134,6 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___GET_ALL_INPUTS = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR___GET_NEW_ID = GraphstructurePackage.GRAPH_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,7 +176,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_ANCESTOR__ECLASS = GraphstructurePackage.GRAPH_ELEMENT___GET_ANCESTOR__ECLASS;
+	int OPERATOR___GET_ANCESTOR__CLASS = GraphstructurePackage.GRAPH_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -261,6 +261,15 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR__ID = OPERATOR__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__REF_NO = OPERATOR__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -315,15 +324,6 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR___GET_NEW_ID = OPERATOR___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -366,7 +366,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___GET_ANCESTOR__ECLASS = OPERATOR___GET_ANCESTOR__ECLASS;
+	int BOOLEAN_OPERATOR___GET_ANCESTOR__CLASS = OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -451,6 +451,15 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATORS__ID = OPERATOR__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATORS__REF_NO = OPERATOR__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -496,15 +505,6 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATORS___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OPERATORS___GET_NEW_ID = OPERATOR___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -547,7 +547,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___GET_ANCESTOR__ECLASS = OPERATOR___GET_ANCESTOR__ECLASS;
+	int NUMBER_OPERATORS___GET_ANCESTOR__CLASS = OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -632,6 +632,15 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT__ID = NUMBER_OPERATORS__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT__REF_NO = NUMBER_OPERATORS__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -686,15 +695,6 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT___GET_ALL_INPUTS = NUMBER_OPERATORS___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT___GET_NEW_ID = NUMBER_OPERATORS___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -737,7 +737,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___GET_ANCESTOR__ECLASS = NUMBER_OPERATORS___GET_ANCESTOR__ECLASS;
+	int COUNT___GET_ANCESTOR__CLASS = NUMBER_OPERATORS___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -822,6 +822,15 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATORS__ID = OPERATOR__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATORS__REF_NO = OPERATOR__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -867,15 +876,6 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATORS___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_OPERATORS___GET_NEW_ID = OPERATOR___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -918,7 +918,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___GET_ANCESTOR__ECLASS = OPERATOR___GET_ANCESTOR__ECLASS;
+	int OTHER_OPERATORS___GET_ANCESTOR__CLASS = OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1003,6 +1003,15 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH__ID = BOOLEAN_OPERATOR__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH__REF_NO = BOOLEAN_OPERATOR__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1084,15 +1093,6 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___GET_ALL_INPUTS = BOOLEAN_OPERATOR___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___GET_NEW_ID = BOOLEAN_OPERATOR___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1135,7 +1135,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___GET_ANCESTOR__ECLASS = BOOLEAN_OPERATOR___GET_ANCESTOR__ECLASS;
+	int MATCH___GET_ANCESTOR__CLASS = BOOLEAN_OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1220,6 +1220,15 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON__ID = BOOLEAN_OPERATOR__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON__REF_NO = BOOLEAN_OPERATOR__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1301,15 +1310,6 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___GET_ALL_INPUTS = BOOLEAN_OPERATOR___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___GET_NEW_ID = BOOLEAN_OPERATOR___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1352,7 +1352,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___GET_ANCESTOR__ECLASS = BOOLEAN_OPERATOR___GET_ANCESTOR__ECLASS;
+	int COMPARISON___GET_ANCESTOR__CLASS = BOOLEAN_OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1437,6 +1437,15 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER__ID = NUMBER_OPERATORS__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER__REF_NO = NUMBER_OPERATORS__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1491,15 +1500,6 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER___GET_ALL_INPUTS = NUMBER_OPERATORS___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___GET_NEW_ID = NUMBER_OPERATORS___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1542,7 +1542,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___GET_ANCESTOR__ECLASS = NUMBER_OPERATORS___GET_ANCESTOR__ECLASS;
+	int TO_NUMBER___GET_ANCESTOR__CLASS = NUMBER_OPERATORS___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1627,6 +1627,15 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Operators</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1672,15 +1681,6 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR_LIST___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1723,7 +1723,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST___GET_ANCESTOR__ECLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
+	int OPERATOR_LIST___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.

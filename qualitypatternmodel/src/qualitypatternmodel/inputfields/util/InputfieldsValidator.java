@@ -18,6 +18,8 @@ import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
+import qualitypatternmodel.inputfields.TextList;
+import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
 
@@ -125,14 +127,18 @@ public class InputfieldsValidator extends EObjectValidator {
 				return validateNumber((qualitypatternmodel.inputfields.Number)value, diagnostics, context);
 			case InputfieldsPackage.BOOLEAN:
 				return validateBoolean((qualitypatternmodel.inputfields.Boolean)value, diagnostics, context);
-			case InputfieldsPackage.TEXT:
-				return validateText((Text)value, diagnostics, context);
+			case InputfieldsPackage.TEXT_LITERAL:
+				return validateTextLiteral((TextLiteral)value, diagnostics, context);
 			case InputfieldsPackage.COMP_OPTION:
 				return validateCompOption((CompOption)value, diagnostics, context);
 			case InputfieldsPackage.PROPERTY_OPTION:
 				return validatePropertyOption((PropertyOption)value, diagnostics, context);
 			case InputfieldsPackage.VARIABLE_LIST:
 				return validateVariableList((VariableList)value, diagnostics, context);
+			case InputfieldsPackage.TEXT_LIST:
+				return validateTextList((TextList)value, diagnostics, context);
+			case InputfieldsPackage.TEXT:
+				return validateText((Text)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -210,6 +216,25 @@ public class InputfieldsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateTextLiteral(TextLiteral textLiteral, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(textLiteral, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(textLiteral, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(textLiteral, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(textLiteral, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(textLiteral, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(textLiteral, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(textLiteral, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(textLiteral, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(textLiteral, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInput_validate(textLiteral, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateText(Text text, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(text, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(text, diagnostics, context);
@@ -278,6 +303,25 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(variableList, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(variableList, diagnostics, context);
 		if (result || diagnostics != null) result &= patternstructureValidator.validatePatternElement_validate(variableList, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTextList(TextList textList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(textList, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(textList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(textList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(textList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(textList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(textList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(textList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(textList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(textList, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInput_validate(textList, diagnostics, context);
 		return result;
 	}
 

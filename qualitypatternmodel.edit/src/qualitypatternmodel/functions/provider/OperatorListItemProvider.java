@@ -5,7 +5,6 @@ package qualitypatternmodel.functions.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,7 +19,6 @@ import qualitypatternmodel.functions.FunctionsFactory;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
-
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -104,7 +102,9 @@ public class OperatorListItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
+		OperatorList operatorList = (OperatorList) object;
 		return getString("_UI_OperatorList_type");
+		// + " " + operatorList.getRefNo();		
 	}
 
 

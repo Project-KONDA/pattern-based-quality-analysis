@@ -17,6 +17,8 @@ import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
 
+import qualitypatternmodel.inputfields.TextList;
+import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -89,8 +91,8 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 				return createBooleanAdapter();
 			}
 			@Override
-			public Adapter caseText(Text object) {
-				return createTextAdapter();
+			public Adapter caseTextLiteral(TextLiteral object) {
+				return createTextLiteralAdapter();
 			}
 			@Override
 			public Adapter caseCompOption(CompOption object) {
@@ -103,6 +105,14 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseVariableList(VariableList object) {
 				return createVariableListAdapter();
+			}
+			@Override
+			public Adapter caseTextList(TextList object) {
+				return createTextListAdapter();
+			}
+			@Override
+			public Adapter caseText(Text object) {
+				return createTextAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -175,6 +185,20 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.TextLiteral <em>Text Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.TextLiteral
+	 * @generated
+	 */
+	public Adapter createTextLiteralAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Text <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -227,6 +251,20 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVariableListAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.TextList <em>Text List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.TextList
+	 * @generated
+	 */
+	public Adapter createTextListAdapter() {
 		return null;
 	}
 

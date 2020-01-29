@@ -5,7 +5,6 @@ package qualitypatternmodel.inputfields.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -115,7 +114,7 @@ public class PropertyOptionItemProvider extends InputItemProvider {
 	@Override
 	public String getText(Object object) {
 		PropertyOption propertyOption = (PropertyOption)object;
-		return getString("_UI_PropertyOption_type") + " " + propertyOption.getId() + " " + propertyOption.getValue();
+		return getString("_UI_PropertyOption_type") + " " + propertyOption.getRefNo() + " " + propertyOption.getValue().getName();
 	}
 
 

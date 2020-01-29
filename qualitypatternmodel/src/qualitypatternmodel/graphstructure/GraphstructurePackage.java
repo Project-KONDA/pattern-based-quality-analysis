@@ -82,6 +82,15 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,15 +154,6 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,7 +196,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___GET_ANCESTOR__ECLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
+	int RELATION___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -245,6 +245,15 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_ELEMENT__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH_ELEMENT__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -290,15 +299,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_ELEMENT___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH_ELEMENT___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -341,7 +341,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___GET_ANCESTOR__ECLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
+	int GRAPH_ELEMENT___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -417,6 +417,15 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY__ID = GRAPH_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__REF_NO = GRAPH_ELEMENT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -489,15 +498,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___GET_ALL_INPUTS = GRAPH_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GET_NEW_ID = GRAPH_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -540,7 +540,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_ANCESTOR__ECLASS = GRAPH_ELEMENT___GET_ANCESTOR__ECLASS;
+	int PROPERTY___GET_ANCESTOR__CLASS = GRAPH_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -614,6 +614,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT__ID = GRAPH_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__REF_NO = GRAPH_ELEMENT__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -724,15 +733,6 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___GET_ALL_INPUTS = GRAPH_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_NEW_ID = GRAPH_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -775,7 +775,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ANCESTOR__ECLASS = GRAPH_ELEMENT___GET_ANCESTOR__ECLASS;
+	int ELEMENT___GET_ANCESTOR__CLASS = GRAPH_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -912,6 +912,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT__ID = ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__REF_NO = ELEMENT__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1076,15 +1085,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___GET_ALL_INPUTS = ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_NEW_ID = ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1127,7 +1127,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___GET_ANCESTOR__ECLASS = ELEMENT___GET_ANCESTOR__ECLASS;
+	int SINGLE_ELEMENT___GET_ANCESTOR__CLASS = ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1302,6 +1302,15 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__ID = ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT__REF_NO = ELEMENT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1464,15 +1473,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___GET_ALL_INPUTS = ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___GET_NEW_ID = ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1515,7 +1515,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_ANCESTOR__ECLASS = ELEMENT___GET_ANCESTOR__ECLASS;
+	int SET_ELEMENT___GET_ANCESTOR__CLASS = ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1699,6 +1699,15 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+
+	/**
 	 * The feature id for the '<em><b>Return Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1807,15 +1816,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
-	 * The operation id for the '<em>Get New Id</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH___GET_NEW_ID = PatternstructurePackage.PATTERN_ELEMENT___GET_NEW_ID;
-
-	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1858,7 +1858,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___GET_ANCESTOR__ECLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__ECLASS;
+	int GRAPH___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.

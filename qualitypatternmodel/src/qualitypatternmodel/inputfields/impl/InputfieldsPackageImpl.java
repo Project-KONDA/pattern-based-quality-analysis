@@ -25,6 +25,8 @@ import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
+import qualitypatternmodel.inputfields.TextList;
+import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.inputfields.util.InputfieldsValidator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -64,6 +66,13 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass textLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass textEClass = null;
 
 	/**
@@ -86,6 +95,13 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	private EClass variableListEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass textListEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -278,8 +294,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EClass getText() {
-		return textEClass;
+	public EClass getTextLiteral() {
+		return textLiteralEClass;
 	}
 
 	/**
@@ -288,8 +304,18 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getText_Value() {
-		return (EAttribute)textEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTextLiteral_Value() {
+		return (EAttribute)textLiteralEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getText() {
+		return textEClass;
 	}
 
 	/**
@@ -388,6 +414,46 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
+	public EClass getTextList() {
+		return textListEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTextList_Values() {
+		return (EAttribute)textListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getTextList__GetListDeclaration() {
+		return textListEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getTextList__GetListVar() {
+		return textListEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public InputfieldsFactory getInputfieldsFactory() {
 		return (InputfieldsFactory)getEFactoryInstance();
 	}
@@ -424,8 +490,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		booleanEClass = createEClass(BOOLEAN);
 		createEAttribute(booleanEClass, BOOLEAN__VALUE);
 
-		textEClass = createEClass(TEXT);
-		createEAttribute(textEClass, TEXT__VALUE);
+		textLiteralEClass = createEClass(TEXT_LITERAL);
+		createEAttribute(textLiteralEClass, TEXT_LITERAL__VALUE);
 
 		compOptionEClass = createEClass(COMP_OPTION);
 		createEAttribute(compOptionEClass, COMP_OPTION__OPTIONS);
@@ -438,6 +504,13 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		variableListEClass = createEClass(VARIABLE_LIST);
 		createEReference(variableListEClass, VARIABLE_LIST__VARIABLES);
 		createEReference(variableListEClass, VARIABLE_LIST__PATTERN);
+
+		textListEClass = createEClass(TEXT_LIST);
+		createEAttribute(textListEClass, TEXT_LIST__VALUES);
+		createEOperation(textListEClass, TEXT_LIST___GET_LIST_DECLARATION);
+		createEOperation(textListEClass, TEXT_LIST___GET_LIST_VAR);
+
+		textEClass = createEClass(TEXT);
 	}
 
 	/**
@@ -476,10 +549,12 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		inputEClass.getESuperTypes().add(theGraphstructurePackage.getGraphElement());
 		numberEClass.getESuperTypes().add(this.getInput());
 		booleanEClass.getESuperTypes().add(this.getInput());
-		textEClass.getESuperTypes().add(this.getInput());
+		textLiteralEClass.getESuperTypes().add(this.getText());
 		compOptionEClass.getESuperTypes().add(this.getInput());
 		propertyOptionEClass.getESuperTypes().add(this.getInput());
 		variableListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
+		textListEClass.getESuperTypes().add(this.getText());
+		textEClass.getESuperTypes().add(this.getInput());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -499,13 +574,13 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(numberEClass, qualitypatternmodel.inputfields.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNumber_Value(), ecorePackage.getEDoubleObject(), "value", "0", 0, 1, qualitypatternmodel.inputfields.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNumber_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, qualitypatternmodel.inputfields.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanEClass, qualitypatternmodel.inputfields.Boolean.class, "Boolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBoolean_Value(), ecorePackage.getEBooleanObject(), "value", "true", 0, 1, qualitypatternmodel.inputfields.Boolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getText_Value(), ecorePackage.getEString(), "value", "", 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(textLiteralEClass, TextLiteral.class, "TextLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTextLiteral_Value(), ecorePackage.getEString(), "value", "", 0, 1, TextLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compOptionEClass, CompOption.class, "CompOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCompOption_Options(), theFunctionsPackage.getComparisonOperator(), "options", null, 0, -1, CompOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -518,6 +593,15 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		initEClass(variableListEClass, VariableList.class, "VariableList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableList_Variables(), this.getInput(), this.getInput_VariableList(), "variables", null, 0, -1, VariableList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVariableList_Pattern(), thePatternstructurePackage.getPattern(), thePatternstructurePackage.getPattern_VariableList(), "pattern", null, 1, 1, VariableList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(textListEClass, TextList.class, "TextList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTextList_Values(), ecorePackage.getEString(), "values", "", 0, -1, TextList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getTextList__GetListDeclaration(), ecorePackage.getEString(), "getListDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getTextList__GetListVar(), ecorePackage.getEString(), "getListVar", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(textEClass, Text.class, "Text", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

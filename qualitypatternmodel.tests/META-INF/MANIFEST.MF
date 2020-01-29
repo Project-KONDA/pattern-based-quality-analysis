@@ -11,7 +11,8 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: qualitypatternmodel.functions.tests,
  qualitypatternmodel.graphstructure.tests,
  qualitypatternmodel.inputfields.tests,
- qualitypatternmodel.patternstructure.tests
+ qualitypatternmodel.patternstructure.tests,
+ qualitypatternmodel.tests
 Require-Bundle: org.eclipse.core.runtime,
  qualitypatternmodel;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,

@@ -5,7 +5,6 @@ package qualitypatternmodel.inputfields.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -114,8 +113,8 @@ public class CompOptionItemProvider extends InputItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		CompOption compOption = (CompOption)object;
-		return getString("_UI_CompOption_type") + " " + compOption.getId() + " " + compOption.getValue().getName();
+		CompOption compOption = (CompOption) object;
+		return getString("_UI_CompOption_type") + " " + compOption.getRefNo() + " " + compOption.getValue().getName();
 	}
 
 

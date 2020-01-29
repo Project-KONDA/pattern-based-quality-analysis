@@ -24,13 +24,13 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//inputfields/Input">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
-          defaultValueLiteral="0"/>
+          defaultValueLiteral="0.0"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//inputfields/Input">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           defaultValueLiteral="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//inputfields/Input">
+    <eClassifiers xsi:type="ecore:EClass" name="TextLiteral" eSuperTypes="#//inputfields/Text">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
@@ -50,6 +50,14 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/Pattern" eOpposite="#//patternstructure/Pattern/variableList"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TextList" eSuperTypes="#//inputfields/Text">
+      <eOperations name="getListDeclaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="getListVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Text" abstract="true" eSuperTypes="#//inputfields/Input"/>
   </eSubpackages>
   <eSubpackages name="functions" nsURI="functions" nsPrefix="functions">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//functions/Operator">
@@ -79,7 +87,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
           eType="#//graphstructure/Property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="regularExpression" lowerBound="1"
-          eType="#//inputfields/Text"/>
+          eType="#//inputfields/TextLiteral"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//inputfields/Boolean"/>
     </eClassifiers>
@@ -139,7 +147,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" lowerBound="1"
-          eType="#//inputfields/Text"/>
+          eType="#//inputfields/TextLiteral"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SingleElement" eSuperTypes="#//graphstructure/Element">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -471,8 +479,8 @@
       <eLiterals name="EQUIVALENT" value="5" literal="EQUIVALENT"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Quantifier">
-      <eLiterals name="EXISTS" literal="exists"/>
-      <eLiterals name="FORALL" value="1" literal="forall"/>
+      <eLiterals name="EXISTS" literal="EXISTS"/>
+      <eLiterals name="FORALL" value="1" literal="FORALL"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Pattern" eSuperTypes="#//patternstructure/PatternElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -485,6 +493,8 @@
         <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
       <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getNewRefNo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
           eType="#//inputfields/VariableList" containment="true" eOpposite="#//inputfields/VariableList/pattern"/>
@@ -499,6 +509,9 @@
           eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
           eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/pattern"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementCounter" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
       <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -507,8 +520,6 @@
       </eOperations>
       <eOperations name="getAllInputs" upperBound="-1" eType="#//inputfields/Input"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getNewId" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="prepareTranslation"/>
       <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -516,9 +527,10 @@
       <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
-      <eOperations name="getContainer" eType="#//patternstructure/PatternElement"/>
-      <eOperations name="getAncestor" eType="#//patternstructure/PatternElement">
-        <eParameters name="cls" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      <eOperations name="getContainer" eType="#//patternstructure/PatternElement"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getAncestor" eType="#//patternstructure/PatternElement" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="cls" eType="#//patternstructure/ClassWrapper"/>
       </eOperations>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
@@ -529,8 +541,10 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="refNo" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Location">
       <eLiterals name="RETURN" value="1" literal="RETURN"/>
@@ -539,5 +553,6 @@
       <eLiterals name="FORALL" value="3" literal="FORALL"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="InvalidityExceptionWrapper" instanceClassName="qualitypatternmodel.patternstructure.InvalidityException"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="ClassWrapper" instanceClassName="java.lang.Class"/>
   </eSubpackages>
 </ecore:EPackage>

@@ -14,7 +14,8 @@ import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
-import qualitypatternmodel.inputfields.Text;
+import qualitypatternmodel.inputfields.TextList;
+import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.VariableList;
 
 /**
@@ -63,10 +64,11 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 		switch (eClass.getClassifierID()) {
 			case InputfieldsPackage.NUMBER: return createNumber();
 			case InputfieldsPackage.BOOLEAN: return createBoolean();
-			case InputfieldsPackage.TEXT: return createText();
+			case InputfieldsPackage.TEXT_LITERAL: return createTextLiteral();
 			case InputfieldsPackage.COMP_OPTION: return createCompOption();
 			case InputfieldsPackage.PROPERTY_OPTION: return createPropertyOption();
 			case InputfieldsPackage.VARIABLE_LIST: return createVariableList();
+			case InputfieldsPackage.TEXT_LIST: return createTextList();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -100,9 +102,9 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * @generated
 	 */
 	@Override
-	public Text createText() {
-		TextImpl text = new TextImpl();
-		return text;
+	public TextLiteral createTextLiteral() {
+		TextLiteralImpl textLiteral = new TextLiteralImpl();
+		return textLiteral;
 	}
 
 	/**
@@ -136,6 +138,17 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	public VariableList createVariableList() {
 		VariableListImpl variableList = new VariableListImpl();
 		return variableList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TextList createTextList() {
+		TextListImpl textList = new TextListImpl();
+		return textList;
 	}
 
 	/**

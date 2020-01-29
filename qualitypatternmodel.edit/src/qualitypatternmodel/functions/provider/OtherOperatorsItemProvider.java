@@ -5,12 +5,10 @@ package qualitypatternmodel.functions.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import qualitypatternmodel.functions.OtherOperators;
 
 /**
@@ -49,12 +47,12 @@ public class OtherOperatorsItemProvider extends OperatorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		OtherOperators otherOperators = (OtherOperators)object;
-		return getString("_UI_OtherOperators_type") + " " + otherOperators.getId();
+		OtherOperators otherOperator = (OtherOperators) object;
+		return getString("_UI_OtherOperators_type") + " " + otherOperator.getRefNo();			
 	}
 
 

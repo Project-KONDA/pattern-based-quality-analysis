@@ -118,26 +118,26 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.Text} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.TextLiteral} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TextItemProvider textItemProvider;
+	protected TextLiteralItemProvider textLiteralItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.Text}.
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.TextLiteral}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTextAdapter() {
-		if (textItemProvider == null) {
-			textItemProvider = new TextItemProvider(this);
+	public Adapter createTextLiteralAdapter() {
+		if (textLiteralItemProvider == null) {
+			textLiteralItemProvider = new TextLiteralItemProvider(this);
 		}
 
-		return textItemProvider;
+		return textLiteralItemProvider;
 	}
 
 	/**
@@ -207,6 +207,29 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 		}
 
 		return variableListItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.TextList} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextListItemProvider textListItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.TextList}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextListAdapter() {
+		if (textListItemProvider == null) {
+			textListItemProvider = new TextListItemProvider(this);
+		}
+
+		return textListItemProvider;
 	}
 
 	/**
@@ -316,10 +339,11 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	public void dispose() {
 		if (numberItemProvider != null) numberItemProvider.dispose();
 		if (booleanItemProvider != null) booleanItemProvider.dispose();
-		if (textItemProvider != null) textItemProvider.dispose();
+		if (textLiteralItemProvider != null) textLiteralItemProvider.dispose();
 		if (compOptionItemProvider != null) compOptionItemProvider.dispose();
 		if (propertyOptionItemProvider != null) propertyOptionItemProvider.dispose();
 		if (variableListItemProvider != null) variableListItemProvider.dispose();
+		if (textListItemProvider != null) textListItemProvider.dispose();
 	}
 
 }

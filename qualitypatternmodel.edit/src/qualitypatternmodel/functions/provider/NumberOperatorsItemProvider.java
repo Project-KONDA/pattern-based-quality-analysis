@@ -5,7 +5,6 @@ package qualitypatternmodel.functions.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -49,12 +48,12 @@ public class NumberOperatorsItemProvider extends OperatorItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		NumberOperators numberOperators = (NumberOperators)object;
-		return getString("_UI_NumberOperators_type") + " " + numberOperators.getId();
+		NumberOperators numberOperator = (NumberOperators) object;
+		return getString("_UI_NumberOperators_type") + " " + numberOperator.getRefNo();	
 	}
 
 

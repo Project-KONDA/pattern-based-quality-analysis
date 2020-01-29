@@ -5,7 +5,6 @@ package qualitypatternmodel.graphstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -140,12 +139,17 @@ public class SingleElementItemProvider extends ElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		SingleElement singleElement = (SingleElement)object;
-		return getString("_UI_SingleElement_type") + " " + singleElement.getId();
+		SingleElement singleElement = (SingleElement) object;
+		return getString("_UI_SingleElement_type") + " " + singleElement.getRefNo();
+		
+//		String label = ((SingleElement)object).getId();
+//		return label == null || label.length() == 0 ?
+//			getString("_UI_SingleElement_type") :
+//			getString("_UI_SingleElement_type") + " " + label;
 	}
 
 

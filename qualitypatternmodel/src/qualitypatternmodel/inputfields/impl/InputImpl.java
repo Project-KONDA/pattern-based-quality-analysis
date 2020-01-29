@@ -21,6 +21,7 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -79,6 +80,11 @@ public abstract class InputImpl extends GraphElementImpl implements Input {
 	 */
 	protected InputImpl() {
 		super();
+	}
+	
+	@Override
+	public String toXQuery(Location location, int depth) throws InvalidityException {
+		return toXQuery(location);
 	}
 
 	@Override

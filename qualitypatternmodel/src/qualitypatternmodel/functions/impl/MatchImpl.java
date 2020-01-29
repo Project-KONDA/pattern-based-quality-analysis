@@ -15,7 +15,7 @@ import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.inputfields.Text;
+import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
@@ -53,7 +53,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 * @ordered
 	 */
-	protected Text regularExpression;
+	protected TextLiteral regularExpression;
 
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
@@ -187,10 +187,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@Override
-	public Text getRegularExpression() {
+	public TextLiteral getRegularExpression() {
 		if (regularExpression != null && regularExpression.eIsProxy()) {
 			InternalEObject oldRegularExpression = (InternalEObject)regularExpression;
-			regularExpression = (Text)eResolveProxy(oldRegularExpression);
+			regularExpression = (TextLiteral)eResolveProxy(oldRegularExpression);
 			if (regularExpression != oldRegularExpression) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, regularExpression));
@@ -204,7 +204,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Text basicGetRegularExpression() {
+	public TextLiteral basicGetRegularExpression() {
 		return regularExpression;
 	}
 
@@ -214,8 +214,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@Override
-	public void setRegularExpression(Text newRegularExpression) {
-		Text oldRegularExpression = regularExpression;
+	public void setRegularExpression(TextLiteral newRegularExpression) {
+		TextLiteral oldRegularExpression = regularExpression;
 		regularExpression = newRegularExpression;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, regularExpression));
@@ -296,7 +296,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setProperty((Property)newValue);
 				return;
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
-				setRegularExpression((Text)newValue);
+				setRegularExpression((TextLiteral)newValue);
 				return;
 			case FunctionsPackage.MATCH__OPTION:
 				setOption((qualitypatternmodel.inputfields.Boolean)newValue);
@@ -317,7 +317,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setProperty((Property)null);
 				return;
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
-				setRegularExpression((Text)null);
+				setRegularExpression((TextLiteral)null);
 				return;
 			case FunctionsPackage.MATCH__OPTION:
 				setOption((qualitypatternmodel.inputfields.Boolean)null);

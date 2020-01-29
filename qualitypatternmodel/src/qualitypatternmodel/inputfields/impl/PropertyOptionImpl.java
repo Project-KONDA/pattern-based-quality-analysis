@@ -19,6 +19,7 @@ import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,6 +73,11 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	 */
 	protected PropertyOptionImpl() {
 		super();
+	}
+
+	@Override
+	public String toXQuery(Location location) throws InvalidityException {
+		return getValue().getLiteral();
 	}
 	
 	@Override

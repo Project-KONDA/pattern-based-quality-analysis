@@ -38,6 +38,8 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getElementCounter <em>Element Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,12 +83,53 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	protected Condition condition;
 
 	/**
+	 * The default value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElementCounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ELEMENT_COUNTER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElementCounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected int elementCounter = ELEMENT_COUNTER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected PatternImpl() {
 		super();
 		setReturnGraph(new GraphImpl());
 		setVariableList(new VariableListImpl(this));
+		getRefNo();
 	}
 
 	@Override
@@ -108,21 +151,42 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
+		String res = getVariableList().toXQuery(location);
+		
 		if (returnGraph.getReturnElements() == null || returnGraph.getReturnElements().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
-		String returnVariables = "(";
-		for (SingleElement returnElement : returnGraph.getReturnElements()) {
-			returnVariables += VARIABLE + returnElement.getOriginalID() + ", ";
+		res += returnGraph.toXQuery(Location.RETURN);
+		
+		res += WHERE + condition.toXQuery(Location.OUTSIDE);
+		
+		res += RETURN + "(";
+		EList<SingleElement> x = returnGraph.getReturnElements();
+		for (int i = 0; i < x.size(); i++) {
+			if(i!=0) res += " ,";
+			res += x.get(i);
 		}
-		returnVariables = returnVariables.substring(0, returnVariables.length() - 2);
-		returnVariables += ")";
-		return returnGraph.toXQuery(Location.RETURN) + "\nwhere " + condition.toXQuery(Location.OUTSIDE) + "\nreturn "
-				+ returnVariables;
+		return res + ")";
+		
+//		for (SingleElement returnElement : returnGraph.getReturnElements()) {
+//			res += VARIABLE + returnElement.getOriginalID() + ", ";
+//		}				
+//		
+//		return  res.substring(0, res.length() - 2) + ")";
 	}
 
 	public String toXQuery() throws InvalidityException {
 		return toXQuery(Location.OUTSIDE);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public int getNewRefNo() throws InvalidityException {
+		return elementCounter++;		
 	}
 
 	@Override
@@ -235,6 +299,52 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__CONDITION, newCondition, newCondition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getElementCounter() {
+		return elementCounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setElementCounter(int newElementCounter) {
+		int oldElementCounter = elementCounter;
+		elementCounter = newElementCounter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__ELEMENT_COUNTER, oldElementCounter, elementCounter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__NAME, oldName, name));
 	}
 
 	/**
@@ -354,6 +464,10 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return getReturnGraph();
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return getCondition();
+			case PatternstructurePackage.PATTERN__ELEMENT_COUNTER:
+				return getElementCounter();
+			case PatternstructurePackage.PATTERN__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -376,6 +490,12 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return;
 			case PatternstructurePackage.PATTERN__CONDITION:
 				setCondition((Condition)newValue);
+				return;
+			case PatternstructurePackage.PATTERN__ELEMENT_COUNTER:
+				setElementCounter((Integer)newValue);
+				return;
+			case PatternstructurePackage.PATTERN__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -400,6 +520,12 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 			case PatternstructurePackage.PATTERN__CONDITION:
 				setCondition((Condition)null);
 				return;
+			case PatternstructurePackage.PATTERN__ELEMENT_COUNTER:
+				setElementCounter(ELEMENT_COUNTER_EDEFAULT);
+				return;
+			case PatternstructurePackage.PATTERN__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -419,6 +545,10 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return returnGraph != null;
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return condition != null;
+			case PatternstructurePackage.PATTERN__ELEMENT_COUNTER:
+				return elementCounter != ELEMENT_COUNTER_EDEFAULT;
+			case PatternstructurePackage.PATTERN__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -437,8 +567,33 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case PatternstructurePackage.PATTERN___GET_NEW_REF_NO:
+				try {
+					return getNewRefNo();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (elementCounter: ");
+		result.append(elementCounter);
+		result.append(", name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } // PatternImpl

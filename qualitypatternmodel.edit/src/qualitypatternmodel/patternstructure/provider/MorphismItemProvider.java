@@ -5,7 +5,6 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -15,7 +14,6 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -262,7 +260,16 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Morphism_type");
+		Morphism morphism = (Morphism) object;
+		String text = getString("_UI_Morphism_type") + " " + morphism.getRefNo();
+//		if(morphism.getFrom() != null) {
+//			text += " from " + getString("_UI_Graph_type") + " " + morphism.getFrom().getRefNo();
+//		}
+//		if(morphism.getTo() != null) {
+//			text += " to " + getString("_UI_Graph_type") + " " + morphism.getTo().getRefNo();
+//		}
+		return text;
+		
 	}
 
 

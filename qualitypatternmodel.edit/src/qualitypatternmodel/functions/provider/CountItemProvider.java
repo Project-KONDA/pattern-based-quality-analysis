@@ -5,7 +5,6 @@ package qualitypatternmodel.functions.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -85,12 +84,12 @@ public class CountItemProvider extends NumberOperatorsItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		Count count = (Count)object;
-		return getString("_UI_Count_type") + " " + count.getId();
+		Count count = (Count) object;
+		return getString("_UI_Count_type") + " " + count.getRefNo();
 	}
 
 

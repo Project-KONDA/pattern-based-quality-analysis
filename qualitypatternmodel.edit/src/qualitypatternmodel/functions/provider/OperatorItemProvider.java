@@ -5,18 +5,15 @@ package qualitypatternmodel.functions.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import qualitypatternmodel.functions.Operator;
 
 import qualitypatternmodel.graphstructure.provider.GraphElementItemProvider;
-
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
 
 /**
@@ -55,12 +52,12 @@ public class OperatorItemProvider extends GraphElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		Operator operator = (Operator)object;
-		return getString("_UI_Operator_type") + " " + operator.getId();
+		Operator operator = (Operator) object;
+		return getString("_UI_Operator_type") + " " + operator.getRefNo();		
 	}
 
 
