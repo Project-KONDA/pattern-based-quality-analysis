@@ -181,6 +181,27 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
+	@Override
+	public void removeElementFromPreviousGraphs() {
+		getMappingFrom().getFrom().setPrevious(null);
+		getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
+		EList<SingleElement> nextSingleElementsCopy = new BasicEList<SingleElement>();
+		for(SingleElement singleElement : getNextSingle()) {
+			nextSingleElementsCopy.add(singleElement);
+		}
+		for(SingleElement singleElement : nextSingleElementsCopy) {
+			singleElement.setPrevious(null);
+		}
+		if(getRelationFromPrevious() != null) {
+			getRelationFromPrevious().getMappingFrom().getMorphism().getMappings().remove(getRelationFromPrevious().getMappingFrom());
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @param depth
@@ -419,8 +440,11 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else {
-			// TODO: remove elements from previous graphs
+		} else {			
+			if(getMappingFrom() != null) {
+				removeElementFromPreviousGraphs();
+			}
+			
 		}
 		msgs = eBasicSetContainer((InternalEObject)newPrevious, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, msgs);
 		return msgs;
@@ -692,6 +716,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS:
+				removeElementFromPreviousGraphs();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

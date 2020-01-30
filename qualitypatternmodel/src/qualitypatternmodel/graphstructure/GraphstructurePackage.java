@@ -1292,13 +1292,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT__SINGLEELEMENT = ELEMENT_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Remove Element From Previous Graphs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = ELEMENT_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Single Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 6;
+	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
@@ -2200,6 +2209,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getSingleElement__CopyNextElement__SingleElement();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#removeElementFromPreviousGraphs() <em>Remove Element From Previous Graphs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Element From Previous Graphs</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#removeElementFromPreviousGraphs()
+	 * @generated
+	 */
+	EOperation getSingleElement__RemoveElementFromPreviousGraphs();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.SetElement <em>Set Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2946,6 +2965,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SINGLE_ELEMENT___COPY_NEXT_ELEMENT__SINGLEELEMENT = eINSTANCE.getSingleElement__CopyNextElement__SingleElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Element From Previous Graphs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = eINSTANCE.getSingleElement__RemoveElementFromPreviousGraphs();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.

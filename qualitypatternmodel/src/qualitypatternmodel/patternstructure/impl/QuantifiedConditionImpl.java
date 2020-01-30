@@ -240,7 +240,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @generated
 	 */
 	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
-		newCondition.setCondDepth(condDepth+1);
 		Condition oldCondition = condition;
 		condition = newCondition;
 		if (eNotificationRequired()) {
@@ -261,7 +260,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			if (condition != null)
 				msgs = ((InternalEObject)condition).eInverseRemove(this, PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, Condition.class, msgs);
 			if (newCondition != null)
-				msgs = ((InternalEObject)newCondition).eInverseAdd(this, PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, Condition.class, msgs);			
+				msgs = ((InternalEObject)newCondition).eInverseAdd(this, PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, Condition.class, msgs);
 			msgs = basicSetCondition(newCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -382,7 +381,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	@Override
 	public void copyPreviousGraph() throws MissingPatternContainerException {	
-		System.out.println("copyPreviousGraph");
 		Graph previousGraph;
 		try {
 			QuantifiedCondition previousQuantifiedCondition = (QuantifiedCondition) getContainer().getAncestor(QuantifiedCondition.class);

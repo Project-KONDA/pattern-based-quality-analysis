@@ -465,6 +465,10 @@
                   <styles xmi:type="notation:FontStyle" xmi:id="_gOcroUNbEeq0cZxoDyHtYQ" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_gOcrokNbEeq0cZxoDyHtYQ"/>
                 </children>
+                <children xmi:type="notation:Node" xmi:id="_uhWrYENtEeq0cZxoDyHtYQ" type="3010" element="_uJZeYENtEeq0cZxoDyHtYQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_uhWrYUNtEeq0cZxoDyHtYQ" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_uhWrYkNtEeq0cZxoDyHtYQ"/>
+                </children>
                 <styles xmi:type="notation:SortingStyle" xmi:id="_JsypwiM0Eeq7GbtfgEc6MA"/>
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_JsypwyM0Eeq7GbtfgEc6MA"/>
               </children>
@@ -3341,6 +3345,14 @@
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/SingleElement/copyNextElement"/>
           <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//graphstructure/SingleElement/copyNextElement/element"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_gONbEENbEeq0cZxoDyHtYQ" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_uJZeYENtEeq0cZxoDyHtYQ" name="removeElementFromPreviousGraphs()" tooltipText="removeElementFromPreviousGraphs()">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/SingleElement/removeElementFromPreviousGraphs"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/SingleElement/removeElementFromPreviousGraphs"/>
+          <ownedStyle xmi:type="diagram:BundledImage" uid="_uJZeYUNtEeq0cZxoDyHtYQ" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

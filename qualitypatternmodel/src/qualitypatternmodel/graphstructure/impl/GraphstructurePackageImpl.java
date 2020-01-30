@@ -443,6 +443,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getSingleElement__RemoveElementFromPreviousGraphs() {
+		return singleElementEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getSetElement() {
 		return setElementEClass;
 	}
@@ -1001,6 +1011,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___COPY_NEXT_ELEMENTS);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___COPY_NEXT_ELEMENT__SINGLEELEMENT);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS);
 
 		setElementEClass = createEClass(SET_ELEMENT);
 		createEAttribute(setElementEClass, SET_ELEMENT__NESTING_DEPTH);
@@ -1142,6 +1153,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getSingleElement__CopyNextElement__SingleElement(), null, "copyNextElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSingleElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
+
+		initEOperation(getSingleElement__RemoveElementFromPreviousGraphs(), null, "removeElementFromPreviousGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(setElementEClass, SetElement.class, "SetElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSetElement_NestingDepth(), ecorePackage.getEInt(), "nestingDepth", null, 1, 1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

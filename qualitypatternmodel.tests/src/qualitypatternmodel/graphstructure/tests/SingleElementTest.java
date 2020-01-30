@@ -20,6 +20,7 @@ import qualitypatternmodel.graphstructure.SingleElement;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#translatePathFromPrevious() <em>Translate Path From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElements() <em>Copy Next Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElement(qualitypatternmodel.graphstructure.SingleElement) <em>Copy Next Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#removeElementFromPreviousGraphs() <em>Remove Element From Previous Graphs</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -151,6 +152,19 @@ public class SingleElementTest extends ElementTest {
 	 * @generated
 	 */
 	public void testCopyNextElement__SingleElement() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#removeElementFromPreviousGraphs() <em>Remove Element From Previous Graphs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#removeElementFromPreviousGraphs()
+	 * @generated
+	 */
+	public void testRemoveElementFromPreviousGraphs() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

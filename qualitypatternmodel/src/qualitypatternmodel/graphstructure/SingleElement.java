@@ -193,4 +193,12 @@ public interface SingleElement extends Element {
 	 */
 	void copyNextElement(SingleElement element) throws MissingPatternContainerException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeElementFromPreviousGraphs();
+
 } // SingleElement

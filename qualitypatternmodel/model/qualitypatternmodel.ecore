@@ -168,6 +168,7 @@
       <eOperations name="copyNextElement" eExceptions="#//patternstructure/MissingPatternContainerException">
         <eParameters name="element" eType="#//graphstructure/SingleElement"/>
       </eOperations>
+      <eOperations name="removeElementFromPreviousGraphs"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
           eType="#//patternstructure/SingleElementMapping" eOpposite="#//patternstructure/SingleElementMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/SingleElementMapping"
