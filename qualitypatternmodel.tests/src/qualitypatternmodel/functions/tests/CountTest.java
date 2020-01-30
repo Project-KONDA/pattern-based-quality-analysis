@@ -13,7 +13,7 @@ import qualitypatternmodel.functions.FunctionsFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CountTest extends NumberOperatorsTest {
+public class CountTest extends NumberOperatorTest {
 
 	/**
 	 * <!-- begin-user-doc -->

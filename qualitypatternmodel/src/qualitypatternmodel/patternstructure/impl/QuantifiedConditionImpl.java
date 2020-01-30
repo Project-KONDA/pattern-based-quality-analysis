@@ -321,9 +321,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (newGraph != graph) {
 			NotificationChain msgs = null;
 			if (graph != null)
-				msgs = ((InternalEObject)graph).eInverseRemove(this, GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION, Graph.class, msgs);
+				msgs = ((InternalEObject)graph).eInverseRemove(this, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, Graph.class, msgs);
 			if (newGraph != null)
-				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION, Graph.class, msgs);
+				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, Graph.class, msgs);
 			msgs = basicSetGraph(newGraph, msgs);
 			if (msgs != null) msgs.dispatch();
 		}

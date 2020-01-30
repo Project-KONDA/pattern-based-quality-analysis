@@ -29,6 +29,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
@@ -406,6 +407,30 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String translateElementExistencePredicates(Location location, int depth) throws InvalidityException {	
+		String predicates = "";
+		for (Element nextElement : getNextElements()) {
+			if(nextElement instanceof SetElement) {
+				SetElement nextSetElement = (SetElement) nextElement;
+				if (!nextSetElement.isTranslated()) {
+					nextSetElement.setTranslated(true);
+					predicates += "[." + nextSetElement.translatePathFromPrevious(depth)
+							+ nextSetElement.translatePredicates(location, depth) // TODO: depth+1 ?
+							+ nextSetElement.translateElementExistencePredicates(location, depth) + "]"; // TODO: depth+1 ?
+				}
+			}
+			
+		}
+		return predicates;
+		
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public abstract EList<Element> getNextElements();
@@ -614,6 +639,13 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___GET_GRAPH_DEPTH:
 				try {
 					return getGraphDepth();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT:
+				try {
+					return translateElementExistencePredicates((Location)arguments.get(0), (Integer)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

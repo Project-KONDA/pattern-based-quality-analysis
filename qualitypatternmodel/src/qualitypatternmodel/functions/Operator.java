@@ -35,4 +35,12 @@ public interface Operator extends GraphElement {
 	 * @generated
 	 */
 	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<BooleanOperator> getRootBooleanOperator();
 } // Operator

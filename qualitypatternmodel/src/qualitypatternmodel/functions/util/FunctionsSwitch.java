@@ -90,28 +90,28 @@ public class FunctionsSwitch<T> extends Switch<T> {
 			case FunctionsPackage.COUNT: {
 				Count count = (Count)theEObject;
 				T result = caseCount(count);
-				if (result == null) result = caseNumberOperators(count);
+				if (result == null) result = caseNumberOperator(count);
 				if (result == null) result = caseOperator(count);
 				if (result == null) result = caseGraphElement(count);
 				if (result == null) result = casePatternElement(count);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FunctionsPackage.OTHER_OPERATORS: {
-				OtherOperators otherOperators = (OtherOperators)theEObject;
-				T result = caseOtherOperators(otherOperators);
-				if (result == null) result = caseOperator(otherOperators);
-				if (result == null) result = caseGraphElement(otherOperators);
-				if (result == null) result = casePatternElement(otherOperators);
+			case FunctionsPackage.OTHER_OPERATOR: {
+				OtherOperator otherOperator = (OtherOperator)theEObject;
+				T result = caseOtherOperator(otherOperator);
+				if (result == null) result = caseOperator(otherOperator);
+				if (result == null) result = caseGraphElement(otherOperator);
+				if (result == null) result = casePatternElement(otherOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FunctionsPackage.NUMBER_OPERATORS: {
-				NumberOperators numberOperators = (NumberOperators)theEObject;
-				T result = caseNumberOperators(numberOperators);
-				if (result == null) result = caseOperator(numberOperators);
-				if (result == null) result = caseGraphElement(numberOperators);
-				if (result == null) result = casePatternElement(numberOperators);
+			case FunctionsPackage.NUMBER_OPERATOR: {
+				NumberOperator numberOperator = (NumberOperator)theEObject;
+				T result = caseNumberOperator(numberOperator);
+				if (result == null) result = caseOperator(numberOperator);
+				if (result == null) result = caseGraphElement(numberOperator);
+				if (result == null) result = casePatternElement(numberOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,7 +138,7 @@ public class FunctionsSwitch<T> extends Switch<T> {
 			case FunctionsPackage.TO_NUMBER: {
 				ToNumber toNumber = (ToNumber)theEObject;
 				T result = caseToNumber(toNumber);
-				if (result == null) result = caseNumberOperators(toNumber);
+				if (result == null) result = caseNumberOperator(toNumber);
 				if (result == null) result = caseOperator(toNumber);
 				if (result == null) result = caseGraphElement(toNumber);
 				if (result == null) result = casePatternElement(toNumber);
@@ -202,32 +202,32 @@ public class FunctionsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Other Operators</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Other Operator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Other Operators</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Other Operator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOtherOperators(OtherOperators object) {
+	public T caseOtherOperator(OtherOperator object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Number Operators</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Number Operator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Number Operators</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Number Operator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNumberOperators(NumberOperators object) {
+	public T caseNumberOperator(NumberOperator object) {
 		return null;
 	}
 

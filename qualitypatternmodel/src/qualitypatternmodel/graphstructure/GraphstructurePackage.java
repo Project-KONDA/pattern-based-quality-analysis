@@ -886,13 +886,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___GET_GRAPH_DEPTH = GRAPH_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
+	 * The operation id for the '<em>Translate Element Existence Predicates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = GRAPH_ELEMENT_OPERATION_COUNT + 7;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = GRAPH_ELEMENT_OPERATION_COUNT + 7;
+	int ELEMENT_OPERATION_COUNT = GRAPH_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
@@ -1236,6 +1245,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT___GET_GRAPH_DEPTH = ELEMENT___GET_GRAPH_DEPTH;
+
+	/**
+	 * The operation id for the '<em>Translate Element Existence Predicates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
@@ -1659,7 +1677,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = ELEMENT_OPERATION_COUNT + 0;
+	int SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
@@ -1668,7 +1686,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS__INT = ELEMENT_OPERATION_COUNT + 1;
+	int SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS__INT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Translate Predicates</em>' operation.
@@ -1677,7 +1695,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT = ELEMENT_OPERATION_COUNT + 2;
+	int SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT = ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Path To Previous Single Element</em>' operation.
@@ -1686,7 +1704,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = ELEMENT_OPERATION_COUNT + 3;
+	int SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements Set Operation</em>' operation.
@@ -1695,7 +1713,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = ELEMENT_OPERATION_COUNT + 4;
+	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Set Element</em>' class.
@@ -1704,7 +1722,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 5;
+	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -1798,13 +1816,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__GET_ALL_RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * The feature id for the '<em><b>Quantified Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__QUANTIFIEDCONDITION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
+	int GRAPH__QUANTIFIED_CONDITION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -2295,16 +2313,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getSetElement_Count();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Element Existence Predicates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Element Existence Predicates</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SetElement#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int)
-	 * @generated
-	 */
-	EOperation getSetElement__TranslateElementExistencePredicates__Location_int();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#translatePathFromPrevious(int) <em>Translate Path From Previous</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2502,6 +2510,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__GetGraphDepth();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Element Existence Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Translate Element Existence Predicates</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int)
+	 * @generated
+	 */
+	EOperation getElement__TranslateElementExistencePredicates__Location_int();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2589,15 +2607,15 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getGraph_GetAllRelations();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedcondition <em>Quantifiedcondition</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Quantifiedcondition</em>'.
-	 * @see qualitypatternmodel.graphstructure.Graph#getQuantifiedcondition()
+	 * @return the meta object for the container reference '<em>Quantified Condition</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition()
 	 * @see #getGraph()
 	 * @generated
 	 */
-	EReference getGraph_Quantifiedcondition();
+	EReference getGraph_QuantifiedCondition();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}'.
@@ -3033,14 +3051,6 @@ public interface GraphstructurePackage extends EPackage {
 		EReference SET_ELEMENT__COUNT = eINSTANCE.getSetElement_Count();
 
 		/**
-		 * The meta object literal for the '<em><b>Translate Element Existence Predicates</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = eINSTANCE.getSetElement__TranslateElementExistencePredicates__Location_int();
-
-		/**
 		 * The meta object literal for the '<em><b>Translate Path From Previous</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3195,6 +3205,14 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation ELEMENT___GET_GRAPH_DEPTH = eINSTANCE.getElement__GetGraphDepth();
 
 		/**
+		 * The meta object literal for the '<em><b>Translate Element Existence Predicates</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = eINSTANCE.getElement__TranslateElementExistencePredicates__Location_int();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3261,12 +3279,12 @@ public interface GraphstructurePackage extends EPackage {
 		EReference GRAPH__GET_ALL_RELATIONS = eINSTANCE.getGraph_GetAllRelations();
 
 		/**
-		 * The meta object literal for the '<em><b>Quantifiedcondition</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Quantified Condition</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRAPH__QUANTIFIEDCONDITION = eINSTANCE.getGraph_Quantifiedcondition();
+		EReference GRAPH__QUANTIFIED_CONDITION = eINSTANCE.getGraph_QuantifiedCondition();
 
 		/**
 		 * The meta object literal for the '<em><b>Pattern</b></em>' container reference feature.

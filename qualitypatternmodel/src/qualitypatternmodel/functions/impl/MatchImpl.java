@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -171,12 +172,22 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setProperty(Property newProperty) {
 		Property oldProperty = property;
 		property = newProperty;
+		if(newProperty != null || oldProperty != null) {
+			for(BooleanOperator boolOp : getRootBooleanOperator()) {
+				if(newProperty != null) {
+					boolOp.addElement(newProperty.getElement());
+				}
+				if(oldProperty != null) {
+					boolOp.removeElement(oldProperty.getElement());
+				}
+			}
+		}
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__PROPERTY, oldProperty, property));
 	}

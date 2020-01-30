@@ -37,4 +37,20 @@ public interface BooleanOperator extends Operator {
 	 * @generated
 	 */
 	EList<Element> getElements();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addElement(Element element);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeElement(Element element);
 } // BooleanOperator

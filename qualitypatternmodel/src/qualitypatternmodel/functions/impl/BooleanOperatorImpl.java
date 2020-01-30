@@ -2,9 +2,12 @@
  */
 package qualitypatternmodel.functions.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -39,6 +42,8 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 * @ordered
 	 */
 	protected EList<Element> elements;
+	
+	protected EMap<Element,Integer> elementCount;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,6 +80,42 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 			elements = new EObjectWithInverseResolvingEList.ManyInverse<Element>(Element.class, this, FunctionsPackage.BOOLEAN_OPERATOR__ELEMENTS, GraphstructurePackage.ELEMENT__PREDICATES);
 		}
 		return elements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addElement(Element element) {
+		if(getElementCount().containsKey(element)) {
+			getElementCount().put(element, getElementCount().get(element)+1);
+		} else {
+			getElementCount().put(element, 1);
+		}
+		if(!getElements().contains(element)) {
+			getElements().add(element);
+			element.getPredicates().add(this);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void removeElement(Element element) {
+		if(getElementCount().containsKey(element)) {			
+			if(getElementCount().get(element) == 1) {
+				getElements().remove(element);
+				getElementCount().removeKey(element);
+			} else {
+				getElementCount().put(element, getElementCount().get(element)-1);
+			}
+			
+		}
 	}
 
 	/**
@@ -164,6 +205,35 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case FunctionsPackage.BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT:
+				addElement((Element)arguments.get(0));
+				return null;
+			case FunctionsPackage.BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT:
+				removeElement((Element)arguments.get(0));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	public EMap<Element, Integer> getElementCount() {
+		if(elementCount == null) {
+			elementCount = new BasicEMap<Element, Integer>();
+		}
+		return elementCount;
+	}
+
+	public void setElementCount(EMap<Element, Integer> elementCount) {
+		this.elementCount = elementCount;
 	}
 
 } //BooleanOperatorImpl

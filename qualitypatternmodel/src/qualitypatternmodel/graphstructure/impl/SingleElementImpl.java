@@ -190,9 +190,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		getMappingFrom().getFrom().setPrevious(null);
 		getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
 		EList<SingleElement> nextSingleElementsCopy = new BasicEList<SingleElement>();
-		for(SingleElement singleElement : getNextSingle()) {
-			nextSingleElementsCopy.add(singleElement);
-		}
+		nextSingleElementsCopy.addAll(getNextSingle());		
 		for(SingleElement singleElement : nextSingleElementsCopy) {
 			singleElement.setPrevious(null);
 		}
@@ -440,12 +438,13 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else {			
-			if(getMappingFrom() != null) {
-				removeElementFromPreviousGraphs();
-			}
-			
+		} 
+//		else {			
+		if(getMappingFrom() != null) {
+			removeElementFromPreviousGraphs();
 		}
+			
+//		}
 		msgs = eBasicSetContainer((InternalEObject)newPrevious, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, msgs);
 		return msgs;
 	}

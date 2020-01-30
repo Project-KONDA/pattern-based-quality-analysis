@@ -8,9 +8,10 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
-
+import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.impl.GraphElementImpl;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -45,6 +46,30 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<BooleanOperator> getRootBooleanOperator() {
+		BasicEList<BooleanOperator> opList = new BasicEList<BooleanOperator>(); 
+		if(getComparison1().isEmpty() && getComparison2().isEmpty() && this instanceof BooleanOperator) {			
+			opList.add((BooleanOperator) this);
+			return opList;
+		}
+		EList<GraphElement> arguments = new BasicEList<GraphElement>();
+		arguments.addAll(getComparison1());
+		arguments.addAll(getComparison2());
+		for(GraphElement graphElement : arguments) {
+			if(graphElement instanceof Operator) {
+				Operator op = (Operator) graphElement;
+				opList.addAll(op.getRootBooleanOperator());
+			}			
+		}
+		return opList;
+	} 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -75,6 +100,8 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case FunctionsPackage.OPERATOR___GET_ROOT_BOOLEAN_OPERATOR:
+				return getRootBooleanOperator();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.Property;
  * @model
  * @generated
  */
-public interface ToNumber extends NumberOperators {
+public interface ToNumber extends NumberOperator {
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' reference.
 	 * <!-- begin-user-doc -->

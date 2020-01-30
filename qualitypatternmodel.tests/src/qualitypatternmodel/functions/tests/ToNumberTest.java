@@ -13,7 +13,7 @@ import qualitypatternmodel.functions.ToNumber;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ToNumberTest extends NumberOperatorsTest {
+public class ToNumberTest extends NumberOperatorTest {
 
 	/**
 	 * <!-- begin-user-doc -->

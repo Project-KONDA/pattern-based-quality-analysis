@@ -119,10 +119,10 @@ public class FunctionsValidator extends EObjectValidator {
 				return validateOperator((Operator)value, diagnostics, context);
 			case FunctionsPackage.COUNT:
 				return validateCount((Count)value, diagnostics, context);
-			case FunctionsPackage.OTHER_OPERATORS:
-				return validateOtherOperators((OtherOperators)value, diagnostics, context);
-			case FunctionsPackage.NUMBER_OPERATORS:
-				return validateNumberOperators((NumberOperators)value, diagnostics, context);
+			case FunctionsPackage.OTHER_OPERATOR:
+				return validateOtherOperator((OtherOperator)value, diagnostics, context);
+			case FunctionsPackage.NUMBER_OPERATOR:
+				return validateNumberOperator((NumberOperator)value, diagnostics, context);
 			case FunctionsPackage.MATCH:
 				return validateMatch((Match)value, diagnostics, context);
 			case FunctionsPackage.COMPARISON:
@@ -210,17 +210,17 @@ public class FunctionsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateOtherOperators(OtherOperators otherOperators, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(otherOperators, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(otherOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(otherOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(otherOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(otherOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(otherOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(otherOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(otherOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(otherOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validateOperator_validate(otherOperators, diagnostics, context);
+	public boolean validateOtherOperator(OtherOperator otherOperator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(otherOperator, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(otherOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(otherOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(otherOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(otherOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(otherOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(otherOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(otherOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(otherOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateOperator_validate(otherOperator, diagnostics, context);
 		return result;
 	}
 
@@ -229,17 +229,17 @@ public class FunctionsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateNumberOperators(NumberOperators numberOperators, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(numberOperators, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(numberOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(numberOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(numberOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(numberOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(numberOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(numberOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(numberOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(numberOperators, diagnostics, context);
-		if (result || diagnostics != null) result &= validateOperator_validate(numberOperators, diagnostics, context);
+	public boolean validateNumberOperator(NumberOperator numberOperator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(numberOperator, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(numberOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(numberOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(numberOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(numberOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(numberOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(numberOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(numberOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(numberOperator, diagnostics, context);
+		if (result || diagnostics != null) result &= validateOperator_validate(numberOperator, diagnostics, context);
 		return result;
 	}
 

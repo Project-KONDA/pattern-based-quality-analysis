@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.SetElement;
  * @model
  * @generated
  */
-public interface Count extends NumberOperators {
+public interface Count extends NumberOperator {
 	/**
 	 * Returns the value of the '<em><b>Argument</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SetElement#getCount <em>Count</em>}'.

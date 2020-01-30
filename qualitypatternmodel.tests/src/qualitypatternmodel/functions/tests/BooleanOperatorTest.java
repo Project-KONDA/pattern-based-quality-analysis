@@ -8,6 +8,13 @@ import qualitypatternmodel.functions.BooleanOperator;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Boolean Operator</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class BooleanOperatorTest extends OperatorTest {
@@ -31,6 +38,32 @@ public abstract class BooleanOperatorTest extends OperatorTest {
 	@Override
 	protected BooleanOperator getFixture() {
 		return (BooleanOperator)fixture;
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element)
+	 * @generated
+	 */
+	public void testAddElement__Element() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element)
+	 * @generated
+	 */
+	public void testRemoveElement__Element() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //BooleanOperatorTest

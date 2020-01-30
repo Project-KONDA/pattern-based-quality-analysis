@@ -33,6 +33,8 @@ public interface GraphValidator {
 
 	boolean validateGetAllRelations(EList<Relation> value);
 
+	boolean validateQuantifiedCondition(QuantifiedCondition value);
+
 	boolean validateQuantifiedcondition(QuantifiedCondition value);
 
 	boolean validatePattern(Pattern value);

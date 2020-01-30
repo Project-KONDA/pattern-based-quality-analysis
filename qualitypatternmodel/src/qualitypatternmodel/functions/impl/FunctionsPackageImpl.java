@@ -18,10 +18,10 @@ import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsFactory;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
-import qualitypatternmodel.functions.NumberOperators;
+import qualitypatternmodel.functions.NumberOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
-import qualitypatternmodel.functions.OtherOperators;
+import qualitypatternmodel.functions.OtherOperator;
 import qualitypatternmodel.functions.ToNumber;
 import qualitypatternmodel.functions.util.FunctionsValidator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -69,14 +69,14 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass otherOperatorsEClass = null;
+	private EClass otherOperatorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass numberOperatorsEClass = null;
+	private EClass numberOperatorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,6 +224,26 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getBooleanOperator__AddElement__Element() {
+		return booleanOperatorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBooleanOperator__RemoveElement__Element() {
+		return booleanOperatorEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOperator() {
 		return operatorEClass;
 	}
@@ -254,6 +274,16 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getOperator__GetRootBooleanOperator() {
+		return operatorEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCount() {
 		return countEClass;
 	}
@@ -274,8 +304,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getOtherOperators() {
-		return otherOperatorsEClass;
+	public EClass getOtherOperator() {
+		return otherOperatorEClass;
 	}
 
 	/**
@@ -284,8 +314,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getNumberOperators() {
-		return numberOperatorsEClass;
+	public EClass getNumberOperator() {
+		return numberOperatorEClass;
 	}
 
 	/**
@@ -459,17 +489,20 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		// Create classes and their features
 		booleanOperatorEClass = createEClass(BOOLEAN_OPERATOR);
 		createEReference(booleanOperatorEClass, BOOLEAN_OPERATOR__ELEMENTS);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT);
 
 		operatorEClass = createEClass(OPERATOR);
 		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
 		createEOperation(operatorEClass, OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
+		createEOperation(operatorEClass, OPERATOR___GET_ROOT_BOOLEAN_OPERATOR);
 
 		countEClass = createEClass(COUNT);
 		createEReference(countEClass, COUNT__ARGUMENT);
 
-		otherOperatorsEClass = createEClass(OTHER_OPERATORS);
+		otherOperatorEClass = createEClass(OTHER_OPERATOR);
 
-		numberOperatorsEClass = createEClass(NUMBER_OPERATORS);
+		numberOperatorEClass = createEClass(NUMBER_OPERATOR);
 
 		matchEClass = createEClass(MATCH);
 		createEReference(matchEClass, MATCH__PROPERTY);
@@ -527,21 +560,27 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		// Add supertypes to classes
 		booleanOperatorEClass.getESuperTypes().add(this.getOperator());
 		operatorEClass.getESuperTypes().add(theGraphstructurePackage.getGraphElement());
-		countEClass.getESuperTypes().add(this.getNumberOperators());
-		otherOperatorsEClass.getESuperTypes().add(this.getOperator());
-		numberOperatorsEClass.getESuperTypes().add(this.getOperator());
+		countEClass.getESuperTypes().add(this.getNumberOperator());
+		otherOperatorEClass.getESuperTypes().add(this.getOperator());
+		numberOperatorEClass.getESuperTypes().add(this.getOperator());
 		matchEClass.getESuperTypes().add(this.getBooleanOperator());
 		comparisonEClass.getESuperTypes().add(this.getBooleanOperator());
-		toNumberEClass.getESuperTypes().add(this.getNumberOperators());
+		toNumberEClass.getESuperTypes().add(this.getNumberOperator());
 		operatorListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(booleanOperatorEClass, BooleanOperator.class, "BooleanOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBooleanOperator_Elements(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_Predicates(), "elements", null, 0, -1, BooleanOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getBooleanOperator__AddElement__Element(), null, "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getBooleanOperator__RemoveElement__Element(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = initEOperation(getOperator__GetAllOperators(), this.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getOperator__GetAllOperators(), this.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getOperator__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -553,12 +592,14 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getOperator__GetRootBooleanOperator(), this.getBooleanOperator(), "getRootBooleanOperator", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(countEClass, Count.class, "Count", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCount_Argument(), theGraphstructurePackage.getSetElement(), theGraphstructurePackage.getSetElement_Count(), "argument", null, 1, 1, Count.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(otherOperatorsEClass, OtherOperators.class, "OtherOperators", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(otherOperatorEClass, OtherOperator.class, "OtherOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(numberOperatorsEClass, NumberOperators.class, "NumberOperators", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(numberOperatorEClass, NumberOperator.class, "NumberOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(matchEClass, Match.class, "Match", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMatch_Property(), theGraphstructurePackage.getProperty(), null, "property", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

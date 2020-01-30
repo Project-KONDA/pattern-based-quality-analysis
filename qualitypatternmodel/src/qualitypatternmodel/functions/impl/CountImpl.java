@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -30,7 +31,7 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class CountImpl extends NumberOperatorsImpl implements Count {
+public class CountImpl extends NumberOperatorImpl implements Count {
 	/**
 	 * The cached value of the '{@link #getArgument() <em>Argument</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -90,7 +91,7 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	@Override
 	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {	
 		return argument.getAllArgumentElementsSetOperation();	
-	}
+	}	
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -129,11 +130,21 @@ public class CountImpl extends NumberOperatorsImpl implements Count {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetArgument(SetElement newArgument, NotificationChain msgs) {
 		SetElement oldArgument = argument;
 		argument = newArgument;
+		if(newArgument != null || oldArgument != null) {
+			for(BooleanOperator boolOp : getRootBooleanOperator()) {
+				if(newArgument != null) {
+					boolOp.addElement(newArgument);
+				}
+				if(oldArgument != null) {
+					boolOp.removeElement(oldArgument);
+				}
+			}		
+		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COUNT__ARGUMENT, oldArgument, newArgument);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

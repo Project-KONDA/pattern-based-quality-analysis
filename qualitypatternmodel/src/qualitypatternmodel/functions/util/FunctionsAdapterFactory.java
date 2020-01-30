@@ -84,12 +84,12 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 				return createCountAdapter();
 			}
 			@Override
-			public Adapter caseOtherOperators(OtherOperators object) {
-				return createOtherOperatorsAdapter();
+			public Adapter caseOtherOperator(OtherOperator object) {
+				return createOtherOperatorAdapter();
 			}
 			@Override
-			public Adapter caseNumberOperators(NumberOperators object) {
-				return createNumberOperatorsAdapter();
+			public Adapter caseNumberOperator(NumberOperator object) {
+				return createNumberOperatorAdapter();
 			}
 			@Override
 			public Adapter caseMatch(Match object) {
@@ -178,30 +178,30 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.functions.OtherOperators <em>Other Operators</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.functions.OtherOperator <em>Other Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.functions.OtherOperators
+	 * @see qualitypatternmodel.functions.OtherOperator
 	 * @generated
 	 */
-	public Adapter createOtherOperatorsAdapter() {
+	public Adapter createOtherOperatorAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.functions.NumberOperators <em>Number Operators</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.functions.NumberOperator <em>Number Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.functions.NumberOperators
+	 * @see qualitypatternmodel.functions.NumberOperator
 	 * @generated
 	 */
-	public Adapter createNumberOperatorsAdapter() {
+	public Adapter createNumberOperatorAdapter() {
 		return null;
 	}
 

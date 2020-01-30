@@ -61,6 +61,12 @@
   </eSubpackages>
   <eSubpackages name="functions" nsURI="functions" nsPrefix="functions">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//functions/Operator">
+      <eOperations name="addElement">
+        <eParameters name="element" eType="#//graphstructure/Element"/>
+      </eOperations>
+      <eOperations name="removeElement">
+        <eParameters name="element" eType="#//graphstructure/Element"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/predicates"/>
     </eClassifiers>
@@ -76,13 +82,14 @@
           </eGenericType>
         </eParameters>
       </eOperations>
+      <eOperations name="getRootBooleanOperator" upperBound="-1" eType="#//functions/BooleanOperator"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//functions/NumberOperators">
+    <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//functions/NumberOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
           eType="#//graphstructure/SetElement" eOpposite="#//graphstructure/SetElement/count"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="OtherOperators" abstract="true" eSuperTypes="#//functions/Operator"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NumberOperators" abstract="true" eSuperTypes="#//functions/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OtherOperator" abstract="true" eSuperTypes="#//functions/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberOperator" abstract="true" eSuperTypes="#//functions/Operator"/>
     <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//functions/BooleanOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
           eType="#//graphstructure/Property"/>
@@ -99,7 +106,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
           eType="#//graphstructure/GraphElement" eOpposite="#//graphstructure/GraphElement/comparison2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ToNumber" eSuperTypes="#//functions/NumberOperators">
+    <eClassifiers xsi:type="ecore:EClass" name="ToNumber" eSuperTypes="#//functions/NumberOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
           eType="#//graphstructure/Property"/>
     </eClassifiers>
@@ -189,11 +196,6 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
         <details key="hasPrevious" value="self.previousSet->notEmpty() or self.previousSingle->notEmpty()"/>
       </eAnnotations>
-      <eOperations name="translateElementExistencePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-        <eParameters name="depth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      </eOperations>
       <eOperations name="translatePathFromPrevious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
         <eParameters name="depth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       </eOperations>
@@ -237,6 +239,11 @@
       </eOperations>
       <eOperations name="getGraphDepth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="translateElementExistencePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="location" eType="#//patternstructure/Location"/>
+        <eParameters name="depth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationFromPrevious"
           eType="#//graphstructure/Relation" containment="true" eOpposite="#//graphstructure/Relation/relationTo"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" lowerBound="1"
@@ -301,7 +308,7 @@
           <details key="nullFree" value="false"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedcondition"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedCondition"
           eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//patternstructure/Pattern"
           eOpposite="#//patternstructure/Pattern/returnGraph"/>
@@ -386,7 +393,7 @@
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
-          eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/quantifiedcondition"/>
+          eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/quantifiedCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
           eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/quantifiedcondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"

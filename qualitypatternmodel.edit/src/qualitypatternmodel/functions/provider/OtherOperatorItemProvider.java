@@ -5,29 +5,28 @@ package qualitypatternmodel.functions.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.functions.ToNumber;
+import qualitypatternmodel.functions.OtherOperator;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.functions.ToNumber} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.functions.OtherOperator} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ToNumberItemProvider extends NumberOperatorItemProvider {
+public class OtherOperatorItemProvider extends OperatorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ToNumberItemProvider(AdapterFactory adapterFactory) {
+	public OtherOperatorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -42,54 +41,22 @@ public class ToNumberItemProvider extends NumberOperatorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPropertyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Property feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPropertyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ToNumber_property_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ToNumber_property_feature", "_UI_ToNumber_type"),
-				 FunctionsPackage.Literals.TO_NUMBER__PROPERTY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns ToNumber.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ToNumber"));
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		ToNumber toNumber = (ToNumber) object;
-		return getString("_UI_ToNumber_type") + " " + toNumber.getRefNo();	
+		String label = ((OtherOperator)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_OtherOperator_type") :
+			getString("_UI_OtherOperator_type") + " " + label;
 	}
 
 

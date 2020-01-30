@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
@@ -18,6 +20,7 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.CompOption;
@@ -231,9 +234,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		EList<ListOfElements> arguments = argument1.getAllArgumentElements();
 		arguments.addAll(argument2.getAllArgumentElements());
 		return arguments;
-	}
-
-
+	}	
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -271,11 +273,47 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetArgument1(GraphElement newArgument1, NotificationChain msgs) {
 		GraphElement oldArgument1 = argument1;
 		argument1 = newArgument1;
+		EList<BooleanOperator> rootBooleanOperators = getRootBooleanOperator();
+		if(newArgument1 instanceof Element) {
+			for(BooleanOperator boolOp : rootBooleanOperators) {
+				if(newArgument1 != null) {
+					boolOp.addElement((Element) newArgument1);
+				}				
+			}			
+		}
+		if(newArgument1 instanceof Property && ((Property) newArgument1).getElement() != null) {
+			for(BooleanOperator boolOp : rootBooleanOperators) {
+				if(newArgument1 != null) {
+					boolOp.addElement(((Property) newArgument1).getElement());
+				}				
+			}			
+		}
+		if(newArgument1 instanceof BooleanOperator) {
+			BooleanOperator argumentOperator = (BooleanOperator) newArgument1;
+			EList<BooleanOperator> rootBoolenOperators = getRootBooleanOperator();
+			EList<Element> elements = new BasicEList<Element>();
+			elements.addAll(argumentOperator.getElements());
+			for(Element element : elements) {
+				argumentOperator.removeElement(element);
+				for(BooleanOperator rootBoolenOperator : rootBoolenOperators) {
+					rootBoolenOperator.addElement(element); 
+				}
+			}
+		}
+		// TODO: if(oldArgument1 instanceof BooleanOperator) move predicates edges back	
+		for(BooleanOperator boolOp : rootBooleanOperators) {			
+			if(oldArgument1 != null && oldArgument1 instanceof Property && ((Property) oldArgument1).getElement() != null) {
+				boolOp.removeElement(((Property) oldArgument1).getElement());
+			}
+			if(oldArgument1 != null && oldArgument1 instanceof Element) {
+				boolOp.removeElement((Element) oldArgument1);
+			}
+		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT1, oldArgument1, newArgument1);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -371,11 +409,47 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetArgument2(GraphElement newArgument2, NotificationChain msgs) {
 		GraphElement oldArgument2 = argument2;
 		argument2 = newArgument2;
+		EList<BooleanOperator> rootBooleanOperators = getRootBooleanOperator();
+		if(newArgument2 instanceof Element) {
+			for(BooleanOperator boolOp : rootBooleanOperators) {
+				if(newArgument2 != null) {
+					boolOp.addElement((Element) newArgument2);
+				}				
+			}			
+		}
+		if(newArgument2 instanceof Property && ((Property) newArgument2).getElement() != null) {
+			for(BooleanOperator boolOp : rootBooleanOperators) {
+				if(newArgument2 != null) {
+					boolOp.addElement(((Property) newArgument2).getElement());
+				}				
+			}			
+		}
+		if(newArgument2 instanceof BooleanOperator) {
+			BooleanOperator argumentOperator = (BooleanOperator) newArgument2;
+				EList<BooleanOperator> rootBoolenOperators = getRootBooleanOperator();
+				EList<Element> elements = new BasicEList<Element>();
+				elements.addAll(argumentOperator.getElements());
+				for(Element element : elements) {
+					argumentOperator.removeElement(element);
+					for(BooleanOperator rootBoolenOperator : rootBoolenOperators) {
+						rootBoolenOperator.addElement(element); 
+					}
+				}
+		}
+		// TODO: if(oldArgument2 instanceof BooleanOperator) move predicates edges back
+		for(BooleanOperator boolOp : rootBooleanOperators) {			
+			if(oldArgument2 != null && oldArgument2 instanceof Property && ((Property) oldArgument2).getElement() != null) {
+				boolOp.removeElement(((Property) oldArgument2).getElement());
+			}
+			if(oldArgument2 != null && oldArgument2 instanceof Element) {
+				boolOp.removeElement((Element) oldArgument2);
+			}
+		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT2, oldArgument2, newArgument2);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

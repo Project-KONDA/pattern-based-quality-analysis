@@ -319,25 +319,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 				throw new InvalidityException("element not yet translated");
 			}
 		}
-	}
-
-//	@Override
-//	public String getXQueryRepresentation() throws InvalidityException {		
-//		return ".";		
-//	}
-
-	public String translateElementExistencePredicates(Location location, int depth) throws InvalidityException {
-		String predicates = "";
-		for (SetElement nextElement : getNext()) {
-			if (!nextElement.isTranslated()) {
-				nextElement.setTranslated(true); // TODO: check if this is correct: need to distinguish "isBeingTranslated" and "translated"
-				predicates += "[." + nextElement.translatePathFromPrevious(depth)
-						+ nextElement.translatePredicates(location, depth) // TODO: depth+1 ?
-						+ nextElement.translateElementExistencePredicates(location, depth) + "]"; // TODO: depth+1 ?
-			}
-		}
-		return predicates;
-	}
+	}	
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -667,13 +649,6 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT:
-				try {
-					return translateElementExistencePredicates((Location)arguments.get(0), (Integer)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case GraphstructurePackage.SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS__INT:
 				return translatePathFromPrevious((Integer)arguments.get(0));
 			case GraphstructurePackage.SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT:

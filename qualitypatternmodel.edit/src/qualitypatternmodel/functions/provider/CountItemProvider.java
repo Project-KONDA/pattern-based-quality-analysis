@@ -20,7 +20,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CountItemProvider extends NumberOperatorsItemProvider {
+public class CountItemProvider extends NumberOperatorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -25,6 +25,7 @@ import qualitypatternmodel.graphstructure.Element;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location, int) <em>Get XQuery Representation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getContextRepresentation(int) <em>Get Context Representation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraphDepth() <em>Get Graph Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Element Existence Predicates</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -164,6 +165,19 @@ public abstract class ElementTest extends GraphElementTest {
 	 * @generated
 	 */
 	public void testGetGraphDepth() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Element Existence Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int)
+	 * @generated
+	 */
+	public void testTranslateElementExistencePredicates__Location_int() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

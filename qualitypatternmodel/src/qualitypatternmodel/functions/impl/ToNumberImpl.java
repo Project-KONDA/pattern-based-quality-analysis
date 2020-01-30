@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.ToNumber;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -29,7 +30,7 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
+public class ToNumberImpl extends NumberOperatorImpl implements ToNumber {
 	/**
 	 * The cached value of the '{@link #getProperty() <em>Property</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -125,12 +126,22 @@ public class ToNumberImpl extends NumberOperatorsImpl implements ToNumber {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setProperty(Property newProperty) {
 		Property oldProperty = property;
-		property = newProperty;
+		property = newProperty;		
+		if(newProperty != null || oldProperty != null) {
+			for(BooleanOperator boolOp : getRootBooleanOperator()) {
+				if(newProperty != null) {
+					boolOp.addElement(newProperty.getElement());
+				}
+				if(oldProperty != null) {
+					boolOp.removeElement(oldProperty.getElement());
+				}
+			}	
+		}
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.TO_NUMBER__PROPERTY, oldProperty, property));
 	}

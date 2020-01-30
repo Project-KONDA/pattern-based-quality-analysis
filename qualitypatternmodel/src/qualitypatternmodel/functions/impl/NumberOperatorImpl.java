@@ -5,31 +5,31 @@ package qualitypatternmodel.functions.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.functions.NumberOperators;
+import qualitypatternmodel.functions.NumberOperator;
 import qualitypatternmodel.graphstructure.ReturnType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Number Operators</b></em>'.
+ * An implementation of the model object '<em><b>Number Operator</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public abstract class NumberOperatorsImpl extends OperatorImpl implements NumberOperators {
+public abstract class NumberOperatorImpl extends OperatorImpl implements NumberOperator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NumberOperatorsImpl() {
+	protected NumberOperatorImpl() {
 		super();
 	}
-	
+
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.NUMBER;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -37,7 +37,7 @@ public abstract class NumberOperatorsImpl extends OperatorImpl implements Number
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return FunctionsPackage.Literals.NUMBER_OPERATORS;
+		return FunctionsPackage.Literals.NUMBER_OPERATOR;
 	}
 
-} //NumberOperatorsImpl
+} //NumberOperatorImpl

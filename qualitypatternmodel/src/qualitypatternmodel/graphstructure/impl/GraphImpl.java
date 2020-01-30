@@ -48,7 +48,7 @@ import qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#isReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGetAllElements <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGetAllRelations <em>Get All Relations</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getPattern <em>Pattern</em>}</li>
  * </ul>
  *
@@ -193,7 +193,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public void copyGraph(Graph graph) throws MissingPatternContainerException {		
-		graph.getQuantifiedcondition().getMorphism().getMappings().add(new SingleElementMappingImpl(rootElement, graph.getRootElement()));
+		graph.getQuantifiedCondition().getMorphism().getMappings().add(new SingleElementMappingImpl(rootElement, graph.getRootElement()));
 //		for(Mapping mapping : mappings) {
 //			if(mapping instanceof SingleElementMapping) {
 //				SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
@@ -220,10 +220,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if (operatorList != null)
 					msgs = ((InternalEObject)operatorList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__OPERATOR_LIST, null, msgs);
 				return basicSetOperatorList((OperatorList)otherEnd, msgs);
-			case GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION:
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetQuantifiedcondition((QuantifiedCondition)otherEnd, msgs);
+				return basicSetQuantifiedCondition((QuantifiedCondition)otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__PATTERN:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -415,8 +415,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated
 	 */
 	@Override
-	public QuantifiedCondition getQuantifiedcondition() {
-		if (eContainerFeatureID() != GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION) return null;
+	public QuantifiedCondition getQuantifiedCondition() {
+		if (eContainerFeatureID() != GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION) return null;
 		return (QuantifiedCondition)eInternalContainer();
 	}
 
@@ -425,8 +425,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetQuantifiedcondition(QuantifiedCondition newQuantifiedcondition, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newQuantifiedcondition, GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION, msgs);
+	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newQuantifiedCondition, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, msgs);
 		return msgs;
 	}
 
@@ -436,20 +436,20 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated
 	 */
 	@Override
-	public void setQuantifiedcondition(QuantifiedCondition newQuantifiedcondition) {
-		if (newQuantifiedcondition != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION && newQuantifiedcondition != null)) {
-			if (EcoreUtil.isAncestor(this, newQuantifiedcondition))
+	public void setQuantifiedCondition(QuantifiedCondition newQuantifiedCondition) {
+		if (newQuantifiedCondition != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION && newQuantifiedCondition != null)) {
+			if (EcoreUtil.isAncestor(this, newQuantifiedCondition))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newQuantifiedcondition != null)
-				msgs = ((InternalEObject)newQuantifiedcondition).eInverseAdd(this, PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, QuantifiedCondition.class, msgs);
-			msgs = basicSetQuantifiedcondition(newQuantifiedcondition, msgs);
+			if (newQuantifiedCondition != null)
+				msgs = ((InternalEObject)newQuantifiedCondition).eInverseAdd(this, PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, QuantifiedCondition.class, msgs);
+			msgs = basicSetQuantifiedCondition(newQuantifiedCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION, newQuantifiedcondition, newQuantifiedcondition));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, newQuantifiedCondition, newQuantifiedCondition));
 	}
 
 	/**
@@ -506,8 +506,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return basicSetRootElement(null, msgs);
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				return basicSetOperatorList(null, msgs);
-			case GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION:
-				return basicSetQuantifiedcondition(null, msgs);
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				return basicSetQuantifiedCondition(null, msgs);
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return basicSetPattern(null, msgs);
 		}
@@ -522,7 +522,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION:
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, QuantifiedCondition.class, msgs);
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.PATTERN__RETURN_GRAPH, Pattern.class, msgs);
@@ -551,8 +551,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getGetAllElements();
 			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
 				return getGetAllRelations();
-			case GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION:
-				return getQuantifiedcondition();
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				return getQuantifiedCondition();
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return getPattern();
 		}
@@ -591,8 +591,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				getGetAllRelations().clear();
 				getGetAllRelations().addAll((Collection<? extends Relation>)newValue);
 				return;
-			case GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION:
-				setQuantifiedcondition((QuantifiedCondition)newValue);
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				setQuantifiedCondition((QuantifiedCondition)newValue);
 				return;
 			case GraphstructurePackage.GRAPH__PATTERN:
 				setPattern((Pattern)newValue);
@@ -629,8 +629,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
 				getGetAllRelations().clear();
 				return;
-			case GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION:
-				setQuantifiedcondition((QuantifiedCondition)null);
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				setQuantifiedCondition((QuantifiedCondition)null);
 				return;
 			case GraphstructurePackage.GRAPH__PATTERN:
 				setPattern((Pattern)null);
@@ -660,8 +660,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
 				return GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
-			case GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION:
-				return getQuantifiedcondition() != null;
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				return getQuantifiedCondition() != null;
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return getPattern() != null;
 		}

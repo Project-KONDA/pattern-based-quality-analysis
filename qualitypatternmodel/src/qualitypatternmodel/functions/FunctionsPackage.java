@@ -233,13 +233,22 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Root Boolean Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GET_ROOT_BOOLEAN_OPERATOR = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 2;
+	int OPERATOR_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.BooleanOperatorImpl <em>Boolean Operator</em>}' class.
@@ -423,23 +432,50 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Get Root Boolean Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GET_ROOT_BOOLEAN_OPERATOR = OPERATOR___GET_ROOT_BOOLEAN_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT = OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = OPERATOR_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 0;
+	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.NumberOperatorsImpl <em>Number Operators</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.functions.impl.NumberOperatorsImpl
-	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getNumberOperators()
+	 * @see qualitypatternmodel.functions.impl.NumberOperatorImpl
+	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getNumberOperator()
 	 * @generated
 	 */
-	int NUMBER_OPERATORS = 4;
+	int NUMBER_OPERATOR = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -448,7 +484,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS__ID = OPERATOR__ID;
+	int NUMBER_OPERATOR__ID = OPERATOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -457,7 +493,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS__REF_NO = OPERATOR__REF_NO;
+	int NUMBER_OPERATOR__REF_NO = OPERATOR__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -466,7 +502,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS__COMPARISON1 = OPERATOR__COMPARISON1;
+	int NUMBER_OPERATOR__COMPARISON1 = OPERATOR__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -475,16 +511,16 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS__COMPARISON2 = OPERATOR__COMPARISON2;
+	int NUMBER_OPERATOR__COMPARISON2 = OPERATOR__COMPARISON2;
 
 	/**
-	 * The number of structural features of the '<em>Number Operators</em>' class.
+	 * The number of structural features of the '<em>Number Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 0;
+	int NUMBER_OPERATOR_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -493,7 +529,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
+	int NUMBER_OPERATOR___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -502,7 +538,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
+	int NUMBER_OPERATOR___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -511,7 +547,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___PREPARE_TRANSLATION = OPERATOR___PREPARE_TRANSLATION;
+	int NUMBER_OPERATOR___PREPARE_TRANSLATION = OPERATOR___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -520,7 +556,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
+	int NUMBER_OPERATOR___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -529,7 +565,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___IS_VALID_LOCAL__BOOLEAN = OPERATOR___IS_VALID_LOCAL__BOOLEAN;
+	int NUMBER_OPERATOR___IS_VALID_LOCAL__BOOLEAN = OPERATOR___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -538,7 +574,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___GET_CONTAINER = OPERATOR___GET_CONTAINER;
+	int NUMBER_OPERATOR___GET_CONTAINER = OPERATOR___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -547,7 +583,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___GET_ANCESTOR__CLASS = OPERATOR___GET_ANCESTOR__CLASS;
+	int NUMBER_OPERATOR___GET_ANCESTOR__CLASS = OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -556,7 +592,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___GET_RETURN_TYPE = OPERATOR___GET_RETURN_TYPE;
+	int NUMBER_OPERATOR___GET_RETURN_TYPE = OPERATOR___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -565,7 +601,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___IS_TRANSLATABLE = OPERATOR___IS_TRANSLATABLE;
+	int NUMBER_OPERATOR___IS_TRANSLATABLE = OPERATOR___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -574,7 +610,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___TO_XQUERY__LOCATION_INT = OPERATOR___TO_XQUERY__LOCATION_INT;
+	int NUMBER_OPERATOR___TO_XQUERY__LOCATION_INT = OPERATOR___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -583,7 +619,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___GET_ALL_ARGUMENT_ELEMENTS = OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+	int NUMBER_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -592,7 +628,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
+	int NUMBER_OPERATOR___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -601,16 +637,25 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS___VALIDATE__DIAGNOSTICCHAIN_MAP = OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int NUMBER_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Number Operators</em>' class.
+	 * The operation id for the '<em>Get Root Boolean Operator</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATORS_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 0;
+	int NUMBER_OPERATOR___GET_ROOT_BOOLEAN_OPERATOR = OPERATOR___GET_ROOT_BOOLEAN_OPERATOR;
+
+	/**
+	 * The number of operations of the '<em>Number Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.CountImpl <em>Count</em>}' class.
@@ -629,7 +674,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT__ID = NUMBER_OPERATORS__ID;
+	int COUNT__ID = NUMBER_OPERATOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -638,7 +683,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT__REF_NO = NUMBER_OPERATORS__REF_NO;
+	int COUNT__REF_NO = NUMBER_OPERATOR__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -647,7 +692,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT__COMPARISON1 = NUMBER_OPERATORS__COMPARISON1;
+	int COUNT__COMPARISON1 = NUMBER_OPERATOR__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -656,7 +701,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT__COMPARISON2 = NUMBER_OPERATORS__COMPARISON2;
+	int COUNT__COMPARISON2 = NUMBER_OPERATOR__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Argument</b></em>' reference.
@@ -665,7 +710,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT__ARGUMENT = NUMBER_OPERATORS_FEATURE_COUNT + 0;
+	int COUNT__ARGUMENT = NUMBER_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Count</em>' class.
@@ -674,7 +719,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_FEATURE_COUNT = NUMBER_OPERATORS_FEATURE_COUNT + 1;
+	int COUNT_FEATURE_COUNT = NUMBER_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -683,7 +728,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___TO_XQUERY__LOCATION = NUMBER_OPERATORS___TO_XQUERY__LOCATION;
+	int COUNT___TO_XQUERY__LOCATION = NUMBER_OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -692,7 +737,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___GET_ALL_INPUTS = NUMBER_OPERATORS___GET_ALL_INPUTS;
+	int COUNT___GET_ALL_INPUTS = NUMBER_OPERATOR___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -701,7 +746,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___PREPARE_TRANSLATION = NUMBER_OPERATORS___PREPARE_TRANSLATION;
+	int COUNT___PREPARE_TRANSLATION = NUMBER_OPERATOR___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -710,7 +755,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___IS_VALID__BOOLEAN = NUMBER_OPERATORS___IS_VALID__BOOLEAN;
+	int COUNT___IS_VALID__BOOLEAN = NUMBER_OPERATOR___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -719,7 +764,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___IS_VALID_LOCAL__BOOLEAN = NUMBER_OPERATORS___IS_VALID_LOCAL__BOOLEAN;
+	int COUNT___IS_VALID_LOCAL__BOOLEAN = NUMBER_OPERATOR___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -728,7 +773,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___GET_CONTAINER = NUMBER_OPERATORS___GET_CONTAINER;
+	int COUNT___GET_CONTAINER = NUMBER_OPERATOR___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -737,7 +782,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___GET_ANCESTOR__CLASS = NUMBER_OPERATORS___GET_ANCESTOR__CLASS;
+	int COUNT___GET_ANCESTOR__CLASS = NUMBER_OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -746,7 +791,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___GET_RETURN_TYPE = NUMBER_OPERATORS___GET_RETURN_TYPE;
+	int COUNT___GET_RETURN_TYPE = NUMBER_OPERATOR___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -755,7 +800,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___IS_TRANSLATABLE = NUMBER_OPERATORS___IS_TRANSLATABLE;
+	int COUNT___IS_TRANSLATABLE = NUMBER_OPERATOR___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -764,7 +809,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___TO_XQUERY__LOCATION_INT = NUMBER_OPERATORS___TO_XQUERY__LOCATION_INT;
+	int COUNT___TO_XQUERY__LOCATION_INT = NUMBER_OPERATOR___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -773,7 +818,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___GET_ALL_ARGUMENT_ELEMENTS = NUMBER_OPERATORS___GET_ALL_ARGUMENT_ELEMENTS;
+	int COUNT___GET_ALL_ARGUMENT_ELEMENTS = NUMBER_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -782,7 +827,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___GET_ALL_OPERATORS = NUMBER_OPERATORS___GET_ALL_OPERATORS;
+	int COUNT___GET_ALL_OPERATORS = NUMBER_OPERATOR___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -791,7 +836,16 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___VALIDATE__DIAGNOSTICCHAIN_MAP = NUMBER_OPERATORS___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int COUNT___VALIDATE__DIAGNOSTICCHAIN_MAP = NUMBER_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Root Boolean Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___GET_ROOT_BOOLEAN_OPERATOR = NUMBER_OPERATOR___GET_ROOT_BOOLEAN_OPERATOR;
 
 	/**
 	 * The number of operations of the '<em>Count</em>' class.
@@ -800,17 +854,17 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_OPERATION_COUNT = NUMBER_OPERATORS_OPERATION_COUNT + 0;
+	int COUNT_OPERATION_COUNT = NUMBER_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.OtherOperatorsImpl <em>Other Operators</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.OtherOperatorImpl <em>Other Operator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.functions.impl.OtherOperatorsImpl
-	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getOtherOperators()
+	 * @see qualitypatternmodel.functions.impl.OtherOperatorImpl
+	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getOtherOperator()
 	 * @generated
 	 */
-	int OTHER_OPERATORS = 3;
+	int OTHER_OPERATOR = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -819,7 +873,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS__ID = OPERATOR__ID;
+	int OTHER_OPERATOR__ID = OPERATOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -828,7 +882,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS__REF_NO = OPERATOR__REF_NO;
+	int OTHER_OPERATOR__REF_NO = OPERATOR__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -837,7 +891,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS__COMPARISON1 = OPERATOR__COMPARISON1;
+	int OTHER_OPERATOR__COMPARISON1 = OPERATOR__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -846,16 +900,16 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS__COMPARISON2 = OPERATOR__COMPARISON2;
+	int OTHER_OPERATOR__COMPARISON2 = OPERATOR__COMPARISON2;
 
 	/**
-	 * The number of structural features of the '<em>Other Operators</em>' class.
+	 * The number of structural features of the '<em>Other Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 0;
+	int OTHER_OPERATOR_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -864,7 +918,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
+	int OTHER_OPERATOR___TO_XQUERY__LOCATION = OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -873,7 +927,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
+	int OTHER_OPERATOR___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -882,7 +936,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___PREPARE_TRANSLATION = OPERATOR___PREPARE_TRANSLATION;
+	int OTHER_OPERATOR___PREPARE_TRANSLATION = OPERATOR___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -891,7 +945,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
+	int OTHER_OPERATOR___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -900,7 +954,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___IS_VALID_LOCAL__BOOLEAN = OPERATOR___IS_VALID_LOCAL__BOOLEAN;
+	int OTHER_OPERATOR___IS_VALID_LOCAL__BOOLEAN = OPERATOR___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -909,7 +963,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___GET_CONTAINER = OPERATOR___GET_CONTAINER;
+	int OTHER_OPERATOR___GET_CONTAINER = OPERATOR___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -918,7 +972,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___GET_ANCESTOR__CLASS = OPERATOR___GET_ANCESTOR__CLASS;
+	int OTHER_OPERATOR___GET_ANCESTOR__CLASS = OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -927,7 +981,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___GET_RETURN_TYPE = OPERATOR___GET_RETURN_TYPE;
+	int OTHER_OPERATOR___GET_RETURN_TYPE = OPERATOR___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -936,7 +990,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___IS_TRANSLATABLE = OPERATOR___IS_TRANSLATABLE;
+	int OTHER_OPERATOR___IS_TRANSLATABLE = OPERATOR___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -945,7 +999,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___TO_XQUERY__LOCATION_INT = OPERATOR___TO_XQUERY__LOCATION_INT;
+	int OTHER_OPERATOR___TO_XQUERY__LOCATION_INT = OPERATOR___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -954,7 +1008,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___GET_ALL_ARGUMENT_ELEMENTS = OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+	int OTHER_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -963,7 +1017,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
+	int OTHER_OPERATOR___GET_ALL_OPERATORS = OPERATOR___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -972,16 +1026,25 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS___VALIDATE__DIAGNOSTICCHAIN_MAP = OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int OTHER_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Other Operators</em>' class.
+	 * The operation id for the '<em>Get Root Boolean Operator</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATORS_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 0;
+	int OTHER_OPERATOR___GET_ROOT_BOOLEAN_OPERATOR = OPERATOR___GET_ROOT_BOOLEAN_OPERATOR;
+
+	/**
+	 * The number of operations of the '<em>Other Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.MatchImpl <em>Match</em>}' class.
@@ -1190,6 +1253,33 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Root Boolean Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GET_ROOT_BOOLEAN_OPERATOR = BOOLEAN_OPERATOR___GET_ROOT_BOOLEAN_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___ADD_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
 	 * The number of operations of the '<em>Match</em>' class.
@@ -1409,6 +1499,33 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Get Root Boolean Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GET_ROOT_BOOLEAN_OPERATOR = BOOLEAN_OPERATOR___GET_ROOT_BOOLEAN_OPERATOR;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___ADD_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
+
+	/**
 	 * The number of operations of the '<em>Comparison</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1434,7 +1551,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER__ID = NUMBER_OPERATORS__ID;
+	int TO_NUMBER__ID = NUMBER_OPERATOR__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -1443,7 +1560,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER__REF_NO = NUMBER_OPERATORS__REF_NO;
+	int TO_NUMBER__REF_NO = NUMBER_OPERATOR__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1452,7 +1569,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER__COMPARISON1 = NUMBER_OPERATORS__COMPARISON1;
+	int TO_NUMBER__COMPARISON1 = NUMBER_OPERATOR__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -1461,7 +1578,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER__COMPARISON2 = NUMBER_OPERATORS__COMPARISON2;
+	int TO_NUMBER__COMPARISON2 = NUMBER_OPERATOR__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' reference.
@@ -1470,7 +1587,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER__PROPERTY = NUMBER_OPERATORS_FEATURE_COUNT + 0;
+	int TO_NUMBER__PROPERTY = NUMBER_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>To Number</em>' class.
@@ -1479,7 +1596,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER_FEATURE_COUNT = NUMBER_OPERATORS_FEATURE_COUNT + 1;
+	int TO_NUMBER_FEATURE_COUNT = NUMBER_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1488,7 +1605,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___TO_XQUERY__LOCATION = NUMBER_OPERATORS___TO_XQUERY__LOCATION;
+	int TO_NUMBER___TO_XQUERY__LOCATION = NUMBER_OPERATOR___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1497,7 +1614,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___GET_ALL_INPUTS = NUMBER_OPERATORS___GET_ALL_INPUTS;
+	int TO_NUMBER___GET_ALL_INPUTS = NUMBER_OPERATOR___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1506,7 +1623,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___PREPARE_TRANSLATION = NUMBER_OPERATORS___PREPARE_TRANSLATION;
+	int TO_NUMBER___PREPARE_TRANSLATION = NUMBER_OPERATOR___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1515,7 +1632,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___IS_VALID__BOOLEAN = NUMBER_OPERATORS___IS_VALID__BOOLEAN;
+	int TO_NUMBER___IS_VALID__BOOLEAN = NUMBER_OPERATOR___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1524,7 +1641,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___IS_VALID_LOCAL__BOOLEAN = NUMBER_OPERATORS___IS_VALID_LOCAL__BOOLEAN;
+	int TO_NUMBER___IS_VALID_LOCAL__BOOLEAN = NUMBER_OPERATOR___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1533,7 +1650,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___GET_CONTAINER = NUMBER_OPERATORS___GET_CONTAINER;
+	int TO_NUMBER___GET_CONTAINER = NUMBER_OPERATOR___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1542,7 +1659,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___GET_ANCESTOR__CLASS = NUMBER_OPERATORS___GET_ANCESTOR__CLASS;
+	int TO_NUMBER___GET_ANCESTOR__CLASS = NUMBER_OPERATOR___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1551,7 +1668,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___GET_RETURN_TYPE = NUMBER_OPERATORS___GET_RETURN_TYPE;
+	int TO_NUMBER___GET_RETURN_TYPE = NUMBER_OPERATOR___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1560,7 +1677,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___IS_TRANSLATABLE = NUMBER_OPERATORS___IS_TRANSLATABLE;
+	int TO_NUMBER___IS_TRANSLATABLE = NUMBER_OPERATOR___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1569,7 +1686,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___TO_XQUERY__LOCATION_INT = NUMBER_OPERATORS___TO_XQUERY__LOCATION_INT;
+	int TO_NUMBER___TO_XQUERY__LOCATION_INT = NUMBER_OPERATOR___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1578,7 +1695,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___GET_ALL_ARGUMENT_ELEMENTS = NUMBER_OPERATORS___GET_ALL_ARGUMENT_ELEMENTS;
+	int TO_NUMBER___GET_ALL_ARGUMENT_ELEMENTS = NUMBER_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1587,7 +1704,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___GET_ALL_OPERATORS = NUMBER_OPERATORS___GET_ALL_OPERATORS;
+	int TO_NUMBER___GET_ALL_OPERATORS = NUMBER_OPERATOR___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1596,7 +1713,16 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER___VALIDATE__DIAGNOSTICCHAIN_MAP = NUMBER_OPERATORS___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int TO_NUMBER___VALIDATE__DIAGNOSTICCHAIN_MAP = NUMBER_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Root Boolean Operator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER___GET_ROOT_BOOLEAN_OPERATOR = NUMBER_OPERATOR___GET_ROOT_BOOLEAN_OPERATOR;
 
 	/**
 	 * The number of operations of the '<em>To Number</em>' class.
@@ -1605,7 +1731,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER_OPERATION_COUNT = NUMBER_OPERATORS_OPERATION_COUNT + 0;
+	int TO_NUMBER_OPERATION_COUNT = NUMBER_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.OperatorListImpl <em>Operator List</em>}' class.
@@ -1776,6 +1902,26 @@ public interface FunctionsPackage extends EPackage {
 	EReference getBooleanOperator_Elements();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Element</em>' operation.
+	 * @see qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element)
+	 * @generated
+	 */
+	EOperation getBooleanOperator__AddElement__Element();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Element</em>' operation.
+	 * @see qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element)
+	 * @generated
+	 */
+	EOperation getBooleanOperator__RemoveElement__Element();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Operator <em>Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1806,6 +1952,16 @@ public interface FunctionsPackage extends EPackage {
 	EOperation getOperator__Validate__DiagnosticChain_Map();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Operator#getRootBooleanOperator() <em>Get Root Boolean Operator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Root Boolean Operator</em>' operation.
+	 * @see qualitypatternmodel.functions.Operator#getRootBooleanOperator()
+	 * @generated
+	 */
+	EOperation getOperator__GetRootBooleanOperator();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Count <em>Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1827,24 +1983,24 @@ public interface FunctionsPackage extends EPackage {
 	EReference getCount_Argument();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.functions.OtherOperators <em>Other Operators</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.functions.OtherOperator <em>Other Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Other Operators</em>'.
-	 * @see qualitypatternmodel.functions.OtherOperators
+	 * @return the meta object for class '<em>Other Operator</em>'.
+	 * @see qualitypatternmodel.functions.OtherOperator
 	 * @generated
 	 */
-	EClass getOtherOperators();
+	EClass getOtherOperator();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.functions.NumberOperators <em>Number Operators</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.functions.NumberOperator <em>Number Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Number Operators</em>'.
-	 * @see qualitypatternmodel.functions.NumberOperators
+	 * @return the meta object for class '<em>Number Operator</em>'.
+	 * @see qualitypatternmodel.functions.NumberOperator
 	 * @generated
 	 */
-	EClass getNumberOperators();
+	EClass getNumberOperator();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Match <em>Match</em>}'.
@@ -2037,6 +2193,22 @@ public interface FunctionsPackage extends EPackage {
 		EReference BOOLEAN_OPERATOR__ELEMENTS = eINSTANCE.getBooleanOperator_Elements();
 
 		/**
+		 * The meta object literal for the '<em><b>Add Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT = eINSTANCE.getBooleanOperator__AddElement__Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = eINSTANCE.getBooleanOperator__RemoveElement__Element();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OperatorImpl <em>Operator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2063,6 +2235,14 @@ public interface FunctionsPackage extends EPackage {
 		EOperation OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getOperator__Validate__DiagnosticChain_Map();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Root Boolean Operator</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPERATOR___GET_ROOT_BOOLEAN_OPERATOR = eINSTANCE.getOperator__GetRootBooleanOperator();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.CountImpl <em>Count</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2081,24 +2261,24 @@ public interface FunctionsPackage extends EPackage {
 		EReference COUNT__ARGUMENT = eINSTANCE.getCount_Argument();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OtherOperatorsImpl <em>Other Operators</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OtherOperatorImpl <em>Other Operator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.functions.impl.OtherOperatorsImpl
-		 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getOtherOperators()
+		 * @see qualitypatternmodel.functions.impl.OtherOperatorImpl
+		 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getOtherOperator()
 		 * @generated
 		 */
-		EClass OTHER_OPERATORS = eINSTANCE.getOtherOperators();
+		EClass OTHER_OPERATOR = eINSTANCE.getOtherOperator();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.NumberOperatorsImpl <em>Number Operators</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.functions.impl.NumberOperatorsImpl
-		 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getNumberOperators()
+		 * @see qualitypatternmodel.functions.impl.NumberOperatorImpl
+		 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getNumberOperator()
 		 * @generated
 		 */
-		EClass NUMBER_OPERATORS = eINSTANCE.getNumberOperators();
+		EClass NUMBER_OPERATOR = eINSTANCE.getNumberOperator();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.MatchImpl <em>Match</em>}' class.

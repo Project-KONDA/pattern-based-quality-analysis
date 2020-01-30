@@ -28,7 +28,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGetAllElements <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGetAllRelations <em>Get All Relations</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}</li>
  * </ul>
  *
@@ -172,28 +172,28 @@ public interface Graph extends PatternElement {
 	EList<Relation> getGetAllRelations();
 
 	/**
-	 * Returns the value of the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * Returns the value of the '<em><b>Quantified Condition</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Quantifiedcondition</em>' container reference.
-	 * @see #setQuantifiedcondition(QuantifiedCondition)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_Quantifiedcondition()
+	 * @return the value of the '<em>Quantified Condition</em>' container reference.
+	 * @see #setQuantifiedCondition(QuantifiedCondition)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_QuantifiedCondition()
 	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph
 	 * @model opposite="graph" transient="false"
 	 * @generated
 	 */
-	QuantifiedCondition getQuantifiedcondition();
+	QuantifiedCondition getQuantifiedCondition();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedcondition <em>Quantifiedcondition</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Quantifiedcondition</em>' container reference.
-	 * @see #getQuantifiedcondition()
+	 * @param value the new value of the '<em>Quantified Condition</em>' container reference.
+	 * @see #getQuantifiedCondition()
 	 * @generated
 	 */
-	void setQuantifiedcondition(QuantifiedCondition value);
+	void setQuantifiedCondition(QuantifiedCondition value);
 
 	/**
 	 * Returns the value of the '<em><b>Pattern</b></em>' container reference.
