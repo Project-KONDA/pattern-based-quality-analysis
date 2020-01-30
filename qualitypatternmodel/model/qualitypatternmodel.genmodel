@@ -153,6 +153,7 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/SingleElement/translatePredicates/location"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/translatePathFromPrevious"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/copyNextElements"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/SetElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/SetElement/nestingDepth"/>
@@ -214,6 +215,9 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/quantifiedcondition"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/pattern"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/getAllOperators"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/copyGraph">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/copyGraph/graph"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//graphstructure/GraphElement">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -255,6 +259,7 @@
       </genEnums>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/InvalidityExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/ClassWrapper"/>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/MissingPatternContainerException"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/RelationMapping">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/RelationMapping/to"/>
@@ -267,6 +272,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/graph"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/morphism"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/Condition">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Condition/condDepth"/>
@@ -274,7 +280,8 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Condition/getNextQuantifiedConditions"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Condition/pattern"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Condition/quantifiedcondition"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Condition/formula"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Condition/formula1"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Condition/formula2"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/Morphism">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -301,7 +308,8 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/Formula">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Formula/operator"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Formula/arguments"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Formula/argument1"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Formula/argument2"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/True"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/Pattern">

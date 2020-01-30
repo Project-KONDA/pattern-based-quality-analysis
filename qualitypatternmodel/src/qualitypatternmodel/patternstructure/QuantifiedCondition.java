@@ -76,14 +76,12 @@ public interface QuantifiedCondition extends Condition {
 
 	/**
 	 * Returns the value of the '<em><b>Morphism</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition <em>Quantifiedcondition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Morphism</em>' containment reference.
 	 * @see #setMorphism(Morphism)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_Morphism()
-	 * @see qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition
-	 * @model opposite="quantifiedcondition" containment="true" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Morphism getMorphism();
@@ -97,6 +95,14 @@ public interface QuantifiedCondition extends Condition {
 	 * @generated
 	 */
 	void setMorphism(Morphism value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
+	 * @generated
+	 */
+	void copyPreviousGraph() throws MissingPatternContainerException;
 
 	/**
 	 * Returns the value of the '<em><b>Quantifier</b></em>' attribute.

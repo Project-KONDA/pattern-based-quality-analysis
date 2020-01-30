@@ -106,10 +106,10 @@ public interface PatternElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
 	 */
-	PatternElement getContainer() throws InvalidityException;
+	PatternElement getContainer() throws MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -127,6 +127,6 @@ public interface PatternElement extends EObject {
 	 */
 	void isValidLocal(boolean isDefinedPattern) throws InvalidityException;
 
-	PatternElement getAncestor(Class<?> cls) throws InvalidityException;
+	PatternElement getAncestor(Class<?> cls) throws MissingPatternContainerException;
 
 } // PatternElement

@@ -18,6 +18,8 @@ import qualitypatternmodel.graphstructure.SingleElement;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#translatePathFromPrevious() <em>Translate Path From Previous</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElements() <em>Copy Next Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElement(qualitypatternmodel.graphstructure.SingleElement) <em>Copy Next Element</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -123,6 +125,32 @@ public class SingleElementTest extends ElementTest {
 	 * @generated
 	 */
 	public void testTranslatePathFromPrevious() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElements() <em>Copy Next Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#copyNextElements()
+	 * @generated
+	 */
+	public void testCopyNextElements() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElement(qualitypatternmodel.graphstructure.SingleElement) <em>Copy Next Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#copyNextElement(qualitypatternmodel.graphstructure.SingleElement)
+	 * @generated
+	 */
+	public void testCopyNextElement__SingleElement() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

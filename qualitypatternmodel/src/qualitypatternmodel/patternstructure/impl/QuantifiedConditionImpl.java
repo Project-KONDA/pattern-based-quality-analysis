@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -10,14 +11,17 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.Morphism;
+import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
@@ -148,6 +152,70 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		inputs.addAll(condition.getAllInputs());
 		return inputs;
 	}
+	
+	@Override
+	public NotificationChain basicSetQuantifiedcondition(QuantifiedCondition newQuantifiedcondition, NotificationChain msgs) {
+		NotificationChain msg = super.basicSetQuantifiedcondition(newQuantifiedcondition, msgs);
+		if(newQuantifiedcondition != null) {
+			try {
+				newQuantifiedcondition.getAncestor(PatternImpl.class);					
+				copyPreviousGraph();				
+			} catch (MissingPatternContainerException e) {
+				
+			}
+		} else {
+			// TODO
+		}
+		return msg;
+	} 
+	
+	@Override
+	public NotificationChain basicSetFormula1(Formula newFormula1, NotificationChain msgs) {
+		NotificationChain msg = super.basicSetFormula1(newFormula1, msgs);
+		if(newFormula1 != null) {
+			try {
+				newFormula1.getAncestor(PatternImpl.class);
+				copyPreviousGraph();
+			} catch (MissingPatternContainerException e) {
+				
+			}
+		} else {
+			// TODO
+		}
+		return msg;
+	} 
+	
+	@Override
+	public NotificationChain basicSetFormula2(Formula newFormula2, NotificationChain msgs) {
+		NotificationChain msg = super.basicSetFormula1(newFormula2, msgs);
+		if(newFormula2 != null) {
+			try {
+				newFormula2.getAncestor(PatternImpl.class);
+				copyPreviousGraph();
+			} catch (MissingPatternContainerException e) {
+				
+			}
+		} else {
+			// TODO
+		}
+		return msg;
+	} 
+	
+	@Override
+	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
+		NotificationChain msg = super.basicSetPattern(newPattern, msgs);
+		if(newPattern != null) {
+			try {
+				newPattern.getAncestor(PatternImpl.class);
+				copyPreviousGraph();
+			} catch (MissingPatternContainerException e) {
+				
+			}
+		} else {
+			// TODO
+		}
+		return msg;
+	} 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -172,6 +240,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @generated
 	 */
 	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
+		newCondition.setCondDepth(condDepth+1);
 		Condition oldCondition = condition;
 		condition = newCondition;
 		if (eNotificationRequired()) {
@@ -183,15 +252,16 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
 	 */
+	@Override
 	public void setCondition(Condition newCondition) {
 		if (newCondition != condition) {
 			NotificationChain msgs = null;
 			if (condition != null)
-				msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, null, msgs);
+				msgs = ((InternalEObject)condition).eInverseRemove(this, PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, Condition.class, msgs);
 			if (newCondition != null)
-				msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, null, msgs);
-			newCondition.setCondDepth(condDepth+1);
+				msgs = ((InternalEObject)newCondition).eInverseAdd(this, PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, Condition.class, msgs);			
 			msgs = basicSetCondition(newCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -215,10 +285,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				if (condition != null)
 					msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, null, msgs);
 				return basicSetCondition((Condition)otherEnd, msgs);
-			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-				if (morphism != null)
-					msgs = ((InternalEObject)morphism).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, null, msgs);
-				return basicSetMorphism((Morphism)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -234,9 +300,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		newGraph.setGraphDepth(condDepth);
 		Graph oldGraph = graph;
 		graph = newGraph;
 		if (eNotificationRequired()) {
@@ -248,15 +315,16 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
 	 */
+	@Override
 	public void setGraph(Graph newGraph) {
 		if (newGraph != graph) {
 			NotificationChain msgs = null;
 			if (graph != null)
-				msgs = ((InternalEObject)graph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, null, msgs);
+				msgs = ((InternalEObject)graph).eInverseRemove(this, GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION, Graph.class, msgs);
 			if (newGraph != null)
-				msgs = ((InternalEObject)newGraph).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, null, msgs);
-			newGraph.setGraphDepth(condDepth);
+				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__QUANTIFIEDCONDITION, Graph.class, msgs);
 			msgs = basicSetGraph(newGraph, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -304,6 +372,33 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, newMorphism, newMorphism));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws MissingPatternContainerException 
+	 * @generated NOT
+	 */
+	@Override
+	public void copyPreviousGraph() throws MissingPatternContainerException {	
+		System.out.println("copyPreviousGraph");
+		Graph previousGraph;
+		try {
+			QuantifiedCondition previousQuantifiedCondition = (QuantifiedCondition) getContainer().getAncestor(QuantifiedCondition.class);
+			previousGraph = previousQuantifiedCondition.getGraph();
+		} catch (MissingPatternContainerException e) {
+			Pattern pattern;
+			try {
+				pattern = (Pattern) getAncestor(Pattern.class);
+				previousGraph = pattern.getReturnGraph();
+			} catch (MissingPatternContainerException e1) {
+				e1.printStackTrace();
+				return;
+			}			
+		}
+		getMorphism().setFrom(previousGraph);
+		previousGraph.copyGraph(graph);		
 	}
 
 	/**
@@ -456,6 +551,26 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				return morphism != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PatternstructurePackage.QUANTIFIED_CONDITION___COPY_PREVIOUS_GRAPH:
+				try {
+					copyPreviousGraph();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

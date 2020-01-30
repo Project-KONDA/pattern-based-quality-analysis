@@ -423,6 +423,26 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getSingleElement__CopyNextElements() {
+		return singleElementEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getSingleElement__CopyNextElement__SingleElement() {
+		return singleElementEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getSetElement() {
 		return setElementEClass;
 	}
@@ -803,6 +823,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getGraph__CopyGraph__Graph() {
+		return graphEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGraphElement() {
 		return graphElementEClass;
 	}
@@ -969,6 +999,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_XQUERY_VARIABLE);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___TRANSLATE_PREDICATES__LOCATION);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___COPY_NEXT_ELEMENTS);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___COPY_NEXT_ELEMENT__SINGLEELEMENT);
 
 		setElementEClass = createEClass(SET_ELEMENT);
 		createEAttribute(setElementEClass, SET_ELEMENT__NESTING_DEPTH);
@@ -1010,6 +1042,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(graphEClass, GRAPH__QUANTIFIEDCONDITION);
 		createEReference(graphEClass, GRAPH__PATTERN);
 		createEOperation(graphEClass, GRAPH___GET_ALL_OPERATORS);
+		createEOperation(graphEClass, GRAPH___COPY_GRAPH__GRAPH);
 
 		graphElementEClass = createEClass(GRAPH_ELEMENT);
 		createEReference(graphElementEClass, GRAPH_ELEMENT__COMPARISON1);
@@ -1103,6 +1136,13 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getSingleElement__TranslatePathFromPrevious(), ecorePackage.getEString(), "translatePathFromPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getSingleElement__CopyNextElements(), null, "copyNextElements", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
+
+		op = initEOperation(getSingleElement__CopyNextElement__SingleElement(), null, "copyNextElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSingleElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
+
 		initEClass(setElementEClass, SetElement.class, "SetElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSetElement_NestingDepth(), ecorePackage.getEInt(), "nestingDepth", null, 1, 1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSetElement_Next(), this.getSetElement(), this.getSetElement_PreviousSet(), "next", null, 0, -1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1174,6 +1214,10 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		op = initEOperation(getGraph__GetAllOperators(), theFunctionsPackage.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getGraph__CopyGraph__Graph(), null, "copyGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGraph(), "graph", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
 
 		initEClass(graphElementEClass, GraphElement.class, "GraphElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraphElement_Comparison1(), theFunctionsPackage.getComparison(), theFunctionsPackage.getComparison_Argument1(), "comparison1", null, 0, -1, GraphElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

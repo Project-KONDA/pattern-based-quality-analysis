@@ -27,6 +27,10 @@ public interface ConditionValidator {
 
 	boolean validateQuantifiedcondition(QuantifiedCondition value);
 
+	boolean validateFormula1(Formula value);
+
+	boolean validateFormula2(Formula value);
+
 	boolean validateFormula(Formula value);
 
 }

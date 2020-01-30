@@ -17,7 +17,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getGetNextQuantifiedConditions <em>Get Next Quantified Conditions</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Condition#getFormula <em>Formula</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Condition#getFormula1 <em>Formula1</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Condition#getFormula2 <em>Formula2</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition()
@@ -112,26 +113,50 @@ public interface Condition extends PatternElement {
 	void setQuantifiedcondition(QuantifiedCondition value);
 
 	/**
-	 * Returns the value of the '<em><b>Formula</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Formula#getArguments <em>Arguments</em>}'.
+	 * Returns the value of the '<em><b>Formula1</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Formula#getArgument1 <em>Argument1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Formula</em>' container reference.
-	 * @see #setFormula(Formula)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_Formula()
-	 * @see qualitypatternmodel.patternstructure.Formula#getArguments
-	 * @model opposite="arguments" transient="false"
+	 * @return the value of the '<em>Formula1</em>' container reference.
+	 * @see #setFormula1(Formula)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_Formula1()
+	 * @see qualitypatternmodel.patternstructure.Formula#getArgument1
+	 * @model opposite="argument1" transient="false"
 	 * @generated
 	 */
-	Formula getFormula();
+	Formula getFormula1();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Condition#getFormula <em>Formula</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Condition#getFormula1 <em>Formula1</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Formula</em>' container reference.
-	 * @see #getFormula()
+	 * @param value the new value of the '<em>Formula1</em>' container reference.
+	 * @see #getFormula1()
 	 * @generated
 	 */
-	void setFormula(Formula value);
+	void setFormula1(Formula value);
+
+	/**
+	 * Returns the value of the '<em><b>Formula2</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Formula#getArgument2 <em>Argument2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Formula2</em>' container reference.
+	 * @see #setFormula2(Formula)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_Formula2()
+	 * @see qualitypatternmodel.patternstructure.Formula#getArgument2
+	 * @model opposite="argument2" transient="false"
+	 * @generated
+	 */
+	Formula getFormula2();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Condition#getFormula2 <em>Formula2</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Formula2</em>' container reference.
+	 * @see #getFormula2()
+	 * @generated
+	 */
+	void setFormula2(Formula value);
 } // Condition

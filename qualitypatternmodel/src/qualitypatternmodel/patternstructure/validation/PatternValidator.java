@@ -19,6 +19,10 @@ public interface PatternValidator {
 
 	boolean validateReturnGraph(Graph value);
 	boolean validateCondition(Condition value);
+	boolean validateElementCounter(int value);
+
+	boolean validateName(String value);
+
 	boolean validateVariableList(VariableList value);
 
 	boolean validateCheckMorphismOfNextGraph(boolean value);

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
@@ -135,15 +136,16 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws MissingPatternContainerException 
 	 * @throws Exception 
 	 * 
 	 * @generated NOT
 	 */
 	@Override
-	public PatternElement getContainer() throws InvalidityException {
+	public PatternElement getContainer() throws MissingPatternContainerException {
 		if (eInternalContainer() instanceof PatternElement)
 			return (PatternElement)eInternalContainer(); 
-		throw new InvalidityException("container object invalid");
+		throw new MissingPatternContainerException("container object invalid");
 	}
 
 	/**
@@ -153,7 +155,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	@Override
-	public PatternElement getAncestor(Class cls) throws InvalidityException {
+	public PatternElement getAncestor(Class cls) throws MissingPatternContainerException {
 		if (cls.isInstance(this))
 			return this;
 		else
@@ -211,7 +213,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		if (refNo == -1) {
 				try {
 					refNo = ((PatternImpl) this.getAncestor(PatternImpl.class)).getNewRefNo();
-				} catch (InvalidityException e) {
+				} catch (MissingPatternContainerException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}

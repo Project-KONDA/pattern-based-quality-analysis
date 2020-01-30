@@ -187,7 +187,7 @@ public interface Pattern extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
 	int getNewRefNo() throws InvalidityException;

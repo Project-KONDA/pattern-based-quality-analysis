@@ -30,8 +30,13 @@ import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
+import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
+import qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl;
+
 import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
@@ -138,6 +143,40 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			return ((SingleElement) getPrevious()).getXQueryVariable() + "/" + relationFromPrevious.getAxis() + "::*";
 		} else {
 			return "/*";
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws MissingPatternContainerException 
+	 * @generated NOT
+	 */
+	@Override
+	public void copyNextElements() throws MissingPatternContainerException {
+		for(SingleElement nextSingleElement : getNextSingle()) {
+			copyNextElement(nextSingleElement);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws MissingPatternContainerException 
+	 * @generated NOT
+	 */
+	@Override
+	public void copyNextElement(SingleElement element) throws MissingPatternContainerException {
+		SingleElement newSingleElement = new SingleElementImpl();
+		for(SingleElementMapping singleElementMapping : getMappingTo()) {						
+			singleElementMapping.getTo().getNextSingle().add(newSingleElement);
+			SingleElementMapping newSingleElementMapping = new SingleElementMappingImpl(element, newSingleElement);	
+			singleElementMapping.getMorphism().getMappings().add(newSingleElementMapping);
+			if(element.getRelationFromPrevious() != null) {
+				RelationMapping newRelationMapping = new RelationMappingImpl(element.getRelationFromPrevious(), newSingleElement.getRelationFromPrevious());	
+				singleElementMapping.getMorphism().getMappings().add(newRelationMapping);	
+			}			
+			element.copyNextElements(); 
 		}
 	}
 
@@ -370,9 +409,19 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetPrevious(SingleElement newPrevious, NotificationChain msgs) {
+		if(newPrevious != null) {
+			try {
+				newPrevious.copyNextElement(this);
+			} catch (MissingPatternContainerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			// TODO: remove elements from previous graphs
+		}
 		msgs = eBasicSetContainer((InternalEObject)newPrevious, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, msgs);
 		return msgs;
 	}
@@ -627,6 +676,22 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				}
 			case GraphstructurePackage.SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
 				return translatePathFromPrevious();
+			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENTS:
+				try {
+					copyNextElements();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENT__SINGLEELEMENT:
+				try {
+					copyNextElement((SingleElement)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

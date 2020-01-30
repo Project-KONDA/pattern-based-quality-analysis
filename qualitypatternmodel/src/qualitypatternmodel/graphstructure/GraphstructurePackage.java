@@ -1274,13 +1274,31 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Copy Next Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS = ELEMENT_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Copy Next Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT__SINGLEELEMENT = ELEMENT_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Single Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 4;
+	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
@@ -1879,13 +1897,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___GET_ALL_OPERATORS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Copy Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___COPY_GRAPH__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.
@@ -2151,6 +2178,26 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSingleElement__TranslatePathFromPrevious();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElements() <em>Copy Next Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy Next Elements</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#copyNextElements()
+	 * @generated
+	 */
+	EOperation getSingleElement__CopyNextElements();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElement(qualitypatternmodel.graphstructure.SingleElement) <em>Copy Next Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy Next Element</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#copyNextElement(qualitypatternmodel.graphstructure.SingleElement)
+	 * @generated
+	 */
+	EOperation getSingleElement__CopyNextElement__SingleElement();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.SetElement <em>Set Element</em>}'.
@@ -2555,6 +2602,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getGraph__GetAllOperators();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph) <em>Copy Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy Graph</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph)
+	 * @generated
+	 */
+	EOperation getGraph__CopyGraph__Graph();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.GraphElement <em>Graph Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2875,6 +2932,22 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = eINSTANCE.getSingleElement__TranslatePathFromPrevious();
 
 		/**
+		 * The meta object literal for the '<em><b>Copy Next Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___COPY_NEXT_ELEMENTS = eINSTANCE.getSingleElement__CopyNextElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy Next Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___COPY_NEXT_ELEMENT__SINGLEELEMENT = eINSTANCE.getSingleElement__CopyNextElement__SingleElement();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3183,6 +3256,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRAPH___GET_ALL_OPERATORS = eINSTANCE.getGraph__GetAllOperators();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy Graph</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___COPY_GRAPH__GRAPH = eINSTANCE.getGraph__CopyGraph__Graph();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphElementImpl <em>Graph Element</em>}' class.

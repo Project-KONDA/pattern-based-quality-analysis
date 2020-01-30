@@ -161,18 +161,12 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		res += WHERE + condition.toXQuery(Location.OUTSIDE);
 		
 		res += RETURN + "(";
-		EList<SingleElement> x = returnGraph.getReturnElements();
-		for (int i = 0; i < x.size(); i++) {
-			if(i!=0) res += " ,";
-			res += x.get(i);
+		EList<SingleElement> returnElements = returnGraph.getReturnElements();
+		for (int i = 0; i < returnElements.size(); i++) {
+			if(i!=0) res += ", ";
+			res += VARIABLE + returnElements.get(i).getOriginalID();
 		}
 		return res + ")";
-		
-//		for (SingleElement returnElement : returnGraph.getReturnElements()) {
-//			res += VARIABLE + returnElement.getOriginalID() + ", ";
-//		}				
-//		
-//		return  res.substring(0, res.length() - 2) + ")";
 	}
 
 	public String toXQuery() throws InvalidityException {
@@ -185,7 +179,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * @generated NOT
 	 */
 	@Override
-	public int getNewRefNo() throws InvalidityException {
+	public int getNewRefNo() {
 		return elementCounter++;		
 	}
 
@@ -568,12 +562,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 					throw new InvocationTargetException(throwable);
 				}
 			case PatternstructurePackage.PATTERN___GET_NEW_REF_NO:
-				try {
-					return getNewRefNo();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getNewRefNo();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

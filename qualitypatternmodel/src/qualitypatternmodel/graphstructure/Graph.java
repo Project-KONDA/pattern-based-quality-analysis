@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.patternstructure.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -225,5 +226,13 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	EList<Operator> getAllOperators() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
+	 * @generated
+	 */
+	void copyGraph(Graph graph) throws MissingPatternContainerException;
 
 } // Graph

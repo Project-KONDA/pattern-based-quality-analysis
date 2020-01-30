@@ -52,10 +52,16 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected SingleElementMappingImpl() {
+	public SingleElementMappingImpl() {
 		super();
+	}
+	
+	public SingleElementMappingImpl(SingleElement from, SingleElement to) {
+		super();
+		setFrom(from);
+		setTo(to);	
 	}
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {

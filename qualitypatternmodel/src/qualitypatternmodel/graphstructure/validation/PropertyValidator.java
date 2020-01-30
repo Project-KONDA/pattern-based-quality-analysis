@@ -7,6 +7,7 @@ package qualitypatternmodel.graphstructure.validation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
+import qualitypatternmodel.inputfields.TextLiteral;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.Property}.
@@ -19,5 +20,7 @@ public interface PropertyValidator {
 
 	boolean validatePropertyOption(PropertyOption value);
 	boolean validateElement(Element value);
+	boolean validateAttributeName(TextLiteral value);
+
 	boolean validateAttributeName(Text value);
 }

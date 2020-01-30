@@ -8,9 +8,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
-import com.sun.org.apache.xml.internal.security.utils.Constants;
-
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -91,7 +88,7 @@ public class TextListImpl extends TextImpl implements TextList {
 	 */
 	@Override
 	public String getListDeclaration() {
-		String res = LET + getListVar() + " (";
+		String res = LET + getListVar() + " := (";
 		for (int i = 0; i<getValues().size(); i++) {
 			if (i!=0) res += ", ";
 			res += "'" + getValues().get(i) + "'";

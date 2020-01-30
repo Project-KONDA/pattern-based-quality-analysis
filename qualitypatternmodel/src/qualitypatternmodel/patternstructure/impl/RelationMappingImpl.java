@@ -57,6 +57,12 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	protected RelationMappingImpl() {
 		super();
 	}
+	
+	public RelationMappingImpl(Relation from, Relation to) {
+		super();
+		setFrom(from);
+		setTo(to);
+	}
 
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidityException {

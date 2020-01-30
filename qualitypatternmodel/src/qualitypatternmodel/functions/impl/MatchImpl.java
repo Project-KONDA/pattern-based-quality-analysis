@@ -78,9 +78,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public String toXQuery(Location location) throws InvalidityException {
 		if(option!=null && regularExpression != null && regularExpression.getValue() != null && property != null) {
 			if (option.getValue()){
-				return "matches(" + property.toXQuery(location) + "," + regularExpression.getValue() + ")";
+				return "matches(" + property.toXQuery(location) + ", \"" + regularExpression.getValue() + "\")";
 			} else {
-				return "not(matches(" + property.toXQuery(location) + ",\"" + regularExpression.getValue() + "\"))";
+				return "not(matches(" + property.toXQuery(location) + ", \"" + regularExpression.getValue() + "\"))";
 			}	
 		} else {
 			throw new InvalidityException("invalid option");

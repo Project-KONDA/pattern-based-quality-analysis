@@ -17,6 +17,12 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#isCheckMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}</li>
  * </ul>
  * </p>
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#copyPreviousGraph() <em>Copy Previous Graph</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class QuantifiedConditionTest extends ConditionTest {
@@ -95,6 +101,19 @@ public class QuantifiedConditionTest extends ConditionTest {
 	 */
 	public void testSetCheckMorphismOfNextGraph() {
 		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#copyPreviousGraph() <em>Copy Previous Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#copyPreviousGraph()
+	 * @generated
+	 */
+	public void testCopyPreviousGraph() {
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

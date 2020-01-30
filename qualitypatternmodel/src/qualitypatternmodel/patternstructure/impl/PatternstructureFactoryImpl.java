@@ -86,6 +86,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return createInvalidityExceptionWrapperFromString(eDataType, initialValue);
 			case PatternstructurePackage.CLASS_WRAPPER:
 				return createClassWrapperFromString(eDataType, initialValue);
+			case PatternstructurePackage.MISSING_PATTERN_CONTAINER_EXCEPTION:
+				return createMissingPatternContainerExceptionFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -109,6 +111,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return convertInvalidityExceptionWrapperToString(eDataType, instanceValue);
 			case PatternstructurePackage.CLASS_WRAPPER:
 				return convertClassWrapperToString(eDataType, instanceValue);
+			case PatternstructurePackage.MISSING_PATTERN_CONTAINER_EXCEPTION:
+				return convertMissingPatternContainerExceptionToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -284,6 +288,24 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	public String convertClassWrapperToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MissingPatternContainerException createMissingPatternContainerExceptionFromString(EDataType eDataType, String initialValue) {
+		return (MissingPatternContainerException)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMissingPatternContainerExceptionToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

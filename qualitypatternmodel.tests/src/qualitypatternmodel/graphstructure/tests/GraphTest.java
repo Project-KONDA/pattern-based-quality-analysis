@@ -24,6 +24,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph) <em>Copy Graph</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -116,6 +117,19 @@ public class GraphTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetAllOperators() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph) <em>Copy Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph)
+	 * @generated
+	 */
+	public void testCopyGraph__Graph() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

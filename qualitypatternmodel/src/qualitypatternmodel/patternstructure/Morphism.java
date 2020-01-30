@@ -22,7 +22,6 @@ import qualitypatternmodel.graphstructure.Graph;
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings <em>Check Relation Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness <em>Check Single Element Mappings Uniqueness</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness <em>Check Relation Mappings Uniqueness</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
  * </ul>
  *
@@ -204,29 +203,5 @@ public interface Morphism extends PatternElement {
 	 * @generated
 	 */
 	void setCheckRelationMappingsUniqueness(Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Quantifiedcondition</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getMorphism <em>Morphism</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Quantifiedcondition</em>' container reference.
-	 * @see #setQuantifiedcondition(QuantifiedCondition)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Quantifiedcondition()
-	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#getMorphism
-	 * @model opposite="morphism" required="true" transient="false"
-	 * @generated
-	 */
-	QuantifiedCondition getQuantifiedcondition();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getQuantifiedcondition <em>Quantifiedcondition</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Quantifiedcondition</em>' container reference.
-	 * @see #getQuantifiedcondition()
-	 * @generated
-	 */
-	void setQuantifiedcondition(QuantifiedCondition value);
 
 } // Morphism

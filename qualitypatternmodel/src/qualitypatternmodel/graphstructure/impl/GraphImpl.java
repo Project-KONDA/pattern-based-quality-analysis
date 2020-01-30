@@ -4,17 +4,14 @@ package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -30,10 +27,14 @@ import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Mapping;
+import qualitypatternmodel.patternstructure.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.SingleElementMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -187,6 +188,26 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws MissingPatternContainerException 
+	 * @generated NOT
+	 */
+	@Override
+	public void copyGraph(Graph graph) throws MissingPatternContainerException {		
+		graph.getQuantifiedcondition().getMorphism().getMappings().add(new SingleElementMappingImpl(rootElement, graph.getRootElement()));
+//		for(Mapping mapping : mappings) {
+//			if(mapping instanceof SingleElementMapping) {
+//				SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
+//				if(singleElementMapping.getTo().equals(graph.getRootElement())) {
+//					singleElementMapping.setFrom(rootElement);
+//				}
+//			}
+//		}
+		rootElement.copyNextElements();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -236,10 +257,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public SingleElement getRootElement() {
+		if(rootElement == null) {
+			setRootElement(new SingleElementImpl());			
+		}
 		return rootElement;
 	}
 
@@ -656,6 +680,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH___GET_ALL_OPERATORS:
 				try {
 					return getAllOperators();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.GRAPH___COPY_GRAPH__GRAPH:
+				try {
+					copyGraph((Graph)arguments.get(0));
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

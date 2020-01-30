@@ -85,7 +85,8 @@ public class FormulaItemProvider extends ConditionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.FORMULA__ARGUMENTS);
+			childrenFeatures.add(PatternstructurePackage.Literals.FORMULA__ARGUMENT1);
+			childrenFeatures.add(PatternstructurePackage.Literals.FORMULA__ARGUMENT2);
 		}
 		return childrenFeatures;
 	}
@@ -142,7 +143,8 @@ public class FormulaItemProvider extends ConditionItemProvider {
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case PatternstructurePackage.FORMULA__ARGUMENTS:
+			case PatternstructurePackage.FORMULA__ARGUMENT1:
+			case PatternstructurePackage.FORMULA__ARGUMENT2:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -162,18 +164,56 @@ public class FormulaItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__ARGUMENTS,
+				(PatternstructurePackage.Literals.FORMULA__ARGUMENT1,
 				 PatternstructureFactory.eINSTANCE.createQuantifiedCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__ARGUMENTS,
+				(PatternstructurePackage.Literals.FORMULA__ARGUMENT1,
 				 PatternstructureFactory.eINSTANCE.createFormula()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__ARGUMENTS,
+				(PatternstructurePackage.Literals.FORMULA__ARGUMENT1,
 				 PatternstructureFactory.eINSTANCE.createTrue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.FORMULA__ARGUMENT2,
+				 PatternstructureFactory.eINSTANCE.createQuantifiedCondition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.FORMULA__ARGUMENT2,
+				 PatternstructureFactory.eINSTANCE.createFormula()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.FORMULA__ARGUMENT2,
+				 PatternstructureFactory.eINSTANCE.createTrue()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == PatternstructurePackage.Literals.FORMULA__ARGUMENT1 ||
+			childFeature == PatternstructurePackage.Literals.FORMULA__ARGUMENT2;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

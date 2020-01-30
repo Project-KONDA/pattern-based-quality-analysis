@@ -5,6 +5,7 @@ package qualitypatternmodel.graphstructure;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
 /**
@@ -175,5 +176,21 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	String translatePathFromPrevious();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
+	 * @generated
+	 */
+	void copyNextElements() throws MissingPatternContainerException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
+	 * @generated
+	 */
+	void copyNextElement(SingleElement element) throws MissingPatternContainerException;
 
 } // SingleElement
