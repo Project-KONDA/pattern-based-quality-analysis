@@ -12,14 +12,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
-
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 

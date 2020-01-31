@@ -6,8 +6,9 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.GraphElement;
-import qualitypatternmodel.patternstructure.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->

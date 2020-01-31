@@ -1,4 +1,4 @@
-package qualitypatternmodel.patternstructure;
+package qualitypatternmodel.exceptions;
 
 public class InvalidityException extends Exception {
 

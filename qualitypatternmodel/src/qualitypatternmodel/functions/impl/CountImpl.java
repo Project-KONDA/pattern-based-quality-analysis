@@ -10,13 +10,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**

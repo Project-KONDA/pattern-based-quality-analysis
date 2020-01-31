@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.graphstructure;
 
-import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.RelationMapping;
 

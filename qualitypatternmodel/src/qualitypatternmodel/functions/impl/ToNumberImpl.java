@@ -10,14 +10,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.functions.ToNumber;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**

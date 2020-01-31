@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.*;
 
 import qualitypatternmodel.graphstructure.util.GraphstructureValidator;

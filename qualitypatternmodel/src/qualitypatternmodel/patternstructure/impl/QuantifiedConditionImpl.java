@@ -12,21 +12,22 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import qualitypatternmodel.functions.OperatorCycleException;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.patternstructure.True;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -140,6 +141,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			throw new InvalidityException("morphism null");
 		if (quantifier != Quantifier.EXISTS && quantifier != Quantifier.FORALL)
 			throw new InvalidityException("quantifier invalid");		
+		if(quantifier == Quantifier.FORALL) 
+			if(getCondition() instanceof True) 
+				throw new InvalidityException("successor condition of quantified condition forall is true");
+			
+		
 	}
 	
 	@Override
@@ -242,6 +248,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @generated
 	 */
 	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
+		if(getQuantifier() == Quantifier.FORALL && newCondition instanceof True) {
+			if(condition != null) {
+				condition.setQuantifiedcondition(this);
+			}
+			if(newCondition != null) {
+				newCondition.setQuantifiedcondition(null);
+			}
+			return msgs;
+		}
 		Condition oldCondition = condition;
 		condition = newCondition;
 		if (eNotificationRequired()) {

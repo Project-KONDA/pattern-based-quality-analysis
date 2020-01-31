@@ -3,8 +3,9 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Count;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**

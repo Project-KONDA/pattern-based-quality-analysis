@@ -8,14 +8,14 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
-import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.impl.GraphElementImpl;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.patternstructure.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->

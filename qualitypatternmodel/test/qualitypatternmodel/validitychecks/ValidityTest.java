@@ -11,8 +11,8 @@ import org.eclipse.ocl.pivot.internal.delegate.OCLValidationDelegateFactory;
 import org.eclipse.ocl.pivot.model.OCLstdlib;
 import org.eclipse.ocl.xtext.oclinecore.OCLinEcoreStandaloneSetup;
 
-import qualitypatternmodel.functions.OperatorCycleException;
-import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.Pattern;
 
 public class ValidityTest {

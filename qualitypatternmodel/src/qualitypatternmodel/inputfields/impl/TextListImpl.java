@@ -8,9 +8,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.TextList;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import static qualitypatternmodel.utilityclasses.Constants.*;
 

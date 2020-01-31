@@ -3,9 +3,10 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.patternstructure.InvalidityException;
+
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
 /**

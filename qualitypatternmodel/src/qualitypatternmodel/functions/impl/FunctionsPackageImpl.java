@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
@@ -21,7 +22,6 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.NumberOperator;
 import qualitypatternmodel.functions.Operator;
-import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.functions.OtherOperator;
 import qualitypatternmodel.functions.ToNumber;

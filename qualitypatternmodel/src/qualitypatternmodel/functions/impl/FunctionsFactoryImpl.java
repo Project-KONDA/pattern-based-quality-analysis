@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.*;
 
 /**

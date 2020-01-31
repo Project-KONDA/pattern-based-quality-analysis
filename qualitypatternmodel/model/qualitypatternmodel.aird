@@ -3338,7 +3338,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_f0hGdEQQEeqD66ENbhD4xQ" name="qualitypatternmodel.functions.OperatorCycleException" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_f0hGdEQQEeqD66ENbhD4xQ" name="qualitypatternmodel.exceptions.OperatorCycleException" tooltipText="">
           <target xmi:type="ecore:EDataType" href="qualitypatternmodel.ecore#//functions/OperatorCycleExceptionWrapper"/>
           <semanticElements xmi:type="ecore:EDataType" href="qualitypatternmodel.ecore#//functions/OperatorCycleExceptionWrapper"/>
           <decorations xmi:type="viewpoint:Decoration" uid="_f0kJw0QQEeqD66ENbhD4xQ">
@@ -4403,7 +4403,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_GZ2FpCMkEeq7GbtfgEc6MA" name="qualitypatternmodel.patternstructure.InvalidityException" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_GZ2FpCMkEeq7GbtfgEc6MA" name="qualitypatternmodel.exceptions.InvalidityException" tooltipText="">
           <target xmi:type="ecore:EDataType" href="qualitypatternmodel.ecore#//patternstructure/InvalidityExceptionWrapper"/>
           <semanticElements xmi:type="ecore:EDataType" href="qualitypatternmodel.ecore#//patternstructure/InvalidityExceptionWrapper"/>
           <decorations xmi:type="viewpoint:Decoration" uid="_GZ3TsCMkEeq7GbtfgEc6MA">
@@ -4446,7 +4446,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_8-Oa4EM8Eeq0cZxoDyHtYQ" name="qualitypatternmodel.patternstructure.MissingPatternContainerException" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_8-Oa4EM8Eeq0cZxoDyHtYQ" name="qualitypatternmodel.exceptions.MissingPatternContainerException" tooltipText="">
           <target xmi:type="ecore:EDataType" href="qualitypatternmodel.ecore#//patternstructure/MissingPatternContainerException"/>
           <semanticElements xmi:type="ecore:EDataType" href="qualitypatternmodel.ecore#//patternstructure/MissingPatternContainerException"/>
           <decorations xmi:type="viewpoint:Decoration" uid="_8-PB8EM8Eeq0cZxoDyHtYQ">

@@ -14,7 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import qualitypatternmodel.functions.OperatorCycleException;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
@@ -24,7 +25,6 @@ import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.inputfields.impl.VariableListImpl;
 import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;

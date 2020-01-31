@@ -2,7 +2,8 @@
  */
 package qualitypatternmodel.patternstructure;
 
-import qualitypatternmodel.functions.OperatorCycleException;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.inputfields.VariableList;
 

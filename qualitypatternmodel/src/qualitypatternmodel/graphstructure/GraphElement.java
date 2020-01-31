@@ -5,8 +5,9 @@ package qualitypatternmodel.graphstructure;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
 

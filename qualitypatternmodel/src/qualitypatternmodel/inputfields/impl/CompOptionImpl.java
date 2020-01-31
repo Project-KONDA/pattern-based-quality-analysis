@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**

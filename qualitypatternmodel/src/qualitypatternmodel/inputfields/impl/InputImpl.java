@@ -15,12 +15,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.GraphElementImpl;
 
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.VariableList;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**

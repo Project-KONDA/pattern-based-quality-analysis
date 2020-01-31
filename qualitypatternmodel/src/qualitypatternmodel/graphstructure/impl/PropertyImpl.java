@@ -13,7 +13,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
-import qualitypatternmodel.functions.OperatorCycleException;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -23,7 +24,6 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**

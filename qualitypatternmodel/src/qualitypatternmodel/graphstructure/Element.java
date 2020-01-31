@@ -4,10 +4,10 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**

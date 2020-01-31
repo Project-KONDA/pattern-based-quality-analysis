@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure;
 
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Graph;
 
 /**

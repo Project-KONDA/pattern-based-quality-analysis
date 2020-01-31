@@ -11,12 +11,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
-import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -27,7 +28,6 @@ import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.impl.InputImpl;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**

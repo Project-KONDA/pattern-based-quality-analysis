@@ -4,10 +4,10 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
-import qualitypatternmodel.patternstructure.InvalidityException;
-import qualitypatternmodel.patternstructure.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;

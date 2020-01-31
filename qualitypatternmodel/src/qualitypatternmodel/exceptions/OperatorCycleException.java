@@ -1,4 +1,4 @@
-package qualitypatternmodel.functions;
+package qualitypatternmodel.exceptions;
 
 public class OperatorCycleException extends Exception {
 

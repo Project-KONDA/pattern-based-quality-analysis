@@ -4,7 +4,7 @@ package qualitypatternmodel.patternstructure.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import qualitypatternmodel.patternstructure.InvalidityException;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.True;

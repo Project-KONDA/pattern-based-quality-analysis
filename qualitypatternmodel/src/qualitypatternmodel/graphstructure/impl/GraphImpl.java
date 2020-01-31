@@ -15,9 +15,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
-import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.functions.impl.OperatorListImpl;
 import qualitypatternmodel.graphstructure.Element;
@@ -26,9 +29,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.MissingPatternContainerException;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;

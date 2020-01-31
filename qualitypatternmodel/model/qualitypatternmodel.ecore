@@ -130,7 +130,7 @@
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/operatorList"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="OperatorCycleExceptionWrapper"
-        instanceClassName="qualitypatternmodel.functions.OperatorCycleException"/>
+        instanceClassName="qualitypatternmodel.exceptions.OperatorCycleException"/>
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -575,9 +575,9 @@
       <eLiterals name="EXISTS" value="2" literal="EXISTS"/>
       <eLiterals name="FORALL" value="3" literal="FORALL"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="InvalidityExceptionWrapper" instanceClassName="qualitypatternmodel.patternstructure.InvalidityException"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="InvalidityExceptionWrapper" instanceClassName="qualitypatternmodel.exceptions.InvalidityException"/>
     <eClassifiers xsi:type="ecore:EDataType" name="ClassWrapper" instanceClassName="java.lang.Class"/>
     <eClassifiers xsi:type="ecore:EDataType" name="MissingPatternContainerException"
-        instanceClassName="qualitypatternmodel.patternstructure.MissingPatternContainerException"/>
+        instanceClassName="qualitypatternmodel.exceptions.MissingPatternContainerException"/>
   </eSubpackages>
 </ecore:EPackage>

@@ -2101,7 +2101,7 @@ public interface FunctionsPackage extends EPackage {
 	 * The meta object id for the '<em>Operator Cycle Exception Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.functions.OperatorCycleException
+	 * @see qualitypatternmodel.exceptions.OperatorCycleException
 	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getOperatorCycleExceptionWrapper()
 	 * @generated
 	 */
@@ -2409,12 +2409,12 @@ public interface FunctionsPackage extends EPackage {
 	EEnum getComparisonOperator();
 
 	/**
-	 * Returns the meta object for data type '{@link qualitypatternmodel.functions.OperatorCycleException <em>Operator Cycle Exception Wrapper</em>}'.
+	 * Returns the meta object for data type '{@link qualitypatternmodel.exceptions.OperatorCycleException <em>Operator Cycle Exception Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Operator Cycle Exception Wrapper</em>'.
-	 * @see qualitypatternmodel.functions.OperatorCycleException
-	 * @model instanceClass="qualitypatternmodel.functions.OperatorCycleException"
+	 * @see qualitypatternmodel.exceptions.OperatorCycleException
+	 * @model instanceClass="qualitypatternmodel.exceptions.OperatorCycleException"
 	 * @generated
 	 */
 	EDataType getOperatorCycleExceptionWrapper();
@@ -2698,7 +2698,7 @@ public interface FunctionsPackage extends EPackage {
 		 * The meta object literal for the '<em>Operator Cycle Exception Wrapper</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.functions.OperatorCycleException
+		 * @see qualitypatternmodel.exceptions.OperatorCycleException
 		 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getOperatorCycleExceptionWrapper()
 		 * @generated
 		 */

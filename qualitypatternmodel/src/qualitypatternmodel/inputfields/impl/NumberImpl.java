@@ -8,9 +8,9 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 
 /**

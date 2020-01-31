@@ -1805,7 +1805,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * The meta object id for the '<em>Invalidity Exception Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.InvalidityException
+	 * @see qualitypatternmodel.exceptions.InvalidityException
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 	 * @generated
 	 */
@@ -1825,7 +1825,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * The meta object id for the '<em>Missing Pattern Container Exception</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.MissingPatternContainerException
+	 * @see qualitypatternmodel.exceptions.MissingPatternContainerException
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMissingPatternContainerException()
 	 * @generated
 	 */
@@ -2478,12 +2478,12 @@ public interface PatternstructurePackage extends EPackage {
 	EEnum getLocation();
 
 	/**
-	 * Returns the meta object for data type '{@link qualitypatternmodel.patternstructure.InvalidityException <em>Invalidity Exception Wrapper</em>}'.
+	 * Returns the meta object for data type '{@link qualitypatternmodel.exceptions.InvalidityException <em>Invalidity Exception Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Invalidity Exception Wrapper</em>'.
-	 * @see qualitypatternmodel.patternstructure.InvalidityException
-	 * @model instanceClass="qualitypatternmodel.patternstructure.InvalidityException"
+	 * @see qualitypatternmodel.exceptions.InvalidityException
+	 * @model instanceClass="qualitypatternmodel.exceptions.InvalidityException"
 	 * @generated
 	 */
 	EDataType getInvalidityExceptionWrapper();
@@ -2500,12 +2500,12 @@ public interface PatternstructurePackage extends EPackage {
 	EDataType getClassWrapper();
 
 	/**
-	 * Returns the meta object for data type '{@link qualitypatternmodel.patternstructure.MissingPatternContainerException <em>Missing Pattern Container Exception</em>}'.
+	 * Returns the meta object for data type '{@link qualitypatternmodel.exceptions.MissingPatternContainerException <em>Missing Pattern Container Exception</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Missing Pattern Container Exception</em>'.
-	 * @see qualitypatternmodel.patternstructure.MissingPatternContainerException
-	 * @model instanceClass="qualitypatternmodel.patternstructure.MissingPatternContainerException"
+	 * @see qualitypatternmodel.exceptions.MissingPatternContainerException
+	 * @model instanceClass="qualitypatternmodel.exceptions.MissingPatternContainerException"
 	 * @generated
 	 */
 	EDataType getMissingPatternContainerException();
@@ -3051,7 +3051,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * The meta object literal for the '<em>Invalidity Exception Wrapper</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.InvalidityException
+		 * @see qualitypatternmodel.exceptions.InvalidityException
 		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 		 * @generated
 		 */
@@ -3071,7 +3071,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * The meta object literal for the '<em>Missing Pattern Container Exception</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.MissingPatternContainerException
+		 * @see qualitypatternmodel.exceptions.MissingPatternContainerException
 		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMissingPatternContainerException()
 		 * @generated
 		 */
