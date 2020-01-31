@@ -21,8 +21,10 @@ public class ProgrammaticalCreation {
 		QuantifiedCondition condition = factory.createQuantifiedCondition();
 		Graph graph = graphFactory.createGraph();
 		SingleElement singleElement = graphFactory.createSingleElement();
+		singleElement.getNextElements().add(singleElement);
+		System.out.println(singleElement.getPrevious());
 		
-		System.out.println(pattern.getId() + " " + condition.getId() + " "+ graph.getId() + " " + singleElement.getId());
+//		System.out.println(pattern.getId() + " " + condition.getId() + " "+ graph.getId() + " " + singleElement.getId());
 	}
 
 }

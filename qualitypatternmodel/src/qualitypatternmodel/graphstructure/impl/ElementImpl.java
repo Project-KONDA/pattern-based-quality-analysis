@@ -24,6 +24,7 @@ import qualitypatternmodel.functions.BooleanOperator;
 
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
@@ -147,7 +148,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
 		isValidLocal(isDefinedPattern);
 		for (Element next : getNextElements())
 			next.isValid(isDefinedPattern);

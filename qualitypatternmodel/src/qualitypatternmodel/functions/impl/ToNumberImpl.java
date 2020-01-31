@@ -3,6 +3,7 @@
 package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,7 +12,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.functions.ToNumber;
+import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.patternstructure.InvalidityException;
@@ -60,7 +63,7 @@ public class ToNumberImpl extends NumberOperatorImpl implements ToNumber {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
 		isValidLocal(isDefinedPattern);
 		property.isValid(isDefinedPattern);
 	}
@@ -84,6 +87,13 @@ public class ToNumberImpl extends NumberOperatorImpl implements ToNumber {
 	@Override
 	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {		
 		return property.getAllArgumentElements();
+	}
+	
+	@Override
+	public EList<GraphElement> getArguments(){
+		EList<GraphElement> list = new BasicEList<GraphElement>();		
+		list.add(property);		
+		return list;
 	}
 
 	/**
@@ -133,7 +143,7 @@ public class ToNumberImpl extends NumberOperatorImpl implements ToNumber {
 		Property oldProperty = property;
 		property = newProperty;		
 		if(newProperty != null || oldProperty != null) {
-			for(BooleanOperator boolOp : getRootBooleanOperator()) {
+			for(BooleanOperator boolOp : getRootBooleanOperators()) {
 				if(newProperty != null) {
 					boolOp.addElement(newProperty.getElement());
 				}

@@ -5,6 +5,7 @@ package qualitypatternmodel.functions;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.patternstructure.InvalidityException;
 
@@ -42,5 +43,29 @@ public interface Operator extends GraphElement {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<BooleanOperator> getRootBooleanOperator();
+	EList<BooleanOperator> getRootBooleanOperators();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.functions.OperatorCycleExceptionWrapper" visitedOperatorsMany="true"
+	 * @generated
+	 */
+	void isCycleFree(EList<Operator> visitedOperators) throws OperatorCycleException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.functions.OperatorCycleExceptionWrapper"
+	 * @generated
+	 */
+	void isCycleFree() throws OperatorCycleException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<GraphElement> getArguments();
 } // Operator

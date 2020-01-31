@@ -82,7 +82,12 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eOperations name="getRootBooleanOperator" upperBound="-1" eType="#//functions/BooleanOperator"/>
+      <eOperations name="getRootBooleanOperators" upperBound="-1" eType="#//functions/BooleanOperator"/>
+      <eOperations name="isCycleFree" eExceptions="#//functions/OperatorCycleExceptionWrapper">
+        <eParameters name="visitedOperators" upperBound="-1" eType="#//functions/Operator"/>
+      </eOperations>
+      <eOperations name="isCycleFree" eExceptions="#//functions/OperatorCycleExceptionWrapper"/>
+      <eOperations name="getArguments" upperBound="-1" eType="#//graphstructure/GraphElement"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//functions/NumberOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
@@ -124,6 +129,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/operatorList"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="OperatorCycleExceptionWrapper"
+        instanceClassName="qualitypatternmodel.functions.OperatorCycleException"/>
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -506,7 +513,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
         <details key="morphismValid" value="self.checkMorphismOfNextGraph"/>
       </eAnnotations>
-      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//functions/OperatorCycleExceptionWrapper">
         <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
       <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -537,10 +544,10 @@
       <eOperations name="getAllInputs" upperBound="-1" eType="#//inputfields/Input"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="prepareTranslation"/>
-      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//functions/OperatorCycleExceptionWrapper">
         <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
-      <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//functions/OperatorCycleExceptionWrapper">
         <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
       <eOperations name="getContainer" eType="#//patternstructure/PatternElement"

@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
@@ -120,7 +122,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
 		isValidLocal(isDefinedPattern);
 		graph.isValid(isDefinedPattern);
 		morphism.isValid(isDefinedPattern);

@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.functions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.Input;
@@ -89,7 +91,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
 		isValidLocal(isDefinedPattern);
 		option.isValid(isDefinedPattern);		
 		regularExpression.isValid(isDefinedPattern);		
@@ -130,6 +132,15 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override
 	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {		
 		return property.getAllArgumentElements();
+	}
+	
+	@Override
+	public EList<GraphElement> getArguments(){
+		EList<GraphElement> list = new BasicEList<GraphElement>();		
+		list.add(property);
+		list.add(regularExpression);
+		list.add(option);
+		return list;
 	}
 	
 	/**
@@ -179,7 +190,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		Property oldProperty = property;
 		property = newProperty;
 		if(newProperty != null || oldProperty != null) {
-			for(BooleanOperator boolOp : getRootBooleanOperator()) {
+			for(BooleanOperator boolOp : getRootBooleanOperators()) {
 				if(newProperty != null) {
 					boolOp.addElement(newProperty.getElement());
 				}

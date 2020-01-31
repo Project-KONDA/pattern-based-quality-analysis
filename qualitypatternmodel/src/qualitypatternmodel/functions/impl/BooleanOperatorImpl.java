@@ -110,11 +110,11 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		if(getElementCount().containsKey(element)) {			
 			if(getElementCount().get(element) == 1) {
 				getElements().remove(element);
+				element.getPredicates().remove(this);
 				getElementCount().removeKey(element);
 			} else {
 				getElementCount().put(element, getElementCount().get(element)-1);
-			}
-			
+			}			
 		}
 	}
 

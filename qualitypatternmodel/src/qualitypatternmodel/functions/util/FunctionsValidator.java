@@ -133,6 +133,8 @@ public class FunctionsValidator extends EObjectValidator {
 				return validateOperatorList((OperatorList)value, diagnostics, context);
 			case FunctionsPackage.COMPARISON_OPERATOR:
 				return validateComparisonOperator((ComparisonOperator)value, diagnostics, context);
+			case FunctionsPackage.OPERATOR_CYCLE_EXCEPTION_WRAPPER:
+				return validateOperatorCycleExceptionWrapper((OperatorCycleException)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -325,6 +327,15 @@ public class FunctionsValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateComparisonOperator(ComparisonOperator comparisonOperator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateOperatorCycleExceptionWrapper(OperatorCycleException operatorCycleExceptionWrapper, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.InvalidityException;
 import qualitypatternmodel.patternstructure.Mapping;
@@ -141,7 +142,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
 		isValidLocal(isDefinedPattern);
 		for (Mapping mapping : mappings) {
 			mapping.isValid(isDefinedPattern);

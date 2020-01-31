@@ -16,6 +16,7 @@ import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -102,7 +103,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
 		isValidLocal(isDefinedPattern);
 
 		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl)
@@ -113,7 +114,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	}
 	
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException{
 		if (argument1 == null)
 			throw new InvalidityException("argument1 null");
 		if (argument2 == null)
@@ -171,7 +172,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}	
 		
 		}
-	
+		
+		isCycleFree();
+		
 	}
 
 	/**
@@ -236,6 +239,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		return arguments;
 	}	
 	
+	@Override
+	public EList<GraphElement> getArguments(){
+		EList<GraphElement> list = new BasicEList<GraphElement>();
+		list.add(argument1);
+		list.add(argument2);
+		return list;
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -275,50 +286,108 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetArgument1(GraphElement newArgument1, NotificationChain msgs) {
+	public NotificationChain basicSetArgument1(GraphElement newArgument1, NotificationChain msgs) {		
 		GraphElement oldArgument1 = argument1;
 		argument1 = newArgument1;
-		EList<BooleanOperator> rootBooleanOperators = getRootBooleanOperator();
-		if(newArgument1 instanceof Element) {
-			for(BooleanOperator boolOp : rootBooleanOperators) {
-				if(newArgument1 != null) {
-					boolOp.addElement((Element) newArgument1);
-				}				
-			}			
-		}
-		if(newArgument1 instanceof Property && ((Property) newArgument1).getElement() != null) {
-			for(BooleanOperator boolOp : rootBooleanOperators) {
-				if(newArgument1 != null) {
-					boolOp.addElement(((Property) newArgument1).getElement());
-				}				
-			}			
-		}
-		if(newArgument1 instanceof BooleanOperator) {
-			BooleanOperator argumentOperator = (BooleanOperator) newArgument1;
-			EList<BooleanOperator> rootBoolenOperators = getRootBooleanOperator();
-			EList<Element> elements = new BasicEList<Element>();
-			elements.addAll(argumentOperator.getElements());
-			for(Element element : elements) {
-				argumentOperator.removeElement(element);
-				for(BooleanOperator rootBoolenOperator : rootBoolenOperators) {
-					rootBoolenOperator.addElement(element); 
-				}
+
+		try {
+			isCycleFree();
+		} catch (OperatorCycleException  e1) {
+			argument1 = oldArgument1;
+			if(newArgument1 != null) {
+				newArgument1.getComparison1().remove(this); // undo eInverseAdd				
 			}
-		}
-		// TODO: if(oldArgument1 instanceof BooleanOperator) move predicates edges back	
-		for(BooleanOperator boolOp : rootBooleanOperators) {			
-			if(oldArgument1 != null && oldArgument1 instanceof Property && ((Property) oldArgument1).getElement() != null) {
-				boolOp.removeElement(((Property) oldArgument1).getElement());
+			if(oldArgument1 != null) {
+				oldArgument1.getComparison1().add(this); // undo eInverseRemove
 			}
-			if(oldArgument1 != null && oldArgument1 instanceof Element) {
-				boolOp.removeElement((Element) oldArgument1);
-			}
-		}
+			return msgs;
+		}			
+		
+		adaptOperatorElementAssociation(newArgument1, oldArgument1);
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT1, oldArgument1, newArgument1);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
+	}
+
+	private void adaptOperatorElementAssociation(GraphElement newArgument, GraphElement oldArgument) {
+		EList<BooleanOperator> rootOperators = getRootBooleanOperators();
+		
+		addNewArgumentElementsToRootOperator(newArgument, rootOperators);
+		
+		if(newArgument instanceof BooleanOperator) {
+			moveElementsFromNewArgumentToRootOperator(newArgument, rootOperators);
+		}	
+		
+		for(BooleanOperator rootOperator : rootOperators) {			
+			removeOldArgumentElementsFromRootOperator(oldArgument, rootOperator);			
+			if (oldArgument instanceof BooleanOperator) {	
+				moveElementsFromRootOperatorToOldArgument(oldArgument, rootOperator);
+			}			
+		}
+	}
+
+	private void moveElementsFromRootOperatorToOldArgument(GraphElement oldArgument, BooleanOperator booleanOperator) {
+		BooleanOperator argumentOperator = (BooleanOperator) oldArgument;
+		EList<Element> boolOpElements = new BasicEList<Element>();
+		boolOpElements.addAll(booleanOperator.getElements()); // boolOp.getElements() is already empty at this point in case THIS gets DELETED!
+		for(Element element : boolOpElements) {		
+			try {
+				EList<ListOfElements> argumentElements = argumentOperator.getAllArgumentElements();
+				for(ListOfElements listOfElements : argumentElements) {
+					if(listOfElements.size() == 1 && listOfElements.contains(element)) {
+						argumentOperator.addElement(element); 
+						booleanOperator.removeElement(element);
+					}
+				}						
+			} catch (InvalidityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}					
+		}
+	}
+
+	private void removeOldArgumentElementsFromRootOperator(GraphElement oldArgument,
+			BooleanOperator booleanOperator) {
+		if(oldArgument != null && oldArgument instanceof Property && ((Property) oldArgument).getElement() != null) {				
+			booleanOperator.removeElement(((Property) oldArgument).getElement());
+		}
+		if(oldArgument != null && oldArgument instanceof Element) {
+			booleanOperator.removeElement((Element) oldArgument);
+		}
+	}
+
+	private void moveElementsFromNewArgumentToRootOperator(GraphElement newArgument,
+			EList<BooleanOperator> rootBooleanOperators) {
+		BooleanOperator argumentOperator = (BooleanOperator) newArgument;
+		EList<Element> argumentOperatorElements = new BasicEList<Element>();
+		argumentOperatorElements.addAll(argumentOperator.getElements());
+		for(Element element : argumentOperatorElements) {
+			argumentOperator.removeElement(element);
+			for(BooleanOperator rootBoolenOperator : rootBooleanOperators) {
+				rootBoolenOperator.addElement(element); 
+			}
+		}
+	}
+
+	private void addNewArgumentElementsToRootOperator(GraphElement newArgument,
+			EList<BooleanOperator> rootBooleanOperators) {
+		if(newArgument instanceof Element) {
+			for(BooleanOperator boolOp : rootBooleanOperators) {
+				if(newArgument != null) {
+					boolOp.addElement((Element) newArgument);
+				}				
+			}			
+		}
+		if(newArgument instanceof Property && ((Property) newArgument).getElement() != null) {
+			for(BooleanOperator boolOp : rootBooleanOperators) {
+				if(newArgument != null) {
+					boolOp.addElement(((Property) newArgument).getElement());
+				}				
+			}			
+		}
 	}
 
 	/**
@@ -413,43 +482,23 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	public NotificationChain basicSetArgument2(GraphElement newArgument2, NotificationChain msgs) {
 		GraphElement oldArgument2 = argument2;
-		argument2 = newArgument2;
-		EList<BooleanOperator> rootBooleanOperators = getRootBooleanOperator();
-		if(newArgument2 instanceof Element) {
-			for(BooleanOperator boolOp : rootBooleanOperators) {
-				if(newArgument2 != null) {
-					boolOp.addElement((Element) newArgument2);
-				}				
-			}			
-		}
-		if(newArgument2 instanceof Property && ((Property) newArgument2).getElement() != null) {
-			for(BooleanOperator boolOp : rootBooleanOperators) {
-				if(newArgument2 != null) {
-					boolOp.addElement(((Property) newArgument2).getElement());
-				}				
-			}			
-		}
-		if(newArgument2 instanceof BooleanOperator) {
-			BooleanOperator argumentOperator = (BooleanOperator) newArgument2;
-				EList<BooleanOperator> rootBoolenOperators = getRootBooleanOperator();
-				EList<Element> elements = new BasicEList<Element>();
-				elements.addAll(argumentOperator.getElements());
-				for(Element element : elements) {
-					argumentOperator.removeElement(element);
-					for(BooleanOperator rootBoolenOperator : rootBoolenOperators) {
-						rootBoolenOperator.addElement(element); 
-					}
-				}
-		}
-		// TODO: if(oldArgument2 instanceof BooleanOperator) move predicates edges back
-		for(BooleanOperator boolOp : rootBooleanOperators) {			
-			if(oldArgument2 != null && oldArgument2 instanceof Property && ((Property) oldArgument2).getElement() != null) {
-				boolOp.removeElement(((Property) oldArgument2).getElement());
+		argument2 = newArgument2;	
+		
+		try {
+			isCycleFree();
+		} catch (OperatorCycleException e1) {
+			argument2 = oldArgument2;
+			if(newArgument2 != null) {
+				newArgument2.getComparison2().remove(this); // undo eInverseAdd				
 			}
-			if(oldArgument2 != null && oldArgument2 instanceof Element) {
-				boolOp.removeElement((Element) oldArgument2);
+			if(oldArgument2 != null) {
+				oldArgument2.getComparison2().add(this); // undo eInverseRemove
 			}
-		}
+			return msgs;
+		}	
+		
+		adaptOperatorElementAssociation(newArgument2, oldArgument2);
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT2, oldArgument2, newArgument2);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -589,5 +638,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 		return super.eIsSet(featureID);
 	}
+
+	
 
 } // ComparisonImpl

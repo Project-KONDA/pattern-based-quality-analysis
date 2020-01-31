@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.impl.GraphElementImpl;
 import qualitypatternmodel.inputfields.Input;
@@ -49,7 +50,7 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 	 * @generated NOT
 	 */
 	@Override
-	public EList<BooleanOperator> getRootBooleanOperator() {
+	public EList<BooleanOperator> getRootBooleanOperators() {
 		BasicEList<BooleanOperator> opList = new BasicEList<BooleanOperator>(); 
 		if(getComparison1().isEmpty() && getComparison2().isEmpty() && this instanceof BooleanOperator) {			
 			opList.add((BooleanOperator) this);
@@ -61,12 +62,56 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 		for(GraphElement graphElement : arguments) {
 			if(graphElement instanceof Operator) {
 				Operator op = (Operator) graphElement;
-				opList.addAll(op.getRootBooleanOperator());
+				opList.addAll(op.getRootBooleanOperators());
 			}			
 		}
 		return opList;
 	} 
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void isCycleFree(EList<Operator> visitedOperators) throws OperatorCycleException {
+		if(getArguments().isEmpty()) {			
+			visitedOperators.add(this);
+		} else {			
+			visitedOperators.add(this);
+			for(GraphElement graphElement : getArguments()) {
+				if (graphElement instanceof Operator) {
+					Operator operator = (Operator) graphElement;
+					if(!visitedOperators.contains(operator)) {
+						operator.isCycleFree(visitedOperators);
+					} else {
+						throw new OperatorCycleException("operator tree contains cycle");
+					}
+				}
+				
+			}	
+		}		
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void isCycleFree() throws OperatorCycleException {
+		EList<Operator> list = new BasicEList<Operator>();
+		isCycleFree(list);		
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public abstract EList<GraphElement> getArguments();
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,6 +136,7 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case FunctionsPackage.OPERATOR___GET_ALL_OPERATORS:
@@ -100,8 +146,26 @@ public abstract class OperatorImpl extends GraphElementImpl implements Operator 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case FunctionsPackage.OPERATOR___GET_ROOT_BOOLEAN_OPERATOR:
-				return getRootBooleanOperator();
+			case FunctionsPackage.OPERATOR___GET_ROOT_BOOLEAN_OPERATORS:
+				return getRootBooleanOperators();
+			case FunctionsPackage.OPERATOR___IS_CYCLE_FREE__ELIST:
+				try {
+					isCycleFree((EList<Operator>)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case FunctionsPackage.OPERATOR___IS_CYCLE_FREE:
+				try {
+					isCycleFree();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case FunctionsPackage.OPERATOR___GET_ARGUMENTS:
+				return getArguments();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

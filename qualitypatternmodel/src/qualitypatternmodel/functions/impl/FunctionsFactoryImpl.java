@@ -77,6 +77,8 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 		switch (eDataType.getClassifierID()) {
 			case FunctionsPackage.COMPARISON_OPERATOR:
 				return createComparisonOperatorFromString(eDataType, initialValue);
+			case FunctionsPackage.OPERATOR_CYCLE_EXCEPTION_WRAPPER:
+				return createOperatorCycleExceptionWrapperFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +94,8 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 		switch (eDataType.getClassifierID()) {
 			case FunctionsPackage.COMPARISON_OPERATOR:
 				return convertComparisonOperatorToString(eDataType, instanceValue);
+			case FunctionsPackage.OPERATOR_CYCLE_EXCEPTION_WRAPPER:
+				return convertOperatorCycleExceptionWrapperToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -170,6 +174,24 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 	 */
 	public String convertComparisonOperatorToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OperatorCycleException createOperatorCycleExceptionWrapperFromString(EDataType eDataType, String initialValue) {
+		return (OperatorCycleException)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertOperatorCycleExceptionWrapperToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

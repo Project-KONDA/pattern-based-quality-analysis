@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.functions.impl.OperatorListImpl;
 import qualitypatternmodel.graphstructure.Element;
@@ -153,7 +154,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
 		isValidLocal(isDefinedPattern);
 		rootElement.isValid(isDefinedPattern);
 		operatorList.isValid(isDefinedPattern);

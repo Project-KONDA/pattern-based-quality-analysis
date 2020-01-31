@@ -54,9 +54,16 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//functions/ComparisonOperator/LESSOREQUAL"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//functions/ComparisonOperator/NOTEQUAL"/>
       </genEnums>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//functions/OperatorCycleExceptionWrapper"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//functions/BooleanOperator">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//functions/BooleanOperator/elements"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/BooleanOperator/addElement">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/BooleanOperator/addElement/element"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/BooleanOperator/removeElement">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/BooleanOperator/removeElement/element"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//functions/Operator">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/getAllOperators"/>
@@ -64,7 +71,12 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Operator/validate/diagnostics"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Operator/validate/context"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/getRootBooleanOperator"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/getRootBooleanOperators"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/isCycleFree">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Operator/isCycleFree/visitedOperators"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/isCycleFree.1"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/getArguments"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//functions/Count">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

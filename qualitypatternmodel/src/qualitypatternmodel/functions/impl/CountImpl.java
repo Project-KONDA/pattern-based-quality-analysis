@@ -4,15 +4,15 @@ package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
@@ -92,6 +92,13 @@ public class CountImpl extends NumberOperatorImpl implements Count {
 	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {	
 		return argument.getAllArgumentElementsSetOperation();	
 	}	
+	
+	@Override
+	public EList<GraphElement> getArguments(){
+		EList<GraphElement> list = new BasicEList<GraphElement>();		
+		list.add(argument);
+		return list;
+	}
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

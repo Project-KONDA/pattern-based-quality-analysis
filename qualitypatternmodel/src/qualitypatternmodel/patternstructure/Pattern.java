@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure;
 
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.inputfields.VariableList;
 
@@ -171,10 +172,10 @@ public interface Pattern extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" isDefinedPatternRequired="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
 	 */
-	void isValid(boolean isDefinedPattern) throws InvalidityException;
+	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException;
 
 	/**
 	 * <!-- begin-user-doc -->

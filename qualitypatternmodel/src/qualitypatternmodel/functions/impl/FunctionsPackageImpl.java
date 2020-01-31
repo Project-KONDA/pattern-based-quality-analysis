@@ -3,6 +3,7 @@
 package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
@@ -20,6 +21,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.NumberOperator;
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.functions.OtherOperator;
 import qualitypatternmodel.functions.ToNumber;
@@ -112,6 +114,13 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	private EEnum comparisonOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType operatorCycleExceptionWrapperEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -274,8 +283,38 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getOperator__GetRootBooleanOperator() {
+	public EOperation getOperator__GetRootBooleanOperators() {
 		return operatorEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getOperator__IsCycleFree__EList() {
+		return operatorEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getOperator__IsCycleFree() {
+		return operatorEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getOperator__GetArguments() {
+		return operatorEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -464,6 +503,16 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EDataType getOperatorCycleExceptionWrapper() {
+		return operatorCycleExceptionWrapperEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public FunctionsFactory getFunctionsFactory() {
 		return (FunctionsFactory)getEFactoryInstance();
 	}
@@ -495,7 +544,10 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		operatorEClass = createEClass(OPERATOR);
 		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
 		createEOperation(operatorEClass, OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
-		createEOperation(operatorEClass, OPERATOR___GET_ROOT_BOOLEAN_OPERATOR);
+		createEOperation(operatorEClass, OPERATOR___GET_ROOT_BOOLEAN_OPERATORS);
+		createEOperation(operatorEClass, OPERATOR___IS_CYCLE_FREE__ELIST);
+		createEOperation(operatorEClass, OPERATOR___IS_CYCLE_FREE);
+		createEOperation(operatorEClass, OPERATOR___GET_ARGUMENTS);
 
 		countEClass = createEClass(COUNT);
 		createEReference(countEClass, COUNT__ARGUMENT);
@@ -523,6 +575,9 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
+
+		// Create data types
+		operatorCycleExceptionWrapperEDataType = createEDataType(OPERATOR_CYCLE_EXCEPTION_WRAPPER);
 	}
 
 	/**
@@ -592,7 +647,16 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getOperator__GetRootBooleanOperator(), this.getBooleanOperator(), "getRootBooleanOperator", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getOperator__GetRootBooleanOperators(), this.getBooleanOperator(), "getRootBooleanOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getOperator__IsCycleFree__EList(), null, "isCycleFree", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getOperator(), "visitedOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getOperatorCycleExceptionWrapper());
+
+		op = initEOperation(getOperator__IsCycleFree(), null, "isCycleFree", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getOperatorCycleExceptionWrapper());
+
+		initEOperation(getOperator__GetArguments(), theGraphstructurePackage.getGraphElement(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(countEClass, Count.class, "Count", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCount_Argument(), theGraphstructurePackage.getSetElement(), theGraphstructurePackage.getSetElement_Count(), "argument", null, 1, 1, Count.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -626,6 +690,9 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATEROREQUAL);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LESSOREQUAL);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.NOTEQUAL);
+
+		// Initialize data types
+		initEDataType(operatorCycleExceptionWrapperEDataType, OperatorCycleException.class, "OperatorCycleExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

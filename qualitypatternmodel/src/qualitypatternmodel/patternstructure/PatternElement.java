@@ -6,6 +6,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.inputfields.Input;
 
 /**
@@ -114,18 +115,18 @@ public interface PatternElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" isDefinedPatternRequired="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
 	 */
-	void isValid(boolean isDefinedPattern) throws InvalidityException;
+	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" isDefinedPatternRequired="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
 	 */
-	void isValidLocal(boolean isDefinedPattern) throws InvalidityException;
+	void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException;
 
 	PatternElement getAncestor(Class<?> cls) throws MissingPatternContainerException;
 

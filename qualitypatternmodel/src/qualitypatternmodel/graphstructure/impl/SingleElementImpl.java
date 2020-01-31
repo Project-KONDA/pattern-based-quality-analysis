@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.functions.BooleanOperator;
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -218,7 +219,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
 		super.isValid(isDefinedPattern);
         if (!eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT))
 			relationFromPrevious.isValid(isDefinedPattern);
@@ -439,12 +440,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				e.printStackTrace();
 			}
 		} 
-//		else {			
 		if(getMappingFrom() != null) {
 			removeElementFromPreviousGraphs();
 		}
-			
-//		}
+
 		msgs = eBasicSetContainer((InternalEObject)newPrevious, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, msgs);
 		return msgs;
 	}

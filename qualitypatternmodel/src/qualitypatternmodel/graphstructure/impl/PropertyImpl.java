@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import qualitypatternmodel.functions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -68,7 +70,7 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException  {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException  {
 		isValidLocal(isDefinedPattern);
 		propertyOption.isValid(isDefinedPattern);
 	}
