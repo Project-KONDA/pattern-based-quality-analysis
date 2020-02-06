@@ -108,25 +108,39 @@
     </node>
     <node xmi:type="uml:ActivityFinalNode" xmi:id="_IgW_gEEHEeqYNZiLC_l8cA" name="" incoming="_JY-pkEEHEeqYNZiLC_l8cA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Component" xmi:id="_cp2vQEEFEeqYNZiLC_l8cA" name="AbstractPatternSpecificationSystem">
-    <interfaceRealization xmi:id="_IMVI4EN7EeqBQPgcvIqAig" client="_cp2vQEEFEeqYNZiLC_l8cA" supplier="_OFizcEEUEeqYNZiLC_l8cA" contract="_OFizcEEUEeqYNZiLC_l8cA"/>
-    <packagedElement xmi:type="uml:Usage" xmi:id="_o3JNsEEUEeqYNZiLC_l8cA" client="_cp2vQEEFEeqYNZiLC_l8cA" supplier="_e7bygEEUEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_cp2vQEEFEeqYNZiLC_l8cA" name="Pattern Modeling System">
+    <interfaceRealization xmi:id="_IMVI4EN7EeqBQPgcvIqAig" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_Tq_akEjLEeqzvoKiTuwY0Q" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_UNUrkEjLEeqzvoKiTuwY0Q" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_eGaQkEjLEeqzvoKiTuwY0Q" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_e3YagEjLEeqzvoKiTuwY0Q" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_y0AhAEjLEeqzvoKiTuwY0Q" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_zR7MEEjLEeqzvoKiTuwY0Q" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_S-z0kEjMEeqzvoKiTuwY0Q" client="_cp2vQEEFEeqYNZiLC_l8cA" supplier="_ROK9YEjMEeqzvoKiTuwY0Q" contract="_ROK9YEjMEeqzvoKiTuwY0Q"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_o3JNsEEUEeqYNZiLC_l8cA" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Component" xmi:id="_mCJ7YEEFEeqYNZiLC_l8cA" name="PatternModel">
+  <packagedElement xmi:type="uml:Component" xmi:id="_mCJ7YEEFEeqYNZiLC_l8cA" name="Pattern Management System">
     <interfaceRealization xmi:id="_PbkTkEEGEeqYNZiLC_l8cA" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
-    <interfaceRealization xmi:id="_VAdXIEEUEeqYNZiLC_l8cA" client="_mCJ7YEEFEeqYNZiLC_l8cA" supplier="_OFizcEEUEeqYNZiLC_l8cA" contract="_OFizcEEUEeqYNZiLC_l8cA"/>
     <interfaceRealization xmi:id="_VW46IEEUEeqYNZiLC_l8cA" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
     <interfaceRealization xmi:id="_VwrTIEEUEeqYNZiLC_l8cA" client="_mCJ7YEEFEeqYNZiLC_l8cA" supplier="_RGp0AEEUEeqYNZiLC_l8cA" contract="_RGp0AEEUEeqYNZiLC_l8cA"/>
-    <interfaceRealization xmi:id="_xCcbMEEUEeqYNZiLC_l8cA" client="_mCJ7YEEFEeqYNZiLC_l8cA" supplier="_vW2cEEEUEeqYNZiLC_l8cA" contract="_vW2cEEEUEeqYNZiLC_l8cA"/>
     <interfaceRealization xmi:id="_tZmFMEEUEeqYNZiLC_l8cA" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
-    <interfaceRealization xmi:id="_4zYzgEN7EeqBQPgcvIqAig" client="_mCJ7YEEFEeqYNZiLC_l8cA" supplier="_e7bygEEUEeqYNZiLC_l8cA" contract="_e7bygEEUEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_4zYzgEN7EeqBQPgcvIqAig" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_GAu0kEjMEeqzvoKiTuwY0Q" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_HYUSkEjMEeqzvoKiTuwY0Q" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_IucYAEjMEeqzvoKiTuwY0Q" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_JlJWgEjMEeqzvoKiTuwY0Q" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_OZ_lkEjMEeqzvoKiTuwY0Q" client="_mCJ7YEEFEeqYNZiLC_l8cA" supplier="_Mrjt0EjMEeqzvoKiTuwY0Q" contract="_Mrjt0EjMEeqzvoKiTuwY0Q"/>
     <packagedElement xmi:type="uml:Usage" xmi:id="_SDuDwEEVEeqYNZiLC_l8cA" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Component" xmi:id="_omC0cEEFEeqYNZiLC_l8cA" name="PatternConcretizationSystem">
+  <packagedElement xmi:type="uml:Component" xmi:id="_omC0cEEFEeqYNZiLC_l8cA" name="Pattern Concretization System">
     <interfaceRealization xmi:id="_RDCC0EEVEeqYNZiLC_l8cA" client="_omC0cEEFEeqYNZiLC_l8cA"/>
-    <interfaceRealization xmi:id="_MqPeoEN7EeqBQPgcvIqAig" client="_omC0cEEFEeqYNZiLC_l8cA" supplier="_vW2cEEEUEeqYNZiLC_l8cA" contract="_vW2cEEEUEeqYNZiLC_l8cA"/>
+    <interfaceRealization xmi:id="_vCYNAEjMEeqzvoKiTuwY0Q" client="_omC0cEEFEeqYNZiLC_l8cA" supplier="_vW2cEEEUEeqYNZiLC_l8cA" contract="_vW2cEEEUEeqYNZiLC_l8cA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Component" xmi:id="_q9t2cEEFEeqYNZiLC_l8cA" name="QueryExecutionSystem"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_q9t2cEEFEeqYNZiLC_l8cA" name="Query Execution System">
+    <interfaceRealization xmi:id="_5fD8YEjOEeqzvoKiTuwY0Q" client="_q9t2cEEFEeqYNZiLC_l8cA" supplier="_dVu6MEjOEeqzvoKiTuwY0Q" contract="_dVu6MEjOEeqzvoKiTuwY0Q"/>
+    <interfaceRealization xmi:id="_6CARYEjOEeqzvoKiTuwY0Q" client="_q9t2cEEFEeqYNZiLC_l8cA" supplier="_dVu6MEjOEeqzvoKiTuwY0Q" contract="_dVu6MEjOEeqzvoKiTuwY0Q"/>
+    <interfaceRealization xmi:id="_6me3cEjOEeqzvoKiTuwY0Q" client="_q9t2cEEFEeqYNZiLC_l8cA" supplier="_dVu6MEjOEeqzvoKiTuwY0Q" contract="_dVu6MEjOEeqzvoKiTuwY0Q"/>
+  </packagedElement>
   <packagedElement xmi:type="uml:Usage" xmi:id="_Q4in4EEGEeqYNZiLC_l8cA" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
   <packagedElement xmi:type="uml:Activity" xmi:id="_b1pjwEEIEeqYNZiLC_l8cA" name="patternbasedqualityanalysisUML" node="_hrze0UEIEeqYNZiLC_l8cA _hrze0kEIEeqYNZiLC_l8cA _hrze00EIEeqYNZiLC_l8cA _hrze1UEIEeqYNZiLC_l8cA _p1VxwEEIEeqYNZiLC_l8cA _waVIwEEIEeqYNZiLC_l8cA _7rtWYEEIEeqYNZiLC_l8cA _bkwHYEEQEeqYNZiLC_l8cA _g9JvcEEQEeqYNZiLC_l8cA _AGm6wEEREeqYNZiLC_l8cA _IsFi0EEREeqYNZiLC_l8cA _Pv7ZAEEREeqYNZiLC_l8cA _bbnkEEEREeqYNZiLC_l8cA _H_wy4EESEeqYNZiLC_l8cA _QuNwwEESEeqYNZiLC_l8cA _mVyWIEESEeqYNZiLC_l8cA _oZAyIEESEeqYNZiLC_l8cA _1oMJMEESEeqYNZiLC_l8cA _Olf3IEEaEeqYNZiLC_l8cA _ZfEBsEEaEeqYNZiLC_l8cA _oUJWcEGlEeqYL6HFZ9g9uA _ozNfAEN8EeqBQPgcvIqAig _rkrhEEN8EeqBQPgcvIqAig _skUZIEN8EeqBQPgcvIqAig">
     <edge xmi:type="uml:ControlFlow" xmi:id="_hrsxIEEIEeqYNZiLC_l8cA" target="_hrze0UEIEeqYNZiLC_l8cA">
@@ -320,15 +334,11 @@
     <node xmi:type="uml:DecisionNode" xmi:id="_rkrhEEN8EeqBQPgcvIqAig" name="apply?" incoming="_b9FjUEEaEeqYNZiLC_l8cA" outgoing="_9E_9MEN8EeqBQPgcvIqAig _-8vh8EN8EeqBQPgcvIqAig"/>
     <node xmi:type="uml:DecisionNode" xmi:id="_skUZIEN8EeqBQPgcvIqAig" name="is concrete?" incoming="_9E_9MEN8EeqBQPgcvIqAig" outgoing="_BE8kkEN9EeqBQPgcvIqAig _Bm8eYEN9EeqBQPgcvIqAig"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_OFizcEEUEeqYNZiLC_l8cA" name="Pattern"/>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_RGp0AEEUEeqYNZiLC_l8cA" name="PatternQuery"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_RGp0AEEUEeqYNZiLC_l8cA" name="ConcretePattern"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_WzD9MEEUEeqYNZiLC_l8cA" client="_omC0cEEFEeqYNZiLC_l8cA"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_YHW2oEEUEeqYNZiLC_l8cA" client="_q9t2cEEFEeqYNZiLC_l8cA" supplier="_RGp0AEEUEeqYNZiLC_l8cA"/>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_e7bygEEUEeqYNZiLC_l8cA" name="ModifiedAbstractPattern"/>
   <packagedElement xmi:type="uml:Usage" xmi:id="_t9nYQEEUEeqYNZiLC_l8cA" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
-  <packagedElement xmi:type="uml:Interface" xmi:id="_vW2cEEEUEeqYNZiLC_l8cA" name="DefinedConcretePattern"/>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_bf0KwEEVEeqYNZiLC_l8cA" client="_omC0cEEFEeqYNZiLC_l8cA" supplier="_OFizcEEUEeqYNZiLC_l8cA"/>
-  <packagedElement xmi:type="uml:Usage" xmi:id="_ge4s0EEVEeqYNZiLC_l8cA" client="_q9t2cEEFEeqYNZiLC_l8cA" supplier="_vW2cEEEUEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_vW2cEEEUEeqYNZiLC_l8cA" name="ConcretePattern"/>
   <packagedElement xmi:type="uml:Actor" xmi:id="_ykmygEN6EeqBQPgcvIqAig" name="data analyst">
     <eAnnotations xmi:id="_ykmygUN6EeqBQPgcvIqAig" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <details xmi:id="_ykmygkN6EeqBQPgcvIqAig" key="Human"/>
@@ -377,4 +387,31 @@
     <ownedEnd xmi:id="_QTdEMUN_EeqBQPgcvIqAig" type="_84tYMEN9EeqBQPgcvIqAig" association="_QTdEMEN_EeqBQPgcvIqAig"/>
     <ownedEnd xmi:id="_QTdEMkN_EeqBQPgcvIqAig" type="_OED0cEN_EeqBQPgcvIqAig" association="_QTdEMEN_EeqBQPgcvIqAig"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_DaxUYEjLEeqzvoKiTuwY0Q" name="Pattern Based Quality Analysis">
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_mvHy0EjLEeqzvoKiTuwY0Q" name="XQuery" aggregation="composite" isConjugated="true"/>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="_DN_KsEjNEeqzvoKiTuwY0Q" name="Result" aggregation="composite" isConjugated="true"/>
+    <interfaceRealization xmi:id="_d00fYEjNEeqzvoKiTuwY0Q" client="_DaxUYEjLEeqzvoKiTuwY0Q _mvHy0EjLEeqzvoKiTuwY0Q" supplier="_awVasEjNEeqzvoKiTuwY0Q" contract="_awVasEjNEeqzvoKiTuwY0Q"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_dVu6MEjOEeqzvoKiTuwY0Q" name="XQuery"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_svEbsEjOEeqzvoKiTuwY0Q" name="Result"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_VA0lEEjLEeqzvoKiTuwY0Q" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_fm2IkEjLEeqzvoKiTuwY0Q" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_iWXC0EjLEeqzvoKiTuwY0Q" name="BaseX">
+    <interfaceRealization xmi:id="_wNPLsEjOEeqzvoKiTuwY0Q" client="_iWXC0EjLEeqzvoKiTuwY0Q" supplier="_uNI8MEjOEeqzvoKiTuwY0Q" contract="_uNI8MEjOEeqzvoKiTuwY0Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_jlRtAEjLEeqzvoKiTuwY0Q" name="Database">
+    <interfaceRealization xmi:id="_7xEGIEjMEeqzvoKiTuwY0Q" client="_jlRtAEjLEeqzvoKiTuwY0Q" supplier="_5BJjQEjMEeqzvoKiTuwY0Q" contract="_5BJjQEjMEeqzvoKiTuwY0Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_0DqLAEjLEeqzvoKiTuwY0Q" client="_cp2vQEEFEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_26KeEEjLEeqzvoKiTuwY0Q" client="_mCJ7YEEFEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_Mrjt0EjMEeqzvoKiTuwY0Q" name="AbstractPattern"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_OyeXAEjMEeqzvoKiTuwY0Q" client="_omC0cEEFEeqYNZiLC_l8cA" supplier="_Mrjt0EjMEeqzvoKiTuwY0Q"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_ROK9YEjMEeqzvoKiTuwY0Q" name="AbstractPattern"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_TpRt4EjMEeqzvoKiTuwY0Q" client="_mCJ7YEEFEeqYNZiLC_l8cA" supplier="_ROK9YEjMEeqzvoKiTuwY0Q"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_wSyE8EjMEeqzvoKiTuwY0Q" client="_mCJ7YEEFEeqYNZiLC_l8cA" supplier="_vW2cEEEUEeqYNZiLC_l8cA"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_5BJjQEjMEeqzvoKiTuwY0Q" name="Data"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_9XHd8EjMEeqzvoKiTuwY0Q" client="_iWXC0EjLEeqzvoKiTuwY0Q" supplier="_5BJjQEjMEeqzvoKiTuwY0Q"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_awVasEjNEeqzvoKiTuwY0Q" name="XQuery"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="_edBu4EjNEeqzvoKiTuwY0Q" client="_iWXC0EjLEeqzvoKiTuwY0Q" supplier="_awVasEjNEeqzvoKiTuwY0Q"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_uNI8MEjOEeqzvoKiTuwY0Q" name="Result"/>
 </uml:Model>
