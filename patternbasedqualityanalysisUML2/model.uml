@@ -348,48 +348,37 @@
       <details xmi:id="_ykmygkN6EeqBQPgcvIqAig" key="Human"/>
     </eAnnotations>
   </packagedElement>
-  <packagedElement xmi:type="uml:Actor" xmi:id="_pTtukEN9EeqBQPgcvIqAig" name="XQuery Generator"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_tiQLkEN9EeqBQPgcvIqAig" name="build XQuery based on concrete Pattern"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_znE0wEN9EeqBQPgcvIqAig" name="check pattern validity"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_1mz34EN9EeqBQPgcvIqAig" name="check if pattern is concrete"/>
-  <packagedElement xmi:type="uml:Actor" xmi:id="_84tYMEN9EeqBQPgcvIqAig" name="Database Manager"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_BQ9K0EN-EeqBQPgcvIqAig" name="check if Inputs match DB Schema"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_GKyAgEN-EeqBQPgcvIqAig" name="query Database with XQuery"/>
-  <packagedElement xmi:type="uml:Actor" xmi:id="_Qfi04EN-EeqBQPgcvIqAig" name="Pattern Manager"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_V7ECYEN-EeqBQPgcvIqAig" memberEnd="_V7ECYUN-EeqBQPgcvIqAig _V7ECYkN-EeqBQPgcvIqAig">
-    <ownedEnd xmi:id="_V7ECYUN-EeqBQPgcvIqAig" type="_pTtukEN9EeqBQPgcvIqAig" association="_V7ECYEN-EeqBQPgcvIqAig"/>
-    <ownedEnd xmi:id="_V7ECYkN-EeqBQPgcvIqAig" type="_znE0wEN9EeqBQPgcvIqAig" association="_V7ECYEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_V7ECYUN-EeqBQPgcvIqAig" association="_V7ECYEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_V7ECYkN-EeqBQPgcvIqAig" association="_V7ECYEN-EeqBQPgcvIqAig"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_WY2xoEN-EeqBQPgcvIqAig" memberEnd="_WY2xoUN-EeqBQPgcvIqAig _WY2xokN-EeqBQPgcvIqAig">
-    <ownedEnd xmi:id="_WY2xoUN-EeqBQPgcvIqAig" type="_1mz34EN9EeqBQPgcvIqAig" association="_WY2xoEN-EeqBQPgcvIqAig"/>
-    <ownedEnd xmi:id="_WY2xokN-EeqBQPgcvIqAig" type="_pTtukEN9EeqBQPgcvIqAig" association="_WY2xoEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_WY2xoUN-EeqBQPgcvIqAig" association="_WY2xoEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_WY2xokN-EeqBQPgcvIqAig" association="_WY2xoEN-EeqBQPgcvIqAig"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_W1RA0EN-EeqBQPgcvIqAig" memberEnd="_W1RA0UN-EeqBQPgcvIqAig _W1RA0kN-EeqBQPgcvIqAig">
-    <ownedEnd xmi:id="_W1RA0UN-EeqBQPgcvIqAig" type="_tiQLkEN9EeqBQPgcvIqAig" association="_W1RA0EN-EeqBQPgcvIqAig"/>
-    <ownedEnd xmi:id="_W1RA0kN-EeqBQPgcvIqAig" type="_pTtukEN9EeqBQPgcvIqAig" association="_W1RA0EN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_W1RA0UN-EeqBQPgcvIqAig" association="_W1RA0EN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_W1RA0kN-EeqBQPgcvIqAig" association="_W1RA0EN-EeqBQPgcvIqAig"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_nUpkYEN-EeqBQPgcvIqAig" name="save Pattern"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_oZZl8EN-EeqBQPgcvIqAig" name="load Pattern"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_smc1MEN-EeqBQPgcvIqAig" memberEnd="_smc1MUN-EeqBQPgcvIqAig _smc1MkN-EeqBQPgcvIqAig">
-    <ownedEnd xmi:id="_smc1MUN-EeqBQPgcvIqAig" type="_Qfi04EN-EeqBQPgcvIqAig" association="_smc1MEN-EeqBQPgcvIqAig"/>
-    <ownedEnd xmi:id="_smc1MkN-EeqBQPgcvIqAig" type="_nUpkYEN-EeqBQPgcvIqAig" association="_smc1MEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_smc1MUN-EeqBQPgcvIqAig" association="_smc1MEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_smc1MkN-EeqBQPgcvIqAig" association="_smc1MEN-EeqBQPgcvIqAig"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_s7YjYEN-EeqBQPgcvIqAig" memberEnd="_s7YjYUN-EeqBQPgcvIqAig _s7YjYkN-EeqBQPgcvIqAig">
-    <ownedEnd xmi:id="_s7YjYUN-EeqBQPgcvIqAig" type="_Qfi04EN-EeqBQPgcvIqAig" association="_s7YjYEN-EeqBQPgcvIqAig"/>
-    <ownedEnd xmi:id="_s7YjYkN-EeqBQPgcvIqAig" type="_oZZl8EN-EeqBQPgcvIqAig" association="_s7YjYEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_s7YjYUN-EeqBQPgcvIqAig" association="_s7YjYEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_s7YjYkN-EeqBQPgcvIqAig" association="_s7YjYEN-EeqBQPgcvIqAig"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_tQlXUEN-EeqBQPgcvIqAig" memberEnd="_tQlXUUN-EeqBQPgcvIqAig _tQlXUkN-EeqBQPgcvIqAig">
-    <ownedEnd xmi:id="_tQlXUUN-EeqBQPgcvIqAig" type="_84tYMEN9EeqBQPgcvIqAig" association="_tQlXUEN-EeqBQPgcvIqAig"/>
-    <ownedEnd xmi:id="_tQlXUkN-EeqBQPgcvIqAig" type="_BQ9K0EN-EeqBQPgcvIqAig" association="_tQlXUEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_tQlXUUN-EeqBQPgcvIqAig" association="_tQlXUEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_tQlXUkN-EeqBQPgcvIqAig" association="_tQlXUEN-EeqBQPgcvIqAig"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_tkRIUEN-EeqBQPgcvIqAig" memberEnd="_tkRIUUN-EeqBQPgcvIqAig _tkRIUkN-EeqBQPgcvIqAig">
-    <ownedEnd xmi:id="_tkRIUUN-EeqBQPgcvIqAig" type="_84tYMEN9EeqBQPgcvIqAig" association="_tkRIUEN-EeqBQPgcvIqAig"/>
-    <ownedEnd xmi:id="_tkRIUkN-EeqBQPgcvIqAig" type="_GKyAgEN-EeqBQPgcvIqAig" association="_tkRIUEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_tkRIUUN-EeqBQPgcvIqAig" association="_tkRIUEN-EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_tkRIUkN-EeqBQPgcvIqAig" association="_tkRIUEN-EeqBQPgcvIqAig"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_OED0cEN_EeqBQPgcvIqAig" name="show Results"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_QTdEMEN_EeqBQPgcvIqAig" memberEnd="_QTdEMUN_EeqBQPgcvIqAig _QTdEMkN_EeqBQPgcvIqAig">
-    <ownedEnd xmi:id="_QTdEMUN_EeqBQPgcvIqAig" type="_84tYMEN9EeqBQPgcvIqAig" association="_QTdEMEN_EeqBQPgcvIqAig"/>
-    <ownedEnd xmi:id="_QTdEMkN_EeqBQPgcvIqAig" type="_OED0cEN_EeqBQPgcvIqAig" association="_QTdEMEN_EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_QTdEMUN_EeqBQPgcvIqAig" association="_QTdEMEN_EeqBQPgcvIqAig"/>
+    <ownedEnd xmi:id="_QTdEMkN_EeqBQPgcvIqAig" association="_QTdEMEN_EeqBQPgcvIqAig"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Component" xmi:id="_DaxUYEjLEeqzvoKiTuwY0Q" name="Pattern Based Quality Analysis" isAbstract="true">
     <ownedAttribute xmi:type="uml:Port" xmi:id="_mvHy0EjLEeqzvoKiTuwY0Q" name="XQuery" aggregation="composite" isConjugated="true"/>
