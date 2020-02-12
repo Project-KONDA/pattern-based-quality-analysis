@@ -97,17 +97,19 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @throws OperatorCycleException 
+	 * @throws MissingPatternContainerException 
 	 */
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @throws OperatorCycleException 
+	 * @throws MissingPatternContainerException 
 	 */
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -196,7 +198,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

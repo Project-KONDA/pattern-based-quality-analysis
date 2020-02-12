@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.Mapping;
@@ -142,7 +143,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
 		for (Mapping mapping : mappings) {
 			mapping.isValid(isDefinedPattern);
@@ -310,28 +311,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated
 	 */
 	@Override
-	public void setCheckSingleElementMappings(Boolean newCheckSingleElementMappings) {
-		CHECK_SINGLE_ELEMENT_MAPPINGS__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckSingleElementMappings);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Boolean getCheckRelationMappings() {
 		return (Boolean)CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCheckRelationMappings(Boolean newCheckRelationMappings) {
-		CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckRelationMappings);
 	}
 
 	/**
@@ -350,28 +331,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated
 	 */
 	@Override
-	public void setCheckSingleElementMappingsUniqueness(Boolean newCheckSingleElementMappingsUniqueness) {
-		CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckSingleElementMappingsUniqueness);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Boolean getCheckRelationMappingsUniqueness() {
 		return (Boolean)CHECK_RELATION_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCheckRelationMappingsUniqueness(Boolean newCheckRelationMappingsUniqueness) {
-		CHECK_RELATION_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckRelationMappingsUniqueness);
 	}
 
 	/**
@@ -433,18 +394,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
 				setMorphDepth((Integer)newValue);
 				return;
-			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS:
-				setCheckSingleElementMappings((Boolean)newValue);
-				return;
-			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
-				setCheckRelationMappings((Boolean)newValue);
-				return;
-			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS:
-				setCheckSingleElementMappingsUniqueness((Boolean)newValue);
-				return;
-			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS:
-				setCheckRelationMappingsUniqueness((Boolean)newValue);
-				return;
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				getMappings().clear();
 				getMappings().addAll((Collection<? extends Mapping>)newValue);
@@ -468,18 +417,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return;
 			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
 				setMorphDepth(MORPH_DEPTH_EDEFAULT);
-				return;
-			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS:
-				CHECK_SINGLE_ELEMENT_MAPPINGS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
-				return;
-			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
-				CHECK_RELATION_MAPPINGS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
-				return;
-			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS:
-				CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
-				return;
-			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS:
-				CHECK_RELATION_MAPPINGS_UNIQUENESS__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
 				return;
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				getMappings().clear();

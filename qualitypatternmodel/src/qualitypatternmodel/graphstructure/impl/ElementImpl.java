@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 
@@ -149,7 +150,7 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
 		for (Element next : getNextElements())
 			next.isValid(isDefinedPattern);
@@ -526,14 +527,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated((Boolean)newValue);
 				return;
-			case GraphstructurePackage.ELEMENT__GET_ALL_ELEMENTS:
-				getGetAllElements().clear();
-				getGetAllElements().addAll((Collection<? extends Element>)newValue);
-				return;
-			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
-				getGetAllRelations().clear();
-				getGetAllRelations().addAll((Collection<? extends Relation>)newValue);
-				return;
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				getPredicates().clear();
 				getPredicates().addAll((Collection<? extends BooleanOperator>)newValue);
@@ -560,12 +553,6 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 				return;
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
-				return;
-			case GraphstructurePackage.ELEMENT__GET_ALL_ELEMENTS:
-				getGetAllElements().clear();
-				return;
-			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
-				getGetAllRelations().clear();
 				return;
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				getPredicates().clear();

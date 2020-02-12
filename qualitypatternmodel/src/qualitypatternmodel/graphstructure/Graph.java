@@ -150,7 +150,7 @@ public interface Graph extends PatternElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Get All Elements</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_GetAllElements()
-	 * @model volatile="true" derived="true" ordered="false"
+	 * @model changeable="false" volatile="true" derived="true" ordered="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\tself.rootElement.getAllElements'"
 	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
@@ -164,7 +164,7 @@ public interface Graph extends PatternElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Get All Relations</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_GetAllRelations()
-	 * @model volatile="true" derived="true" ordered="false"
+	 * @model changeable="false" volatile="true" derived="true" ordered="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\tself.rootElement.getAllRelations'"
 	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated

@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -395,10 +394,6 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			case PatternstructurePackage.CONDITION__COND_DEPTH:
 				setCondDepth((Integer)newValue);
 				return;
-			case PatternstructurePackage.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS:
-				getGetNextQuantifiedConditions().clear();
-				getGetNextQuantifiedConditions().addAll((Collection<? extends QuantifiedCondition>)newValue);
-				return;
 			case PatternstructurePackage.CONDITION__PATTERN:
 				setPattern((Pattern)newValue);
 				return;
@@ -425,9 +420,6 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		switch (featureID) {
 			case PatternstructurePackage.CONDITION__COND_DEPTH:
 				setCondDepth(COND_DEPTH_EDEFAULT);
-				return;
-			case PatternstructurePackage.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS:
-				getGetNextQuantifiedConditions().clear();
 				return;
 			case PatternstructurePackage.CONDITION__PATTERN:
 				setPattern((Pattern)null);

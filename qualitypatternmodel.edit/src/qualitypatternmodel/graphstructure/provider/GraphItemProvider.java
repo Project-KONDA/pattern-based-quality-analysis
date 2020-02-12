@@ -45,7 +45,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -55,8 +55,8 @@ public class GraphItemProvider extends PatternElementItemProvider {
 			addReturnElementsPropertyDescriptor(object);
 			addGraphDepthPropertyDescriptor(object);
 			addReturnGraphPropertyDescriptor(object);
-			addGetAllElementsPropertyDescriptor(object);
-			addGetAllRelationsPropertyDescriptor(object);
+//			addGetAllElementsPropertyDescriptor(object);
+//			addGetAllRelationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

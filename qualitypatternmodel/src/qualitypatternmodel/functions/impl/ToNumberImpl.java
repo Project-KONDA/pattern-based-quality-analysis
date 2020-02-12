@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
@@ -63,7 +64,7 @@ public class ToNumberImpl extends NumberOperatorImpl implements ToNumber {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
 		property.isValid(isDefinedPattern);
 	}

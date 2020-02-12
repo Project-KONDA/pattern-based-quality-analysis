@@ -87,14 +87,18 @@ public class TextListItemProvider extends TextItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TextList)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_TextList_type") :
-			getString("_UI_TextList_type") + " " + label;
+		TextList textList = (TextList) object;
+		String text = getString("_UI_TextList_type") + " " + textList.getRefNo();		
+		if(textList.getValues() != null) {
+			for(String value : textList.getValues()) {
+				text += " " + value;
+			}
+		}		
+		return text;
 	}
 
 

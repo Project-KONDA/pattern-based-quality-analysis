@@ -136,7 +136,7 @@ public interface Element extends GraphElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Get All Elements</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_GetAllElements()
-	 * @model volatile="true" derived="true" ordered="false"
+	 * @model changeable="false" volatile="true" derived="true" ordered="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t self.getNextElements()-&gt;collect(e: Element | e.getAllElements)-&gt;asSet()-&gt;including(self)'"
 	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
@@ -150,7 +150,7 @@ public interface Element extends GraphElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Get All Relations</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_GetAllRelations()
-	 * @model volatile="true" derived="true" ordered="false"
+	 * @model changeable="false" volatile="true" derived="true" ordered="false"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t self.getNextElements()-&gt;collect(e: Element | e.getAllRelations)-&gt;asSet()-&gt;including(self.relationFromPrevious)'"
 	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated

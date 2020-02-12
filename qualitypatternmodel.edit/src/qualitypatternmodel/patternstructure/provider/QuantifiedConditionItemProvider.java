@@ -42,7 +42,7 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -50,7 +50,7 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addQuantifierPropertyDescriptor(object);
-			addCheckMorphismOfNextGraphPropertyDescriptor(object);
+//			addCheckMorphismOfNextGraphPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

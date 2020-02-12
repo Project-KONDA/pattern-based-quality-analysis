@@ -155,19 +155,25 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
 		rootElement.isValid(isDefinedPattern);
 		operatorList.isValid(isDefinedPattern);
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, MissingPatternContainerException {
 		if (returnElements == null || returnElements.isEmpty())
 			throw new InvalidityException("returnElement empty");
 		if (operatorList == null)
 			throw new InvalidityException("operatorList null");
 		if (rootElement == null)
 			throw new InvalidityException("rootElement null");		
+		
+		for(SingleElement returnElement : returnElements) {
+			if(!returnElement.getAncestor(Graph.class).equals(this)) {
+				throw new InvalidityException("returnElement not contained in this graph");		
+			}
+		}
 	}
 
 	@Override
@@ -585,14 +591,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
 				setReturnGraph((Boolean)newValue);
 				return;
-			case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
-				getGetAllElements().clear();
-				getGetAllElements().addAll((Collection<? extends Element>)newValue);
-				return;
-			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
-				getGetAllRelations().clear();
-				getGetAllRelations().addAll((Collection<? extends Relation>)newValue);
-				return;
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				setQuantifiedCondition((QuantifiedCondition)newValue);
 				return;
@@ -624,12 +622,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return;
 			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
 				setReturnGraph(RETURN_GRAPH_EDEFAULT);
-				return;
-			case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
-				getGetAllElements().clear();
-				return;
-			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
-				getGetAllRelations().clear();
 				return;
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				setQuantifiedCondition((QuantifiedCondition)null);

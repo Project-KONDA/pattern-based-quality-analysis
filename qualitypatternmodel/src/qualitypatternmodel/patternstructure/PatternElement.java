@@ -121,7 +121,7 @@ public interface PatternElement extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
 	 */
-	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException;
+	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,7 +129,7 @@ public interface PatternElement extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
 	 */
-	void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException;
+	void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	PatternElement getAncestor(Class<?> cls) throws MissingPatternContainerException;
 

@@ -17,6 +17,7 @@ import org.eclipse.ocl.pivot.model.OCLstdlib;
 import org.eclipse.ocl.xtext.oclinecore.OCLinEcoreStandaloneSetup;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
@@ -39,6 +40,9 @@ public class TranslationTests {
 			boolean isCorrect = checkSelection(query, dataPath);	
 			// TODO: visualize result
 		} catch (InvalidityException | OperatorCycleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -79,7 +83,7 @@ public class TranslationTests {
 		return result;
 	}
 
-	private static String getQuery(String path) throws InvalidityException, OperatorCycleException {
+	private static String getQuery(String path) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();
         Pattern pattern = loader.load(path);

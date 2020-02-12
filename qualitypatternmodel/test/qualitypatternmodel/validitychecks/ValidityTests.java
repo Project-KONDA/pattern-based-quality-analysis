@@ -4,6 +4,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.util.Diagnostician;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
@@ -34,5 +35,9 @@ public class ValidityTests {
 			e.printStackTrace();
 		}
 		// TODO: print output if pattern is valid
+ catch (MissingPatternContainerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -260,7 +260,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="predicatesAreBeingTranslated"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="getAllElements" ordered="false"
-          upperBound="-1" eType="#//graphstructure/Element" volatile="true" derived="true">
+          upperBound="-1" eType="#//graphstructure/Element" changeable="false" volatile="true"
+          derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9; self.getNextElements()->collect(e: Element | e.getAllElements)->asSet()->including(self)"/>
         </eAnnotations>
@@ -269,7 +270,8 @@
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="getAllRelations" ordered="false"
-          upperBound="-1" eType="#//graphstructure/Relation" volatile="true" derived="true">
+          upperBound="-1" eType="#//graphstructure/Relation" changeable="false" volatile="true"
+          derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9; self.getNextElements()->collect(e: Element | e.getAllRelations)->asSet()->including(self.relationFromPrevious)"/>
         </eAnnotations>
@@ -298,7 +300,8 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="getAllElements" ordered="false"
-          upperBound="-1" eType="#//graphstructure/Element" volatile="true" derived="true">
+          upperBound="-1" eType="#//graphstructure/Element" changeable="false" volatile="true"
+          derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;self.rootElement.getAllElements"/>
         </eAnnotations>
@@ -307,7 +310,8 @@
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="getAllRelations" ordered="false"
-          upperBound="-1" eType="#//graphstructure/Relation" volatile="true" derived="true">
+          upperBound="-1" eType="#//graphstructure/Relation" changeable="false" volatile="true"
+          derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;self.rootElement.getAllRelations"/>
         </eAnnotations>
@@ -394,7 +398,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkMorphismOfNextGraph"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          volatile="true" derived="true">
+          changeable="false" volatile="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;if self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to&#xA;&#x9;&#x9;&#x9;&#x9;else self.condition.getNextQuantifiedConditions->forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif"/>
         </eAnnotations>
@@ -411,7 +415,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="getNextQuantifiedConditions"
           ordered="false" upperBound="-1" eType="#//patternstructure/QuantifiedCondition"
-          volatile="true" derived="true">
+          changeable="false" volatile="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;if self.oclIsTypeOf(QuantifiedCondition) then &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Set{self.oclAsType(QuantifiedCondition)}&#xA;&#x9;&#x9;&#x9;&#x9;else &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if self.oclIsTypeOf(Formula) then &#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(self.oclAsType(Formula).argument2->notEmpty()) then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.oclAsType(Formula).argument1.getNextQuantifiedConditions->union(self.oclAsType(Formula).argument2.getNextQuantifiedConditions)&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.oclAsType(Formula).argument1.getNextQuantifiedConditions&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Set{}&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
@@ -445,28 +449,28 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkSingleElementMappings"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-          volatile="true" derived="true">
+          changeable="false" volatile="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->forAll(m : Mapping | self.from.getAllElements->includes(m.oclAsType(SingleElementMapping).from))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->forAll(m : Mapping | self.to.getAllElements->includes(m.oclAsType(SingleElementMapping).to))"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkRelationMappings"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-          volatile="true" derived="true">
+          changeable="false" volatile="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->forAll(m : Mapping | self.from.getAllRelations->includes(m.oclAsType(RelationMapping).from))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->forAll(m : Mapping | self.to.getAllRelations->includes(m.oclAsType(RelationMapping).to))"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkSingleElementMappingsUniqueness"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-          volatile="true" derived="true">
+          changeable="false" volatile="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).from)->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;= self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).from)->asSet()->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).to)->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;= self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).to)->asSet()->size()"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkRelationMappingsUniqueness"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-          volatile="true" derived="true">
+          changeable="false" volatile="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).from)->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;= self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).from)->asSet()->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).to)->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;= self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).to)->asSet()->size()"/>
         </eAnnotations>
@@ -523,7 +527,7 @@
           eType="#//inputfields/VariableList" containment="true" eOpposite="#//inputfields/VariableList/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkMorphismOfNextGraph"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          volatile="true" derived="true">
+          changeable="false" volatile="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if self.condition.oclIsTypeOf(QuantifiedCondition) then self.returnGraph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else self.condition.getNextQuantifiedConditions->forAll(e|self.returnGraph = e.morphism.from and e.graph = e.morphism.to) endif"/>
         </eAnnotations>

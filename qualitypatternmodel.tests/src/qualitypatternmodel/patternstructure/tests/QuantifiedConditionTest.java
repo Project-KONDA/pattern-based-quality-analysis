@@ -93,19 +93,6 @@ public class QuantifiedConditionTest extends ConditionTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#setCheckMorphismOfNextGraph(boolean) <em>Check Morphism Of Next Graph</em>}' feature setter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#setCheckMorphismOfNextGraph(boolean)
-	 * @generated
-	 */
-	public void testSetCheckMorphismOfNextGraph() {
-		// TODO: implement this feature setter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#copyPreviousGraph() <em>Copy Previous Graph</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

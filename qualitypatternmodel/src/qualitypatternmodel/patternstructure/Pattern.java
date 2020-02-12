@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.inputfields.VariableList;
@@ -152,23 +153,12 @@ public interface Pattern extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Check Morphism Of Next Graph</em>' attribute.
-	 * @see #setCheckMorphismOfNextGraph(boolean)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_CheckMorphismOfNextGraph()
-	 * @model required="true" volatile="true" derived="true"
+	 * @model required="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\t\n\t\t\t\t\t\t\t\tif self.condition.oclIsTypeOf(QuantifiedCondition) then self.returnGraph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to\n\t\t\t\t\t\t\t\telse self.condition.getNextQuantifiedConditions-&gt;forAll(e|self.returnGraph = e.morphism.from and e.graph = e.morphism.to) endif'"
 	 * @generated
 	 */
 	boolean isCheckMorphismOfNextGraph();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Check Morphism Of Next Graph</em>' attribute.
-	 * @see #isCheckMorphismOfNextGraph()
-	 * @generated
-	 */
-	void setCheckMorphismOfNextGraph(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,7 +166,7 @@ public interface Pattern extends PatternElement {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
 	 */
-	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException;
+	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -39,7 +39,7 @@ public class ElementItemProvider extends GraphElementItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -48,8 +48,8 @@ public class ElementItemProvider extends GraphElementItemProvider {
 
 			addTranslatedPropertyDescriptor(object);
 			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
-			addGetAllElementsPropertyDescriptor(object);
-			addGetAllRelationsPropertyDescriptor(object);
+//			addGetAllElementsPropertyDescriptor(object);
+//			addGetAllRelationsPropertyDescriptor(object);
 			addPredicatesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;

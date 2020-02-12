@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -135,7 +136,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
 		variableList.isValid(isDefinedPattern);
 		returnGraph.isValid(isDefinedPattern);
@@ -225,8 +226,10 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	public NotificationChain basicSetReturnGraph(Graph newReturnGraph, NotificationChain msgs) {
 		Graph oldReturnGraph = returnGraph;
 		returnGraph = newReturnGraph;
-        returnGraph.setReturnGraph(true);
-        returnGraph.setGraphDepth(0);
+		if(returnGraph != null) {
+	        returnGraph.setReturnGraph(true);
+	        returnGraph.setGraphDepth(0);
+		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__RETURN_GRAPH, oldReturnGraph, newReturnGraph);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -236,11 +239,11 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setReturnGraph(Graph newReturnGraph) {
-		if (newReturnGraph != returnGraph) {
+		if (newReturnGraph != returnGraph && newReturnGraph != null) {
 			NotificationChain msgs = null;
 			if (returnGraph != null)
 				msgs = ((InternalEObject)returnGraph).eInverseRemove(this, GraphstructurePackage.GRAPH__PATTERN, Graph.class, msgs);
@@ -396,16 +399,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCheckMorphismOfNextGraph(boolean newCheckMorphismOfNextGraph) {
-		CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckMorphismOfNextGraph);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -478,9 +471,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				setVariableList((VariableList)newValue);
 				return;
-			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
-				setCheckMorphismOfNextGraph((Boolean)newValue);
-				return;
 			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
 				setReturnGraph((Graph)newValue);
 				return;
@@ -506,9 +496,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				setVariableList((VariableList)null);
-				return;
-			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
-				CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
 				return;
 			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
 				setReturnGraph((Graph)null);

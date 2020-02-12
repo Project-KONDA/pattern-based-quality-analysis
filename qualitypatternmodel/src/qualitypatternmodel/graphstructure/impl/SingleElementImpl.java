@@ -219,7 +219,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(isDefinedPattern);
         if (!eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT))
 			relationFromPrevious.isValid(isDefinedPattern);

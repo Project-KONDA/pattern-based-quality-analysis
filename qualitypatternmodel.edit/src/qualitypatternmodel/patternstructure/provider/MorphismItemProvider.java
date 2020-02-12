@@ -39,7 +39,7 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -49,10 +49,10 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 			addFromPropertyDescriptor(object);
 			addToPropertyDescriptor(object);
 			addMorphDepthPropertyDescriptor(object);
-			addCheckSingleElementMappingsPropertyDescriptor(object);
-			addCheckRelationMappingsPropertyDescriptor(object);
-			addCheckSingleElementMappingsUniquenessPropertyDescriptor(object);
-			addCheckRelationMappingsUniquenessPropertyDescriptor(object);
+//			addCheckSingleElementMappingsPropertyDescriptor(object);
+//			addCheckRelationMappingsPropertyDescriptor(object);
+//			addCheckSingleElementMappingsUniquenessPropertyDescriptor(object);
+//			addCheckRelationMappingsUniquenessPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

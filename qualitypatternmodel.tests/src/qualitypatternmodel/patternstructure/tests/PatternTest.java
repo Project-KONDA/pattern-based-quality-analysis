@@ -94,19 +94,6 @@ public class PatternTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Pattern#setCheckMorphismOfNextGraph(boolean) <em>Check Morphism Of Next Graph</em>}' feature setter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Pattern#setCheckMorphismOfNextGraph(boolean)
-	 * @generated
-	 */
-	public void testSetCheckMorphismOfNextGraph() {
-		// TODO: implement this feature setter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.patternstructure.Pattern#toXQuery() <em>To XQuery</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

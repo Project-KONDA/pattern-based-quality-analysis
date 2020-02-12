@@ -78,7 +78,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 			throw new InvalidityException("invalid Operators of Graph");
 
 		if (!(patternVars.containsAll(getVariables()) && getVariables().containsAll(patternVars))) {
-			String msg = "variables from VariableList not equal amount of variables used in Graph: \n";
+			String msg = "variables from VariableList not equal to amount of variables used in Graph: \n";
 			for (Input var : patternVars) {
 				msg += var.getId();
 				if (!getVariables().contains(var))

@@ -13,7 +13,6 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.TextLiteral;
 
@@ -87,14 +86,16 @@ public class TextLiteralItemProvider extends TextItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TextLiteral)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_TextLiteral_type") :
-			getString("_UI_TextLiteral_type") + " " + label;
+		TextLiteral textLiteral = (TextLiteral) object;
+		String text = getString("_UI_TextLiteral_type") + " " + textLiteral.getRefNo();		
+		if(textLiteral.getValue() != null) {
+			text += " " + textLiteral.getValue();
+		}		
+		return text;
 	}
 
 

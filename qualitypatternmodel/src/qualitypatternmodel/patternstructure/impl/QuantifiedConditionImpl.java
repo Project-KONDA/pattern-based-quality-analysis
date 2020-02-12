@@ -123,7 +123,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
 		graph.isValid(isDefinedPattern);
 		morphism.isValid(isDefinedPattern);
@@ -157,7 +157,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public EList<Input> getAllInputs() throws InvalidityException {
 		EList<Input> inputs = graph.getAllInputs();
-		inputs.addAll(condition.getAllInputs());
+		if(condition != null) {
+			inputs.addAll(condition.getAllInputs());
+		}
 		return inputs;
 	}
 	
@@ -310,7 +312,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * 
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		newGraph.setGraphDepth(condDepth);
+		if(newGraph != null) {
+			newGraph.setGraphDepth(condDepth);
+		}
 		Graph oldGraph = graph;
 		graph = newGraph;
 		if (eNotificationRequired()) {
@@ -322,11 +326,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setGraph(Graph newGraph) {
-		if (newGraph != graph) {
+		if (newGraph != graph && newGraph != null) {
 			NotificationChain msgs = null;
 			if (graph != null)
 				msgs = ((InternalEObject)graph).eInverseRemove(this, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, Graph.class, msgs);
@@ -439,16 +443,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCheckMorphismOfNextGraph(boolean newCheckMorphismOfNextGraph) {
-		CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCheckMorphismOfNextGraph);
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -496,9 +490,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
 				setQuantifier((Quantifier)newValue);
 				return;
-			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
-				setCheckMorphismOfNextGraph((Boolean)newValue);
-				return;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
 				setGraph((Graph)newValue);
 				return;
@@ -521,9 +512,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		switch (featureID) {
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
 				setQuantifier(QUANTIFIER_EDEFAULT);
-				return;
-			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
-				CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
 				return;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
 				setGraph((Graph)null);

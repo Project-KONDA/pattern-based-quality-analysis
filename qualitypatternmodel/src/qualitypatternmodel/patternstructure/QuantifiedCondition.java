@@ -135,22 +135,11 @@ public interface QuantifiedCondition extends Condition {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Check Morphism Of Next Graph</em>' attribute.
-	 * @see #setCheckMorphismOfNextGraph(boolean)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_CheckMorphismOfNextGraph()
-	 * @model required="true" volatile="true" derived="true"
+	 * @model required="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\t\n\t\t\t\tif self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to\n\t\t\t\telse self.condition.getNextQuantifiedConditions-&gt;forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif'"
 	 * @generated
 	 */
 	boolean isCheckMorphismOfNextGraph();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Check Morphism Of Next Graph</em>' attribute.
-	 * @see #isCheckMorphismOfNextGraph()
-	 * @generated
-	 */
-	void setCheckMorphismOfNextGraph(boolean value);
 
 } // QuantifiedCondition

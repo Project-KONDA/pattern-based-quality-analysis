@@ -12,6 +12,7 @@ import org.eclipse.ocl.pivot.model.OCLstdlib;
 import org.eclipse.ocl.xtext.oclinecore.OCLinEcoreStandaloneSetup;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
@@ -45,6 +46,9 @@ public class ValidityTest {
         try {
 			pattern.isValid(false);
 		} catch (InvalidityException | OperatorCycleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
