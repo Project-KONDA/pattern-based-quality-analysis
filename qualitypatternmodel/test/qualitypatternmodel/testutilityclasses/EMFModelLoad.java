@@ -1,4 +1,4 @@
-package qualitypatternmodel.validitychecks;
+package qualitypatternmodel.testutilityclasses;
 
 import java.util.Map;
 
@@ -11,7 +11,7 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 public class EMFModelLoad {
-	public Pattern load() {
+	public Pattern load(String path) {
 		// Initialize the model
         PatternstructurePackage.eINSTANCE.eClass();
 
@@ -26,7 +26,7 @@ public class EMFModelLoad {
 
         // Get the resource
         Resource resource = resSet.getResource(URI
-                .createURI("instances/MyCount2.patternstructure"), true);
+                .createURI(path), true);
         // Get the first model element and cast it to the right type
         Pattern pattern = (Pattern) resource.getContents().get(0);
         return pattern;

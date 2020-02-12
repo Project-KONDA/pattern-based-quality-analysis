@@ -1,4 +1,4 @@
-package qualitypatternmodel.validitychecks;
+package playground;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EOperation;
@@ -14,6 +14,7 @@ import org.eclipse.ocl.xtext.oclinecore.OCLinEcoreStandaloneSetup;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.testutilityclasses.EMFModelLoad;
 
 public class ValidityTest {
 	public static void main(String[] args) {
@@ -35,7 +36,7 @@ public class ValidityTest {
 		
 		 // Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();
-        Pattern pattern = loader.load();
+        Pattern pattern = loader.load("instances/playground/MyCount2.patternstructure");
 		
 		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);			
 		

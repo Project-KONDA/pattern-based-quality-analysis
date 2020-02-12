@@ -11,4 +11,9 @@ public class Constants {
 	public static final String WHERE = "\nwhere ";
 	public static final String RETURN = "\nreturn ";
 	public static final String IN = " in ";
+	public static final String INSTANCES_FOLDER = "instances";
+	public static final String TRANSLATION_TESTS_FOLDER = INSTANCES_FOLDER + "/translationtests";
+	public static final String VALIDITY_CHECKS_FOLDER = INSTANCES_FOLDER + "/validitychecks";
+	public static final String PLAYGROUND_FOLDER = INSTANCES_FOLDER + "/playground";
+	public static final String INSTANCE_FILE_ENDING = ".patternstructure";
 }
