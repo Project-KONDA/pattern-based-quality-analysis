@@ -248,15 +248,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @generated
 	 */
 	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
-		if(getQuantifier() == Quantifier.FORALL && newCondition instanceof True) {
-			if(condition != null) {
-				condition.setQuantifiedcondition(this);
-			}
-			if(newCondition != null) {
-				newCondition.setQuantifiedcondition(null);
-			}
-			return msgs;
-		}
 		Condition oldCondition = condition;
 		condition = newCondition;
 		if (eNotificationRequired()) {

@@ -67,16 +67,16 @@
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//functions/Operator">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/getAllOperators"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/validate">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Operator/validate/diagnostics"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Operator/validate/context"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/getRootBooleanOperators"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/isCycleFree">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Operator/isCycleFree/visitedOperators"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/isCycleFree.1"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/getArguments"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Operator/validate">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Operator/validate/diagnostics"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Operator/validate/context"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//functions/Count">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

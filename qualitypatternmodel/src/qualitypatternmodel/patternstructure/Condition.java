@@ -58,7 +58,7 @@ public interface Condition extends PatternElement {
 	 * @return the value of the '<em>Get Next Quantified Conditions</em>' reference list.
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_GetNextQuantifiedConditions()
 	 * @model volatile="true" derived="true" ordered="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\n\t\t\t\tif self.oclIsTypeOf(QuantifiedCondition) then \n\t\t\t\t\tSet{self.oclAsType(QuantifiedCondition)}\n\t\t\t\telse \n\t\t\t\t\tif self.oclIsTypeOf(Formula) then \t\t\t\t\t\n\t\t\t\t\t\tself.oclAsType(Formula).arguments-&gt;collect(element: Condition | element.getNextQuantifiedConditions)-&gt;asSet()\n\t\t\t\t\telse \n\t\t\t\t\t\tSet{}\n\t\t\t\t\tendif\n\t\t\t\tendif'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\n\t\t\t\tif self.oclIsTypeOf(QuantifiedCondition) then \n\t\t\t\t\tSet{self.oclAsType(QuantifiedCondition)}\n\t\t\t\telse \n\t\t\t\t\tif self.oclIsTypeOf(Formula) then \t\t\t\t\t\n\t\t\t\t\t\t--self.oclAsType(Formula).argument-&gt;collect(element: Condition | element.getNextQuantifiedConditions)-&gt;asSet()\n\t\t\t\t\t\tif(self.oclAsType(Formula).argument2-&gt;notEmpty()) then\n\t\t\t\t\t\t\tself.oclAsType(Formula).argument1.getNextQuantifiedConditions-&gt;union(self.oclAsType(Formula).argument2.getNextQuantifiedConditions)\t\t\t\t\t\t\t\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tself.oclAsType(Formula).argument1.getNextQuantifiedConditions\n\t\t\t\t\t\tendif\n\t\t\t\t\telse \n\t\t\t\t\t\tSet{}\n\t\t\t\t\tendif\n\t\t\t\tendif'"
 	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
 	 */

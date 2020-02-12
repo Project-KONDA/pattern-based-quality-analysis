@@ -274,7 +274,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 */
 	@Override
 	public EOperation getOperator__Validate__DiagnosticChain_Map() {
-		return operatorEClass.getEOperations().get(1);
+		return operatorEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -284,7 +284,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 */
 	@Override
 	public EOperation getOperator__GetRootBooleanOperators() {
-		return operatorEClass.getEOperations().get(2);
+		return operatorEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -294,7 +294,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 */
 	@Override
 	public EOperation getOperator__IsCycleFree__EList() {
-		return operatorEClass.getEOperations().get(3);
+		return operatorEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -304,7 +304,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 */
 	@Override
 	public EOperation getOperator__IsCycleFree() {
-		return operatorEClass.getEOperations().get(4);
+		return operatorEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -314,7 +314,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 */
 	@Override
 	public EOperation getOperator__GetArguments() {
-		return operatorEClass.getEOperations().get(5);
+		return operatorEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -543,11 +543,11 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		operatorEClass = createEClass(OPERATOR);
 		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
-		createEOperation(operatorEClass, OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 		createEOperation(operatorEClass, OPERATOR___GET_ROOT_BOOLEAN_OPERATORS);
 		createEOperation(operatorEClass, OPERATOR___IS_CYCLE_FREE__ELIST);
 		createEOperation(operatorEClass, OPERATOR___IS_CYCLE_FREE);
 		createEOperation(operatorEClass, OPERATOR___GET_ARGUMENTS);
+		createEOperation(operatorEClass, OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		countEClass = createEClass(COUNT);
 		createEReference(countEClass, COUNT__ARGUMENT);
@@ -638,15 +638,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		op = initEOperation(getOperator__GetAllOperators(), this.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getOperator__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEOperation(getOperator__GetRootBooleanOperators(), this.getBooleanOperator(), "getRootBooleanOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getOperator__IsCycleFree__EList(), null, "isCycleFree", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -657,6 +648,15 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		addEException(op, this.getOperatorCycleExceptionWrapper());
 
 		initEOperation(getOperator__GetArguments(), theGraphstructurePackage.getGraphElement(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getOperator__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(countEClass, Count.class, "Count", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCount_Argument(), theGraphstructurePackage.getSetElement(), theGraphstructurePackage.getSetElement_Count(), "argument", null, 1, 1, Count.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

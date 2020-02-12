@@ -1240,7 +1240,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		  (getCondition_GetNextQuantifiedConditions(),
 		   source,
 		   new String[] {
-			   "derivation", "\t\t\t\t\n\t\t\t\tif self.oclIsTypeOf(QuantifiedCondition) then \n\t\t\t\t\tSet{self.oclAsType(QuantifiedCondition)}\n\t\t\t\telse \n\t\t\t\t\tif self.oclIsTypeOf(Formula) then \t\t\t\t\t\n\t\t\t\t\t\tself.oclAsType(Formula).arguments->collect(element: Condition | element.getNextQuantifiedConditions)->asSet()\n\t\t\t\t\telse \n\t\t\t\t\t\tSet{}\n\t\t\t\t\tendif\n\t\t\t\tendif"
+			   "derivation", "\t\t\t\t\n\t\t\t\tif self.oclIsTypeOf(QuantifiedCondition) then \n\t\t\t\t\tSet{self.oclAsType(QuantifiedCondition)}\n\t\t\t\telse \n\t\t\t\t\tif self.oclIsTypeOf(Formula) then \t\t\t\t\t\n\t\t\t\t\t\t--self.oclAsType(Formula).argument->collect(element: Condition | element.getNextQuantifiedConditions)->asSet()\n\t\t\t\t\t\tif(self.oclAsType(Formula).argument2->notEmpty()) then\n\t\t\t\t\t\t\tself.oclAsType(Formula).argument1.getNextQuantifiedConditions->union(self.oclAsType(Formula).argument2.getNextQuantifiedConditions)\t\t\t\t\t\t\t\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tself.oclAsType(Formula).argument1.getNextQuantifiedConditions\n\t\t\t\t\t\tendif\n\t\t\t\t\telse \n\t\t\t\t\t\tSet{}\n\t\t\t\t\tendif\n\t\t\t\tendif"
 		   });
 		addAnnotation
 		  (morphismEClass,
