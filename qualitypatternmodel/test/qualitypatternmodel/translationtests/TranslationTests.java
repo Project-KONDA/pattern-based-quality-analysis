@@ -21,12 +21,13 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
+import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
 
 public class TranslationTests {
 	
 	public static void main(String[] args) {
         
-        initialize();
+		EMFValidationPreparation.registerDelegates();
 		
         // TODO: call runTest for each test case
 
@@ -98,18 +99,7 @@ public class TranslationTests {
 		
 	}
 
-	private static void initialize() {
-		String oclDelegateURI = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-		EOperation.Internal.InvocationDelegate.Factory.Registry.INSTANCE.put(oclDelegateURI,
-				    new OCLInvocationDelegateFactory.Global());
-		EStructuralFeature.Internal.SettingDelegate.Factory.Registry.INSTANCE.put(oclDelegateURI,
-		    new OCLSettingDelegateFactory.Global());
-		EValidator.ValidationDelegate.Registry.INSTANCE.put(oclDelegateURI,
-		    new OCLValidationDelegateFactory.Global());
-		
-		OCLinEcoreStandaloneSetup.doSetup();
-		OCLstdlib.install();
-	}
+
 	
 	private static void printDiagnostic(Diagnostic diagnostic, String indent) {
 		System.out.print(indent);

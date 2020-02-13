@@ -35,7 +35,7 @@ public class ValidityTests {
 			e.printStackTrace();
 		}
 		// TODO: print output if pattern is valid
- catch (MissingPatternContainerException e) {
+		catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
