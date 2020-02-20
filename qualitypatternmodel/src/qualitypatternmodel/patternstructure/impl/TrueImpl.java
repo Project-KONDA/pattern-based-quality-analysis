@@ -28,7 +28,7 @@ public class TrueImpl extends ConditionImpl implements True {
 	
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		return "true";
+		return "true()";
 	}
 	
 	@Override
