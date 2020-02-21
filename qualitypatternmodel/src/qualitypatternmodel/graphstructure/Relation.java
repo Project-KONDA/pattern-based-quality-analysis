@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.graphstructure;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.RelationMapping;
@@ -28,28 +29,18 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  */
 public interface Relation extends PatternElement {
 	/**
-	 * Returns the value of the '<em><b>Mapping To</b></em>' reference.
+	 * Returns the value of the '<em><b>Mapping To</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.patternstructure.RelationMapping}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.RelationMapping#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mapping To</em>' reference.
-	 * @see #setMappingTo(RelationMapping)
+	 * @return the value of the '<em>Mapping To</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_MappingTo()
 	 * @see qualitypatternmodel.patternstructure.RelationMapping#getFrom
 	 * @model opposite="from"
 	 * @generated
 	 */
-	RelationMapping getMappingTo();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mapping To</em>' reference.
-	 * @see #getMappingTo()
-	 * @generated
-	 */
-	void setMappingTo(RelationMapping value);
+	EList<RelationMapping> getMappingTo();
 
 	/**
 	 * Returns the value of the '<em><b>Mapping From</b></em>' reference.

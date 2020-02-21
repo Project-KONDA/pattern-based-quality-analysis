@@ -3,6 +3,7 @@
 package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -11,8 +12,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Element;
@@ -49,13 +52,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	protected RelationMapping mappingFrom;
 
 	/**
-	 * The cached value of the '{@link #getMappingTo() <em>Mapping To</em>}' reference.
+	 * The cached value of the '{@link #getMappingTo() <em>Mapping To</em>}' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMappingTo()
 	 * @generated
 	 * @ordered
 	 */
-	protected RelationMapping mappingTo;
+	protected EList<RelationMapping> mappingTo;
 
 	/**
 	 * The default value of the '{@link #getAxis() <em>Axis</em>}' attribute. <!--
@@ -114,57 +117,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 */
 	@Override
-	public RelationMapping getMappingTo() {
-		if (mappingTo != null && mappingTo.eIsProxy()) {
-			InternalEObject oldMappingTo = (InternalEObject)mappingTo;
-			mappingTo = (RelationMapping)eResolveProxy(oldMappingTo);
-			if (mappingTo != oldMappingTo) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.RELATION__MAPPING_TO, oldMappingTo, mappingTo));
-			}
+	public EList<RelationMapping> getMappingTo() {
+		if (mappingTo == null) {
+			mappingTo = new EObjectWithInverseResolvingEList<RelationMapping>(RelationMapping.class, this, GraphstructurePackage.RELATION__MAPPING_TO, PatternstructurePackage.RELATION_MAPPING__FROM);
 		}
 		return mappingTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RelationMapping basicGetMappingTo() {
-		return mappingTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMappingTo(RelationMapping newMappingTo, NotificationChain msgs) {
-		RelationMapping oldMappingTo = mappingTo;
-		mappingTo = newMappingTo;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__MAPPING_TO, oldMappingTo, newMappingTo);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMappingTo(RelationMapping newMappingTo) {
-		if (newMappingTo != mappingTo) {
-			NotificationChain msgs = null;
-			if (mappingTo != null)
-				msgs = ((InternalEObject)mappingTo).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__FROM, RelationMapping.class, msgs);
-			if (newMappingTo != null)
-				msgs = ((InternalEObject)newMappingTo).eInverseAdd(this, PatternstructurePackage.RELATION_MAPPING__FROM, RelationMapping.class, msgs);
-			msgs = basicSetMappingTo(newMappingTo, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__MAPPING_TO, newMappingTo, newMappingTo));
 	}
 
 	/**
@@ -302,6 +259,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -310,9 +268,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 					msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__TO, RelationMapping.class, msgs);
 				return basicSetMappingFrom((RelationMapping)otherEnd, msgs);
 			case GraphstructurePackage.RELATION__MAPPING_TO:
-				if (mappingTo != null)
-					msgs = ((InternalEObject)mappingTo).eInverseRemove(this, PatternstructurePackage.RELATION_MAPPING__FROM, RelationMapping.class, msgs);
-				return basicSetMappingTo((RelationMapping)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappingTo()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.RELATION__RELATION_TO:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -331,7 +287,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__MAPPING_FROM:
 				return basicSetMappingFrom(null, msgs);
 			case GraphstructurePackage.RELATION__MAPPING_TO:
-				return basicSetMappingTo(null, msgs);
+				return ((InternalEList<?>)getMappingTo()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.RELATION__RELATION_TO:
 				return basicSetRelationTo(null, msgs);
 		}
@@ -363,8 +319,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				if (resolve) return getMappingFrom();
 				return basicGetMappingFrom();
 			case GraphstructurePackage.RELATION__MAPPING_TO:
-				if (resolve) return getMappingTo();
-				return basicGetMappingTo();
+				return getMappingTo();
 			case GraphstructurePackage.RELATION__AXIS:
 				return getAxis();
 			case GraphstructurePackage.RELATION__RELATION_TO:
@@ -385,7 +340,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				setMappingFrom((RelationMapping)newValue);
 				return;
 			case GraphstructurePackage.RELATION__MAPPING_TO:
-				setMappingTo((RelationMapping)newValue);
+				getMappingTo().clear();
+				getMappingTo().addAll((Collection<? extends RelationMapping>)newValue);
 				return;
 			case GraphstructurePackage.RELATION__AXIS:
 				setAxis((Axis)newValue);
@@ -408,7 +364,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				setMappingFrom((RelationMapping)null);
 				return;
 			case GraphstructurePackage.RELATION__MAPPING_TO:
-				setMappingTo((RelationMapping)null);
+				getMappingTo().clear();
 				return;
 			case GraphstructurePackage.RELATION__AXIS:
 				setAxis(AXIS_EDEFAULT);
@@ -430,7 +386,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__MAPPING_FROM:
 				return mappingFrom != null;
 			case GraphstructurePackage.RELATION__MAPPING_TO:
-				return mappingTo != null;
+				return mappingTo != null && !mappingTo.isEmpty();
 			case GraphstructurePackage.RELATION__AXIS:
 				return axis != AXIS_EDEFAULT;
 			case GraphstructurePackage.RELATION__RELATION_TO:

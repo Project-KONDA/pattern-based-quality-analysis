@@ -22,11 +22,14 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.patternstructure.RelationMapping;
+import qualitypatternmodel.patternstructure.SingleElementMapping;
 import qualitypatternmodel.patternstructure.True;
 
 /**
@@ -168,7 +171,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		NotificationChain msg = super.basicSetQuantifiedcondition(newQuantifiedcondition, msgs);
 		if(newQuantifiedcondition != null) {
 			try {
-				newQuantifiedcondition.getAncestor(PatternImpl.class);					
 				copyPreviousGraph();				
 			} catch (MissingPatternContainerException e) {
 				
@@ -184,7 +186,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		NotificationChain msg = super.basicSetFormula1(newFormula1, msgs);
 		if(newFormula1 != null) {
 			try {
-				newFormula1.getAncestor(PatternImpl.class);
 				copyPreviousGraph();
 			} catch (MissingPatternContainerException e) {
 				
@@ -200,7 +201,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		NotificationChain msg = super.basicSetFormula1(newFormula2, msgs);
 		if(newFormula2 != null) {
 			try {
-				newFormula2.getAncestor(PatternImpl.class);
 				copyPreviousGraph();
 			} catch (MissingPatternContainerException e) {
 				
@@ -216,7 +216,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		NotificationChain msg = super.basicSetPattern(newPattern, msgs);
 		if(newPattern != null) {
 			try {
-				newPattern.getAncestor(PatternImpl.class);
 				copyPreviousGraph();
 			} catch (MissingPatternContainerException e) {
 				
@@ -354,11 +353,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
 		Morphism oldMorphism = morphism;
 		morphism = newMorphism;
+		
+		removeDanglingMappingReference(oldMorphism);
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, oldMorphism, newMorphism);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -366,11 +368,27 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return msgs;
 	}
 
+	private void removeDanglingMappingReference(Morphism oldMorphism) {
+		if(oldMorphism != null) {
+			for(Mapping mapping : oldMorphism.getMappings()) {			
+				if(mapping instanceof SingleElementMapping) {
+					SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
+					singleElementMapping.getFrom().getMappingTo().remove(singleElementMapping);
+					singleElementMapping.getTo().setMappingFrom(null);
+				} else if (mapping instanceof RelationMapping) {
+					RelationMapping relationMapping = (RelationMapping) mapping;
+					relationMapping.getFrom().getMappingTo().remove(relationMapping);
+					relationMapping.getTo().setMappingFrom(null);
+				}
+			}
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void setMorphism(Morphism newMorphism) {
-		if (newMorphism != morphism) {
+		if (!newMorphism.equals(morphism)) {
 			NotificationChain msgs = null;
 			if (morphism != null)
 				msgs = ((InternalEObject)morphism).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, null, msgs);

@@ -149,8 +149,8 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/to"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" eType="#//patternstructure/RelationMapping"
-          eOpposite="#//patternstructure/RelationMapping/from"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
+          eType="#//patternstructure/RelationMapping" eOpposite="#//patternstructure/RelationMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="#//graphstructure/Axis"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationTo" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/relationFromPrevious"/>

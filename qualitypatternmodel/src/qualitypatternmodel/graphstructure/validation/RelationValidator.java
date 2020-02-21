@@ -4,6 +4,7 @@
  */
 package qualitypatternmodel.graphstructure.validation;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Axis;
 
 import qualitypatternmodel.graphstructure.Element;
@@ -19,6 +20,8 @@ public interface RelationValidator {
 	boolean validate();
 
 	boolean validateMappingFrom(RelationMapping value);
+	boolean validateMappingTo(EList<RelationMapping> value);
+
 	boolean validateMappingTo(RelationMapping value);
 	boolean validateAxis(Axis value);
 	boolean validateRelationTo(Element value);

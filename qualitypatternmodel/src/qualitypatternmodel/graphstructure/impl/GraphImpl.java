@@ -30,9 +30,11 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.SingleElementMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl;
 
@@ -201,16 +203,29 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public void copyGraph(Graph graph) throws MissingPatternContainerException {		
-		graph.getQuantifiedCondition().getMorphism().getMappings().add(new SingleElementMappingImpl(rootElement, graph.getRootElement()));
-//		for(Mapping mapping : mappings) {
-//			if(mapping instanceof SingleElementMapping) {
-//				SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
-//				if(singleElementMapping.getTo().equals(graph.getRootElement())) {
-//					singleElementMapping.setFrom(rootElement);
-//				}
-//			}
-//		}
+		boolean foundRootMapping = updateRootMapping(graph);
+		if(!foundRootMapping) {
+			addRootMapping(graph);
+		}		
 		rootElement.copyNextElements();
+	}
+
+	private void addRootMapping(Graph graph) {
+		graph.getQuantifiedCondition().getMorphism().getMappings().add(new SingleElementMappingImpl(rootElement, graph.getRootElement()));
+	}
+
+	private boolean updateRootMapping(Graph graph) {
+		for(Mapping mapping : graph.getQuantifiedCondition().getMorphism().getMappings()) {
+			if(mapping instanceof SingleElementMapping) {
+				SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
+				if(singleElementMapping.getTo().equals(graph.getRootElement())) {
+					singleElementMapping.getFrom().getMappingTo().remove(singleElementMapping);
+					singleElementMapping.setFrom(rootElement);
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**

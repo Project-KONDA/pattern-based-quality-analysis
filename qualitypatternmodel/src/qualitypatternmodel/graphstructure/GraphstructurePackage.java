@@ -100,7 +100,7 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__MAPPING_FROM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Mapping To</b></em>' reference.
+	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1994,10 +1994,10 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getRelation();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Mapping To</em>'.
+	 * @return the meta object for the reference list '<em>Mapping To</em>'.
 	 * @see qualitypatternmodel.graphstructure.Relation#getMappingTo()
 	 * @see #getRelation()
 	 * @generated
@@ -2805,7 +2805,7 @@ public interface GraphstructurePackage extends EPackage {
 		EClass RELATION = eINSTANCE.getRelation();
 
 		/**
-		 * The meta object literal for the '<em><b>Mapping To</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Mapping To</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
