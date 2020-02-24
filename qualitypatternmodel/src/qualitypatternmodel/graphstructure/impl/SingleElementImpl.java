@@ -112,7 +112,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 		String result = "";
 		if (location == Location.RETURN) {
-			result = FOR + getXQueryVariable() + IN + xPathExpression + xPredicates + "\n";
+			result = FOR + getXQueryVariable() + IN + xPathExpression + xPredicates;
 		} else {
 			if (location == Location.EXISTS) {
 				result += SOME;

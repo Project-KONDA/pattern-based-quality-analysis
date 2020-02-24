@@ -74,7 +74,15 @@ public enum ReturnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NUMBER(7, "NUMBER", "NUMBER");
+	NUMBER(7, "NUMBER", "NUMBER"), /**
+	 * The '<em><b>DATETIME</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DATETIME_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DATETIME(8, "DATETIME", "DATETIME");
 
 	/**
 	 * The '<em><b>UNSPECIFIED</b></em>' literal value.
@@ -154,6 +162,17 @@ public enum ReturnType implements Enumerator {
 	public static final int NUMBER_VALUE = 7;
 
 	/**
+	 * The '<em><b>DATETIME</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DATETIME
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DATETIME_VALUE = 8;
+
+	/**
 	 * An array of all the '<em><b>Return Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -168,6 +187,7 @@ public enum ReturnType implements Enumerator {
 			DATE,
 			TIME,
 			NUMBER,
+			DATETIME,
 		};
 
 	/**
@@ -231,6 +251,7 @@ public enum ReturnType implements Enumerator {
 			case DATE_VALUE: return DATE;
 			case TIME_VALUE: return TIME;
 			case NUMBER_VALUE: return NUMBER;
+			case DATETIME_VALUE: return DATETIME;
 		}
 		return null;
 	}

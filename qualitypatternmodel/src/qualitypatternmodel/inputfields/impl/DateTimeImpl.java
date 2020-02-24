@@ -2,31 +2,37 @@
  */
 package qualitypatternmodel.inputfields.impl;
 
+import static qualitypatternmodel.utilityclasses.Constants.REGEX_POSITIVE_NEGATIVE;
+import static qualitypatternmodel.utilityclasses.Constants.REGEX_TIME_HOURS_MINUTES;
+import static qualitypatternmodel.utilityclasses.Constants.REGEX_TIME_HOURS_MINUTES_SECONDS;
+import static qualitypatternmodel.utilityclasses.Constants.REGEX_DATE_TIME;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.inputfields.DateTime;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.patternstructure.Location;
-import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Time</b></em>'.
+ * An implementation of the model object '<em><b>Date Time</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.impl.TimeImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.DateTimeImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TimeImpl extends InputValueImpl implements Time {
+public class DateTimeImpl extends InputValueImpl implements DateTime {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -36,6 +42,7 @@ public class TimeImpl extends InputValueImpl implements Time {
 	 * @ordered
 	 */
 	protected static final String VALUE_EDEFAULT = "";
+
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -51,7 +58,7 @@ public class TimeImpl extends InputValueImpl implements Time {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TimeImpl() {
+	protected DateTimeImpl() {
 		super();
 	}
 	
@@ -66,15 +73,15 @@ public class TimeImpl extends InputValueImpl implements Time {
 	
 	@Override
 	public ReturnType getReturnType() {
-		return ReturnType.TIME;
+		return ReturnType.DATETIME;
 	}
 	
 	@Override
 	public boolean inputIsValid() {		
-		String regex = "(" + REGEX_TIME_HOURS_MINUTES_SECONDS + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + ")" + "|(" + REGEX_TIME_HOURS_MINUTES_SECONDS + "Z?)";		
+		String regex = REGEX_DATE_TIME + "(Z|" + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + ")?";		
 		return getValue() != null && getValue().matches(regex);
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,9 +89,9 @@ public class TimeImpl extends InputValueImpl implements Time {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return InputfieldsPackage.Literals.TIME;
+		return InputfieldsPackage.Literals.DATE_TIME;
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,7 +112,7 @@ public class TimeImpl extends InputValueImpl implements Time {
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.TIME__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.DATE_TIME__VALUE, oldValue, value));
 	}
 
 	/**
@@ -116,7 +123,7 @@ public class TimeImpl extends InputValueImpl implements Time {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InputfieldsPackage.TIME__VALUE:
+			case InputfieldsPackage.DATE_TIME__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -130,7 +137,7 @@ public class TimeImpl extends InputValueImpl implements Time {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InputfieldsPackage.TIME__VALUE:
+			case InputfieldsPackage.DATE_TIME__VALUE:
 				setValue((String)newValue);
 				return;
 		}
@@ -145,7 +152,7 @@ public class TimeImpl extends InputValueImpl implements Time {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.TIME__VALUE:
+			case InputfieldsPackage.DATE_TIME__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -160,7 +167,7 @@ public class TimeImpl extends InputValueImpl implements Time {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.TIME__VALUE:
+			case InputfieldsPackage.DATE_TIME__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
@@ -182,6 +189,4 @@ public class TimeImpl extends InputValueImpl implements Time {
 		return result.toString();
 	}
 
-	
-
-} //TimeImpl
+} //DateTimeImpl

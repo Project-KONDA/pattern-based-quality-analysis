@@ -25,14 +25,14 @@ public class ValidityTest {
 		
 		 // Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();
-        Pattern pattern = loader.load("instances/playground/MyCount2.patternstructure");
+        Pattern pattern = loader.load("instances/playground/My.patternstructure");
 		
 		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);			
 		
 		printDiagnostic(diagnostic, "");
         
         try {
-			pattern.isValid(false);
+			pattern.isValid(true);
 		} catch (InvalidityException | OperatorCycleException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -40,12 +40,12 @@ public class ValidityTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			try {
-				System.out.println(pattern.toXQuery());
-			} catch (InvalidityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+			System.out.println(pattern.toXQuery());
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 	

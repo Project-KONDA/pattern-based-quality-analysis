@@ -3,6 +3,7 @@
 package qualitypatternmodel.inputfields.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -11,6 +12,8 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.patternstructure.Location;
+
+import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,7 +60,7 @@ public class DateImpl extends InputValueImpl implements Date {
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		if(getValue() != null) {
-			return getValue();
+			return "\"" + getValue() + "\"";
 		} else {
 			throw new InvalidityException("invalid number");
 		}
@@ -69,8 +72,9 @@ public class DateImpl extends InputValueImpl implements Date {
 	}
 	
 	@Override
-	public boolean inputIsValid() {
-		return getValue() != null;
+	public boolean inputIsValid() {				
+		String regex =  REGEX_DATE + "(" + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + "|Z)?";		
+		return getValue() != null && getValue().matches(regex);
 	}
 
 	/**

@@ -11,24 +11,26 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.DateTime;
+import qualitypatternmodel.inputfields.InputfieldsPackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.InputValue} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.DateTime} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class InputValueItemProvider extends InputItemProvider {
+public class DateTimeItemProvider extends InputValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InputValueItemProvider(AdapterFactory adapterFactory) {
+	public DateTimeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -43,65 +45,42 @@ public class InputValueItemProvider extends InputItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addComparison1PropertyDescriptor(object);
-			addComparison2PropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Comparison1 feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addComparison1PropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Comparable_comparison1_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Comparable_comparison1_feature", "_UI_Comparable_type"),
-				 GraphstructurePackage.Literals.COMPARABLE__COMPARISON1,
+				 getString("_UI_DateTime_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DateTime_value_feature", "_UI_DateTime_type"),
+				 InputfieldsPackage.Literals.DATE_TIME__VALUE,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Comparison2 feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addComparison2PropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Comparable_comparison2_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Comparable_comparison2_feature", "_UI_Comparable_type"),
-				 GraphstructurePackage.Literals.COMPARABLE__COMPARISON2,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns InputValue.gif.
+	 * This returns DateTime.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InputValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DateTime"));
 	}
 
 	/**
@@ -112,10 +91,10 @@ public class InputValueItemProvider extends InputItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InputValue)object).getId();
+		String label = ((DateTime)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_InputValue_type") :
-			getString("_UI_InputValue_type") + " " + label;
+			getString("_UI_DateTime_type") :
+			getString("_UI_DateTime_type") + " " + label;
 	}
 
 
@@ -129,6 +108,13 @@ public class InputValueItemProvider extends InputItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(DateTime.class)) {
+			case InputfieldsPackage.DATE_TIME__VALUE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 	/**

@@ -256,6 +256,29 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.DateTime} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DateTimeItemProvider dateTimeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.DateTime}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDateTimeAdapter() {
+		if (dateTimeItemProvider == null) {
+			dateTimeItemProvider = new DateTimeItemProvider(this);
+		}
+
+		return dateTimeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.Boolean} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -440,6 +463,7 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 		if (dateItemProvider != null) dateItemProvider.dispose();
 		if (timeItemProvider != null) timeItemProvider.dispose();
 		if (unknownInputValueItemProvider != null) unknownInputValueItemProvider.dispose();
+		if (dateTimeItemProvider != null) dateTimeItemProvider.dispose();
 	}
 
 }

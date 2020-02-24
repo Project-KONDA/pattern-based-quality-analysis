@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import qualitypatternmodel.graphstructure.util.GraphstructureValidator;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
+import qualitypatternmodel.inputfields.DateTime;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
@@ -150,6 +151,8 @@ public class InputfieldsValidator extends EObjectValidator {
 				return validateTime((Time)value, diagnostics, context);
 			case InputfieldsPackage.UNKNOWN_INPUT_VALUE:
 				return validateUnknownInputValue((UnknownInputValue)value, diagnostics, context);
+			case InputfieldsPackage.DATE_TIME:
+				return validateDateTime((DateTime)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -409,6 +412,25 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(unknownInputValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(unknownInputValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInput_validate(unknownInputValue, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDateTime(DateTime dateTime, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(dateTime, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(dateTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(dateTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(dateTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(dateTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(dateTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(dateTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dateTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dateTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInput_validate(dateTime, diagnostics, context);
 		return result;
 	}
 

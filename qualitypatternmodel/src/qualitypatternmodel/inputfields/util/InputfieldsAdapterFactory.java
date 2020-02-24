@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
+import qualitypatternmodel.inputfields.DateTime;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
@@ -129,6 +130,10 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseUnknownInputValue(UnknownInputValue object) {
 				return createUnknownInputValueAdapter();
+			}
+			@Override
+			public Adapter caseDateTime(DateTime object) {
+				return createDateTimeAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -337,6 +342,20 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUnknownInputValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.DateTime <em>Date Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.DateTime
+	 * @generated
+	 */
+	public Adapter createDateTimeAdapter() {
 		return null;
 	}
 

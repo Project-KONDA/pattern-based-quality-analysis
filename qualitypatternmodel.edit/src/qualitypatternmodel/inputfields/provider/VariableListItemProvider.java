@@ -184,6 +184,11 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
 				 InputfieldsFactory.eINSTANCE.createUnknownInputValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				 InputfieldsFactory.eINSTANCE.createDateTime()));
 	}
 
 	/**

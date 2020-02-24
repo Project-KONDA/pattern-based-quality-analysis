@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
+import qualitypatternmodel.inputfields.DateTime;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
@@ -77,6 +78,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 			case InputfieldsPackage.DATE: return createDate();
 			case InputfieldsPackage.TIME: return createTime();
 			case InputfieldsPackage.UNKNOWN_INPUT_VALUE: return createUnknownInputValue();
+			case InputfieldsPackage.DATE_TIME: return createDateTime();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -201,6 +203,17 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	public UnknownInputValue createUnknownInputValue() {
 		UnknownInputValueImpl unknownInputValue = new UnknownInputValueImpl();
 		return unknownInputValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DateTime createDateTime() {
+		DateTimeImpl dateTime = new DateTimeImpl();
+		return dateTime;
 	}
 
 	/**

@@ -19,6 +19,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
+import qualitypatternmodel.inputfields.DateTime;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
@@ -132,6 +133,13 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	private EClass unknownInputValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dateTimeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -554,6 +562,26 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
+	public EClass getDateTime() {
+		return dateTimeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDateTime_Value() {
+		return (EAttribute)dateTimeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public InputfieldsFactory getInputfieldsFactory() {
 		return (InputfieldsFactory)getEFactoryInstance();
 	}
@@ -622,6 +650,9 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 
 		unknownInputValueEClass = createEClass(UNKNOWN_INPUT_VALUE);
 		createEOperation(unknownInputValueEClass, UNKNOWN_INPUT_VALUE___CONCRETIZE__INPUTVALUE);
+
+		dateTimeEClass = createEClass(DATE_TIME);
+		createEAttribute(dateTimeEClass, DATE_TIME__VALUE);
 	}
 
 	/**
@@ -648,16 +679,15 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 		FunctionsPackage theFunctionsPackage = (FunctionsPackage)EPackage.Registry.INSTANCE.getEPackage(FunctionsPackage.eNS_URI);
+		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		inputEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
 		inputEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		compOptionEClass.getESuperTypes().add(this.getInput());
 		propertyOptionEClass.getESuperTypes().add(this.getInput());
@@ -673,6 +703,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		timeEClass.getESuperTypes().add(this.getInputValue());
 		unknownInputValueEClass.getESuperTypes().add(this.getInput());
 		unknownInputValueEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
+		dateTimeEClass.getESuperTypes().add(this.getInputValue());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -733,6 +764,9 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 
 		op = initEOperation(getUnknownInputValue__Concretize__InputValue(), null, "concretize", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getInputValue(), "concreteInputValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(dateTimeEClass, DateTime.class, "DateTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDateTime_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

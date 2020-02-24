@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
+import qualitypatternmodel.inputfields.DateTime;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
@@ -80,7 +81,6 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 			case InputfieldsPackage.INPUT: {
 				Input input = (Input)theEObject;
 				T result = caseInput(input);
-				if (result == null) result = caseComparable(input);
 				if (result == null) result = casePatternElement(input);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -89,7 +89,6 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				CompOption compOption = (CompOption)theEObject;
 				T result = caseCompOption(compOption);
 				if (result == null) result = caseInput(compOption);
-				if (result == null) result = caseComparable(compOption);
 				if (result == null) result = casePatternElement(compOption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -98,7 +97,6 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				PropertyOption propertyOption = (PropertyOption)theEObject;
 				T result = casePropertyOption(propertyOption);
 				if (result == null) result = caseInput(propertyOption);
-				if (result == null) result = caseComparable(propertyOption);
 				if (result == null) result = casePatternElement(propertyOption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -197,6 +195,16 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInput(unknownInputValue);
 				if (result == null) result = caseComparable(unknownInputValue);
 				if (result == null) result = casePatternElement(unknownInputValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InputfieldsPackage.DATE_TIME: {
+				DateTime dateTime = (DateTime)theEObject;
+				T result = caseDateTime(dateTime);
+				if (result == null) result = caseInputValue(dateTime);
+				if (result == null) result = caseInput(dateTime);
+				if (result == null) result = caseComparable(dateTime);
+				if (result == null) result = casePatternElement(dateTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -396,6 +404,21 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUnknownInputValue(UnknownInputValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Date Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Date Time</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDateTime(DateTime object) {
 		return null;
 	}
 

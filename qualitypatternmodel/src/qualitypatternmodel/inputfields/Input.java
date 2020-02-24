@@ -24,7 +24,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @model abstract="true"
  * @generated
  */
-public interface Input extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
+public interface Input extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Variable List</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.VariableList#getVariables <em>Variables</em>}'.

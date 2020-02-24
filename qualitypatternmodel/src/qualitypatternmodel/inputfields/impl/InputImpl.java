@@ -4,8 +4,6 @@ package qualitypatternmodel.inputfields.impl;
 
 import java.lang.Boolean;
 import java.lang.reflect.InvocationTargetException;
-
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -15,19 +13,11 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
-import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.graphstructure.ListOfElements;
-import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.VariableList;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -37,8 +27,6 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getComparison1 <em>Comparison1</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getComparison2 <em>Comparison2</em>}</li>
  *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getVariableList <em>Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#isIsPredefined <em>Is Predefined</em>}</li>
@@ -47,24 +35,6 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * @generated
  */
 public abstract class InputImpl extends PatternElementImpl implements Input {
-	/**
-	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComparison1()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Comparison> comparison1;
-	/**
-	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComparison2()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Comparison> comparison2;
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -109,22 +79,10 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 		super();
 	}
 	
-	@Override
-	public String toXQuery(Location location, int depth) throws InvalidityException {
-		return toXQuery(location);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+//	@Override
+//	public String toXQuery(Location location, int depth) throws InvalidityException {
+//		return toXQuery(location);
+//	}
 
 	@Override
 	public EList<Input> getAllInputs() throws InvalidityException {
@@ -133,10 +91,10 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 		return res;
 	}
 	
-	@Override
-	public boolean isTranslatable() throws InvalidityException {
-		return true;
-	}
+//	@Override
+//	public boolean isTranslatable() throws InvalidityException {
+//		return true;
+//	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -145,32 +103,6 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	protected EClass eStaticClass() {
 		return InputfieldsPackage.Literals.INPUT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Comparison> getComparison1() {
-		if (comparison1 == null) {
-			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, InputfieldsPackage.INPUT__COMPARISON1, FunctionsPackage.COMPARISON__ARGUMENT1);
-		}
-		return comparison1;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Comparison> getComparison2() {
-		if (comparison2 == null) {
-			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, InputfieldsPackage.INPUT__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
-		}
-		return comparison2;
 	}
 
 	/**
@@ -266,7 +198,7 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 		if (getVariableList() == null)
 			throw new InvalidityException("variableList null");
 		if ((isDefinedPattern && !inputIsValid()))
-			throw new InvalidityException("no defined input");
+			throw new InvalidityException("input missing or invalid");
 	}
 
 	/**
@@ -276,18 +208,6 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	public abstract boolean inputIsValid();
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ReturnType getReturnType() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -295,10 +215,6 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison1()).basicAdd(otherEnd, msgs);
-			case InputfieldsPackage.INPUT__COMPARISON2:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison2()).basicAdd(otherEnd, msgs);
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -314,10 +230,6 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
-				return ((InternalEList<?>)getComparison1()).basicRemove(otherEnd, msgs);
-			case InputfieldsPackage.INPUT__COMPARISON2:
-				return ((InternalEList<?>)getComparison2()).basicRemove(otherEnd, msgs);
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
 				return basicSetVariableList(null, msgs);
 		}
@@ -345,10 +257,6 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
-				return getComparison1();
-			case InputfieldsPackage.INPUT__COMPARISON2:
-				return getComparison2();
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
 				return getVariableList();
 			case InputfieldsPackage.INPUT__DESCRIPTION:
@@ -367,14 +275,6 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
-				getComparison1().clear();
-				getComparison1().addAll((Collection<? extends Comparison>)newValue);
-				return;
-			case InputfieldsPackage.INPUT__COMPARISON2:
-				getComparison2().clear();
-				getComparison2().addAll((Collection<? extends Comparison>)newValue);
-				return;
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
 				setVariableList((VariableList)newValue);
 				return;
@@ -395,12 +295,6 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
-				getComparison1().clear();
-				return;
-			case InputfieldsPackage.INPUT__COMPARISON2:
-				getComparison2().clear();
-				return;
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
 				setVariableList((VariableList)null);
 				return;
@@ -421,10 +315,6 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
-				return comparison1 != null && !comparison1.isEmpty();
-			case InputfieldsPackage.INPUT__COMPARISON2:
-				return comparison2 != null && !comparison2.isEmpty();
 			case InputfieldsPackage.INPUT__VARIABLE_LIST:
 				return getVariableList() != null;
 			case InputfieldsPackage.INPUT__DESCRIPTION:
@@ -444,29 +334,6 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 		switch (operationID) {
 			case InputfieldsPackage.INPUT___INPUT_IS_VALID:
 				return inputIsValid();
-			case InputfieldsPackage.INPUT___GET_RETURN_TYPE:
-				return getReturnType();
-			case InputfieldsPackage.INPUT___IS_TRANSLATABLE:
-				try {
-					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case InputfieldsPackage.INPUT___TO_XQUERY__LOCATION_INT:
-				try {
-					return toXQuery((Location)arguments.get(0), (Integer)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case InputfieldsPackage.INPUT___GET_ALL_ARGUMENT_ELEMENTS:
-				try {
-					return getAllArgumentElements();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
