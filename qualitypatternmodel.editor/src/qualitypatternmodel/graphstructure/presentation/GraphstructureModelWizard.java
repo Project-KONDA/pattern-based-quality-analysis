@@ -72,8 +72,6 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
-
-
 import org.eclipse.core.runtime.Path;
 
 import org.eclipse.jface.viewers.ISelection;

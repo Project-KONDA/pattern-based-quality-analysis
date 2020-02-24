@@ -78,7 +78,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR__ID = GraphstructurePackage.GRAPH_ELEMENT__ID;
+	int OPERATOR__ID = GraphstructurePackage.COMPARABLE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -87,7 +87,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR__REF_NO = GraphstructurePackage.GRAPH_ELEMENT__REF_NO;
+	int OPERATOR__REF_NO = GraphstructurePackage.COMPARABLE__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -96,7 +96,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR__COMPARISON1 = GraphstructurePackage.GRAPH_ELEMENT__COMPARISON1;
+	int OPERATOR__COMPARISON1 = GraphstructurePackage.COMPARABLE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -105,7 +105,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR__COMPARISON2 = GraphstructurePackage.GRAPH_ELEMENT__COMPARISON2;
+	int OPERATOR__COMPARISON2 = GraphstructurePackage.COMPARABLE__COMPARISON2;
 
 	/**
 	 * The number of structural features of the '<em>Operator</em>' class.
@@ -114,7 +114,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_FEATURE_COUNT = GraphstructurePackage.GRAPH_ELEMENT_FEATURE_COUNT + 0;
+	int OPERATOR_FEATURE_COUNT = GraphstructurePackage.COMPARABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -123,7 +123,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___TO_XQUERY__LOCATION = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION;
+	int OPERATOR___TO_XQUERY__LOCATION = GraphstructurePackage.COMPARABLE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -132,7 +132,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_ALL_INPUTS = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_INPUTS;
+	int OPERATOR___GET_ALL_INPUTS = GraphstructurePackage.COMPARABLE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -141,7 +141,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___PREPARE_TRANSLATION = GraphstructurePackage.GRAPH_ELEMENT___PREPARE_TRANSLATION;
+	int OPERATOR___PREPARE_TRANSLATION = GraphstructurePackage.COMPARABLE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -150,7 +150,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___IS_VALID__BOOLEAN = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID__BOOLEAN;
+	int OPERATOR___IS_VALID__BOOLEAN = GraphstructurePackage.COMPARABLE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -159,7 +159,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___IS_VALID_LOCAL__BOOLEAN = GraphstructurePackage.GRAPH_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int OPERATOR___IS_VALID_LOCAL__BOOLEAN = GraphstructurePackage.COMPARABLE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -168,7 +168,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_CONTAINER = GraphstructurePackage.GRAPH_ELEMENT___GET_CONTAINER;
+	int OPERATOR___GET_CONTAINER = GraphstructurePackage.COMPARABLE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -177,7 +177,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_ANCESTOR__CLASS = GraphstructurePackage.GRAPH_ELEMENT___GET_ANCESTOR__CLASS;
+	int OPERATOR___GET_ANCESTOR__CLASS = GraphstructurePackage.COMPARABLE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -186,7 +186,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_RETURN_TYPE = GraphstructurePackage.GRAPH_ELEMENT___GET_RETURN_TYPE;
+	int OPERATOR___GET_RETURN_TYPE = GraphstructurePackage.COMPARABLE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -195,7 +195,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___IS_TRANSLATABLE = GraphstructurePackage.GRAPH_ELEMENT___IS_TRANSLATABLE;
+	int OPERATOR___IS_TRANSLATABLE = GraphstructurePackage.COMPARABLE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -204,7 +204,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___TO_XQUERY__LOCATION_INT = GraphstructurePackage.GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT;
+	int OPERATOR___TO_XQUERY__LOCATION_INT = GraphstructurePackage.COMPARABLE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -213,7 +213,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = GraphstructurePackage.GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+	int OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = GraphstructurePackage.COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -222,7 +222,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_ALL_OPERATORS = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 0;
+	int OPERATOR___GET_ALL_OPERATORS = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Root Boolean Operators</em>' operation.
@@ -231,7 +231,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_ROOT_BOOLEAN_OPERATORS = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 1;
+	int OPERATOR___GET_ROOT_BOOLEAN_OPERATORS = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Cycle Free</em>' operation.
@@ -240,7 +240,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___IS_CYCLE_FREE__ELIST = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 2;
+	int OPERATOR___IS_CYCLE_FREE__ELIST = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Cycle Free</em>' operation.
@@ -249,7 +249,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___IS_CYCLE_FREE = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 3;
+	int OPERATOR___IS_CYCLE_FREE = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Arguments</em>' operation.
@@ -258,7 +258,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_ARGUMENTS = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 4;
+	int OPERATOR___GET_ARGUMENTS = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -267,7 +267,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 5;
+	int OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Operator</em>' class.
@@ -276,7 +276,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_OPERATION_COUNT = GraphstructurePackage.GRAPH_ELEMENT_OPERATION_COUNT + 6;
+	int OPERATOR_OPERATION_COUNT = GraphstructurePackage.COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.BooleanOperatorImpl <em>Boolean Operator</em>}' class.

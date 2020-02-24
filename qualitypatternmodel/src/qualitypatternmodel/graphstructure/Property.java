@@ -4,6 +4,7 @@ package qualitypatternmodel.graphstructure;
 
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +24,7 @@ import qualitypatternmodel.inputfields.TextLiteral;
  * @model
  * @generated
  */
-public interface Property extends GraphElement {
+public interface Property extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Property Option</b></em>' reference.
 	 * <!-- begin-user-doc -->

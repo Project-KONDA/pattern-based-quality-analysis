@@ -20,7 +20,7 @@ import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.graphstructure.GraphElement;
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
@@ -54,7 +54,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 * @ordered
 	 */
-	protected GraphElement argument1;
+	protected qualitypatternmodel.graphstructure.Comparable argument1;
 
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
@@ -73,7 +73,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 * @ordered
 	 */
-	protected GraphElement argument2;
+	protected qualitypatternmodel.graphstructure.Comparable argument2;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -241,8 +241,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}	
 	
 	@Override
-	public EList<GraphElement> getArguments(){
-		EList<GraphElement> list = new BasicEList<GraphElement>();
+	public EList<Comparable> getArguments(){
+		EList<Comparable> list = new BasicEList<Comparable>();
 		list.add(argument1);
 		list.add(argument2);
 		return list;
@@ -262,10 +262,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 */
 	@Override
-	public GraphElement getArgument1() {
+	public qualitypatternmodel.graphstructure.Comparable getArgument1() {
 		if (argument1 != null && argument1.eIsProxy()) {
 			InternalEObject oldArgument1 = (InternalEObject)argument1;
-			argument1 = (GraphElement)eResolveProxy(oldArgument1);
+			argument1 = (qualitypatternmodel.graphstructure.Comparable)eResolveProxy(oldArgument1);
 			if (argument1 != oldArgument1) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.COMPARISON__ARGUMENT1, oldArgument1, argument1));
@@ -278,8 +278,28 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GraphElement basicGetArgument1() {
+	public qualitypatternmodel.graphstructure.Comparable basicGetArgument1() {
 		return argument1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setArgument1(qualitypatternmodel.graphstructure.Comparable newArgument1) {
+		if (newArgument1 != argument1) {
+			NotificationChain msgs = null;
+			if (argument1 != null)
+				msgs = ((InternalEObject)argument1).eInverseRemove(this, GraphstructurePackage.COMPARABLE__COMPARISON1, qualitypatternmodel.graphstructure.Comparable.class, msgs);
+			if (newArgument1 != null)
+				msgs = ((InternalEObject)newArgument1).eInverseAdd(this, GraphstructurePackage.COMPARABLE__COMPARISON1, qualitypatternmodel.graphstructure.Comparable.class, msgs);
+			msgs = basicSetArgument1(newArgument1, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT1, newArgument1, newArgument1));
 	}
 
 	/**
@@ -287,8 +307,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetArgument1(GraphElement newArgument1, NotificationChain msgs) {		
-		GraphElement oldArgument1 = argument1;
+	public NotificationChain basicSetArgument1(qualitypatternmodel.graphstructure.Comparable newArgument1, NotificationChain msgs) {		
+		Comparable oldArgument1 = argument1;
 		argument1 = newArgument1;
 
 		try {
@@ -313,7 +333,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		return msgs;
 	}
 
-	private void adaptOperatorElementAssociation(GraphElement newArgument, GraphElement oldArgument) {
+	private void adaptOperatorElementAssociation(Comparable newArgument, Comparable oldArgument) {
 		EList<BooleanOperator> rootOperators = getRootBooleanOperators();
 		
 		addNewArgumentElementsToRootOperator(newArgument, rootOperators);
@@ -330,7 +350,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
-	private void moveElementsFromRootOperatorToOldArgument(GraphElement oldArgument, BooleanOperator booleanOperator) {
+	private void moveElementsFromRootOperatorToOldArgument(Comparable oldArgument, BooleanOperator booleanOperator) {
 		BooleanOperator argumentOperator = (BooleanOperator) oldArgument;
 		EList<Element> boolOpElements = new BasicEList<Element>();
 		boolOpElements.addAll(booleanOperator.getElements()); // boolOp.getElements() is already empty at this point in case THIS gets DELETED!
@@ -350,7 +370,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
-	private void removeOldArgumentElementsFromRootOperator(GraphElement oldArgument,
+	private void removeOldArgumentElementsFromRootOperator(Comparable oldArgument,
 			BooleanOperator booleanOperator) {
 		if(oldArgument != null && oldArgument instanceof Property && ((Property) oldArgument).getElement() != null) {				
 			booleanOperator.removeElement(((Property) oldArgument).getElement());
@@ -360,7 +380,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
-	private void moveElementsFromNewArgumentToRootOperator(GraphElement newArgument,
+	private void moveElementsFromNewArgumentToRootOperator(Comparable newArgument,
 			EList<BooleanOperator> rootBooleanOperators) {
 		BooleanOperator argumentOperator = (BooleanOperator) newArgument;
 		EList<Element> argumentOperatorElements = new BasicEList<Element>();
@@ -373,7 +393,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
-	private void addNewArgumentElementsToRootOperator(GraphElement newArgument,
+	private void addNewArgumentElementsToRootOperator(Comparable newArgument,
 			EList<BooleanOperator> rootBooleanOperators) {
 		if(newArgument instanceof Element) {
 			for(BooleanOperator boolOp : rootBooleanOperators) {
@@ -389,25 +409,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				}				
 			}			
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setArgument1(GraphElement newArgument1) {
-		if (newArgument1 != argument1) {
-			NotificationChain msgs = null;
-			if (argument1 != null)
-				msgs = ((InternalEObject)argument1).eInverseRemove(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON1, GraphElement.class, msgs);
-			if (newArgument1 != null)
-				msgs = ((InternalEObject)newArgument1).eInverseAdd(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON1, GraphElement.class, msgs);
-			msgs = basicSetArgument1(newArgument1, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT1, newArgument1, newArgument1));
 	}
 
 	/**
@@ -456,10 +457,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 */
 	@Override
-	public GraphElement getArgument2() {
+	public qualitypatternmodel.graphstructure.Comparable getArgument2() {
 		if (argument2 != null && argument2.eIsProxy()) {
 			InternalEObject oldArgument2 = (InternalEObject)argument2;
-			argument2 = (GraphElement)eResolveProxy(oldArgument2);
+			argument2 = (qualitypatternmodel.graphstructure.Comparable)eResolveProxy(oldArgument2);
 			if (argument2 != oldArgument2) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.COMPARISON__ARGUMENT2, oldArgument2, argument2));
@@ -472,8 +473,28 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GraphElement basicGetArgument2() {
+	public qualitypatternmodel.graphstructure.Comparable basicGetArgument2() {
 		return argument2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setArgument2(qualitypatternmodel.graphstructure.Comparable newArgument2) {
+		if (newArgument2 != argument2) {
+			NotificationChain msgs = null;
+			if (argument2 != null)
+				msgs = ((InternalEObject)argument2).eInverseRemove(this, GraphstructurePackage.COMPARABLE__COMPARISON2, qualitypatternmodel.graphstructure.Comparable.class, msgs);
+			if (newArgument2 != null)
+				msgs = ((InternalEObject)newArgument2).eInverseAdd(this, GraphstructurePackage.COMPARABLE__COMPARISON2, qualitypatternmodel.graphstructure.Comparable.class, msgs);
+			msgs = basicSetArgument2(newArgument2, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT2, newArgument2, newArgument2));
 	}
 
 	/**
@@ -481,8 +502,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetArgument2(GraphElement newArgument2, NotificationChain msgs) {
-		GraphElement oldArgument2 = argument2;
+	public NotificationChain basicSetArgument2(qualitypatternmodel.graphstructure.Comparable newArgument2, NotificationChain msgs) {
+		Comparable oldArgument2 = argument2;
 		argument2 = newArgument2;	
 		
 		try {
@@ -508,25 +529,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setArgument2(GraphElement newArgument2) {
-		if (newArgument2 != argument2) {
-			NotificationChain msgs = null;
-			if (argument2 != null)
-				msgs = ((InternalEObject)argument2).eInverseRemove(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON2, GraphElement.class, msgs);
-			if (newArgument2 != null)
-				msgs = ((InternalEObject)newArgument2).eInverseAdd(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON2, GraphElement.class, msgs);
-			msgs = basicSetArgument2(newArgument2, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__ARGUMENT2, newArgument2, newArgument2));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -536,12 +538,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		switch (featureID) {
 			case FunctionsPackage.COMPARISON__ARGUMENT1:
 				if (argument1 != null)
-					msgs = ((InternalEObject)argument1).eInverseRemove(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON1, GraphElement.class, msgs);
-				return basicSetArgument1((GraphElement)otherEnd, msgs);
+					msgs = ((InternalEObject)argument1).eInverseRemove(this, GraphstructurePackage.COMPARABLE__COMPARISON1, qualitypatternmodel.graphstructure.Comparable.class, msgs);
+				return basicSetArgument1((qualitypatternmodel.graphstructure.Comparable)otherEnd, msgs);
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				if (argument2 != null)
-					msgs = ((InternalEObject)argument2).eInverseRemove(this, GraphstructurePackage.GRAPH_ELEMENT__COMPARISON2, GraphElement.class, msgs);
-				return basicSetArgument2((GraphElement)otherEnd, msgs);
+					msgs = ((InternalEObject)argument2).eInverseRemove(this, GraphstructurePackage.COMPARABLE__COMPARISON2, qualitypatternmodel.graphstructure.Comparable.class, msgs);
+				return basicSetArgument2((qualitypatternmodel.graphstructure.Comparable)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -591,13 +593,13 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case FunctionsPackage.COMPARISON__ARGUMENT1:
-				setArgument1((GraphElement)newValue);
+				setArgument1((qualitypatternmodel.graphstructure.Comparable)newValue);
 				return;
 			case FunctionsPackage.COMPARISON__OPTION:
 				setOption((CompOption)newValue);
 				return;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
-				setArgument2((GraphElement)newValue);
+				setArgument2((qualitypatternmodel.graphstructure.Comparable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -611,13 +613,13 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case FunctionsPackage.COMPARISON__ARGUMENT1:
-				setArgument1((GraphElement)null);
+				setArgument1((qualitypatternmodel.graphstructure.Comparable)null);
 				return;
 			case FunctionsPackage.COMPARISON__OPTION:
 				setOption((CompOption)null);
 				return;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
-				setArgument2((GraphElement)null);
+				setArgument2((qualitypatternmodel.graphstructure.Comparable)null);
 				return;
 		}
 		super.eUnset(featureID);

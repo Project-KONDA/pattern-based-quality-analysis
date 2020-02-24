@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.VariableList;
@@ -139,21 +138,6 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
-				 InputfieldsFactory.eINSTANCE.createNumber()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
-				 InputfieldsFactory.eINSTANCE.createBoolean()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
-				 InputfieldsFactory.eINSTANCE.createTextLiteral()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
 				 InputfieldsFactory.eINSTANCE.createCompOption()));
 
 		newChildDescriptors.add
@@ -164,7 +148,37 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				 InputfieldsFactory.eINSTANCE.createXSType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				 InputfieldsFactory.eINSTANCE.createBoolean()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
 				 InputfieldsFactory.eINSTANCE.createTextList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				 InputfieldsFactory.eINSTANCE.createTextLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				 InputfieldsFactory.eINSTANCE.createNumber()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				 InputfieldsFactory.eINSTANCE.createDate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				 InputfieldsFactory.eINSTANCE.createTime()));
 	}
 
 	/**

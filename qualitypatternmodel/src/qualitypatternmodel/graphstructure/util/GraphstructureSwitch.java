@@ -6,8 +6,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-import qualitypatternmodel.graphstructure.*;
-
+import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.SetElement;
+import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -77,7 +82,7 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 			case GraphstructurePackage.PROPERTY: {
 				Property property = (Property)theEObject;
 				T result = caseProperty(property);
-				if (result == null) result = caseGraphElement(property);
+				if (result == null) result = caseComparable(property);
 				if (result == null) result = casePatternElement(property);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -86,7 +91,7 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 				SingleElement singleElement = (SingleElement)theEObject;
 				T result = caseSingleElement(singleElement);
 				if (result == null) result = caseElement(singleElement);
-				if (result == null) result = caseGraphElement(singleElement);
+				if (result == null) result = caseComparable(singleElement);
 				if (result == null) result = casePatternElement(singleElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -95,7 +100,7 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 				SetElement setElement = (SetElement)theEObject;
 				T result = caseSetElement(setElement);
 				if (result == null) result = caseElement(setElement);
-				if (result == null) result = caseGraphElement(setElement);
+				if (result == null) result = caseComparable(setElement);
 				if (result == null) result = casePatternElement(setElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -103,7 +108,7 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 			case GraphstructurePackage.ELEMENT: {
 				Element element = (Element)theEObject;
 				T result = caseElement(element);
-				if (result == null) result = caseGraphElement(element);
+				if (result == null) result = caseComparable(element);
 				if (result == null) result = casePatternElement(element);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -115,10 +120,10 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GraphstructurePackage.GRAPH_ELEMENT: {
-				GraphElement graphElement = (GraphElement)theEObject;
-				T result = caseGraphElement(graphElement);
-				if (result == null) result = casePatternElement(graphElement);
+			case GraphstructurePackage.COMPARABLE: {
+				qualitypatternmodel.graphstructure.Comparable comparable = (qualitypatternmodel.graphstructure.Comparable)theEObject;
+				T result = caseComparable(comparable);
+				if (result == null) result = casePatternElement(comparable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -217,17 +222,17 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Graph Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Comparable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Graph Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Comparable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGraphElement(GraphElement object) {
+	public T caseComparable(qualitypatternmodel.graphstructure.Comparable object) {
 		return null;
 	}
 

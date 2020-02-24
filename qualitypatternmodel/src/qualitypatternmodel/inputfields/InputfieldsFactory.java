@@ -22,33 +22,6 @@ public interface InputfieldsFactory extends EFactory {
 	InputfieldsFactory eINSTANCE = qualitypatternmodel.inputfields.impl.InputfieldsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Number</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Number</em>'.
-	 * @generated
-	 */
-	Number createNumber();
-
-	/**
-	 * Returns a new object of class '<em>Boolean</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boolean</em>'.
-	 * @generated
-	 */
-	Boolean createBoolean();
-
-	/**
-	 * Returns a new object of class '<em>Text Literal</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Text Literal</em>'.
-	 * @generated
-	 */
-	TextLiteral createTextLiteral();
-
-	/**
 	 * Returns a new object of class '<em>Comp Option</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,6 +49,15 @@ public interface InputfieldsFactory extends EFactory {
 	VariableList createVariableList();
 
 	/**
+	 * Returns a new object of class '<em>Boolean</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boolean</em>'.
+	 * @generated
+	 */
+	Boolean createBoolean();
+
+	/**
 	 * Returns a new object of class '<em>Text List</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,6 +65,51 @@ public interface InputfieldsFactory extends EFactory {
 	 * @generated
 	 */
 	TextList createTextList();
+
+	/**
+	 * Returns a new object of class '<em>Text Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Text Literal</em>'.
+	 * @generated
+	 */
+	TextLiteral createTextLiteral();
+
+	/**
+	 * Returns a new object of class '<em>Number</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number</em>'.
+	 * @generated
+	 */
+	Number createNumber();
+
+	/**
+	 * Returns a new object of class '<em>XS Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>XS Type</em>'.
+	 * @generated
+	 */
+	XSType createXSType();
+
+	/**
+	 * Returns a new object of class '<em>Date</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Date</em>'.
+	 * @generated
+	 */
+	Date createDate();
+
+	/**
+	 * Returns a new object of class '<em>Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Time</em>'.
+	 * @generated
+	 */
+	Time createTime();
 
 	/**
 	 * Returns the package supported by this factory.

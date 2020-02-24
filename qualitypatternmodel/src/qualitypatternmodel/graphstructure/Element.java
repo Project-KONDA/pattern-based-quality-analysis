@@ -9,6 +9,7 @@ import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +33,7 @@ import qualitypatternmodel.patternstructure.Location;
  * @model abstract="true"
  * @generated
  */
-public interface Element extends GraphElement {
+public interface Element extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Predicates</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.functions.BooleanOperator}.

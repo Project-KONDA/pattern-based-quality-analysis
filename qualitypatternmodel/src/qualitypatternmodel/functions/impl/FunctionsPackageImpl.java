@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Comparison;
@@ -29,7 +28,6 @@ import qualitypatternmodel.functions.util.FunctionsValidator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
-
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 
 import qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl;
@@ -614,7 +612,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		// Add supertypes to classes
 		booleanOperatorEClass.getESuperTypes().add(this.getOperator());
-		operatorEClass.getESuperTypes().add(theGraphstructurePackage.getGraphElement());
+		operatorEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
+		operatorEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		countEClass.getESuperTypes().add(this.getNumberOperator());
 		otherOperatorEClass.getESuperTypes().add(this.getOperator());
 		numberOperatorEClass.getESuperTypes().add(this.getOperator());
@@ -647,7 +646,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		op = initEOperation(getOperator__IsCycleFree(), null, "isCycleFree", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getOperatorCycleExceptionWrapper());
 
-		initEOperation(getOperator__GetArguments(), theGraphstructurePackage.getGraphElement(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getOperator__GetArguments(), theGraphstructurePackage.getComparable(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getOperator__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -671,9 +670,9 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		initEReference(getMatch_Option(), theInputfieldsPackage.getBoolean(), null, "option", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComparison_Argument1(), theGraphstructurePackage.getGraphElement(), theGraphstructurePackage.getGraphElement_Comparison1(), "argument1", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparison_Argument1(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison1(), "argument1", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Option(), theInputfieldsPackage.getCompOption(), null, "option", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComparison_Argument2(), theGraphstructurePackage.getGraphElement(), theGraphstructurePackage.getGraphElement_Comparison2(), "argument2", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparison_Argument2(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison2(), "argument2", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(toNumberEClass, ToNumber.class, "ToNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getToNumber_Property(), theGraphstructurePackage.getProperty(), null, "property", null, 1, 1, ToNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

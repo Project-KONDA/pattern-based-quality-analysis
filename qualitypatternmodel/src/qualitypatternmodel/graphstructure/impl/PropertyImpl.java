@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -11,11 +13,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.functions.Comparison;
+import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -26,6 +32,7 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -34,6 +41,8 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getComparison1 <em>Comparison1</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getComparison2 <em>Comparison2</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getPropertyOption <em>Property Option</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
@@ -41,7 +50,27 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class PropertyImpl extends GraphElementImpl implements Property {
+public class PropertyImpl extends PatternElementImpl implements Property {
+	/**
+	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComparison1()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Comparison> comparison1;
+
+	/**
+	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComparison2()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Comparison> comparison2;
+
 	/**
 	 * The cached value of the '{@link #getPropertyOption() <em>Property Option</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -179,6 +208,32 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
+	public EList<Comparison> getComparison1() {
+		if (comparison1 == null) {
+			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.PROPERTY__COMPARISON1, FunctionsPackage.COMPARISON__ARGUMENT1);
+		}
+		return comparison1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Comparison> getComparison2() {
+		if (comparison2 == null) {
+			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.PROPERTY__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
+		}
+		return comparison2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public PropertyOption getPropertyOption() {
 		if (propertyOption != null && propertyOption.eIsProxy()) {
@@ -300,9 +355,14 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case GraphstructurePackage.PROPERTY__COMPARISON1:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison1()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.PROPERTY__COMPARISON2:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison2()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -319,6 +379,10 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case GraphstructurePackage.PROPERTY__COMPARISON1:
+				return ((InternalEList<?>)getComparison1()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.PROPERTY__COMPARISON2:
+				return ((InternalEList<?>)getComparison2()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				return basicSetElement(null, msgs);
 		}
@@ -346,6 +410,10 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GraphstructurePackage.PROPERTY__COMPARISON1:
+				return getComparison1();
+			case GraphstructurePackage.PROPERTY__COMPARISON2:
+				return getComparison2();
 			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
 				if (resolve) return getPropertyOption();
 				return basicGetPropertyOption();
@@ -366,6 +434,14 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GraphstructurePackage.PROPERTY__COMPARISON1:
+				getComparison1().clear();
+				getComparison1().addAll((Collection<? extends Comparison>)newValue);
+				return;
+			case GraphstructurePackage.PROPERTY__COMPARISON2:
+				getComparison2().clear();
+				getComparison2().addAll((Collection<? extends Comparison>)newValue);
+				return;
 			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
 				setPropertyOption((PropertyOption)newValue);
 				return;
@@ -386,6 +462,12 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GraphstructurePackage.PROPERTY__COMPARISON1:
+				getComparison1().clear();
+				return;
+			case GraphstructurePackage.PROPERTY__COMPARISON2:
+				getComparison2().clear();
+				return;
 			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
 				setPropertyOption((PropertyOption)null);
 				return;
@@ -406,6 +488,10 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GraphstructurePackage.PROPERTY__COMPARISON1:
+				return comparison1 != null && !comparison1.isEmpty();
+			case GraphstructurePackage.PROPERTY__COMPARISON2:
+				return comparison2 != null && !comparison2.isEmpty();
 			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
 				return propertyOption != null;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
@@ -414,6 +500,41 @@ public class PropertyImpl extends GraphElementImpl implements Property {
 				return attributeName != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case GraphstructurePackage.PROPERTY___GET_RETURN_TYPE:
+				return getReturnType();
+			case GraphstructurePackage.PROPERTY___IS_TRANSLATABLE:
+				try {
+					return isTranslatable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.PROPERTY___TO_XQUERY__LOCATION_INT:
+				try {
+					return toXQuery((Location)arguments.get(0), (Integer)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.PROPERTY___GET_ALL_ARGUMENT_ELEMENTS:
+				try {
+					return getAllArgumentElements();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } // PropertyImpl

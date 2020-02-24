@@ -8,18 +8,17 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
-
-import qualitypatternmodel.graphstructure.GraphElement;
-
 import qualitypatternmodel.inputfields.CompOption;
+import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
-
 import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.XSType;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -83,18 +82,6 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 				return createInputAdapter();
 			}
 			@Override
-			public Adapter caseNumber(qualitypatternmodel.inputfields.Number object) {
-				return createNumberAdapter();
-			}
-			@Override
-			public Adapter caseBoolean(qualitypatternmodel.inputfields.Boolean object) {
-				return createBooleanAdapter();
-			}
-			@Override
-			public Adapter caseTextLiteral(TextLiteral object) {
-				return createTextLiteralAdapter();
-			}
-			@Override
 			public Adapter caseCompOption(CompOption object) {
 				return createCompOptionAdapter();
 			}
@@ -107,20 +94,44 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 				return createVariableListAdapter();
 			}
 			@Override
-			public Adapter caseTextList(TextList object) {
-				return createTextListAdapter();
+			public Adapter caseBoolean(qualitypatternmodel.inputfields.Boolean object) {
+				return createBooleanAdapter();
 			}
 			@Override
 			public Adapter caseText(Text object) {
 				return createTextAdapter();
 			}
 			@Override
+			public Adapter caseTextList(TextList object) {
+				return createTextListAdapter();
+			}
+			@Override
+			public Adapter caseTextLiteral(TextLiteral object) {
+				return createTextLiteralAdapter();
+			}
+			@Override
+			public Adapter caseNumber(qualitypatternmodel.inputfields.Number object) {
+				return createNumberAdapter();
+			}
+			@Override
+			public Adapter caseXSType(XSType object) {
+				return createXSTypeAdapter();
+			}
+			@Override
+			public Adapter caseDate(Date object) {
+				return createDateAdapter();
+			}
+			@Override
+			public Adapter caseTime(Time object) {
+				return createTimeAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
 			@Override
-			public Adapter caseGraphElement(GraphElement object) {
-				return createGraphElementAdapter();
+			public Adapter caseComparable(qualitypatternmodel.graphstructure.Comparable object) {
+				return createComparableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -153,62 +164,6 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInputAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Number <em>Number</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.inputfields.Number
-	 * @generated
-	 */
-	public Adapter createNumberAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Boolean <em>Boolean</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.inputfields.Boolean
-	 * @generated
-	 */
-	public Adapter createBooleanAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.TextLiteral <em>Text Literal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.inputfields.TextLiteral
-	 * @generated
-	 */
-	public Adapter createTextLiteralAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Text <em>Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.inputfields.Text
-	 * @generated
-	 */
-	public Adapter createTextAdapter() {
 		return null;
 	}
 
@@ -255,6 +210,34 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Boolean <em>Boolean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.Boolean
+	 * @generated
+	 */
+	public Adapter createBooleanAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Text <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.Text
+	 * @generated
+	 */
+	public Adapter createTextAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.TextList <em>Text List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -265,6 +248,76 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTextListAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.TextLiteral <em>Text Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.TextLiteral
+	 * @generated
+	 */
+	public Adapter createTextLiteralAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Number <em>Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.Number
+	 * @generated
+	 */
+	public Adapter createNumberAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.XSType <em>XS Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.XSType
+	 * @generated
+	 */
+	public Adapter createXSTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Date <em>Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.Date
+	 * @generated
+	 */
+	public Adapter createDateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Time <em>Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.Time
+	 * @generated
+	 */
+	public Adapter createTimeAdapter() {
 		return null;
 	}
 
@@ -283,16 +336,16 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.GraphElement <em>Graph Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.graphstructure.GraphElement
+	 * @see qualitypatternmodel.graphstructure.Comparable
 	 * @generated
 	 */
-	public Adapter createGraphElementAdapter() {
+	public Adapter createComparableAdapter() {
 		return null;
 	}
 

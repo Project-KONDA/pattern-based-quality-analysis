@@ -19,7 +19,7 @@ package qualitypatternmodel.inputfields;
  * @model
  * @generated
  */
-public interface Boolean extends Input {
+public interface Boolean extends XSType {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

@@ -72,75 +72,6 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.Number} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NumberItemProvider numberItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.Number}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNumberAdapter() {
-		if (numberItemProvider == null) {
-			numberItemProvider = new NumberItemProvider(this);
-		}
-
-		return numberItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.Boolean} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BooleanItemProvider booleanItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.Boolean}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBooleanAdapter() {
-		if (booleanItemProvider == null) {
-			booleanItemProvider = new BooleanItemProvider(this);
-		}
-
-		return booleanItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.TextLiteral} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TextLiteralItemProvider textLiteralItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.TextLiteral}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTextLiteralAdapter() {
-		if (textLiteralItemProvider == null) {
-			textLiteralItemProvider = new TextLiteralItemProvider(this);
-		}
-
-		return textLiteralItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.CompOption} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,6 +138,144 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 		}
 
 		return variableListItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.Number} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberItemProvider numberItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.Number}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberAdapter() {
+		if (numberItemProvider == null) {
+			numberItemProvider = new NumberItemProvider(this);
+		}
+
+		return numberItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.XSType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XSTypeItemProvider xsTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.XSType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXSTypeAdapter() {
+		if (xsTypeItemProvider == null) {
+			xsTypeItemProvider = new XSTypeItemProvider(this);
+		}
+
+		return xsTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.Date} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DateItemProvider dateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.Date}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDateAdapter() {
+		if (dateItemProvider == null) {
+			dateItemProvider = new DateItemProvider(this);
+		}
+
+		return dateItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.Time} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TimeItemProvider timeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.Time}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTimeAdapter() {
+		if (timeItemProvider == null) {
+			timeItemProvider = new TimeItemProvider(this);
+		}
+
+		return timeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.Boolean} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BooleanItemProvider booleanItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.Boolean}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBooleanAdapter() {
+		if (booleanItemProvider == null) {
+			booleanItemProvider = new BooleanItemProvider(this);
+		}
+
+		return booleanItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.TextLiteral} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TextLiteralItemProvider textLiteralItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.TextLiteral}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTextLiteralAdapter() {
+		if (textLiteralItemProvider == null) {
+			textLiteralItemProvider = new TextLiteralItemProvider(this);
+		}
+
+		return textLiteralItemProvider;
 	}
 
 	/**
@@ -337,13 +406,16 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	 */
 	@Override
 	public void dispose() {
-		if (numberItemProvider != null) numberItemProvider.dispose();
-		if (booleanItemProvider != null) booleanItemProvider.dispose();
-		if (textLiteralItemProvider != null) textLiteralItemProvider.dispose();
 		if (compOptionItemProvider != null) compOptionItemProvider.dispose();
 		if (propertyOptionItemProvider != null) propertyOptionItemProvider.dispose();
 		if (variableListItemProvider != null) variableListItemProvider.dispose();
+		if (booleanItemProvider != null) booleanItemProvider.dispose();
 		if (textListItemProvider != null) textListItemProvider.dispose();
+		if (textLiteralItemProvider != null) textLiteralItemProvider.dispose();
+		if (numberItemProvider != null) numberItemProvider.dispose();
+		if (xsTypeItemProvider != null) xsTypeItemProvider.dispose();
+		if (dateItemProvider != null) dateItemProvider.dispose();
+		if (timeItemProvider != null) timeItemProvider.dispose();
 	}
 
 }

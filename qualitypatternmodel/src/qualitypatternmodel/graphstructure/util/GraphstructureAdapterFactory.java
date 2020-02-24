@@ -8,8 +8,13 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
-import qualitypatternmodel.graphstructure.*;
-
+import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.SetElement;
+import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -93,8 +98,8 @@ public class GraphstructureAdapterFactory extends AdapterFactoryImpl {
 				return createGraphAdapter();
 			}
 			@Override
-			public Adapter caseGraphElement(GraphElement object) {
-				return createGraphElementAdapter();
+			public Adapter caseComparable(qualitypatternmodel.graphstructure.Comparable object) {
+				return createComparableAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -205,16 +210,16 @@ public class GraphstructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.GraphElement <em>Graph Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.graphstructure.GraphElement
+	 * @see qualitypatternmodel.graphstructure.Comparable
 	 * @generated
 	 */
-	public Adapter createGraphElementAdapter() {
+	public Adapter createComparableAdapter() {
 		return null;
 	}
 

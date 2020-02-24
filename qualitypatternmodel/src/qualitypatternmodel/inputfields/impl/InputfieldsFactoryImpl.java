@@ -11,12 +11,15 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import qualitypatternmodel.inputfields.CompOption;
+import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.XSType;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,49 +65,19 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case InputfieldsPackage.NUMBER: return createNumber();
-			case InputfieldsPackage.BOOLEAN: return createBoolean();
-			case InputfieldsPackage.TEXT_LITERAL: return createTextLiteral();
 			case InputfieldsPackage.COMP_OPTION: return createCompOption();
 			case InputfieldsPackage.PROPERTY_OPTION: return createPropertyOption();
 			case InputfieldsPackage.VARIABLE_LIST: return createVariableList();
+			case InputfieldsPackage.BOOLEAN: return createBoolean();
 			case InputfieldsPackage.TEXT_LIST: return createTextList();
+			case InputfieldsPackage.TEXT_LITERAL: return createTextLiteral();
+			case InputfieldsPackage.NUMBER: return createNumber();
+			case InputfieldsPackage.XS_TYPE: return createXSType();
+			case InputfieldsPackage.DATE: return createDate();
+			case InputfieldsPackage.TIME: return createTime();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public qualitypatternmodel.inputfields.Number createNumber() {
-		NumberImpl number = new NumberImpl();
-		return number;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public qualitypatternmodel.inputfields.Boolean createBoolean() {
-		BooleanImpl boolean_ = new BooleanImpl();
-		return boolean_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TextLiteral createTextLiteral() {
-		TextLiteralImpl textLiteral = new TextLiteralImpl();
-		return textLiteral;
 	}
 
 	/**
@@ -146,9 +119,75 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * @generated
 	 */
 	@Override
+	public qualitypatternmodel.inputfields.Boolean createBoolean() {
+		BooleanImpl boolean_ = new BooleanImpl();
+		return boolean_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public TextList createTextList() {
 		TextListImpl textList = new TextListImpl();
 		return textList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TextLiteral createTextLiteral() {
+		TextLiteralImpl textLiteral = new TextLiteralImpl();
+		return textLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public qualitypatternmodel.inputfields.Number createNumber() {
+		NumberImpl number = new NumberImpl();
+		return number;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public XSType createXSType() {
+		XSTypeImpl xsType = new XSTypeImpl();
+		return xsType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Date createDate() {
+		DateImpl date = new DateImpl();
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Time createTime() {
+		TimeImpl time = new TimeImpl();
+		return time;
 	}
 
 	/**

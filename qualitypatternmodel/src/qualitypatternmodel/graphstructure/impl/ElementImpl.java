@@ -26,16 +26,19 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 
+import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -44,6 +47,8 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getComparison1 <em>Comparison1</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getComparison2 <em>Comparison2</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperties <em>Properties</em>}</li>
@@ -55,7 +60,27 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public abstract class ElementImpl extends GraphElementImpl implements Element {
+public abstract class ElementImpl extends PatternElementImpl implements Element {
+	/**
+	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComparison1()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Comparison> comparison1;
+
+	/**
+	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComparison2()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Comparison> comparison2;
+
 	/**
 	 * The cached value of the '{@link #getRelationFromPrevious() <em>Relation From Previous</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!--
@@ -265,6 +290,32 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Comparison> getComparison1() {
+		if (comparison1 == null) {
+			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.ELEMENT__COMPARISON1, FunctionsPackage.COMPARISON__ARGUMENT1);
+		}
+		return comparison1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Comparison> getComparison2() {
+		if (comparison2 == null) {
+			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.ELEMENT__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
+		}
+		return comparison2;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -288,6 +339,42 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.ELEMENT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isTranslatable() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toXQuery(Location location, int depth) throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -452,6 +539,10 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison1()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison2()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				if (relationFromPrevious != null)
 					msgs = ((InternalEObject)relationFromPrevious).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, null, msgs);
@@ -471,6 +562,10 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
+				return ((InternalEList<?>)getComparison1()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
+				return ((InternalEList<?>)getComparison2()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return basicSetRelationFromPrevious(null, msgs);
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
@@ -488,6 +583,10 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
+				return getComparison1();
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
+				return getComparison2();
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return getRelationFromPrevious();
 			case GraphstructurePackage.ELEMENT__TRANSLATED:
@@ -514,6 +613,14 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
+				getComparison1().clear();
+				getComparison1().addAll((Collection<? extends Comparison>)newValue);
+				return;
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
+				getComparison2().clear();
+				getComparison2().addAll((Collection<? extends Comparison>)newValue);
+				return;
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				setRelationFromPrevious((Relation)newValue);
 				return;
@@ -542,6 +649,12 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
+				getComparison1().clear();
+				return;
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
+				getComparison2().clear();
+				return;
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				setRelationFromPrevious((Relation)null);
 				return;
@@ -568,6 +681,10 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
+				return comparison1 != null && !comparison1.isEmpty();
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
+				return comparison2 != null && !comparison2.isEmpty();
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return relationFromPrevious != null;
 			case GraphstructurePackage.ELEMENT__TRANSLATED:
@@ -635,6 +752,29 @@ public abstract class ElementImpl extends GraphElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT:
 				try {
 					return translateElementExistencePredicates((Location)arguments.get(0), (Integer)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
+				return getReturnType();
+			case GraphstructurePackage.ELEMENT___IS_TRANSLATABLE:
+				try {
+					return isTranslatable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.ELEMENT___TO_XQUERY__LOCATION_INT:
+				try {
+					return toXQuery((Location)arguments.get(0), (Integer)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.ELEMENT___GET_ALL_ARGUMENT_ELEMENTS:
+				try {
+					return getAllArgumentElements();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

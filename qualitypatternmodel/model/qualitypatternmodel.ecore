@@ -5,7 +5,7 @@
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
   </eAnnotations>
   <eSubpackages name="inputfields" nsURI="inputfields" nsPrefix="inputfields">
-    <eClassifiers xsi:type="ecore:EClass" name="Input" abstract="true" eSuperTypes="#//graphstructure/GraphElement">
+    <eClassifiers xsi:type="ecore:EClass" name="Input" abstract="true" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
       <eOperations name="inputIsValid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
@@ -21,18 +21,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPredefined" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//inputfields/Input">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
-          defaultValueLiteral="0.0"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//inputfields/Input">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-          defaultValueLiteral="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TextLiteral" eSuperTypes="#//inputfields/Text">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompOption" eSuperTypes="#//inputfields/Input">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
@@ -50,6 +38,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/Pattern" eOpposite="#//patternstructure/Pattern/variableList"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//inputfields/XSType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+          defaultValueLiteral="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Text" abstract="true" eSuperTypes="#//inputfields/XSType"/>
     <eClassifiers xsi:type="ecore:EClass" name="TextList" eSuperTypes="#//inputfields/Text">
       <eOperations name="getListDeclaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getListVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -57,7 +50,23 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Text" abstract="true" eSuperTypes="#//inputfields/Input"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TextLiteral" eSuperTypes="#//inputfields/Text">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//inputfields/XSType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
+          defaultValueLiteral="0.0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="XSType" eSuperTypes="#//inputfields/Input #//graphstructure/Comparable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//inputfields/XSType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Time" eSuperTypes="#//inputfields/XSType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="functions" nsURI="functions" nsPrefix="functions">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//functions/Operator">
@@ -70,7 +79,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/predicates"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//graphstructure/GraphElement">
+    <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getRootBooleanOperators" upperBound="-1" eType="#//functions/BooleanOperator"/>
@@ -78,7 +87,7 @@
         <eParameters name="visitedOperators" upperBound="-1" eType="#//functions/Operator"/>
       </eOperations>
       <eOperations name="isCycleFree" eExceptions="#//functions/OperatorCycleExceptionWrapper"/>
-      <eOperations name="getArguments" upperBound="-1" eType="#//graphstructure/GraphElement"/>
+      <eOperations name="getArguments" upperBound="-1" eType="#//graphstructure/Comparable"/>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context">
@@ -105,11 +114,11 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//functions/BooleanOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
-          eType="#//graphstructure/GraphElement" eOpposite="#//graphstructure/GraphElement/comparison1"/>
+          eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//inputfields/CompOption"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
-          eType="#//graphstructure/GraphElement" eOpposite="#//graphstructure/GraphElement/comparison2"/>
+          eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ToNumber" eSuperTypes="#//functions/NumberOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
@@ -155,7 +164,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationTo" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/relationFromPrevious"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/GraphElement">
+    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOption" lowerBound="1"
           eType="#//inputfields/PropertyOption"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
@@ -228,7 +237,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//functions/Count"
           eOpposite="#//functions/Count/argument"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true" eSuperTypes="#//graphstructure/GraphElement">
+    <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
       <eOperations name="getNextElements" upperBound="-1" eType="#//graphstructure/Element"/>
       <eOperations name="getPreviousElement" eType="#//graphstructure/Element"/>
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
@@ -324,7 +333,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//patternstructure/Pattern"
           eOpposite="#//patternstructure/Pattern/returnGraph"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="GraphElement" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
+    <eClassifiers xsi:type="ecore:EClass" name="Comparable" abstract="true" interface="true"
+        eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>

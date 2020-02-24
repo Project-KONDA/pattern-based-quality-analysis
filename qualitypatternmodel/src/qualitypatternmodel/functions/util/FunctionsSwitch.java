@@ -8,9 +8,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import qualitypatternmodel.functions.*;
-
-import qualitypatternmodel.graphstructure.GraphElement;
-
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -74,7 +71,7 @@ public class FunctionsSwitch<T> extends Switch<T> {
 				BooleanOperator booleanOperator = (BooleanOperator)theEObject;
 				T result = caseBooleanOperator(booleanOperator);
 				if (result == null) result = caseOperator(booleanOperator);
-				if (result == null) result = caseGraphElement(booleanOperator);
+				if (result == null) result = caseComparable(booleanOperator);
 				if (result == null) result = casePatternElement(booleanOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -82,7 +79,7 @@ public class FunctionsSwitch<T> extends Switch<T> {
 			case FunctionsPackage.OPERATOR: {
 				Operator operator = (Operator)theEObject;
 				T result = caseOperator(operator);
-				if (result == null) result = caseGraphElement(operator);
+				if (result == null) result = caseComparable(operator);
 				if (result == null) result = casePatternElement(operator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -92,7 +89,7 @@ public class FunctionsSwitch<T> extends Switch<T> {
 				T result = caseCount(count);
 				if (result == null) result = caseNumberOperator(count);
 				if (result == null) result = caseOperator(count);
-				if (result == null) result = caseGraphElement(count);
+				if (result == null) result = caseComparable(count);
 				if (result == null) result = casePatternElement(count);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -101,7 +98,7 @@ public class FunctionsSwitch<T> extends Switch<T> {
 				OtherOperator otherOperator = (OtherOperator)theEObject;
 				T result = caseOtherOperator(otherOperator);
 				if (result == null) result = caseOperator(otherOperator);
-				if (result == null) result = caseGraphElement(otherOperator);
+				if (result == null) result = caseComparable(otherOperator);
 				if (result == null) result = casePatternElement(otherOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -110,7 +107,7 @@ public class FunctionsSwitch<T> extends Switch<T> {
 				NumberOperator numberOperator = (NumberOperator)theEObject;
 				T result = caseNumberOperator(numberOperator);
 				if (result == null) result = caseOperator(numberOperator);
-				if (result == null) result = caseGraphElement(numberOperator);
+				if (result == null) result = caseComparable(numberOperator);
 				if (result == null) result = casePatternElement(numberOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -120,7 +117,7 @@ public class FunctionsSwitch<T> extends Switch<T> {
 				T result = caseMatch(match);
 				if (result == null) result = caseBooleanOperator(match);
 				if (result == null) result = caseOperator(match);
-				if (result == null) result = caseGraphElement(match);
+				if (result == null) result = caseComparable(match);
 				if (result == null) result = casePatternElement(match);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -130,7 +127,7 @@ public class FunctionsSwitch<T> extends Switch<T> {
 				T result = caseComparison(comparison);
 				if (result == null) result = caseBooleanOperator(comparison);
 				if (result == null) result = caseOperator(comparison);
-				if (result == null) result = caseGraphElement(comparison);
+				if (result == null) result = caseComparable(comparison);
 				if (result == null) result = casePatternElement(comparison);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -140,7 +137,7 @@ public class FunctionsSwitch<T> extends Switch<T> {
 				T result = caseToNumber(toNumber);
 				if (result == null) result = caseNumberOperator(toNumber);
 				if (result == null) result = caseOperator(toNumber);
-				if (result == null) result = caseGraphElement(toNumber);
+				if (result == null) result = caseComparable(toNumber);
 				if (result == null) result = casePatternElement(toNumber);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -307,17 +304,17 @@ public class FunctionsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Graph Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Comparable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Graph Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Comparable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGraphElement(GraphElement object) {
+	public T caseComparable(qualitypatternmodel.graphstructure.Comparable object) {
 		return null;
 	}
 

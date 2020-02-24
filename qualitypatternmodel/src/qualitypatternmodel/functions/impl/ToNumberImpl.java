@@ -16,7 +16,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.ToNumber;
-import qualitypatternmodel.graphstructure.GraphElement;
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.patternstructure.Location;
@@ -91,8 +91,8 @@ public class ToNumberImpl extends NumberOperatorImpl implements ToNumber {
 	}
 	
 	@Override
-	public EList<GraphElement> getArguments(){
-		EList<GraphElement> list = new BasicEList<GraphElement>();		
+	public EList<Comparable> getArguments(){
+		EList<Comparable> list = new BasicEList<Comparable>();		
 		list.add(property);		
 		return list;
 	}

@@ -12,14 +12,12 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.impl.FunctionsPackageImpl;
 
 import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphElement;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -92,7 +90,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass graphElementEClass = null;
+	private EClass comparableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -843,8 +841,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EClass getGraphElement() {
-		return graphElementEClass;
+	public EClass getComparable() {
+		return comparableEClass;
 	}
 
 	/**
@@ -853,8 +851,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getGraphElement_Comparison1() {
-		return (EReference)graphElementEClass.getEStructuralFeatures().get(0);
+	public EReference getComparable_Comparison1() {
+		return (EReference)comparableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -863,8 +861,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getGraphElement_Comparison2() {
-		return (EReference)graphElementEClass.getEStructuralFeatures().get(1);
+	public EReference getComparable_Comparison2() {
+		return (EReference)comparableEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -873,8 +871,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getGraphElement__GetReturnType() {
-		return graphElementEClass.getEOperations().get(0);
+	public EOperation getComparable__GetReturnType() {
+		return comparableEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -883,8 +881,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getGraphElement__IsTranslatable() {
-		return graphElementEClass.getEOperations().get(1);
+	public EOperation getComparable__IsTranslatable() {
+		return comparableEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -893,8 +891,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getGraphElement__ToXQuery__Location_int() {
-		return graphElementEClass.getEOperations().get(2);
+	public EOperation getComparable__ToXQuery__Location_int() {
+		return comparableEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -903,8 +901,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getGraphElement__Validate__DiagnosticChain_Map() {
-		return graphElementEClass.getEOperations().get(4);
+	public EOperation getComparable__GetAllArgumentElements() {
+		return comparableEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -913,8 +911,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getGraphElement__GetAllArgumentElements() {
-		return graphElementEClass.getEOperations().get(3);
+	public EOperation getComparable__Validate__DiagnosticChain_Map() {
+		return comparableEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -1055,14 +1053,14 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(graphEClass, GRAPH___GET_ALL_OPERATORS);
 		createEOperation(graphEClass, GRAPH___COPY_GRAPH__GRAPH);
 
-		graphElementEClass = createEClass(GRAPH_ELEMENT);
-		createEReference(graphElementEClass, GRAPH_ELEMENT__COMPARISON1);
-		createEReference(graphElementEClass, GRAPH_ELEMENT__COMPARISON2);
-		createEOperation(graphElementEClass, GRAPH_ELEMENT___GET_RETURN_TYPE);
-		createEOperation(graphElementEClass, GRAPH_ELEMENT___IS_TRANSLATABLE);
-		createEOperation(graphElementEClass, GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT);
-		createEOperation(graphElementEClass, GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS);
-		createEOperation(graphElementEClass, GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP);
+		comparableEClass = createEClass(COMPARABLE);
+		createEReference(comparableEClass, COMPARABLE__COMPARISON1);
+		createEReference(comparableEClass, COMPARABLE__COMPARISON2);
+		createEOperation(comparableEClass, COMPARABLE___GET_RETURN_TYPE);
+		createEOperation(comparableEClass, COMPARABLE___IS_TRANSLATABLE);
+		createEOperation(comparableEClass, COMPARABLE___TO_XQUERY__LOCATION_INT);
+		createEOperation(comparableEClass, COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS);
+		createEOperation(comparableEClass, COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		// Create enums
 		propertyLocationEEnum = createEEnum(PROPERTY_LOCATION);
@@ -1107,12 +1105,14 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		// Add supertypes to classes
 		relationEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
-		propertyEClass.getESuperTypes().add(this.getGraphElement());
+		propertyEClass.getESuperTypes().add(this.getComparable());
+		propertyEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		singleElementEClass.getESuperTypes().add(this.getElement());
 		setElementEClass.getESuperTypes().add(this.getElement());
-		elementEClass.getESuperTypes().add(this.getGraphElement());
+		elementEClass.getESuperTypes().add(this.getComparable());
+		elementEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		graphEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
-		graphElementEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
+		comparableEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1232,24 +1232,24 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEParameter(op, this.getGraph(), "graph", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
 
-		initEClass(graphElementEClass, GraphElement.class, "GraphElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGraphElement_Comparison1(), theFunctionsPackage.getComparison(), theFunctionsPackage.getComparison_Argument1(), "comparison1", null, 0, -1, GraphElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGraphElement_Comparison2(), theFunctionsPackage.getComparison(), theFunctionsPackage.getComparison_Argument2(), "comparison2", null, 0, -1, GraphElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comparableEClass, qualitypatternmodel.graphstructure.Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComparable_Comparison1(), theFunctionsPackage.getComparison(), theFunctionsPackage.getComparison_Argument1(), "comparison1", null, 0, -1, qualitypatternmodel.graphstructure.Comparable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparable_Comparison2(), theFunctionsPackage.getComparison(), theFunctionsPackage.getComparison_Argument2(), "comparison2", null, 0, -1, qualitypatternmodel.graphstructure.Comparable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getGraphElement__GetReturnType(), this.getReturnType(), "getReturnType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getComparable__GetReturnType(), this.getReturnType(), "getReturnType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getGraphElement__IsTranslatable(), ecorePackage.getEBoolean(), "isTranslatable", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComparable__IsTranslatable(), ecorePackage.getEBoolean(), "isTranslatable", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getGraphElement__ToXQuery__Location_int(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComparable__ToXQuery__Location_int(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "depth", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getGraphElement__GetAllArgumentElements(), this.getListOfElements(), "getAllArgumentElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComparable__GetAllArgumentElements(), this.getListOfElements(), "getAllArgumentElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getGraphElement__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComparable__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());

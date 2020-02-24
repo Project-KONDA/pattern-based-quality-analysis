@@ -136,7 +136,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public MorphismImpl() {
 		super();

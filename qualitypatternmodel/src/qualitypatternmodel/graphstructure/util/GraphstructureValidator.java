@@ -11,8 +11,17 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import qualitypatternmodel.graphstructure.*;
-
+import qualitypatternmodel.graphstructure.Axis;
+import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.ListOfElements;
+import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PropertyLocation;
+import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.SetElement;
+import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
 
 /**
@@ -42,12 +51,12 @@ public class GraphstructureValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "qualitypatternmodel.graphstructure";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Validate' of 'Graph Element'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Validate' of 'Comparable'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int GRAPH_ELEMENT__VALIDATE = 1;
+	public static final int COMPARABLE__VALIDATE = 1;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -116,8 +125,8 @@ public class GraphstructureValidator extends EObjectValidator {
 				return validateElement((Element)value, diagnostics, context);
 			case GraphstructurePackage.GRAPH:
 				return validateGraph((Graph)value, diagnostics, context);
-			case GraphstructurePackage.GRAPH_ELEMENT:
-				return validateGraphElement((GraphElement)value, diagnostics, context);
+			case GraphstructurePackage.COMPARABLE:
+				return validateComparable((qualitypatternmodel.graphstructure.Comparable)value, diagnostics, context);
 			case GraphstructurePackage.PROPERTY_LOCATION:
 				return validatePropertyLocation((PropertyLocation)value, diagnostics, context);
 			case GraphstructurePackage.AXIS:
@@ -195,7 +204,7 @@ public class GraphstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(property, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(property, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(property, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGraphElement_validate(property, diagnostics, context);
+		if (result || diagnostics != null) result &= validateComparable_validate(property, diagnostics, context);
 		return result;
 	}
 
@@ -214,7 +223,7 @@ public class GraphstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(singleElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(singleElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(singleElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGraphElement_validate(singleElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateComparable_validate(singleElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validateSingleElement_hasPreviousOrIsRoot(singleElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validateSingleElement_correctMappingOfContainment(singleElement, diagnostics, context);
 		return result;
@@ -293,7 +302,7 @@ public class GraphstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(setElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(setElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(setElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGraphElement_validate(setElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validateComparable_validate(setElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validateSetElement_hasPrevious(setElement, diagnostics, context);
 		return result;
 	}
@@ -342,7 +351,7 @@ public class GraphstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(element, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(element, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(element, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGraphElement_validate(element, diagnostics, context);
+		if (result || diagnostics != null) result &= validateComparable_validate(element, diagnostics, context);
 		return result;
 	}
 
@@ -370,28 +379,28 @@ public class GraphstructureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGraphElement(GraphElement graphElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(graphElement, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(graphElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(graphElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(graphElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(graphElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(graphElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(graphElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(graphElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(graphElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGraphElement_validate(graphElement, diagnostics, context);
+	public boolean validateComparable(qualitypatternmodel.graphstructure.Comparable comparable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(comparable, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(comparable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(comparable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(comparable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(comparable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(comparable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(comparable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(comparable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(comparable, diagnostics, context);
+		if (result || diagnostics != null) result &= validateComparable_validate(comparable, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the validate constraint of '<em>Graph Element</em>'.
+	 * Validates the validate constraint of '<em>Comparable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGraphElement_validate(GraphElement graphElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return graphElement.validate(diagnostics, context);
+	public boolean validateComparable_validate(qualitypatternmodel.graphstructure.Comparable comparable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return comparable.validate(diagnostics, context);
 	}
 
 	/**

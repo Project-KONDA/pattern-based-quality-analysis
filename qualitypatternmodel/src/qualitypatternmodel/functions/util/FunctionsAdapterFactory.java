@@ -10,9 +10,6 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import qualitypatternmodel.functions.*;
-
-import qualitypatternmodel.graphstructure.GraphElement;
-
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -112,8 +109,8 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 				return createPatternElementAdapter();
 			}
 			@Override
-			public Adapter caseGraphElement(GraphElement object) {
-				return createGraphElementAdapter();
+			public Adapter caseComparable(qualitypatternmodel.graphstructure.Comparable object) {
+				return createComparableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -276,16 +273,16 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.GraphElement <em>Graph Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.graphstructure.GraphElement
+	 * @see qualitypatternmodel.graphstructure.Comparable
 	 * @generated
 	 */
-	public Adapter createGraphElementAdapter() {
+	public Adapter createComparableAdapter() {
 		return null;
 	}
 

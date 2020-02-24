@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.GraphElement;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.GraphElement;
  * @model abstract="true"
  * @generated
  */
-public interface Operator extends GraphElement {
+public interface Operator extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,5 +68,5 @@ public interface Operator extends GraphElement {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<GraphElement> getArguments();
+	EList<qualitypatternmodel.graphstructure.Comparable> getArguments();
 } // Operator

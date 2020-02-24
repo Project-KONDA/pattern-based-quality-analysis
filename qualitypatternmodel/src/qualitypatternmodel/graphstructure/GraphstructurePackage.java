@@ -226,14 +226,14 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphElementImpl <em>Graph Element</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.impl.GraphElementImpl
-	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getGraphElement()
+	 * @see qualitypatternmodel.graphstructure.Comparable
+	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getComparable()
 	 * @generated
 	 */
-	int GRAPH_ELEMENT = 6;
+	int COMPARABLE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -242,7 +242,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
+	int COMPARABLE__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -251,7 +251,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+	int COMPARABLE__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -260,7 +260,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT__COMPARISON1 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int COMPARABLE__COMPARISON1 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -269,16 +269,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT__COMPARISON2 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int COMPARABLE__COMPARISON2 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Graph Element</em>' class.
+	 * The number of structural features of the '<em>Comparable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int COMPARABLE_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -287,7 +287,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int COMPARABLE___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -296,7 +296,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int COMPARABLE___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -305,7 +305,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
+	int COMPARABLE___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -314,7 +314,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int COMPARABLE___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -323,7 +323,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int COMPARABLE___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -332,7 +332,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___GET_CONTAINER = PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER;
+	int COMPARABLE___GET_CONTAINER = PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -341,7 +341,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int COMPARABLE___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -350,7 +350,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___GET_RETURN_TYPE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int COMPARABLE___GET_RETURN_TYPE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -359,7 +359,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___IS_TRANSLATABLE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int COMPARABLE___IS_TRANSLATABLE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -368,7 +368,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+	int COMPARABLE___TO_XQUERY__LOCATION_INT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -377,7 +377,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -386,16 +386,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
-	 * The number of operations of the '<em>Graph Element</em>' class.
+	 * The number of operations of the '<em>Comparable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_ELEMENT_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int COMPARABLE_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
@@ -414,7 +414,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__ID = GRAPH_ELEMENT__ID;
+	int PROPERTY__ID = COMPARABLE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -423,7 +423,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__REF_NO = GRAPH_ELEMENT__REF_NO;
+	int PROPERTY__REF_NO = COMPARABLE__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -432,7 +432,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__COMPARISON1 = GRAPH_ELEMENT__COMPARISON1;
+	int PROPERTY__COMPARISON1 = COMPARABLE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -441,7 +441,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__COMPARISON2 = GRAPH_ELEMENT__COMPARISON2;
+	int PROPERTY__COMPARISON2 = COMPARABLE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Property Option</b></em>' reference.
@@ -450,7 +450,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__PROPERTY_OPTION = GRAPH_ELEMENT_FEATURE_COUNT + 0;
+	int PROPERTY__PROPERTY_OPTION = COMPARABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' container reference.
@@ -459,7 +459,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__ELEMENT = GRAPH_ELEMENT_FEATURE_COUNT + 1;
+	int PROPERTY__ELEMENT = COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Attribute Name</b></em>' reference.
@@ -468,7 +468,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__ATTRIBUTE_NAME = GRAPH_ELEMENT_FEATURE_COUNT + 2;
+	int PROPERTY__ATTRIBUTE_NAME = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Property</em>' class.
@@ -477,7 +477,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = GRAPH_ELEMENT_FEATURE_COUNT + 3;
+	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -486,7 +486,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___TO_XQUERY__LOCATION = GRAPH_ELEMENT___TO_XQUERY__LOCATION;
+	int PROPERTY___TO_XQUERY__LOCATION = COMPARABLE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -495,7 +495,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_ALL_INPUTS = GRAPH_ELEMENT___GET_ALL_INPUTS;
+	int PROPERTY___GET_ALL_INPUTS = COMPARABLE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -504,7 +504,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___PREPARE_TRANSLATION = GRAPH_ELEMENT___PREPARE_TRANSLATION;
+	int PROPERTY___PREPARE_TRANSLATION = COMPARABLE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -513,7 +513,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___IS_VALID__BOOLEAN = GRAPH_ELEMENT___IS_VALID__BOOLEAN;
+	int PROPERTY___IS_VALID__BOOLEAN = COMPARABLE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -522,7 +522,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___IS_VALID_LOCAL__BOOLEAN = GRAPH_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int PROPERTY___IS_VALID_LOCAL__BOOLEAN = COMPARABLE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -531,7 +531,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_CONTAINER = GRAPH_ELEMENT___GET_CONTAINER;
+	int PROPERTY___GET_CONTAINER = COMPARABLE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -540,7 +540,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_ANCESTOR__CLASS = GRAPH_ELEMENT___GET_ANCESTOR__CLASS;
+	int PROPERTY___GET_ANCESTOR__CLASS = COMPARABLE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -549,7 +549,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_RETURN_TYPE = GRAPH_ELEMENT___GET_RETURN_TYPE;
+	int PROPERTY___GET_RETURN_TYPE = COMPARABLE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -558,7 +558,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___IS_TRANSLATABLE = GRAPH_ELEMENT___IS_TRANSLATABLE;
+	int PROPERTY___IS_TRANSLATABLE = COMPARABLE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -567,7 +567,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___TO_XQUERY__LOCATION_INT = GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT;
+	int PROPERTY___TO_XQUERY__LOCATION_INT = COMPARABLE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -576,7 +576,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_ALL_ARGUMENT_ELEMENTS = GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+	int PROPERTY___GET_ALL_ARGUMENT_ELEMENTS = COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -585,7 +585,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Property</em>' class.
@@ -594,7 +594,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPERATION_COUNT = GRAPH_ELEMENT_OPERATION_COUNT + 0;
+	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -613,7 +613,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__ID = GRAPH_ELEMENT__ID;
+	int ELEMENT__ID = COMPARABLE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -622,7 +622,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__REF_NO = GRAPH_ELEMENT__REF_NO;
+	int ELEMENT__REF_NO = COMPARABLE__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -631,7 +631,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__COMPARISON1 = GRAPH_ELEMENT__COMPARISON1;
+	int ELEMENT__COMPARISON1 = COMPARABLE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -640,7 +640,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__COMPARISON2 = GRAPH_ELEMENT__COMPARISON2;
+	int ELEMENT__COMPARISON2 = COMPARABLE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
@@ -649,7 +649,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__RELATION_FROM_PREVIOUS = GRAPH_ELEMENT_FEATURE_COUNT + 0;
+	int ELEMENT__RELATION_FROM_PREVIOUS = COMPARABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Translated</b></em>' attribute.
@@ -658,7 +658,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__TRANSLATED = GRAPH_ELEMENT_FEATURE_COUNT + 1;
+	int ELEMENT__TRANSLATED = COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -667,7 +667,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PROPERTIES = GRAPH_ELEMENT_FEATURE_COUNT + 2;
+	int ELEMENT__PROPERTIES = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
@@ -676,7 +676,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = GRAPH_ELEMENT_FEATURE_COUNT + 3;
+	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Get All Elements</b></em>' reference list.
@@ -685,7 +685,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__GET_ALL_ELEMENTS = GRAPH_ELEMENT_FEATURE_COUNT + 4;
+	int ELEMENT__GET_ALL_ELEMENTS = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Get All Relations</b></em>' reference list.
@@ -694,7 +694,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__GET_ALL_RELATIONS = GRAPH_ELEMENT_FEATURE_COUNT + 5;
+	int ELEMENT__GET_ALL_RELATIONS = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
@@ -703,7 +703,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PREDICATES = GRAPH_ELEMENT_FEATURE_COUNT + 6;
+	int ELEMENT__PREDICATES = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -712,7 +712,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = GRAPH_ELEMENT_FEATURE_COUNT + 7;
+	int ELEMENT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -721,7 +721,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___TO_XQUERY__LOCATION = GRAPH_ELEMENT___TO_XQUERY__LOCATION;
+	int ELEMENT___TO_XQUERY__LOCATION = COMPARABLE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -730,7 +730,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ALL_INPUTS = GRAPH_ELEMENT___GET_ALL_INPUTS;
+	int ELEMENT___GET_ALL_INPUTS = COMPARABLE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -739,7 +739,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___PREPARE_TRANSLATION = GRAPH_ELEMENT___PREPARE_TRANSLATION;
+	int ELEMENT___PREPARE_TRANSLATION = COMPARABLE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -748,7 +748,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___IS_VALID__BOOLEAN = GRAPH_ELEMENT___IS_VALID__BOOLEAN;
+	int ELEMENT___IS_VALID__BOOLEAN = COMPARABLE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -757,7 +757,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___IS_VALID_LOCAL__BOOLEAN = GRAPH_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int ELEMENT___IS_VALID_LOCAL__BOOLEAN = COMPARABLE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -766,7 +766,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_CONTAINER = GRAPH_ELEMENT___GET_CONTAINER;
+	int ELEMENT___GET_CONTAINER = COMPARABLE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -775,7 +775,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ANCESTOR__CLASS = GRAPH_ELEMENT___GET_ANCESTOR__CLASS;
+	int ELEMENT___GET_ANCESTOR__CLASS = COMPARABLE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -784,7 +784,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_RETURN_TYPE = GRAPH_ELEMENT___GET_RETURN_TYPE;
+	int ELEMENT___GET_RETURN_TYPE = COMPARABLE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -793,7 +793,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___IS_TRANSLATABLE = GRAPH_ELEMENT___IS_TRANSLATABLE;
+	int ELEMENT___IS_TRANSLATABLE = COMPARABLE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -802,7 +802,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___TO_XQUERY__LOCATION_INT = GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT;
+	int ELEMENT___TO_XQUERY__LOCATION_INT = COMPARABLE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -811,7 +811,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+	int ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -820,7 +820,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Next Elements</em>' operation.
@@ -829,7 +829,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_NEXT_ELEMENTS = GRAPH_ELEMENT_OPERATION_COUNT + 0;
+	int ELEMENT___GET_NEXT_ELEMENTS = COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Previous Element</em>' operation.
@@ -838,7 +838,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_PREVIOUS_ELEMENT = GRAPH_ELEMENT_OPERATION_COUNT + 1;
+	int ELEMENT___GET_PREVIOUS_ELEMENT = COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -847,7 +847,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ALL_OPERATORS = GRAPH_ELEMENT_OPERATION_COUNT + 2;
+	int ELEMENT___GET_ALL_OPERATORS = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get All Variables</em>' operation.
@@ -856,7 +856,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ALL_VARIABLES = GRAPH_ELEMENT_OPERATION_COUNT + 3;
+	int ELEMENT___GET_ALL_VARIABLES = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
@@ -865,7 +865,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION_INT = GRAPH_ELEMENT_OPERATION_COUNT + 4;
+	int ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION_INT = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Context Representation</em>' operation.
@@ -874,7 +874,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_CONTEXT_REPRESENTATION__INT = GRAPH_ELEMENT_OPERATION_COUNT + 5;
+	int ELEMENT___GET_CONTEXT_REPRESENTATION__INT = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Graph Depth</em>' operation.
@@ -883,7 +883,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_GRAPH_DEPTH = GRAPH_ELEMENT_OPERATION_COUNT + 6;
+	int ELEMENT___GET_GRAPH_DEPTH = COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Translate Element Existence Predicates</em>' operation.
@@ -892,7 +892,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = GRAPH_ELEMENT_OPERATION_COUNT + 7;
+	int ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -901,7 +901,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = GRAPH_ELEMENT_OPERATION_COUNT + 8;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
@@ -2649,86 +2649,86 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getGraph__CopyGraph__Graph();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.GraphElement <em>Graph Element</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Graph Element</em>'.
-	 * @see qualitypatternmodel.graphstructure.GraphElement
+	 * @return the meta object for class '<em>Comparable</em>'.
+	 * @see qualitypatternmodel.graphstructure.Comparable
 	 * @generated
 	 */
-	EClass getGraphElement();
+	EClass getComparable();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.GraphElement#getComparison1 <em>Comparison1</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Comparable#getComparison1 <em>Comparison1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Comparison1</em>'.
-	 * @see qualitypatternmodel.graphstructure.GraphElement#getComparison1()
-	 * @see #getGraphElement()
+	 * @see qualitypatternmodel.graphstructure.Comparable#getComparison1()
+	 * @see #getComparable()
 	 * @generated
 	 */
-	EReference getGraphElement_Comparison1();
+	EReference getComparable_Comparison1();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.GraphElement#getComparison2 <em>Comparison2</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Comparable#getComparison2 <em>Comparison2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Comparison2</em>'.
-	 * @see qualitypatternmodel.graphstructure.GraphElement#getComparison2()
-	 * @see #getGraphElement()
+	 * @see qualitypatternmodel.graphstructure.Comparable#getComparison2()
+	 * @see #getComparable()
 	 * @generated
 	 */
-	EReference getGraphElement_Comparison2();
+	EReference getComparable_Comparison2();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.GraphElement#getReturnType() <em>Get Return Type</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Return Type</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.GraphElement#getReturnType()
+	 * @see qualitypatternmodel.graphstructure.Comparable#getReturnType()
 	 * @generated
 	 */
-	EOperation getGraphElement__GetReturnType();
+	EOperation getComparable__GetReturnType();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.GraphElement#isTranslatable() <em>Is Translatable</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Translatable</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.GraphElement#isTranslatable()
+	 * @see qualitypatternmodel.graphstructure.Comparable#isTranslatable()
 	 * @generated
 	 */
-	EOperation getGraphElement__IsTranslatable();
+	EOperation getComparable__IsTranslatable();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.GraphElement#toXQuery(qualitypatternmodel.patternstructure.Location, int) <em>To XQuery</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int) <em>To XQuery</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>To XQuery</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.GraphElement#toXQuery(qualitypatternmodel.patternstructure.Location, int)
+	 * @see qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int)
 	 * @generated
 	 */
-	EOperation getGraphElement__ToXQuery__Location_int();
+	EOperation getComparable__ToXQuery__Location_int();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.GraphElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Validate</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.GraphElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 */
-	EOperation getGraphElement__Validate__DiagnosticChain_Map();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.GraphElement#getAllArgumentElements() <em>Get All Argument Elements</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Argument Elements</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.GraphElement#getAllArgumentElements()
+	 * @see qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements()
 	 * @generated
 	 */
-	EOperation getGraphElement__GetAllArgumentElements();
+	EOperation getComparable__GetAllArgumentElements();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Comparable#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Validate</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Comparable#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getComparable__Validate__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}'.
@@ -3311,14 +3311,14 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation GRAPH___COPY_GRAPH__GRAPH = eINSTANCE.getGraph__CopyGraph__Graph();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphElementImpl <em>Graph Element</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.graphstructure.impl.GraphElementImpl
-		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getGraphElement()
+		 * @see qualitypatternmodel.graphstructure.Comparable
+		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getComparable()
 		 * @generated
 		 */
-		EClass GRAPH_ELEMENT = eINSTANCE.getGraphElement();
+		EClass COMPARABLE = eINSTANCE.getComparable();
 
 		/**
 		 * The meta object literal for the '<em><b>Comparison1</b></em>' reference list feature.
@@ -3326,7 +3326,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRAPH_ELEMENT__COMPARISON1 = eINSTANCE.getGraphElement_Comparison1();
+		EReference COMPARABLE__COMPARISON1 = eINSTANCE.getComparable_Comparison1();
 
 		/**
 		 * The meta object literal for the '<em><b>Comparison2</b></em>' reference list feature.
@@ -3334,7 +3334,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRAPH_ELEMENT__COMPARISON2 = eINSTANCE.getGraphElement_Comparison2();
+		EReference COMPARABLE__COMPARISON2 = eINSTANCE.getComparable_Comparison2();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Return Type</b></em>' operation.
@@ -3342,7 +3342,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GRAPH_ELEMENT___GET_RETURN_TYPE = eINSTANCE.getGraphElement__GetReturnType();
+		EOperation COMPARABLE___GET_RETURN_TYPE = eINSTANCE.getComparable__GetReturnType();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Translatable</b></em>' operation.
@@ -3350,7 +3350,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GRAPH_ELEMENT___IS_TRANSLATABLE = eINSTANCE.getGraphElement__IsTranslatable();
+		EOperation COMPARABLE___IS_TRANSLATABLE = eINSTANCE.getComparable__IsTranslatable();
 
 		/**
 		 * The meta object literal for the '<em><b>To XQuery</b></em>' operation.
@@ -3358,15 +3358,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GRAPH_ELEMENT___TO_XQUERY__LOCATION_INT = eINSTANCE.getGraphElement__ToXQuery__Location_int();
-
-		/**
-		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GRAPH_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGraphElement__Validate__DiagnosticChain_Map();
+		EOperation COMPARABLE___TO_XQUERY__LOCATION_INT = eINSTANCE.getComparable__ToXQuery__Location_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Argument Elements</b></em>' operation.
@@ -3374,7 +3366,15 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GRAPH_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = eINSTANCE.getGraphElement__GetAllArgumentElements();
+		EOperation COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS = eINSTANCE.getComparable__GetAllArgumentElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getComparable__Validate__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.

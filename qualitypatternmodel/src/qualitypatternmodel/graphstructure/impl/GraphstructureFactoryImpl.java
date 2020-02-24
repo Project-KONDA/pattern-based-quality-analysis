@@ -10,7 +10,17 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import qualitypatternmodel.graphstructure.*;
+import qualitypatternmodel.graphstructure.Axis;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructureFactory;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.ListOfElements;
+import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PropertyLocation;
+import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.SetElement;
+import qualitypatternmodel.graphstructure.SingleElement;
 
 /**
  * <!-- begin-user-doc -->

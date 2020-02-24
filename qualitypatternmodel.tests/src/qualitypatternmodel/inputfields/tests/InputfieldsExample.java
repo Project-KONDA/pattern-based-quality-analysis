@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
+import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 
@@ -59,7 +60,7 @@ public class InputfieldsExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.inputfields"));
-				qualitypatternmodel.inputfields.Number root = InputfieldsFactory.eINSTANCE.createNumber();
+				CompOption root = InputfieldsFactory.eINSTANCE.createCompOption();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

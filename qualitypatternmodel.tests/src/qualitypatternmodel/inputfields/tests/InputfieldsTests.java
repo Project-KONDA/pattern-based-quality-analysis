@@ -31,13 +31,16 @@ public class InputfieldsTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new InputfieldsTests("inputfields Tests");
-		suite.addTestSuite(NumberTest.class);
-		suite.addTestSuite(BooleanTest.class);
-		suite.addTestSuite(TextLiteralTest.class);
 		suite.addTestSuite(CompOptionTest.class);
 		suite.addTestSuite(PropertyOptionTest.class);
 		suite.addTestSuite(VariableListTest.class);
+		suite.addTestSuite(BooleanTest.class);
 		suite.addTestSuite(TextListTest.class);
+		suite.addTestSuite(TextLiteralTest.class);
+		suite.addTestSuite(NumberTest.class);
+		suite.addTestSuite(XSTypeTest.class);
+		suite.addTestSuite(DateTest.class);
+		suite.addTestSuite(TimeTest.class);
 		return suite;
 	}
 

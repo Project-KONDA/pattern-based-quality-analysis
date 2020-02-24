@@ -4,7 +4,7 @@ package qualitypatternmodel.inputfields;
 
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
-import qualitypatternmodel.graphstructure.GraphElement;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +24,7 @@ import qualitypatternmodel.graphstructure.GraphElement;
  * @model abstract="true"
  * @generated
  */
-public interface Input extends GraphElement {
+public interface Input extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Variable List</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.VariableList#getVariables <em>Variables</em>}'.

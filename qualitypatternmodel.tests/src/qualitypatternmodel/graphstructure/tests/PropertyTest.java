@@ -6,14 +6,24 @@ import junit.textui.TestRunner;
 
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Property</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int) <em>To XQuery</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
-public class PropertyTest extends GraphElementTest {
+public class PropertyTest extends PatternElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -65,6 +75,58 @@ public class PropertyTest extends GraphElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Comparable#getReturnType()
+	 * @generated
+	 */
+	public void testGetReturnType() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Comparable#isTranslatable()
+	 * @generated
+	 */
+	public void testIsTranslatable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int) <em>To XQuery</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int)
+	 * @generated
+	 */
+	public void testToXQuery__Location_int() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements()
+	 * @generated
+	 */
+	public void testGetAllArgumentElements() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //PropertyTest

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.graphstructure.GraphElement;
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
@@ -95,8 +95,8 @@ public class CountImpl extends NumberOperatorImpl implements Count {
 	}	
 	
 	@Override
-	public EList<GraphElement> getArguments(){
-		EList<GraphElement> list = new BasicEList<GraphElement>();		
+	public EList<Comparable> getArguments(){
+		EList<Comparable> list = new BasicEList<Comparable>();		
 		list.add(argument);
 		return list;
 	}

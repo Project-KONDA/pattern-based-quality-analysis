@@ -12,7 +12,7 @@ import qualitypatternmodel.inputfields.InputfieldsFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BooleanTest extends InputTest {
+public class BooleanTest extends XSTypeTest {
 
 	/**
 	 * <!-- begin-user-doc -->

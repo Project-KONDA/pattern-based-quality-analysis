@@ -3,6 +3,7 @@
 package qualitypatternmodel.graphstructure.tests;
 
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,11 +27,15 @@ import qualitypatternmodel.graphstructure.Element;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getContextRepresentation(int) <em>Get Context Representation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraphDepth() <em>Get Graph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Element Existence Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int) <em>To XQuery</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public abstract class ElementTest extends GraphElementTest {
+public abstract class ElementTest extends PatternElementTest {
 
 	/**
 	 * Constructs a new Element test case with the given name.
@@ -178,6 +183,58 @@ public abstract class ElementTest extends GraphElementTest {
 	 * @generated
 	 */
 	public void testTranslateElementExistencePredicates__Location_int() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Comparable#getReturnType()
+	 * @generated
+	 */
+	public void testGetReturnType() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Comparable#isTranslatable()
+	 * @generated
+	 */
+	public void testIsTranslatable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int) <em>To XQuery</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int)
+	 * @generated
+	 */
+	public void testToXQuery__Location_int() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements()
+	 * @generated
+	 */
+	public void testGetAllArgumentElements() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

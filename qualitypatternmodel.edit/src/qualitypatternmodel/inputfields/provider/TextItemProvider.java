@@ -16,7 +16,7 @@ import qualitypatternmodel.inputfields.Text;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextItemProvider extends InputItemProvider {
+public class TextItemProvider extends XSTypeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -40,17 +40,6 @@ public class TextItemProvider extends InputItemProvider {
 
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This returns Text.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Text"));
 	}
 
 	/**
@@ -80,7 +69,6 @@ public class TextItemProvider extends InputItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

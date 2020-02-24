@@ -72,8 +72,6 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import qualitypatternmodel.functions.FunctionsFactory;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
-
-
 import org.eclipse.core.runtime.Path;
 
 import org.eclipse.jface.viewers.ISelection;

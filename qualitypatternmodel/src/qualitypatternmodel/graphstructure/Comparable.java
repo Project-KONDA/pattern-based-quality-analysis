@@ -20,15 +20,15 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.GraphElement#getComparison1 <em>Comparison1</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.GraphElement#getComparison2 <em>Comparison2</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getComparison1 <em>Comparison1</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getComparison2 <em>Comparison2</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraphElement()
- * @model abstract="true"
+ * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getComparable()
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface GraphElement extends PatternElement {
+public interface Comparable extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Comparison1</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.functions.Comparison}.
@@ -36,7 +36,7 @@ public interface GraphElement extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comparison1</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraphElement_Comparison1()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getComparable_Comparison1()
 	 * @see qualitypatternmodel.functions.Comparison#getArgument1
 	 * @model opposite="argument1"
 	 * @generated
@@ -50,7 +50,7 @@ public interface GraphElement extends PatternElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comparison2</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraphElement_Comparison2()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getComparable_Comparison2()
 	 * @see qualitypatternmodel.functions.Comparison#getArgument2
 	 * @model opposite="argument2"
 	 * @generated

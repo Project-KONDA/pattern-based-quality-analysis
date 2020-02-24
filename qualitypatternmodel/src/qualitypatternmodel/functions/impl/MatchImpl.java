@@ -9,14 +9,13 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
-import qualitypatternmodel.graphstructure.GraphElement;
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.Input;
@@ -136,8 +135,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
-	public EList<GraphElement> getArguments(){
-		EList<GraphElement> list = new BasicEList<GraphElement>();		
+	public EList<Comparable> getArguments(){
+		EList<Comparable> list = new BasicEList<Comparable>();		
 		list.add(property);
 		list.add(regularExpression);
 		list.add(option);

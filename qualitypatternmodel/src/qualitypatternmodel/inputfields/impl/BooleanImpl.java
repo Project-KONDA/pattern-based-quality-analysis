@@ -28,7 +28,7 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputfields.Boolean {
+public class BooleanImpl extends XSTypeImpl implements qualitypatternmodel.inputfields.Boolean {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,10 +72,7 @@ public class BooleanImpl extends InputImpl implements qualitypatternmodel.inputf
 		return ReturnType.BOOLEAN;
 	}
 	
-	@Override
-	public boolean inputIsValid() {
-		return getValue() != null;
-	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

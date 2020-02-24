@@ -10,7 +10,7 @@ import qualitypatternmodel.inputfields.Text;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class TextTest extends InputTest {
+public abstract class TextTest extends XSTypeTest {
 
 	/**
 	 * Constructs a new Text test case with the given name.
