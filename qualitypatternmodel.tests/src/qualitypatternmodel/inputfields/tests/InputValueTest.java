@@ -1,20 +1,19 @@
 /**
  */
-package qualitypatternmodel.tests;
+package qualitypatternmodel.inputfields.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.QualitypatternmodelFactory;
-
-import qualitypatternmodel.inputfields.tests.XSTypeTest;
+import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.InputfieldsFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Boolean</b></em>'.
+ * A test case for the model object '<em><b>Input Value</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class BooleanTest extends XSTypeTest {
+public class InputValueTest extends InputTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -22,28 +21,28 @@ public class BooleanTest extends XSTypeTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(BooleanTest.class);
+		TestRunner.run(InputValueTest.class);
 	}
 
 	/**
-	 * Constructs a new Boolean test case with the given name.
+	 * Constructs a new Input Value test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BooleanTest(String name) {
+	public InputValueTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Boolean test case.
+	 * Returns the fixture for this Input Value test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected qualitypatternmodel.Boolean getFixture() {
-		return (qualitypatternmodel.Boolean)fixture;
+	protected InputValue getFixture() {
+		return (InputValue)fixture;
 	}
 
 	/**
@@ -54,7 +53,7 @@ public class BooleanTest extends XSTypeTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(QualitypatternmodelFactory.eINSTANCE.createBoolean());
+		setFixture(InputfieldsFactory.eINSTANCE.createInputValue());
 	}
 
 	/**
@@ -68,4 +67,4 @@ public class BooleanTest extends XSTypeTest {
 		setFixture(null);
 	}
 
-} //BooleanTest
+} //InputValueTest

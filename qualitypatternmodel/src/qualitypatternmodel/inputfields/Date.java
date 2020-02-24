@@ -18,7 +18,7 @@ package qualitypatternmodel.inputfields;
  * @model
  * @generated
  */
-public interface Date extends XSType {
+public interface Date extends InputValue {
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.

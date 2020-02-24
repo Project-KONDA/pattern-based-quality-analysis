@@ -21,7 +21,7 @@ import qualitypatternmodel.inputfields.Time;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TimeItemProvider extends XSTypeItemProvider {
+public class TimeItemProvider extends InputValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

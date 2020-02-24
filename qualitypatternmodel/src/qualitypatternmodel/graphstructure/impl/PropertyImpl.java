@@ -174,7 +174,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 
 	@Override
 	public ReturnType getReturnType() {
-		return ReturnType.STRING;
+		return ReturnType.UNSPECIFIED;
 	}
 	
 	@Override

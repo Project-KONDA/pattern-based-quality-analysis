@@ -17,8 +17,9 @@ import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
+import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.VariableList;
-import qualitypatternmodel.inputfields.XSType;
+import qualitypatternmodel.inputfields.InputValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -114,8 +115,8 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 				return createNumberAdapter();
 			}
 			@Override
-			public Adapter caseXSType(XSType object) {
-				return createXSTypeAdapter();
+			public Adapter caseInputValue(InputValue object) {
+				return createInputValueAdapter();
 			}
 			@Override
 			public Adapter caseDate(Date object) {
@@ -124,6 +125,10 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTime(Time object) {
 				return createTimeAdapter();
+			}
+			@Override
+			public Adapter caseUnknownInputValue(UnknownInputValue object) {
+				return createUnknownInputValueAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -280,16 +285,16 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.XSType <em>XS Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.InputValue <em>Input Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.inputfields.XSType
+	 * @see qualitypatternmodel.inputfields.InputValue
 	 * @generated
 	 */
-	public Adapter createXSTypeAdapter() {
+	public Adapter createInputValueAdapter() {
 		return null;
 	}
 
@@ -318,6 +323,20 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTimeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.UnknownInputValue <em>Unknown Input Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.inputfields.UnknownInputValue
+	 * @generated
+	 */
+	public Adapter createUnknownInputValueAdapter() {
 		return null;
 	}
 

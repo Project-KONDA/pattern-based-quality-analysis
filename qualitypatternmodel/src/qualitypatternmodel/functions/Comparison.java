@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.functions;
 
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.CompOption;
 
 /**
@@ -16,6 +17,7 @@ import qualitypatternmodel.inputfields.CompOption;
  *   <li>{@link qualitypatternmodel.functions.Comparison#getArgument1 <em>Argument1</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.Comparison#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.Comparison#getArgument2 <em>Argument2</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.Comparison#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.functions.FunctionsPackage#getComparison()
@@ -92,5 +94,38 @@ public interface Comparison extends BooleanOperator {
 	 * @generated
 	 */
 	void setArgument2(qualitypatternmodel.graphstructure.Comparable value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.ReturnType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see qualitypatternmodel.graphstructure.ReturnType
+	 * @see #setType(ReturnType)
+	 * @see qualitypatternmodel.functions.FunctionsPackage#getComparison_Type()
+	 * @model
+	 * @generated
+	 */
+	ReturnType getType();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.functions.Comparison#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see qualitypatternmodel.graphstructure.ReturnType
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(ReturnType value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable newArgument, qualitypatternmodel.graphstructure.Comparable otherArgument);
 
 } // Comparison

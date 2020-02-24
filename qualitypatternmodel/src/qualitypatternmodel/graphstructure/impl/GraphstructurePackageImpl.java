@@ -1277,11 +1277,13 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEEnumLiteral(axisEEnum, Axis.DESCENDANT_OR_SELF);
 
 		initEEnum(returnTypeEEnum, ReturnType.class, "ReturnType");
-		addEEnumLiteral(returnTypeEEnum, ReturnType.NUMBER);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.UNSPECIFIED);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.STRING);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.BOOLEAN);
-		addEEnumLiteral(returnTypeEEnum, ReturnType.NONE);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.ELEMENT);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.DATE);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.TIME);
+		addEEnumLiteral(returnTypeEEnum, ReturnType.NUMBER);
 
 		// Initialize data types
 		initEDataType(listOfElementsEDataType, ListOfElements.class, "ListOfElements", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

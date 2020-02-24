@@ -5,7 +5,7 @@ package qualitypatternmodel.inputfields.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.XSType;
+import qualitypatternmodel.inputfields.InputValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,13 +14,13 @@ import qualitypatternmodel.inputfields.XSType;
  *
  * @generated
  */
-public class XSTypeImpl extends InputImpl implements XSType {
+public class InputValueImpl extends InputImpl implements InputValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XSTypeImpl() {
+	protected InputValueImpl() {
 		super();
 	}
 
@@ -31,15 +31,13 @@ public class XSTypeImpl extends InputImpl implements XSType {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return InputfieldsPackage.Literals.XS_TYPE;
+		return InputfieldsPackage.Literals.INPUT_VALUE;
 	}
-
+	
 	@Override
 	public boolean inputIsValid() {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	
 
 } //XSTypeImpl

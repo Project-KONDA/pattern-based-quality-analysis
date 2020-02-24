@@ -38,11 +38,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/Pattern" eOpposite="#//patternstructure/Pattern/variableList"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//inputfields/XSType">
+    <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//inputfields/InputValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           defaultValueLiteral="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Text" abstract="true" eSuperTypes="#//inputfields/XSType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Text" abstract="true" eSuperTypes="#//inputfields/InputValue"/>
     <eClassifiers xsi:type="ecore:EClass" name="TextList" eSuperTypes="#//inputfields/Text">
       <eOperations name="getListDeclaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getListVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -54,18 +54,23 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//inputfields/XSType">
+    <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//inputfields/InputValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
           defaultValueLiteral="0.0"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="XSType" eSuperTypes="#//inputfields/Input #//graphstructure/Comparable"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//inputfields/XSType">
+    <eClassifiers xsi:type="ecore:EClass" name="InputValue" eSuperTypes="#//inputfields/Input #//graphstructure/Comparable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//inputfields/InputValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Time" eSuperTypes="#//inputfields/XSType">
+    <eClassifiers xsi:type="ecore:EClass" name="Time" eSuperTypes="#//inputfields/InputValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UnknownInputValue" eSuperTypes="#//inputfields/Input #//graphstructure/Comparable">
+      <eOperations name="concretize">
+        <eParameters name="concreteInputValue" eType="#//inputfields/InputValue"/>
+      </eOperations>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="functions" nsURI="functions" nsPrefix="functions">
@@ -113,12 +118,17 @@
           eType="#//inputfields/Boolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//functions/BooleanOperator">
+      <eOperations name="setTypeAccordingToArgument">
+        <eParameters name="newArgument" eType="#//graphstructure/Comparable"/>
+        <eParameters name="otherArgument" eType="#//graphstructure/Comparable"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
           eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//inputfields/CompOption"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
           eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison2"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ToNumber" eSuperTypes="#//functions/NumberOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
@@ -377,11 +387,13 @@
       <eLiterals name="DESCENDANT_OR_SELF" value="9" literal="descendant-or-self"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ReturnType">
-      <eLiterals name="NUMBER"/>
+      <eLiterals name="UNSPECIFIED" literal="UNSPECIFIED"/>
       <eLiterals name="STRING" value="1"/>
       <eLiterals name="BOOLEAN" value="2"/>
-      <eLiterals name="NONE" value="3"/>
       <eLiterals name="ELEMENT" value="4"/>
+      <eLiterals name="DATE" value="5" literal="DATE"/>
+      <eLiterals name="TIME" value="6" literal="TIME"/>
+      <eLiterals name="NUMBER" value="7" literal="NUMBER"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="ListOfElements" instanceClassName="qualitypatternmodel.graphstructure.ListOfElements"/>
   </eSubpackages>

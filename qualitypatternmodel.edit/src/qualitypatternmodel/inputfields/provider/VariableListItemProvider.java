@@ -148,7 +148,7 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
-				 InputfieldsFactory.eINSTANCE.createXSType()));
+				 InputfieldsFactory.eINSTANCE.createInputValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -179,6 +179,11 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
 				 InputfieldsFactory.eINSTANCE.createTime()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				 InputfieldsFactory.eINSTANCE.createUnknownInputValue()));
 	}
 
 	/**

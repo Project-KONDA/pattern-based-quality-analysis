@@ -18,8 +18,9 @@ import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
+import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.VariableList;
-import qualitypatternmodel.inputfields.XSType;
+import qualitypatternmodel.inputfields.InputValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -72,9 +73,10 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 			case InputfieldsPackage.TEXT_LIST: return createTextList();
 			case InputfieldsPackage.TEXT_LITERAL: return createTextLiteral();
 			case InputfieldsPackage.NUMBER: return createNumber();
-			case InputfieldsPackage.XS_TYPE: return createXSType();
+			case InputfieldsPackage.INPUT_VALUE: return createInputValue();
 			case InputfieldsPackage.DATE: return createDate();
 			case InputfieldsPackage.TIME: return createTime();
+			case InputfieldsPackage.UNKNOWN_INPUT_VALUE: return createUnknownInputValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -163,9 +165,9 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * @generated
 	 */
 	@Override
-	public XSType createXSType() {
-		XSTypeImpl xsType = new XSTypeImpl();
-		return xsType;
+	public InputValue createInputValue() {
+		InputValueImpl inputValue = new InputValueImpl();
+		return inputValue;
 	}
 
 	/**
@@ -188,6 +190,17 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	public Time createTime() {
 		TimeImpl time = new TimeImpl();
 		return time;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public UnknownInputValue createUnknownInputValue() {
+		UnknownInputValueImpl unknownInputValue = new UnknownInputValueImpl();
+		return unknownInputValue;
 	}
 
 	/**

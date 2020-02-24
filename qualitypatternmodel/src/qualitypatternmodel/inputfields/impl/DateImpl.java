@@ -25,7 +25,7 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class DateImpl extends XSTypeImpl implements Date {
+public class DateImpl extends InputValueImpl implements Date {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,7 +57,7 @@ public class DateImpl extends XSTypeImpl implements Date {
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		if(getValue() != null) {
-			return "xs:date(" + getValue() + ")";
+			return getValue();
 		} else {
 			throw new InvalidityException("invalid number");
 		}
@@ -65,7 +65,7 @@ public class DateImpl extends XSTypeImpl implements Date {
 	
 	@Override
 	public ReturnType getReturnType() {
-		return ReturnType.NUMBER;
+		return ReturnType.DATE;
 	}
 	
 	@Override

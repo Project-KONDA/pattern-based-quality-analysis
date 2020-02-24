@@ -27,8 +27,9 @@ import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
+import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.VariableList;
-import qualitypatternmodel.inputfields.XSType;
+import qualitypatternmodel.inputfields.InputValue;
 import qualitypatternmodel.inputfields.util.InputfieldsValidator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -109,7 +110,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass xsTypeEClass = null;
+	private EClass inputValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,6 +125,13 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	private EClass timeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unknownInputValueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -476,8 +484,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EClass getXSType() {
-		return xsTypeEClass;
+	public EClass getInputValue() {
+		return inputValueEClass;
 	}
 
 	/**
@@ -518,6 +526,26 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	@Override
 	public EAttribute getTime_Value() {
 		return (EAttribute)timeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getUnknownInputValue() {
+		return unknownInputValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getUnknownInputValue__Concretize__InputValue() {
+		return unknownInputValueEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -584,13 +612,16 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		numberEClass = createEClass(NUMBER);
 		createEAttribute(numberEClass, NUMBER__VALUE);
 
-		xsTypeEClass = createEClass(XS_TYPE);
+		inputValueEClass = createEClass(INPUT_VALUE);
 
 		dateEClass = createEClass(DATE);
 		createEAttribute(dateEClass, DATE__VALUE);
 
 		timeEClass = createEClass(TIME);
 		createEAttribute(timeEClass, TIME__VALUE);
+
+		unknownInputValueEClass = createEClass(UNKNOWN_INPUT_VALUE);
+		createEOperation(unknownInputValueEClass, UNKNOWN_INPUT_VALUE___CONCRETIZE__INPUTVALUE);
 	}
 
 	/**
@@ -631,15 +662,17 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		compOptionEClass.getESuperTypes().add(this.getInput());
 		propertyOptionEClass.getESuperTypes().add(this.getInput());
 		variableListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
-		booleanEClass.getESuperTypes().add(this.getXSType());
-		textEClass.getESuperTypes().add(this.getXSType());
+		booleanEClass.getESuperTypes().add(this.getInputValue());
+		textEClass.getESuperTypes().add(this.getInputValue());
 		textListEClass.getESuperTypes().add(this.getText());
 		textLiteralEClass.getESuperTypes().add(this.getText());
-		numberEClass.getESuperTypes().add(this.getXSType());
-		xsTypeEClass.getESuperTypes().add(this.getInput());
-		xsTypeEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
-		dateEClass.getESuperTypes().add(this.getXSType());
-		timeEClass.getESuperTypes().add(this.getXSType());
+		numberEClass.getESuperTypes().add(this.getInputValue());
+		inputValueEClass.getESuperTypes().add(this.getInput());
+		inputValueEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
+		dateEClass.getESuperTypes().add(this.getInputValue());
+		timeEClass.getESuperTypes().add(this.getInputValue());
+		unknownInputValueEClass.getESuperTypes().add(this.getInput());
+		unknownInputValueEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -688,13 +721,18 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		initEClass(numberEClass, qualitypatternmodel.inputfields.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumber_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, qualitypatternmodel.inputfields.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(xsTypeEClass, XSType.class, "XSType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(inputValueEClass, InputValue.class, "InputValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDate_Value(), ecorePackage.getEString(), "value", "", 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(timeEClass, Time.class, "Time", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTime_Value(), ecorePackage.getEString(), "value", "", 0, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(unknownInputValueEClass, UnknownInputValue.class, "UnknownInputValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getUnknownInputValue__Concretize__InputValue(), null, "concretize", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getInputValue(), "concreteInputValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

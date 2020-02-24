@@ -164,26 +164,26 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.XSType} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.InputValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XSTypeItemProvider xsTypeItemProvider;
+	protected InputValueItemProvider inputValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.XSType}.
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.InputValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createXSTypeAdapter() {
-		if (xsTypeItemProvider == null) {
-			xsTypeItemProvider = new XSTypeItemProvider(this);
+	public Adapter createInputValueAdapter() {
+		if (inputValueItemProvider == null) {
+			inputValueItemProvider = new InputValueItemProvider(this);
 		}
 
-		return xsTypeItemProvider;
+		return inputValueItemProvider;
 	}
 
 	/**
@@ -230,6 +230,29 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 		}
 
 		return timeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.UnknownInputValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnknownInputValueItemProvider unknownInputValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.UnknownInputValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnknownInputValueAdapter() {
+		if (unknownInputValueItemProvider == null) {
+			unknownInputValueItemProvider = new UnknownInputValueItemProvider(this);
+		}
+
+		return unknownInputValueItemProvider;
 	}
 
 	/**
@@ -413,9 +436,10 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 		if (textListItemProvider != null) textListItemProvider.dispose();
 		if (textLiteralItemProvider != null) textLiteralItemProvider.dispose();
 		if (numberItemProvider != null) numberItemProvider.dispose();
-		if (xsTypeItemProvider != null) xsTypeItemProvider.dispose();
+		if (inputValueItemProvider != null) inputValueItemProvider.dispose();
 		if (dateItemProvider != null) dateItemProvider.dispose();
 		if (timeItemProvider != null) timeItemProvider.dispose();
+		if (unknownInputValueItemProvider != null) unknownInputValueItemProvider.dispose();
 	}
 
 }

@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.functions.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
@@ -441,6 +442,26 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getComparison_Type() {
+		return (EAttribute)comparisonEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComparison__SetTypeAccordingToArgument__Comparable_Comparable() {
+		return comparisonEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getToNumber() {
 		return toNumberEClass;
 	}
@@ -563,6 +584,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT1);
 		createEReference(comparisonEClass, COMPARISON__OPTION);
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT2);
+		createEAttribute(comparisonEClass, COMPARISON__TYPE);
+		createEOperation(comparisonEClass, COMPARISON___SET_TYPE_ACCORDING_TO_ARGUMENT__COMPARABLE_COMPARABLE);
 
 		toNumberEClass = createEClass(TO_NUMBER);
 		createEReference(toNumberEClass, TO_NUMBER__PROPERTY);
@@ -673,6 +696,11 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		initEReference(getComparison_Argument1(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison1(), "argument1", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Option(), theInputfieldsPackage.getCompOption(), null, "option", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Argument2(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison2(), "argument2", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComparison_Type(), theGraphstructurePackage.getReturnType(), "type", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getComparison__SetTypeAccordingToArgument__Comparable_Comparable(), null, "setTypeAccordingToArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getComparable(), "newArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getComparable(), "otherArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(toNumberEClass, ToNumber.class, "ToNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getToNumber_Property(), theGraphstructurePackage.getProperty(), null, "property", null, 1, 1, ToNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

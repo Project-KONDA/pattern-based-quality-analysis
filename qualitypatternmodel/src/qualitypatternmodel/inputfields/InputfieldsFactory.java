@@ -85,13 +85,13 @@ public interface InputfieldsFactory extends EFactory {
 	Number createNumber();
 
 	/**
-	 * Returns a new object of class '<em>XS Type</em>'.
+	 * Returns a new object of class '<em>Input Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>XS Type</em>'.
+	 * @return a new object of class '<em>Input Value</em>'.
 	 * @generated
 	 */
-	XSType createXSType();
+	InputValue createInputValue();
 
 	/**
 	 * Returns a new object of class '<em>Date</em>'.
@@ -110,6 +110,15 @@ public interface InputfieldsFactory extends EFactory {
 	 * @generated
 	 */
 	Time createTime();
+
+	/**
+	 * Returns a new object of class '<em>Unknown Input Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unknown Input Value</em>'.
+	 * @generated
+	 */
+	UnknownInputValue createUnknownInputValue();
 
 	/**
 	 * Returns the package supported by this factory.

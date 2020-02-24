@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.functions;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
@@ -1536,13 +1537,22 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON__ARGUMENT2 = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON__TYPE = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Comparison</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
+	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1716,13 +1726,22 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
+	 * The operation id for the '<em>Set Type According To Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___SET_TYPE_ACCORDING_TO_ARGUMENT__COMPARABLE_COMPARABLE = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Comparison</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int COMPARISON_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.ToNumberImpl <em>To Number</em>}' class.
@@ -2346,6 +2365,27 @@ public interface FunctionsPackage extends EPackage {
 	EReference getComparison_Argument2();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.functions.Comparison#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see qualitypatternmodel.functions.Comparison#getType()
+	 * @see #getComparison()
+	 * @generated
+	 */
+	EAttribute getComparison_Type();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Comparison#setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable) <em>Set Type According To Argument</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Type According To Argument</em>' operation.
+	 * @see qualitypatternmodel.functions.Comparison#setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable)
+	 * @generated
+	 */
+	EOperation getComparison__SetTypeAccordingToArgument__Comparable_Comparable();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.ToNumber <em>To Number</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2639,6 +2679,22 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPARISON__ARGUMENT2 = eINSTANCE.getComparison_Argument2();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPARISON__TYPE = eINSTANCE.getComparison_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Type According To Argument</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARISON___SET_TYPE_ACCORDING_TO_ARGUMENT__COMPARABLE_COMPARABLE = eINSTANCE.getComparison__SetTypeAccordingToArgument__Comparable_Comparable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.ToNumberImpl <em>To Number</em>}' class.

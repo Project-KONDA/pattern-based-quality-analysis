@@ -52,6 +52,11 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/Time">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Time/value"/>
       </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/UnknownInputValue">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/concretize">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/concretize/concreteInputValue"/>
+        </genOperations>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Functions" basePackage="qualitypatternmodel" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//functions">
@@ -108,6 +113,10 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//functions/Comparison/option"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//functions/Comparison/argument2"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//functions/Comparison/type"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Comparison/setTypeAccordingToArgument">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/setTypeAccordingToArgument/newArgument"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//functions/ToNumber">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -138,11 +147,14 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/Axis/DESCENDANT_OR_SELF"/>
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//graphstructure/ReturnType">
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/NUMBER"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/UNSPECIFIED"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/STRING"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/BOOLEAN"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/NONE"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/ELEMENT"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/DATE"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/TIME"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/NUMBER"/>
       </genEnums>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//graphstructure/ListOfElements"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Relation">
@@ -160,6 +172,7 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Property/element"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Property/attributeName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Property/type"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/SingleElement">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

@@ -11,22 +11,22 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import qualitypatternmodel.inputfields.XSType;
+import qualitypatternmodel.inputfields.UnknownInputValue;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.XSType} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.UnknownInputValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class XSTypeItemProvider extends InputItemProvider {
+public class UnknownInputValueItemProvider extends InputItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XSTypeItemProvider(AdapterFactory adapterFactory) {
+	public UnknownInputValueItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -46,14 +46,14 @@ public class XSTypeItemProvider extends InputItemProvider {
 	}
 
 	/**
-	 * This returns XSType.gif.
+	 * This returns UnknownInputValue.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XSType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/UnknownInputValue"));
 	}
 
 	/**
@@ -64,10 +64,10 @@ public class XSTypeItemProvider extends InputItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XSType)object).getId();
+		String label = ((UnknownInputValue)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XSType_type") :
-			getString("_UI_XSType_type") + " " + label;
+			getString("_UI_UnknownInputValue_type") :
+			getString("_UI_UnknownInputValue_type") + " " + label;
 	}
 
 

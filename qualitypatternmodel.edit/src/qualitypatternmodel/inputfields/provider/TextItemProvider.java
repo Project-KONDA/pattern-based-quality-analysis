@@ -16,7 +16,7 @@ import qualitypatternmodel.inputfields.Text;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextItemProvider extends XSTypeItemProvider {
+public class TextItemProvider extends InputValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

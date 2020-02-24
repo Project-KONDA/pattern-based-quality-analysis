@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.functions.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -18,6 +19,7 @@ import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.NumberOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Comparable;
@@ -28,6 +30,8 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.impl.InputImpl;
 import qualitypatternmodel.patternstructure.Location;
 
@@ -41,6 +45,7 @@ import qualitypatternmodel.patternstructure.Location;
  *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getArgument1 <em>Argument1</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getArgument2 <em>Argument2</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,6 +81,26 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	protected qualitypatternmodel.graphstructure.Comparable argument2;
 
 	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ReturnType TYPE_EDEFAULT = ReturnType.UNSPECIFIED;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ReturnType type = TYPE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -87,7 +112,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public String toXQuery(Location location) throws InvalidityException {
 		if(option!=null && option.getValue()!=null && argument1 != null && argument2 != null) {
 			ComparisonOperator operator = option.getValue();
-			return argument1.toXQuery(location) + operator.getLiteral() + argument2.toXQuery(location);
+			return type.getConversion() + argument1.toXQuery(location) + type.getConversionEnd() + operator.getLiteral() + type.getConversion() + argument2.toXQuery(location) + type.getConversionEnd();
 		} else {
 			throw new InvalidityException("invalid option");
 		}
@@ -97,7 +122,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public String toXQuery(Location location, int depth) throws InvalidityException {
 		if(option!=null && option.getValue()!=null && argument1 != null && argument2 != null) {
 			ComparisonOperator operator = option.getValue();
-			return argument1.toXQuery(location, depth) + operator.getLiteral() + argument2.toXQuery(location, depth);
+			return type.getConversion() + argument1.toXQuery(location, depth) + type.getConversionEnd() + operator.getLiteral() + type.getConversion() + argument2.toXQuery(location, depth) + type.getConversionEnd();
 		} else {
 			throw new InvalidityException("invalid option");
 		}
@@ -121,9 +146,29 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		if (argument2 == null)
 			throw new InvalidityException("argument2 null");
 		if (option == null) 
-			throw new InvalidityException("operator Options invalid");
-		if (!(argument1.getReturnType() == argument2.getReturnType()))
-			throw new InvalidityException("unmatching types");		
+			throw new InvalidityException("operator options null");
+		
+		if (argument1.getReturnType() != argument2.getReturnType()) {
+			if(argument1.getReturnType() != ReturnType.UNSPECIFIED && argument2.getReturnType() != ReturnType.UNSPECIFIED) {
+				throw new InvalidityException("type mismatch");
+			}
+		}				
+		
+		if(argument1.getReturnType() != ReturnType.UNSPECIFIED && argument1.getReturnType() != type) {
+			throw new InvalidityException("type mismatch");	
+		}
+		if(argument2.getReturnType() != ReturnType.UNSPECIFIED && argument2.getReturnType() != type) {
+			throw new InvalidityException("type mismatch");	
+		}
+		
+//		if(argument1.getReturnType() == ReturnType.ELEMENT && argument2.getReturnType() != ReturnType.ELEMENT)
+//			throw new InvalidityException("type mismatch");	
+//		if(argument1.getReturnType() != ReturnType.ELEMENT && argument2.getReturnType() == ReturnType.ELEMENT)
+//			throw new InvalidityException("type mismatch");	
+		
+		if(isDefinedPattern && type == ReturnType.UNSPECIFIED) {
+			throw new InvalidityException("input value type unspecified");	
+		}
 		
 //		if(argument1 instanceof SetElement || argument1 instanceof OtherOperators || argument1 instanceof BooleanOperator) {
 //			throw new InvalidityException("invalid argument1 type");
@@ -310,6 +355,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public NotificationChain basicSetArgument1(qualitypatternmodel.graphstructure.Comparable newArgument1, NotificationChain msgs) {		
 		Comparable oldArgument1 = argument1;
 		argument1 = newArgument1;
+		
+		setTypeAccordingToArgument(newArgument1, getArgument2());		
 
 		try {
 			isCycleFree();
@@ -331,6 +378,39 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
+	}
+
+	public void setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable newArgument, qualitypatternmodel.graphstructure.Comparable otherArgument) {
+		if(newArgument == null) {
+			if(otherArgument == null) {
+				setType(ReturnType.UNSPECIFIED);
+			}
+			if(otherArgument instanceof Property) {
+				setType(ReturnType.UNSPECIFIED);
+			}
+			if(otherArgument instanceof UnknownInputValue) {
+				setType(ReturnType.UNSPECIFIED);
+			}
+		} else {
+			if(newArgument instanceof Element) {
+				setType(ReturnType.ELEMENT);
+			}
+			if(newArgument instanceof BooleanOperator) {
+				setType(ReturnType.BOOLEAN);
+			}
+			if(newArgument instanceof NumberOperator) {
+				setType(ReturnType.NUMBER);
+			}
+			if(newArgument instanceof InputValue) {
+				InputValue xsType = (InputValue) newArgument;
+				setType(xsType.getReturnType());
+			}
+			if(newArgument instanceof UnknownInputValue) {
+				setType(ReturnType.UNSPECIFIED);
+			}
+		}
+		
+		
 	}
 
 	private void adaptOperatorElementAssociation(Comparable newArgument, Comparable oldArgument) {
@@ -500,11 +580,36 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ReturnType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setType(ReturnType newType) {
+		ReturnType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetArgument2(qualitypatternmodel.graphstructure.Comparable newArgument2, NotificationChain msgs) {
 		Comparable oldArgument2 = argument2;
 		argument2 = newArgument2;	
+		
+		setTypeAccordingToArgument(newArgument2, getArgument2());
 		
 		try {
 			isCycleFree();
@@ -580,6 +685,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				if (resolve) return getArgument2();
 				return basicGetArgument2();
+			case FunctionsPackage.COMPARISON__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -601,6 +708,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((qualitypatternmodel.graphstructure.Comparable)newValue);
 				return;
+			case FunctionsPackage.COMPARISON__TYPE:
+				setType((ReturnType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -621,6 +731,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((qualitypatternmodel.graphstructure.Comparable)null);
 				return;
+			case FunctionsPackage.COMPARISON__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -638,8 +751,41 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return option != null;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				return argument2 != null;
+			case FunctionsPackage.COMPARISON__TYPE:
+				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case FunctionsPackage.COMPARISON___SET_TYPE_ACCORDING_TO_ARGUMENT__COMPARABLE_COMPARABLE:
+				setTypeAccordingToArgument((qualitypatternmodel.graphstructure.Comparable)arguments.get(0), (qualitypatternmodel.graphstructure.Comparable)arguments.get(1));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (type: ");
+		result.append(type);
+		result.append(')');
+		return result.toString();
 	}
 
 	

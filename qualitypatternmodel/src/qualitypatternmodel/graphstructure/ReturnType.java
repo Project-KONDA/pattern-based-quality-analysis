@@ -19,16 +19,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ReturnType implements Enumerator {
 	/**
-	 * The '<em><b>NUMBER</b></em>' literal object.
+	 * The '<em><b>UNSPECIFIED</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #NUMBER_VALUE
+	 * @see #UNSPECIFIED_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	NUMBER(0, "NUMBER", "NUMBER"),
-
-	/**
+	UNSPECIFIED(0, "UNSPECIFIED", "UNSPECIFIED"), /**
 	 * The '<em><b>STRING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -36,9 +34,7 @@ public enum ReturnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STRING(1, "STRING", "STRING"),
-
-	/**
+	STRING(1, "STRING", "STRING"), /**
 	 * The '<em><b>BOOLEAN</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,19 +42,7 @@ public enum ReturnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOOLEAN(2, "BOOLEAN", "BOOLEAN"),
-
-	/**
-	 * The '<em><b>NONE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NONE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	NONE(3, "NONE", "NONE"),
-
-	/**
+	BOOLEAN(2, "BOOLEAN", "BOOLEAN"), /**
 	 * The '<em><b>ELEMENT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,18 +50,42 @@ public enum ReturnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ELEMENT(4, "ELEMENT", "ELEMENT");
-
-	/**
-	 * The '<em><b>NUMBER</b></em>' literal value.
+	ELEMENT(4, "ELEMENT", "ELEMENT"), /**
+	 * The '<em><b>DATE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #NUMBER
+	 * @see #DATE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DATE(5, "DATE", "DATE"), /**
+	 * The '<em><b>TIME</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TIME_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TIME(6, "TIME", "TIME"), /**
+	 * The '<em><b>NUMBER</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NUMBER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NUMBER(7, "NUMBER", "NUMBER");
+
+	/**
+	 * The '<em><b>UNSPECIFIED</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UNSPECIFIED
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NUMBER_VALUE = 0;
+	public static final int UNSPECIFIED_VALUE = 0;
 
 	/**
 	 * The '<em><b>STRING</b></em>' literal value.
@@ -102,17 +110,6 @@ public enum ReturnType implements Enumerator {
 	public static final int BOOLEAN_VALUE = 2;
 
 	/**
-	 * The '<em><b>NONE</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NONE
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int NONE_VALUE = 3;
-
-	/**
 	 * The '<em><b>ELEMENT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,6 +121,39 @@ public enum ReturnType implements Enumerator {
 	public static final int ELEMENT_VALUE = 4;
 
 	/**
+	 * The '<em><b>DATE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DATE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DATE_VALUE = 5;
+
+	/**
+	 * The '<em><b>TIME</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TIME
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TIME_VALUE = 6;
+
+	/**
+	 * The '<em><b>NUMBER</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NUMBER
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NUMBER_VALUE = 7;
+
+	/**
 	 * An array of all the '<em><b>Return Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,11 +161,13 @@ public enum ReturnType implements Enumerator {
 	 */
 	private static final ReturnType[] VALUES_ARRAY =
 		new ReturnType[] {
-			NUMBER,
+			UNSPECIFIED,
 			STRING,
 			BOOLEAN,
-			NONE,
 			ELEMENT,
+			DATE,
+			TIME,
+			NUMBER,
 		};
 
 	/**
@@ -192,11 +224,13 @@ public enum ReturnType implements Enumerator {
 	 */
 	public static ReturnType get(int value) {
 		switch (value) {
-			case NUMBER_VALUE: return NUMBER;
+			case UNSPECIFIED_VALUE: return UNSPECIFIED;
 			case STRING_VALUE: return STRING;
 			case BOOLEAN_VALUE: return BOOLEAN;
-			case NONE_VALUE: return NONE;
 			case ELEMENT_VALUE: return ELEMENT;
+			case DATE_VALUE: return DATE;
+			case TIME_VALUE: return TIME;
+			case NUMBER_VALUE: return NUMBER;
 		}
 		return null;
 	}
@@ -273,6 +307,36 @@ public enum ReturnType implements Enumerator {
 	@Override
 	public String toString() {
 		return literal;
+	}
+	
+	private String conversion;
+	
+	static {
+		NUMBER.conversion = "xs:double(";
+		STRING.conversion = "xs:string(";
+		BOOLEAN.conversion = "xs:boolean(";
+		DATE.conversion = "xs:date(";
+		TIME.conversion = "xs:time(";
+		ELEMENT.conversion = "";		
+	}
+	
+	public String getConversion() {
+		return conversion;
+	}
+	
+	private String conversionEnd;
+	
+	static {
+		NUMBER.conversionEnd = ")";
+		STRING.conversionEnd = ")";
+		BOOLEAN.conversionEnd = ")";
+		DATE.conversionEnd = ")";
+		TIME.conversionEnd = ")";
+		ELEMENT.conversionEnd = "";		
+	}
+	
+	public String getConversionEnd() {
+		return conversionEnd;
 	}
 	
 } //ReturnType

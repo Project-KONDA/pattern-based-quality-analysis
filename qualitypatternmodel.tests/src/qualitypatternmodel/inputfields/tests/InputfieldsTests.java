@@ -38,9 +38,10 @@ public class InputfieldsTests extends TestSuite {
 		suite.addTestSuite(TextListTest.class);
 		suite.addTestSuite(TextLiteralTest.class);
 		suite.addTestSuite(NumberTest.class);
-		suite.addTestSuite(XSTypeTest.class);
+		suite.addTestSuite(InputValueTest.class);
 		suite.addTestSuite(DateTest.class);
 		suite.addTestSuite(TimeTest.class);
+		suite.addTestSuite(UnknownInputValueTest.class);
 		return suite;
 	}
 

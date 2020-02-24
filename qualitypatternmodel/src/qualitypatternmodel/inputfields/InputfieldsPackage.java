@@ -858,14 +858,14 @@ public interface InputfieldsPackage extends EPackage {
 	int VARIABLE_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.XSTypeImpl <em>XS Type</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.InputValueImpl <em>Input Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.inputfields.impl.XSTypeImpl
-	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getXSType()
+	 * @see qualitypatternmodel.inputfields.impl.InputValueImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getInputValue()
 	 * @generated
 	 */
-	int XS_TYPE = 9;
+	int INPUT_VALUE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -874,7 +874,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE__ID = INPUT__ID;
+	int INPUT_VALUE__ID = INPUT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -883,7 +883,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE__REF_NO = INPUT__REF_NO;
+	int INPUT_VALUE__REF_NO = INPUT__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -892,7 +892,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE__COMPARISON1 = INPUT__COMPARISON1;
+	int INPUT_VALUE__COMPARISON1 = INPUT__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -901,7 +901,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE__COMPARISON2 = INPUT__COMPARISON2;
+	int INPUT_VALUE__COMPARISON2 = INPUT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -910,7 +910,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+	int INPUT_VALUE__VARIABLE_LIST = INPUT__VARIABLE_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -919,7 +919,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE__DESCRIPTION = INPUT__DESCRIPTION;
+	int INPUT_VALUE__DESCRIPTION = INPUT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -928,16 +928,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE__IS_PREDEFINED = INPUT__IS_PREDEFINED;
+	int INPUT_VALUE__IS_PREDEFINED = INPUT__IS_PREDEFINED;
 
 	/**
-	 * The number of structural features of the '<em>XS Type</em>' class.
+	 * The number of structural features of the '<em>Input Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE_FEATURE_COUNT = INPUT_FEATURE_COUNT + 0;
+	int INPUT_VALUE_FEATURE_COUNT = INPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -946,7 +946,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
+	int INPUT_VALUE___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -955,7 +955,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
+	int INPUT_VALUE___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -964,7 +964,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+	int INPUT_VALUE___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -973,7 +973,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+	int INPUT_VALUE___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -982,7 +982,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
+	int INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -991,7 +991,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___GET_CONTAINER = INPUT___GET_CONTAINER;
+	int INPUT_VALUE___GET_CONTAINER = INPUT___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1000,7 +1000,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
+	int INPUT_VALUE___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1009,7 +1009,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+	int INPUT_VALUE___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1018,7 +1018,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+	int INPUT_VALUE___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1027,7 +1027,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___TO_XQUERY__LOCATION_INT = INPUT___TO_XQUERY__LOCATION_INT;
+	int INPUT_VALUE___TO_XQUERY__LOCATION_INT = INPUT___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1036,7 +1036,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
+	int INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1045,7 +1045,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+	int INPUT_VALUE___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1054,16 +1054,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>XS Type</em>' class.
+	 * The number of operations of the '<em>Input Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XS_TYPE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+	int INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.BooleanImpl <em>Boolean</em>}' class.
@@ -1082,7 +1082,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__ID = XS_TYPE__ID;
+	int BOOLEAN__ID = INPUT_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -1091,7 +1091,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__REF_NO = XS_TYPE__REF_NO;
+	int BOOLEAN__REF_NO = INPUT_VALUE__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1100,7 +1100,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__COMPARISON1 = XS_TYPE__COMPARISON1;
+	int BOOLEAN__COMPARISON1 = INPUT_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -1109,7 +1109,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__COMPARISON2 = XS_TYPE__COMPARISON2;
+	int BOOLEAN__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -1118,7 +1118,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__VARIABLE_LIST = XS_TYPE__VARIABLE_LIST;
+	int BOOLEAN__VARIABLE_LIST = INPUT_VALUE__VARIABLE_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1127,7 +1127,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__DESCRIPTION = XS_TYPE__DESCRIPTION;
+	int BOOLEAN__DESCRIPTION = INPUT_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -1136,7 +1136,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__IS_PREDEFINED = XS_TYPE__IS_PREDEFINED;
+	int BOOLEAN__IS_PREDEFINED = INPUT_VALUE__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1145,7 +1145,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__VALUE = XS_TYPE_FEATURE_COUNT + 0;
+	int BOOLEAN__VALUE = INPUT_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Boolean</em>' class.
@@ -1154,7 +1154,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_FEATURE_COUNT = XS_TYPE_FEATURE_COUNT + 1;
+	int BOOLEAN_FEATURE_COUNT = INPUT_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1163,7 +1163,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___TO_XQUERY__LOCATION = XS_TYPE___TO_XQUERY__LOCATION;
+	int BOOLEAN___TO_XQUERY__LOCATION = INPUT_VALUE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1172,7 +1172,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_ALL_INPUTS = XS_TYPE___GET_ALL_INPUTS;
+	int BOOLEAN___GET_ALL_INPUTS = INPUT_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1181,7 +1181,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___PREPARE_TRANSLATION = XS_TYPE___PREPARE_TRANSLATION;
+	int BOOLEAN___PREPARE_TRANSLATION = INPUT_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1190,7 +1190,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___IS_VALID__BOOLEAN = XS_TYPE___IS_VALID__BOOLEAN;
+	int BOOLEAN___IS_VALID__BOOLEAN = INPUT_VALUE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1199,7 +1199,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___IS_VALID_LOCAL__BOOLEAN = XS_TYPE___IS_VALID_LOCAL__BOOLEAN;
+	int BOOLEAN___IS_VALID_LOCAL__BOOLEAN = INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1208,7 +1208,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_CONTAINER = XS_TYPE___GET_CONTAINER;
+	int BOOLEAN___GET_CONTAINER = INPUT_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1217,7 +1217,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_ANCESTOR__CLASS = XS_TYPE___GET_ANCESTOR__CLASS;
+	int BOOLEAN___GET_ANCESTOR__CLASS = INPUT_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1226,7 +1226,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_RETURN_TYPE = XS_TYPE___GET_RETURN_TYPE;
+	int BOOLEAN___GET_RETURN_TYPE = INPUT_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1235,7 +1235,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___IS_TRANSLATABLE = XS_TYPE___IS_TRANSLATABLE;
+	int BOOLEAN___IS_TRANSLATABLE = INPUT_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1244,7 +1244,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___TO_XQUERY__LOCATION_INT = XS_TYPE___TO_XQUERY__LOCATION_INT;
+	int BOOLEAN___TO_XQUERY__LOCATION_INT = INPUT_VALUE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1253,7 +1253,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_ALL_ARGUMENT_ELEMENTS = XS_TYPE___GET_ALL_ARGUMENT_ELEMENTS;
+	int BOOLEAN___GET_ALL_ARGUMENT_ELEMENTS = INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1262,7 +1262,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___INPUT_IS_VALID = XS_TYPE___INPUT_IS_VALID;
+	int BOOLEAN___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1271,7 +1271,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___VALIDATE__DIAGNOSTICCHAIN_MAP = XS_TYPE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int BOOLEAN___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Boolean</em>' class.
@@ -1280,7 +1280,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATION_COUNT = XS_TYPE_OPERATION_COUNT + 0;
+	int BOOLEAN_OPERATION_COUNT = INPUT_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.TextImpl <em>Text</em>}' class.
@@ -1299,7 +1299,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__ID = XS_TYPE__ID;
+	int TEXT__ID = INPUT_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -1308,7 +1308,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__REF_NO = XS_TYPE__REF_NO;
+	int TEXT__REF_NO = INPUT_VALUE__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1317,7 +1317,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__COMPARISON1 = XS_TYPE__COMPARISON1;
+	int TEXT__COMPARISON1 = INPUT_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -1326,7 +1326,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__COMPARISON2 = XS_TYPE__COMPARISON2;
+	int TEXT__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -1335,7 +1335,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__VARIABLE_LIST = XS_TYPE__VARIABLE_LIST;
+	int TEXT__VARIABLE_LIST = INPUT_VALUE__VARIABLE_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1344,7 +1344,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__DESCRIPTION = XS_TYPE__DESCRIPTION;
+	int TEXT__DESCRIPTION = INPUT_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -1353,7 +1353,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__IS_PREDEFINED = XS_TYPE__IS_PREDEFINED;
+	int TEXT__IS_PREDEFINED = INPUT_VALUE__IS_PREDEFINED;
 
 	/**
 	 * The number of structural features of the '<em>Text</em>' class.
@@ -1362,7 +1362,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FEATURE_COUNT = XS_TYPE_FEATURE_COUNT + 0;
+	int TEXT_FEATURE_COUNT = INPUT_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1371,7 +1371,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___TO_XQUERY__LOCATION = XS_TYPE___TO_XQUERY__LOCATION;
+	int TEXT___TO_XQUERY__LOCATION = INPUT_VALUE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1380,7 +1380,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_ALL_INPUTS = XS_TYPE___GET_ALL_INPUTS;
+	int TEXT___GET_ALL_INPUTS = INPUT_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1389,7 +1389,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___PREPARE_TRANSLATION = XS_TYPE___PREPARE_TRANSLATION;
+	int TEXT___PREPARE_TRANSLATION = INPUT_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1398,7 +1398,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___IS_VALID__BOOLEAN = XS_TYPE___IS_VALID__BOOLEAN;
+	int TEXT___IS_VALID__BOOLEAN = INPUT_VALUE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1407,7 +1407,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___IS_VALID_LOCAL__BOOLEAN = XS_TYPE___IS_VALID_LOCAL__BOOLEAN;
+	int TEXT___IS_VALID_LOCAL__BOOLEAN = INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1416,7 +1416,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_CONTAINER = XS_TYPE___GET_CONTAINER;
+	int TEXT___GET_CONTAINER = INPUT_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1425,7 +1425,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_ANCESTOR__CLASS = XS_TYPE___GET_ANCESTOR__CLASS;
+	int TEXT___GET_ANCESTOR__CLASS = INPUT_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1434,7 +1434,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_RETURN_TYPE = XS_TYPE___GET_RETURN_TYPE;
+	int TEXT___GET_RETURN_TYPE = INPUT_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1443,7 +1443,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___IS_TRANSLATABLE = XS_TYPE___IS_TRANSLATABLE;
+	int TEXT___IS_TRANSLATABLE = INPUT_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1452,7 +1452,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___TO_XQUERY__LOCATION_INT = XS_TYPE___TO_XQUERY__LOCATION_INT;
+	int TEXT___TO_XQUERY__LOCATION_INT = INPUT_VALUE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1461,7 +1461,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_ALL_ARGUMENT_ELEMENTS = XS_TYPE___GET_ALL_ARGUMENT_ELEMENTS;
+	int TEXT___GET_ALL_ARGUMENT_ELEMENTS = INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1470,7 +1470,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___INPUT_IS_VALID = XS_TYPE___INPUT_IS_VALID;
+	int TEXT___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1479,7 +1479,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___VALIDATE__DIAGNOSTICCHAIN_MAP = XS_TYPE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int TEXT___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Text</em>' class.
@@ -1488,7 +1488,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_OPERATION_COUNT = XS_TYPE_OPERATION_COUNT + 0;
+	int TEXT_OPERATION_COUNT = INPUT_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.TextListImpl <em>Text List</em>}' class.
@@ -1959,7 +1959,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__ID = XS_TYPE__ID;
+	int NUMBER__ID = INPUT_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -1968,7 +1968,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__REF_NO = XS_TYPE__REF_NO;
+	int NUMBER__REF_NO = INPUT_VALUE__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1977,7 +1977,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__COMPARISON1 = XS_TYPE__COMPARISON1;
+	int NUMBER__COMPARISON1 = INPUT_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -1986,7 +1986,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__COMPARISON2 = XS_TYPE__COMPARISON2;
+	int NUMBER__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -1995,7 +1995,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__VARIABLE_LIST = XS_TYPE__VARIABLE_LIST;
+	int NUMBER__VARIABLE_LIST = INPUT_VALUE__VARIABLE_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2004,7 +2004,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__DESCRIPTION = XS_TYPE__DESCRIPTION;
+	int NUMBER__DESCRIPTION = INPUT_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -2013,7 +2013,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__IS_PREDEFINED = XS_TYPE__IS_PREDEFINED;
+	int NUMBER__IS_PREDEFINED = INPUT_VALUE__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2022,7 +2022,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__VALUE = XS_TYPE_FEATURE_COUNT + 0;
+	int NUMBER__VALUE = INPUT_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Number</em>' class.
@@ -2031,7 +2031,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_FEATURE_COUNT = XS_TYPE_FEATURE_COUNT + 1;
+	int NUMBER_FEATURE_COUNT = INPUT_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2040,7 +2040,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___TO_XQUERY__LOCATION = XS_TYPE___TO_XQUERY__LOCATION;
+	int NUMBER___TO_XQUERY__LOCATION = INPUT_VALUE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2049,7 +2049,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_ALL_INPUTS = XS_TYPE___GET_ALL_INPUTS;
+	int NUMBER___GET_ALL_INPUTS = INPUT_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2058,7 +2058,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___PREPARE_TRANSLATION = XS_TYPE___PREPARE_TRANSLATION;
+	int NUMBER___PREPARE_TRANSLATION = INPUT_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2067,7 +2067,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___IS_VALID__BOOLEAN = XS_TYPE___IS_VALID__BOOLEAN;
+	int NUMBER___IS_VALID__BOOLEAN = INPUT_VALUE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2076,7 +2076,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___IS_VALID_LOCAL__BOOLEAN = XS_TYPE___IS_VALID_LOCAL__BOOLEAN;
+	int NUMBER___IS_VALID_LOCAL__BOOLEAN = INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2085,7 +2085,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_CONTAINER = XS_TYPE___GET_CONTAINER;
+	int NUMBER___GET_CONTAINER = INPUT_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2094,7 +2094,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_ANCESTOR__CLASS = XS_TYPE___GET_ANCESTOR__CLASS;
+	int NUMBER___GET_ANCESTOR__CLASS = INPUT_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2103,7 +2103,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_RETURN_TYPE = XS_TYPE___GET_RETURN_TYPE;
+	int NUMBER___GET_RETURN_TYPE = INPUT_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -2112,7 +2112,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___IS_TRANSLATABLE = XS_TYPE___IS_TRANSLATABLE;
+	int NUMBER___IS_TRANSLATABLE = INPUT_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2121,7 +2121,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___TO_XQUERY__LOCATION_INT = XS_TYPE___TO_XQUERY__LOCATION_INT;
+	int NUMBER___TO_XQUERY__LOCATION_INT = INPUT_VALUE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -2130,7 +2130,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_ALL_ARGUMENT_ELEMENTS = XS_TYPE___GET_ALL_ARGUMENT_ELEMENTS;
+	int NUMBER___GET_ALL_ARGUMENT_ELEMENTS = INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2139,7 +2139,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___INPUT_IS_VALID = XS_TYPE___INPUT_IS_VALID;
+	int NUMBER___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2148,7 +2148,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___VALIDATE__DIAGNOSTICCHAIN_MAP = XS_TYPE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int NUMBER___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Number</em>' class.
@@ -2157,7 +2157,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATION_COUNT = XS_TYPE_OPERATION_COUNT + 0;
+	int NUMBER_OPERATION_COUNT = INPUT_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.DateImpl <em>Date</em>}' class.
@@ -2176,7 +2176,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__ID = XS_TYPE__ID;
+	int DATE__ID = INPUT_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -2185,7 +2185,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__REF_NO = XS_TYPE__REF_NO;
+	int DATE__REF_NO = INPUT_VALUE__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2194,7 +2194,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__COMPARISON1 = XS_TYPE__COMPARISON1;
+	int DATE__COMPARISON1 = INPUT_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -2203,7 +2203,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__COMPARISON2 = XS_TYPE__COMPARISON2;
+	int DATE__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -2212,7 +2212,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__VARIABLE_LIST = XS_TYPE__VARIABLE_LIST;
+	int DATE__VARIABLE_LIST = INPUT_VALUE__VARIABLE_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2221,7 +2221,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__DESCRIPTION = XS_TYPE__DESCRIPTION;
+	int DATE__DESCRIPTION = INPUT_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -2230,7 +2230,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__IS_PREDEFINED = XS_TYPE__IS_PREDEFINED;
+	int DATE__IS_PREDEFINED = INPUT_VALUE__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2239,7 +2239,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__VALUE = XS_TYPE_FEATURE_COUNT + 0;
+	int DATE__VALUE = INPUT_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Date</em>' class.
@@ -2248,7 +2248,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_FEATURE_COUNT = XS_TYPE_FEATURE_COUNT + 1;
+	int DATE_FEATURE_COUNT = INPUT_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2257,7 +2257,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___TO_XQUERY__LOCATION = XS_TYPE___TO_XQUERY__LOCATION;
+	int DATE___TO_XQUERY__LOCATION = INPUT_VALUE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2266,7 +2266,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___GET_ALL_INPUTS = XS_TYPE___GET_ALL_INPUTS;
+	int DATE___GET_ALL_INPUTS = INPUT_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2275,7 +2275,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___PREPARE_TRANSLATION = XS_TYPE___PREPARE_TRANSLATION;
+	int DATE___PREPARE_TRANSLATION = INPUT_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2284,7 +2284,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___IS_VALID__BOOLEAN = XS_TYPE___IS_VALID__BOOLEAN;
+	int DATE___IS_VALID__BOOLEAN = INPUT_VALUE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2293,7 +2293,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___IS_VALID_LOCAL__BOOLEAN = XS_TYPE___IS_VALID_LOCAL__BOOLEAN;
+	int DATE___IS_VALID_LOCAL__BOOLEAN = INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2302,7 +2302,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___GET_CONTAINER = XS_TYPE___GET_CONTAINER;
+	int DATE___GET_CONTAINER = INPUT_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2311,7 +2311,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___GET_ANCESTOR__CLASS = XS_TYPE___GET_ANCESTOR__CLASS;
+	int DATE___GET_ANCESTOR__CLASS = INPUT_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2320,7 +2320,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___GET_RETURN_TYPE = XS_TYPE___GET_RETURN_TYPE;
+	int DATE___GET_RETURN_TYPE = INPUT_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -2329,7 +2329,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___IS_TRANSLATABLE = XS_TYPE___IS_TRANSLATABLE;
+	int DATE___IS_TRANSLATABLE = INPUT_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2338,7 +2338,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___TO_XQUERY__LOCATION_INT = XS_TYPE___TO_XQUERY__LOCATION_INT;
+	int DATE___TO_XQUERY__LOCATION_INT = INPUT_VALUE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -2347,7 +2347,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___GET_ALL_ARGUMENT_ELEMENTS = XS_TYPE___GET_ALL_ARGUMENT_ELEMENTS;
+	int DATE___GET_ALL_ARGUMENT_ELEMENTS = INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2356,7 +2356,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___INPUT_IS_VALID = XS_TYPE___INPUT_IS_VALID;
+	int DATE___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2365,7 +2365,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___VALIDATE__DIAGNOSTICCHAIN_MAP = XS_TYPE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int DATE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Date</em>' class.
@@ -2374,7 +2374,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_OPERATION_COUNT = XS_TYPE_OPERATION_COUNT + 0;
+	int DATE_OPERATION_COUNT = INPUT_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.TimeImpl <em>Time</em>}' class.
@@ -2393,7 +2393,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__ID = XS_TYPE__ID;
+	int TIME__ID = INPUT_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
@@ -2402,7 +2402,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__REF_NO = XS_TYPE__REF_NO;
+	int TIME__REF_NO = INPUT_VALUE__REF_NO;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2411,7 +2411,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__COMPARISON1 = XS_TYPE__COMPARISON1;
+	int TIME__COMPARISON1 = INPUT_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -2420,7 +2420,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__COMPARISON2 = XS_TYPE__COMPARISON2;
+	int TIME__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -2429,7 +2429,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__VARIABLE_LIST = XS_TYPE__VARIABLE_LIST;
+	int TIME__VARIABLE_LIST = INPUT_VALUE__VARIABLE_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2438,7 +2438,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__DESCRIPTION = XS_TYPE__DESCRIPTION;
+	int TIME__DESCRIPTION = INPUT_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -2447,7 +2447,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__IS_PREDEFINED = XS_TYPE__IS_PREDEFINED;
+	int TIME__IS_PREDEFINED = INPUT_VALUE__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2456,7 +2456,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__VALUE = XS_TYPE_FEATURE_COUNT + 0;
+	int TIME__VALUE = INPUT_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Time</em>' class.
@@ -2465,7 +2465,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_FEATURE_COUNT = XS_TYPE_FEATURE_COUNT + 1;
+	int TIME_FEATURE_COUNT = INPUT_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2474,7 +2474,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___TO_XQUERY__LOCATION = XS_TYPE___TO_XQUERY__LOCATION;
+	int TIME___TO_XQUERY__LOCATION = INPUT_VALUE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2483,7 +2483,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___GET_ALL_INPUTS = XS_TYPE___GET_ALL_INPUTS;
+	int TIME___GET_ALL_INPUTS = INPUT_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2492,7 +2492,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___PREPARE_TRANSLATION = XS_TYPE___PREPARE_TRANSLATION;
+	int TIME___PREPARE_TRANSLATION = INPUT_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2501,7 +2501,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___IS_VALID__BOOLEAN = XS_TYPE___IS_VALID__BOOLEAN;
+	int TIME___IS_VALID__BOOLEAN = INPUT_VALUE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2510,7 +2510,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___IS_VALID_LOCAL__BOOLEAN = XS_TYPE___IS_VALID_LOCAL__BOOLEAN;
+	int TIME___IS_VALID_LOCAL__BOOLEAN = INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2519,7 +2519,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___GET_CONTAINER = XS_TYPE___GET_CONTAINER;
+	int TIME___GET_CONTAINER = INPUT_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2528,7 +2528,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___GET_ANCESTOR__CLASS = XS_TYPE___GET_ANCESTOR__CLASS;
+	int TIME___GET_ANCESTOR__CLASS = INPUT_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2537,7 +2537,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___GET_RETURN_TYPE = XS_TYPE___GET_RETURN_TYPE;
+	int TIME___GET_RETURN_TYPE = INPUT_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -2546,7 +2546,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___IS_TRANSLATABLE = XS_TYPE___IS_TRANSLATABLE;
+	int TIME___IS_TRANSLATABLE = INPUT_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2555,7 +2555,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___TO_XQUERY__LOCATION_INT = XS_TYPE___TO_XQUERY__LOCATION_INT;
+	int TIME___TO_XQUERY__LOCATION_INT = INPUT_VALUE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -2564,7 +2564,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___GET_ALL_ARGUMENT_ELEMENTS = XS_TYPE___GET_ALL_ARGUMENT_ELEMENTS;
+	int TIME___GET_ALL_ARGUMENT_ELEMENTS = INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2573,7 +2573,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___INPUT_IS_VALID = XS_TYPE___INPUT_IS_VALID;
+	int TIME___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2582,7 +2582,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___VALIDATE__DIAGNOSTICCHAIN_MAP = XS_TYPE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int TIME___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Time</em>' class.
@@ -2591,7 +2591,224 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_OPERATION_COUNT = XS_TYPE_OPERATION_COUNT + 0;
+	int TIME_OPERATION_COUNT = INPUT_VALUE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.UnknownInputValueImpl <em>Unknown Input Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.inputfields.impl.UnknownInputValueImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getUnknownInputValue()
+	 * @generated
+	 */
+	int UNKNOWN_INPUT_VALUE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE__REF_NO = INPUT__REF_NO;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE__COMPARISON1 = INPUT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE__COMPARISON2 = INPUT__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE__DESCRIPTION = INPUT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE__IS_PREDEFINED = INPUT__IS_PREDEFINED;
+
+	/**
+	 * The number of structural features of the '<em>Unknown Input Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE_FEATURE_COUNT = INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___GET_CONTAINER = INPUT___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___TO_XQUERY__LOCATION_INT = INPUT___TO_XQUERY__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Concretize</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___CONCRETIZE__INPUTVALUE = INPUT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Unknown Input Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Input <em>Input</em>}'.
@@ -2867,14 +3084,14 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getNumber_Value();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.XSType <em>XS Type</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.InputValue <em>Input Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>XS Type</em>'.
-	 * @see qualitypatternmodel.inputfields.XSType
+	 * @return the meta object for class '<em>Input Value</em>'.
+	 * @see qualitypatternmodel.inputfields.InputValue
 	 * @generated
 	 */
-	EClass getXSType();
+	EClass getInputValue();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Date <em>Date</em>}'.
@@ -2917,6 +3134,26 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTime_Value();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.UnknownInputValue <em>Unknown Input Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unknown Input Value</em>'.
+	 * @see qualitypatternmodel.inputfields.UnknownInputValue
+	 * @generated
+	 */
+	EClass getUnknownInputValue();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.UnknownInputValue#concretize(qualitypatternmodel.inputfields.InputValue) <em>Concretize</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Concretize</em>' operation.
+	 * @see qualitypatternmodel.inputfields.UnknownInputValue#concretize(qualitypatternmodel.inputfields.InputValue)
+	 * @generated
+	 */
+	EOperation getUnknownInputValue__Concretize__InputValue();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3168,14 +3405,14 @@ public interface InputfieldsPackage extends EPackage {
 		EAttribute NUMBER__VALUE = eINSTANCE.getNumber_Value();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.XSTypeImpl <em>XS Type</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.InputValueImpl <em>Input Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.inputfields.impl.XSTypeImpl
-		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getXSType()
+		 * @see qualitypatternmodel.inputfields.impl.InputValueImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getInputValue()
 		 * @generated
 		 */
-		EClass XS_TYPE = eINSTANCE.getXSType();
+		EClass INPUT_VALUE = eINSTANCE.getInputValue();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.DateImpl <em>Date</em>}' class.
@@ -3212,6 +3449,24 @@ public interface InputfieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TIME__VALUE = eINSTANCE.getTime_Value();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.UnknownInputValueImpl <em>Unknown Input Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.inputfields.impl.UnknownInputValueImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getUnknownInputValue()
+		 * @generated
+		 */
+		EClass UNKNOWN_INPUT_VALUE = eINSTANCE.getUnknownInputValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Concretize</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation UNKNOWN_INPUT_VALUE___CONCRETIZE__INPUTVALUE = eINSTANCE.getUnknownInputValue__Concretize__InputValue();
 
 	}
 

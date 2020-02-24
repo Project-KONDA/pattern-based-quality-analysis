@@ -10,6 +10,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
 
@@ -44,6 +46,7 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 			addArgument1PropertyDescriptor(object);
 			addOptionPropertyDescriptor(object);
 			addArgument2PropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,6 +118,28 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Comparison_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Comparison_type_feature", "_UI_Comparison_type"),
+				 FunctionsPackage.Literals.COMPARISON__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Comparison.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,6 +177,13 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Comparison.class)) {
+			case FunctionsPackage.COMPARISON__TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 	/**

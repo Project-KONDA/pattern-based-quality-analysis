@@ -25,7 +25,7 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class TimeImpl extends XSTypeImpl implements Time {
+public class TimeImpl extends InputValueImpl implements Time {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,7 +57,7 @@ public class TimeImpl extends XSTypeImpl implements Time {
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		if(getValue() != null) {
-			return "xs:time(" + getValue() + ")";
+			return getValue();
 		} else {
 			throw new InvalidityException("invalid number");
 		}
@@ -65,7 +65,7 @@ public class TimeImpl extends XSTypeImpl implements Time {
 	
 	@Override
 	public ReturnType getReturnType() {
-		return ReturnType.NUMBER;
+		return ReturnType.TIME;
 	}
 	
 	@Override

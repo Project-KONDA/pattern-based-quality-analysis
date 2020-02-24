@@ -11,6 +11,12 @@ import qualitypatternmodel.functions.FunctionsFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Comparison</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.functions.Comparison#setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable) <em>Set Type According To Argument</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ComparisonTest extends BooleanOperatorTest {
@@ -65,6 +71,19 @@ public class ComparisonTest extends BooleanOperatorTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.Comparison#setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable) <em>Set Type According To Argument</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.Comparison#setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable)
+	 * @generated
+	 */
+	public void testSetTypeAccordingToArgument__Comparable_Comparable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ComparisonTest
