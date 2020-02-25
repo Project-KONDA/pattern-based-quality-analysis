@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure" id="_MzmlUFZbEeqYTsv_oKSDfQ" refNo="0" elementCounter="83">
+  <variableList id="_MzmlVVZbEeqYTsv_oKSDfQ" refNo="27">
+    <variables xsi:type="inputfields:CompOption" id="_FcoiU1ZcEeqYTsv_oKSDfQ" refNo="28">
+      <options>=</options>
+    </variables>
+    <variables xsi:type="inputfields:TextLiteral" id="_GhmmUlZcEeqYTsv_oKSDfQ" refNo="29" value="Type"/>
+    <variables xsi:type="inputfields:TextLiteral" id="_KbUC0lZcEeqYTsv_oKSDfQ" refNo="30" comparison2="_TvHwglZcEeqYTsv_oKSDfQ" value="kue"/>
+    <variables xsi:type="inputfields:PropertyOption" id="_XpPctFZcEeqYTsv_oKSDfQ" refNo="34" value="ATTRIBUTE">
+      <options>ATTRIBUTE</options>
+    </variables>
+    <variables xsi:type="inputfields:TextLiteral" id="_Wg0qwlcaEeq8E8uOcZ6cOQ" refNo="56" comparison2="_ViXB8lcbEeq8E8uOcZ6cOQ" value="3100"/>
+    <variables xsi:type="inputfields:TextLiteral" id="_XyK94lcaEeq8E8uOcZ6cOQ" refNo="57" comparison2="_WC48IlcbEeq8E8uOcZ6cOQ" value="3105"/>
+    <variables xsi:type="inputfields:PropertyOption" id="_JIillFcbEeq8E8uOcZ6cOQ" refNo="72" value="ATTRIBUTE">
+      <options>ATTRIBUTE</options>
+    </variables>
+    <variables xsi:type="inputfields:PropertyOption" id="_JsJB5FcbEeq8E8uOcZ6cOQ" refNo="73" value="ATTRIBUTE">
+      <options>ATTRIBUTE</options>
+    </variables>
+    <variables xsi:type="inputfields:CompOption" id="_SNWN81cbEeq8E8uOcZ6cOQ" refNo="74">
+      <options>=</options>
+    </variables>
+    <variables xsi:type="inputfields:TextLiteral" id="_jbWyElcbEeq8E8uOcZ6cOQ" refNo="80" value="Value"/>
+    <variables xsi:type="inputfields:PropertyOption" id="_kt27xFcbEeq8E8uOcZ6cOQ" refNo="81" value="ATTRIBUTE">
+      <options>ATTRIBUTE</options>
+    </variables>
+    <variables xsi:type="inputfields:PropertyOption" id="_lRAFFFcbEeq8E8uOcZ6cOQ" refNo="82" value="ATTRIBUTE">
+      <options>ATTRIBUTE</options>
+    </variables>
+  </variableList>
+  <returnGraph id="_MzmlUVZbEeqYTsv_oKSDfQ" refNo="1" returnElements="_qfhbolZbEeqYTsv_oKSDfQ" graphDepth="0" returnGraph="true">
+    <rootElement id="_MzmlU1ZbEeqYTsv_oKSDfQ" refNo="2" mappingTo="_oItVQFZbEeqYTsv_oKSDfQ">
+      <nextSingle id="_qfhbolZbEeqYTsv_oKSDfQ" refNo="9" mappingTo="_rKwxBFZbEeqYTsv_oKSDfQ">
+        <relationFromPrevious id="_qfhbo1ZbEeqYTsv_oKSDfQ" refNo="11" mappingTo="_rKwxBVZbEeqYTsv_oKSDfQ" axis="descendant"/>
+        <nextSingle id="_6yK88lcaEeq8E8uOcZ6cOQ" refNo="61" mappingTo="_70CppFcaEeq8E8uOcZ6cOQ">
+          <relationFromPrevious id="_6yK881caEeq8E8uOcZ6cOQ" refNo="66" mappingTo="_70CppVcaEeq8E8uOcZ6cOQ"/>
+        </nextSingle>
+        <nextSingle id="_8Ejx4lcaEeq8E8uOcZ6cOQ" refNo="65" mappingTo="_8rB8BFcaEeq8E8uOcZ6cOQ">
+          <relationFromPrevious id="_8Ejx41caEeq8E8uOcZ6cOQ" refNo="67" mappingTo="_8rB8BVcaEeq8E8uOcZ6cOQ"/>
+        </nextSingle>
+      </nextSingle>
+    </rootElement>
+    <operatorList id="_MzmlUlZbEeqYTsv_oKSDfQ" refNo="52"/>
+  </returnGraph>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_npcmZVZbEeqYTsv_oKSDfQ" refNo="3" condDepth="1">
+    <graph id="_npcmZlZbEeqYTsv_oKSDfQ" refNo="4" returnElements="_rKwxAFZbEeqYTsv_oKSDfQ" graphDepth="1">
+      <rootElement id="_npcmaFZbEeqYTsv_oKSDfQ" refNo="7" mappingFrom="_oItVQFZbEeqYTsv_oKSDfQ">
+        <nextSingle id="_rKwxAFZbEeqYTsv_oKSDfQ" refNo="18" predicates="_TvHwglZcEeqYTsv_oKSDfQ" mappingFrom="_rKwxBFZbEeqYTsv_oKSDfQ">
+          <relationFromPrevious id="_rKwxAVZbEeqYTsv_oKSDfQ" refNo="19" mappingFrom="_rKwxBVZbEeqYTsv_oKSDfQ" axis="descendant"/>
+          <properties id="_XBVIIVZcEeqYTsv_oKSDfQ" refNo="33" comparison1="_TvHwglZcEeqYTsv_oKSDfQ" propertyOption="_XpPctFZcEeqYTsv_oKSDfQ" attributeName="_GhmmUlZcEeqYTsv_oKSDfQ"/>
+          <nextSingle id="_70CpoFcaEeq8E8uOcZ6cOQ" refNo="58" predicates="_ViXB8lcbEeq8E8uOcZ6cOQ _c4tkclcbEeq8E8uOcZ6cOQ" mappingFrom="_70CppFcaEeq8E8uOcZ6cOQ">
+            <relationFromPrevious id="_70CpoVcaEeq8E8uOcZ6cOQ" refNo="68" mappingFrom="_70CppVcaEeq8E8uOcZ6cOQ"/>
+            <properties id="_GQs1wVcbEeq8E8uOcZ6cOQ" refNo="70" comparison1="_ViXB8lcbEeq8E8uOcZ6cOQ" propertyOption="_JIillFcbEeq8E8uOcZ6cOQ" attributeName="_GhmmUlZcEeqYTsv_oKSDfQ"/>
+            <properties id="_h4X8YVcbEeq8E8uOcZ6cOQ" refNo="78" comparison1="_c4tkclcbEeq8E8uOcZ6cOQ" propertyOption="_kt27xFcbEeq8E8uOcZ6cOQ" attributeName="_jbWyElcbEeq8E8uOcZ6cOQ"/>
+          </nextSingle>
+          <nextSingle id="_8rB8AFcaEeq8E8uOcZ6cOQ" refNo="62" predicates="_WC48IlcbEeq8E8uOcZ6cOQ _c4tkclcbEeq8E8uOcZ6cOQ" mappingFrom="_8rB8BFcaEeq8E8uOcZ6cOQ">
+            <relationFromPrevious id="_8rB8AVcaEeq8E8uOcZ6cOQ" refNo="69" mappingFrom="_8rB8BVcaEeq8E8uOcZ6cOQ"/>
+            <properties id="_Gxw7cVcbEeq8E8uOcZ6cOQ" refNo="71" comparison1="_WC48IlcbEeq8E8uOcZ6cOQ" propertyOption="_JsJB5FcbEeq8E8uOcZ6cOQ" attributeName="_GhmmUlZcEeqYTsv_oKSDfQ"/>
+            <properties id="_iaCfAVcbEeq8E8uOcZ6cOQ" refNo="79" comparison2="_c4tkclcbEeq8E8uOcZ6cOQ" propertyOption="_lRAFFFcbEeq8E8uOcZ6cOQ" attributeName="_jbWyElcbEeq8E8uOcZ6cOQ"/>
+          </nextSingle>
+        </nextSingle>
+      </rootElement>
+      <operatorList id="_npcmZ1ZbEeqYTsv_oKSDfQ" refNo="31">
+        <operators xsi:type="functions:Comparison" id="_TvHwglZcEeqYTsv_oKSDfQ" refNo="32" elements="_rKwxAFZbEeqYTsv_oKSDfQ" argument1="_XBVIIVZcEeqYTsv_oKSDfQ" option="_FcoiU1ZcEeqYTsv_oKSDfQ" argument2="_KbUC0lZcEeqYTsv_oKSDfQ" type="STRING"/>
+        <operators xsi:type="functions:Comparison" id="_ViXB8lcbEeq8E8uOcZ6cOQ" refNo="75" elements="_70CpoFcaEeq8E8uOcZ6cOQ" argument1="_GQs1wVcbEeq8E8uOcZ6cOQ" option="_SNWN81cbEeq8E8uOcZ6cOQ" argument2="_Wg0qwlcaEeq8E8uOcZ6cOQ" type="STRING"/>
+        <operators xsi:type="functions:Comparison" id="_WC48IlcbEeq8E8uOcZ6cOQ" refNo="76" elements="_8rB8AFcaEeq8E8uOcZ6cOQ" argument1="_Gxw7cVcbEeq8E8uOcZ6cOQ" option="_SNWN81cbEeq8E8uOcZ6cOQ" argument2="_XyK94lcaEeq8E8uOcZ6cOQ" type="STRING"/>
+        <operators xsi:type="functions:Comparison" id="_c4tkclcbEeq8E8uOcZ6cOQ" refNo="77" elements="_70CpoFcaEeq8E8uOcZ6cOQ _8rB8AFcaEeq8E8uOcZ6cOQ" argument1="_h4X8YVcbEeq8E8uOcZ6cOQ" option="_SNWN81cbEeq8E8uOcZ6cOQ" argument2="_iaCfAVcbEeq8E8uOcZ6cOQ" type="STRING"/>
+      </operatorList>
+    </graph>
+    <condition xsi:type="patternstructure:True" id="_oJnUO1ZbEeqYTsv_oKSDfQ" refNo="6"/>
+    <morphism id="_npcmalZbEeqYTsv_oKSDfQ" refNo="5" from="_MzmlUVZbEeqYTsv_oKSDfQ" to="_npcmZlZbEeqYTsv_oKSDfQ" morphDepth="1">
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="_oItVQFZbEeqYTsv_oKSDfQ" refNo="8" from="_MzmlU1ZbEeqYTsv_oKSDfQ" to="_npcmaFZbEeqYTsv_oKSDfQ"/>
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="_rKwxBFZbEeqYTsv_oKSDfQ" refNo="10" from="_qfhbolZbEeqYTsv_oKSDfQ" to="_rKwxAFZbEeqYTsv_oKSDfQ"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="_rKwxBVZbEeqYTsv_oKSDfQ" refNo="12" to="_rKwxAVZbEeqYTsv_oKSDfQ" from="_qfhbo1ZbEeqYTsv_oKSDfQ"/>
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="_70CppFcaEeq8E8uOcZ6cOQ" refNo="59" from="_6yK88lcaEeq8E8uOcZ6cOQ" to="_70CpoFcaEeq8E8uOcZ6cOQ"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="_70CppVcaEeq8E8uOcZ6cOQ" refNo="60" to="_70CpoVcaEeq8E8uOcZ6cOQ" from="_6yK881caEeq8E8uOcZ6cOQ"/>
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="_8rB8BFcaEeq8E8uOcZ6cOQ" refNo="63" from="_8Ejx4lcaEeq8E8uOcZ6cOQ" to="_8rB8AFcaEeq8E8uOcZ6cOQ"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="_8rB8BVcaEeq8E8uOcZ6cOQ" refNo="64" to="_8rB8AVcaEeq8E8uOcZ6cOQ" from="_8Ejx41caEeq8E8uOcZ6cOQ"/>
+    </morphism>
+  </condition>
+</patternstructure:Pattern>
