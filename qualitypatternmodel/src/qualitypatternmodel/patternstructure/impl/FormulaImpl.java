@@ -122,11 +122,13 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			throw new InvalidityException("operator null");
 		if (argument1 == null)
 			throw new InvalidityException("arguments null");
-		if (operator == LogicalOperator.NOT)
-			if (argument2 != null || argument1 == null)
+		if (operator == LogicalOperator.NOT) {
+			if (argument2 != null || argument1 == null) {
 				throw new InvalidityException("argument invalid (op:NOT)");
-			else if (argument1 == null || argument2 == null)
-				throw new InvalidityException("arguments invalid");
+			}
+		} else if (argument1 == null || argument2 == null) {
+			throw new InvalidityException("arguments invalid");
+		}
 	}
 
 	@Override
