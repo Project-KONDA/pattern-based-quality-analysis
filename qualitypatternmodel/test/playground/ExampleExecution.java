@@ -20,32 +20,34 @@ public class ExampleExecution {
 		
 		 // Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();
-        Pattern pattern = loader.load("instances/playground/MatchAppellationUncertain.patternstructure");
+//        Pattern pattern = loader.load("instances/playground/MatchAppellationUncertain.patternstructure");
         // TODO: create pattern "MatchAppellationUncertain.patternstructure"
 		
-		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);			
-		
-		printDiagnostic(diagnostic, "");
-        
-        try {
-			pattern.isValid(false);
-		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+//		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);			
+//		
+//		printDiagnostic(diagnostic, "");
+//        
+//        try {
+//			pattern.isValid(false);
+//		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} 
 		try {
-			String query = pattern.toXQuery();
-//			String query = "(//*[name()=\"lido:appellationValue\" and matches(./data(),\"\\?\")]/parent::*/parent::*/parent::*/parent::*/parent::*)[1]";
+//			String query = pattern.toXQuery();
+			String query = "(//*[name()=\"lido:appellationValue\" and matches(./data(),\"\\?\")]/parent::*/parent::*/parent::*/parent::*/parent::*)[1]";
 			Context context = new Context();		
-			new CreateDB("DBExample", "D:/Dokumente/LIDO/201902-Update/ddb_20190220/ddb_20190220_1.xml").execute(context);
-			XQuery xquery = new XQuery(query);
+//			new CreateDB("DBExample", "D:/Dokumente/LIDO/201902-Update/ddb_20190220/ddb_20190220_1.xml").execute(context);
+			
+			new CreateDB("DBExample", "D:\\Dokumente\\Lido\\ddb_20190220\\ddb_20190220\\ddb_20190220_1.xml").execute(context);
+			XQuery xquery = new XQuery("(//*)[1]");
 			String result = xquery.execute(context);
 			System.out.println(result);
 		} 
-		catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
+//		catch (InvalidityException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} 
 		catch (BaseXException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

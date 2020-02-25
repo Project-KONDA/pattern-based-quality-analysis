@@ -23,7 +23,7 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
 import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
 
-public class TranslationTests {
+public class TranslationTestsManualMarking {
 	
 	public static void main(String[] args) {
         
