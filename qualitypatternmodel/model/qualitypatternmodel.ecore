@@ -201,11 +201,18 @@
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>
       <eOperations name="translatePathFromPrevious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="copyNextElements" eExceptions="#//patternstructure/MissingPatternContainerException"/>
-      <eOperations name="copyNextElement" eExceptions="#//patternstructure/MissingPatternContainerException">
-        <eParameters name="element" eType="#//graphstructure/SingleElement"/>
+      <eOperations name="copyNextElementsToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="copyNextElementToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException">
+        <eParameters name="nextElement" eType="#//graphstructure/SingleElement"/>
       </eOperations>
       <eOperations name="removeElementFromPreviousGraphs"/>
+      <eOperations name="copyNextElementToPreviousGraphs">
+        <eParameters name="nextElement" eType="#//graphstructure/SingleElement"/>
+        <eParameters name="recursive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
+      <eOperations name="copyNextElementsToPreviousGraphs">
+        <eParameters name="recursive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
           eType="#//patternstructure/SingleElementMapping" eOpposite="#//patternstructure/SingleElementMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/SingleElementMapping"
@@ -274,6 +281,7 @@
         <eParameters name="location" eType="#//patternstructure/Location"/>
         <eParameters name="depth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       </eOperations>
+      <eOperations name="addPrimitiveComparison"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationFromPrevious"
           eType="#//graphstructure/Relation" containment="true" eOpposite="#//graphstructure/Relation/relationTo"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" lowerBound="1"

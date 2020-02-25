@@ -184,7 +184,7 @@ public interface SingleElement extends Element {
 	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
 	 */
-	void copyNextElements() throws MissingPatternContainerException;
+	void copyNextElementsToNextGraphs() throws MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,7 +192,7 @@ public interface SingleElement extends Element {
 	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
 	 */
-	void copyNextElement(SingleElement element) throws MissingPatternContainerException;
+	void copyNextElementToNextGraphs(SingleElement nextElement) throws MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -201,5 +201,21 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	void removeElementFromPreviousGraphs();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void copyNextElementToPreviousGraphs(SingleElement nextElement, boolean recursive);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void copyNextElementsToPreviousGraphs(boolean recursive);
 
 } // SingleElement

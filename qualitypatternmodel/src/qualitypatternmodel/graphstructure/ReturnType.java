@@ -338,7 +338,9 @@ public enum ReturnType implements Enumerator {
 		BOOLEAN.conversion = "xs:boolean(";
 		DATE.conversion = "xs:date(";
 		TIME.conversion = "xs:time(";
+		DATETIME.conversion = "xs:dateTime(";
 		ELEMENT.conversion = "";		
+		UNSPECIFIED.conversion = "";
 	}
 	
 	public String getConversion() {
@@ -353,7 +355,9 @@ public enum ReturnType implements Enumerator {
 		BOOLEAN.conversionEnd = ")";
 		DATE.conversionEnd = ")";
 		TIME.conversionEnd = ")";
-		ELEMENT.conversionEnd = "";		
+		DATETIME.conversionEnd = ")";
+		ELEMENT.conversionEnd = "";	
+		UNSPECIFIED.conversionEnd = "";
 	}
 	
 	public String getConversionEnd() {

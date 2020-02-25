@@ -895,13 +895,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 8;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
@@ -1256,6 +1265,15 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON = ELEMENT___ADD_PRIMITIVE_COMPARISON;
+
+	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1292,22 +1310,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = ELEMENT_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Copy Next Elements</em>' operation.
+	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS = ELEMENT_OPERATION_COUNT + 4;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = ELEMENT_OPERATION_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Copy Next Element</em>' operation.
+	 * The operation id for the '<em>Copy Next Element To Next Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT__SINGLEELEMENT = ELEMENT_OPERATION_COUNT + 5;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__SINGLEELEMENT = ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Remove Element From Previous Graphs</em>' operation.
@@ -1319,13 +1337,31 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = ELEMENT_OPERATION_COUNT + 6;
 
 	/**
+	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN = ELEMENT_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = ELEMENT_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Single Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 7;
+	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
@@ -1678,6 +1714,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___ADD_PRIMITIVE_COMPARISON = ELEMENT___ADD_PRIMITIVE_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
@@ -2207,24 +2252,24 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getSingleElement__TranslatePathFromPrevious();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElements() <em>Copy Next Elements</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElementsToNextGraphs() <em>Copy Next Elements To Next Graphs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy Next Elements</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#copyNextElements()
+	 * @return the meta object for the '<em>Copy Next Elements To Next Graphs</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#copyNextElementsToNextGraphs()
 	 * @generated
 	 */
-	EOperation getSingleElement__CopyNextElements();
+	EOperation getSingleElement__CopyNextElementsToNextGraphs();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElement(qualitypatternmodel.graphstructure.SingleElement) <em>Copy Next Element</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElementToNextGraphs(qualitypatternmodel.graphstructure.SingleElement) <em>Copy Next Element To Next Graphs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy Next Element</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#copyNextElement(qualitypatternmodel.graphstructure.SingleElement)
+	 * @return the meta object for the '<em>Copy Next Element To Next Graphs</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#copyNextElementToNextGraphs(qualitypatternmodel.graphstructure.SingleElement)
 	 * @generated
 	 */
-	EOperation getSingleElement__CopyNextElement__SingleElement();
+	EOperation getSingleElement__CopyNextElementToNextGraphs__SingleElement();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#removeElementFromPreviousGraphs() <em>Remove Element From Previous Graphs</em>}' operation.
@@ -2235,6 +2280,26 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSingleElement__RemoveElementFromPreviousGraphs();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElementToPreviousGraphs(qualitypatternmodel.graphstructure.SingleElement, boolean) <em>Copy Next Element To Previous Graphs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy Next Element To Previous Graphs</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#copyNextElementToPreviousGraphs(qualitypatternmodel.graphstructure.SingleElement, boolean)
+	 * @generated
+	 */
+	EOperation getSingleElement__CopyNextElementToPreviousGraphs__SingleElement_boolean();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElementsToPreviousGraphs(boolean) <em>Copy Next Elements To Previous Graphs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#copyNextElementsToPreviousGraphs(boolean)
+	 * @generated
+	 */
+	EOperation getSingleElement__CopyNextElementsToPreviousGraphs__boolean();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.SetElement <em>Set Element</em>}'.
@@ -2518,6 +2583,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getElement__TranslateElementExistencePredicates__Location_int();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison() <em>Add Primitive Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison()
+	 * @generated
+	 */
+	EOperation getElement__AddPrimitiveComparison();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -2969,20 +3044,20 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = eINSTANCE.getSingleElement__TranslatePathFromPrevious();
 
 		/**
-		 * The meta object literal for the '<em><b>Copy Next Elements</b></em>' operation.
+		 * The meta object literal for the '<em><b>Copy Next Elements To Next Graphs</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SINGLE_ELEMENT___COPY_NEXT_ELEMENTS = eINSTANCE.getSingleElement__CopyNextElements();
+		EOperation SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = eINSTANCE.getSingleElement__CopyNextElementsToNextGraphs();
 
 		/**
-		 * The meta object literal for the '<em><b>Copy Next Element</b></em>' operation.
+		 * The meta object literal for the '<em><b>Copy Next Element To Next Graphs</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SINGLE_ELEMENT___COPY_NEXT_ELEMENT__SINGLEELEMENT = eINSTANCE.getSingleElement__CopyNextElement__SingleElement();
+		EOperation SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__SINGLEELEMENT = eINSTANCE.getSingleElement__CopyNextElementToNextGraphs__SingleElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Element From Previous Graphs</b></em>' operation.
@@ -2991,6 +3066,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = eINSTANCE.getSingleElement__RemoveElementFromPreviousGraphs();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy Next Element To Previous Graphs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN = eINSTANCE.getSingleElement__CopyNextElementToPreviousGraphs__SingleElement_boolean();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy Next Elements To Previous Graphs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = eINSTANCE.getSingleElement__CopyNextElementsToPreviousGraphs__boolean();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
@@ -3211,6 +3302,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = eINSTANCE.getElement__TranslateElementExistencePredicates__Location_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___ADD_PRIMITIVE_COMPARISON = eINSTANCE.getElement__AddPrimitiveComparison();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

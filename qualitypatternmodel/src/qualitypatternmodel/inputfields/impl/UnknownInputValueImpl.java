@@ -63,9 +63,9 @@ public class UnknownInputValueImpl extends InputImpl implements UnknownInputValu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected UnknownInputValueImpl() {
+	public UnknownInputValueImpl() {
 		super();
 	}
 

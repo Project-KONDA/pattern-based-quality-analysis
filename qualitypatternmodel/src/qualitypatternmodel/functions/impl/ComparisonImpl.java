@@ -102,9 +102,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected ComparisonImpl() {
+	public ComparisonImpl() {
 		super();
 	}
 

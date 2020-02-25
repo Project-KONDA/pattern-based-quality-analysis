@@ -207,7 +207,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if(!foundRootMapping) {
 			addRootMapping(graph);
 		}		
-		rootElement.copyNextElements();
+		rootElement.copyNextElementsToNextGraphs();
 	}
 
 	private void addRootMapping(Graph graph) {

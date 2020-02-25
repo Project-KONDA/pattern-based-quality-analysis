@@ -69,9 +69,9 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected PropertyOptionImpl() {
+	public PropertyOptionImpl() {
 		super();
 	}
 

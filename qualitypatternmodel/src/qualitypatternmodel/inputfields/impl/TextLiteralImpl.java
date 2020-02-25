@@ -50,9 +50,9 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected TextLiteralImpl() {
+	public TextLiteralImpl() {
 		super();
 	}
 	

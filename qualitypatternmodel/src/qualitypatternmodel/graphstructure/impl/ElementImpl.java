@@ -29,6 +29,7 @@ import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.functions.impl.ComparisonImpl;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -37,6 +38,12 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.PropertyOption;
+import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.impl.PropertyOptionImpl;
+import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
+import qualitypatternmodel.inputfields.impl.UnknownInputValueImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -521,6 +528,26 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addPrimitiveComparison() {
+		Comparison comparison = new ComparisonImpl();
+		Property property = new PropertyImpl();
+		UnknownInputValue unknownInputValue = new UnknownInputValueImpl();
+		PropertyOption propertyOption = new PropertyOptionImpl();
+		TextLiteral textLiteral = new TextLiteralImpl();
+		getPredicates().add(comparison);
+		getProperties().add(property);
+		comparison.setArgument1(property);
+		comparison.setArgument2(unknownInputValue);
+		property.setAttributeName(textLiteral);
+		property.setPropertyOption(propertyOption);		
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public abstract EList<Element> getNextElements();
@@ -756,6 +783,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON:
+				addPrimitiveComparison();
+				return null;
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.ELEMENT___IS_TRANSLATABLE:

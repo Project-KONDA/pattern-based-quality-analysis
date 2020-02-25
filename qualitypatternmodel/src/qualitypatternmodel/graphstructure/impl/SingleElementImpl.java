@@ -154,9 +154,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * @generated NOT
 	 */
 	@Override
-	public void copyNextElements() throws MissingPatternContainerException {
+	public void copyNextElementsToNextGraphs() throws MissingPatternContainerException {
 		for(SingleElement nextSingleElement : getNextSingle()) {
-			copyNextElement(nextSingleElement);
+			copyNextElementToNextGraphs(nextSingleElement);
 		}
 	}
 
@@ -167,18 +167,19 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * @generated NOT
 	 */
 	@Override
-	public void copyNextElement(SingleElement element) throws MissingPatternContainerException {
-		SingleElement newSingleElement = new SingleElementImpl();
-		for(SingleElementMapping singleElementMapping : getMappingTo()) {						
-			singleElementMapping.getTo().getNextSingle().add(newSingleElement);
-			SingleElementMapping newSingleElementMapping = new SingleElementMappingImpl(element, newSingleElement);	
-			singleElementMapping.getMorphism().getMappings().add(newSingleElementMapping);
-			if(element.getRelationFromPrevious() != null) {
-				RelationMapping newRelationMapping = new RelationMappingImpl(element.getRelationFromPrevious(), newSingleElement.getRelationFromPrevious());	
-				singleElementMapping.getMorphism().getMappings().add(newRelationMapping);	
+	public void copyNextElementToNextGraphs(SingleElement nextElement) throws MissingPatternContainerException {		
+		for(SingleElementMapping mapping : getMappingTo()) {			
+			SingleElement newElementInNextGraph = new SingleElementImpl();
+			mapping.getTo().getNextSingle().add(newElementInNextGraph);
+			SingleElementMapping newNextElementMapping = new SingleElementMappingImpl(nextElement, newElementInNextGraph);	
+			mapping.getMorphism().getMappings().add(newNextElementMapping);
+			if(nextElement.getRelationFromPrevious() != null) {
+				RelationMapping newRelationMapping = new RelationMappingImpl(nextElement.getRelationFromPrevious(), newElementInNextGraph.getRelationFromPrevious());	
+				mapping.getMorphism().getMappings().add(newRelationMapping);	
 			}			
-			element.copyNextElements(); 
+			nextElement.copyNextElementsToNextGraphs(); 
 		}
+		
 	}
 
 	/**
@@ -197,6 +198,42 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		}
 		if(getRelationFromPrevious() != null) {
 			getRelationFromPrevious().getMappingFrom().getMorphism().getMappings().remove(getRelationFromPrevious().getMappingFrom());
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void copyNextElementToPreviousGraphs(SingleElement nextElement, boolean recursive) {
+		SingleElement newElementInPreviousGraph = new SingleElementImpl();
+		SingleElementMapping mapping = getMappingFrom();						
+		SingleElement sourceElement = mapping.getFrom();
+		sourceElement.getNextSingle().add(newElementInPreviousGraph);
+		SingleElementMapping newNextElementMapping = new SingleElementMappingImpl(newElementInPreviousGraph, nextElement);	
+		mapping.getMorphism().getMappings().add(newNextElementMapping);
+		if(nextElement.getRelationFromPrevious() != null) {
+			RelationMapping newRelationMapping = new RelationMappingImpl(newElementInPreviousGraph.getRelationFromPrevious(), nextElement.getRelationFromPrevious());	
+			mapping.getMorphism().getMappings().add(newRelationMapping);	
+		}			
+		nextElement.copyNextElementsToPreviousGraphs(recursive); 
+		if(recursive) {
+			sourceElement.copyNextElementToPreviousGraphs(newElementInPreviousGraph, recursive);
+		}
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void copyNextElementsToPreviousGraphs(boolean recursive) {
+		for(SingleElement nextSingleElement : getNextSingle()) {
+			copyNextElementToPreviousGraphs(nextSingleElement, recursive);
 		}
 	}
 
@@ -434,7 +471,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	public NotificationChain basicSetPrevious(SingleElement newPrevious, NotificationChain msgs) {
 		if(newPrevious != null) {
 			try {
-				newPrevious.copyNextElement(this);
+				newPrevious.copyNextElementToNextGraphs(this);
 			} catch (MissingPatternContainerException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -698,17 +735,17 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				}
 			case GraphstructurePackage.SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
 				return translatePathFromPrevious();
-			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENTS:
+			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS:
 				try {
-					copyNextElements();
+					copyNextElementsToNextGraphs();
 					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENT__SINGLEELEMENT:
+			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__SINGLEELEMENT:
 				try {
-					copyNextElement((SingleElement)arguments.get(0));
+					copyNextElementToNextGraphs((SingleElement)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -716,6 +753,12 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				}
 			case GraphstructurePackage.SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS:
 				removeElementFromPreviousGraphs();
+				return null;
+			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN:
+				copyNextElementToPreviousGraphs((SingleElement)arguments.get(0), (Boolean)arguments.get(1));
+				return null;
+			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN:
+				copyNextElementsToPreviousGraphs((Boolean)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
