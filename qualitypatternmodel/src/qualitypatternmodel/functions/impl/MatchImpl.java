@@ -71,9 +71,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected MatchImpl() {
+	public MatchImpl() {
 		super();
 	}
 	

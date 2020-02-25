@@ -68,9 +68,9 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected CompOptionImpl() {
+	public CompOptionImpl() {
 		super();
 	}
 	

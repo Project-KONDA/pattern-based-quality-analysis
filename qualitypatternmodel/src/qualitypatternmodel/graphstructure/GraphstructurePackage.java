@@ -904,13 +904,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 9;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 9;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
@@ -1272,6 +1281,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON = ELEMENT___ADD_PRIMITIVE_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH = ELEMENT___ADD_PRIMITIVE_MATCH;
 
 	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
@@ -1723,6 +1741,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT___ADD_PRIMITIVE_COMPARISON = ELEMENT___ADD_PRIMITIVE_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___ADD_PRIMITIVE_MATCH = ELEMENT___ADD_PRIMITIVE_MATCH;
 
 	/**
 	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
@@ -2595,6 +2622,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__AddPrimitiveComparison();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch() <em>Add Primitive Match</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Match</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveMatch()
+	 * @generated
+	 */
+	EOperation getElement__AddPrimitiveMatch();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3310,6 +3347,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___ADD_PRIMITIVE_COMPARISON = eINSTANCE.getElement__AddPrimitiveComparison();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Match</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___ADD_PRIMITIVE_MATCH = eINSTANCE.getElement__AddPrimitiveMatch();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

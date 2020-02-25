@@ -251,6 +251,7 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/translateElementExistencePredicates/depth"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveMatch"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

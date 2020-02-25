@@ -52,9 +52,9 @@ public class BooleanImpl extends InputValueImpl implements qualitypatternmodel.i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected BooleanImpl() {
+	public BooleanImpl() {
 		super();
 	}
 

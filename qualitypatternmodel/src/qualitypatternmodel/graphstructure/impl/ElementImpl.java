@@ -28,8 +28,10 @@ import qualitypatternmodel.functions.BooleanOperator;
 
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.impl.ComparisonImpl;
+import qualitypatternmodel.functions.impl.MatchImpl;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -37,10 +39,13 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.SetElement;
+import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.impl.BooleanImpl;
+import qualitypatternmodel.inputfields.impl.CompOptionImpl;
 import qualitypatternmodel.inputfields.impl.PropertyOptionImpl;
 import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
 import qualitypatternmodel.inputfields.impl.UnknownInputValueImpl;
@@ -538,12 +543,36 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		Property property = new PropertyImpl();
 		UnknownInputValue unknownInputValue = new UnknownInputValueImpl();
 		PropertyOption propertyOption = new PropertyOptionImpl();
+		CompOption compOption = new CompOptionImpl();
 		TextLiteral textLiteral = new TextLiteralImpl();
 		getPredicates().add(comparison);
 		getProperties().add(property);
 		comparison.setArgument1(property);
 		comparison.setArgument2(unknownInputValue);
+		comparison.setOption(compOption);
 		property.setAttributeName(textLiteral);
+		property.setPropertyOption(propertyOption);		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addPrimitiveMatch() {
+		Match match = new MatchImpl();
+		Property property = new PropertyImpl();
+		PropertyOption propertyOption = new PropertyOptionImpl();
+		TextLiteral propertyTextLiteral = new TextLiteralImpl();
+		TextLiteral regexTextLiteral = new TextLiteralImpl();
+		BooleanImpl bool = new BooleanImpl();
+		getPredicates().add(match);
+		getProperties().add(property);
+		match.setRegularExpression(regexTextLiteral);
+		match.setOption(bool);
+		match.setProperty(property);
+		property.setAttributeName(propertyTextLiteral);
 		property.setPropertyOption(propertyOption);		
 	}
 
@@ -785,6 +814,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				}
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON:
 				addPrimitiveComparison();
+				return null;
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_MATCH:
+				addPrimitiveMatch();
 				return null;
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
