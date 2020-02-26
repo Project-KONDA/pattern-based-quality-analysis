@@ -2546,7 +2546,7 @@
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_qvj_0B2REeqrGqxc7qjo8A" sourceNode="_jdPBsB2REeqrGqxc7qjo8A" targetNode="_a_YQsEKVEeqVq_rPQGyS5A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/TextLiteral"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/TextLiteral"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/TextLiteral/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_002_71bsEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2562,7 +2562,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rFi24x2REeqrGqxc7qjo8A" sourceNode="_lnc2gB2REeqrGqxc7qjo8A" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Number"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Number"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/Number/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_3HMO4FbsEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2578,7 +2578,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rW5Flh2REeqrGqxc7qjo8A" sourceNode="_l6Ih8B2REeqrGqxc7qjo8A" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Boolean"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Boolean"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/Boolean/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_0QXyxlbsEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2594,7 +2594,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_sHwh0B2REeqrGqxc7qjo8A" sourceNode="_UQET8B2REeqrGqxc7qjo8A" targetNode="_T0cu8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/SingleElement"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/SingleElement"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/SingleElement/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_Jsr8LSM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2610,7 +2610,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_sZnt4B2REeqrGqxc7qjo8A" sourceNode="_UBMKcB2REeqrGqxc7qjo8A" targetNode="_T0cu8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/SetElement"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/SetElement"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/SetElement/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_Jsr8MSM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2626,7 +2626,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_tC6igB2REeqrGqxc7qjo8A" sourceNode="_deUzQB2REeqrGqxc7qjo8A" targetNode="_dMCwcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/BooleanOperator"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/BooleanOperator"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/BooleanOperator/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__0zQ_yMzEeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2642,7 +2642,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_tuWsNh2REeqrGqxc7qjo8A" sourceNode="_LSGTYB2REeqrGqxc7qjo8A" targetNode="_LGvX8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_dPxhOiM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2658,7 +2658,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_uQ9C_B2REeqrGqxc7qjo8A" sourceNode="_Lq-GYB2REeqrGqxc7qjo8A" targetNode="_LGvX8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/True"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/True"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//patternstructure/True/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_dPxhUiM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2674,7 +2674,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_5OU6Bh2SEeqrGqxc7qjo8A" sourceNode="_T0cu8B2REeqrGqxc7qjo8A" targetNode="_v4VQcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Element"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Element"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/Element/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/Element/@eGenericSuperTypes.1"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_JssjIyM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2690,7 +2691,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_5wGKaB2SEeqrGqxc7qjo8A" sourceNode="_c7kEcB2REeqrGqxc7qjo8A" targetNode="_v4VQcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Property"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Property"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/Property/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/Property/@eGenericSuperTypes.1"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_Jsr8KSM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2706,7 +2708,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_6KNTiB2SEeqrGqxc7qjo8A" sourceNode="_dMCwcB2REeqrGqxc7qjo8A" targetNode="_v4VQcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/Operator"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/Operator"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/Operator/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/Operator/@eGenericSuperTypes.1"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__0zRAyMzEeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2764,7 +2767,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_PwoZnB2kEeqrGqxc7qjo8A" sourceNode="_6DW00B2jEeqrGqxc7qjo8A" targetNode="_deUzQB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/Comparison"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/Comparison"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/Comparison/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__0z4DyMzEeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2781,7 +2784,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_QJsZ1h2kEeqrGqxc7qjo8A" sourceNode="_7csmUB2jEeqrGqxc7qjo8A" targetNode="_deUzQB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/Match"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/Match"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/Match/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__0z4CyMzEeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2851,7 +2854,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_pXdQgB2pEeqrGqxc7qjo8A" sourceNode="_gXRpcB2pEeqrGqxc7qjo8A" targetNode="_dMCwcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/NumberOperator"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/NumberOperator"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/NumberOperator/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__0z4ByMzEeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2867,7 +2870,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_JdcxAB20EeqrGqxc7qjo8A" sourceNode="_FdBBcB20EeqrGqxc7qjo8A" targetNode="_xCfWcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/SingleElementMapping"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/SingleElementMapping"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//patternstructure/SingleElementMapping/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_dPxhRiM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2883,7 +2886,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_J3KRpB20EeqrGqxc7qjo8A" sourceNode="_ILbvgB20EeqrGqxc7qjo8A" targetNode="_xCfWcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/RelationMapping"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/RelationMapping"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//patternstructure/RelationMapping/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_dPxhNiM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2899,7 +2902,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_lVg_byFqEeqOzty0NN8IPg" sourceNode="_KwGZkB2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Pattern"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Pattern"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//patternstructure/Pattern/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_Emg3GCM1Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2915,7 +2918,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_lzc4kCFqEeqOzty0NN8IPg" sourceNode="_v4VQcB2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Comparable"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Comparable"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/Comparable/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_xO4UDCM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2931,7 +2934,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mqpmUCFqEeqOzty0NN8IPg" sourceNode="_SmK98B2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Graph"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Graph"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/Graph/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_xO4UCCM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2947,7 +2950,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_p0nn-SFqEeqOzty0NN8IPg" sourceNode="_LGvX8B2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Condition"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Condition"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//patternstructure/Condition/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_dPxhPiM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2963,7 +2966,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rL4V7iFqEeqOzty0NN8IPg" sourceNode="_xvb8AB2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Morphism"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Morphism"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//patternstructure/Morphism/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_dPxhQiM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2979,7 +2982,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_rsfIiSFqEeqOzty0NN8IPg" sourceNode="_xCfWcB2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Mapping"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Mapping"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//patternstructure/Mapping/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_dPxhSiM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -2995,7 +2998,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_EdrxSSFrEeqOzty0NN8IPg" sourceNode="_LdaykB2REeqrGqxc7qjo8A" targetNode="_LGvX8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Formula"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/Formula"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//patternstructure/Formula/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_dPxhTiM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -3011,7 +3014,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="__DU-UyJPEeq7ss4XMb0n_Q" sourceNode="__Cq3ACJPEeq7ss4XMb0n_Q" targetNode="_gXRpcB2pEeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/Count"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/Count"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/Count/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__0zRByMzEeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -3028,7 +3031,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_WHJiTiJfEeq7ss4XMb0n_Q" sourceNode="_WHAXgCJfEeq7ss4XMb0n_Q" targetNode="_dMCwcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/OtherOperator"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/OtherOperator"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/OtherOperator/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__0z4AyMzEeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -3044,7 +3047,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_9S7w9iMOEeq7GbtfgEc6MA" sourceNode="_7tD_UCMOEeq7GbtfgEc6MA" targetNode="_gXRpcB2pEeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/ToNumber"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/ToNumber"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/ToNumber/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__0z4EyMzEeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -3085,7 +3088,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mS768iMgEeq7GbtfgEc6MA" sourceNode="_Z81NAB2SEeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Relation"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Relation"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/Relation/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_Jsr8JSM0Eeq7GbtfgEc6MA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -4967,7 +4970,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_-5eiRTLLEeqwCLdoVLu3rg" sourceNode="_0rpOcB2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/VariableList"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/VariableList"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/VariableList/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_-5fJQTLLEeqwCLdoVLu3rg">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -4983,7 +4986,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_cISwXzLNEeqwCLdoVLu3rg" sourceNode="_eCd8EDIfEeqhs9bV26uoUA" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/OperatorList"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/OperatorList"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/OperatorList/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_cISwZjLNEeqwCLdoVLu3rg">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -4999,7 +5002,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_igl1cDh7EeqWT8u6R6QK9w" sourceNode="_if88QDh7EeqWT8u6R6QK9w" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/CompOption"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/CompOption"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/CompOption/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_igmchjh7EeqWT8u6R6QK9w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5015,7 +5018,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_8dv7Dzh7EeqWT8u6R6QK9w" sourceNode="_8daj0Dh7EeqWT8u6R6QK9w" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/PropertyOption"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/PropertyOption"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/PropertyOption/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_8dwiFjh7EeqWT8u6R6QK9w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5291,7 +5294,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_VkZOyEKVEeqVq_rPQGyS5A" sourceNode="_VkNBcEKVEeqVq_rPQGyS5A" targetNode="_a_YQsEKVEeqVq_rPQGyS5A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/TextList"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/TextList"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/TextList/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_0poAQ1bsEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5307,7 +5310,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_c5Kc1kKVEeqVq_rPQGyS5A" sourceNode="_a_YQsEKVEeqVq_rPQGyS5A" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Text"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Text"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/Text/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_0dzx01bsEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5344,7 +5347,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="__2uAQFbrEeqq28gUaBHbCA" sourceNode="_jLRH8B2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Input"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Input"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/Input/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__2vOYFbrEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5360,7 +5363,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="__2vOYVbrEeqq28gUaBHbCA" sourceNode="_dMCwcB2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/Operator"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//functions/Operator"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/Operator/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//functions/Operator/@eGenericSuperTypes.1"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__2wcgFbrEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5376,7 +5380,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="__2wcgVbrEeqq28gUaBHbCA" sourceNode="_c7kEcB2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Property"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Property"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/Property/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/Property/@eGenericSuperTypes.1"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__2xDk1brEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5392,7 +5397,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="__2xDlFbrEeqq28gUaBHbCA" sourceNode="_T0cu8B2REeqrGqxc7qjo8A" targetNode="_i3nZkCFqEeqOzty0NN8IPg">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Element"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/Element"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/Element/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//graphstructure/Element/@eGenericSuperTypes.1"/>
       <decorations xmi:type="viewpoint:Decoration" uid="__2xqplbrEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5408,7 +5414,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_AGJt9lbtEeqq28gUaBHbCA" sourceNode="_9LabIFbsEeqq28gUaBHbCA" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/InputValue/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/InputValue/@eGenericSuperTypes.1"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_AGKVA1btEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5424,7 +5431,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_A-qDW1btEeqq28gUaBHbCA" sourceNode="_9LabIFbsEeqq28gUaBHbCA" targetNode="_v4VQcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/InputValue/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/InputValue/@eGenericSuperTypes.1"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_A-qDYlbtEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5439,7 +5447,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Y9VC5lbtEeqq28gUaBHbCA" sourceNode="_DUxmEFbtEeqq28gUaBHbCA" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Date"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Date"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/Date/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_Y9Vp8FbtEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5455,7 +5463,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ZggBZlbtEeqq28gUaBHbCA" sourceNode="_ERDoIFbtEeqq28gUaBHbCA" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Time"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/Time"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/Time/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_ZggBbVbtEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5471,7 +5479,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_VBOc41bxEeqq28gUaBHbCA" sourceNode="_RqPS8FbxEeqq28gUaBHbCA" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/@eGenericSuperTypes.1"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_VBPD9lbxEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5486,7 +5495,8 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_WZR1FFbxEeqq28gUaBHbCA" sourceNode="_RqPS8FbxEeqq28gUaBHbCA" targetNode="_v4VQcB2REeqrGqxc7qjo8A">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/@eGenericSuperTypes.0"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/@eGenericSuperTypes.1"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_WZR1G1bxEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5501,7 +5511,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_B1wjM1cVEeqLx62jXSDiJg" sourceNode="__uDP0FcUEeqLx62jXSDiJg" targetNode="_9LabIFbsEeqq28gUaBHbCA">
       <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/DateTime"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/DateTime"/>
+      <semanticElements xmi:type="ecore:EGenericType" href="qualitypatternmodel.ecore#//inputfields/DateTime/@eGenericSuperTypes.0"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_B1yYYFcVEeqLx62jXSDiJg">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
