@@ -9,6 +9,8 @@ import qualitypatternmodel.graphstructure.Graph;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Morphism</b></em>'.
+ * Describes the connections and correspondences between two graphes.
+ * Contains mappings, which each does connect two graph elements. 
  * <!-- end-user-doc -->
  *
  * <p>
@@ -115,6 +117,7 @@ public interface Morphism extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Check Single Element Mappings</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * checks the validity of the contained SingleElementMappings
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Check Single Element Mappings</em>' attribute.
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckSingleElementMappings()
@@ -127,6 +130,7 @@ public interface Morphism extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Check Relation Mappings</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * checks the validity of the contained RelationMappings
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Check Relation Mappings</em>' attribute.
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckRelationMappings()
@@ -139,6 +143,7 @@ public interface Morphism extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Check Single Element Mappings Uniqueness</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * checks the uniqueness of the contained SingleElementMappings
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Check Single Element Mappings Uniqueness</em>' attribute.
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckSingleElementMappingsUniqueness()
@@ -151,6 +156,7 @@ public interface Morphism extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Check Relation Mappings Uniqueness</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * checks the uniqueness of the contained RelationMappings
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Check Relation Mappings Uniqueness</em>' attribute.
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckRelationMappingsUniqueness()

@@ -12,6 +12,12 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- begin-user-doc -->
  * A representation of the literals of the enumeration '<em><b>Location</b></em>',
  * and utility methods for working with them.
+ * Is used for the translation to XQuery for the algorithm to know how to translate elements when they are dependent on the structural position.
+ * Values: 
+ * 	 Return - base graph specifing the returned elements
+ *   Outside - unspecified, neither contained in a quantifier nor in the return graph
+ *   Exists - inside an exists quantifier
+ *   Forall - inside a forall quantifier
  * <!-- end-user-doc -->
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getLocation()
  * @model

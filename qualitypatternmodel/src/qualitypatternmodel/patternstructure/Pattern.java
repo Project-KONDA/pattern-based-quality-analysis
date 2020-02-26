@@ -11,6 +11,7 @@ import qualitypatternmodel.inputfields.VariableList;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pattern</b></em>'.
+ * Root class for Pattern. Contains the general UI Interfaces for external use.
  * <!-- end-user-doc -->
  *
  * <p>

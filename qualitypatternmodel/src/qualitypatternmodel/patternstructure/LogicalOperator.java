@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- begin-user-doc -->
  * A representation of the literals of the enumeration '<em><b>Logical Operator</b></em>',
  * and utility methods for working with them.
+ * allowed values: NOT, AND, OR, IMPLIES, XOR, EQUIVALENT
  * <!-- end-user-doc -->
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getLogicalOperator()
  * @model
