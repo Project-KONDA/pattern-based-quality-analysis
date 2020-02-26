@@ -82,13 +82,13 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR__ID = GraphstructurePackage.COMPARABLE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR__REF_NO = GraphstructurePackage.COMPARABLE__REF_NO;
+	int OPERATOR__SHORT_PATTERN_INTERNAL_ID = GraphstructurePackage.COMPARABLE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -299,13 +299,13 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR__ID = OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR__REF_NO = OPERATOR__REF_NO;
+	int BOOLEAN_OPERATOR__SHORT_PATTERN_INTERNAL_ID = OPERATOR__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -515,13 +515,22 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = OPERATOR_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Create Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___CREATE_INPUTS = OPERATOR_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 2;
+	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
@@ -543,13 +552,13 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATOR__ID = OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATOR__REF_NO = OPERATOR__REF_NO;
+	int NUMBER_OPERATOR__SHORT_PATTERN_INTERNAL_ID = OPERATOR__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -760,13 +769,13 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT__ID = NUMBER_OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT__REF_NO = NUMBER_OPERATOR__REF_NO;
+	int COUNT__SHORT_PATTERN_INTERNAL_ID = NUMBER_OPERATOR__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -986,13 +995,13 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATOR__ID = OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATOR__REF_NO = OPERATOR__REF_NO;
+	int OTHER_OPERATOR__SHORT_PATTERN_INTERNAL_ID = OPERATOR__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1203,13 +1212,13 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH__ID = BOOLEAN_OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH__REF_NO = BOOLEAN_OPERATOR__REF_NO;
+	int MATCH__SHORT_PATTERN_INTERNAL_ID = BOOLEAN_OPERATOR__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1446,6 +1455,15 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
+	 * The operation id for the '<em>Create Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___CREATE_INPUTS = BOOLEAN_OPERATOR___CREATE_INPUTS;
+
+	/**
 	 * The number of operations of the '<em>Match</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1474,13 +1492,13 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON__ID = BOOLEAN_OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON__REF_NO = BOOLEAN_OPERATOR__REF_NO;
+	int COMPARISON__SHORT_PATTERN_INTERNAL_ID = BOOLEAN_OPERATOR__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1726,6 +1744,15 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
+	 * The operation id for the '<em>Create Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___CREATE_INPUTS = BOOLEAN_OPERATOR___CREATE_INPUTS;
+
+	/**
 	 * The operation id for the '<em>Set Type According To Argument</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1763,13 +1790,13 @@ public interface FunctionsPackage extends EPackage {
 	int TO_NUMBER__ID = NUMBER_OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TO_NUMBER__REF_NO = NUMBER_OPERATOR__REF_NO;
+	int TO_NUMBER__SHORT_PATTERN_INTERNAL_ID = NUMBER_OPERATOR__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1989,13 +2016,13 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+	int OPERATOR_LIST__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Operators</b></em>' containment reference list.
@@ -2166,6 +2193,16 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBooleanOperator__RemoveElement__Element();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#createInputs() <em>Create Inputs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Inputs</em>' operation.
+	 * @see qualitypatternmodel.functions.BooleanOperator#createInputs()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__CreateInputs();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Operator <em>Operator</em>}'.
@@ -2515,6 +2552,14 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = eINSTANCE.getBooleanOperator__RemoveElement__Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Inputs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___CREATE_INPUTS = eINSTANCE.getBooleanOperator__CreateInputs();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OperatorImpl <em>Operator</em>}' class.

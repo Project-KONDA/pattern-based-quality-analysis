@@ -79,13 +79,13 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+	int INPUT__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -233,13 +233,13 @@ public interface InputfieldsPackage extends EPackage {
 	int COMP_OPTION__ID = INPUT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__REF_NO = INPUT__REF_NO;
+	int COMP_OPTION__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -406,13 +406,13 @@ public interface InputfieldsPackage extends EPackage {
 	int PROPERTY_OPTION__ID = INPUT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__REF_NO = INPUT__REF_NO;
+	int PROPERTY_OPTION__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -578,13 +578,13 @@ public interface InputfieldsPackage extends EPackage {
 	int VARIABLE_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+	int VARIABLE_LIST__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -714,13 +714,13 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT_VALUE__ID = INPUT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE__REF_NO = INPUT__REF_NO;
+	int INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -922,13 +922,13 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__REF_NO = INPUT_VALUE__REF_NO;
+	int BOOLEAN__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -1139,13 +1139,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__REF_NO = INPUT_VALUE__REF_NO;
+	int TEXT__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -1347,13 +1347,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LIST__ID = TEXT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST__REF_NO = TEXT__REF_NO;
+	int TEXT_LIST__SHORT_PATTERN_INTERNAL_ID = TEXT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -1582,13 +1582,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LITERAL__ID = TEXT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__REF_NO = TEXT__REF_NO;
+	int TEXT_LITERAL__SHORT_PATTERN_INTERNAL_ID = TEXT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -1799,13 +1799,13 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__REF_NO = INPUT_VALUE__REF_NO;
+	int NUMBER__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -2016,13 +2016,13 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__REF_NO = INPUT_VALUE__REF_NO;
+	int DATE__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -2233,13 +2233,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TIME__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__REF_NO = INPUT_VALUE__REF_NO;
+	int TIME__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -2450,13 +2450,13 @@ public interface InputfieldsPackage extends EPackage {
 	int UNKNOWN_INPUT_VALUE__ID = INPUT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__REF_NO = INPUT__REF_NO;
+	int UNKNOWN_INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -2667,13 +2667,13 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE_TIME__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME__REF_NO = INPUT_VALUE__REF_NO;
+	int DATE_TIME__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.

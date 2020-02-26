@@ -82,13 +82,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+	int RELATION__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
@@ -245,13 +245,13 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPARABLE__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARABLE__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+	int COMPARABLE__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -417,13 +417,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY__ID = COMPARABLE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__REF_NO = COMPARABLE__REF_NO;
+	int PROPERTY__SHORT_PATTERN_INTERNAL_ID = COMPARABLE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -588,13 +588,22 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Create Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CREATE_INPUTS = COMPARABLE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 0;
+	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -616,13 +625,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__ID = COMPARABLE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__REF_NO = COMPARABLE__REF_NO;
+	int ELEMENT__SHORT_PATTERN_INTERNAL_ID = COMPARABLE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -913,13 +922,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = COMPARABLE_OPERATION_COUNT + 10;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 10;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
@@ -941,13 +959,13 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__ID = ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__REF_NO = ELEMENT__REF_NO;
+	int SINGLE_ELEMENT__SHORT_PATTERN_INTERNAL_ID = ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1292,6 +1310,15 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH = ELEMENT___ADD_PRIMITIVE_MATCH;
 
 	/**
+	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS;
+
+	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1319,22 +1346,13 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___TRANSLATE_PREDICATES__LOCATION = ELEMENT_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = ELEMENT_OPERATION_COUNT + 3;
-
-	/**
 	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = ELEMENT_OPERATION_COUNT + 4;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Copy Next Element To Next Graphs</em>' operation.
@@ -1343,7 +1361,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__SINGLEELEMENT = ELEMENT_OPERATION_COUNT + 5;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__SINGLEELEMENT = ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Remove Element From Previous Graphs</em>' operation.
@@ -1352,7 +1370,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = ELEMENT_OPERATION_COUNT + 6;
+	int SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
@@ -1361,7 +1379,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN = ELEMENT_OPERATION_COUNT + 7;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN = ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
@@ -1370,7 +1388,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = ELEMENT_OPERATION_COUNT + 8;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Single Element</em>' class.
@@ -1379,7 +1397,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 9;
+	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
@@ -1401,13 +1419,13 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__ID = ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__REF_NO = ELEMENT__REF_NO;
+	int SET_ELEMENT__SHORT_PATTERN_INTERNAL_ID = ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1758,7 +1776,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS__INT = ELEMENT_OPERATION_COUNT + 0;
+	int SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS;
 
 	/**
 	 * The operation id for the '<em>Translate Predicates</em>' operation.
@@ -1767,7 +1785,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT = ELEMENT_OPERATION_COUNT + 1;
+	int SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Path To Previous Single Element</em>' operation.
@@ -1776,7 +1794,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = ELEMENT_OPERATION_COUNT + 2;
+	int SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements Set Operation</em>' operation.
@@ -1785,7 +1803,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = ELEMENT_OPERATION_COUNT + 3;
+	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Set Element</em>' class.
@@ -1794,7 +1812,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 4;
+	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -1816,13 +1834,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__REF_NO = PatternstructurePackage.PATTERN_ELEMENT__REF_NO;
+	int GRAPH__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Return Elements</b></em>' reference list.
@@ -2163,6 +2181,16 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getProperty_AttributeName();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#createInputs() <em>Create Inputs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Inputs</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#createInputs()
+	 * @generated
+	 */
+	EOperation getProperty__CreateInputs();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.SingleElement <em>Single Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2267,16 +2295,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSingleElement__TranslatePredicates__Location();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#translatePathFromPrevious() <em>Translate Path From Previous</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Path From Previous</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#translatePathFromPrevious()
-	 * @generated
-	 */
-	EOperation getSingleElement__TranslatePathFromPrevious();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElementsToNextGraphs() <em>Copy Next Elements To Next Graphs</em>}' operation.
@@ -2403,16 +2421,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSetElement_Count();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#translatePathFromPrevious(int) <em>Translate Path From Previous</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Path From Previous</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SetElement#translatePathFromPrevious(int)
-	 * @generated
-	 */
-	EOperation getSetElement__TranslatePathFromPrevious__int();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#translatePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Predicates</em>}' operation.
@@ -2630,6 +2638,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getElement__AddPrimitiveMatch();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translatePathFromPrevious() <em>Translate Path From Previous</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Translate Path From Previous</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#translatePathFromPrevious()
+	 * @generated
+	 */
+	EOperation getElement__TranslatePathFromPrevious();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -2991,6 +3009,14 @@ public interface GraphstructurePackage extends EPackage {
 		EReference PROPERTY__ATTRIBUTE_NAME = eINSTANCE.getProperty_AttributeName();
 
 		/**
+		 * The meta object literal for the '<em><b>Create Inputs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY___CREATE_INPUTS = eINSTANCE.getProperty__CreateInputs();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3071,14 +3097,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SINGLE_ELEMENT___TRANSLATE_PREDICATES__LOCATION = eINSTANCE.getSingleElement__TranslatePredicates__Location();
-
-		/**
-		 * The meta object literal for the '<em><b>Translate Path From Previous</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = eINSTANCE.getSingleElement__TranslatePathFromPrevious();
 
 		/**
 		 * The meta object literal for the '<em><b>Copy Next Elements To Next Graphs</b></em>' operation.
@@ -3177,14 +3195,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SET_ELEMENT__COUNT = eINSTANCE.getSetElement_Count();
-
-		/**
-		 * The meta object literal for the '<em><b>Translate Path From Previous</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS__INT = eINSTANCE.getSetElement__TranslatePathFromPrevious__int();
 
 		/**
 		 * The meta object literal for the '<em><b>Translate Predicates</b></em>' operation.
@@ -3355,6 +3365,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___ADD_PRIMITIVE_MATCH = eINSTANCE.getElement__AddPrimitiveMatch();
+
+		/**
+		 * The meta object literal for the '<em><b>Translate Path From Previous</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = eINSTANCE.getElement__TranslatePathFromPrevious();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

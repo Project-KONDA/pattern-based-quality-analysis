@@ -12,6 +12,7 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Single Element</b></em>'.
+ * This represents a single data element.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -148,6 +149,8 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the <code>refNo</code> of the first <code>SingleElement</code> that is transitively connected to <code>this</code> via mappings.
+	 * @return the <code>refNo</code> of the first <code>SingleElement</code> that is transitively connected to <code>this</code> via mappings
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
 	 * @generated
@@ -156,6 +159,8 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a <code>String</code> representing the XQuery variable corresponding to this <code>SingleElement</code>.
+	 * @return the <code>String</code> representing the XQuery variable
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -164,6 +169,9 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a <code>String</code> representing the XPath predicates corresponding to the predicates of this object.
+	 * @param location the <code>Location</code> of the <code>SingleElement</code> this in the pattern
+	 * @return the <code>String</code> representing the XPath predicates
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -172,14 +180,8 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	String translatePathFromPrevious();
-
-	/**
-	 * <!-- begin-user-doc -->
+	 * Copies all contained <code>SingleElement</code> objects to the next graphs.
+	 * Corresponding <code>SingleElement</code> objects are created in these graphs and <code>SingleElementMapping</code> objects are added to the morphism.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
@@ -188,6 +190,9 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Copies the contained <code>SingleElement</code> nextElement to the next graphs.
+	 * A corresponding <code>SingleElement</code> object is created in these graphs and a SingleElementMapping object is added to the morphism.
+	 * @param the <code>SingleElement</code> to be copied.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
@@ -196,6 +201,7 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Removes <code>SingleElement</code> objects in previous graphs which are directly or transitively connected to <code>this</code> via a <code>SingleElementMapping</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -204,6 +210,10 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Copies the contained <code>SingleElement</code> nextElement to the previous graph or recursively all previous graphs in case recursive is true.
+	 * A corresponding <code>SingleElement</code> object is created in these graphs and a <code>SingleElementMapping</code> object is added to the morphism.
+	 * @param nextElement the <code>SingleElement</code> to be copied
+	 * @param recursive if true, the object is copied recursively to all previous graphs
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -212,6 +222,9 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Copies all contained <code>SingleElement</code> objects to the previous graph or recursively all previous graphs in case recursive is true.
+	 * Corresponding <code>SingleElement</code> objects are created in these graphs and <code>SingleElementMapping</code> objects are added to the morphism.
+	 * @param recursive if true, the objects are copied recursively to all previous graphs
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

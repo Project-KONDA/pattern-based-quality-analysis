@@ -223,8 +223,8 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	public String getText(Object object) {
 		Graph graph = (Graph) object;
 		if (graph.isReturnGraph()) 
-			return "Return" + getString("_UI_Graph_type") + " " + graph.getRefNo();	
-		return getString("_UI_Graph_type") + " " + graph.getRefNo();			
+			return "Return" + getString("_UI_Graph_type") + " " + graph.getShortPatternInternalId();	
+		return getString("_UI_Graph_type") + " " + graph.getShortPatternInternalId();			
 	}
 
 

@@ -91,7 +91,7 @@ public class TextLiteralItemProvider extends TextItemProvider {
 	@Override
 	public String getText(Object object) {
 		TextLiteral textLiteral = (TextLiteral) object;
-		String text = getString("_UI_TextLiteral_type") + " " + textLiteral.getRefNo();		
+		String text = getString("_UI_TextLiteral_type") + " " + textLiteral.getShortPatternInternalId();		
 		if(textLiteral.getValue() != null) {
 			text += " " + textLiteral.getValue();
 		}		

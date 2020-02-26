@@ -123,6 +123,18 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public void createInputs() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -220,6 +232,9 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 				return null;
 			case FunctionsPackage.BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT:
 				removeElement((Element)arguments.get(0));
+				return null;
+			case FunctionsPackage.BOOLEAN_OPERATOR___CREATE_INPUTS:
+				createInputs();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

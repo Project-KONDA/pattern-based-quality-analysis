@@ -20,7 +20,12 @@ import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.inputfields.impl.BooleanImpl;
+import qualitypatternmodel.inputfields.Boolean;
+import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.impl.PatternImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,7 +79,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated NOT
 	 */
 	public MatchImpl() {
-		super();
+		super();	
 	}
 	
 	@Override
@@ -141,6 +146,24 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		list.add(regularExpression);
 		list.add(option);
 		return list;
+	}
+	
+	@Override
+	public void createInputs() {
+		try {
+			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
+			
+			Boolean bool = new BooleanImpl();			
+			pattern.getVariableList().getVariables().add(bool);
+			setOption(bool);
+			
+			TextLiteral textLiteral = new TextLiteralImpl();
+			pattern.getVariableList().getVariables().add(textLiteral);
+			setRegularExpression(textLiteral);
+		} catch (MissingPatternContainerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**

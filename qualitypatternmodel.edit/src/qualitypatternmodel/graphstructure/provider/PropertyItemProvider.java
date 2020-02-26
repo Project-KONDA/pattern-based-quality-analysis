@@ -160,7 +160,7 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Property property = (Property) object;
-		return getString("_UI_Property_type") + " " + property.getRefNo();			
+		return getString("_UI_Property_type") + " " + property.getShortPatternInternalId();			
 	}
 
 
@@ -174,6 +174,7 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"qualitypatternmodel.graphstructure","l":"SingleElement"},{"p":"qualitypatternmodel.graphstructure.impl","l":"SingleElementImpl"}]

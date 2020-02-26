@@ -22,7 +22,7 @@ import qualitypatternmodel.inputfields.Input;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getId <em>Id</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getRefNo <em>Ref No</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getShortPatternInternalId <em>Short Pattern Internal Id</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPatternElement()
@@ -53,27 +53,27 @@ public interface PatternElement extends EObject {
 	void setId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Ref No</b></em>' attribute.
+	 * Returns the value of the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ref No</em>' attribute.
-	 * @see #setRefNo(int)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPatternElement_RefNo()
+	 * @return the value of the '<em>Short Pattern Internal Id</em>' attribute.
+	 * @see #setShortPatternInternalId(int)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPatternElement_ShortPatternInternalId()
 	 * @model default="-1" required="true"
 	 * @generated
 	 */
-	int getRefNo();
+	int getShortPatternInternalId();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.PatternElement#getRefNo <em>Ref No</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.PatternElement#getShortPatternInternalId <em>Short Pattern Internal Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ref No</em>' attribute.
-	 * @see #getRefNo()
+	 * @param value the new value of the '<em>Short Pattern Internal Id</em>' attribute.
+	 * @see #getShortPatternInternalId()
 	 * @generated
 	 */
-	void setRefNo(int value);
+	void setShortPatternInternalId(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

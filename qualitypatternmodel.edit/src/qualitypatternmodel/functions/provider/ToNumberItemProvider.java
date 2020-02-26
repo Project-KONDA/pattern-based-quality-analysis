@@ -89,7 +89,7 @@ public class ToNumberItemProvider extends NumberOperatorItemProvider {
 	@Override
 	public String getText(Object object) {
 		ToNumber toNumber = (ToNumber) object;
-		return getString("_UI_ToNumber_type") + " " + toNumber.getRefNo();	
+		return getString("_UI_ToNumber_type") + " " + toNumber.getShortPatternInternalId();	
 	}
 
 
@@ -103,6 +103,7 @@ public class ToNumberItemProvider extends NumberOperatorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

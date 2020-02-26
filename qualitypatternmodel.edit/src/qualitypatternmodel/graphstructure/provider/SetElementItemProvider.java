@@ -167,7 +167,7 @@ public class SetElementItemProvider extends ElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		SetElement setElement = (SetElement) object;
-		return getString("_UI_SetElement_type") + " " + setElement.getRefNo();			
+		return getString("_UI_SetElement_type") + " " + setElement.getShortPatternInternalId();			
 	}
 
 

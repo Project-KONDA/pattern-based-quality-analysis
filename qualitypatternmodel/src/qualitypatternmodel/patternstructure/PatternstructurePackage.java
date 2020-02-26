@@ -80,13 +80,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT__ID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT__REF_NO = 1;
+	int PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID = 1;
 
 	/**
 	 * The number of structural features of the '<em>Pattern Element</em>' class.
@@ -198,13 +198,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING__ID = PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING__REF_NO = PATTERN_ELEMENT__REF_NO;
+	int MAPPING__SHORT_PATTERN_INTERNAL_ID = PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
@@ -334,13 +334,13 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING__ID = MAPPING__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING__REF_NO = MAPPING__REF_NO;
+	int RELATION_MAPPING__SHORT_PATTERN_INTERNAL_ID = MAPPING__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
@@ -488,13 +488,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION__ID = PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__REF_NO = PATTERN_ELEMENT__REF_NO;
+	int CONDITION__SHORT_PATTERN_INTERNAL_ID = PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -660,13 +660,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION__ID = CONDITION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION__REF_NO = CONDITION__REF_NO;
+	int QUANTIFIED_CONDITION__SHORT_PATTERN_INTERNAL_ID = CONDITION__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -886,13 +886,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM__ID = PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__REF_NO = PATTERN_ELEMENT__REF_NO;
+	int MORPHISM__SHORT_PATTERN_INTERNAL_ID = PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
@@ -1076,13 +1076,13 @@ public interface PatternstructurePackage extends EPackage {
 	int SINGLE_ELEMENT_MAPPING__ID = MAPPING__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING__REF_NO = MAPPING__REF_NO;
+	int SINGLE_ELEMENT_MAPPING__SHORT_PATTERN_INTERNAL_ID = MAPPING__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
@@ -1230,13 +1230,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA__ID = CONDITION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__REF_NO = CONDITION__REF_NO;
+	int FORMULA__SHORT_PATTERN_INTERNAL_ID = CONDITION__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -1429,13 +1429,13 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE__ID = CONDITION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE__REF_NO = CONDITION__REF_NO;
+	int TRUE__SHORT_PATTERN_INTERNAL_ID = CONDITION__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -1601,13 +1601,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__ID = PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ref No</b></em>' attribute.
+	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__REF_NO = PATTERN_ELEMENT__REF_NO;
+	int PATTERN__SHORT_PATTERN_INTERNAL_ID = PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' containment reference.
@@ -2357,15 +2357,15 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getPatternElement_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.PatternElement#getRefNo <em>Ref No</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.PatternElement#getShortPatternInternalId <em>Short Pattern Internal Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ref No</em>'.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getRefNo()
+	 * @return the meta object for the attribute '<em>Short Pattern Internal Id</em>'.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getShortPatternInternalId()
 	 * @see #getPatternElement()
 	 * @generated
 	 */
-	EAttribute getPatternElement_RefNo();
+	EAttribute getPatternElement_ShortPatternInternalId();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location) <em>To XQuery</em>}' operation.
@@ -2946,12 +2946,12 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute PATTERN_ELEMENT__ID = eINSTANCE.getPatternElement_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Ref No</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Short Pattern Internal Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PATTERN_ELEMENT__REF_NO = eINSTANCE.getPatternElement_RefNo();
+		EAttribute PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID = eINSTANCE.getPatternElement_ShortPatternInternalId();
 
 		/**
 		 * The meta object literal for the '<em><b>To XQuery</b></em>' operation.

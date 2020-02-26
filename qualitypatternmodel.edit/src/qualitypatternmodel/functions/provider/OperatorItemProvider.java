@@ -105,7 +105,7 @@ public class OperatorItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Operator operator = (Operator) object;
-		return getString("_UI_Operator_type") + " " + operator.getRefNo();		
+		return getString("_UI_Operator_type") + " " + operator.getShortPatternInternalId();		
 	}
 
 
@@ -119,6 +119,7 @@ public class OperatorItemProvider extends PatternElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

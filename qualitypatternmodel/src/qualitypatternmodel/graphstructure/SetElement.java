@@ -164,14 +164,6 @@ public interface SetElement extends Element {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model depthRequired="true"
-	 * @generated
-	 */
-	String translatePathFromPrevious(int depth);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" depthRequired="true"
 	 * @generated
 	 */

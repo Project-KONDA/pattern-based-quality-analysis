@@ -252,7 +252,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Element element = (Element) object;
-		return getString("_UI_Element_type") + " " + element.getRefNo();			
+		return getString("_UI_Element_type") + " " + element.getShortPatternInternalId();			
 	}
 
 

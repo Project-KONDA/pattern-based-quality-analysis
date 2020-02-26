@@ -525,7 +525,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 */
 	public int getOriginalID() {
 		if (mappingFrom == null)
-			return this.getRefNo();
+			return this.getShortPatternInternalId();
 		else
 			return mappingFrom.getFrom().getOriginalID();
 	}
@@ -733,8 +733,6 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
-				return translatePathFromPrevious();
 			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS:
 				try {
 					copyNextElementsToNextGraphs();

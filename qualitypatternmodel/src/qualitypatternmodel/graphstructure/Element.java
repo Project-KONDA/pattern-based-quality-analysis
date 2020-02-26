@@ -168,6 +168,10 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a <code>String</code> representing the XPath predicates that correspond to the predicates specified for <code>this</code> which require the existence of certain related elements.
+	 * @param location the <code>Location</code> of the <code>Element</code> <code>this</code> in the pattern
+	 * @param depth the nesting depth of the predicates requiring the existence of related elements and correspondingly the nesting depth of the XPath predicate
+	 * @return the <code>String</code> representing the XPath predicates that correspond to the predicates specified for <code>this</code> which require the existence of certain related elements.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" depthRequired="true"
 	 * @generated
@@ -176,6 +180,8 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Adds a predicate which compares a <code>Property</code> of <code>this</code> with an <code>Input</code>.
+	 * For this purpose, new <code>Property</code> and <code>Comparison</code> objects are created automatically.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -184,6 +190,8 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Adds a predicate which matches a <code>Property</code> of <code>this</code> against a regular expression provided via a <code>TextLiteral</code>.
+	 * For this purpose, new <code>Property</code> and <code>Match</code> objects are created automatically.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -192,6 +200,8 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns all following <code>SingleElement</code> and <code>SetElement</code> objects.
+	 * @return an <code>EList</code> containing all following <code>SingleElement</code> and <code>SetElement</code> objects
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -200,6 +210,8 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the <code>SingleElement</code> or <code>SetElement</code> that contains <code>this</code>.
+	 * @return the <code>SingleElement</code> or <code>SetElement</code> that contains <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -208,6 +220,8 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns all <code>Operator</code> objects specified to be predicates of <code>this</code> or of following elements.
+	 * @return the list of <code>Operator</code> objects specified to be predicates of <code>this</code> or of following elements
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -216,6 +230,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns all <code>Input</code> objects .
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -224,6 +239,8 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a <code>String</code> representing the XPath expression for referencing the XQuery equivalent to this <code>Element</code> either via its corresponding XQuery variable or via XPath's context feature.
+	 * @return the <code>String</code> representing the XPath expression for referencing the XQuery equivalent to this <code>Element</code> either via its corresponding XQuery variable or via XPath's context feature
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" depthRequired="true"
 	 * @generated
@@ -231,11 +248,21 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	String getXQueryRepresentation(Location location, int depth) throws InvalidityException;
 
 	/**
-	 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc --> 
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" depthRequired="true"
 	 * @generated
 	 */
 	String getContextRepresentation(int depth) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns a <code>String</code> representing the XPath path expression for navigating from the previous element to <code>this</code> element.
+	 * @return the <code>String</code> representing the XPath path expression for navigating from the previous element to <code>this</code> element.
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String translatePathFromPrevious();
 
 } // Element

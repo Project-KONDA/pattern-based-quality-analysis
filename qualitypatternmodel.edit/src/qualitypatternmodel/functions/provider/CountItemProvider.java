@@ -89,7 +89,7 @@ public class CountItemProvider extends NumberOperatorItemProvider {
 	@Override
 	public String getText(Object object) {
 		Count count = (Count) object;
-		return getString("_UI_Count_type") + " " + count.getRefNo();
+		return getString("_UI_Count_type") + " " + count.getShortPatternInternalId();
 	}
 
 
@@ -103,6 +103,7 @@ public class CountItemProvider extends NumberOperatorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

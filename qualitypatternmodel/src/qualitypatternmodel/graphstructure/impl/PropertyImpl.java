@@ -31,8 +31,12 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.inputfields.impl.PropertyOptionImpl;
+import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.patternstructure.impl.PatternImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -193,6 +197,29 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		return getElement().getAllArgumentElements();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void createInputs() {
+		try {
+			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
+			
+			PropertyOption propertyOption = new PropertyOptionImpl();			
+			pattern.getVariableList().getVariables().add(propertyOption);
+			setPropertyOption(propertyOption);
+			
+			TextLiteral textLiteral = new TextLiteralImpl();
+			pattern.getVariableList().getVariables().add(textLiteral);
+			setAttributeName(textLiteral);
+		} catch (MissingPatternContainerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -510,6 +537,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case GraphstructurePackage.PROPERTY___CREATE_INPUTS:
+				createInputs();
+				return null;
 			case GraphstructurePackage.PROPERTY___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.PROPERTY___IS_TRANSLATABLE:

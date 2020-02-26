@@ -108,7 +108,7 @@ public class TextListImpl extends TextImpl implements TextList {
 	 */
 	@Override
 	public String getListVar() {
-		return LISTVARIABLE + getRefNo();
+		return LISTVARIABLE + getShortPatternInternalId();
 	}
 
 

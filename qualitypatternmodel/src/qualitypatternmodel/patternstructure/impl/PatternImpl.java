@@ -132,7 +132,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		super();
 		setReturnGraph(new GraphImpl());
 		setVariableList(new VariableListImpl(this));
-		getRefNo();
+		getShortPatternInternalId();
 	}
 
 	@Override

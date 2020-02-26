@@ -53,7 +53,7 @@ public class NumberOperatorsItemProvider extends OperatorItemProvider {
 	@Override
 	public String getText(Object object) {
 		NumberOperators numberOperator = (NumberOperators) object;
-		return getString("_UI_NumberOperators_type") + " " + numberOperator.getRefNo();	
+		return getString("_UI_NumberOperators_type") + " " + numberOperator.getShortPatternInternalId();	
 	}
 
 

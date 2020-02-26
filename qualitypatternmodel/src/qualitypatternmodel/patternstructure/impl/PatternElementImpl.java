@@ -36,7 +36,7 @@ import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl#getId <em>Id</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl#getRefNo <em>Ref No</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl#getShortPatternInternalId <em>Short Pattern Internal Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,22 +62,23 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	protected String id = EcoreUtil.generateUUID();
 
 	/**
-	 * The default value of the '{@link #getRefNo() <em>Ref No</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getRefNo()
+	 * The default value of the '{@link #getShortPatternInternalId() <em>Short Pattern Internal Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getShortPatternInternalId()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int REF_NO_EDEFAULT = -1;
+	protected static final int SHORT_PATTERN_INTERNAL_ID_EDEFAULT = -1;
 	/**
-	 * The cached value of the '{@link #getRefNo() <em>Ref No</em>}' attribute. <!--
+	 * The cached value of the '{@link #getShortPatternInternalId() <em>Ref No</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getRefNo()
+	 * @see #getShortPatternInternalId()
 	 * @generated
 	 * @ordered
 	 */
-	protected int refNo = REF_NO_EDEFAULT;
+	protected int shortPatternInternalId = SHORT_PATTERN_INTERNAL_ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -211,34 +212,35 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setShortPatternInternalId(int newShortPatternInternalId) {
+		int oldShortPatternInternalId = shortPatternInternalId;
+		shortPatternInternalId = newShortPatternInternalId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID, oldShortPatternInternalId, shortPatternInternalId));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
 	@Override
-	public int getRefNo() {
-		if (refNo == -1) {
+	public int getShortPatternInternalId() {
+		if (shortPatternInternalId == -1) {
 				try {
-					refNo = ((PatternImpl) this.getAncestor(PatternImpl.class)).getNewRefNo();
+					shortPatternInternalId = ((PatternImpl) this.getAncestor(PatternImpl.class)).getNewRefNo();
 				} catch (MissingPatternContainerException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
 		}
-		return refNo;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRefNo(int newRefNo) {
-		int oldRefNo = refNo;
-		refNo = newRefNo;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN_ELEMENT__REF_NO, oldRefNo, refNo));
+		return shortPatternInternalId;
 	}
 
 	/**
@@ -257,8 +259,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
 				return getId();
-			case PatternstructurePackage.PATTERN_ELEMENT__REF_NO:
-				return getRefNo();
+			case PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID:
+				return getShortPatternInternalId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -273,8 +275,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
 				setId((String)newValue);
 				return;
-			case PatternstructurePackage.PATTERN_ELEMENT__REF_NO:
-				setRefNo((Integer)newValue);
+			case PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID:
+				setShortPatternInternalId((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -290,8 +292,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case PatternstructurePackage.PATTERN_ELEMENT__REF_NO:
-				setRefNo(REF_NO_EDEFAULT);
+			case PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID:
+				setShortPatternInternalId(SHORT_PATTERN_INTERNAL_ID_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -306,8 +308,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case PatternstructurePackage.PATTERN_ELEMENT__REF_NO:
-				return refNo != REF_NO_EDEFAULT;
+			case PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID:
+				return shortPatternInternalId != SHORT_PATTERN_INTERNAL_ID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -384,8 +386,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: ");
 		result.append(id);
-		result.append(", refNo: ");
-		result.append(refNo);
+		result.append(", shortPatternInternalId: ");
+		result.append(shortPatternInternalId);
 		result.append(')');
 		return result.toString();
 	}

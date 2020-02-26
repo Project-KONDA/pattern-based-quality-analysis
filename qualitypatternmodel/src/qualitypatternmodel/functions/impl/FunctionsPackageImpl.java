@@ -252,6 +252,16 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getBooleanOperator__CreateInputs() {
+		return booleanOperatorEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOperator() {
 		return operatorEClass;
 	}
@@ -559,6 +569,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEReference(booleanOperatorEClass, BOOLEAN_OPERATOR__ELEMENTS);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___CREATE_INPUTS);
 
 		operatorEClass = createEClass(OPERATOR);
 		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
@@ -654,6 +665,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		op = initEOperation(getBooleanOperator__RemoveElement__Element(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theGraphstructurePackage.getElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getBooleanOperator__CreateInputs(), null, "createInputs", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

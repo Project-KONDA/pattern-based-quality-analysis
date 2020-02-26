@@ -53,4 +53,12 @@ public interface BooleanOperator extends Operator {
 	 * @generated
 	 */
 	void removeElement(Element element);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void createInputs();
 } // BooleanOperator

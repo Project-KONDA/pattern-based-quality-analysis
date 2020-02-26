@@ -175,7 +175,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Pattern pattern = (Pattern) object;
-		String text = getString("_UI_Pattern_type") + " " + pattern.getRefNo();
+		String text = getString("_UI_Pattern_type") + " " + pattern.getShortPatternInternalId();
 		if(pattern.getName() != null) {
 			text += " " + pattern.getName();
 		}

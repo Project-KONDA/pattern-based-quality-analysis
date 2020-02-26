@@ -155,7 +155,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 		if (getPreviousSet() != null && getPreviousSingle() != null) {
 			throw new InvalidityException("previous invalid");
 		}		
-		String xPathExpression = translatePathFromPrevious(depth);
+		String xPathExpression = translatePathFromPrevious();
 		xPathExpression += translatePredicates(location, depth + 1);
 		xPathExpression += translateElementExistencePredicates(location, depth + 1);
 		beingTranslated = false;
@@ -304,7 +304,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	}
 
 	@Override
-	public String translatePathFromPrevious(int depth) {
+	public String translatePathFromPrevious() {
 //		System.out.println("translatePathFromPrevious: " + relationFromPrevious.getAxis());
 		return "/" + relationFromPrevious.getAxis() + "::*";
 	}
@@ -650,8 +650,6 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS__INT:
-				return translatePathFromPrevious((Integer)arguments.get(0));
 			case GraphstructurePackage.SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT:
 				try {
 					return translatePredicates((Location)arguments.get(0), (Integer)arguments.get(1));

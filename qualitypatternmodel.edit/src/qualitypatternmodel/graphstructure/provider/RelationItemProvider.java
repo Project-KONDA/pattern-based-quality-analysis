@@ -141,7 +141,7 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Relation relation = (Relation) object;
-		return getString("_UI_Relation_type") + " " + relation.getRefNo() + " " + relation.getAxis().getName();
+		return getString("_UI_Relation_type") + " " + relation.getShortPatternInternalId() + " " + relation.getAxis().getName();
 	}
 
 

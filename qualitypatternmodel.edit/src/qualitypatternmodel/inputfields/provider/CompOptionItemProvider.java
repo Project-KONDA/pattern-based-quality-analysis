@@ -114,7 +114,7 @@ public class CompOptionItemProvider extends InputItemProvider {
 	@Override
 	public String getText(Object object) {
 		CompOption compOption = (CompOption) object;
-		return getString("_UI_CompOption_type") + " " + compOption.getRefNo() + " " + compOption.getValue().getName();
+		return getString("_UI_CompOption_type") + " " + compOption.getShortPatternInternalId() + " " + compOption.getValue().getName();
 	}
 
 

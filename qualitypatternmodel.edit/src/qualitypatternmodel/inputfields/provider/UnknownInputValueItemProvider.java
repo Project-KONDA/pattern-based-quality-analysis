@@ -129,6 +129,7 @@ public class UnknownInputValueItemProvider extends InputItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

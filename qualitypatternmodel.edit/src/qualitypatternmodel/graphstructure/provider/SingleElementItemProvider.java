@@ -144,7 +144,7 @@ public class SingleElementItemProvider extends ElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		SingleElement singleElement = (SingleElement) object;
-		return getString("_UI_SingleElement_type") + " " + singleElement.getRefNo();
+		return getString("_UI_SingleElement_type") + " " + singleElement.getShortPatternInternalId();
 		
 //		String label = ((SingleElement)object).getId();
 //		return label == null || label.length() == 0 ?

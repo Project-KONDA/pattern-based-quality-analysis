@@ -32,8 +32,11 @@ import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputValue;
 import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.impl.CompOptionImpl;
 import qualitypatternmodel.inputfields.impl.InputImpl;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.impl.PatternImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -105,7 +108,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated NOT
 	 */
 	public ComparisonImpl() {
-		super();
+		super();		
 	}
 
 	@Override
@@ -291,6 +294,20 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		list.add(argument1);
 		list.add(argument2);
 		return list;
+	}
+	
+	@Override
+	public void createInputs() {
+		try {
+			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
+			
+			CompOption compOption = new CompOptionImpl();			
+			pattern.getVariableList().getVariables().add(compOption);
+			setOption(compOption);			
+		} catch (MissingPatternContainerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**

@@ -90,7 +90,7 @@ public class NumberItemProvider extends InputValueItemProvider {
 	@Override
 	public String getText(Object object) {
 		qualitypatternmodel.inputfields.Number number = (qualitypatternmodel.inputfields.Number) object;
-		String text = getString("_UI_Number_type") + " " + number.getRefNo();
+		String text = getString("_UI_Number_type") + " " + number.getShortPatternInternalId();
 		if(number.getValue() != null) {
 			text += " " + number.getValue();
 		}

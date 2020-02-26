@@ -105,7 +105,7 @@ public class InputItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Input input = (Input) object;
-		return getString("_UI_Input_type") + " " + input.getRefNo();	
+		return getString("_UI_Input_type") + " " + input.getShortPatternInternalId();	
 	}
 
 

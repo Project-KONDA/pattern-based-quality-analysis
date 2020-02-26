@@ -4,7 +4,7 @@
  */
 package qualitypatternmodel.functions.validation;
 
-import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.CompOption;
 
 /**
@@ -16,7 +16,11 @@ import qualitypatternmodel.inputfields.CompOption;
 public interface ComparisonValidator {
 	boolean validate();
 
-	boolean validateArgument1(Comparable value);
+	boolean validateArgument1(qualitypatternmodel.graphstructure.Comparable value);
+
 	boolean validateOption(CompOption value);
-	boolean validateArgument2(Comparable value);
+	boolean validateArgument2(qualitypatternmodel.graphstructure.Comparable value);
+
+	boolean validateType(ReturnType value);
+
 }

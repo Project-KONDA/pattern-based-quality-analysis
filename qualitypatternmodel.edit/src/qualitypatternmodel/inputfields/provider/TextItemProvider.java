@@ -51,7 +51,7 @@ public class TextItemProvider extends InputValueItemProvider {
 	@Override
 	public String getText(Object object) {
 		Text txt = (Text) object;
-		String text = getString("_UI_Text_type") + " " + txt.getRefNo();
+		String text = getString("_UI_Text_type") + " " + txt.getShortPatternInternalId();
 //		if(txt.getValue() != null) {
 //			text += " " + txt.getValue();
 //		}
@@ -69,6 +69,7 @@ public class TextItemProvider extends InputValueItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
