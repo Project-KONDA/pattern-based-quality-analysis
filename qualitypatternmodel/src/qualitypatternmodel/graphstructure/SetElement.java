@@ -171,6 +171,8 @@ public interface SetElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a list of all elements on the path between <code>this</code> and the preceding <code>SingleElement</code>.
+	 * @return the list of all elements on the path between <code>this</code> and the preceding <code>SingleElement</code>.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" dataType="qualitypatternmodel.graphstructure.ListOfElements" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -179,6 +181,8 @@ public interface SetElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a list containing the list of all elements on the path between <code>this</code> and the preceding <code>SingleElement</code>.
+	 * @return the list containing the list of all elements on the path between <code>this</code> and the preceding <code>SingleElement</code>.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" dataType="qualitypatternmodel.graphstructure.ListOfElements" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
