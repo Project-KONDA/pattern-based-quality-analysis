@@ -105,7 +105,7 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * check of constraints 
+	 * calls isValid to check model constraints for current element
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -114,6 +114,7 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * get element, which directly contain the current element
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
@@ -122,6 +123,9 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * call isValidLocal and isValid of all contained elements
+	 * @param isDefinedPattern true, if all input elements shall have assigned a concrete value
+	 * @throws InvalidityException when the current or one contained model element is invalid
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
@@ -130,12 +134,25 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * check validity of the variables of the current model element. Does not check contained elements 
+	 * @param isDefinedPattern true, if the current element extends Input and shall have assigned a concrete value
+	 * if the current element does not extend Input, the parameter does not have an impact
+	 * @throws InvalidityException when the current model element is invalid
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
 	 */
 	void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
-
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Iterates up through the model instance hierarchy and returns the first element of the desired class.  
+	 * @param type of expected element to return
+	 * @return Model Element of type cls
+	 * @throws MissingPatternContainerException if no element of the expected type is in the model hierarchy above the current element 
+	 * or one container element does not extend the type PatternElement. 
+	 * <!-- end-user-doc -->
+	 */
 	PatternElement getAncestor(Class<?> cls) throws MissingPatternContainerException;
 
 } // PatternElement

@@ -8,6 +8,7 @@ import qualitypatternmodel.graphstructure.Graph;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Quantified Condition</b></em>'.
+ * This represents either an Exists or a Forall condition
  * <!-- end-user-doc -->
  *
  * <p>
