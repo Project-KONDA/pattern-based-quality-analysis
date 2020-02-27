@@ -193,7 +193,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public EList<Input> getAllInputs() throws InvalidityException {
 		EList<Input> inputs = returnGraph.getAllInputs();
@@ -239,7 +240,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public void setReturnGraph(Graph newReturnGraph) {

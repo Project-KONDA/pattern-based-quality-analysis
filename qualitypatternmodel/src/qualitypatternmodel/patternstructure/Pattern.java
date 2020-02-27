@@ -12,6 +12,7 @@ import qualitypatternmodel.inputfields.VariableList;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pattern</b></em>'.
  * Root class for Pattern. Contains the general UI Interfaces for external use.
+ * Basic container class for all model elements for the structural representation of a Pattern. 
  * <!-- end-user-doc -->
  *
  * <p>
@@ -179,6 +180,9 @@ public interface Pattern extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Basic Element counter: generates smallest locally unique (inside of patter) integer id
+	 * secures small representation variables for the translation to XQuery     
+	 * @return next Integer Value, which was not returned in the lifetime of the pattern before
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
 	 * @generated

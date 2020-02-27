@@ -15,6 +15,7 @@ import qualitypatternmodel.inputfields.Input;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pattern Element</b></em>'.
+ * Abstract Class, which implements all basic methods needed by all classes, which are part of the structure of the Pattern.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -77,6 +78,7 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Translates the structure of the model instance into an XQuery expression
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -85,6 +87,7 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * iterates over all contained elements and returns all contained model elements, that extend the Input class 
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -93,6 +96,7 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Initialization of the translation to XQuery of the model instance 
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -101,6 +105,7 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * check of constraints 
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
