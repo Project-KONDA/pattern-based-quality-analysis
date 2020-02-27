@@ -108,11 +108,11 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	public String toXQuery(Location location) throws InvalidityException {
 		translated = true;
 		String xPathExpression = translatePathFromPrevious();
-		String xPredicates = translatePredicates(location);
+		String xPredicates = translatePredicates(location); // TODO: remove brackets, add AND
 
 		String result = "";
 		if (location == Location.RETURN) {
-			result = FOR + getXQueryVariable() + IN + xPathExpression + xPredicates;
+			result = FOR + getXQueryVariable() + IN + xPathExpression + xPredicates; // TODO: remove xPredicates
 		} else {
 			if (location == Location.EXISTS) {
 				result += SOME;
@@ -129,11 +129,14 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			} else {
 				result = "";
 			}
+			// TODO: result += not + "(" + xPredicates + ")" + OR + "(";
 		}
 
 		for (Element nextElement : getNextSingle()) {			
 			result += nextElement.toXQuery(location);			
 		}
+		
+		// TODO: result += ")";
 
 		return result;
 	}
@@ -248,7 +251,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		predicatesAreBeingTranslated = true;
 		for (BooleanOperator predicate : predicates) {
 			if (predicate.isTranslatable()) {
-				xPredicates += "[" + predicate.toXQuery(location) + "]";
+				xPredicates += "[" + predicate.toXQuery(location) + "]"; // TODO: remove brackets, add AND
 			}
 		}
 		predicatesAreBeingTranslated = false;
@@ -296,7 +299,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public String getXQueryRepresentation(Location location, int depth) throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
-			return getContextRepresentation(depth);
+			return getContextRepresentation(depth); // TODO: remove
 		} else {
 			if (translated) {
 				return getXQueryVariable();

@@ -101,4 +101,12 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 */
 	void createInputs();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeInputsFromVariableList();
+
 } // Property

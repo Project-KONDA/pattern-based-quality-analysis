@@ -321,6 +321,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getProperty__RemoveInputsFromVariableList() {
+		return propertyEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getSingleElement() {
 		return singleElementEClass;
 	}
@@ -1036,6 +1046,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(propertyEClass, PROPERTY__ELEMENT);
 		createEReference(propertyEClass, PROPERTY__ATTRIBUTE_NAME);
 		createEOperation(propertyEClass, PROPERTY___CREATE_INPUTS);
+		createEOperation(propertyEClass, PROPERTY___REMOVE_INPUTS_FROM_VARIABLE_LIST);
 
 		singleElementEClass = createEClass(SINGLE_ELEMENT);
 		createEReference(singleElementEClass, SINGLE_ELEMENT__MAPPING_TO);
@@ -1174,6 +1185,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEReference(getProperty_AttributeName(), theInputfieldsPackage.getTextLiteral(), null, "attributeName", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getProperty__CreateInputs(), null, "createInputs", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getProperty__RemoveInputsFromVariableList(), null, "removeInputsFromVariableList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(singleElementEClass, SingleElement.class, "SingleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSingleElement_MappingTo(), thePatternstructurePackage.getSingleElementMapping(), thePatternstructurePackage.getSingleElementMapping_From(), "mappingTo", null, 0, -1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -153,16 +153,39 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			
-			Boolean bool = new BooleanImpl();			
-			pattern.getVariableList().getVariables().add(bool);
-			setOption(bool);
-			
-			TextLiteral textLiteral = new TextLiteralImpl();
-			pattern.getVariableList().getVariables().add(textLiteral);
-			setRegularExpression(textLiteral);
+			if(getOption() == null) {
+				Boolean bool = new BooleanImpl();			
+				pattern.getVariableList().getVariables().add(bool);
+				setOption(bool);
+			} else {
+				pattern.getVariableList().getVariables().add(getOption());
+			}
+			if(getRegularExpression() == null) {
+				TextLiteral textLiteral = new TextLiteralImpl();
+				pattern.getVariableList().getVariables().add(textLiteral);
+				setRegularExpression(textLiteral);
+			} else {
+				pattern.getVariableList().getVariables().add(getRegularExpression());
+			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void removeInputsFromVariableList() {
+		try {
+			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
+			pattern.getVariableList().getVariables().remove(getOption());
+		} catch (MissingPatternContainerException e) {
+			// since this comparison is not contained in a pattern, do nothing
+		}
+		try {
+			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
+			pattern.getVariableList().getVariables().remove(getRegularExpression());
+		} catch (MissingPatternContainerException e) {
+			// since this comparison is not contained in a pattern, do nothing
 		}
 	}
 	

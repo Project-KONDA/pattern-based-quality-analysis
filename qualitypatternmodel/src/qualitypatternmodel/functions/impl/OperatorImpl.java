@@ -5,13 +5,16 @@ package qualitypatternmodel.functions.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -19,6 +22,7 @@ import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -36,6 +40,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.impl.OperatorImpl#getComparison1 <em>Comparison1</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.OperatorImpl#getComparison2 <em>Comparison2</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.impl.OperatorImpl#getOperatorList <em>Operator List</em>}</li>
  * </ul>
  *
  * @generated
@@ -208,6 +213,10 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison1()).basicAdd(otherEnd, msgs);
 			case FunctionsPackage.OPERATOR__COMPARISON2:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison2()).basicAdd(otherEnd, msgs);
+			case FunctionsPackage.OPERATOR__OPERATOR_LIST:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetOperatorList((OperatorList)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -224,8 +233,24 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 				return ((InternalEList<?>)getComparison1()).basicRemove(otherEnd, msgs);
 			case FunctionsPackage.OPERATOR__COMPARISON2:
 				return ((InternalEList<?>)getComparison2()).basicRemove(otherEnd, msgs);
+			case FunctionsPackage.OPERATOR__OPERATOR_LIST:
+				return basicSetOperatorList(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case FunctionsPackage.OPERATOR__OPERATOR_LIST:
+				return eInternalContainer().eInverseRemove(this, FunctionsPackage.OPERATOR_LIST__OPERATORS, OperatorList.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 /**
@@ -240,6 +265,8 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 				return getComparison1();
 			case FunctionsPackage.OPERATOR__COMPARISON2:
 				return getComparison2();
+			case FunctionsPackage.OPERATOR__OPERATOR_LIST:
+				return getOperatorList();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -261,6 +288,9 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 				getComparison2().clear();
 				getComparison2().addAll((Collection<? extends Comparison>)newValue);
 				return;
+			case FunctionsPackage.OPERATOR__OPERATOR_LIST:
+				setOperatorList((OperatorList)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -279,6 +309,9 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 			case FunctionsPackage.OPERATOR__COMPARISON2:
 				getComparison2().clear();
 				return;
+			case FunctionsPackage.OPERATOR__OPERATOR_LIST:
+				setOperatorList((OperatorList)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -295,6 +328,8 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 				return comparison1 != null && !comparison1.isEmpty();
 			case FunctionsPackage.OPERATOR__COMPARISON2:
 				return comparison2 != null && !comparison2.isEmpty();
+			case FunctionsPackage.OPERATOR__OPERATOR_LIST:
+				return getOperatorList() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -333,6 +368,49 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, FunctionsPackage.OPERATOR__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
 		}
 		return comparison2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public OperatorList getOperatorList() {
+		if (eContainerFeatureID() != FunctionsPackage.OPERATOR__OPERATOR_LIST) return null;
+		return (OperatorList)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newOperatorList, FunctionsPackage.OPERATOR__OPERATOR_LIST, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOperatorList(OperatorList newOperatorList) {
+		if (newOperatorList != eInternalContainer() || (eContainerFeatureID() != FunctionsPackage.OPERATOR__OPERATOR_LIST && newOperatorList != null)) {
+			if (EcoreUtil.isAncestor(this, newOperatorList))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newOperatorList != null)
+				msgs = ((InternalEObject)newOperatorList).eInverseAdd(this, FunctionsPackage.OPERATOR_LIST__OPERATORS, OperatorList.class, msgs);
+			msgs = basicSetOperatorList(newOperatorList, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.OPERATOR__OPERATOR_LIST, newOperatorList, newOperatorList));
 	}
 
 	/**

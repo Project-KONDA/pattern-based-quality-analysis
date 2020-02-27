@@ -32,11 +32,9 @@ import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputValue;
 import qualitypatternmodel.inputfields.Text;
-import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.impl.CompOptionImpl;
 import qualitypatternmodel.inputfields.impl.InputImpl;
-import qualitypatternmodel.inputfields.impl.TextListImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.impl.PatternImpl;
@@ -317,12 +315,26 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			
-			CompOption compOption = new CompOptionImpl();			
-			pattern.getVariableList().getVariables().add(compOption);
-			setOption(compOption);			
+			if(getOption() == null) {
+				CompOption compOption = new CompOptionImpl();			
+				pattern.getVariableList().getVariables().add(compOption);
+				setOption(compOption);			
+			} else {
+				pattern.getVariableList().getVariables().add(getOption());
+			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void removeInputsFromVariableList() {
+		try {
+			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
+			pattern.getVariableList().getVariables().remove(getOption());
+		} catch (MissingPatternContainerException e) {
+			// since this comparison is not contained in a pattern, do nothing
 		}
 	}
 	

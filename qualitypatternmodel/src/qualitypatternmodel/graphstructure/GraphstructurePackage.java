@@ -597,13 +597,22 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___CREATE_INPUTS = COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___REMOVE_INPUTS_FROM_VARIABLE_LIST = COMPARABLE_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 1;
+	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -2191,6 +2200,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getProperty__CreateInputs();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Inputs From Variable List</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#removeInputsFromVariableList()
+	 * @generated
+	 */
+	EOperation getProperty__RemoveInputsFromVariableList();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.SingleElement <em>Single Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3015,6 +3034,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PROPERTY___CREATE_INPUTS = eINSTANCE.getProperty__CreateInputs();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Inputs From Variable List</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY___REMOVE_INPUTS_FROM_VARIABLE_LIST = eINSTANCE.getProperty__RemoveInputsFromVariableList();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.

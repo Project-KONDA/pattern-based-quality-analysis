@@ -262,8 +262,28 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getBooleanOperator__RemoveInputsFromVariableList() {
+		return booleanOperatorEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOperator() {
 		return operatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOperator_OperatorList() {
+		return (EReference)operatorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -503,7 +523,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 */
 	@Override
 	public EReference getOperatorList_Operators() {
-		return (EReference)operatorListEClass.getEStructuralFeatures().get(0);
+		return (EReference)operatorListEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -513,7 +533,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 */
 	@Override
 	public EReference getOperatorList_Graph() {
-		return (EReference)operatorListEClass.getEStructuralFeatures().get(1);
+		return (EReference)operatorListEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -570,8 +590,10 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___CREATE_INPUTS);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST);
 
 		operatorEClass = createEClass(OPERATOR);
+		createEReference(operatorEClass, OPERATOR__OPERATOR_LIST);
 		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
 		createEOperation(operatorEClass, OPERATOR___GET_ROOT_BOOLEAN_OPERATORS);
 		createEOperation(operatorEClass, OPERATOR___IS_CYCLE_FREE__ELIST);
@@ -602,8 +624,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEReference(toNumberEClass, TO_NUMBER__PROPERTY);
 
 		operatorListEClass = createEClass(OPERATOR_LIST);
-		createEReference(operatorListEClass, OPERATOR_LIST__OPERATORS);
 		createEReference(operatorListEClass, OPERATOR_LIST__GRAPH);
+		createEReference(operatorListEClass, OPERATOR_LIST__OPERATORS);
 
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
@@ -668,7 +690,10 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		initEOperation(getBooleanOperator__CreateInputs(), null, "createInputs", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getBooleanOperator__RemoveInputsFromVariableList(), null, "removeInputsFromVariableList", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperator_OperatorList(), this.getOperatorList(), this.getOperatorList_Operators(), "operatorList", null, 1, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getOperator__GetAllOperators(), this.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
@@ -719,8 +744,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		initEReference(getToNumber_Property(), theGraphstructurePackage.getProperty(), null, "property", null, 1, 1, ToNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operatorListEClass, OperatorList.class, "OperatorList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOperatorList_Operators(), this.getOperator(), null, "operators", null, 0, -1, OperatorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperatorList_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_OperatorList(), "graph", null, 1, 1, OperatorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperatorList_Operators(), this.getOperator(), this.getOperator_OperatorList(), "operators", null, 0, -1, OperatorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");

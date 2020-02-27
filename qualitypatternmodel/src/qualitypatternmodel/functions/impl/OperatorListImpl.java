@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,8 +32,8 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.functions.impl.OperatorListImpl#getOperators <em>Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.OperatorListImpl#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.impl.OperatorListImpl#getOperators <em>Operators</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,7 +105,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	@Override
 	public EList<Operator> getOperators() {
 		if (operators == null) {
-			operators = new EObjectContainmentEList<Operator>(Operator.class, this, FunctionsPackage.OPERATOR_LIST__OPERATORS);
+			operators = new EObjectContainmentWithInverseEList<Operator>(Operator.class, this, FunctionsPackage.OPERATOR_LIST__OPERATORS, FunctionsPackage.OPERATOR__OPERATOR_LIST);
 		}
 		return operators;
 	}
@@ -154,6 +154,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -161,6 +162,8 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetGraph((Graph)otherEnd, msgs);
+			case FunctionsPackage.OPERATOR_LIST__OPERATORS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOperators()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -172,10 +175,10 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case FunctionsPackage.OPERATOR_LIST__OPERATORS:
-				return ((InternalEList<?>)getOperators()).basicRemove(otherEnd, msgs);
 			case FunctionsPackage.OPERATOR_LIST__GRAPH:
 				return basicSetGraph(null, msgs);
+			case FunctionsPackage.OPERATOR_LIST__OPERATORS:
+				return ((InternalEList<?>)getOperators()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -200,10 +203,10 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FunctionsPackage.OPERATOR_LIST__OPERATORS:
-				return getOperators();
 			case FunctionsPackage.OPERATOR_LIST__GRAPH:
 				return getGraph();
+			case FunctionsPackage.OPERATOR_LIST__OPERATORS:
+				return getOperators();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,12 +219,12 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case FunctionsPackage.OPERATOR_LIST__GRAPH:
+				setGraph((Graph)newValue);
+				return;
 			case FunctionsPackage.OPERATOR_LIST__OPERATORS:
 				getOperators().clear();
 				getOperators().addAll((Collection<? extends Operator>)newValue);
-				return;
-			case FunctionsPackage.OPERATOR_LIST__GRAPH:
-				setGraph((Graph)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -234,11 +237,11 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FunctionsPackage.OPERATOR_LIST__OPERATORS:
-				getOperators().clear();
-				return;
 			case FunctionsPackage.OPERATOR_LIST__GRAPH:
 				setGraph((Graph)null);
+				return;
+			case FunctionsPackage.OPERATOR_LIST__OPERATORS:
+				getOperators().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -251,10 +254,10 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FunctionsPackage.OPERATOR_LIST__OPERATORS:
-				return operators != null && !operators.isEmpty();
 			case FunctionsPackage.OPERATOR_LIST__GRAPH:
 				return getGraph() != null;
+			case FunctionsPackage.OPERATOR_LIST__OPERATORS:
+				return operators != null && !operators.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -135,6 +136,36 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public void removeInputsFromVariableList() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
+		if(newOperatorList == null) {
+			removeInputsFromVariableList();
+		}
+		msgs = super.basicSetOperatorList(newOperatorList, msgs);
+		if(newOperatorList != null) {
+			createInputs();
+		}
+		
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -235,6 +266,9 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 				return null;
 			case FunctionsPackage.BOOLEAN_OPERATOR___CREATE_INPUTS:
 				createInputs();
+				return null;
+			case FunctionsPackage.BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST:
+				removeInputsFromVariableList();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

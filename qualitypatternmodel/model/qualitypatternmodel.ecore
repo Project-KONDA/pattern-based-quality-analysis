@@ -86,6 +86,7 @@
         <eParameters name="element" eType="#//graphstructure/Element"/>
       </eOperations>
       <eOperations name="createInputs"/>
+      <eOperations name="removeInputsFromVariableList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/predicates"/>
     </eClassifiers>
@@ -107,6 +108,8 @@
           </eGenericType>
         </eParameters>
       </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
+          eType="#//functions/OperatorList" eOpposite="#//functions/OperatorList/operators"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//functions/NumberOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
@@ -148,10 +151,10 @@
       <eLiterals name="NOTEQUAL" value="5" literal="!="/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OperatorList" eSuperTypes="#//patternstructure/PatternElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="operators" upperBound="-1"
-          eType="#//functions/Operator" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/operatorList"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operators" upperBound="-1"
+          eType="#//functions/Operator" containment="true" eOpposite="#//functions/Operator/operatorList"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="OperatorCycleExceptionWrapper"
         instanceClassName="qualitypatternmodel.exceptions.OperatorCycleException"/>
@@ -181,6 +184,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
       <eOperations name="createInputs"/>
+      <eOperations name="removeInputsFromVariableList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOption" lowerBound="1"
           eType="#//inputfields/PropertyOption"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"

@@ -14,6 +14,7 @@ import qualitypatternmodel.functions.BooleanOperator;
  *   <li>{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.BooleanOperator#createInputs() <em>Create Inputs</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.BooleanOperator#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -75,6 +76,19 @@ public abstract class BooleanOperatorTest extends OperatorTest {
 	 * @generated
 	 */
 	public void testCreateInputs() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.BooleanOperator#removeInputsFromVariableList()
+	 * @generated
+	 */
+	public void testRemoveInputsFromVariableList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

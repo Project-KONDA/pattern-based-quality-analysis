@@ -109,13 +109,22 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR__COMPARISON2 = GraphstructurePackage.COMPARABLE__COMPARISON2;
 
 	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR__OPERATOR_LIST = GraphstructurePackage.COMPARABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_FEATURE_COUNT = GraphstructurePackage.COMPARABLE_FEATURE_COUNT + 0;
+	int OPERATOR_FEATURE_COUNT = GraphstructurePackage.COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -326,6 +335,15 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR__COMPARISON2 = OPERATOR__COMPARISON2;
 
 	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR__OPERATOR_LIST = OPERATOR__OPERATOR_LIST;
+
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -524,13 +542,22 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___CREATE_INPUTS = OPERATOR_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST = OPERATOR_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 3;
+	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
@@ -577,6 +604,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATOR__COMPARISON2 = OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR__OPERATOR_LIST = OPERATOR__OPERATOR_LIST;
 
 	/**
 	 * The number of structural features of the '<em>Number Operator</em>' class.
@@ -794,6 +830,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT__COMPARISON2 = NUMBER_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT__OPERATOR_LIST = NUMBER_OPERATOR__OPERATOR_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Argument</b></em>' reference.
@@ -1022,6 +1067,15 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATOR__COMPARISON2 = OPERATOR__COMPARISON2;
 
 	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER_OPERATOR__OPERATOR_LIST = OPERATOR__OPERATOR_LIST;
+
+	/**
 	 * The number of structural features of the '<em>Other Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1237,6 +1291,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH__COMPARISON2 = BOOLEAN_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH__OPERATOR_LIST = BOOLEAN_OPERATOR__OPERATOR_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -1464,6 +1527,15 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___CREATE_INPUTS = BOOLEAN_OPERATOR___CREATE_INPUTS;
 
 	/**
+	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___REMOVE_INPUTS_FROM_VARIABLE_LIST = BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST;
+
+	/**
 	 * The number of operations of the '<em>Match</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1517,6 +1589,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON__COMPARISON2 = BOOLEAN_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON__OPERATOR_LIST = BOOLEAN_OPERATOR__OPERATOR_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -1753,6 +1834,15 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___CREATE_INPUTS = BOOLEAN_OPERATOR___CREATE_INPUTS;
 
 	/**
+	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___REMOVE_INPUTS_FROM_VARIABLE_LIST = BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST;
+
+	/**
 	 * The operation id for the '<em>Set Type According To Argument</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1815,6 +1905,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TO_NUMBER__COMPARISON2 = NUMBER_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TO_NUMBER__OPERATOR_LIST = NUMBER_OPERATOR__OPERATOR_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' reference.
@@ -2025,22 +2124,22 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR_LIST__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Operators</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST__OPERATORS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int OPERATOR_LIST__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operators</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST__OPERATORS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Operator List</em>' class.
@@ -2205,6 +2304,16 @@ public interface FunctionsPackage extends EPackage {
 	EOperation getBooleanOperator__CreateInputs();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Inputs From Variable List</em>' operation.
+	 * @see qualitypatternmodel.functions.BooleanOperator#removeInputsFromVariableList()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__RemoveInputsFromVariableList();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Operator <em>Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2213,6 +2322,17 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOperator();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.functions.Operator#getOperatorList <em>Operator List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Operator List</em>'.
+	 * @see qualitypatternmodel.functions.Operator#getOperatorList()
+	 * @see #getOperator()
+	 * @generated
+	 */
+	EReference getOperator_OperatorList();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Operator#getAllOperators() <em>Get All Operators</em>}' operation.
@@ -2562,6 +2682,14 @@ public interface FunctionsPackage extends EPackage {
 		EOperation BOOLEAN_OPERATOR___CREATE_INPUTS = eINSTANCE.getBooleanOperator__CreateInputs();
 
 		/**
+		 * The meta object literal for the '<em><b>Remove Inputs From Variable List</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST = eINSTANCE.getBooleanOperator__RemoveInputsFromVariableList();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OperatorImpl <em>Operator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2570,6 +2698,14 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OPERATOR = eINSTANCE.getOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator List</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATOR__OPERATOR_LIST = eINSTANCE.getOperator_OperatorList();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.

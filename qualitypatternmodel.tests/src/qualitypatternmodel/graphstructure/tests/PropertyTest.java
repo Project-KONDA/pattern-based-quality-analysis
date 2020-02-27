@@ -16,6 +16,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#createInputs() <em>Create Inputs</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int) <em>To XQuery</em>}</li>
@@ -86,6 +87,19 @@ public class PropertyTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testCreateInputs() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Property#removeInputsFromVariableList()
+	 * @generated
+	 */
+	public void testRemoveInputsFromVariableList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

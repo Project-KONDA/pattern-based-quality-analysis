@@ -4,6 +4,8 @@
  */
 package qualitypatternmodel.functions.validation;
 
+import qualitypatternmodel.functions.OperatorList;
+
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.functions.Operator}.
@@ -13,5 +15,7 @@ package qualitypatternmodel.functions.validation;
  */
 public interface OperatorValidator {
 	boolean validate();
+
+	boolean validateOperatorList(OperatorList value);
 
 }

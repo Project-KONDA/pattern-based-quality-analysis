@@ -207,13 +207,20 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			
-			PropertyOption propertyOption = new PropertyOptionImpl();			
-			pattern.getVariableList().getVariables().add(propertyOption);
-			setPropertyOption(propertyOption);
-			
-			TextLiteral textLiteral = new TextLiteralImpl();
-			pattern.getVariableList().getVariables().add(textLiteral);
-			setAttributeName(textLiteral);
+			if(getPropertyOption() == null) {
+				PropertyOption propertyOption = new PropertyOptionImpl();			
+				pattern.getVariableList().getVariables().add(propertyOption);
+				setPropertyOption(propertyOption);
+			} else {
+				pattern.getVariableList().getVariables().add(getPropertyOption());
+			}
+			if(getAttributeName() == null) {
+				TextLiteral textLiteral = new TextLiteralImpl();
+				pattern.getVariableList().getVariables().add(textLiteral);
+				setAttributeName(textLiteral);
+			} else {
+				pattern.getVariableList().getVariables().add(getAttributeName());
+			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -309,11 +316,33 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
+		if(newElement == null) {
+			removeInputsFromVariableList();		
+		}
 		msgs = eBasicSetContainer((InternalEObject)newElement, GraphstructurePackage.PROPERTY__ELEMENT, msgs);
+		if(newElement != null) {
+			createInputs();
+		} 
 		return msgs;
+	}
+
+	@Override
+	public void removeInputsFromVariableList() {
+		try {
+			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
+			pattern.getVariableList().getVariables().remove(getPropertyOption());
+		} catch (MissingPatternContainerException e) {
+			// since this property is not contained in a pattern, do nothing
+		}				
+		try {
+			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
+			pattern.getVariableList().getVariables().remove(getAttributeName());
+		} catch (MissingPatternContainerException e) {
+			// since this property is not contained in a pattern, do nothing
+		}
 	}
 
 	/**
@@ -539,6 +568,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		switch (operationID) {
 			case GraphstructurePackage.PROPERTY___CREATE_INPUTS:
 				createInputs();
+				return null;
+			case GraphstructurePackage.PROPERTY___REMOVE_INPUTS_FROM_VARIABLE_LIST:
+				removeInputsFromVariableList();
 				return null;
 			case GraphstructurePackage.PROPERTY___GET_RETURN_TYPE:
 				return getReturnType();

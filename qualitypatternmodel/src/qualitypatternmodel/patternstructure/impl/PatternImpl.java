@@ -244,7 +244,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 */
 	@Override
 	public void setReturnGraph(Graph newReturnGraph) {
-		if (newReturnGraph != returnGraph && newReturnGraph != null) {
+		if (newReturnGraph != returnGraph) {
 			NotificationChain msgs = null;
 			if (returnGraph != null)
 				msgs = ((InternalEObject)returnGraph).eInverseRemove(this, GraphstructurePackage.GRAPH__PATTERN, Graph.class, msgs);

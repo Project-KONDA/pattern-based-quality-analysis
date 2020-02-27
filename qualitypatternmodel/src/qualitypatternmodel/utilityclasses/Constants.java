@@ -6,6 +6,8 @@ public class Constants {
 	public static final String SOME = "some ";
 	public static final String EVERY = "every ";
 	public static final String SATISFIES = "\nsatisfies ";
+	public static final String OR = "\nor ";
+	public static final String NOT = "not ";
 	public static final String FOR = "\nfor ";
 	public static final String LET = "\nlet ";
 	public static final String WHERE = "\nwhere ";

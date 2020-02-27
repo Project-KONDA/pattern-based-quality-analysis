@@ -16,8 +16,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.functions.OperatorList#getOperators <em>Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.OperatorList#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.OperatorList#getOperators <em>Operators</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.functions.FunctionsPackage#getOperatorList()
@@ -28,11 +28,13 @@ public interface OperatorList extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Operators</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.functions.Operator}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Operator#getOperatorList <em>Operator List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operators</em>' containment reference list.
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getOperatorList_Operators()
-	 * @model containment="true"
+	 * @see qualitypatternmodel.functions.Operator#getOperatorList
+	 * @model opposite="operatorList" containment="true"
 	 * @generated
 	 */
 	EList<Operator> getOperators();
