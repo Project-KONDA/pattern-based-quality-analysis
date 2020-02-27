@@ -4518,7 +4518,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_T0Y10B2XEeqrGqxc7qjo8A" name="operator : LogicalOperator = NOT" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_T0Y10B2XEeqrGqxc7qjo8A" name="operator : LogicalOperator = not" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//patternstructure/Formula/operator"/>
           <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//patternstructure/Formula/operator"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_avW2ESM4EeqSTPYFve8hCw" labelAlignment="LEFT">

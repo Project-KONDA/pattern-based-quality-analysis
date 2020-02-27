@@ -27,7 +27,7 @@ public enum LogicalOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NOT(0, "NOT", "NOT"),
+	NOT(0, "NOT", "not"),
 
 	/**
 	 * The '<em><b>AND</b></em>' literal object.
@@ -37,7 +37,7 @@ public enum LogicalOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AND(1, "AND", "AND"),
+	AND(1, "AND", "and"),
 
 	/**
 	 * The '<em><b>OR</b></em>' literal object.
@@ -47,7 +47,7 @@ public enum LogicalOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OR(2, "OR", "OR"),
+	OR(2, "OR", "or"),
 
 	/**
 	 * The '<em><b>IMPLIES</b></em>' literal object.
@@ -57,7 +57,7 @@ public enum LogicalOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IMPLIES(3, "IMPLIES", "IMPLIES"),
+	IMPLIES(3, "IMPLIES", "implies"),
 
 	/**
 	 * The '<em><b>XOR</b></em>' literal object.
@@ -67,7 +67,7 @@ public enum LogicalOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	XOR(4, "XOR", "XOR"),
+	XOR(4, "XOR", "xor"),
 
 	/**
 	 * The '<em><b>EQUIVALENT</b></em>' literal object.
@@ -84,7 +84,7 @@ public enum LogicalOperator implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #NOT
-	 * @model
+	 * @model literal="not"
 	 * @generated
 	 * @ordered
 	 */
@@ -95,7 +95,7 @@ public enum LogicalOperator implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #AND
-	 * @model
+	 * @model literal="and"
 	 * @generated
 	 * @ordered
 	 */
@@ -106,7 +106,7 @@ public enum LogicalOperator implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #OR
-	 * @model
+	 * @model literal="or"
 	 * @generated
 	 * @ordered
 	 */
@@ -117,7 +117,7 @@ public enum LogicalOperator implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #IMPLIES
-	 * @model
+	 * @model literal="implies"
 	 * @generated
 	 * @ordered
 	 */
@@ -128,7 +128,7 @@ public enum LogicalOperator implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #XOR
-	 * @model
+	 * @model literal="xor"
 	 * @generated
 	 * @ordered
 	 */

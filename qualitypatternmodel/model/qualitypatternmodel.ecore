@@ -538,11 +538,11 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="True" eSuperTypes="#//patternstructure/Condition"/>
     <eClassifiers xsi:type="ecore:EEnum" name="LogicalOperator">
-      <eLiterals name="NOT" literal="NOT"/>
-      <eLiterals name="AND" value="1" literal="AND"/>
-      <eLiterals name="OR" value="2" literal="OR"/>
-      <eLiterals name="IMPLIES" value="3" literal="IMPLIES"/>
-      <eLiterals name="XOR" value="4" literal="XOR"/>
+      <eLiterals name="NOT" literal="not"/>
+      <eLiterals name="AND" value="1" literal="and"/>
+      <eLiterals name="OR" value="2" literal="or"/>
+      <eLiterals name="IMPLIES" value="3" literal="implies"/>
+      <eLiterals name="XOR" value="4" literal="xor"/>
       <eLiterals name="EQUIVALENT" value="5" literal="EQUIVALENT"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Quantifier">

@@ -25,7 +25,7 @@ public class ValidityTest {
 		
 		 // Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();
-        Pattern pattern = loader.load("instances/userstudy/disjp.patternstructure");
+        Pattern pattern = loader.load("instances/playground/problem.patternstructure");
 		
 		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);			
 		

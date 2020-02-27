@@ -94,8 +94,26 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				}
 			} else {
 				if (argument1 != null && argument2 != null) {
-					return "((" + argument1.toXQuery(location) + ")" + operator.getLiteral() + "("
-							+ argument2.toXQuery(location) + "))";
+					switch (operator) {
+					case AND:
+					case OR:
+						return "((" + argument1.toXQuery(location) + ")" + operator.getLiteral() + "("
+						+ argument2.toXQuery(location) + "))";
+					case IMPLIES:
+						return "(not(" + argument1.toXQuery(location) + ")" + " or " + "("
+						+ argument2.toXQuery(location) + "))";
+					case XOR:
+						return "(not(" + argument1.toXQuery(location) + ")" + " and " + "("
+						+ argument2.toXQuery(location) + ")) or " + "((" + argument1.toXQuery(location) + ")" + " and " + "not("
+						+ argument2.toXQuery(location) + "))";
+					case EQUIVALENT:
+						return "(not(" + argument1.toXQuery(location) + ")" + " and " + "not("
+						+ argument2.toXQuery(location) + ")) or " + "((" + argument1.toXQuery(location) + ")" + " and " + "("
+						+ argument2.toXQuery(location) + "))";					
+					default:
+						throw new InvalidityException("invalid arguments");
+					}
+					
 				} else {
 					throw new InvalidityException("invalid arguments");
 				}
