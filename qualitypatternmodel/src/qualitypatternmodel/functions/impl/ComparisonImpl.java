@@ -31,9 +31,12 @@ import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.Text;
+import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.impl.CompOptionImpl;
 import qualitypatternmodel.inputfields.impl.InputImpl;
+import qualitypatternmodel.inputfields.impl.TextListImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.impl.PatternImpl;
@@ -115,7 +118,20 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public String toXQuery(Location location) throws InvalidityException {
 		if(option!=null && option.getValue()!=null && argument1 != null && argument2 != null) {
 			ComparisonOperator operator = option.getValue();
-			return type.getConversion() + argument1.toXQuery(location) + type.getConversionEnd() + operator.getLiteral() + type.getConversion() + argument2.toXQuery(location) + type.getConversionEnd();
+			String conversionStartArgument1 = type.getConversion();
+			String conversionEndArgument1 = type.getConversionEnd();
+			if(argument1 instanceof Text) {
+				conversionStartArgument1 = "";
+				conversionEndArgument1 = "";
+			}
+			String conversionStartArgument2 = type.getConversion();
+			String conversionEndArgument2 = type.getConversionEnd();
+			if(argument2 instanceof Text) {
+				conversionStartArgument2 = "";
+				conversionEndArgument2 = "";
+			}					
+			return conversionStartArgument1 + argument1.toXQuery(location) + conversionEndArgument1 + operator.getLiteral() 
+				+ conversionStartArgument2 + argument2.toXQuery(location) + conversionEndArgument2;
 		} else {
 			throw new InvalidityException("invalid option");
 		}
