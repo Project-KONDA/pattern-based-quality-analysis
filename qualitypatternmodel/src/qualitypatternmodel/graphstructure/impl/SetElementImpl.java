@@ -312,7 +312,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	@Override
 	public String getXQueryRepresentation(Location location, int depth) throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
-			return getContextRepresentation(depth - nestingDepth);
+			return getContextRepresentation(depth - nestingDepth); 
 		} else {
 			if (translated) { // TODO: check if this is correct
 				return toXQuery(location, depth);

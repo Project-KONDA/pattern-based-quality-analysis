@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import static qualitypatternmodel.utilityclasses.Constants.addMissingBrackets;
+
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -115,13 +117,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
+		String result;
 		if(quantifier == Quantifier.EXISTS) {
-			return graph.toXQuery(Location.EXISTS) + condition.toXQuery(location);
+			result = graph.toXQuery(Location.EXISTS) + condition.toXQuery(location); // TODO: schachteln!
 		} else if(quantifier == Quantifier.FORALL) {
-			return graph.toXQuery(Location.FORALL) + condition.toXQuery(location);
+			result = graph.toXQuery(Location.FORALL) + condition.toXQuery(location); // TODO: schachteln!
 		} else {
 			throw new InvalidityException("invalid quantifier");
 		}
+		return addMissingBrackets(result);
 		
 	}
 

@@ -21,6 +21,9 @@ import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.utilityclasses.Constants;
+
+import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -85,10 +88,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
+		String result;
 		if (operator != null) {
 			if (operator == LogicalOperator.NOT) {
 				if (argument2 == null && argument1 != null) {
-					return "not(" + argument1.toXQuery(location) + ")";
+					result = "not(" + argument1.toXQuery(location) + ")";
 				} else {
 					throw new InvalidityException("invalid argument");
 				}
@@ -97,18 +101,18 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					switch (operator) {
 					case AND:
 					case OR:
-						return "((" + argument1.toXQuery(location) + ")" + operator.getLiteral() + "("
+						result = "((" + argument1.toXQuery(location) + ")" + operator.getLiteral() + "("
 						+ argument2.toXQuery(location) + "))";
 					case IMPLIES:
-						return "(not(" + argument1.toXQuery(location) + ")" + " or " + "("
+						result = "(" + Constants.NOT + "(" + argument1.toXQuery(location) + ")" + Constants.OR + "("
 						+ argument2.toXQuery(location) + "))";
 					case XOR:
-						return "(not(" + argument1.toXQuery(location) + ")" + " and " + "("
-						+ argument2.toXQuery(location) + ")) or " + "((" + argument1.toXQuery(location) + ")" + " and " + "not("
+						result = "(" + Constants.NOT + "(" + argument1.toXQuery(location) + ")" + Constants.AND + "("
+						+ argument2.toXQuery(location) + "))" + Constants.OR + "((" + argument1.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
 						+ argument2.toXQuery(location) + "))";
 					case EQUIVALENT:
-						return "(not(" + argument1.toXQuery(location) + ")" + " and " + "not("
-						+ argument2.toXQuery(location) + ")) or " + "((" + argument1.toXQuery(location) + ")" + " and " + "("
+						result = "(" + Constants.NOT + "(" + argument1.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
+						+ argument2.toXQuery(location) + "))" + Constants.OR + "((" + argument1.toXQuery(location) + ")" + Constants.AND + "("
 						+ argument2.toXQuery(location) + "))";					
 					default:
 						throw new InvalidityException("invalid arguments");
@@ -118,9 +122,13 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					throw new InvalidityException("invalid arguments");
 				}
 			}
+			
+			return addMissingBrackets(result);
+					
 		} else {
 			throw new InvalidityException("operator null");
 		}
+		
 	}
 
 	@Override

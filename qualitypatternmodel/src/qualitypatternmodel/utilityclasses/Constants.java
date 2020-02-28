@@ -7,6 +7,7 @@ public class Constants {
 	public static final String EVERY = "every ";
 	public static final String SATISFIES = "\nsatisfies ";
 	public static final String OR = "\nor ";
+	public static final String AND = " and ";
 	public static final String NOT = "not ";
 	public static final String FOR = "\nfor ";
 	public static final String LET = "\nlet ";
@@ -23,5 +24,20 @@ public class Constants {
 	public static final String REGEX_DATE = "[0-9][0-9][0-9][0-9]-(0[1-9]|1[0-2])-(0[1-9]|[0-2][0-9]|3[0-1])";
 	public static final String REGEX_DATE_TIME = REGEX_DATE + "T" + REGEX_TIME_HOURS_MINUTES_SECONDS;
 	public static final String REGEX_POSITIVE_NEGATIVE = "(\\+|-)";
+	
+	public static String addMissingBrackets(String str) {
+		int res = 0;
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i) == '(') {
+				res++;
+			} else if (str.charAt(i) == ')') {
+				res--;
+			}
+		}
+		for (int i = 0; i < res; i++) {
+			str += ")";
+		}
+		return str;
+	}
 
 }

@@ -161,7 +161,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		}
 		res += returnGraph.toXQuery(Location.RETURN);
 		
-		res += WHERE + condition.toXQuery(Location.OUTSIDE);
+		res += WHERE + condition.toXQuery(Location.OUTSIDE); // TODO: schachteln!
 		
 		res += RETURN + "(";
 		EList<SingleElement> returnElements = returnGraph.getReturnElements();
