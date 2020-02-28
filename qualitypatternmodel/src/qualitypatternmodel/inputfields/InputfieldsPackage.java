@@ -867,22 +867,13 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT_VALUE___IS_TRANSLATABLE = INPUT_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_VALUE___TO_XQUERY__LOCATION_INT = INPUT_OPERATION_COUNT + 2;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT_OPERATION_COUNT + 3;
+	int INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -891,7 +882,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT_OPERATION_COUNT + 4;
+	int INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Input Value</em>' class.
@@ -900,7 +891,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 5;
+	int INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.BooleanImpl <em>Boolean</em>}' class.
@@ -1082,15 +1073,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN___IS_TRANSLATABLE = INPUT_VALUE___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN___TO_XQUERY__LOCATION_INT = INPUT_VALUE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1290,15 +1272,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT___IS_TRANSLATABLE = INPUT_VALUE___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT___TO_XQUERY__LOCATION_INT = INPUT_VALUE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1507,15 +1480,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST___IS_TRANSLATABLE = TEXT___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST___TO_XQUERY__LOCATION_INT = TEXT___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1744,15 +1708,6 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LITERAL___IS_TRANSLATABLE = TEXT___IS_TRANSLATABLE;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL___TO_XQUERY__LOCATION_INT = TEXT___TO_XQUERY__LOCATION_INT;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1959,15 +1914,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER___IS_TRANSLATABLE = INPUT_VALUE___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER___TO_XQUERY__LOCATION_INT = INPUT_VALUE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -2178,15 +2124,6 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE___IS_TRANSLATABLE = INPUT_VALUE___IS_TRANSLATABLE;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE___TO_XQUERY__LOCATION_INT = INPUT_VALUE___TO_XQUERY__LOCATION_INT;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2395,15 +2332,6 @@ public interface InputfieldsPackage extends EPackage {
 	int TIME___IS_TRANSLATABLE = INPUT_VALUE___IS_TRANSLATABLE;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME___TO_XQUERY__LOCATION_INT = INPUT_VALUE___TO_XQUERY__LOCATION_INT;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2603,22 +2531,13 @@ public interface InputfieldsPackage extends EPackage {
 	int UNKNOWN_INPUT_VALUE___IS_TRANSLATABLE = INPUT_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNKNOWN_INPUT_VALUE___TO_XQUERY__LOCATION_INT = INPUT_OPERATION_COUNT + 2;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT_OPERATION_COUNT + 3;
+	int UNKNOWN_INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2627,7 +2546,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT_OPERATION_COUNT + 4;
+	int UNKNOWN_INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Concretize</em>' operation.
@@ -2636,7 +2555,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___CONCRETIZE__INPUTVALUE = INPUT_OPERATION_COUNT + 5;
+	int UNKNOWN_INPUT_VALUE___CONCRETIZE__INPUTVALUE = INPUT_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Unknown Input Value</em>' class.
@@ -2645,7 +2564,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 6;
+	int UNKNOWN_INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.DateTimeImpl <em>Date Time</em>}' class.
@@ -2827,15 +2746,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME___IS_TRANSLATABLE = INPUT_VALUE___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME___TO_XQUERY__LOCATION_INT = INPUT_VALUE___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.

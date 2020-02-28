@@ -123,39 +123,13 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if(propertyOption == null || propertyOption.getValue() == null) {
 			throw new InvalidityException("propertyOptions invalid");
 		}				
-		String propertyElementTranslation = ((SingleElementImpl) getElement()).getXQueryRepresentation(location, 1);
+		String propertyElementTranslation = getElement().getXQueryRepresentation(location);
 		switch (propertyOption.getValue()) {
 			case ATTRIBUTE: 
 				if(attributeName == null || attributeName.getValue() == null) {
 					throw new InvalidityException("attributeName invalid");
 				} else {
 					return propertyElementTranslation + "/data(@" + attributeName.getValue() + ")";
-				}
-			case DATA: return propertyElementTranslation + "/data()";
-			case TAG: return propertyElementTranslation + "/name()";
-			default:
-				throw new InvalidityException("error in location specification");
-		}
-		
-	}
-
-	@Override
-	public String toXQuery(Location location, int depth) throws InvalidityException {		
-		if(getPropertyOption() == null || getPropertyOption().getValue() == null) {
-			throw new InvalidityException("propertyOptions invalid");
-		}				
-		String propertyElementTranslation;
-		if (getElement() instanceof SingleElementImpl) {
-			propertyElementTranslation = ((SingleElementImpl) getElement()).getXQueryRepresentation(location, depth);
-		} else {
-			propertyElementTranslation = ((SetElementImpl) getElement()).getXQueryRepresentation(location, depth);
-		}
-		switch (propertyOption.getValue()) {
-			case ATTRIBUTE: 
-				if(getAttributeName() == null || getAttributeName().getValue() == null) {
-					throw new InvalidityException("attributeName invalid");
-				} else {
-					return propertyElementTranslation + "/data(@" + getAttributeName().getValue() + ")";
 				}
 			case DATA: return propertyElementTranslation + "/data()";
 			case TAG: return propertyElementTranslation + "/name()";
@@ -577,13 +551,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY___IS_TRANSLATABLE:
 				try {
 					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.PROPERTY___TO_XQUERY__LOCATION_INT:
-				try {
-					return toXQuery((Location)arguments.get(0), (Integer)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

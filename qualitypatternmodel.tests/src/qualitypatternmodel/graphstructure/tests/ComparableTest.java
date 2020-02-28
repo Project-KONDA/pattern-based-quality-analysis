@@ -13,7 +13,6 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int) <em>To XQuery</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
  * </ul>
  * </p>
@@ -63,19 +62,6 @@ public abstract class ComparableTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testIsTranslatable() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int) <em>To XQuery</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int)
-	 * @generated
-	 */
-	public void testToXQuery__Location_int() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
+import static qualitypatternmodel.utilityclasses.Constants.VARIABLE;
+
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -38,7 +40,6 @@ import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.impl.UnknownInputValueImpl;
@@ -57,7 +58,6 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperties <em>Properties</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllElements <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllRelations <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getPredicates <em>Predicates</em>}</li>
@@ -121,26 +121,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	 * @ordered
 	 */
 	protected EList<Property> properties;
-
-	/**
-	 * The default value of the '{@link #isPredicatesAreBeingTranslated() <em>Predicates Are Being Translated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isPredicatesAreBeingTranslated()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isPredicatesAreBeingTranslated() <em>Predicates Are Being Translated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isPredicatesAreBeingTranslated()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean predicatesAreBeingTranslated = PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 
 	/**
 	 * The cached setting delegate for the '{@link #getGetAllElements() <em>Get All Elements</em>}' reference list.
@@ -244,42 +224,20 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public String getXQueryRepresentation(Location location, int depth) throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @throws InvalidityException
-	 */
-	public String getContextRepresentation(int depth) throws InvalidityException {
-		if (depth < 1)
-			throw new InvalidityException("invalid depth");
-		switch (depth) {
-		case 1:
-			return ".";
-		case 2:
-			return "..";
-		default: {
-			String res = "..";
-			for (int i = 3; i <= depth; i++) {
-				res += "/..";
-			}
-			return res;
-		}
-		}
+	public String getXQueryRepresentation(Location location) throws InvalidityException {
+		if (translated) {
+			return getXQueryVariable();
+		} else {
+			throw new InvalidityException("element not yet translated");
+		}	
 	}
 
 	@Override
 	public void prepareTranslation() {
 		translated = false;
-		predicatesAreBeingTranslated = false;
 		for (Element element : getNextElements()) {
 			element.prepareTranslation();
 		}
@@ -364,18 +322,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	 * @generated
 	 */
 	@Override
-	public String toXQuery(Location location, int depth) throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -449,27 +395,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isPredicatesAreBeingTranslated() {
-		return predicatesAreBeingTranslated;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setPredicatesAreBeingTranslated(boolean newPredicatesAreBeingTranslated) {
-		boolean oldPredicatesAreBeingTranslated = predicatesAreBeingTranslated;
-		predicatesAreBeingTranslated = newPredicatesAreBeingTranslated;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED, oldPredicatesAreBeingTranslated, predicatesAreBeingTranslated));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -501,28 +426,17 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		throw new InvalidityException("previous null");
 	}
 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
-	public String translateElementExistencePredicates(Location location, int depth) throws InvalidityException {	
-		String predicates = "";
-		for (Element nextElement : getNextElements()) {
-			if(nextElement instanceof SetElement) {
-				SetElement nextSetElement = (SetElement) nextElement;
-				if (!nextSetElement.isTranslated()) {
-					nextSetElement.setTranslated(true);
-					predicates += "[." + nextSetElement.translatePathFromPrevious()
-							+ nextSetElement.translatePredicates(location, depth) // TODO: depth+1 ?
-							+ nextSetElement.translateElementExistencePredicates(location, depth) + "]"; // TODO: depth+1 ?
-				}
-			}
-			
-		}
-		return predicates;
-		
+	public String translateElementExistencePredicates(Location location) throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -562,6 +476,27 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	 */
 	@Override
 	public String translatePathFromPrevious() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String getXQueryVariable() {
+		return VARIABLE + getOriginalID();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getOriginalID() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -640,8 +575,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return isTranslated();
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return getProperties();
-			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
-				return isPredicatesAreBeingTranslated();
 			case GraphstructurePackage.ELEMENT__GET_ALL_ELEMENTS:
 				return getGetAllElements();
 			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
@@ -678,9 +611,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				getProperties().clear();
 				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
-			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
-				setPredicatesAreBeingTranslated((Boolean)newValue);
-				return;
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				getPredicates().clear();
 				getPredicates().addAll((Collection<? extends BooleanOperator>)newValue);
@@ -711,9 +641,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				getProperties().clear();
 				return;
-			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
-				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
-				return;
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				getPredicates().clear();
 				return;
@@ -738,8 +665,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return translated != TRANSLATED_EDEFAULT;
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return properties != null && !properties.isEmpty();
-			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
-				return predicatesAreBeingTranslated != PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 			case GraphstructurePackage.ELEMENT__GET_ALL_ELEMENTS:
 				return GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
@@ -775,16 +700,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION_INT:
+			case GraphstructurePackage.ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION:
 				try {
-					return getXQueryRepresentation((Location)arguments.get(0), (Integer)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.ELEMENT___GET_CONTEXT_REPRESENTATION__INT:
-				try {
-					return getContextRepresentation((Integer)arguments.get(0));
+					return getXQueryRepresentation((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -796,9 +714,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT:
+			case GraphstructurePackage.ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION:
 				try {
-					return translateElementExistencePredicates((Location)arguments.get(0), (Integer)arguments.get(1));
+					return translateElementExistencePredicates((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -811,18 +729,22 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return null;
 			case GraphstructurePackage.ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
 				return translatePathFromPrevious();
+			case GraphstructurePackage.ELEMENT___GET_XQUERY_VARIABLE:
+				return getXQueryVariable();
+			case GraphstructurePackage.ELEMENT___GET_ORIGINAL_ID:
+				return getOriginalID();
+			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES__LOCATION:
+				try {
+					return translatePredicates((Location)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.ELEMENT___IS_TRANSLATABLE:
 				try {
 					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.ELEMENT___TO_XQUERY__LOCATION_INT:
-				try {
-					return toXQuery((Location)arguments.get(0), (Integer)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -849,10 +771,14 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (translated: ");
 		result.append(translated);
-		result.append(", predicatesAreBeingTranslated: ");
-		result.append(predicatesAreBeingTranslated);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public String translatePredicates(Location location) throws InvalidityException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

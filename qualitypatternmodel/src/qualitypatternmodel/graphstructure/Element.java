@@ -23,7 +23,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllElements <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllRelations <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}</li>
@@ -109,28 +108,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	EList<Property> getProperties();
 
 	/**
-	 * Returns the value of the '<em><b>Predicates Are Being Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Predicates Are Being Translated</em>' attribute.
-	 * @see #setPredicatesAreBeingTranslated(boolean)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_PredicatesAreBeingTranslated()
-	 * @model required="true"
-	 * @generated
-	 */
-	boolean isPredicatesAreBeingTranslated();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Predicates Are Being Translated</em>' attribute.
-	 * @see #isPredicatesAreBeingTranslated()
-	 * @generated
-	 */
-	void setPredicatesAreBeingTranslated(boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Get All Elements</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
 	 * <!-- begin-user-doc -->
@@ -170,13 +147,12 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * <!-- begin-user-doc -->
 	 * Returns a <code>String</code> representing the XPath predicates that correspond to the predicates specified for <code>this</code> which require the existence of certain related elements.
 	 * @param location the <code>Location</code> of the <code>Element</code> <code>this</code> in the pattern
-	 * @param depth the nesting depth of the predicates requiring the existence of related elements and correspondingly the nesting depth of the XPath predicate
 	 * @return the <code>String</code> representing the XPath predicates that correspond to the predicates specified for <code>this</code> which require the existence of certain related elements.
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" depthRequired="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String translateElementExistencePredicates(Location location, int depth) throws InvalidityException;
+	String translateElementExistencePredicates(Location location) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -242,18 +218,10 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * Returns a <code>String</code> representing the XPath expression for referencing the XQuery equivalent to this <code>Element</code> either via its corresponding XQuery variable or via XPath's context feature.
 	 * @return the <code>String</code> representing the XPath expression for referencing the XQuery equivalent to this <code>Element</code> either via its corresponding XQuery variable or via XPath's context feature
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" depthRequired="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String getXQueryRepresentation(Location location, int depth) throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc --> 
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" depthRequired="true"
-	 * @generated
-	 */
-	String getContextRepresentation(int depth) throws InvalidityException;
+	String getXQueryRepresentation(Location location) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -264,5 +232,23 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	String translatePathFromPrevious();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getXQueryVariable();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	int getOriginalID();
+
+	String translatePredicates(Location location) throws InvalidityException;
 
 } // Element

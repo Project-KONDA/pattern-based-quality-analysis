@@ -27,7 +27,6 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -171,18 +170,6 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 */
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toXQuery(Location location, int depth) throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -462,13 +449,6 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 			case FunctionsPackage.OPERATOR___IS_TRANSLATABLE:
 				try {
 					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case FunctionsPackage.OPERATOR___TO_XQUERY__LOCATION_INT:
-				try {
-					return toXQuery((Location)arguments.get(0), (Integer)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

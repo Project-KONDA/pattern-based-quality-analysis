@@ -3,10 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
 /**
@@ -146,37 +143,6 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	EList<SetElement> getNextSet();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns the <code>refNo</code> of the first <code>SingleElement</code> that is transitively connected to <code>this</code> via mappings.
-	 * @return the <code>refNo</code> of the first <code>SingleElement</code> that is transitively connected to <code>this</code> via mappings
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	int getOriginalID();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns a <code>String</code> representing the XQuery variable corresponding to this <code>SingleElement</code>.
-	 * @return the <code>String</code> representing the XQuery variable
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	String getXQueryVariable();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns a <code>String</code> representing the XPath predicates corresponding to the predicates of this object.
-	 * @param location the <code>Location</code> of the <code>SingleElement</code> this in the pattern
-	 * @return the <code>String</code> representing the XPath predicates
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String translatePredicates(Location location) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

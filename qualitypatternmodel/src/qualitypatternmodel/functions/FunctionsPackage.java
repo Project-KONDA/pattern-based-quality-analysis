@@ -208,15 +208,6 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___IS_TRANSLATABLE = GraphstructurePackage.COMPARABLE___IS_TRANSLATABLE;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR___TO_XQUERY__LOCATION_INT = GraphstructurePackage.COMPARABLE___TO_XQUERY__LOCATION_INT;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,15 +432,6 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___IS_TRANSLATABLE = OPERATOR___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR___TO_XQUERY__LOCATION_INT = OPERATOR___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -705,15 +687,6 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATOR___IS_TRANSLATABLE = OPERATOR___IS_TRANSLATABLE;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OPERATOR___TO_XQUERY__LOCATION_INT = OPERATOR___TO_XQUERY__LOCATION_INT;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -940,15 +913,6 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT___IS_TRANSLATABLE = NUMBER_OPERATOR___IS_TRANSLATABLE;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT___TO_XQUERY__LOCATION_INT = NUMBER_OPERATOR___TO_XQUERY__LOCATION_INT;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1164,15 +1128,6 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OTHER_OPERATOR___IS_TRANSLATABLE = OPERATOR___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_OPERATOR___TO_XQUERY__LOCATION_INT = OPERATOR___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1426,15 +1381,6 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___IS_TRANSLATABLE = BOOLEAN_OPERATOR___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___TO_XQUERY__LOCATION_INT = BOOLEAN_OPERATOR___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1735,15 +1681,6 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___IS_TRANSLATABLE = BOOLEAN_OPERATOR___IS_TRANSLATABLE;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___TO_XQUERY__LOCATION_INT = BOOLEAN_OPERATOR___TO_XQUERY__LOCATION_INT;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2013,15 +1950,6 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TO_NUMBER___IS_TRANSLATABLE = NUMBER_OPERATOR___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___TO_XQUERY__LOCATION_INT = NUMBER_OPERATOR___TO_XQUERY__LOCATION_INT;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.

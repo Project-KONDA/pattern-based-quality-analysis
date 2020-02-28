@@ -362,22 +362,13 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPARABLE___IS_TRANSLATABLE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARABLE___TO_XQUERY__LOCATION_INT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -386,7 +377,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Comparable</em>' class.
@@ -395,7 +386,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARABLE_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int COMPARABLE_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
@@ -561,15 +552,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___IS_TRANSLATABLE = COMPARABLE___IS_TRANSLATABLE;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___TO_XQUERY__LOCATION_INT = COMPARABLE___TO_XQUERY__LOCATION_INT;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -688,22 +670,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__PROPERTIES = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = COMPARABLE_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Get All Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__GET_ALL_ELEMENTS = COMPARABLE_FEATURE_COUNT + 4;
+	int ELEMENT__GET_ALL_ELEMENTS = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Get All Relations</b></em>' reference list.
@@ -712,7 +685,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__GET_ALL_RELATIONS = COMPARABLE_FEATURE_COUNT + 5;
+	int ELEMENT__GET_ALL_RELATIONS = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
@@ -721,7 +694,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PREDICATES = COMPARABLE_FEATURE_COUNT + 6;
+	int ELEMENT__PREDICATES = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -730,7 +703,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 7;
+	int ELEMENT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -814,15 +787,6 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___IS_TRANSLATABLE = COMPARABLE___IS_TRANSLATABLE;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___TO_XQUERY__LOCATION_INT = COMPARABLE___TO_XQUERY__LOCATION_INT;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -883,16 +847,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION_INT = COMPARABLE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Get Context Representation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_CONTEXT_REPRESENTATION__INT = COMPARABLE_OPERATION_COUNT + 5;
+	int ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Graph Depth</em>' operation.
@@ -901,7 +856,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_GRAPH_DEPTH = COMPARABLE_OPERATION_COUNT + 6;
+	int ELEMENT___GET_GRAPH_DEPTH = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Translate Element Existence Predicates</em>' operation.
@@ -910,7 +865,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = COMPARABLE_OPERATION_COUNT + 7;
+	int ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION = COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -919,7 +874,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 8;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -928,7 +883,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 9;
+	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
@@ -937,7 +892,34 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = COMPARABLE_OPERATION_COUNT + 10;
+	int ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = COMPARABLE_OPERATION_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___GET_XQUERY_VARIABLE = COMPARABLE_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Get Original ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___GET_ORIGINAL_ID = COMPARABLE_OPERATION_COUNT + 11;
+
+	/**
+	 * The operation id for the '<em>Translate Predicates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___TRANSLATE_PREDICATES__LOCATION = COMPARABLE_OPERATION_COUNT + 12;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -946,7 +928,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 11;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 13;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
@@ -1020,15 +1002,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT__PROPERTIES = ELEMENT__PROPERTIES;
-
-	/**
-	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = ELEMENT__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
 	 * The feature id for the '<em><b>Get All Elements</b></em>' reference list.
@@ -1202,15 +1175,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___IS_TRANSLATABLE = ELEMENT___IS_TRANSLATABLE;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___TO_XQUERY__LOCATION_INT = ELEMENT___TO_XQUERY__LOCATION_INT;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1271,16 +1235,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION_INT = ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION_INT;
-
-	/**
-	 * The operation id for the '<em>Get Context Representation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_CONTEXT_REPRESENTATION__INT = ELEMENT___GET_CONTEXT_REPRESENTATION__INT;
+	int SINGLE_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get Graph Depth</em>' operation.
@@ -1298,7 +1253,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT;
+	int SINGLE_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION = ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1328,22 +1283,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS;
 
 	/**
-	 * The operation id for the '<em>Get Original ID</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_ORIGINAL_ID = ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___GET_XQUERY_VARIABLE = ELEMENT_OPERATION_COUNT + 1;
+	int SINGLE_ELEMENT___GET_XQUERY_VARIABLE = ELEMENT___GET_XQUERY_VARIABLE;
+
+	/**
+	 * The operation id for the '<em>Get Original ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___GET_ORIGINAL_ID = ELEMENT___GET_ORIGINAL_ID;
 
 	/**
 	 * The operation id for the '<em>Translate Predicates</em>' operation.
@@ -1352,7 +1307,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___TRANSLATE_PREDICATES__LOCATION = ELEMENT_OPERATION_COUNT + 2;
+	int SINGLE_ELEMENT___TRANSLATE_PREDICATES__LOCATION = ELEMENT___TRANSLATE_PREDICATES__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
@@ -1361,7 +1316,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = ELEMENT_OPERATION_COUNT + 3;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Copy Next Element To Next Graphs</em>' operation.
@@ -1370,7 +1325,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__SINGLEELEMENT = ELEMENT_OPERATION_COUNT + 4;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__SINGLEELEMENT = ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Remove Element From Previous Graphs</em>' operation.
@@ -1379,7 +1334,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = ELEMENT_OPERATION_COUNT + 5;
+	int SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
@@ -1388,7 +1343,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN = ELEMENT_OPERATION_COUNT + 6;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN = ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
@@ -1397,7 +1352,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = ELEMENT_OPERATION_COUNT + 7;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Single Element</em>' class.
@@ -1406,7 +1361,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 8;
+	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
@@ -1482,15 +1437,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__PROPERTIES = ELEMENT__PROPERTIES;
 
 	/**
-	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = ELEMENT__PREDICATES_ARE_BEING_TRANSLATED;
-
-	/**
 	 * The feature id for the '<em><b>Get All Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1518,22 +1464,13 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__PREDICATES = ELEMENT__PREDICATES;
 
 	/**
-	 * The feature id for the '<em><b>Nesting Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__NESTING_DEPTH = ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__NEXT = ELEMENT_FEATURE_COUNT + 1;
+	int SET_ELEMENT__NEXT = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Previous Set</b></em>' container reference.
@@ -1542,7 +1479,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__PREVIOUS_SET = ELEMENT_FEATURE_COUNT + 2;
+	int SET_ELEMENT__PREVIOUS_SET = ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Previous Single</b></em>' container reference.
@@ -1551,16 +1488,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__PREVIOUS_SINGLE = ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Being Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__BEING_TRANSLATED = ELEMENT_FEATURE_COUNT + 4;
+	int SET_ELEMENT__PREVIOUS_SINGLE = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Count</b></em>' reference.
@@ -1569,7 +1497,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__COUNT = ELEMENT_FEATURE_COUNT + 5;
+	int SET_ELEMENT__COUNT = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Set Element</em>' class.
@@ -1578,7 +1506,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+	int SET_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1662,15 +1590,6 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___IS_TRANSLATABLE = ELEMENT___IS_TRANSLATABLE;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___TO_XQUERY__LOCATION_INT = ELEMENT___TO_XQUERY__LOCATION_INT;
-
-	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1731,16 +1650,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION_INT = ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION_INT;
-
-	/**
-	 * The operation id for the '<em>Get Context Representation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___GET_CONTEXT_REPRESENTATION__INT = ELEMENT___GET_CONTEXT_REPRESENTATION__INT;
+	int SET_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get Graph Depth</em>' operation.
@@ -1758,7 +1668,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT;
+	int SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION = ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1788,13 +1698,31 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS;
 
 	/**
+	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___GET_XQUERY_VARIABLE = ELEMENT___GET_XQUERY_VARIABLE;
+
+	/**
+	 * The operation id for the '<em>Get Original ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___GET_ORIGINAL_ID = ELEMENT___GET_ORIGINAL_ID;
+
+	/**
 	 * The operation id for the '<em>Translate Predicates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT = ELEMENT_OPERATION_COUNT + 0;
+	int SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION = ELEMENT___TRANSLATE_PREDICATES__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get Path To Previous Single Element</em>' operation.
@@ -1803,7 +1731,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = ELEMENT_OPERATION_COUNT + 1;
+	int SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements Set Operation</em>' operation.
@@ -1812,7 +1740,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = ELEMENT_OPERATION_COUNT + 2;
+	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Set Element</em>' class.
@@ -1821,7 +1749,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 3;
+	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -2286,36 +2214,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getSingleElement_NextSet();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getOriginalID() <em>Get Original ID</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Original ID</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getOriginalID()
-	 * @generated
-	 */
-	EOperation getSingleElement__GetOriginalID();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get XQuery Variable</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getXQueryVariable()
-	 * @generated
-	 */
-	EOperation getSingleElement__GetXQueryVariable();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Predicates</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#translatePredicates(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	EOperation getSingleElement__TranslatePredicates__Location();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElementsToNextGraphs() <em>Copy Next Elements To Next Graphs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2376,17 +2274,6 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getSetElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.SetElement#getNestingDepth <em>Nesting Depth</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Nesting Depth</em>'.
-	 * @see qualitypatternmodel.graphstructure.SetElement#getNestingDepth()
-	 * @see #getSetElement()
-	 * @generated
-	 */
-	EAttribute getSetElement_NestingDepth();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.SetElement#getNext <em>Next</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2420,17 +2307,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getSetElement_PreviousSingle();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.SetElement#isBeingTranslated <em>Being Translated</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Being Translated</em>'.
-	 * @see qualitypatternmodel.graphstructure.SetElement#isBeingTranslated()
-	 * @see #getSetElement()
-	 * @generated
-	 */
-	EAttribute getSetElement_BeingTranslated();
-
-	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.SetElement#getCount <em>Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2440,16 +2316,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSetElement_Count();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#translatePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Predicates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Predicates</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SetElement#translatePredicates(qualitypatternmodel.patternstructure.Location, int)
-	 * @generated
-	 */
-	EOperation getSetElement__TranslatePredicates__Location_int();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#getPathToPreviousSingleElement() <em>Get Path To Previous Single Element</em>}' operation.
@@ -2526,17 +2392,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getElement_Properties();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Predicates Are Being Translated</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EAttribute getElement_PredicatesAreBeingTranslated();
-
-	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Element#getGetAllElements <em>Get All Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2599,24 +2454,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__GetAllVariables();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location, int) <em>Get XQuery Representation</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get XQuery Representation</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location, int)
+	 * @see qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
-	EOperation getElement__GetXQueryRepresentation__Location_int();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getContextRepresentation(int) <em>Get Context Representation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Context Representation</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getContextRepresentation(int)
-	 * @generated
-	 */
-	EOperation getElement__GetContextRepresentation__int();
+	EOperation getElement__GetXQueryRepresentation__Location();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getGraphDepth() <em>Get Graph Depth</em>}' operation.
@@ -2629,14 +2474,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__GetGraphDepth();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int) <em>Translate Element Existence Predicates</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Element Existence Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Translate Element Existence Predicates</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location, int)
+	 * @see qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
-	EOperation getElement__TranslateElementExistencePredicates__Location_int();
+	EOperation getElement__TranslateElementExistencePredicates__Location();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison() <em>Add Primitive Comparison</em>}' operation.
@@ -2667,6 +2512,36 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getElement__TranslatePathFromPrevious();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get XQuery Variable</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#getXQueryVariable()
+	 * @generated
+	 */
+	EOperation getElement__GetXQueryVariable();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getOriginalID() <em>Get Original ID</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Original ID</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#getOriginalID()
+	 * @generated
+	 */
+	EOperation getElement__GetOriginalID();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Translate Predicates</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	EOperation getElement__TranslatePredicates__Location();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -2848,16 +2723,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getComparable__IsTranslatable();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int) <em>To XQuery</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>To XQuery</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Comparable#toXQuery(qualitypatternmodel.patternstructure.Location, int)
-	 * @generated
-	 */
-	EOperation getComparable__ToXQuery__Location_int();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}' operation.
@@ -3102,30 +2967,6 @@ public interface GraphstructurePackage extends EPackage {
 		EReference SINGLE_ELEMENT__NEXT_SET = eINSTANCE.getSingleElement_NextSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Original ID</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SINGLE_ELEMENT___GET_ORIGINAL_ID = eINSTANCE.getSingleElement__GetOriginalID();
-
-		/**
-		 * The meta object literal for the '<em><b>Get XQuery Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SINGLE_ELEMENT___GET_XQUERY_VARIABLE = eINSTANCE.getSingleElement__GetXQueryVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Translate Predicates</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SINGLE_ELEMENT___TRANSLATE_PREDICATES__LOCATION = eINSTANCE.getSingleElement__TranslatePredicates__Location();
-
-		/**
 		 * The meta object literal for the '<em><b>Copy Next Elements To Next Graphs</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3176,14 +3017,6 @@ public interface GraphstructurePackage extends EPackage {
 		EClass SET_ELEMENT = eINSTANCE.getSetElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Nesting Depth</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SET_ELEMENT__NESTING_DEPTH = eINSTANCE.getSetElement_NestingDepth();
-
-		/**
 		 * The meta object literal for the '<em><b>Next</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3208,28 +3041,12 @@ public interface GraphstructurePackage extends EPackage {
 		EReference SET_ELEMENT__PREVIOUS_SINGLE = eINSTANCE.getSetElement_PreviousSingle();
 
 		/**
-		 * The meta object literal for the '<em><b>Being Translated</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SET_ELEMENT__BEING_TRANSLATED = eINSTANCE.getSetElement_BeingTranslated();
-
-		/**
 		 * The meta object literal for the '<em><b>Count</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference SET_ELEMENT__COUNT = eINSTANCE.getSetElement_Count();
-
-		/**
-		 * The meta object literal for the '<em><b>Translate Predicates</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION_INT = eINSTANCE.getSetElement__TranslatePredicates__Location_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Path To Previous Single Element</b></em>' operation.
@@ -3290,14 +3107,6 @@ public interface GraphstructurePackage extends EPackage {
 		EReference ELEMENT__PROPERTIES = eINSTANCE.getElement_Properties();
 
 		/**
-		 * The meta object literal for the '<em><b>Predicates Are Being Translated</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = eINSTANCE.getElement_PredicatesAreBeingTranslated();
-
-		/**
 		 * The meta object literal for the '<em><b>Get All Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3351,15 +3160,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION_INT = eINSTANCE.getElement__GetXQueryRepresentation__Location_int();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Context Representation</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_CONTEXT_REPRESENTATION__INT = eINSTANCE.getElement__GetContextRepresentation__int();
+		EOperation ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = eINSTANCE.getElement__GetXQueryRepresentation__Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Graph Depth</b></em>' operation.
@@ -3375,7 +3176,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION_INT = eINSTANCE.getElement__TranslateElementExistencePredicates__Location_int();
+		EOperation ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION = eINSTANCE.getElement__TranslateElementExistencePredicates__Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
@@ -3400,6 +3201,30 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = eINSTANCE.getElement__TranslatePathFromPrevious();
+
+		/**
+		 * The meta object literal for the '<em><b>Get XQuery Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___GET_XQUERY_VARIABLE = eINSTANCE.getElement__GetXQueryVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Original ID</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___GET_ORIGINAL_ID = eINSTANCE.getElement__GetOriginalID();
+
+		/**
+		 * The meta object literal for the '<em><b>Translate Predicates</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___TRANSLATE_PREDICATES__LOCATION = eINSTANCE.getElement__TranslatePredicates__Location();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -3540,14 +3365,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPARABLE___IS_TRANSLATABLE = eINSTANCE.getComparable__IsTranslatable();
-
-		/**
-		 * The meta object literal for the '<em><b>To XQuery</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPARABLE___TO_XQUERY__LOCATION_INT = eINSTANCE.getComparable__ToXQuery__Location_int();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Argument Elements</b></em>' operation.

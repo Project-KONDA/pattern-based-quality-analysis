@@ -19,6 +19,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.patternstructure.Location;
+import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -53,16 +54,7 @@ public class CountImpl extends NumberOperatorImpl implements Count {
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		if (argument != null) {
-			return "count(" + argument.toXQuery(location) + ")";
-		} else {
-			throw new InvalidityException("argument null");
-		}
-	}
-	
-	@Override
-	public String toXQuery(Location location, int depth) throws InvalidityException {
-		if (argument != null) {
-			return "count(" + argument.toXQuery(location, depth) + ")";
+			return "count(" + argument.toXQuery(location) + RETURN + argument.getXQueryRepresentation(location) +  "\n)"; // TODO: depth?
 		} else {
 			throw new InvalidityException("argument null");
 		}

@@ -19,7 +19,6 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.inputfields.InputValue;
 
 /**
@@ -121,18 +120,6 @@ public class InputValueImpl extends InputImpl implements InputValue {
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
 		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toXQuery(Location location, int depth) throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -294,7 +281,6 @@ public class InputValueImpl extends InputImpl implements InputValue {
 			switch (baseOperationID) {
 				case GraphstructurePackage.COMPARABLE___GET_RETURN_TYPE: return InputfieldsPackage.INPUT_VALUE___GET_RETURN_TYPE;
 				case GraphstructurePackage.COMPARABLE___IS_TRANSLATABLE: return InputfieldsPackage.INPUT_VALUE___IS_TRANSLATABLE;
-				case GraphstructurePackage.COMPARABLE___TO_XQUERY__LOCATION_INT: return InputfieldsPackage.INPUT_VALUE___TO_XQUERY__LOCATION_INT;
 				case GraphstructurePackage.COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS: return InputfieldsPackage.INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 				case GraphstructurePackage.COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP: return InputfieldsPackage.INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 				default: return -1;
@@ -316,13 +302,6 @@ public class InputValueImpl extends InputImpl implements InputValue {
 			case InputfieldsPackage.INPUT_VALUE___IS_TRANSLATABLE:
 				try {
 					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case InputfieldsPackage.INPUT_VALUE___TO_XQUERY__LOCATION_INT:
-				try {
-					return toXQuery((Location)arguments.get(0), (Integer)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

@@ -8,7 +8,6 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -72,14 +71,6 @@ public interface Comparable extends PatternElement {
 	 * @generated
 	 */
 	boolean isTranslatable() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" depthRequired="true"
-	 * @generated
-	 */
-	String toXQuery(Location location, int depth) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

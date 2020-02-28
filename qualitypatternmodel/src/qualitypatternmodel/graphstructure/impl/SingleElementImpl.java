@@ -131,7 +131,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			}
 			if(!xPredicates.equals("")) {
 				if(getNextSingle().isEmpty()) {
-					result += xPredicates;
+					result += xPredicates + AND;
 				} else {
 					result += NOT + "(" + xPredicates + ")" + OR;
 				}
@@ -142,7 +142,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		int counter = 0;
 		for (Element nextElement : getNextSingle()) {			
 			result += nextElement.toXQuery(location);
-			if(!(counter == 0 && xPredicates.equals("")) && location != Location.RETURN) {
+			if(!(counter == 0) && location != Location.RETURN) {
 				result += AND;
 			}
 			counter++;			
@@ -253,9 +253,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @param depth
 	 * 
 	 */
+	@Override
 	public String translatePredicates(Location location) throws InvalidityException {
 		String xPredicates = "";
 		int counter = 0;
@@ -309,15 +309,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		return translated;
 	}
 
-	@Override
-	public String getXQueryRepresentation(Location location, int depth) throws InvalidityException {		
-		if (translated) {
-			return getXQueryVariable();
-		} else {
-			throw new InvalidityException("element not yet translated");
-		}
-		
-	}
+	
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -533,9 +525,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		return nextSet;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
+	@Override
 	public int getOriginalID() {
 		if (mappingFrom == null)
 			return this.getShortPatternInternalId();
@@ -544,12 +534,31 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
-	public String getXQueryVariable() {
-		return VARIABLE + getOriginalID();
+	@Override
+	public String translateElementExistencePredicates(Location location) throws InvalidityException {	
+		String predicates = "";
+		for (Element nextElement : getNextElements()) {
+			if(nextElement instanceof SetElement) {
+				SetElement nextSetElement = (SetElement) nextElement;
+				if (!nextSetElement.isTranslated()) {
+					nextSetElement.setTranslated(true);
+					// TODO: in SetElementImpl create for clause: String result = FOR + getXQueryVariable() + IN + xPathExpression + xPredicates; 
+					predicates += "[." + nextSetElement.translatePathFromPrevious()
+							+ nextSetElement.translatePredicates(location) // TODO: depth+1 ?
+							+ nextSetElement.translateElementExistencePredicates(location) + "]"; // TODO: depth+1 ?
+				}
+			}
+			
+		}
+		return predicates;
+		
 	}
+
+	
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -735,17 +744,6 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.SINGLE_ELEMENT___GET_ORIGINAL_ID:
-				return getOriginalID();
-			case GraphstructurePackage.SINGLE_ELEMENT___GET_XQUERY_VARIABLE:
-				return getXQueryVariable();
-			case GraphstructurePackage.SINGLE_ELEMENT___TRANSLATE_PREDICATES__LOCATION:
-				try {
-					return translatePredicates((Location)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS:
 				try {
 					copyNextElementsToNextGraphs();
