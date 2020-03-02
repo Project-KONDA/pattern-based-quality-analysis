@@ -201,6 +201,8 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true if this <code>SingleElement</code> has a predicate of type count.
+	 * @return true if this <code>SingleElement</code> has a predicate of type count
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -209,6 +211,11 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the query representing this <code>SingleElement</code>.
+	 * The predicates are inserted after "satisfies".
+	 * Is called in case this <code>SingleElement</code> has a count predicate.
+	 * @param location the <code>Location</code> of the <code>Element</code> this in the pattern
+	 * @return the query representing this <code>SingleElement</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -217,6 +224,11 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+ 	 * Returns the query representing this <code>SingleElement</code>.
+	 * The predicates are inserted as XPath predicates at the end of the path expression.
+	 * Is called in case this <code>SingleElement</code> does not have a count predicate.
+	 * @param location the <code>Location</code> of the <code>Element</code> this in the pattern
+	 * @return the query representing this <code>SingleElement</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated

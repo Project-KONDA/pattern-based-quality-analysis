@@ -258,6 +258,8 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a <code>String</code> representing the XQuery variable corresponding to this <code>Element</code>.
+	 * @return the <code>String</code> representing the XQuery variable
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -272,10 +274,23 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 */
 	int getOriginalID();
 
+	/**
+	 * <!-- begin-user-doc -->
+ 	 * Returns a <code>String</code> representing the XPath predicates corresponding to the predicates of this object.
+ 	 * Each predicate is surrounded by square brackets.
+	 * @param location the <code>Location</code> of the <code>Element</code> this in the pattern
+	 * @return the <code>String</code> representing the XPath predicates
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
 	String translatePredicatesViaBrackets(Location location) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
+  	 * Returns a <code>String</code> representing the XPath predicates corresponding to the predicates of this object as a single boolean expression.
+	 * @param location the <code>Location</code> of the <code>Element</code> this in the pattern
+	 * @return the <code>String</code> representing the XPath predicates
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated

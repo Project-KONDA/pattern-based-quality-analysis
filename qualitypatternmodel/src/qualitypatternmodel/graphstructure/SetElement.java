@@ -137,6 +137,9 @@ public interface SetElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a <code>String</code> representing a formula including all predicates of this <code>SetElement</code>, its preceding SetElements and its following SetElements.
+	 * @param location the <code>Location</code> of the <code>Element</code> this in the pattern
+	 * @return the <code>String</code> representing a formula including all predicates of this <code>SetElement</code>, its preceding SetElements and its following SetElements
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
