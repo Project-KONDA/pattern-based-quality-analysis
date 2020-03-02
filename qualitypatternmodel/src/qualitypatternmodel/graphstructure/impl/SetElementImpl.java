@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Element;
@@ -29,6 +28,7 @@ import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.Location;
+import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Set
@@ -114,7 +114,6 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 		}
 		
 		String xPathExpression = translatePathFromPrevious();
-		String xPredicates = translatePredicates(location);
 		String forClauses = "";
 		if (getPreviousSingle() != null) {
 			 xPathExpression = getPreviousSingle().getXQueryRepresentation(location) + xPathExpression;
@@ -124,28 +123,36 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			}			
 			xPathExpression = getPreviousSet().getXQueryRepresentation(location) + xPathExpression;
 		}
-		forClauses += FOR + getXQueryVariable() + IN + xPathExpression + xPredicates; 		
+		forClauses += FOR + getXQueryVariable() + IN + xPathExpression;	
 		return forClauses + translateElementExistencePredicates(location);				
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public String generateWhereClause(Location location) throws InvalidityException {
+		String whereClause = translatePredicatesViaAnd(location);
+		if(getPreviousSingle() == null && !getPreviousSet().isTranslated()) {
+			whereClause += (whereClause.equals("") ? "" : AND ) + getPreviousSet().generateWhereClause(location);
+		}	
+		for (Element nextElement : getNextElements()) {
+			if(nextElement instanceof SetElement) {
+				SetElement nextSetElement = (SetElement) nextElement;
+//				if (!nextSetElement.isTranslated()) {
+					whereClause += (whereClause.equals("") ? "" : AND ) + nextSetElement.generateWhereClause(location);						
+//				}
+			}			
+		}
+		return whereClause;		
 	}
 
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
 		return true; // TODO: check
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 */
-	@Override
-	public String translatePredicates(Location location) throws InvalidityException {
-		String xPredicates = "";
-		for (BooleanOperator predicate : predicates) {
-			if (predicate.isTranslatable()) {
-				xPredicates += "[" + predicate.toXQuery(location) + "]";
-			}
-		}
-		return xPredicates;
 	}
 	
 	/**
@@ -564,6 +571,13 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			case GraphstructurePackage.SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION:
 				try {
 					return getAllArgumentElementsSetOperation();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.SET_ELEMENT___GENERATE_WHERE_CLAUSE__LOCATION:
+				try {
+					return generateWhereClause((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

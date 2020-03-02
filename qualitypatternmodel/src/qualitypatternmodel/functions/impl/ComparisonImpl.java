@@ -18,6 +18,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
+import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.NumberOperator;
 import qualitypatternmodel.functions.Operator;
@@ -133,7 +134,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		} else {
 			throw new InvalidityException("invalid option");
 		}
-	}
+	}	
 	
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -228,6 +229,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		
 		isCycleFree();
 		
+	}
+	
+	@Override
+	public boolean hasCountPredicate() {
+		if(argument1 instanceof Count) {
+			return true;
+		}
+		if(argument2 instanceof Count) {
+			return true;
+		}
+		return false;
 	}
 
 	/**

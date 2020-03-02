@@ -533,13 +533,22 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST = OPERATOR_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Has Count Predicate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE = OPERATOR_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 4;
+	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
@@ -1482,6 +1491,15 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___REMOVE_INPUTS_FROM_VARIABLE_LIST = BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST;
 
 	/**
+	 * The operation id for the '<em>Has Count Predicate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___HAS_COUNT_PREDICATE = BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Match</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1778,6 +1796,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___REMOVE_INPUTS_FROM_VARIABLE_LIST = BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST;
+
+	/**
+	 * The operation id for the '<em>Has Count Predicate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___HAS_COUNT_PREDICATE = BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE;
 
 	/**
 	 * The operation id for the '<em>Set Type According To Argument</em>' operation.
@@ -2242,6 +2269,16 @@ public interface FunctionsPackage extends EPackage {
 	EOperation getBooleanOperator__RemoveInputsFromVariableList();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#hasCountPredicate() <em>Has Count Predicate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Has Count Predicate</em>' operation.
+	 * @see qualitypatternmodel.functions.BooleanOperator#hasCountPredicate()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__HasCountPredicate();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Operator <em>Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2616,6 +2653,14 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST = eINSTANCE.getBooleanOperator__RemoveInputsFromVariableList();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Count Predicate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE = eINSTANCE.getBooleanOperator__HasCountPredicate();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OperatorImpl <em>Operator</em>}' class.

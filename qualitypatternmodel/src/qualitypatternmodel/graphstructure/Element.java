@@ -272,6 +272,14 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 */
 	int getOriginalID();
 
-	String translatePredicates(Location location) throws InvalidityException;
+	String translatePredicatesViaBrackets(Location location) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String translatePredicatesViaAnd(Location location) throws InvalidityException;
 
 } // Element

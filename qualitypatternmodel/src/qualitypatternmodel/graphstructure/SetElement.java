@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Count;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -133,6 +134,14 @@ public interface SetElement extends Element {
 	 * @generated
 	 */
 	EList<ListOfElements> getAllArgumentElementsSetOperation() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateWhereClause(Location location) throws InvalidityException;
 	
 
 } // SetElement

@@ -83,6 +83,7 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/BooleanOperator/createInputs"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/BooleanOperator/removeInputsFromVariableList"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/BooleanOperator/hasCountPredicate"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//functions/Operator">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//functions/Operator/operatorList"/>
@@ -203,6 +204,13 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/copyNextElementsToPreviousGraphs">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/SingleElement/copyNextElementsToPreviousGraphs/recursive"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/hasCountPredicate"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/toXQueryCount">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/SingleElement/toXQueryCount/location"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/toXQueryNoCount">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/SingleElement/toXQueryNoCount/location"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/SetElement">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SetElement/next"/>
@@ -212,6 +220,9 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SetElement/count"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SetElement/getPathToPreviousSingleElement"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SetElement/getAllArgumentElementsSetOperation"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SetElement/generateWhereClause">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/SetElement/generateWhereClause/location"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//graphstructure/Element">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/relationFromPrevious"/>
@@ -240,8 +251,11 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/translatePathFromPrevious"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getXQueryVariable"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getOriginalID"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicates">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicates/location"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaBrackets">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaBrackets/location"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaAnd">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaAnd/location"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">

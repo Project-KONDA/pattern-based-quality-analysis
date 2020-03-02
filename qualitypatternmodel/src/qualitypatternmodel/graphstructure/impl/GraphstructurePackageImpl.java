@@ -451,6 +451,36 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getSingleElement__HasCountPredicate() {
+		return singleElementEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getSingleElement__ToXQueryCount__Location() {
+		return singleElementEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getSingleElement__ToXQueryNoCount__Location() {
+		return singleElementEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getSetElement() {
 		return setElementEClass;
 	}
@@ -513,6 +543,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EOperation getSetElement__GetAllArgumentElementsSetOperation() {
 		return setElementEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getSetElement__GenerateWhereClause__Location() {
+		return setElementEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -721,8 +761,18 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getElement__TranslatePredicates__Location() {
+	public EOperation getElement__TranslatePredicatesViaBrackets__Location() {
 		return elementEClass.getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getElement__TranslatePredicatesViaAnd__Location() {
+		return elementEClass.getEOperations().get(13);
 	}
 
 	/**
@@ -1010,6 +1060,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___HAS_COUNT_PREDICATE);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___TO_XQUERY_COUNT__LOCATION);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___TO_XQUERY_NO_COUNT__LOCATION);
 
 		setElementEClass = createEClass(SET_ELEMENT);
 		createEReference(setElementEClass, SET_ELEMENT__NEXT);
@@ -1018,6 +1071,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(setElementEClass, SET_ELEMENT__COUNT);
 		createEOperation(setElementEClass, SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT);
 		createEOperation(setElementEClass, SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION);
+		createEOperation(setElementEClass, SET_ELEMENT___GENERATE_WHERE_CLAUSE__LOCATION);
 
 		elementEClass = createEClass(ELEMENT);
 		createEReference(elementEClass, ELEMENT__RELATION_FROM_PREVIOUS);
@@ -1039,7 +1093,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(elementEClass, ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS);
 		createEOperation(elementEClass, ELEMENT___GET_XQUERY_VARIABLE);
 		createEOperation(elementEClass, ELEMENT___GET_ORIGINAL_ID);
-		createEOperation(elementEClass, ELEMENT___TRANSLATE_PREDICATES__LOCATION);
+		createEOperation(elementEClass, ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION);
+		createEOperation(elementEClass, ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__RETURN_ELEMENTS);
@@ -1157,6 +1212,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getSingleElement__CopyNextElementsToPreviousGraphs__boolean(), null, "copyNextElementsToPreviousGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "recursive", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getSingleElement__HasCountPredicate(), ecorePackage.getEBoolean(), "hasCountPredicate", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSingleElement__ToXQueryCount__Location(), ecorePackage.getEString(), "toXQueryCount", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getSingleElement__ToXQueryNoCount__Location(), ecorePackage.getEString(), "toXQueryNoCount", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
 		initEClass(setElementEClass, SetElement.class, "SetElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSetElement_Next(), this.getSetElement(), this.getSetElement_PreviousSet(), "next", null, 0, -1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSetElement_PreviousSet(), this.getSetElement(), this.getSetElement_Next(), "previousSet", null, 0, 1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1167,6 +1232,10 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getSetElement__GetAllArgumentElementsSetOperation(), this.getListOfElements(), "getAllArgumentElementsSetOperation", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getSetElement__GenerateWhereClause__Location(), ecorePackage.getEString(), "generateWhereClause", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1209,7 +1278,11 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getElement__GetOriginalID(), ecorePackage.getEInt(), "getOriginalID", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getElement__TranslatePredicates__Location(), ecorePackage.getEString(), "translatePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getElement__TranslatePredicatesViaBrackets__Location(), ecorePackage.getEString(), "translatePredicatesViaBrackets", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getElement__TranslatePredicatesViaAnd__Location(), ecorePackage.getEString(), "translatePredicatesViaAnd", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 

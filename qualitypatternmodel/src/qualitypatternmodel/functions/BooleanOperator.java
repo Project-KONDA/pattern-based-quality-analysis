@@ -69,4 +69,12 @@ public interface BooleanOperator extends Operator {
 	 * @generated
 	 */
 	void removeInputsFromVariableList();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean hasCountPredicate();
 } // BooleanOperator

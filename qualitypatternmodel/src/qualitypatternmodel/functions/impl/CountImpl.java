@@ -54,7 +54,12 @@ public class CountImpl extends NumberOperatorImpl implements Count {
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		if (argument != null) {
-			return "count(" + argument.toXQuery(location) + RETURN + argument.getXQueryRepresentation(location) +  "\n)"; // TODO: depth?
+			if(argument.isTranslated()) {
+				return "count(" + argument.getXQueryRepresentation(location) + "\n)";
+
+			} else {
+				return "count(" + argument.toXQuery(location) + WHERE + argument.generateWhereClause(location) + RETURN + argument.getXQueryRepresentation(location) +  "\n)";
+			}
 		} else {
 			throw new InvalidityException("argument null");
 		}

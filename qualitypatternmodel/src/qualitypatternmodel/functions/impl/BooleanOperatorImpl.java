@@ -146,6 +146,18 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean hasCountPredicate() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -270,6 +282,8 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 			case FunctionsPackage.BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST:
 				removeInputsFromVariableList();
 				return null;
+			case FunctionsPackage.BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE:
+				return hasCountPredicate();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

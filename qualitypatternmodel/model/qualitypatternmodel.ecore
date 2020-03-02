@@ -87,6 +87,7 @@
       </eOperations>
       <eOperations name="createInputs"/>
       <eOperations name="removeInputsFromVariableList"/>
+      <eOperations name="hasCountPredicate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/predicates"/>
     </eClassifiers>
@@ -212,6 +213,15 @@
       <eOperations name="copyNextElementsToPreviousGraphs">
         <eParameters name="recursive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
+      <eOperations name="hasCountPredicate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="toXQueryCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="location" eType="#//patternstructure/Location"/>
+      </eOperations>
+      <eOperations name="toXQueryNoCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="location" eType="#//patternstructure/Location"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
           eType="#//patternstructure/SingleElementMapping" eOpposite="#//patternstructure/SingleElementMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/SingleElementMapping"
@@ -236,6 +246,10 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getAllArgumentElementsSetOperation" upperBound="-1" eType="#//graphstructure/ListOfElements"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateWhereClause" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="location" eType="#//patternstructure/Location"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1"
           eType="#//graphstructure/SetElement" containment="true" eOpposite="#//graphstructure/SetElement/previousSet"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="previousSet" eType="#//graphstructure/SetElement"
@@ -267,7 +281,11 @@
       <eOperations name="translatePathFromPrevious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eOperations name="translatePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+      <eOperations name="translatePredicatesViaBrackets" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="location" eType="#//patternstructure/Location"/>
+      </eOperations>
+      <eOperations name="translatePredicatesViaAnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>

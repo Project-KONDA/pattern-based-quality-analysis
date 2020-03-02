@@ -3,7 +3,9 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
 /**
@@ -196,5 +198,29 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	void copyNextElementsToPreviousGraphs(boolean recursive);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean hasCountPredicate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String toXQueryCount(Location location) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String toXQueryNoCount(Location location) throws InvalidityException;
 
 } // SingleElement

@@ -19,6 +19,9 @@ import qualitypatternmodel.graphstructure.SingleElement;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#removeElementFromPreviousGraphs() <em>Remove Element From Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElementToPreviousGraphs(qualitypatternmodel.graphstructure.SingleElement, boolean) <em>Copy Next Element To Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElementsToPreviousGraphs(boolean) <em>Copy Next Elements To Previous Graphs</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#hasCountPredicate() <em>Has Count Predicate</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#toXQueryCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery Count</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#toXQueryNoCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery No Count</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -137,6 +140,45 @@ public class SingleElementTest extends ElementTest {
 	 * @generated
 	 */
 	public void testCopyNextElementsToPreviousGraphs__boolean() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#hasCountPredicate() <em>Has Count Predicate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#hasCountPredicate()
+	 * @generated
+	 */
+	public void testHasCountPredicate() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#toXQueryCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery Count</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#toXQueryCount(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	public void testToXQueryCount__Location() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#toXQueryNoCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery No Count</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#toXQueryNoCount(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	public void testToXQueryNoCount__Location() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

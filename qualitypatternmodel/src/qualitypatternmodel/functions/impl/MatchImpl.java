@@ -112,6 +112,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			throw new InvalidityException("property null");		
 	}
 	
+	@Override
+	public boolean hasCountPredicate() {
+		return false;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

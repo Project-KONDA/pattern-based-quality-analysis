@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
+import static qualitypatternmodel.utilityclasses.Constants.AND;
 import static qualitypatternmodel.utilityclasses.Constants.VARIABLE;
 
 import java.lang.reflect.InvocationTargetException;
@@ -252,8 +253,40 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		if (translated) {
 			return getXQueryVariable();
 		} else {
+			System.out.println(getXQueryVariable());
 			throw new InvalidityException("element not yet translated");
 		}	
+	}
+	
+	@Override
+	public String translatePredicatesViaBrackets(Location location) throws InvalidityException {
+		String xPredicates = "";
+		predicatesAreBeingTranslated = true;
+		for (BooleanOperator predicate : predicates) {
+			if (predicate.isTranslatable()) {
+				xPredicates += "[" + predicate.toXQuery(location) + "]";
+			}
+		}
+		predicatesAreBeingTranslated = false;
+		return xPredicates;
+	}
+	
+	@Override
+	public String translatePredicatesViaAnd(Location location) throws InvalidityException {
+		String xPredicates = "";
+		int counter = 0;
+		predicatesAreBeingTranslated = true;
+		for (BooleanOperator predicate : predicates) {
+			if (predicate.isTranslatable()) {
+				xPredicates += predicate.toXQuery(location);
+				if(counter != predicates.size()-1 && predicates.get(counter + 1).isTranslatable()) {
+					xPredicates += AND;
+				}
+				counter++;
+			}
+		}
+		predicatesAreBeingTranslated = false;
+		return xPredicates;
 	}
 
 	@Override
@@ -787,9 +820,16 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return getXQueryVariable();
 			case GraphstructurePackage.ELEMENT___GET_ORIGINAL_ID:
 				return getOriginalID();
-			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES__LOCATION:
+			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION:
 				try {
-					return translatePredicates((Location)arguments.get(0));
+					return translatePredicatesViaBrackets((Location)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION:
+				try {
+					return translatePredicatesViaAnd((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -829,12 +869,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		result.append(predicatesAreBeingTranslated);
 		result.append(')');
 		return result.toString();
-	}
-
-	@Override
-	public String translatePredicates(Location location) throws InvalidityException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	

@@ -16,6 +16,7 @@ import qualitypatternmodel.graphstructure.SetElement;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getPathToPreviousSingleElement() <em>Get Path To Previous Single Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SetElement#getAllArgumentElementsSetOperation() <em>Get All Argument Elements Set Operation</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SetElement#generateWhereClause(qualitypatternmodel.patternstructure.Location) <em>Generate Where Clause</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -95,6 +96,19 @@ public class SetElementTest extends ElementTest {
 	 * @generated
 	 */
 	public void testGetAllArgumentElementsSetOperation() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SetElement#generateWhereClause(qualitypatternmodel.patternstructure.Location) <em>Generate Where Clause</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SetElement#generateWhereClause(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	public void testGenerateWhereClause__Location() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

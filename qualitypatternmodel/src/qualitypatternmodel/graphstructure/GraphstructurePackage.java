@@ -922,13 +922,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___GET_ORIGINAL_ID = COMPARABLE_OPERATION_COUNT + 11;
 
 	/**
-	 * The operation id for the '<em>Translate Predicates</em>' operation.
+	 * The operation id for the '<em>Translate Predicates Via Brackets</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___TRANSLATE_PREDICATES__LOCATION = COMPARABLE_OPERATION_COUNT + 12;
+	int ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION = COMPARABLE_OPERATION_COUNT + 12;
+
+	/**
+	 * The operation id for the '<em>Translate Predicates Via And</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = COMPARABLE_OPERATION_COUNT + 13;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -937,7 +946,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 13;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
@@ -1319,13 +1328,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___GET_ORIGINAL_ID = ELEMENT___GET_ORIGINAL_ID;
 
 	/**
-	 * The operation id for the '<em>Translate Predicates</em>' operation.
+	 * The operation id for the '<em>Translate Predicates Via Brackets</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___TRANSLATE_PREDICATES__LOCATION = ELEMENT___TRANSLATE_PREDICATES__LOCATION;
+	int SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION = ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Translate Predicates Via And</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
@@ -1373,13 +1391,40 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = ELEMENT_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Has Count Predicate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___HAS_COUNT_PREDICATE = ELEMENT_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>To XQuery Count</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___TO_XQUERY_COUNT__LOCATION = ELEMENT_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>To XQuery No Count</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___TO_XQUERY_NO_COUNT__LOCATION = ELEMENT_OPERATION_COUNT + 7;
+
+	/**
 	 * The number of operations of the '<em>Single Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 5;
+	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
@@ -1743,13 +1788,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___GET_ORIGINAL_ID = ELEMENT___GET_ORIGINAL_ID;
 
 	/**
-	 * The operation id for the '<em>Translate Predicates</em>' operation.
+	 * The operation id for the '<em>Translate Predicates Via Brackets</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___TRANSLATE_PREDICATES__LOCATION = ELEMENT___TRANSLATE_PREDICATES__LOCATION;
+	int SET_ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION = ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Translate Predicates Via And</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get Path To Previous Single Element</em>' operation.
@@ -1770,13 +1824,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Generate Where Clause</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___GENERATE_WHERE_CLAUSE__LOCATION = ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Set Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 2;
+	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -2291,6 +2354,36 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getSingleElement__CopyNextElementsToPreviousGraphs__boolean();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#hasCountPredicate() <em>Has Count Predicate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Has Count Predicate</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#hasCountPredicate()
+	 * @generated
+	 */
+	EOperation getSingleElement__HasCountPredicate();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#toXQueryCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery Count</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To XQuery Count</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#toXQueryCount(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	EOperation getSingleElement__ToXQueryCount__Location();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#toXQueryNoCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery No Count</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>To XQuery No Count</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#toXQueryNoCount(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	EOperation getSingleElement__ToXQueryNoCount__Location();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.SetElement <em>Set Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2363,6 +2456,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSetElement__GetAllArgumentElementsSetOperation();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#generateWhereClause(qualitypatternmodel.patternstructure.Location) <em>Generate Where Clause</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Where Clause</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SetElement#generateWhereClause(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	EOperation getSetElement__GenerateWhereClause__Location();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Element <em>Element</em>}'.
@@ -2572,14 +2675,24 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__GetOriginalID();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translatePredicatesViaBrackets(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates Via Brackets</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Predicates</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location)
+	 * @return the meta object for the '<em>Translate Predicates Via Brackets</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#translatePredicatesViaBrackets(qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
-	EOperation getElement__TranslatePredicates__Location();
+	EOperation getElement__TranslatePredicatesViaBrackets__Location();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translatePredicatesViaAnd(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates Via And</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Translate Predicates Via And</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#translatePredicatesViaAnd(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	EOperation getElement__TranslatePredicatesViaAnd__Location();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -3045,6 +3158,30 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = eINSTANCE.getSingleElement__CopyNextElementsToPreviousGraphs__boolean();
 
 		/**
+		 * The meta object literal for the '<em><b>Has Count Predicate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___HAS_COUNT_PREDICATE = eINSTANCE.getSingleElement__HasCountPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>To XQuery Count</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___TO_XQUERY_COUNT__LOCATION = eINSTANCE.getSingleElement__ToXQueryCount__Location();
+
+		/**
+		 * The meta object literal for the '<em><b>To XQuery No Count</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___TO_XQUERY_NO_COUNT__LOCATION = eINSTANCE.getSingleElement__ToXQueryNoCount__Location();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3101,6 +3238,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = eINSTANCE.getSetElement__GetAllArgumentElementsSetOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Where Clause</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SET_ELEMENT___GENERATE_WHERE_CLAUSE__LOCATION = eINSTANCE.getSetElement__GenerateWhereClause__Location();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -3265,12 +3410,20 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation ELEMENT___GET_ORIGINAL_ID = eINSTANCE.getElement__GetOriginalID();
 
 		/**
-		 * The meta object literal for the '<em><b>Translate Predicates</b></em>' operation.
+		 * The meta object literal for the '<em><b>Translate Predicates Via Brackets</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ELEMENT___TRANSLATE_PREDICATES__LOCATION = eINSTANCE.getElement__TranslatePredicates__Location();
+		EOperation ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION = eINSTANCE.getElement__TranslatePredicatesViaBrackets__Location();
+
+		/**
+		 * The meta object literal for the '<em><b>Translate Predicates Via And</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = eINSTANCE.getElement__TranslatePredicatesViaAnd__Location();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
