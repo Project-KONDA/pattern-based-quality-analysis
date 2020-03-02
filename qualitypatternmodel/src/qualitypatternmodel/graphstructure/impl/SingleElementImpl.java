@@ -175,9 +175,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			if(!xPredicates.equals("")) {
 				if(location == Location.EXISTS) {
 					result += xPredicates;
-					if(getNextSingle().size() > 0) {
+//					if(getNextSingle().size() > 0) {
 						result += AND;
-					}
+//					}
 				} else {
 					result += NOT + "(" + xPredicates + ")" + OR;
 				}
@@ -195,9 +195,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			counter++;			
 		}
 		
-		if(location != Location.RETURN && getRoot()!=null) {
-			result += AND;
-		}
+//		if(location != Location.RETURN && getNextSingle().isEmpty()) {
+//			result += AND;
+//		}
 
 		return result;
 	}
