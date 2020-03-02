@@ -299,6 +299,8 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="predicates" upperBound="-1"
           eType="#//functions/BooleanOperator" eOpposite="#//functions/BooleanOperator/elements"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="predicatesAreBeingTranslated"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"

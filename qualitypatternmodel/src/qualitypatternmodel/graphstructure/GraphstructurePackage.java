@@ -697,13 +697,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__PREDICATES = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = COMPARABLE_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 6;
+	int ELEMENT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1029,6 +1038,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT__PREDICATES = ELEMENT__PREDICATES;
+
+	/**
+	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = ELEMENT__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
 	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
@@ -1462,6 +1480,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT__PREDICATES = ELEMENT__PREDICATES;
+
+	/**
+	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = ELEMENT__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
@@ -2359,6 +2386,17 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getElement_Predicates();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Predicates Are Being Translated</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EAttribute getElement_PredicatesAreBeingTranslated();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3081,6 +3119,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT__PREDICATES = eINSTANCE.getElement_Predicates();
+
+		/**
+		 * The meta object literal for the '<em><b>Predicates Are Being Translated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = eINSTANCE.getElement_PredicatesAreBeingTranslated();
 
 		/**
 		 * The meta object literal for the '<em><b>Relation From Previous</b></em>' containment reference feature.

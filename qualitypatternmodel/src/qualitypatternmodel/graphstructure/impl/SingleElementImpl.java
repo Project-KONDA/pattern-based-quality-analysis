@@ -103,7 +103,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	protected SingleElementImpl() {
 		super();
 	}
-
+	
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		translated = true;
@@ -112,52 +112,86 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 		String result = "";
 		if (location == Location.RETURN) {
-			result = FOR + getXQueryVariable() + IN + xPathExpression; 
+			result = FOR + getXQueryVariable() + IN + xPathExpression + xPredicates;
 		} else {
 			if (location == Location.EXISTS) {
-				result += "(" + SOME;
+				result += SOME;
 			} else if (location == Location.FORALL) {
-				result += "(" + EVERY;
+				result += EVERY;
 			} else {
 				throw new InvalidityException("invalid location");
 			}
 			result += getXQueryVariable();
 			if (mappingFrom == null) {
-				result += IN + xPathExpression + SATISFIES;
+				result += IN + xPathExpression + xPredicates + SATISFIES;
 			} else if (!getPredicates().isEmpty()) {
-				result += IN + getXQueryVariable() + SATISFIES;
+				result += IN + getXQueryVariable() + xPredicates + SATISFIES;
 			} else {
 				result = "";
 			}
-			if(!xPredicates.equals("")) {
-				if(location == Location.EXISTS) {
-					result += xPredicates;
-					if(getNextSingle().size() > 0) {
-						result += AND;
-					}
-				} else {
-					result += NOT + "(" + xPredicates + ")" + OR;
-				}
-			}
-			
 		}
 
-		int counter = 0;
-		for (Element nextElement : getNextSingle()) {		
-			String nextToXQuery = nextElement.toXQuery(location);
-			result += nextToXQuery;
-			if(location != Location.RETURN && !nextToXQuery.equals("") && counter != getNextSingle().size()-1) {
-				result += AND;
-			}
-			counter++;			
+		for (Element nextElement : getNextSingle()) {			
+			result += nextElement.toXQuery(location);			
 		}
 		
-		if(location != Location.RETURN && getRoot()!=null) {
-			result += AND;
-		}
-
 		return result;
 	}
+
+//	@Override
+//	public String toXQuery(Location location) throws InvalidityException {
+//		translated = true;
+//		String xPathExpression = translatePathFromPrevious();
+//		String xPredicates = translatePredicates(location);
+//
+//		String result = "";
+//		if (location == Location.RETURN) {
+//			result = FOR + getXQueryVariable() + IN + xPathExpression; 
+//		} else {
+//			if (location == Location.EXISTS) {
+//				result += "(" + SOME;
+//			} else if (location == Location.FORALL) {
+//				result += "(" + EVERY;
+//			} else {
+//				throw new InvalidityException("invalid location");
+//			}
+//			result += getXQueryVariable();
+//			if (mappingFrom == null) {
+//				result += IN + xPathExpression + SATISFIES;
+//			} else if (!getPredicates().isEmpty()) {
+//				result += IN + getXQueryVariable() + SATISFIES;
+//			} else {
+//				result = "";
+//			}
+//			if(!xPredicates.equals("")) {
+//				if(location == Location.EXISTS) {
+//					result += xPredicates;
+//					if(getNextSingle().size() > 0) {
+//						result += AND;
+//					}
+//				} else {
+//					result += NOT + "(" + xPredicates + ")" + OR;
+//				}
+//			}
+//			
+//		}
+//
+//		int counter = 0;
+//		for (Element nextElement : getNextSingle()) {		
+//			String nextToXQuery = nextElement.toXQuery(location);
+//			result += nextToXQuery;
+//			if(location != Location.RETURN && !nextToXQuery.equals("") && counter != getNextSingle().size()-1) {
+//				result += AND;
+//			}
+//			counter++;			
+//		}
+//		
+//		if(location != Location.RETURN && getRoot()!=null) {
+//			result += AND;
+//		}
+//
+//		return result;
+//	}
 
 	@Override
 	public String translatePathFromPrevious() {
@@ -261,23 +295,41 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
+	 * @param depth
 	 * 
 	 */
-	@Override
 	public String translatePredicates(Location location) throws InvalidityException {
 		String xPredicates = "";
-		int counter = 0;
+		predicatesAreBeingTranslated = true;
 		for (BooleanOperator predicate : predicates) {
 			if (predicate.isTranslatable()) {
-				xPredicates += predicate.toXQuery(location);
-				if(counter != predicates.size()-1 && predicates.get(counter + 1).isTranslatable()) {
-					xPredicates += " and ";
-				}
+				xPredicates += "[" + predicate.toXQuery(location) + "]";
 			}
-			counter++;
 		}
+		predicatesAreBeingTranslated = false;
 		return xPredicates;
 	}
+	
+//	/**
+//	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+//	 * 
+//	 * 
+//	 */
+//	@Override
+//	public String translatePredicates(Location location) throws InvalidityException {
+//		String xPredicates = "";
+//		int counter = 0;
+//		for (BooleanOperator predicate : predicates) {
+//			if (predicate.isTranslatable()) {
+//				xPredicates += predicate.toXQuery(location);
+//				if(counter != predicates.size()-1 && predicates.get(counter + 1).isTranslatable()) {
+//					xPredicates += " and ";
+//				}
+//			}
+//			counter++;
+//		}
+//		return xPredicates;
+//	}
 
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -317,7 +369,18 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		return translated;
 	}
 
-	
+	@Override
+	public String getXQueryRepresentation(Location location) throws InvalidityException {
+		if (predicatesAreBeingTranslated) {
+			return "."; // TODO: remove
+		} else {
+			if (translated) {
+				return getXQueryVariable();
+			} else {
+				throw new InvalidityException("element not yet translated");
+			}
+		}
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->

@@ -26,6 +26,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllElements <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllRelations <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
@@ -46,6 +47,28 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	EList<BooleanOperator> getPredicates();
+
+	/**
+	 * Returns the value of the '<em><b>Predicates Are Being Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Predicates Are Being Translated</em>' attribute.
+	 * @see #setPredicatesAreBeingTranslated(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_PredicatesAreBeingTranslated()
+	 * @model
+	 * @generated
+	 */
+	boolean isPredicatesAreBeingTranslated();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Predicates Are Being Translated</em>' attribute.
+	 * @see #isPredicatesAreBeingTranslated()
+	 * @generated
+	 */
+	void setPredicatesAreBeingTranslated(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Relation From Previous</b></em>' containment reference.

@@ -61,6 +61,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllElements <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllRelations <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getPredicates <em>Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  * </ul>
  *
  * @generated
@@ -150,6 +151,26 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	 * @ordered
 	 */
 	protected EList<BooleanOperator> predicates;
+
+	/**
+	 * The default value of the '{@link #isPredicatesAreBeingTranslated() <em>Predicates Are Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPredicatesAreBeingTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPredicatesAreBeingTranslated() <em>Predicates Are Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPredicatesAreBeingTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean predicatesAreBeingTranslated = PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -288,6 +309,29 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			predicates = new EObjectWithInverseResolvingEList.ManyInverse<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES, FunctionsPackage.BOOLEAN_OPERATOR__ELEMENTS);
 		}
 		return predicates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isPredicatesAreBeingTranslated() {
+		return predicatesAreBeingTranslated;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPredicatesAreBeingTranslated(boolean newPredicatesAreBeingTranslated) {
+		boolean oldPredicatesAreBeingTranslated = predicatesAreBeingTranslated;
+		predicatesAreBeingTranslated = newPredicatesAreBeingTranslated;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED, oldPredicatesAreBeingTranslated, predicatesAreBeingTranslated));
 	}
 
 	/**
@@ -581,6 +625,8 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return getGetAllRelations();
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				return getPredicates();
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+				return isPredicatesAreBeingTranslated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -615,6 +661,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				getPredicates().clear();
 				getPredicates().addAll((Collection<? extends BooleanOperator>)newValue);
 				return;
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+				setPredicatesAreBeingTranslated((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -644,6 +693,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				getPredicates().clear();
 				return;
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -671,6 +723,8 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				return predicates != null && !predicates.isEmpty();
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+				return predicatesAreBeingTranslated != PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -771,6 +825,8 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (translated: ");
 		result.append(translated);
+		result.append(", predicatesAreBeingTranslated: ");
+		result.append(predicatesAreBeingTranslated);
 		result.append(')');
 		return result.toString();
 	}

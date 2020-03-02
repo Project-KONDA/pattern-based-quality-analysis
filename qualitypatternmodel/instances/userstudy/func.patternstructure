@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure" id="_ir50QFlOEeq_0M_4V0woOA" shortPatternInternalId="0" elementCounter="168">
+<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure" id="_ir50QFlOEeq_0M_4V0woOA" shortPatternInternalId="0" elementCounter="174">
   <variableList id="_ir50RVlOEeq_0M_4V0woOA" shortPatternInternalId="119">
     <variables xsi:type="inputfields:TextLiteral" id="_tAXCdVlVEeq_0M_4V0woOA" shortPatternInternalId="96" comparison2="_nLgKEllkEeq_0M_4V0woOA" value="wer"/>
     <variables xsi:type="inputfields:PropertyOption" id="_rPRo4VlhEeq_0M_4V0woOA" shortPatternInternalId="99" value="ATTRIBUTE">
@@ -54,11 +54,19 @@
     <variables xsi:type="inputfields:PropertyOption" id="_S3U9cFxdEeqFO9-fCKlOrQ" shortPatternInternalId="162" value="ATTRIBUTE">
       <options>ATTRIBUTE</options>
     </variables>
-    <variables xsi:type="inputfields:TextLiteral" id="_S3U9cVxdEeqFO9-fCKlOrQ" shortPatternInternalId="163"/>
+    <variables xsi:type="inputfields:TextLiteral" id="_S3U9cVxdEeqFO9-fCKlOrQ" shortPatternInternalId="163" value="Type"/>
     <variables xsi:type="inputfields:CompOption" id="_TOmN8FxdEeqFO9-fCKlOrQ" shortPatternInternalId="165">
       <options>=</options>
     </variables>
     <variables xsi:type="inputfields:TextLiteral" id="_XoaG1VxdEeqFO9-fCKlOrQ" shortPatternInternalId="167" comparison2="_TBdJ0lxdEeqFO9-fCKlOrQ" value="wer"/>
+    <variables xsi:type="inputfields:PropertyOption" id="_AUFxIFxwEeqFO9-fCKlOrQ" shortPatternInternalId="170" value="ATTRIBUTE">
+      <options>ATTRIBUTE</options>
+    </variables>
+    <variables xsi:type="inputfields:TextLiteral" id="_AUFxIVxwEeqFO9-fCKlOrQ" shortPatternInternalId="169" value="Value"/>
+    <variables xsi:type="inputfields:PropertyOption" id="_COPJoFxwEeqFO9-fCKlOrQ" shortPatternInternalId="171" value="ATTRIBUTE">
+      <options>ATTRIBUTE</options>
+    </variables>
+    <variables xsi:type="inputfields:TextLiteral" id="_COPJoVxwEeqFO9-fCKlOrQ" shortPatternInternalId="172" value="Value"/>
   </variableList>
   <returnGraph id="_ir50QVlOEeq_0M_4V0woOA" shortPatternInternalId="94" returnElements="_u543QllSEeq_0M_4V0woOA" graphDepth="0" returnGraph="true">
     <rootElement id="_ir50Q1lOEeq_0M_4V0woOA" shortPatternInternalId="120" mappingTo="_mf5dwFljEeq_0M_4V0woOA">
@@ -79,7 +87,8 @@
           <properties id="_c8TyMVlkEeq_0M_4V0woOA" shortPatternInternalId="127" propertyOption="_OXiCgVlWEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
           <nextSingle id="_rVuu0llkEeq_0M_4V0woOA" shortPatternInternalId="128" predicates="_zv--UllkEeq_0M_4V0woOA _gf1z0lxYEeqFO9-fCKlOrQ">
             <relationFromPrevious id="_rVuu01lkEeq_0M_4V0woOA" shortPatternInternalId="129" axis="descendant"/>
-            <properties id="_r6PxIVlkEeq_0M_4V0woOA" shortPatternInternalId="130" comparison1="_zv--UllkEeq_0M_4V0woOA _gf1z0lxYEeqFO9-fCKlOrQ" propertyOption="_tqIaYVlkEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
+            <properties id="_r6PxIVlkEeq_0M_4V0woOA" shortPatternInternalId="130" comparison1="_zv--UllkEeq_0M_4V0woOA" propertyOption="_tqIaYVlkEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
+            <properties id="_AGQwgVxwEeqFO9-fCKlOrQ" shortPatternInternalId="168" comparison1="_gf1z0lxYEeqFO9-fCKlOrQ" propertyOption="_AUFxIFxwEeqFO9-fCKlOrQ" attributeName="_AUFxIVxwEeqFO9-fCKlOrQ"/>
           </nextSingle>
           <nextSingle id="_gnSb4ll0Eeq_0M_4V0woOA" shortPatternInternalId="131" predicates="_Ct_mAll2Eeq_0M_4V0woOA _iLhrQllzEeq_0M_4V0woOA">
             <relationFromPrevious id="_gnSb41l0Eeq_0M_4V0woOA" shortPatternInternalId="132" axis="descendant"/>
@@ -92,7 +101,8 @@
           <properties id="_kifgcVlkEeq_0M_4V0woOA" shortPatternInternalId="137" comparison1="_nLgKEllkEeq_0M_4V0woOA" propertyOption="_rPRo4VlhEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
           <nextSingle id="_5HICIllkEeq_0M_4V0woOA" shortPatternInternalId="138" predicates="_AU-v8lllEeq_0M_4V0woOA _gf1z0lxYEeqFO9-fCKlOrQ">
             <relationFromPrevious id="_5HICI1lkEeq_0M_4V0woOA" shortPatternInternalId="139" axis="descendant"/>
-            <properties id="_5sNFIVlkEeq_0M_4V0woOA" shortPatternInternalId="140" comparison1="_AU-v8lllEeq_0M_4V0woOA" comparison2="_gf1z0lxYEeqFO9-fCKlOrQ" propertyOption="_7CIWQVlkEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
+            <properties id="_5sNFIVlkEeq_0M_4V0woOA" shortPatternInternalId="140" comparison1="_AU-v8lllEeq_0M_4V0woOA" propertyOption="_7CIWQVlkEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
+            <properties id="_B-EmsVxwEeqFO9-fCKlOrQ" shortPatternInternalId="173" comparison2="_gf1z0lxYEeqFO9-fCKlOrQ" propertyOption="_COPJoFxwEeqFO9-fCKlOrQ" attributeName="_COPJoVxwEeqFO9-fCKlOrQ"/>
           </nextSingle>
           <nextSingle id="_jHRFUll0Eeq_0M_4V0woOA" shortPatternInternalId="141" predicates="_Ct_mAll2Eeq_0M_4V0woOA _mLHGQllzEeq_0M_4V0woOA">
             <relationFromPrevious id="_jHRFU1l0Eeq_0M_4V0woOA" shortPatternInternalId="142" axis="descendant"/>
@@ -108,7 +118,7 @@
         <operators xsi:type="functions:Comparison" id="_iLhrQllzEeq_0M_4V0woOA" shortPatternInternalId="150" elements="_gnSb4ll0Eeq_0M_4V0woOA" argument1="_d9QUAVlzEeq_0M_4V0woOA" option="_XaxecFlzEeq_0M_4V0woOA" argument2="_TVhgVVlzEeq_0M_4V0woOA" type="STRING"/>
         <operators xsi:type="functions:Comparison" id="_mLHGQllzEeq_0M_4V0woOA" shortPatternInternalId="151" elements="_jHRFUll0Eeq_0M_4V0woOA" argument1="_gMkrQVlzEeq_0M_4V0woOA" option="_bOb9UFlzEeq_0M_4V0woOA" argument2="_TVhgVVlzEeq_0M_4V0woOA" type="STRING"/>
         <operators xsi:type="functions:Comparison" id="_Ct_mAll2Eeq_0M_4V0woOA" shortPatternInternalId="152" elements="_gnSb4ll0Eeq_0M_4V0woOA _jHRFUll0Eeq_0M_4V0woOA" argument1="_rOOI4Vl1Eeq_0M_4V0woOA" option="_70xrcFl1Eeq_0M_4V0woOA" argument2="_sD5MoVl1Eeq_0M_4V0woOA" type="STRING"/>
-        <operators xsi:type="functions:Comparison" id="_gf1z0lxYEeqFO9-fCKlOrQ" shortPatternInternalId="156" elements="_rVuu0llkEeq_0M_4V0woOA _5HICIllkEeq_0M_4V0woOA" argument1="_r6PxIVlkEeq_0M_4V0woOA" option="_g5fC4FxYEeqFO9-fCKlOrQ" argument2="_5sNFIVlkEeq_0M_4V0woOA" type="STRING"/>
+        <operators xsi:type="functions:Comparison" id="_gf1z0lxYEeqFO9-fCKlOrQ" shortPatternInternalId="156" elements="_rVuu0llkEeq_0M_4V0woOA _5HICIllkEeq_0M_4V0woOA" argument1="_AGQwgVxwEeqFO9-fCKlOrQ" option="_g5fC4FxYEeqFO9-fCKlOrQ" argument2="_B-EmsVxwEeqFO9-fCKlOrQ" type="STRING"/>
       </operatorList>
     </graph>
     <condition xsi:type="patternstructure:True" id="_VB1w11l2Eeq_0M_4V0woOA" shortPatternInternalId="153"/>

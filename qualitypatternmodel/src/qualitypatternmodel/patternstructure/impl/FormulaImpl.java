@@ -103,17 +103,21 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					case OR:
 						result = "((" + argument1.toXQuery(location) + ")" + operator.getLiteral() + "("
 						+ argument2.toXQuery(location) + "))";
+						break;
 					case IMPLIES:
 						result = "(" + Constants.NOT + "(" + argument1.toXQuery(location) + ")" + Constants.OR + "("
 						+ argument2.toXQuery(location) + "))";
+						break;
 					case XOR:
 						result = "(" + Constants.NOT + "(" + argument1.toXQuery(location) + ")" + Constants.AND + "("
 						+ argument2.toXQuery(location) + "))" + Constants.OR + "((" + argument1.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
 						+ argument2.toXQuery(location) + "))";
+						break;
 					case EQUIVALENT:
 						result = "(" + Constants.NOT + "(" + argument1.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
 						+ argument2.toXQuery(location) + "))" + Constants.OR + "((" + argument1.toXQuery(location) + ")" + Constants.AND + "("
-						+ argument2.toXQuery(location) + "))";					
+						+ argument2.toXQuery(location) + "))";			
+						break;
 					default:
 						throw new InvalidityException("invalid arguments");
 					}
