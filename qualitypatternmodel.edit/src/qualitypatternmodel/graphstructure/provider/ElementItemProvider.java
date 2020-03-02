@@ -50,7 +50,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTranslatedPropertyDescriptor(object);
-			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
+//			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
 //			addGetAllElementsPropertyDescriptor(object);
 //			addGetAllRelationsPropertyDescriptor(object);
 			addPredicatesPropertyDescriptor(object);

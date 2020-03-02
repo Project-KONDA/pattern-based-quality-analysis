@@ -130,8 +130,11 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				result = "";
 			}
 			if(!xPredicates.equals("")) {
-				if(getNextSingle().isEmpty()) {
-					result += xPredicates + AND;
+				if(location == Location.EXISTS) {
+					result += xPredicates;
+					if(getNextSingle().size() > 0) {
+						result += AND;
+					}
 				} else {
 					result += NOT + "(" + xPredicates + ")" + OR;
 				}
@@ -140,12 +143,17 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		}
 
 		int counter = 0;
-		for (Element nextElement : getNextSingle()) {			
-			result += nextElement.toXQuery(location);
-			if(!(counter == 0) && location != Location.RETURN) {
+		for (Element nextElement : getNextSingle()) {		
+			String nextToXQuery = nextElement.toXQuery(location);
+			result += nextToXQuery;
+			if(location != Location.RETURN && !nextToXQuery.equals("") && counter != getNextSingle().size()-1) {
 				result += AND;
 			}
 			counter++;			
+		}
+		
+		if(location != Location.RETURN && getRoot()!=null) {
+			result += AND;
 		}
 
 		return result;
