@@ -45,7 +45,7 @@
             <nextSingle id="_902EUFxrEeqFO9-fCKlOrQ" shortPatternInternalId="30" mappingFrom="_902EUlxrEeqFO9-fCKlOrQ">
               <relationFromPrevious id="_902EUVxrEeqFO9-fCKlOrQ" shortPatternInternalId="32" mappingFrom="_902EU1xrEeqFO9-fCKlOrQ" axis="descendant"/>
               <nextSingle id="_LqT_UlxsEeqFO9-fCKlOrQ" shortPatternInternalId="34" predicates="_RQb6UlxsEeqFO9-fCKlOrQ">
-                <relationFromPrevious id="_LqT_U1xsEeqFO9-fCKlOrQ" shortPatternInternalId="37" axis="descendant"/>
+                <relationFromPrevious id="_LqT_U1xsEeqFO9-fCKlOrQ" shortPatternInternalId="37"/>
                 <properties id="_M6XR8VxsEeqFO9-fCKlOrQ" shortPatternInternalId="38" comparison1="_RQb6UlxsEeqFO9-fCKlOrQ" propertyOption="_Ns3s8FxsEeqFO9-fCKlOrQ" attributeName="_Ns3s8VxsEeqFO9-fCKlOrQ"/>
               </nextSingle>
             </nextSingle>
@@ -69,7 +69,7 @@
             <nextSingle id="_902EVFxrEeqFO9-fCKlOrQ" shortPatternInternalId="31" mappingFrom="_902rYVxrEeqFO9-fCKlOrQ">
               <relationFromPrevious id="_902rYFxrEeqFO9-fCKlOrQ" shortPatternInternalId="33" mappingFrom="_902rYlxrEeqFO9-fCKlOrQ" axis="descendant"/>
               <nextSingle id="_WM1i4lxsEeqFO9-fCKlOrQ" shortPatternInternalId="43" predicates="_bxI48lxsEeqFO9-fCKlOrQ">
-                <relationFromPrevious id="_WM1i41xsEeqFO9-fCKlOrQ" shortPatternInternalId="46" axis="descendant"/>
+                <relationFromPrevious id="_WM1i41xsEeqFO9-fCKlOrQ" shortPatternInternalId="46"/>
                 <properties id="_WiXG8VxsEeqFO9-fCKlOrQ" shortPatternInternalId="47" comparison1="_bxI48lxsEeqFO9-fCKlOrQ" propertyOption="_Xc3AUFxsEeqFO9-fCKlOrQ" attributeName="_Xc3AUVxsEeqFO9-fCKlOrQ"/>
               </nextSingle>
             </nextSingle>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure" id="_kgn0wFxwEeqFO9-fCKlOrQ" shortPatternInternalId="0" elementCounter="74">
+<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure" id="_kgn0wFxwEeqFO9-fCKlOrQ" shortPatternInternalId="0" elementCounter="57">
   <variableList id="_kgn0xVxwEeqFO9-fCKlOrQ" shortPatternInternalId="21">
     <variables xsi:type="inputfields:PropertyOption" id="_tLBZEFxwEeqFO9-fCKlOrQ" shortPatternInternalId="18" value="ATTRIBUTE">
       <options>ATTRIBUTE</options>
@@ -9,6 +9,14 @@
       <options>=</options>
     </variables>
     <variables xsi:type="inputfields:TextLiteral" id="_vVuWFVxwEeqFO9-fCKlOrQ" shortPatternInternalId="22" comparison2="_tR8gclxwEeqFO9-fCKlOrQ" value="obj"/>
+    <variables xsi:type="inputfields:PropertyOption" id="_17tLkFxwEeqFO9-fCKlOrQ" shortPatternInternalId="24" value="ATTRIBUTE">
+      <options>ATTRIBUTE</options>
+    </variables>
+    <variables xsi:type="inputfields:TextLiteral" id="_17tLkVxwEeqFO9-fCKlOrQ" shortPatternInternalId="25" value="Type"/>
+    <variables xsi:type="inputfields:CompOption" id="_2c0UkFxwEeqFO9-fCKlOrQ" shortPatternInternalId="29">
+      <options>=</options>
+    </variables>
+    <variables xsi:type="inputfields:TextLiteral" id="_3KFqRVxwEeqFO9-fCKlOrQ" shortPatternInternalId="31" comparison2="_2NAW8lxwEeqFO9-fCKlOrQ" value="3600"/>
     <variables xsi:type="inputfields:PropertyOption" id="_QiCxAFxxEeqFO9-fCKlOrQ" shortPatternInternalId="33" value="ATTRIBUTE">
       <options>ATTRIBUTE</options>
     </variables>
@@ -36,29 +44,16 @@
       <options>ATTRIBUTE</options>
     </variables>
     <variables xsi:type="inputfields:TextLiteral" id="_psm8AVxxEeqFO9-fCKlOrQ" shortPatternInternalId="54" value="Value"/>
-    <variables xsi:type="inputfields:CompOption" id="_giKm4FyLEeqFO9-fCKlOrQ" shortPatternInternalId="67">
-      <options>=</options>
-    </variables>
-    <variables xsi:type="inputfields:PropertyOption" id="_hJS4UFyLEeqFO9-fCKlOrQ" shortPatternInternalId="69" value="ATTRIBUTE">
-      <options>ATTRIBUTE</options>
-    </variables>
-    <variables xsi:type="inputfields:TextLiteral" id="_hJS4UVyLEeqFO9-fCKlOrQ" shortPatternInternalId="70" value="Type"/>
-    <variables xsi:type="inputfields:TextLiteral" id="_lxXPpVyLEeqFO9-fCKlOrQ" shortPatternInternalId="72" comparison2="_gO2pUlyLEeqFO9-fCKlOrQ" value="3600"/>
   </variableList>
   <returnGraph id="_kgn0wVxwEeqFO9-fCKlOrQ" shortPatternInternalId="1" returnElements="_ncV_AlxwEeqFO9-fCKlOrQ" graphDepth="0" returnGraph="true">
     <rootElement id="_kgn0w1xwEeqFO9-fCKlOrQ" shortPatternInternalId="2" mappingTo="_mfxpEFxwEeqFO9-fCKlOrQ">
       <nextSingle id="_ncV_AlxwEeqFO9-fCKlOrQ" shortPatternInternalId="11" predicates="_tR8gclxwEeqFO9-fCKlOrQ" mappingTo="_nriRklxwEeqFO9-fCKlOrQ">
         <relationFromPrevious id="_ncV_A1xwEeqFO9-fCKlOrQ" shortPatternInternalId="12" mappingTo="_nriRk1xwEeqFO9-fCKlOrQ" axis="descendant"/>
         <properties id="_s_pPgVxwEeqFO9-fCKlOrQ" shortPatternInternalId="16" comparison1="_tR8gclxwEeqFO9-fCKlOrQ" propertyOption="_tLBZEFxwEeqFO9-fCKlOrQ" attributeName="_tLBZEVxwEeqFO9-fCKlOrQ"/>
-        <nextSingle id="_Kq-4MlyLEeqFO9-fCKlOrQ" shortPatternInternalId="64" predicates="_gO2pUlyLEeqFO9-fCKlOrQ" mappingTo="_xSxdUVyLEeqFO9-fCKlOrQ">
-          <relationFromPrevious id="_Kq-4M1yLEeqFO9-fCKlOrQ" shortPatternInternalId="65" mappingTo="_K1_OU1yLEeqFO9-fCKlOrQ" axis="descendant"/>
-          <properties id="_g0POUVyLEeqFO9-fCKlOrQ" shortPatternInternalId="71" comparison1="_gO2pUlyLEeqFO9-fCKlOrQ" propertyOption="_hJS4UFyLEeqFO9-fCKlOrQ" attributeName="_hJS4UVyLEeqFO9-fCKlOrQ"/>
-        </nextSingle>
       </nextSingle>
     </rootElement>
     <operatorList id="_kgn0wlxwEeqFO9-fCKlOrQ" shortPatternInternalId="15">
       <operators xsi:type="functions:Comparison" id="_tR8gclxwEeqFO9-fCKlOrQ" shortPatternInternalId="19" elements="_ncV_AlxwEeqFO9-fCKlOrQ" argument1="_s_pPgVxwEeqFO9-fCKlOrQ" option="_td3ckFxwEeqFO9-fCKlOrQ" argument2="_vVuWFVxwEeqFO9-fCKlOrQ" type="STRING"/>
-      <operators xsi:type="functions:Comparison" id="_gO2pUlyLEeqFO9-fCKlOrQ" shortPatternInternalId="68" elements="_Kq-4MlyLEeqFO9-fCKlOrQ" argument1="_g0POUVyLEeqFO9-fCKlOrQ" option="_giKm4FyLEeqFO9-fCKlOrQ" argument2="_lxXPpVyLEeqFO9-fCKlOrQ" type="STRING"/>
     </operatorList>
   </returnGraph>
   <condition xsi:type="patternstructure:Formula" id="_mAZle1xwEeqFO9-fCKlOrQ" shortPatternInternalId="3" condDepth="1">
@@ -67,8 +62,9 @@
         <rootElement id="_mNFWk1xwEeqFO9-fCKlOrQ" shortPatternInternalId="7" mappingFrom="_mfxpEFxwEeqFO9-fCKlOrQ">
           <nextSingle id="_nriRkFxwEeqFO9-fCKlOrQ" shortPatternInternalId="13" mappingFrom="_nriRklxwEeqFO9-fCKlOrQ">
             <relationFromPrevious id="_nriRkVxwEeqFO9-fCKlOrQ" shortPatternInternalId="14" mappingFrom="_nriRk1xwEeqFO9-fCKlOrQ" axis="descendant"/>
-            <nextSingle id="_z8maklxwEeqFO9-fCKlOrQ" shortPatternInternalId="23" predicates="_nfEtclxxEeqFO9-fCKlOrQ" mappingFrom="_xSxdUVyLEeqFO9-fCKlOrQ">
-              <relationFromPrevious id="_z8mak1xwEeqFO9-fCKlOrQ" shortPatternInternalId="26" mappingFrom="_K1_OU1yLEeqFO9-fCKlOrQ" axis="descendant"/>
+            <nextSingle id="_z8maklxwEeqFO9-fCKlOrQ" shortPatternInternalId="23" predicates="_2NAW8lxwEeqFO9-fCKlOrQ _nfEtclxxEeqFO9-fCKlOrQ">
+              <relationFromPrevious id="_z8mak1xwEeqFO9-fCKlOrQ" shortPatternInternalId="26" axis="descendant"/>
+              <properties id="_1kjP0VxwEeqFO9-fCKlOrQ" shortPatternInternalId="27" comparison1="_2NAW8lxwEeqFO9-fCKlOrQ" propertyOption="_17tLkFxwEeqFO9-fCKlOrQ" attributeName="_17tLkVxwEeqFO9-fCKlOrQ"/>
               <properties id="_o7nj8VxxEeqFO9-fCKlOrQ" shortPatternInternalId="52" comparison1="_nfEtclxxEeqFO9-fCKlOrQ" propertyOption="_pMji8FxxEeqFO9-fCKlOrQ" attributeName="_pMji8VxxEeqFO9-fCKlOrQ"/>
             </nextSingle>
           </nextSingle>
@@ -83,6 +79,7 @@
           </nextSingle>
         </rootElement>
         <operatorList id="_mNFWklxwEeqFO9-fCKlOrQ" shortPatternInternalId="28">
+          <operators xsi:type="functions:Comparison" id="_2NAW8lxwEeqFO9-fCKlOrQ" shortPatternInternalId="30" elements="_z8maklxwEeqFO9-fCKlOrQ" argument1="_1kjP0VxwEeqFO9-fCKlOrQ" option="_2c0UkFxwEeqFO9-fCKlOrQ" argument2="_3KFqRVxwEeqFO9-fCKlOrQ" type="STRING"/>
           <operators xsi:type="functions:Comparison" id="_QwJeclxxEeqFO9-fCKlOrQ" shortPatternInternalId="38" elements="_PLE-ElxxEeqFO9-fCKlOrQ" argument1="_QF8q4VxxEeqFO9-fCKlOrQ" option="_REYpEFxxEeqFO9-fCKlOrQ" argument2="_WCPqNVxxEeqFO9-fCKlOrQ" type="STRING"/>
           <operators xsi:type="functions:Comparison" id="_bT80YlxxEeqFO9-fCKlOrQ" shortPatternInternalId="46" elements="_aWAlclxxEeqFO9-fCKlOrQ" argument1="_avutAVxxEeqFO9-fCKlOrQ" option="_bqeeAFxxEeqFO9-fCKlOrQ" argument2="_e_y0BVxxEeqFO9-fCKlOrQ" type="STRING"/>
           <operators xsi:type="functions:Comparison" id="_nfEtclxxEeqFO9-fCKlOrQ" shortPatternInternalId="49" elements="_z8maklxwEeqFO9-fCKlOrQ _aWAlclxxEeqFO9-fCKlOrQ" argument1="_o7nj8VxxEeqFO9-fCKlOrQ" option="_n-NggFxxEeqFO9-fCKlOrQ" argument2="_pYE2cVxxEeqFO9-fCKlOrQ" type="STRING"/>
@@ -93,8 +90,6 @@
         <mappings xsi:type="patternstructure:SingleElementMapping" id="_mfxpEFxwEeqFO9-fCKlOrQ" shortPatternInternalId="8" from="_kgn0w1xwEeqFO9-fCKlOrQ" to="_mNFWk1xwEeqFO9-fCKlOrQ"/>
         <mappings xsi:type="patternstructure:SingleElementMapping" id="_nriRklxwEeqFO9-fCKlOrQ" shortPatternInternalId="9" from="_ncV_AlxwEeqFO9-fCKlOrQ" to="_nriRkFxwEeqFO9-fCKlOrQ"/>
         <mappings xsi:type="patternstructure:RelationMapping" id="_nriRk1xwEeqFO9-fCKlOrQ" shortPatternInternalId="10" to="_nriRkVxwEeqFO9-fCKlOrQ" from="_ncV_A1xwEeqFO9-fCKlOrQ"/>
-        <mappings xsi:type="patternstructure:RelationMapping" id="_K1_OU1yLEeqFO9-fCKlOrQ" shortPatternInternalId="63" to="_z8mak1xwEeqFO9-fCKlOrQ" from="_Kq-4M1yLEeqFO9-fCKlOrQ"/>
-        <mappings xsi:type="patternstructure:SingleElementMapping" id="_xSxdUVyLEeqFO9-fCKlOrQ" shortPatternInternalId="73" from="_Kq-4MlyLEeqFO9-fCKlOrQ" to="_z8maklxwEeqFO9-fCKlOrQ"/>
       </morphism>
     </argument1>
   </condition>

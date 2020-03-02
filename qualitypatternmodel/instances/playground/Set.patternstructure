@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure" id="_wnn9oFyCEeqFO9-fCKlOrQ" shortPatternInternalId="0" elementCounter="17">
+  <variableList id="_wnn9pVyCEeqFO9-fCKlOrQ" shortPatternInternalId="9">
+    <variables xsi:type="inputfields:CompOption" id="_6OoUIFyCEeqFO9-fCKlOrQ" shortPatternInternalId="15">
+      <options>=</options>
+    </variables>
+  </variableList>
+  <returnGraph id="_wnn9oVyCEeqFO9-fCKlOrQ" shortPatternInternalId="1" returnElements="_wnn9o1yCEeqFO9-fCKlOrQ" graphDepth="0" returnGraph="true">
+    <rootElement id="_wnn9o1yCEeqFO9-fCKlOrQ" shortPatternInternalId="2" mappingTo="_xJR5MFyCEeqFO9-fCKlOrQ"/>
+    <operatorList id="_wnn9olyCEeqFO9-fCKlOrQ" shortPatternInternalId="11"/>
+  </returnGraph>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_w_8XBVyCEeqFO9-fCKlOrQ" shortPatternInternalId="3" condDepth="1">
+    <graph id="_w_8XBlyCEeqFO9-fCKlOrQ" shortPatternInternalId="4" returnElements="_w_8XCFyCEeqFO9-fCKlOrQ">
+      <rootElement id="_w_8XCFyCEeqFO9-fCKlOrQ" shortPatternInternalId="7" mappingFrom="_xJR5MFyCEeqFO9-fCKlOrQ">
+        <nextSet id="_xlZ0hFyCEeqFO9-fCKlOrQ" shortPatternInternalId="8" comparison1="_6CiY4lyCEeqFO9-fCKlOrQ" predicates="_6CiY4lyCEeqFO9-fCKlOrQ">
+          <relationFromPrevious id="_xlZ0hVyCEeqFO9-fCKlOrQ" shortPatternInternalId="12"/>
+        </nextSet>
+        <nextSet id="_6XLMJFyCEeqFO9-fCKlOrQ" shortPatternInternalId="16" comparison2="_6CiY4lyCEeqFO9-fCKlOrQ" predicates="_6CiY4lyCEeqFO9-fCKlOrQ">
+          <relationFromPrevious id="_6XLMJVyCEeqFO9-fCKlOrQ"/>
+        </nextSet>
+      </rootElement>
+      <operatorList id="_w_8XB1yCEeqFO9-fCKlOrQ" shortPatternInternalId="13">
+        <operators xsi:type="functions:Comparison" id="_6CiY4lyCEeqFO9-fCKlOrQ" shortPatternInternalId="14" elements="_xlZ0hFyCEeqFO9-fCKlOrQ _6XLMJFyCEeqFO9-fCKlOrQ" argument1="_xlZ0hFyCEeqFO9-fCKlOrQ" option="_6OoUIFyCEeqFO9-fCKlOrQ" argument2="_6XLMJFyCEeqFO9-fCKlOrQ" type="ELEMENT"/>
+      </operatorList>
+    </graph>
+    <condition xsi:type="patternstructure:True" id="_0isFC1yCEeqFO9-fCKlOrQ" shortPatternInternalId="10"/>
+    <morphism id="_w_8XClyCEeqFO9-fCKlOrQ" shortPatternInternalId="5" from="_wnn9oVyCEeqFO9-fCKlOrQ" to="_w_8XBlyCEeqFO9-fCKlOrQ">
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="_xJR5MFyCEeqFO9-fCKlOrQ" shortPatternInternalId="6" from="_wnn9o1yCEeqFO9-fCKlOrQ" to="_w_8XCFyCEeqFO9-fCKlOrQ"/>
+    </morphism>
+  </condition>
+</patternstructure:Pattern>

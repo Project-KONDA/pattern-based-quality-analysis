@@ -41,12 +41,12 @@
     </operatorList>
   </returnGraph>
   <condition xsi:type="patternstructure:QuantifiedCondition" id="_45hWpVxnEeqFO9-fCKlOrQ" shortPatternInternalId="13" condDepth="1">
-    <graph id="_45hWplxnEeqFO9-fCKlOrQ" shortPatternInternalId="14" returnElements="_5OMmIFxnEeqFO9-fCKlOrQ">
+    <graph id="_45hWplxnEeqFO9-fCKlOrQ" shortPatternInternalId="14" returnElements="_5OMmIFxnEeqFO9-fCKlOrQ" graphDepth="1">
       <rootElement id="_45hWqFxnEeqFO9-fCKlOrQ" shortPatternInternalId="16" mappingFrom="_5OL_EFxnEeqFO9-fCKlOrQ">
         <nextSingle id="_5OMmIFxnEeqFO9-fCKlOrQ" shortPatternInternalId="17" mappingFrom="_5OMmIlxnEeqFO9-fCKlOrQ">
           <relationFromPrevious id="_5OMmIVxnEeqFO9-fCKlOrQ" shortPatternInternalId="18" mappingFrom="_5OMmI1xnEeqFO9-fCKlOrQ" axis="descendant"/>
           <nextSingle id="_56vjElxnEeqFO9-fCKlOrQ" shortPatternInternalId="22" predicates="_9FnjolxnEeqFO9-fCKlOrQ _DePSklxoEeqFO9-fCKlOrQ">
-            <relationFromPrevious id="_56vjE1xnEeqFO9-fCKlOrQ" shortPatternInternalId="25" axis="descendant"/>
+            <relationFromPrevious id="_56vjE1xnEeqFO9-fCKlOrQ" shortPatternInternalId="25"/>
             <properties id="_6XCdgVxnEeqFO9-fCKlOrQ" shortPatternInternalId="26" comparison1="_9FnjolxnEeqFO9-fCKlOrQ _DePSklxoEeqFO9-fCKlOrQ" propertyOption="_6nxBIFxnEeqFO9-fCKlOrQ" attributeName="_6nxBIVxnEeqFO9-fCKlOrQ"/>
           </nextSingle>
         </nextSingle>
@@ -57,7 +57,7 @@
       </operatorList>
     </graph>
     <condition xsi:type="patternstructure:True" id="_U1n1KVxoEeqFO9-fCKlOrQ" shortPatternInternalId="35"/>
-    <morphism id="_45hWqlxnEeqFO9-fCKlOrQ" shortPatternInternalId="15" from="_UgnD4VxnEeqFO9-fCKlOrQ" to="_45hWplxnEeqFO9-fCKlOrQ">
+    <morphism id="_45hWqlxnEeqFO9-fCKlOrQ" shortPatternInternalId="15" from="_UgnD4VxnEeqFO9-fCKlOrQ" to="_45hWplxnEeqFO9-fCKlOrQ" morphDepth="1">
       <mappings xsi:type="patternstructure:SingleElementMapping" id="_5OL_EFxnEeqFO9-fCKlOrQ" shortPatternInternalId="19" from="_UgnD41xnEeqFO9-fCKlOrQ" to="_45hWqFxnEeqFO9-fCKlOrQ"/>
       <mappings xsi:type="patternstructure:SingleElementMapping" id="_5OMmIlxnEeqFO9-fCKlOrQ" shortPatternInternalId="20" from="_VIotMlxnEeqFO9-fCKlOrQ" to="_5OMmIFxnEeqFO9-fCKlOrQ"/>
       <mappings xsi:type="patternstructure:RelationMapping" id="_5OMmI1xnEeqFO9-fCKlOrQ" shortPatternInternalId="21" to="_5OMmIVxnEeqFO9-fCKlOrQ" from="_VIotM1xnEeqFO9-fCKlOrQ"/>
