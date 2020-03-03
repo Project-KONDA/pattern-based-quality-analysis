@@ -174,7 +174,6 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

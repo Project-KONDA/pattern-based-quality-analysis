@@ -29,6 +29,7 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.Location;
@@ -53,6 +54,7 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getNextSingle <em>Next Single</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getNextSet <em>Next Set</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getGraph <em>Graph</em>}</li>
  * </ul>
  *
  * @generated
@@ -95,6 +97,16 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * @ordered
 	 */
 	protected EList<SetElement> nextSet;
+
+	/**
+	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGraph()
+	 * @generated
+	 * @ordered
+	 */
+	protected Graph graph;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -581,6 +593,102 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		return nextSet;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Graph getGraph() {
+		if (graph != null && graph.eIsProxy()) {
+			InternalEObject oldGraph = (InternalEObject)graph;
+			graph = (Graph)eResolveProxy(oldGraph);
+			if (graph != oldGraph) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.SINGLE_ELEMENT__GRAPH, oldGraph, graph));
+			}
+		}
+		return graph;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Graph basicGetGraph() {
+		return graph;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		Graph oldGraph = graph;
+		graph = newGraph;
+		
+		setGraphForCorrespondingElements(newGraph);
+		
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__GRAPH, oldGraph, newGraph);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	private void setGraphForCorrespondingElements(Graph newGraph) {
+		for(SingleElementMapping mapping : getMappingTo()) {
+			SingleElement element = mapping.getTo();
+			if(newGraph == null && element.getGraph() != null) {
+				element.setGraph(null);				
+			}
+			if(newGraph != null && element.getGraph() == null) {
+				try {
+					element.setGraph((Graph) element.getAncestor(GraphImpl.class));
+				} catch (MissingPatternContainerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		if(getMappingFrom() != null) {
+			SingleElement element = getMappingFrom().getFrom();
+			if(newGraph == null && element.getGraph() != null) {
+				element.setGraph(null);				
+			}
+			if(newGraph != null && element.getGraph() == null) {
+				try {
+					element.setGraph((Graph) element.getAncestor(GraphImpl.class));
+				} catch (MissingPatternContainerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}			
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setGraph(Graph newGraph) {
+		if (newGraph != graph) {
+			NotificationChain msgs = null;
+			if (graph != null)
+				msgs = ((InternalEObject)graph).eInverseRemove(this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS, Graph.class, msgs);
+			if (newGraph != null)
+				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS, Graph.class, msgs);
+			msgs = basicSetGraph(newGraph, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__GRAPH, newGraph, newGraph));
+	}
+
 	@Override
 	public int getOriginalID() {
 		if (mappingFrom == null)
@@ -642,6 +750,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return basicSetPrevious((SingleElement)otherEnd, msgs);
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNextSet()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+				if (graph != null)
+					msgs = ((InternalEObject)graph).eInverseRemove(this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS, Graph.class, msgs);
+				return basicSetGraph((Graph)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -665,6 +777,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return basicSetPrevious(null, msgs);
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET:
 				return ((InternalEList<?>)getNextSet()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+				return basicSetGraph(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -704,6 +818,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return getPrevious();
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET:
 				return getNextSet();
+			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+				if (resolve) return getGraph();
+				return basicGetGraph();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -737,6 +854,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				getNextSet().clear();
 				getNextSet().addAll((Collection<? extends SetElement>)newValue);
 				return;
+			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+				setGraph((Graph)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -766,6 +886,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET:
 				getNextSet().clear();
 				return;
+			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+				setGraph((Graph)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -789,6 +912,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				return getPrevious() != null;
 			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SET:
 				return nextSet != null && !nextSet.isEmpty();
+			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+				return graph != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -234,6 +234,8 @@
           eOpposite="#//graphstructure/SingleElement/nextSingle"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nextSet" upperBound="-1"
           eType="#//graphstructure/SetElement" containment="true" eOpposite="#//graphstructure/SetElement/previousSingle"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="#//graphstructure/Graph"
+          eOpposite="#//graphstructure/Graph/returnElements"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SetElement" eSuperTypes="#//graphstructure/Element">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -326,8 +328,6 @@
       <eOperations name="copyGraph" eExceptions="#//patternstructure/MissingPatternContainerException">
         <eParameters name="graph" eType="#//graphstructure/Graph"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="returnElements" lowerBound="1"
-          upperBound="-1" eType="#//graphstructure/SingleElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rootElement" lowerBound="1"
           eType="#//graphstructure/SingleElement" containment="true" eOpposite="#//graphstructure/SingleElement/root"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
@@ -361,6 +361,8 @@
           eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//patternstructure/Pattern"
           eOpposite="#//patternstructure/Pattern/returnGraph"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returnElements" lowerBound="1"
+          upperBound="-1" eType="#//graphstructure/SingleElement" eOpposite="#//graphstructure/SingleElement/graph"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparable" abstract="true" interface="true"
         eSuperTypes="#//patternstructure/PatternElement">

@@ -1112,13 +1112,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__NEXT_SET = ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Graph</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT__GRAPH = ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Single Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
+	int SINGLE_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1870,22 +1879,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Return Elements</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH__RETURN_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Root Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__ROOT_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int GRAPH__ROOT_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Operator List</b></em>' containment reference.
@@ -1894,7 +1894,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int GRAPH__OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Graph Depth</b></em>' attribute.
@@ -1903,7 +1903,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__GRAPH_DEPTH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int GRAPH__GRAPH_DEPTH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Return Graph</b></em>' attribute.
@@ -1912,7 +1912,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__RETURN_GRAPH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int GRAPH__RETURN_GRAPH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Get All Elements</b></em>' reference list.
@@ -1921,7 +1921,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__GET_ALL_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int GRAPH__GET_ALL_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Get All Relations</b></em>' reference list.
@@ -1930,7 +1930,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__GET_ALL_RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
+	int GRAPH__GET_ALL_RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Quantified Condition</b></em>' container reference.
@@ -1939,7 +1939,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__QUANTIFIED_CONDITION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
+	int GRAPH__QUANTIFIED_CONDITION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -1948,7 +1948,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__PATTERN = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 8;
+	int GRAPH__PATTERN = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Return Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__RETURN_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
@@ -2302,6 +2311,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSingleElement_NextSet();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.SingleElement#getGraph <em>Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Graph</em>'.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getGraph()
+	 * @see #getSingleElement()
+	 * @generated
+	 */
+	EReference getSingleElement_Graph();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElementsToNextGraphs() <em>Copy Next Elements To Next Graphs</em>}' operation.
@@ -3116,6 +3136,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SINGLE_ELEMENT__NEXT_SET = eINSTANCE.getSingleElement_NextSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Graph</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_ELEMENT__GRAPH = eINSTANCE.getSingleElement_Graph();
 
 		/**
 		 * The meta object literal for the '<em><b>Copy Next Elements To Next Graphs</b></em>' operation.

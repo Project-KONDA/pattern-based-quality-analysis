@@ -192,6 +192,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SingleElement/nextSingle"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SingleElement/previous"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SingleElement/nextSet"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SingleElement/graph"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/copyNextElementsToNextGraphs"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/copyNextElementToNextGraphs">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/SingleElement/copyNextElementToNextGraphs/nextElement"/>
@@ -259,8 +261,6 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/returnElements"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/rootElement"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/operatorList"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Graph/graphDepth"/>
@@ -271,6 +271,8 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/getAllRelations"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/quantifiedCondition"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/pattern"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/returnElements"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/getAllOperators"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/copyGraph">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/copyGraph/graph"/>

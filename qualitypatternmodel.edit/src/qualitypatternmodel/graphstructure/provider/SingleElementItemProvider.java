@@ -45,6 +45,7 @@ public class SingleElementItemProvider extends ElementItemProvider {
 
 			addMappingToPropertyDescriptor(object);
 			addMappingFromPropertyDescriptor(object);
+			addGraphPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,6 +86,28 @@ public class SingleElementItemProvider extends ElementItemProvider {
 				 getString("_UI_SingleElement_mappingFrom_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_mappingFrom_feature", "_UI_SingleElement_type"),
 				 GraphstructurePackage.Literals.SINGLE_ELEMENT__MAPPING_FROM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Graph feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGraphPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SingleElement_graph_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_graph_feature", "_UI_SingleElement_type"),
+				 GraphstructurePackage.Literals.SINGLE_ELEMENT__GRAPH,
 				 true,
 				 false,
 				 true,
