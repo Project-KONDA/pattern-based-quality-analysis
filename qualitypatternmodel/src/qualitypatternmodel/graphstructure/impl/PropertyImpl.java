@@ -129,7 +129,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				if(attributeName == null || attributeName.getValue() == null) {
 					throw new InvalidityException("attributeName invalid");
 				} else {
-					return propertyElementTranslation + "/data(@" + attributeName.getValue() + ")";
+					return propertyElementTranslation + "/@" + attributeName.getValue() + "";
 				}
 			case DATA: return propertyElementTranslation + "/data()";
 			case TAG: return propertyElementTranslation + "/name()";
