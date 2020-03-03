@@ -193,12 +193,26 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setAxis(Axis newAxis) {
 		Axis oldAxis = axis;
 		axis = newAxis == null ? AXIS_EDEFAULT : newAxis;
+		
+		for(RelationMapping mapping : getMappingTo()) {
+			Relation relation = mapping.getTo();
+			if(relation.getAxis() != axis) {
+				relation.setAxis(newAxis);
+			}
+		}
+		if(getMappingFrom() != null) {
+			Relation relation = getMappingFrom().getFrom();
+			if(relation.getAxis() != axis) {
+				relation.setAxis(newAxis);	
+			}
+		}
+		
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__AXIS, oldAxis, axis));
 	}
