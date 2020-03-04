@@ -275,7 +275,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	public String translatePredicatesViaAnd(Location location) throws InvalidityException {
 		String xPredicates = "";
 		int counter = 0;
-		predicatesAreBeingTranslated = true;
 		for (BooleanOperator predicate : predicates) {
 			if (predicate.isTranslatable()) {
 				xPredicates += predicate.toXQuery(location);
@@ -285,7 +284,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				counter++;
 			}
 		}
-		predicatesAreBeingTranslated = false;
 		return xPredicates;
 	}
 
