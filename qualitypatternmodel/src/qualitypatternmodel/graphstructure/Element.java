@@ -55,7 +55,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @return the value of the '<em>Predicates Are Being Translated</em>' attribute.
 	 * @see #setPredicatesAreBeingTranslated(boolean)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_PredicatesAreBeingTranslated()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	boolean isPredicatesAreBeingTranslated();

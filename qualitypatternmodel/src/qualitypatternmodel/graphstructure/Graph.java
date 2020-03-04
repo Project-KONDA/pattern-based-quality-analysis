@@ -8,6 +8,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
+import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -21,7 +22,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElements <em>Root Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGraphDepth <em>Graph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph <em>Return Graph</em>}</li>
@@ -30,6 +31,8 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getMorphismTo <em>Morphism To</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph()
@@ -52,28 +55,56 @@ public interface Graph extends PatternElement {
 	EList<SingleElement> getReturnElements();
 
 	/**
-	 * Returns the value of the '<em><b>Root Element</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Morphism To</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.patternstructure.Morphism}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Morphism To</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_MorphismTo()
+	 * @see qualitypatternmodel.patternstructure.Morphism#getFrom
+	 * @model opposite="from"
+	 * @generated
+	 */
+	EList<Morphism> getMorphismTo();
+
+	/**
+	 * Returns the value of the '<em><b>Morphism From</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Morphism From</em>' reference.
+	 * @see #setMorphismFrom(Morphism)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_MorphismFrom()
+	 * @see qualitypatternmodel.patternstructure.Morphism#getTo
+	 * @model opposite="to"
+	 * @generated
+	 */
+	Morphism getMorphismFrom();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Morphism From</em>' reference.
+	 * @see #getMorphismFrom()
+	 * @generated
+	 */
+	void setMorphismFrom(Morphism value);
+
+	/**
+	 * Returns the value of the '<em><b>Root Elements</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.SingleElement}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root Element</em>' containment reference.
-	 * @see #setRootElement(SingleElement)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_RootElement()
+	 * @return the value of the '<em>Root Elements</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_RootElements()
 	 * @see qualitypatternmodel.graphstructure.SingleElement#getRoot
 	 * @model opposite="root" containment="true" required="true"
 	 * @generated
 	 */
-	SingleElement getRootElement();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root Element</em>' containment reference.
-	 * @see #getRootElement()
-	 * @generated
-	 */
-	void setRootElement(SingleElement value);
+	EList<SingleElement> getRootElements();
 
 	/**
 	 * Returns the value of the '<em><b>Operator List</b></em>' containment reference.
@@ -153,7 +184,7 @@ public interface Graph extends PatternElement {
 	 * @return the value of the '<em>Get All Elements</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_GetAllElements()
 	 * @model changeable="false" volatile="true" derived="true" ordered="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\tself.rootElement.getAllElements'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\tself.rootElements-&gt;collect(e:Element | e.getAllElements)-&gt;asSet()'"
 	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
 	 */
@@ -167,7 +198,7 @@ public interface Graph extends PatternElement {
 	 * @return the value of the '<em>Get All Relations</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_GetAllRelations()
 	 * @model changeable="false" volatile="true" derived="true" ordered="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\tself.rootElement.getAllRelations'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\tself.rootElements-&gt;collect(e:Element | e.getAllRelations)-&gt;asSet()'"
 	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
 	 */

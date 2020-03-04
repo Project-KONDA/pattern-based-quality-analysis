@@ -29,6 +29,8 @@ public interface SingleElementValidator {
 	boolean validatePrevious(SingleElement value);
 	boolean validateNextSet(EList<SetElement> value);
 
+	boolean validateGraph(Graph value);
+
 	boolean validateNext(EList<Element> value);
 	boolean validateRoot(Graph value);
 

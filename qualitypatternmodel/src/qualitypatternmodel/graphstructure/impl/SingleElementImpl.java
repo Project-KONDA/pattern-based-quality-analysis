@@ -29,10 +29,10 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
-import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
@@ -247,6 +247,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		for(SingleElementMapping mapping : getMappingTo()) {			
 			SingleElement newElementInNextGraph = new SingleElementImpl();
 			mapping.getTo().getNextSingle().add(newElementInNextGraph);
+			if(nextElement.getGraph() != null) {
+				Graph nextGraph = mapping.getMorphism().getTo();
+				nextGraph.getReturnElements().add(newElementInNextGraph);
+			}
 			SingleElementMapping newNextElementMapping = new SingleElementMappingImpl(nextElement, newElementInNextGraph);	
 			mapping.getMorphism().getMappings().add(newNextElementMapping);
 			if(nextElement.getRelationFromPrevious() != null) {
@@ -254,8 +258,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				mapping.getMorphism().getMappings().add(newRelationMapping);	
 			}			
 			nextElement.copyNextElementsToNextGraphs(); 
-		}
-		
+		}		
 	}
 
 	/**
@@ -266,13 +269,14 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public void removeElementFromPreviousGraphs() {
 		getMappingFrom().getFrom().setPrevious(null);
+		getMappingFrom().getFrom().setRoot(null);
 		getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
 		EList<SingleElement> nextSingleElementsCopy = new BasicEList<SingleElement>();
 		nextSingleElementsCopy.addAll(getNextSingle());		
 		for(SingleElement singleElement : nextSingleElementsCopy) {
 			singleElement.setPrevious(null);
 		}
-		if(getRelationFromPrevious() != null) {
+		if(getRelationFromPrevious() != null && getRelationFromPrevious().getMappingFrom() != null) {
 			getRelationFromPrevious().getMappingFrom().getMorphism().getMappings().remove(getRelationFromPrevious().getMappingFrom());
 		}
 	}
@@ -484,9 +488,36 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public NotificationChain basicSetRoot(Graph newRoot, NotificationChain msgs) {
+	public NotificationChain basicSetRoot(Graph newRoot, NotificationChain msgs) {		
+		if(newRoot != null) {
+			for(Morphism morphism : newRoot.getMorphismTo()) {
+				Graph nextGraph = morphism.getTo();
+				SingleElement newElementInNextGraph = new SingleElementImpl();
+				nextGraph.getRootElements().add(newElementInNextGraph);
+				if(this.getGraph() != null) {
+					nextGraph.getReturnElements().add(newElementInNextGraph);
+				}
+				SingleElementMapping newNextElementMapping = new SingleElementMappingImpl(this, newElementInNextGraph);	
+				morphism.getMappings().add(newNextElementMapping);				
+					
+				try {
+					copyNextElementsToNextGraphs();
+				} catch (MissingPatternContainerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+			}
+		}
+		if(getRelationFromPrevious() != null) {
+			setRelationFromPrevious(null);
+		}
+		
+		if(getMappingFrom() != null) {
+			removeElementFromPreviousGraphs();
+		}
+		
 		msgs = eBasicSetContainer((InternalEObject)newRoot, GraphstructurePackage.SINGLE_ELEMENT__ROOT, msgs);
 		return msgs;
 	}
@@ -504,7 +535,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRoot != null)
-				msgs = ((InternalEObject)newRoot).eInverseAdd(this, GraphstructurePackage.GRAPH__ROOT_ELEMENT, Graph.class, msgs);
+				msgs = ((InternalEObject)newRoot).eInverseAdd(this, GraphstructurePackage.GRAPH__ROOT_ELEMENTS, Graph.class, msgs);
 			msgs = basicSetRoot(newRoot, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -791,7 +822,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
-				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.GRAPH__ROOT_ELEMENT, Graph.class, msgs);
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.GRAPH__ROOT_ELEMENTS, Graph.class, msgs);
 			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
 				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE, SingleElement.class, msgs);
 		}

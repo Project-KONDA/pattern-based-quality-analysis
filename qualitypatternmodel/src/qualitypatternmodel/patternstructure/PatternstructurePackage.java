@@ -895,31 +895,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM__SHORT_PATTERN_INTERNAL_ID = PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM__FROM = PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM__TO = PATTERN_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Morph Depth</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__MORPH_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int MORPHISM__MORPH_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Check Single Element Mappings</b></em>' attribute.
@@ -928,7 +910,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Check Relation Mappings</b></em>' attribute.
@@ -937,7 +919,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__CHECK_RELATION_MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int MORPHISM__CHECK_RELATION_MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Check Single Element Mappings Uniqueness</b></em>' attribute.
@@ -946,7 +928,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Check Relation Mappings Uniqueness</b></em>' attribute.
@@ -955,7 +937,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_FEATURE_COUNT + 6;
+	int MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Mappings</b></em>' containment reference list.
@@ -964,7 +946,25 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 7;
+	int MORPHISM__MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM__FROM = PATTERN_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM__TO = PATTERN_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Morphism</em>' class.

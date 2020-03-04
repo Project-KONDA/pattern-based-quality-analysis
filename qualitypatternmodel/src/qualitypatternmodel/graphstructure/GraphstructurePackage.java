@@ -1879,13 +1879,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Root Element</b></em>' containment reference.
+	 * The feature id for the '<em><b>Root Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__ROOT_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int GRAPH__ROOT_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Operator List</b></em>' containment reference.
@@ -1960,13 +1960,31 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__RETURN_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Morphism To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__MORPHISM_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Morphism From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__MORPHISM_FROM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 9;
+	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2725,6 +2743,17 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getGraph();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Graph#getRootElements <em>Root Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Root Elements</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getRootElements()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_RootElements();
+
+	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2736,15 +2765,26 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getGraph_ReturnElements();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Graph#getMorphismTo <em>Morphism To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Root Element</em>'.
-	 * @see qualitypatternmodel.graphstructure.Graph#getRootElement()
+	 * @return the meta object for the reference list '<em>Morphism To</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismTo()
 	 * @see #getGraph()
 	 * @generated
 	 */
-	EReference getGraph_RootElement();
+	EReference getGraph_MorphismTo();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Morphism From</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismFrom()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_MorphismFrom();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}'.
@@ -3464,6 +3504,14 @@ public interface GraphstructurePackage extends EPackage {
 		EClass GRAPH = eINSTANCE.getGraph();
 
 		/**
+		 * The meta object literal for the '<em><b>Root Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__ROOT_ELEMENTS = eINSTANCE.getGraph_RootElements();
+
+		/**
 		 * The meta object literal for the '<em><b>Return Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3472,12 +3520,20 @@ public interface GraphstructurePackage extends EPackage {
 		EReference GRAPH__RETURN_ELEMENTS = eINSTANCE.getGraph_ReturnElements();
 
 		/**
-		 * The meta object literal for the '<em><b>Root Element</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Morphism To</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRAPH__ROOT_ELEMENT = eINSTANCE.getGraph_RootElement();
+		EReference GRAPH__MORPHISM_TO = eINSTANCE.getGraph_MorphismTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Morphism From</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__MORPHISM_FROM = eINSTANCE.getGraph_MorphismFrom();
 
 		/**
 		 * The meta object literal for the '<em><b>Operator List</b></em>' containment reference feature.

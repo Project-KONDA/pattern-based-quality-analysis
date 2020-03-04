@@ -73,14 +73,14 @@ public interface SingleElement extends Element {
 
 	/**
 	 * Returns the value of the '<em><b>Root</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getRootElements <em>Root Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root</em>' container reference.
 	 * @see #setRoot(Graph)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Root()
-	 * @see qualitypatternmodel.graphstructure.Graph#getRootElement
-	 * @model opposite="rootElement" transient="false"
+	 * @see qualitypatternmodel.graphstructure.Graph#getRootElements
+	 * @model opposite="rootElements" transient="false"
 	 * @generated
 	 */
 	Graph getRoot();
@@ -208,7 +208,7 @@ public interface SingleElement extends Element {
 	 * @param nextElement the <code>SingleElement</code> to be copied
 	 * @param recursive if true, the object is copied recursively to all previous graphs
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model recursiveRequired="true"
 	 * @generated
 	 */
 	void copyNextElementToPreviousGraphs(SingleElement nextElement, boolean recursive);
@@ -219,7 +219,7 @@ public interface SingleElement extends Element {
 	 * Corresponding <code>SingleElement</code> objects are created in these graphs and <code>SingleElementMapping</code> objects are added to the morphism.
 	 * @param recursive if true, the objects are copied recursively to all previous graphs
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model recursiveRequired="true"
 	 * @generated
 	 */
 	void copyNextElementsToPreviousGraphs(boolean recursive);
@@ -229,7 +229,7 @@ public interface SingleElement extends Element {
 	 * Returns true if this <code>SingleElement</code> has a predicate of type count.
 	 * @return true if this <code>SingleElement</code> has a predicate of type count
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	boolean hasCountPredicate();

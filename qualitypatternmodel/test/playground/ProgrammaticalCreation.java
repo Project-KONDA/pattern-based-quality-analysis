@@ -24,10 +24,10 @@ public class ProgrammaticalCreation {
 //		Graph graph = graphFactory.createGraph();
 		condition.setPattern(pattern);
 		System.out.println("morphism oben: " + condition.getMorphism());
-		for(Mapping mapping : pattern.getReturnGraph().getRootElement().getMappingTo()) {
-			System.out.println("mapping in return graph root oben: " + mapping);
-		}
-		System.out.println("mapping in condition graph root unten: " + condition.getGraph().getRootElement().getMappingFrom());
+//		for(Mapping mapping : pattern.getReturnGraph().getRootElements().getMappingTo()) {
+//			System.out.println("mapping in return graph root oben: " + mapping);
+//		}
+//		System.out.println("mapping in condition graph root unten: " + condition.getGraph().getRootElements().getMappingFrom());
 		System.out.println("mappings oben: ");
 		for(Mapping mapping : condition.getMorphism().getMappings()) {
 			System.out.println(mapping);
@@ -38,10 +38,10 @@ public class ProgrammaticalCreation {
 		for(Mapping mapping : condition.getMorphism().getMappings()) {
 			System.out.println(mapping);
 		}
-		for(Mapping mapping : pattern.getReturnGraph().getRootElement().getMappingTo()) {
-			System.out.println("mapping in return graph root unten: " + mapping);
-		}
-		System.out.println("mapping in condition graph root unten: " + condition.getGraph().getRootElement().getMappingFrom());
+//		for(Mapping mapping : pattern.getReturnGraph().getRootElements().getMappingTo()) {
+//			System.out.println("mapping in return graph root unten: " + mapping);
+//		}
+//		System.out.println("mapping in condition graph root unten: " + condition.getGraph().getRootElements().getMappingFrom());
 		
 
 		

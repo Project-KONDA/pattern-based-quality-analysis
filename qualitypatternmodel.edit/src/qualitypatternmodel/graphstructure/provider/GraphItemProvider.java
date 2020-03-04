@@ -84,6 +84,50 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Morphism To feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMorphismToPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Graph_morphismTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_morphismTo_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__MORPHISM_TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Morphism From feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMorphismFromPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Graph_morphismFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_morphismFrom_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__MORPHISM_FROM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Graph Depth feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -183,7 +227,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENT);
+			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENTS);
 			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST);
 		}
 		return childrenFeatures;
@@ -244,7 +288,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
+			case GraphstructurePackage.GRAPH__ROOT_ELEMENTS:
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -265,7 +309,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENT,
+				(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENTS,
 				 GraphstructureFactory.eINSTANCE.createSingleElement()));
 
 		newChildDescriptors.add

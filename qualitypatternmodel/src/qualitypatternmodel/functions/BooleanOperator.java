@@ -73,7 +73,7 @@ public interface BooleanOperator extends Operator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	boolean hasCountPredicate();
