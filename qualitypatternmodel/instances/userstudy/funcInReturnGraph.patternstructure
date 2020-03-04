@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure" id="_ir50QFlOEeq_0M_4V0woOA" shortPatternInternalId="0" elementCounter="174">
+<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure" id="_ir50QFlOEeq_0M_4V0woOA" shortPatternInternalId="0" elementCounter="201">
   <variableList id="_ir50RVlOEeq_0M_4V0woOA" shortPatternInternalId="119">
     <variables xsi:type="inputfields:TextLiteral" id="_tAXCdVlVEeq_0M_4V0woOA" shortPatternInternalId="96" comparison2="_nLgKEllkEeq_0M_4V0woOA" value="wer"/>
     <variables xsi:type="inputfields:PropertyOption" id="_rPRo4VlhEeq_0M_4V0woOA" shortPatternInternalId="99" value="ATTRIBUTE">
       <options>ATTRIBUTE</options>
     </variables>
-    <variables xsi:type="inputfields:TextLiteral" id="_va2RdVlhEeq_0M_4V0woOA" shortPatternInternalId="100" comparison2="_zv--UllkEeq_0M_4V0woOA _AU-v8lllEeq_0M_4V0woOA" value="3600"/>
+    <variables xsi:type="inputfields:TextLiteral" id="_va2RdVlhEeq_0M_4V0woOA" shortPatternInternalId="100" comparison2="_AU-v8lllEeq_0M_4V0woOA _4nkZQlyOEeqFO9-fCKlOrQ" value="3600"/>
     <variables xsi:type="inputfields:CompOption" id="_uezDcFliEeq_0M_4V0woOA" shortPatternInternalId="101">
-      <options>=</options>
-    </variables>
-    <variables xsi:type="inputfields:PropertyOption" id="_tqIaYVlkEeq_0M_4V0woOA" shortPatternInternalId="102" value="ATTRIBUTE">
-      <options>ATTRIBUTE</options>
-    </variables>
-    <variables xsi:type="inputfields:CompOption" id="_xv5V4FlkEeq_0M_4V0woOA" shortPatternInternalId="103">
       <options>=</options>
     </variables>
     <variables xsi:type="inputfields:PropertyOption" id="_7CIWQVlkEeq_0M_4V0woOA" shortPatternInternalId="104" value="ATTRIBUTE">
@@ -21,15 +15,9 @@
     <variables xsi:type="inputfields:CompOption" id="_9oq6sFlkEeq_0M_4V0woOA" shortPatternInternalId="105">
       <options>=</options>
     </variables>
-    <variables xsi:type="inputfields:TextLiteral" id="_TVhgVVlzEeq_0M_4V0woOA" shortPatternInternalId="106" comparison2="_iLhrQllzEeq_0M_4V0woOA _mLHGQllzEeq_0M_4V0woOA" value="3680"/>
-    <variables xsi:type="inputfields:PropertyOption" id="_WROccVlzEeq_0M_4V0woOA" shortPatternInternalId="107" value="ATTRIBUTE">
-      <options>ATTRIBUTE</options>
-    </variables>
+    <variables xsi:type="inputfields:TextLiteral" id="_TVhgVVlzEeq_0M_4V0woOA" shortPatternInternalId="106" comparison2="_mLHGQllzEeq_0M_4V0woOA _MzpRAlyPEeqFO9-fCKlOrQ" value="3680"/>
     <variables xsi:type="inputfields:PropertyOption" id="_W0GgAVlzEeq_0M_4V0woOA" shortPatternInternalId="108" value="ATTRIBUTE">
       <options>ATTRIBUTE</options>
-    </variables>
-    <variables xsi:type="inputfields:CompOption" id="_XaxecFlzEeq_0M_4V0woOA" shortPatternInternalId="109">
-      <options>=</options>
     </variables>
     <variables xsi:type="inputfields:CompOption" id="_bOb9UFlzEeq_0M_4V0woOA" shortPatternInternalId="110">
       <options>=</options>
@@ -50,7 +38,6 @@
     <variables xsi:type="inputfields:PropertyOption" id="_OXiCgVlWEeq_0M_4V0woOA" shortPatternInternalId="97" value="ATTRIBUTE">
       <options>ATTRIBUTE</options>
     </variables>
-    <variables xsi:type="inputfields:TextLiteral" id="_rW_Q4llVEeq_0M_4V0woOA" shortPatternInternalId="95" value="Type"/>
     <variables xsi:type="inputfields:PropertyOption" id="_S3U9cFxdEeqFO9-fCKlOrQ" shortPatternInternalId="162" value="ATTRIBUTE">
       <options>ATTRIBUTE</options>
     </variables>
@@ -67,16 +54,44 @@
       <options>ATTRIBUTE</options>
     </variables>
     <variables xsi:type="inputfields:TextLiteral" id="_COPJoVxwEeqFO9-fCKlOrQ" shortPatternInternalId="172" value="Value"/>
+    <variables xsi:type="inputfields:CompOption" id="_42WcIFyOEeqFO9-fCKlOrQ" shortPatternInternalId="186">
+      <options>=</options>
+    </variables>
+    <variables xsi:type="inputfields:PropertyOption" id="_5PJWoFyOEeqFO9-fCKlOrQ" shortPatternInternalId="188" value="ATTRIBUTE">
+      <options>ATTRIBUTE</options>
+    </variables>
+    <variables xsi:type="inputfields:TextLiteral" id="_5PJWoVyOEeqFO9-fCKlOrQ" shortPatternInternalId="189" value="Type"/>
+    <variables xsi:type="inputfields:PropertyOption" id="_5jq1IFyOEeqFO9-fCKlOrQ" shortPatternInternalId="191" value="ATTRIBUTE">
+      <options>ATTRIBUTE</options>
+    </variables>
+    <variables xsi:type="inputfields:TextLiteral" id="_5jq1IVyOEeqFO9-fCKlOrQ" shortPatternInternalId="192" value="Type"/>
+    <variables xsi:type="inputfields:CompOption" id="_M_acIFyPEeqFO9-fCKlOrQ" shortPatternInternalId="194">
+      <options>=</options>
+    </variables>
+    <variables xsi:type="inputfields:TextLiteral" id="_fKaM9VyPEeqFO9-fCKlOrQ" shortPatternInternalId="197" value="Type"/>
+    <variables xsi:type="inputfields:TextLiteral" id="_lM_adVyPEeqFO9-fCKlOrQ" shortPatternInternalId="198" value="Type"/>
+    <variables xsi:type="inputfields:TextLiteral" id="_oekf9VyPEeqFO9-fCKlOrQ" shortPatternInternalId="199" value="Type"/>
+    <variables xsi:type="inputfields:TextLiteral" id="_pYSWNVyPEeqFO9-fCKlOrQ" shortPatternInternalId="200" value="Type"/>
   </variableList>
   <returnGraph id="_ir50QVlOEeq_0M_4V0woOA" shortPatternInternalId="94" returnElements="_u543QllSEeq_0M_4V0woOA" graphDepth="0" returnGraph="true">
     <rootElement id="_ir50Q1lOEeq_0M_4V0woOA" shortPatternInternalId="120" mappingTo="_mf5dwFljEeq_0M_4V0woOA">
       <nextSingle id="_u543QllSEeq_0M_4V0woOA" shortPatternInternalId="121" predicates="_TBdJ0lxdEeqFO9-fCKlOrQ" mappingTo="_mf5dw1ljEeq_0M_4V0woOA">
         <relationFromPrevious id="_u543Q1lSEeq_0M_4V0woOA" shortPatternInternalId="122" mappingTo="_mf5dxFljEeq_0M_4V0woOA" axis="descendant"/>
         <properties id="_SoDLUVxdEeqFO9-fCKlOrQ" shortPatternInternalId="164" comparison1="_TBdJ0lxdEeqFO9-fCKlOrQ" propertyOption="_S3U9cFxdEeqFO9-fCKlOrQ" attributeName="_S3U9cVxdEeqFO9-fCKlOrQ"/>
+        <nextSingle id="_j3W5slyOEeqFO9-fCKlOrQ" shortPatternInternalId="175" predicates="_4nkZQlyOEeqFO9-fCKlOrQ" mappingTo="_qZ_gQVyOEeqFO9-fCKlOrQ">
+          <relationFromPrevious id="_j3W5s1yOEeqFO9-fCKlOrQ" shortPatternInternalId="184" mappingTo="_kGJjo1yOEeqFO9-fCKlOrQ"/>
+          <properties id="_5EKOoVyOEeqFO9-fCKlOrQ" shortPatternInternalId="190" comparison1="_4nkZQlyOEeqFO9-fCKlOrQ" propertyOption="_5PJWoFyOEeqFO9-fCKlOrQ" attributeName="_5PJWoVyOEeqFO9-fCKlOrQ"/>
+        </nextSingle>
+        <nextSingle id="_kdBLglyOEeqFO9-fCKlOrQ" shortPatternInternalId="178" predicates="_MzpRAlyPEeqFO9-fCKlOrQ" mappingTo="_s2NEAVyOEeqFO9-fCKlOrQ">
+          <relationFromPrevious id="_kdBLg1yOEeqFO9-fCKlOrQ" shortPatternInternalId="185" mappingTo="_koZ8I1yOEeqFO9-fCKlOrQ"/>
+          <properties id="_5Xv5AVyOEeqFO9-fCKlOrQ" shortPatternInternalId="193" comparison1="_MzpRAlyPEeqFO9-fCKlOrQ" propertyOption="_5jq1IFyOEeqFO9-fCKlOrQ" attributeName="_5jq1IVyOEeqFO9-fCKlOrQ"/>
+        </nextSingle>
       </nextSingle>
     </rootElement>
     <operatorList id="_ir50QllOEeq_0M_4V0woOA" shortPatternInternalId="123">
       <operators xsi:type="functions:Comparison" id="_TBdJ0lxdEeqFO9-fCKlOrQ" shortPatternInternalId="166" elements="_u543QllSEeq_0M_4V0woOA" argument1="_SoDLUVxdEeqFO9-fCKlOrQ" option="_TOmN8FxdEeqFO9-fCKlOrQ" argument2="_XoaG1VxdEeqFO9-fCKlOrQ" type="STRING"/>
+      <operators xsi:type="functions:Comparison" id="_4nkZQlyOEeqFO9-fCKlOrQ" shortPatternInternalId="187" elements="_j3W5slyOEeqFO9-fCKlOrQ" argument1="_5EKOoVyOEeqFO9-fCKlOrQ" option="_42WcIFyOEeqFO9-fCKlOrQ" argument2="_va2RdVlhEeq_0M_4V0woOA" type="STRING"/>
+      <operators xsi:type="functions:Comparison" id="_MzpRAlyPEeqFO9-fCKlOrQ" shortPatternInternalId="195" elements="_kdBLglyOEeqFO9-fCKlOrQ" argument1="_5Xv5AVyOEeqFO9-fCKlOrQ" option="_M_acIFyPEeqFO9-fCKlOrQ" argument2="_TVhgVVlzEeq_0M_4V0woOA" type="STRING"/>
     </operatorList>
   </returnGraph>
   <condition xsi:type="patternstructure:QuantifiedCondition" id="_lTG6hVljEeq_0M_4V0woOA" shortPatternInternalId="124" condDepth="1">
@@ -84,38 +99,34 @@
       <rootElement id="_lTG6iFljEeq_0M_4V0woOA" shortPatternInternalId="117" mappingFrom="_mf5dwFljEeq_0M_4V0woOA">
         <nextSingle id="_mf5dwVljEeq_0M_4V0woOA" shortPatternInternalId="125" mappingFrom="_mf5dw1ljEeq_0M_4V0woOA">
           <relationFromPrevious id="_mf5dwlljEeq_0M_4V0woOA" shortPatternInternalId="126" mappingFrom="_mf5dxFljEeq_0M_4V0woOA" axis="descendant"/>
-          <properties id="_c8TyMVlkEeq_0M_4V0woOA" shortPatternInternalId="127" propertyOption="_OXiCgVlWEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
-          <nextSingle id="_rVuu0llkEeq_0M_4V0woOA" shortPatternInternalId="128" predicates="_zv--UllkEeq_0M_4V0woOA _gf1z0lxYEeqFO9-fCKlOrQ">
-            <relationFromPrevious id="_rVuu01lkEeq_0M_4V0woOA" shortPatternInternalId="129"/>
-            <properties id="_r6PxIVlkEeq_0M_4V0woOA" shortPatternInternalId="130" comparison1="_zv--UllkEeq_0M_4V0woOA" propertyOption="_tqIaYVlkEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
+          <properties id="_c8TyMVlkEeq_0M_4V0woOA" shortPatternInternalId="127" propertyOption="_OXiCgVlWEeq_0M_4V0woOA" attributeName="_fKaM9VyPEeqFO9-fCKlOrQ"/>
+          <nextSingle id="_rVuu0llkEeq_0M_4V0woOA" shortPatternInternalId="128" predicates="_gf1z0lxYEeqFO9-fCKlOrQ" mappingFrom="_qZ_gQVyOEeqFO9-fCKlOrQ">
+            <relationFromPrevious id="_rVuu01lkEeq_0M_4V0woOA" shortPatternInternalId="129" mappingFrom="_kGJjo1yOEeqFO9-fCKlOrQ"/>
             <properties id="_AGQwgVxwEeqFO9-fCKlOrQ" shortPatternInternalId="168" comparison1="_gf1z0lxYEeqFO9-fCKlOrQ" propertyOption="_AUFxIFxwEeqFO9-fCKlOrQ" attributeName="_AUFxIVxwEeqFO9-fCKlOrQ"/>
           </nextSingle>
-          <nextSingle id="_gnSb4ll0Eeq_0M_4V0woOA" shortPatternInternalId="131" predicates="_Ct_mAll2Eeq_0M_4V0woOA _iLhrQllzEeq_0M_4V0woOA">
-            <relationFromPrevious id="_gnSb41l0Eeq_0M_4V0woOA" shortPatternInternalId="132"/>
-            <properties id="_d9QUAVlzEeq_0M_4V0woOA" shortPatternInternalId="133" comparison1="_iLhrQllzEeq_0M_4V0woOA" propertyOption="_WROccVlzEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
+          <nextSingle id="_gnSb4ll0Eeq_0M_4V0woOA" shortPatternInternalId="131" predicates="_Ct_mAll2Eeq_0M_4V0woOA" mappingFrom="_s2NEAVyOEeqFO9-fCKlOrQ">
+            <relationFromPrevious id="_gnSb41l0Eeq_0M_4V0woOA" shortPatternInternalId="132" mappingFrom="_koZ8I1yOEeqFO9-fCKlOrQ"/>
             <properties id="_rOOI4Vl1Eeq_0M_4V0woOA" shortPatternInternalId="134" comparison1="_Ct_mAll2Eeq_0M_4V0woOA" propertyOption="_s0uMoVl1Eeq_0M_4V0woOA" attributeName="_uKcpdVl1Eeq_0M_4V0woOA"/>
           </nextSingle>
         </nextSingle>
         <nextSingle id="_i2LIkllkEeq_0M_4V0woOA" shortPatternInternalId="135" predicates="_nLgKEllkEeq_0M_4V0woOA">
           <relationFromPrevious id="_i2LIk1lkEeq_0M_4V0woOA" shortPatternInternalId="136" axis="descendant"/>
-          <properties id="_kifgcVlkEeq_0M_4V0woOA" shortPatternInternalId="137" comparison1="_nLgKEllkEeq_0M_4V0woOA" propertyOption="_rPRo4VlhEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
+          <properties id="_kifgcVlkEeq_0M_4V0woOA" shortPatternInternalId="137" comparison1="_nLgKEllkEeq_0M_4V0woOA" propertyOption="_rPRo4VlhEeq_0M_4V0woOA" attributeName="_lM_adVyPEeqFO9-fCKlOrQ"/>
           <nextSingle id="_5HICIllkEeq_0M_4V0woOA" shortPatternInternalId="138" predicates="_AU-v8lllEeq_0M_4V0woOA _gf1z0lxYEeqFO9-fCKlOrQ">
             <relationFromPrevious id="_5HICI1lkEeq_0M_4V0woOA" shortPatternInternalId="139"/>
-            <properties id="_5sNFIVlkEeq_0M_4V0woOA" shortPatternInternalId="140" comparison1="_AU-v8lllEeq_0M_4V0woOA" propertyOption="_7CIWQVlkEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
+            <properties id="_5sNFIVlkEeq_0M_4V0woOA" shortPatternInternalId="140" comparison1="_AU-v8lllEeq_0M_4V0woOA" propertyOption="_7CIWQVlkEeq_0M_4V0woOA" attributeName="_pYSWNVyPEeqFO9-fCKlOrQ"/>
             <properties id="_B-EmsVxwEeqFO9-fCKlOrQ" shortPatternInternalId="173" comparison2="_gf1z0lxYEeqFO9-fCKlOrQ" propertyOption="_COPJoFxwEeqFO9-fCKlOrQ" attributeName="_COPJoVxwEeqFO9-fCKlOrQ"/>
           </nextSingle>
           <nextSingle id="_jHRFUll0Eeq_0M_4V0woOA" shortPatternInternalId="141" predicates="_Ct_mAll2Eeq_0M_4V0woOA _mLHGQllzEeq_0M_4V0woOA">
             <relationFromPrevious id="_jHRFU1l0Eeq_0M_4V0woOA" shortPatternInternalId="142"/>
-            <properties id="_gMkrQVlzEeq_0M_4V0woOA" shortPatternInternalId="143" comparison1="_mLHGQllzEeq_0M_4V0woOA" propertyOption="_W0GgAVlzEeq_0M_4V0woOA" attributeName="_rW_Q4llVEeq_0M_4V0woOA"/>
+            <properties id="_gMkrQVlzEeq_0M_4V0woOA" shortPatternInternalId="143" comparison1="_mLHGQllzEeq_0M_4V0woOA" propertyOption="_W0GgAVlzEeq_0M_4V0woOA" attributeName="_oekf9VyPEeqFO9-fCKlOrQ"/>
             <properties id="_sD5MoVl1Eeq_0M_4V0woOA" shortPatternInternalId="144" comparison2="_Ct_mAll2Eeq_0M_4V0woOA" propertyOption="_tfFYQVl1Eeq_0M_4V0woOA" attributeName="_uKcpdVl1Eeq_0M_4V0woOA"/>
           </nextSingle>
         </nextSingle>
       </rootElement>
       <operatorList id="_lTG6h1ljEeq_0M_4V0woOA" shortPatternInternalId="145">
         <operators xsi:type="functions:Comparison" id="_nLgKEllkEeq_0M_4V0woOA" shortPatternInternalId="147" elements="_i2LIkllkEeq_0M_4V0woOA" argument1="_kifgcVlkEeq_0M_4V0woOA" option="_uezDcFliEeq_0M_4V0woOA" argument2="_tAXCdVlVEeq_0M_4V0woOA" type="STRING"/>
-        <operators xsi:type="functions:Comparison" id="_zv--UllkEeq_0M_4V0woOA" shortPatternInternalId="148" elements="_rVuu0llkEeq_0M_4V0woOA" argument1="_r6PxIVlkEeq_0M_4V0woOA" option="_xv5V4FlkEeq_0M_4V0woOA" argument2="_va2RdVlhEeq_0M_4V0woOA" type="STRING"/>
         <operators xsi:type="functions:Comparison" id="_AU-v8lllEeq_0M_4V0woOA" shortPatternInternalId="149" elements="_5HICIllkEeq_0M_4V0woOA" argument1="_5sNFIVlkEeq_0M_4V0woOA" option="_9oq6sFlkEeq_0M_4V0woOA" argument2="_va2RdVlhEeq_0M_4V0woOA" type="STRING"/>
-        <operators xsi:type="functions:Comparison" id="_iLhrQllzEeq_0M_4V0woOA" shortPatternInternalId="150" elements="_gnSb4ll0Eeq_0M_4V0woOA" argument1="_d9QUAVlzEeq_0M_4V0woOA" option="_XaxecFlzEeq_0M_4V0woOA" argument2="_TVhgVVlzEeq_0M_4V0woOA" type="STRING"/>
         <operators xsi:type="functions:Comparison" id="_mLHGQllzEeq_0M_4V0woOA" shortPatternInternalId="151" elements="_jHRFUll0Eeq_0M_4V0woOA" argument1="_gMkrQVlzEeq_0M_4V0woOA" option="_bOb9UFlzEeq_0M_4V0woOA" argument2="_TVhgVVlzEeq_0M_4V0woOA" type="STRING"/>
         <operators xsi:type="functions:Comparison" id="_Ct_mAll2Eeq_0M_4V0woOA" shortPatternInternalId="152" elements="_gnSb4ll0Eeq_0M_4V0woOA _jHRFUll0Eeq_0M_4V0woOA" argument1="_rOOI4Vl1Eeq_0M_4V0woOA" option="_70xrcFl1Eeq_0M_4V0woOA" argument2="_sD5MoVl1Eeq_0M_4V0woOA" type="STRING"/>
         <operators xsi:type="functions:Comparison" id="_gf1z0lxYEeqFO9-fCKlOrQ" shortPatternInternalId="156" elements="_rVuu0llkEeq_0M_4V0woOA _5HICIllkEeq_0M_4V0woOA" argument1="_AGQwgVxwEeqFO9-fCKlOrQ" option="_g5fC4FxYEeqFO9-fCKlOrQ" argument2="_B-EmsVxwEeqFO9-fCKlOrQ" type="STRING"/>
@@ -126,6 +137,10 @@
       <mappings xsi:type="patternstructure:SingleElementMapping" id="_mf5dwFljEeq_0M_4V0woOA" shortPatternInternalId="118" from="_ir50Q1lOEeq_0M_4V0woOA" to="_lTG6iFljEeq_0M_4V0woOA"/>
       <mappings xsi:type="patternstructure:SingleElementMapping" id="_mf5dw1ljEeq_0M_4V0woOA" shortPatternInternalId="154" from="_u543QllSEeq_0M_4V0woOA" to="_mf5dwVljEeq_0M_4V0woOA"/>
       <mappings xsi:type="patternstructure:RelationMapping" id="_mf5dxFljEeq_0M_4V0woOA" shortPatternInternalId="155" to="_mf5dwlljEeq_0M_4V0woOA" from="_u543Q1lSEeq_0M_4V0woOA"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="_kGJjo1yOEeqFO9-fCKlOrQ" shortPatternInternalId="180" to="_rVuu01lkEeq_0M_4V0woOA" from="_j3W5s1yOEeqFO9-fCKlOrQ"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="_koZ8I1yOEeqFO9-fCKlOrQ" shortPatternInternalId="181" to="_gnSb41l0Eeq_0M_4V0woOA" from="_kdBLg1yOEeqFO9-fCKlOrQ"/>
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="_qZ_gQVyOEeqFO9-fCKlOrQ" shortPatternInternalId="182" from="_j3W5slyOEeqFO9-fCKlOrQ" to="_rVuu0llkEeq_0M_4V0woOA"/>
+      <mappings xsi:type="patternstructure:SingleElementMapping" id="_s2NEAVyOEeqFO9-fCKlOrQ" shortPatternInternalId="183" from="_kdBLglyOEeqFO9-fCKlOrQ" to="_gnSb4ll0Eeq_0M_4V0woOA"/>
     </morphism>
   </condition>
 </patternstructure:Pattern>

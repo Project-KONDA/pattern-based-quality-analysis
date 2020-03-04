@@ -21,7 +21,6 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGraphDepth <em>Graph Depth</em>}</li>
@@ -30,6 +29,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGetAllRelations <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph()
@@ -40,11 +40,13 @@ public interface Graph extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Return Elements</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.SingleElement}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Return Elements</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_ReturnElements()
-	 * @model required="true"
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getGraph
+	 * @model opposite="graph" required="true"
 	 * @generated
 	 */
 	EList<SingleElement> getReturnElements();

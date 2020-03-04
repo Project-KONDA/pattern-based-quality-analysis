@@ -12,10 +12,10 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -45,7 +45,6 @@ import qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElements <em>Return Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getRootElement <em>Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGraphDepth <em>Graph Depth</em>}</li>
@@ -54,20 +53,12 @@ import qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGetAllRelations <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElements <em>Return Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GraphImpl extends PatternElementImpl implements Graph {
-	/**
-	 * The cached value of the '{@link #getReturnElements() <em>Return Elements</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getReturnElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SingleElement> returnElements;
-
 	/**
 	 * The cached value of the '{@link #getRootElement() <em>Root Element</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -141,6 +132,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @ordered
 	 */
 	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_RELATIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.GRAPH__GET_ALL_RELATIONS).getSettingDelegate();
+
+	/**
+	 * The cached value of the '{@link #getReturnElements() <em>Return Elements</em>}' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getReturnElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SingleElement> returnElements;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -232,6 +232,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -251,6 +252,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPattern((Pattern)otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReturnElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -271,7 +274,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public EList<SingleElement> getReturnElements() {
 		if (returnElements == null) {
-			returnElements = new EObjectResolvingEList<SingleElement>(SingleElement.class, this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS);
+			returnElements = new EObjectWithInverseResolvingEList<SingleElement>(SingleElement.class, this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS, GraphstructurePackage.SINGLE_ELEMENT__GRAPH);
 		}
 		return returnElements;
 	}
@@ -533,6 +536,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return basicSetQuantifiedCondition(null, msgs);
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return basicSetPattern(null, msgs);
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				return ((InternalEList<?>)getReturnElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -560,8 +565,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-				return getReturnElements();
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				return getRootElement();
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
@@ -578,6 +581,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getQuantifiedCondition();
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return getPattern();
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				return getReturnElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -590,10 +595,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-				getReturnElements().clear();
-				getReturnElements().addAll((Collection<? extends SingleElement>)newValue);
-				return;
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				setRootElement((SingleElement)newValue);
 				return;
@@ -612,6 +613,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__PATTERN:
 				setPattern((Pattern)newValue);
 				return;
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				getReturnElements().clear();
+				getReturnElements().addAll((Collection<? extends SingleElement>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -623,9 +628,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-				getReturnElements().clear();
-				return;
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				setRootElement((SingleElement)null);
 				return;
@@ -644,6 +646,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__PATTERN:
 				setPattern((Pattern)null);
 				return;
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				getReturnElements().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -655,8 +660,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-				return returnElements != null && !returnElements.isEmpty();
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
 				return rootElement != null;
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
@@ -673,6 +676,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getQuantifiedCondition() != null;
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return getPattern() != null;
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				return returnElements != null && !returnElements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

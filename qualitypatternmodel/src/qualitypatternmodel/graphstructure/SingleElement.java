@@ -24,6 +24,7 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNextSingle <em>Next Single</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNextSet <em>Next Set</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getGraph <em>Graph</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement()
@@ -145,6 +146,30 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	EList<SetElement> getNextSet();
+
+	/**
+	 * Returns the value of the '<em><b>Graph</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Graph</em>' reference.
+	 * @see #setGraph(Graph)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Graph()
+	 * @see qualitypatternmodel.graphstructure.Graph#getReturnElements
+	 * @model opposite="returnElements"
+	 * @generated
+	 */
+	Graph getGraph();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getGraph <em>Graph</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Graph</em>' reference.
+	 * @see #getGraph()
+	 * @generated
+	 */
+	void setGraph(Graph value);
 
 	/**
 	 * <!-- begin-user-doc -->

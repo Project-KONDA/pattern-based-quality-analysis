@@ -334,7 +334,8 @@ public enum ReturnType implements Enumerator {
 	
 	static {
 		NUMBER.conversion = "xs:double(";
-		STRING.conversion = "xs:string(";
+//		STRING.conversion = "xs:string(";
+		STRING.conversion = "";
 		BOOLEAN.conversion = "xs:boolean(";
 		DATE.conversion = "xs:date(";
 		TIME.conversion = "xs:time(";
@@ -351,7 +352,8 @@ public enum ReturnType implements Enumerator {
 	
 	static {
 		NUMBER.conversionEnd = ")";
-		STRING.conversionEnd = ")";
+//		STRING.conversionEnd = ")";
+		STRING.conversionEnd = "";
 		BOOLEAN.conversionEnd = ")";
 		DATE.conversionEnd = ")";
 		TIME.conversionEnd = ")";
