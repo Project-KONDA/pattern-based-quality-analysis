@@ -23,6 +23,7 @@ import qualitypatternmodel.graphstructure.SingleElement;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#toXQueryCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery Count</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#toXQueryNoCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery No Count</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#isRootElement() <em>Is Root Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -193,6 +194,19 @@ public class SingleElementTest extends ElementTest {
 	 * @generated
 	 */
 	public void testIsRootElement() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#removeMappingsToNext() <em>Remove Mappings To Next</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#removeMappingsToNext()
+	 * @generated
+	 */
+	public void testRemoveMappingsToNext() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

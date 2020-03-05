@@ -268,4 +268,12 @@ public interface SingleElement extends Element {
 	 */
 	boolean isRootElement();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeMappingsToNext();
+
 } // SingleElement

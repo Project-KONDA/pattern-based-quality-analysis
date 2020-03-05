@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -21,10 +22,12 @@ import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -240,11 +243,59 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetRelationTo(Element newRelationTo, NotificationChain msgs) {
+		removeRelationFromPreviousGraphs();		
+		removeMappingsToNext();
+		if(newRelationTo != null) {
+			copyToNewNextGraphs(newRelationTo);
+		}
 		msgs = eBasicSetContainer((InternalEObject)newRelationTo, GraphstructurePackage.RELATION__RELATION_TO, msgs);
 		return msgs;
+	}
+
+	@Override
+	public void copyToNewNextGraphs(Element newRelationTo) {
+		if(newRelationTo instanceof SingleElement) {
+			SingleElement element = (SingleElement) newRelationTo;
+			if(element.getMappingFrom() != null) {
+				SingleElement correspondingElement = element.getMappingFrom().getFrom();
+				Relation newCorrespondingRelation;
+				if(correspondingElement.getRelationFromPrevious() != null) {
+					newCorrespondingRelation = correspondingElement.getRelationFromPrevious();				
+				} else {
+					newCorrespondingRelation = new RelationImpl();				
+				}
+				newCorrespondingRelation.setAxis(getAxis());
+				RelationMapping mapping = new RelationMappingImpl(newCorrespondingRelation, this);
+				element.getMappingFrom().getMorphism().getMappings().add(mapping);
+			}
+		}
+	}
+
+	@Override
+	public void removeMappingsToNext() {
+		EList<RelationMapping> mappingToCopy = new BasicEList<RelationMapping>();
+		mappingToCopy.addAll(getMappingTo());
+		for(RelationMapping mapping : mappingToCopy) {
+			mapping.setFrom(null);
+			mapping.setTo(null);
+			mapping.getMorphism().getMappings().remove(mapping);
+		}
+	}
+	
+	@Override
+	public void removeRelationFromPreviousGraphs() {
+		if(getMappingFrom() != null) {
+			Relation correspondingRelation = getMappingFrom().getFrom();
+			correspondingRelation.getRelationTo().setRelationFromPrevious(null);
+			getMappingFrom().setFrom(null);
+			if(getMappingFrom().getMorphism() != null) {
+				getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
+				getMappingFrom().setTo(null);
+			}
+		}
 	}
 
 	/**
@@ -424,6 +475,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS:
+				removeRelationFromPreviousGraphs();
+				return null;
+			case GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT:
+				removeMappingsToNext();
+				return null;
+			case GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT:
+				copyToNewNextGraphs((Element)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
