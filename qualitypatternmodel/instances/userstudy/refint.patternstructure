@@ -83,7 +83,7 @@
               </nextSingle>
             </nextSingle>
             <nextSingle id="_OqEyol1JEeqCLc7-1MdwTg" shortPatternInternalId="46" predicates="_QTuRAl1JEeqCLc7-1MdwTg">
-              <relationFromPrevious id="_OqEyo11JEeqCLc7-1MdwTg" shortPatternInternalId="47"/>
+              <relationFromPrevious id="_OqEyo11JEeqCLc7-1MdwTg" shortPatternInternalId="47" axis="descendant"/>
               <properties id="_PjREcV1JEeqCLc7-1MdwTg" shortPatternInternalId="52" comparison1="_QTuRAl1JEeqCLc7-1MdwTg" propertyOption="_P3RlkF1JEeqCLc7-1MdwTg" attributeName="_P3RlkV1JEeqCLc7-1MdwTg"/>
               <nextSingle id="_O3JlUl1JEeqCLc7-1MdwTg" shortPatternInternalId="48" predicates="_a2r5cl1JEeqCLc7-1MdwTg _h1s6Al1JEeqCLc7-1MdwTg">
                 <relationFromPrevious id="_O3JlU11JEeqCLc7-1MdwTg" shortPatternInternalId="49"/>

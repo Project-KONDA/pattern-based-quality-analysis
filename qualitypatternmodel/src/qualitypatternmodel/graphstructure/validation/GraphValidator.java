@@ -23,6 +23,8 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 public interface GraphValidator {
 	boolean validate();
 
+	boolean validateRootElements(SingleElement value);
+
 	boolean validateRootElements(EList<SingleElement> value);
 
 	boolean validateReturnElements(EList<SingleElement> value);

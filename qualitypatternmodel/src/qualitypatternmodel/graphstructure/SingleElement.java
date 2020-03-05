@@ -73,14 +73,14 @@ public interface SingleElement extends Element {
 
 	/**
 	 * Returns the value of the '<em><b>Root</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getRootElements <em>Root Elements</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root</em>' container reference.
 	 * @see #setRoot(Graph)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Root()
-	 * @see qualitypatternmodel.graphstructure.Graph#getRootElements
-	 * @model opposite="rootElements" transient="false"
+	 * @see qualitypatternmodel.graphstructure.Graph#getRootElement
+	 * @model opposite="rootElement" transient="false"
 	 * @generated
 	 */
 	Graph getRoot();
@@ -259,5 +259,13 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	String toXQueryNoCount(Location location) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	boolean isRootElement();
 
 } // SingleElement

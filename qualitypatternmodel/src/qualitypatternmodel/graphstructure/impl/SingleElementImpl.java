@@ -32,7 +32,6 @@ import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
@@ -118,10 +117,18 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		if(hasCountPredicate()) {
-			return toXQueryCount(location);
+		if(isRootElement()) {
+			String result = "";
+			for (Element nextElement : getNextSingle()) {			
+				result += nextElement.toXQuery(location);
+			}
+			return result;
 		} else {
-			return toXQueryNoCount(location);
+			if(hasCountPredicate()) {
+				return toXQueryCount(location);
+			} else {
+				return toXQueryNoCount(location);
+			}
 		}
 	}
 	
@@ -157,6 +164,16 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		}
 		
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isRootElement() {
+		return getRoot() != null;
 	}
 
 	@Override
@@ -216,10 +233,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 	@Override
 	public String translatePathFromPrevious() {
-		if (getPrevious() != null) {
-			return ((SingleElement) getPrevious()).getXQueryVariable() + "/" + relationFromPrevious.getAxis() + "::*";
+		if (getPrevious().isRootElement()) {
+			return "/" + relationFromPrevious.getAxis() + "::*";	
 		} else {
-			return "/*";
+			return ((SingleElement) getPrevious()).getXQueryVariable() + "/" + relationFromPrevious.getAxis() + "::*";
 		}
 	}
 
@@ -350,6 +367,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			throw new InvalidityException("root has previous Element");
 		if (!eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT) && !eIsSet(GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS))
 			throw new InvalidityException("relation not specified");
+		if(isRootElement() && getRelationFromPrevious() != null)
+			throw new InvalidityException("relation specified for root element");
+		
 		super.isValidLocal(isDefinedPattern);
 	}
 
@@ -491,32 +511,32 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetRoot(Graph newRoot, NotificationChain msgs) {		
-		if(newRoot != null) {
-			for(Morphism morphism : newRoot.getMorphismTo()) {
-				Graph nextGraph = morphism.getTo();
-				SingleElement newElementInNextGraph = new SingleElementImpl();
-				nextGraph.getRootElements().add(newElementInNextGraph);
-				if(this.getGraph() != null) {
-					nextGraph.getReturnElements().add(newElementInNextGraph);
-				}
-				SingleElementMapping newNextElementMapping = new SingleElementMappingImpl(this, newElementInNextGraph);	
-				morphism.getMappings().add(newNextElementMapping);				
-					
-				try {
-					copyNextElementsToNextGraphs();
-				} catch (MissingPatternContainerException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} 
-			}
-		}
+//		if(newRoot != null) {
+//			for(Morphism morphism : newRoot.getMorphismTo()) {
+//				Graph nextGraph = morphism.getTo();
+//				SingleElement newElementInNextGraph = new SingleElementImpl();
+//				nextGraph.getRootElements().add(newElementInNextGraph);
+//				if(this.getGraph() != null) {
+//					nextGraph.getReturnElements().add(newElementInNextGraph);
+//				}
+//				SingleElementMapping newNextElementMapping = new SingleElementMappingImpl(this, newElementInNextGraph);	
+//				morphism.getMappings().add(newNextElementMapping);				
+//					
+//				try {
+//					copyNextElementsToNextGraphs();
+//				} catch (MissingPatternContainerException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} 
+//			}
+//		}
 		if(getRelationFromPrevious() != null) {
 			setRelationFromPrevious(null);
 		}
-		
-		if(getMappingFrom() != null) {
-			removeElementFromPreviousGraphs();
-		}
+//		
+//		if(getMappingFrom() != null) {
+//			removeElementFromPreviousGraphs();
+//		}
 		
 		msgs = eBasicSetContainer((InternalEObject)newRoot, GraphstructurePackage.SINGLE_ELEMENT__ROOT, msgs);
 		return msgs;
@@ -535,7 +555,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRoot != null)
-				msgs = ((InternalEObject)newRoot).eInverseAdd(this, GraphstructurePackage.GRAPH__ROOT_ELEMENTS, Graph.class, msgs);
+				msgs = ((InternalEObject)newRoot).eInverseAdd(this, GraphstructurePackage.GRAPH__ROOT_ELEMENT, Graph.class, msgs);
 			msgs = basicSetRoot(newRoot, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -822,7 +842,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
-				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.GRAPH__ROOT_ELEMENTS, Graph.class, msgs);
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.GRAPH__ROOT_ELEMENT, Graph.class, msgs);
 			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
 				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE, SingleElement.class, msgs);
 		}
@@ -997,6 +1017,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.SINGLE_ELEMENT___IS_ROOT_ELEMENT:
+				return isRootElement();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
