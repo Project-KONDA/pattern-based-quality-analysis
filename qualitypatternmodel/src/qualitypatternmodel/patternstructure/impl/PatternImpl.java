@@ -21,6 +21,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.graphstructure.impl.SingleElementImpl;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.VariableList;
@@ -131,6 +132,11 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	protected PatternImpl() {
 		super();
 		setReturnGraph(new GraphImpl());
+		getReturnGraph().setRootElement(new SingleElementImpl());
+		SingleElementImpl returnElement = new SingleElementImpl();
+		returnElement.setPrevious(getReturnGraph().getRootElement());
+		getReturnGraph().getReturnElements().add(returnElement);
+		
 		setVariableList(new VariableListImpl(this));
 		getShortPatternInternalId();
 	}

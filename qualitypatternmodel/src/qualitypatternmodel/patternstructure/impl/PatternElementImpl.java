@@ -150,8 +150,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public PatternElement getContainer() throws MissingPatternContainerException {
-		if (eInternalContainer() instanceof PatternElement)
+		if (eInternalContainer() instanceof PatternElement) {
 			return (PatternElement)eInternalContainer(); 
+		}
 		throw new MissingPatternContainerException("container object invalid");
 	}
 

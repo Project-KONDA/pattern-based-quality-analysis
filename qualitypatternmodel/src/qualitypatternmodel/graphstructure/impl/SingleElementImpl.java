@@ -109,9 +109,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected SingleElementImpl() {
+	public SingleElementImpl() {
 		super();
 	}
 	
@@ -261,19 +261,27 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 */
 	@Override
 	public void copyNextElementToNextGraphs(SingleElement nextElement) throws MissingPatternContainerException {		
-		for(SingleElementMapping mapping : getMappingTo()) {			
-			SingleElement newElementInNextGraph = new SingleElementImpl();
-			mapping.getTo().getNextSingle().add(newElementInNextGraph);
-			if(nextElement.getGraph() != null) {
-				Graph nextGraph = mapping.getMorphism().getTo();
-				nextGraph.getReturnElements().add(newElementInNextGraph);
+		for(SingleElementMapping mapping : getMappingTo()) {		
+			boolean mappingExistsAlready = false;
+			for(SingleElementMapping nextElementMappingTo : nextElement.getMappingTo()) {
+				if(nextElementMappingTo.getMorphism().equals(mapping.getMorphism())) {
+					mappingExistsAlready = true;
+				}				
 			}
-			SingleElementMapping newNextElementMapping = new SingleElementMappingImpl(nextElement, newElementInNextGraph);	
-			mapping.getMorphism().getMappings().add(newNextElementMapping);
-			if(nextElement.getRelationFromPrevious() != null) {
-				RelationMapping newRelationMapping = new RelationMappingImpl(nextElement.getRelationFromPrevious(), newElementInNextGraph.getRelationFromPrevious());	
-				mapping.getMorphism().getMappings().add(newRelationMapping);	
-			}			
+			if(!mappingExistsAlready) {
+				SingleElement newElementInNextGraph = new SingleElementImpl();
+				mapping.getTo().getNextSingle().add(newElementInNextGraph);
+				if(nextElement.getGraph() != null) {
+					Graph nextGraph = mapping.getMorphism().getTo();
+					nextGraph.getReturnElements().add(newElementInNextGraph);
+				}
+				SingleElementMapping newNextElementMapping = new SingleElementMappingImpl(nextElement, newElementInNextGraph);	
+				mapping.getMorphism().getMappings().add(newNextElementMapping);
+				if(nextElement.getRelationFromPrevious() != null) {
+					RelationMapping newRelationMapping = new RelationMappingImpl(nextElement.getRelationFromPrevious(), newElementInNextGraph.getRelationFromPrevious());	
+					mapping.getMorphism().getMappings().add(newRelationMapping);	
+				}
+			}
 			nextElement.copyNextElementsToNextGraphs(); 
 		}		
 	}
@@ -592,7 +600,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetPrevious(SingleElement newPrevious, NotificationChain msgs) {
+	public NotificationChain basicSetPrevious(SingleElement newPrevious, NotificationChain msgs) {		
 		if(getRelationFromPrevious() != null) {
 			getRelationFromPrevious().removeRelationFromPreviousGraphs();		
 			getRelationFromPrevious().removeMappingsToNext();
@@ -693,12 +701,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {	
 		Graph oldGraph = graph;
-		graph = newGraph;
-		
+		graph = newGraph;		
 		setGraphForCorrespondingElements(newGraph);
-		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__GRAPH, oldGraph, newGraph);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

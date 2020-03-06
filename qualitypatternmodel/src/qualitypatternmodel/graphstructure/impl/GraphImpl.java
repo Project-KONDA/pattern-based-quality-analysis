@@ -147,8 +147,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	public GraphImpl() {
 		super();
-		setOperatorList(new OperatorListImpl());
-		setRootElement(new SingleElementImpl());
+		setOperatorList(new OperatorListImpl());		
+//		setRootElement(new SingleElementImpl());
+//		SingleElementImpl returnElement = new SingleElementImpl();
+////		getRootElement().getNextSingle().add(returnElement); 
+//		returnElement.setPrevious(getRootElement());
+//		getReturnElements().add(returnElement);
 	}
 
 	@Override
@@ -203,10 +207,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public void copyGraph(Graph graph) throws MissingPatternContainerException {		
-		boolean foundRootMapping = updateRootMapping(graph);
-		if(!foundRootMapping) {
-			addRootMapping(graph);
-		}		
+//		boolean foundRootMapping = updateRootMapping(graph);
+//		if(!foundRootMapping) {
+//			addRootMapping(graph);
+//		}	
+		SingleElement newRootElement = new SingleElementImpl();
+		newRootElement.setRoot(graph);
+		SingleElementMapping newMapping = new SingleElementMappingImpl(rootElement, newRootElement);
+		graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
 		rootElement.copyNextElementsToNextGraphs();
 	}
 
@@ -280,9 +288,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetRootElement(SingleElement newRootElement, NotificationChain msgs) {
+		getReturnElements().clear();
 		SingleElement oldRootElement = rootElement;
 		rootElement = newRootElement;
 		if (eNotificationRequired()) {
