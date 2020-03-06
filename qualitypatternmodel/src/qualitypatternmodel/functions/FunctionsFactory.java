@@ -49,15 +49,6 @@ public interface FunctionsFactory extends EFactory {
 	Comparison createComparison();
 
 	/**
-	 * Returns a new object of class '<em>To Number</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>To Number</em>'.
-	 * @generated
-	 */
-	ToNumber createToNumber();
-
-	/**
 	 * Returns a new object of class '<em>Operator List</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

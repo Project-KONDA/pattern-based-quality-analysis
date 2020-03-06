@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.inputfields.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -97,13 +98,14 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 			throw new InvalidityException(msg);
 		}
 	}
-	
+
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		String res = "";
-		for (Input input : getVariables()) 
-			if (input instanceof TextListImpl) 
+		for (Input input : getVariables()) {
+			if (input instanceof TextListImpl)
 				res += ((TextListImpl) input).getListDeclaration();
+		}
 		return res;
 	}
 
@@ -166,6 +168,16 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.VARIABLE_LIST__PATTERN, newPattern, newPattern));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void add(Input input) {
+		getVariables().add(input);
 	}
 
 	/**
@@ -278,6 +290,21 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 				return getPattern() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case InputfieldsPackage.VARIABLE_LIST___ADD__INPUT:
+				add((Input)arguments.get(0));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } // VariableListImpl

@@ -141,29 +141,6 @@ public class FunctionsItemProviderAdapterFactory extends FunctionsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.functions.ToNumber} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ToNumberItemProvider toNumberItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.functions.ToNumber}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createToNumberAdapter() {
-		if (toNumberItemProvider == null) {
-			toNumberItemProvider = new ToNumberItemProvider(this);
-		}
-
-		return toNumberItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.functions.OperatorList} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,7 +271,6 @@ public class FunctionsItemProviderAdapterFactory extends FunctionsAdapterFactory
 		if (countItemProvider != null) countItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
 		if (comparisonItemProvider != null) comparisonItemProvider.dispose();
-		if (toNumberItemProvider != null) toNumberItemProvider.dispose();
 		if (operatorListItemProvider != null) operatorListItemProvider.dispose();
 	}
 

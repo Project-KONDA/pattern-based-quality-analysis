@@ -97,10 +97,6 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 				return createComparisonAdapter();
 			}
 			@Override
-			public Adapter caseToNumber(ToNumber object) {
-				return createToNumberAdapter();
-			}
-			@Override
 			public Adapter caseOperatorList(OperatorList object) {
 				return createOperatorListAdapter();
 			}
@@ -227,20 +223,6 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComparisonAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.functions.ToNumber <em>To Number</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.functions.ToNumber
-	 * @generated
-	 */
-	public Adapter createToNumberAdapter() {
 		return null;
 	}
 

@@ -24,7 +24,6 @@ import qualitypatternmodel.functions.NumberOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.functions.OtherOperator;
-import qualitypatternmodel.functions.ToNumber;
 import qualitypatternmodel.functions.util.FunctionsValidator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
@@ -92,13 +91,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	private EClass comparisonEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass toNumberEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -502,26 +494,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getToNumber() {
-		return toNumberEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getToNumber_Property() {
-		return (EReference)toNumberEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getOperatorList() {
 		return operatorListEClass;
 	}
@@ -534,6 +506,16 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	@Override
 	public EReference getOperatorList_Operators() {
 		return (EReference)operatorListEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getOperatorList__Add__Operator() {
+		return operatorListEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -631,12 +613,10 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEAttribute(comparisonEClass, COMPARISON__TYPE);
 		createEOperation(comparisonEClass, COMPARISON___SET_TYPE_ACCORDING_TO_ARGUMENT__COMPARABLE_COMPARABLE);
 
-		toNumberEClass = createEClass(TO_NUMBER);
-		createEReference(toNumberEClass, TO_NUMBER__PROPERTY);
-
 		operatorListEClass = createEClass(OPERATOR_LIST);
 		createEReference(operatorListEClass, OPERATOR_LIST__GRAPH);
 		createEReference(operatorListEClass, OPERATOR_LIST__OPERATORS);
+		createEOperation(operatorListEClass, OPERATOR_LIST___ADD__OPERATOR);
 
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
@@ -686,7 +666,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		numberOperatorEClass.getESuperTypes().add(this.getOperator());
 		matchEClass.getESuperTypes().add(this.getBooleanOperator());
 		comparisonEClass.getESuperTypes().add(this.getBooleanOperator());
-		toNumberEClass.getESuperTypes().add(this.getNumberOperator());
 		operatorListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 
 		// Initialize classes, features, and operations; add parameters
@@ -753,12 +732,12 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		addEParameter(op, theGraphstructurePackage.getComparable(), "newArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theGraphstructurePackage.getComparable(), "otherArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(toNumberEClass, ToNumber.class, "ToNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getToNumber_Property(), theGraphstructurePackage.getProperty(), null, "property", null, 1, 1, ToNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(operatorListEClass, OperatorList.class, "OperatorList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperatorList_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_OperatorList(), "graph", null, 1, 1, OperatorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperatorList_Operators(), this.getOperator(), this.getOperator_OperatorList(), "operators", null, 0, -1, OperatorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getOperatorList__Add__Operator(), null, "add", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getOperator(), "Operator", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");

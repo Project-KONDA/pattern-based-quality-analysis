@@ -33,6 +33,9 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//graphstructure/PropertyLocation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableList" eSuperTypes="#//patternstructure/PatternElement">
+      <eOperations name="add">
+        <eParameters name="Input" eType="#//inputfields/Input"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
           eType="#//inputfields/Input" containment="true" eOpposite="#//inputfields/Input/variableList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
@@ -139,10 +142,6 @@
           eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison2"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ToNumber" eSuperTypes="#//functions/NumberOperator">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
-          eType="#//graphstructure/Property"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
       <eLiterals name="EQUAL" literal="="/>
       <eLiterals name="GREATER" value="1" literal=">"/>
@@ -152,6 +151,9 @@
       <eLiterals name="NOTEQUAL" value="5" literal="!="/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OperatorList" eSuperTypes="#//patternstructure/PatternElement">
+      <eOperations name="add">
+        <eParameters name="Operator" eType="#//functions/Operator"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/operatorList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operators" upperBound="-1"
@@ -328,6 +330,7 @@
           eType="#//functions/BooleanOperator" eOpposite="#//functions/BooleanOperator/elements"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="predicatesAreBeingTranslated"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
@@ -408,6 +411,7 @@
       <eLiterals name="PRECEDING_SIBLING" value="7" literal="preceding-sibling"/>
       <eLiterals name="ANCESTOR_OR_SELF" value="8" literal="ancestor-or-self"/>
       <eLiterals name="DESCENDANT_OR_SELF" value="9" literal="descendant-or-self"/>
+      <eLiterals name="SELF" value="10" literal="self"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ReturnType">
       <eLiterals name="UNSPECIFIED" literal="UNSPECIFIED"/>

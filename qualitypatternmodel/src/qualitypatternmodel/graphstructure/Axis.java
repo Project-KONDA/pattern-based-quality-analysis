@@ -98,7 +98,15 @@ public enum Axis implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DESCENDANT_OR_SELF(9, "DESCENDANT_OR_SELF", "descendant-or-self");
+	DESCENDANT_OR_SELF(9, "DESCENDANT_OR_SELF", "descendant-or-self"), /**
+	 * The '<em><b>SELF</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SELF_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SELF(10, "SELF", "self");
 
 	/**
 	 * The '<em><b>CHILD</b></em>' literal value.
@@ -211,6 +219,17 @@ public enum Axis implements Enumerator {
 	public static final int DESCENDANT_OR_SELF_VALUE = 9;
 
 	/**
+	 * The '<em><b>SELF</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SELF
+	 * @model literal="self"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SELF_VALUE = 10;
+
+	/**
 	 * An array of all the '<em><b>Axis</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -228,6 +247,7 @@ public enum Axis implements Enumerator {
 			PRECEDING_SIBLING,
 			ANCESTOR_OR_SELF,
 			DESCENDANT_OR_SELF,
+			SELF,
 		};
 
 	/**
@@ -294,6 +314,7 @@ public enum Axis implements Enumerator {
 			case PRECEDING_SIBLING_VALUE: return PRECEDING_SIBLING;
 			case ANCESTOR_OR_SELF_VALUE: return ANCESTOR_OR_SELF;
 			case DESCENDANT_OR_SELF_VALUE: return DESCENDANT_OR_SELF;
+			case SELF_VALUE: return SELF;
 		}
 		return null;
 	}

@@ -40,6 +40,14 @@ public interface OperatorList extends PatternElement {
 	EList<Operator> getOperators();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void add(Operator Operator);
+
+	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}'.
 	 * <!-- begin-user-doc -->

@@ -73,6 +73,9 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	 */
 	public PropertyOptionImpl() {
 		super();
+		getOptions().add(PropertyLocation.TAG);
+		getOptions().add(PropertyLocation.DATA);
+		getOptions().add(PropertyLocation.ATTRIBUTE);
 	}
 
 	@Override

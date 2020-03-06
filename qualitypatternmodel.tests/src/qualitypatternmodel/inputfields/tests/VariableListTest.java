@@ -11,6 +11,12 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Variable List</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.inputfields.VariableList#add(qualitypatternmodel.inputfields.Input) <em>Add</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class VariableListTest extends PatternElementTest {
@@ -65,6 +71,19 @@ public class VariableListTest extends PatternElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.inputfields.VariableList#add(qualitypatternmodel.inputfields.Input) <em>Add</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.inputfields.VariableList#add(qualitypatternmodel.inputfields.Input)
+	 * @generated
+	 */
+	public void testAdd__Input() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //VariableListTest

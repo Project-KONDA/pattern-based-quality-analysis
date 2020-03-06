@@ -128,8 +128,6 @@ public class FunctionsValidator extends EObjectValidator {
 				return validateMatch((Match)value, diagnostics, context);
 			case FunctionsPackage.COMPARISON:
 				return validateComparison((Comparison)value, diagnostics, context);
-			case FunctionsPackage.TO_NUMBER:
-				return validateToNumber((ToNumber)value, diagnostics, context);
 			case FunctionsPackage.OPERATOR_LIST:
 				return validateOperatorList((OperatorList)value, diagnostics, context);
 			case FunctionsPackage.COMPARISON_OPERATOR:
@@ -281,25 +279,6 @@ public class FunctionsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(comparison, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(comparison, diagnostics, context);
 		if (result || diagnostics != null) result &= validateOperator_validate(comparison, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateToNumber(ToNumber toNumber, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(toNumber, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(toNumber, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(toNumber, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(toNumber, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(toNumber, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(toNumber, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(toNumber, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(toNumber, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(toNumber, diagnostics, context);
-		if (result || diagnostics != null) result &= validateOperator_validate(toNumber, diagnostics, context);
 		return result;
 	}
 

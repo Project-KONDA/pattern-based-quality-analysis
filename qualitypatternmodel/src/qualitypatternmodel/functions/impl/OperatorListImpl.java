@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.functions.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -108,6 +109,16 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 			operators = new EObjectContainmentWithInverseEList<Operator>(Operator.class, this, FunctionsPackage.OPERATOR_LIST__OPERATORS, FunctionsPackage.OPERATOR__OPERATOR_LIST);
 		}
 		return operators;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void add(Operator operator) {
+		getOperators().add(operator);
 	}
 
 	/**
@@ -260,6 +271,21 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 				return operators != null && !operators.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case FunctionsPackage.OPERATOR_LIST___ADD__OPERATOR:
+				add((Operator)arguments.get(0));
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } // OperatorListImpl

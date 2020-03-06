@@ -34,7 +34,6 @@ public class FunctionsTests extends TestSuite {
 		suite.addTestSuite(CountTest.class);
 		suite.addTestSuite(MatchTest.class);
 		suite.addTestSuite(ComparisonTest.class);
-		suite.addTestSuite(ToNumberTest.class);
 		suite.addTestSuite(OperatorListTest.class);
 		return suite;
 	}

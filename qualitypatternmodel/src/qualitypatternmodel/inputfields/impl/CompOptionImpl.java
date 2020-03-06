@@ -2,7 +2,10 @@
  */
 package qualitypatternmodel.inputfields.impl;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -72,6 +75,12 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 	 */
 	public CompOptionImpl() {
 		super();
+		getOptions().add(ComparisonOperator.EQUAL);
+//		getOptions().add(ComparisonOperator.LESS);
+//		getOptions().add(ComparisonOperator.GREATER);
+//		getOptions().add(ComparisonOperator.GREATEROREQUAL);
+//		getOptions().add(ComparisonOperator.LESSOREQUAL);
+		getOptions().add(ComparisonOperator.NOTEQUAL);
 	}
 	
 	@Override

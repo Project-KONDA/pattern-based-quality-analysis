@@ -11,6 +11,12 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Operator List</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.functions.OperatorList#add(qualitypatternmodel.functions.Operator) <em>Add</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class OperatorListTest extends PatternElementTest {
@@ -65,6 +71,19 @@ public class OperatorListTest extends PatternElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.OperatorList#add(qualitypatternmodel.functions.Operator) <em>Add</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.OperatorList#add(qualitypatternmodel.functions.Operator)
+	 * @generated
+	 */
+	public void testAdd__Operator() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //OperatorListTest

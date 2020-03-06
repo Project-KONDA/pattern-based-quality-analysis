@@ -1825,232 +1825,6 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.ToNumberImpl <em>To Number</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.functions.impl.ToNumberImpl
-	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getToNumber()
-	 * @generated
-	 */
-	int TO_NUMBER = 7;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER__ID = NUMBER_OPERATOR__ID;
-
-	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER__SHORT_PATTERN_INTERNAL_ID = NUMBER_OPERATOR__SHORT_PATTERN_INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER__COMPARISON1 = NUMBER_OPERATOR__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER__COMPARISON2 = NUMBER_OPERATOR__COMPARISON2;
-
-	/**
-	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER__OPERATOR_LIST = NUMBER_OPERATOR__OPERATOR_LIST;
-
-	/**
-	 * The feature id for the '<em><b>Property</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER__PROPERTY = NUMBER_OPERATOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>To Number</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER_FEATURE_COUNT = NUMBER_OPERATOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___TO_XQUERY__LOCATION = NUMBER_OPERATOR___TO_XQUERY__LOCATION;
-
-	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___GET_ALL_INPUTS = NUMBER_OPERATOR___GET_ALL_INPUTS;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___PREPARE_TRANSLATION = NUMBER_OPERATOR___PREPARE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___IS_VALID__BOOLEAN = NUMBER_OPERATOR___IS_VALID__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___IS_VALID_LOCAL__BOOLEAN = NUMBER_OPERATOR___IS_VALID_LOCAL__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___GET_CONTAINER = NUMBER_OPERATOR___GET_CONTAINER;
-
-	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___GET_ANCESTOR__CLASS = NUMBER_OPERATOR___GET_ANCESTOR__CLASS;
-
-	/**
-	 * The operation id for the '<em>Get Return Type</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___GET_RETURN_TYPE = NUMBER_OPERATOR___GET_RETURN_TYPE;
-
-	/**
-	 * The operation id for the '<em>Is Translatable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___IS_TRANSLATABLE = NUMBER_OPERATOR___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___GET_ALL_ARGUMENT_ELEMENTS = NUMBER_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___GET_ALL_OPERATORS = NUMBER_OPERATOR___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get Root Boolean Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___GET_ROOT_BOOLEAN_OPERATORS = NUMBER_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Is Cycle Free</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___IS_CYCLE_FREE__ELIST = NUMBER_OPERATOR___IS_CYCLE_FREE__ELIST;
-
-	/**
-	 * The operation id for the '<em>Is Cycle Free</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___IS_CYCLE_FREE = NUMBER_OPERATOR___IS_CYCLE_FREE;
-
-	/**
-	 * The operation id for the '<em>Get Arguments</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___GET_ARGUMENTS = NUMBER_OPERATOR___GET_ARGUMENTS;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER___VALIDATE__DIAGNOSTICCHAIN_MAP = NUMBER_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The number of operations of the '<em>To Number</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TO_NUMBER_OPERATION_COUNT = NUMBER_OPERATOR_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.OperatorListImpl <em>Operator List</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2058,7 +1832,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getOperatorList()
 	 * @generated
 	 */
-	int OPERATOR_LIST = 8;
+	int OPERATOR_LIST = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2178,13 +1952,22 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Add</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___ADD__OPERATOR = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Operator List</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int OPERATOR_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -2194,7 +1977,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getComparisonOperator()
 	 * @generated
 	 */
-	int COMPARISON_OPERATOR = 9;
+	int COMPARISON_OPERATOR = 8;
 
 
 	/**
@@ -2205,7 +1988,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getOperatorCycleExceptionWrapper()
 	 * @generated
 	 */
-	int OPERATOR_CYCLE_EXCEPTION_WRAPPER = 10;
+	int OPERATOR_CYCLE_EXCEPTION_WRAPPER = 9;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.BooleanOperator <em>Boolean Operator</em>}'.
@@ -2508,27 +2291,6 @@ public interface FunctionsPackage extends EPackage {
 	EOperation getComparison__SetTypeAccordingToArgument__Comparable_Comparable();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.functions.ToNumber <em>To Number</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>To Number</em>'.
-	 * @see qualitypatternmodel.functions.ToNumber
-	 * @generated
-	 */
-	EClass getToNumber();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.ToNumber#getProperty <em>Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Property</em>'.
-	 * @see qualitypatternmodel.functions.ToNumber#getProperty()
-	 * @see #getToNumber()
-	 * @generated
-	 */
-	EReference getToNumber_Property();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.OperatorList <em>Operator List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2548,6 +2310,16 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOperatorList_Operators();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.OperatorList#add(qualitypatternmodel.functions.Operator) <em>Add</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add</em>' operation.
+	 * @see qualitypatternmodel.functions.OperatorList#add(qualitypatternmodel.functions.Operator)
+	 * @generated
+	 */
+	EOperation getOperatorList__Add__Operator();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.functions.OperatorList#getGraph <em>Graph</em>}'.
@@ -2851,24 +2623,6 @@ public interface FunctionsPackage extends EPackage {
 		EOperation COMPARISON___SET_TYPE_ACCORDING_TO_ARGUMENT__COMPARABLE_COMPARABLE = eINSTANCE.getComparison__SetTypeAccordingToArgument__Comparable_Comparable();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.ToNumberImpl <em>To Number</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.functions.impl.ToNumberImpl
-		 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getToNumber()
-		 * @generated
-		 */
-		EClass TO_NUMBER = eINSTANCE.getToNumber();
-
-		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TO_NUMBER__PROPERTY = eINSTANCE.getToNumber_Property();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OperatorListImpl <em>Operator List</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2885,6 +2639,14 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERATOR_LIST__OPERATORS = eINSTANCE.getOperatorList_Operators();
+
+		/**
+		 * The meta object literal for the '<em><b>Add</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OPERATOR_LIST___ADD__OPERATOR = eINSTANCE.getOperatorList__Add__Operator();
 
 		/**
 		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.

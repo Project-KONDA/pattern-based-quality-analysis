@@ -63,4 +63,12 @@ public interface VariableList extends PatternElement {
 	 */
 	void setPattern(Pattern value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void add(Input Input);
+
 } // VariableList

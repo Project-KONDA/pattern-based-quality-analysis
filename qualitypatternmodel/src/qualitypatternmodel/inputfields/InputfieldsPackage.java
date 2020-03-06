@@ -686,13 +686,22 @@ public interface InputfieldsPackage extends EPackage {
 	int VARIABLE_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Add</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___ADD__INPUT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Variable List</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int VARIABLE_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.InputValueImpl <em>Input Value</em>}' class.
@@ -2934,6 +2943,16 @@ public interface InputfieldsPackage extends EPackage {
 	EReference getVariableList_Pattern();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.VariableList#add(qualitypatternmodel.inputfields.Input) <em>Add</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add</em>' operation.
+	 * @see qualitypatternmodel.inputfields.VariableList#add(qualitypatternmodel.inputfields.Input)
+	 * @generated
+	 */
+	EOperation getVariableList__Add__Input();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Boolean <em>Boolean</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3290,6 +3309,14 @@ public interface InputfieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VARIABLE_LIST__PATTERN = eINSTANCE.getVariableList_Pattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Add</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VARIABLE_LIST___ADD__INPUT = eINSTANCE.getVariableList__Add__Input();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.BooleanImpl <em>Boolean</em>}' class.
