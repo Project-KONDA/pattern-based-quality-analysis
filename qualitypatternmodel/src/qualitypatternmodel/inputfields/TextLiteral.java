@@ -3,6 +3,7 @@
 package qualitypatternmodel.inputfields;
 
 import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.graphstructure.Property;
 
 
 /**
@@ -16,6 +17,7 @@ import qualitypatternmodel.functions.Match;
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.TextLiteral#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.inputfields.TextLiteral#getMatch <em>Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.TextLiteral#getProperty <em>Property</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.inputfields.InputfieldsPackage#getTextLiteral()
@@ -69,5 +71,29 @@ public interface TextLiteral extends Text {
 	 * @generated
 	 */
 	void setMatch(Match value);
+
+	/**
+	 * Returns the value of the '<em><b>Property</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Property</em>' reference.
+	 * @see #setProperty(Property)
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getTextLiteral_Property()
+	 * @see qualitypatternmodel.graphstructure.Property#getAttributeName
+	 * @model opposite="attributeName"
+	 * @generated
+	 */
+	Property getProperty();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.TextLiteral#getProperty <em>Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Property</em>' reference.
+	 * @see #getProperty()
+	 * @generated
+	 */
+	void setProperty(Property value);
 
 } // TextLiteral

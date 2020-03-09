@@ -46,9 +46,9 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 
 			addComparison1PropertyDescriptor(object);
 			addComparison2PropertyDescriptor(object);
-			addPropertyOptionPropertyDescriptor(object);
-			addAttributeNamePropertyDescriptor(object);
 			addMatchPropertyDescriptor(object);
+			addAttributeNamePropertyDescriptor(object);
+			addPropertyOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

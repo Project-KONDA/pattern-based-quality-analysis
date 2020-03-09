@@ -595,13 +595,22 @@ public interface InputfieldsPackage extends EPackage {
 	int PROPERTY_OPTION__VALUE = INPUT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Property</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__PROPERTY = INPUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Property Option</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 2;
+	int PROPERTY_OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1852,13 +1861,22 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LITERAL__MATCH = TEXT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Property</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__PROPERTY = TEXT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Text Literal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_FEATURE_COUNT = TEXT_FEATURE_COUNT + 2;
+	int TEXT_LITERAL_FEATURE_COUNT = TEXT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -3210,6 +3228,17 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getPropertyOption_Value();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.inputfields.PropertyOption#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Property</em>'.
+	 * @see qualitypatternmodel.inputfields.PropertyOption#getProperty()
+	 * @see #getPropertyOption()
+	 * @generated
+	 */
+	EReference getPropertyOption_Property();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.VariableList <em>Variable List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3365,6 +3394,17 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTextLiteral_Match();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.inputfields.TextLiteral#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Property</em>'.
+	 * @see qualitypatternmodel.inputfields.TextLiteral#getProperty()
+	 * @see #getTextLiteral()
+	 * @generated
+	 */
+	EReference getTextLiteral_Property();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Number <em>Number</em>}'.
@@ -3614,6 +3654,14 @@ public interface InputfieldsPackage extends EPackage {
 		EAttribute PROPERTY_OPTION__VALUE = eINSTANCE.getPropertyOption_Value();
 
 		/**
+		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY_OPTION__PROPERTY = eINSTANCE.getPropertyOption_Property();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.VariableListImpl <em>Variable List</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3742,6 +3790,14 @@ public interface InputfieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEXT_LITERAL__MATCH = eINSTANCE.getTextLiteral_Match();
+
+		/**
+		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEXT_LITERAL__PROPERTY = eINSTANCE.getTextLiteral_Property();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.NumberImpl <em>Number</em>}' class.

@@ -560,13 +560,22 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE = OPERATOR_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___RESET = OPERATOR_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 5;
+	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
@@ -1554,6 +1563,15 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___HAS_COUNT_PREDICATE = BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___RESET = BOOLEAN_OPERATOR___RESET;
+
+	/**
 	 * The number of operations of the '<em>Match</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1870,6 +1888,15 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___HAS_COUNT_PREDICATE = BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___RESET = BOOLEAN_OPERATOR___RESET;
+
+	/**
 	 * The operation id for the '<em>Set Type According To Argument</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2132,6 +2159,16 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBooleanOperator__HasCountPredicate();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#reset() <em>Reset</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Reset</em>' operation.
+	 * @see qualitypatternmodel.functions.BooleanOperator#reset()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__Reset();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Operator <em>Operator</em>}'.
@@ -2505,6 +2542,14 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE = eINSTANCE.getBooleanOperator__HasCountPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Reset</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___RESET = eINSTANCE.getBooleanOperator__Reset();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OperatorImpl <em>Operator</em>}' class.

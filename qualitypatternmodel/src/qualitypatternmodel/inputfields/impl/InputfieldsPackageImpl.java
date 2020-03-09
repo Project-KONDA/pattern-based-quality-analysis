@@ -362,6 +362,16 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
+	public EReference getPropertyOption_Property() {
+		return (EReference)propertyOptionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getVariableList() {
 		return variableListEClass;
 	}
@@ -504,6 +514,16 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	@Override
 	public EReference getTextLiteral_Match() {
 		return (EReference)textLiteralEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTextLiteral_Property() {
+		return (EReference)textLiteralEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -660,6 +680,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		propertyOptionEClass = createEClass(PROPERTY_OPTION);
 		createEAttribute(propertyOptionEClass, PROPERTY_OPTION__OPTIONS);
 		createEAttribute(propertyOptionEClass, PROPERTY_OPTION__VALUE);
+		createEReference(propertyOptionEClass, PROPERTY_OPTION__PROPERTY);
 
 		variableListEClass = createEClass(VARIABLE_LIST);
 		createEReference(variableListEClass, VARIABLE_LIST__VARIABLES);
@@ -680,6 +701,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		textLiteralEClass = createEClass(TEXT_LITERAL);
 		createEAttribute(textLiteralEClass, TEXT_LITERAL__VALUE);
 		createEReference(textLiteralEClass, TEXT_LITERAL__MATCH);
+		createEReference(textLiteralEClass, TEXT_LITERAL__PROPERTY);
 
 		numberEClass = createEClass(NUMBER);
 		createEAttribute(numberEClass, NUMBER__VALUE);
@@ -773,6 +795,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		initEClass(propertyOptionEClass, PropertyOption.class, "PropertyOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPropertyOption_Options(), theGraphstructurePackage.getPropertyLocation(), "options", null, 0, -1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropertyOption_Value(), theGraphstructurePackage.getPropertyLocation(), "value", null, 0, 1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPropertyOption_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_PropertyOption(), "property", null, 0, 1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableListEClass, VariableList.class, "VariableList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableList_Variables(), this.getInput(), this.getInput_VariableList(), "variables", null, 0, -1, VariableList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -797,6 +820,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		initEClass(textLiteralEClass, TextLiteral.class, "TextLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextLiteral_Value(), ecorePackage.getEString(), "value", "", 0, 1, TextLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextLiteral_Match(), theFunctionsPackage.getMatch(), theFunctionsPackage.getMatch_RegularExpression(), "match", null, 0, 1, TextLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTextLiteral_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_AttributeName(), "property", null, 0, 1, TextLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(numberEClass, qualitypatternmodel.inputfields.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumber_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, qualitypatternmodel.inputfields.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

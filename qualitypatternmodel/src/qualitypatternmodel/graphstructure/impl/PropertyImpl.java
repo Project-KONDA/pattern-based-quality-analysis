@@ -30,6 +30,7 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.impl.PropertyOptionImpl;
@@ -48,10 +49,10 @@ import qualitypatternmodel.patternstructure.impl.PatternImpl;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getComparison1 <em>Comparison1</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getComparison2 <em>Comparison2</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getPropertyOption <em>Property Option</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getElement <em>Element</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getMatch <em>Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getPropertyOption <em>Property Option</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,14 +79,14 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	protected EList<Comparison> comparison2;
 
 	/**
-	 * The cached value of the '{@link #getPropertyOption() <em>Property Option</em>}' reference.
+	 * The cached value of the '{@link #getMatch() <em>Match</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPropertyOption()
+	 * @see #getMatch()
 	 * @generated
 	 * @ordered
 	 */
-	protected PropertyOption propertyOption;
+	protected EList<Match> match;
 
 	/**
 	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' reference.
@@ -98,14 +99,14 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	protected TextLiteral attributeName;
 
 	/**
-	 * The cached value of the '{@link #getMatch() <em>Match</em>}' reference list.
+	 * The cached value of the '{@link #getPropertyOption() <em>Property Option</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMatch()
+	 * @see #getPropertyOption()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Match> match;
+	protected PropertyOption propertyOption;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -281,12 +282,34 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setPropertyOption(PropertyOption newPropertyOption) {
+	public NotificationChain basicSetPropertyOption(PropertyOption newPropertyOption, NotificationChain msgs) {
 		PropertyOption oldPropertyOption = propertyOption;
 		propertyOption = newPropertyOption;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__PROPERTY_OPTION, oldPropertyOption, propertyOption));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__PROPERTY_OPTION, oldPropertyOption, newPropertyOption);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPropertyOption(PropertyOption newPropertyOption) {
+		if (newPropertyOption != propertyOption) {
+			NotificationChain msgs = null;
+			if (propertyOption != null)
+				msgs = ((InternalEObject)propertyOption).eInverseRemove(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
+			if (newPropertyOption != null)
+				msgs = ((InternalEObject)newPropertyOption).eInverseAdd(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
+			msgs = basicSetPropertyOption(newPropertyOption, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__PROPERTY_OPTION, newPropertyOption, newPropertyOption));
 	}
 
 	/**
@@ -307,7 +330,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
 		getComparison1().clear();
 		getComparison2().clear();
-		getMatch().clear();
+		reset();
 		if(newElement == null) {
 			removeInputsFromVariableList();		
 		}
@@ -316,6 +339,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			createInputs();
 		} 
 		return msgs;
+	}
+
+	public void reset() {
+		setAttributeName(null);
+		setPropertyOption(null);
+		getMatch().clear();
 	}
 
 	@Override
@@ -387,12 +416,34 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setAttributeName(TextLiteral newAttributeName) {
+	public NotificationChain basicSetAttributeName(TextLiteral newAttributeName, NotificationChain msgs) {
 		TextLiteral oldAttributeName = attributeName;
 		attributeName = newAttributeName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, oldAttributeName, attributeName));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, oldAttributeName, newAttributeName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAttributeName(TextLiteral newAttributeName) {
+		if (newAttributeName != attributeName) {
+			NotificationChain msgs = null;
+			if (attributeName != null)
+				msgs = ((InternalEObject)attributeName).eInverseRemove(this, InputfieldsPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
+			if (newAttributeName != null)
+				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, InputfieldsPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
+			msgs = basicSetAttributeName(newAttributeName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, newAttributeName, newAttributeName));
 	}
 
 	/**
@@ -427,6 +478,14 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return basicSetElement((Element)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatch()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
+				if (attributeName != null)
+					msgs = ((InternalEObject)attributeName).eInverseRemove(this, InputfieldsPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
+				return basicSetAttributeName((TextLiteral)otherEnd, msgs);
+			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
+				if (propertyOption != null)
+					msgs = ((InternalEObject)propertyOption).eInverseRemove(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
+				return basicSetPropertyOption((PropertyOption)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -447,6 +506,10 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return basicSetElement(null, msgs);
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return ((InternalEList<?>)getMatch()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
+				return basicSetAttributeName(null, msgs);
+			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
+				return basicSetPropertyOption(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -476,16 +539,16 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return getComparison1();
 			case GraphstructurePackage.PROPERTY__COMPARISON2:
 				return getComparison2();
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
-				if (resolve) return getPropertyOption();
-				return basicGetPropertyOption();
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				return getElement();
+			case GraphstructurePackage.PROPERTY__MATCH:
+				return getMatch();
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
 				if (resolve) return getAttributeName();
 				return basicGetAttributeName();
-			case GraphstructurePackage.PROPERTY__MATCH:
-				return getMatch();
+			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
+				if (resolve) return getPropertyOption();
+				return basicGetPropertyOption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -506,18 +569,18 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				getComparison2().clear();
 				getComparison2().addAll((Collection<? extends Comparison>)newValue);
 				return;
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
-				setPropertyOption((PropertyOption)newValue);
-				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				setElement((Element)newValue);
-				return;
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				setAttributeName((TextLiteral)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__MATCH:
 				getMatch().clear();
 				getMatch().addAll((Collection<? extends Match>)newValue);
+				return;
+			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
+				setAttributeName((TextLiteral)newValue);
+				return;
+			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
+				setPropertyOption((PropertyOption)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -536,17 +599,17 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__COMPARISON2:
 				getComparison2().clear();
 				return;
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
-				setPropertyOption((PropertyOption)null);
-				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				setElement((Element)null);
+				return;
+			case GraphstructurePackage.PROPERTY__MATCH:
+				getMatch().clear();
 				return;
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
 				setAttributeName((TextLiteral)null);
 				return;
-			case GraphstructurePackage.PROPERTY__MATCH:
-				getMatch().clear();
+			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
+				setPropertyOption((PropertyOption)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -563,14 +626,14 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return comparison1 != null && !comparison1.isEmpty();
 			case GraphstructurePackage.PROPERTY__COMPARISON2:
 				return comparison2 != null && !comparison2.isEmpty();
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
-				return propertyOption != null;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				return getElement() != null;
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				return attributeName != null;
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return match != null && !match.isEmpty();
+			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
+				return attributeName != null;
+			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
+				return propertyOption != null;
 		}
 		return super.eIsSet(featureID);
 	}

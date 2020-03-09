@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
+import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.inputfields.Boolean;
@@ -154,9 +155,13 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 			}
 			if(input instanceof TextLiteral) {
 				((TextLiteral) input).setMatch(null);
+				((TextLiteral) input).setProperty(null);
 			}
 			if(input instanceof CompOption) {
 				((CompOption) input).setComparison(null);
+			}
+			if(input instanceof PropertyOption) {
+				((PropertyOption) input).setProperty(null);
 			}
 			input.getComparison1().clear();
 			input.getComparison2().clear();

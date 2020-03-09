@@ -345,4 +345,20 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 */
 	void clearComparisonRecursively();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clearPropertyRecursively();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clearPredicatesRecursively();
+
 } // Element

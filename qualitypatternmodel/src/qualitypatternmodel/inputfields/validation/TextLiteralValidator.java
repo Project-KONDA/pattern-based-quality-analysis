@@ -5,6 +5,7 @@
 package qualitypatternmodel.inputfields.validation;
 
 import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.graphstructure.Property;
 
 
 /**
@@ -19,4 +20,6 @@ public interface TextLiteralValidator {
 	boolean validateValue(String value);
 
 	boolean validateMatch(Match value);
+
+	boolean validateProperty(Property value);
 }

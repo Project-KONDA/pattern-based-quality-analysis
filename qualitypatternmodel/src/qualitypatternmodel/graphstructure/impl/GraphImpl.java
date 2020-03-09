@@ -326,6 +326,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			getRootElement().clearPredicatesRecursively();
 			getRootElement().clearMatchRecursively();
 			getRootElement().resetCountOperatorRecursively();
+			getRootElement().clearPropertyRecursively();
 		}
 		SingleElement oldRootElement = rootElement;
 		rootElement = newRootElement;

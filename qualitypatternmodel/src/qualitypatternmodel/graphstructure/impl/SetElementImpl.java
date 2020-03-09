@@ -25,7 +25,6 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
-import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.Location;
@@ -330,14 +329,6 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 		if (eContainerFeatureID() != GraphstructurePackage.SET_ELEMENT__PREVIOUS_SET) return null;
 		return (SetElement)eInternalContainer();
 	}
-
-	public void clearComparisonRecursively() {
-		getComparison1().clear();
-		getComparison2().clear();
-		for(Element child : getNextElements()) {
-			child.clearComparisonRecursively();
-		}
-	}
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -391,18 +382,16 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetPreviousSingle(SingleElement newPreviousSingle, NotificationChain msgs) {
-		// TODO: clear comparison1/2 recursively
 		resetCountOperatorRecursively();
 		clearMatchRecursively();
 		msgs = eBasicSetContainer((InternalEObject)newPreviousSingle, GraphstructurePackage.SET_ELEMENT__PREVIOUS_SINGLE, msgs);
 		return msgs;
 	}
 	
+	@Override
 	public void resetCountOperatorRecursively() {
 		setCount(null);
-		for(SetElement setElement : getNext()) {
-			setElement.resetCountOperatorRecursively();
-		}
+		super.resetCountOperatorRecursively();
 	}
 
 	/**
@@ -634,15 +623,6 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	public String myToString() {
 		return getRelationFromPrevious().myToString() + " Set" + super.myToString();
 	}
-	
-	@Override
-	public void clearMatchRecursively() {
-		for(Property p : getProperties()) {
-			p.getMatch().clear();
-		}		
-		for(SetElement setElement : getNext()) {
-			setElement.clearMatchRecursively();
-		}
-	}
+
 
 } // SetElementImpl

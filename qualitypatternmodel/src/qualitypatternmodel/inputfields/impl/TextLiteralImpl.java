@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.VariableList;
@@ -28,6 +30,7 @@ import qualitypatternmodel.patternstructure.Location;
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.impl.TextLiteralImpl#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.inputfields.impl.TextLiteralImpl#getMatch <em>Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.TextLiteralImpl#getProperty <em>Property</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,6 +65,16 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 	 * @ordered
 	 */
 	protected Match match;
+
+	/**
+	 * The cached value of the '{@link #getProperty() <em>Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected Property property;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,6 +117,7 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 	 */
 	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
 		setMatch(null);
+		setProperty(null);
 		return super.basicSetVariableList(newVariableList, msgs);
 	}
 
@@ -199,12 +213,78 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 	 * @generated
 	 */
 	@Override
+	public Property getProperty() {
+		if (property != null && property.eIsProxy()) {
+			InternalEObject oldProperty = (InternalEObject)property;
+			property = (Property)eResolveProxy(oldProperty);
+			if (property != oldProperty) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InputfieldsPackage.TEXT_LITERAL__PROPERTY, oldProperty, property));
+			}
+		}
+		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Property basicGetProperty() {
+		return property;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
+		Property oldProperty = property;
+		property = newProperty;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InputfieldsPackage.TEXT_LITERAL__PROPERTY, oldProperty, newProperty);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setProperty(Property newProperty) {
+		if (newProperty != property) {
+			NotificationChain msgs = null;
+			if (property != null)
+				msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, Property.class, msgs);
+			if (newProperty != null)
+				msgs = ((InternalEObject)newProperty).eInverseAdd(this, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, Property.class, msgs);
+			msgs = basicSetProperty(newProperty, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.TEXT_LITERAL__PROPERTY, newProperty, newProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case InputfieldsPackage.TEXT_LITERAL__MATCH:
 				if (match != null)
 					msgs = ((InternalEObject)match).eInverseRemove(this, FunctionsPackage.MATCH__REGULAR_EXPRESSION, Match.class, msgs);
 				return basicSetMatch((Match)otherEnd, msgs);
+			case InputfieldsPackage.TEXT_LITERAL__PROPERTY:
+				if (property != null)
+					msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, Property.class, msgs);
+				return basicSetProperty((Property)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -219,6 +299,8 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 		switch (featureID) {
 			case InputfieldsPackage.TEXT_LITERAL__MATCH:
 				return basicSetMatch(null, msgs);
+			case InputfieldsPackage.TEXT_LITERAL__PROPERTY:
+				return basicSetProperty(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -236,6 +318,9 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 			case InputfieldsPackage.TEXT_LITERAL__MATCH:
 				if (resolve) return getMatch();
 				return basicGetMatch();
+			case InputfieldsPackage.TEXT_LITERAL__PROPERTY:
+				if (resolve) return getProperty();
+				return basicGetProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,6 +338,9 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 				return;
 			case InputfieldsPackage.TEXT_LITERAL__MATCH:
 				setMatch((Match)newValue);
+				return;
+			case InputfieldsPackage.TEXT_LITERAL__PROPERTY:
+				setProperty((Property)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -272,6 +360,9 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 			case InputfieldsPackage.TEXT_LITERAL__MATCH:
 				setMatch((Match)null);
 				return;
+			case InputfieldsPackage.TEXT_LITERAL__PROPERTY:
+				setProperty((Property)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -288,6 +379,8 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case InputfieldsPackage.TEXT_LITERAL__MATCH:
 				return match != null;
+			case InputfieldsPackage.TEXT_LITERAL__PROPERTY:
+				return property != null;
 		}
 		return super.eIsSet(featureID);
 	}

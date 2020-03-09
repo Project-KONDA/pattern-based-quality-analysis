@@ -4,6 +4,7 @@ package qualitypatternmodel.inputfields;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 
 /**
@@ -17,6 +18,7 @@ import qualitypatternmodel.graphstructure.PropertyLocation;
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.PropertyOption#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.inputfields.PropertyOption#getValue <em>Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.PropertyOption#getProperty <em>Property</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.inputfields.InputfieldsPackage#getPropertyOption()
@@ -62,5 +64,29 @@ public interface PropertyOption extends Input {
 	 * @generated
 	 */
 	void setValue(PropertyLocation value);
+
+	/**
+	 * Returns the value of the '<em><b>Property</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getPropertyOption <em>Property Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Property</em>' reference.
+	 * @see #setProperty(Property)
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getPropertyOption_Property()
+	 * @see qualitypatternmodel.graphstructure.Property#getPropertyOption
+	 * @model opposite="propertyOption"
+	 * @generated
+	 */
+	Property getProperty();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.PropertyOption#getProperty <em>Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Property</em>' reference.
+	 * @see #getProperty()
+	 * @generated
+	 */
+	void setProperty(Property value);
 
 } // PropertyOption

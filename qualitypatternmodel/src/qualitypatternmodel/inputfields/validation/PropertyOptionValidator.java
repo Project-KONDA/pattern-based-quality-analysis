@@ -6,6 +6,7 @@ package qualitypatternmodel.inputfields.validation;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 
 /**
@@ -19,6 +20,8 @@ public interface PropertyOptionValidator {
 
 	boolean validateOptions(EList<PropertyLocation> value);
 	boolean validateValue(PropertyLocation value);
+
+	boolean validateProperty(Property value);
 
 	boolean validateSelection(PropertyLocation value);
 }

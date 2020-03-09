@@ -158,6 +158,18 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void reset() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -285,6 +297,9 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 				return null;
 			case FunctionsPackage.BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE:
 				return hasCountPredicate();
+			case FunctionsPackage.BOOLEAN_OPERATOR___RESET:
+				reset();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -308,42 +308,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		return xPredicates;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void resetCountOperatorRecursively() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void clearMatchRecursively() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void clearComparisonRecursively() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
 	@Override
 	public void prepareTranslation() {
 		translated = false;
@@ -918,6 +882,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			case GraphstructurePackage.ELEMENT___CLEAR_COMPARISON_RECURSIVELY:
 				clearComparisonRecursively();
 				return null;
+			case GraphstructurePackage.ELEMENT___CLEAR_PREDICATES_RECURSIVELY:
+				clearPredicatesRecursively();
+				return null;
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.ELEMENT___IS_TRANSLATABLE:
@@ -970,6 +937,51 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			res += "\n]";
 		}
 		return res;
+	}
+
+	public void clearComparisonRecursively() {
+		getComparison1().clear();
+		getComparison2().clear();
+		for(Property p : getProperties()) {
+			p.getComparison1().clear();
+			p.getComparison2().clear();
+		}
+		for(Element child : getNextElements()) {
+			child.clearComparisonRecursively();
+		}
+	}
+
+	@Override
+	public void clearMatchRecursively() {
+		for(Property p : getProperties()) {
+			p.getMatch().clear();
+		}
+		for(Element child : getNextElements()) {
+			child.clearMatchRecursively();
+		}
+		
+	}
+
+	public void clearPropertyRecursively() {
+		for(Property p : getProperties()) {
+			p.reset();			
+		}
+		for(Element child : getNextElements()) {
+			child.clearPropertyRecursively();
+		}
+	}
+
+	public void resetCountOperatorRecursively() {
+		for(Element child : getNextElements()) {
+			child.resetCountOperatorRecursively();
+		}		
+	}
+
+	public void clearPredicatesRecursively() {
+		getPredicates().clear();
+		for(Element child : getNextElements()) {
+			child.clearPredicatesRecursively();
+		}
 	}
 
 } // ElementImpl

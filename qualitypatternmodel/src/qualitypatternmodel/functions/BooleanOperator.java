@@ -77,4 +77,12 @@ public interface BooleanOperator extends Operator {
 	 * @generated
 	 */
 	boolean hasCountPredicate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void reset();
 } // BooleanOperator

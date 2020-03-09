@@ -17,10 +17,10 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#getPropertyOption <em>Property Option</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getPropertyOption <em>Property Option</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty()
@@ -30,12 +30,14 @@ import qualitypatternmodel.patternstructure.PatternElement;
 public interface Property extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Property Option</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.PropertyOption#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property Option</em>' reference.
 	 * @see #setPropertyOption(PropertyOption)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_PropertyOption()
-	 * @model required="true"
+	 * @see qualitypatternmodel.inputfields.PropertyOption#getProperty
+	 * @model opposite="property" required="true"
 	 * @generated
 	 */
 	PropertyOption getPropertyOption();
@@ -76,12 +78,14 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * Returns the value of the '<em><b>Attribute Name</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.TextLiteral#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute Name</em>' reference.
 	 * @see #setAttributeName(TextLiteral)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_AttributeName()
-	 * @model required="true"
+	 * @see qualitypatternmodel.inputfields.TextLiteral#getProperty
+	 * @model opposite="property" required="true"
 	 * @generated
 	 */
 	TextLiteral getAttributeName();
@@ -125,5 +129,7 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 * @generated
 	 */
 	void removeInputsFromVariableList();
+
+	void reset();
 
 } // Property
