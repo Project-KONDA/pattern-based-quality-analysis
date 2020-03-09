@@ -291,7 +291,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 
 	@Override
 	public String myToString() {
-		String res = "OperatorList (";
+		String res = "OperatorList " + getShortPatternInternalId() + " (";
 		for (Operator operator: getOperators()) {
 			res += "\n  " + operator.myToString();
 		}

@@ -826,7 +826,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			res += "return ";
 		res += "Graph " + graphDepth + " (";
 		res += "\n  " + getRootElement().myToString().replace("\n", "\n  ");
-		res += "\n" + getOperatorList().myToString();
+		res += "\n  " + getOperatorList().myToString().replace("\n", "\n  ");
 		res += "\n)";
 		return res;
 	}

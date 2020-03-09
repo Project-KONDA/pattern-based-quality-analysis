@@ -6,6 +6,9 @@ import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.patternstructure.impl.*;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.*;
 import qualitypatternmodel.functions.impl.*;
 import qualitypatternmodel.inputfields.*;
@@ -13,7 +16,7 @@ import qualitypatternmodel.inputfields.impl.*;
 
 public class test01_axis {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -36,9 +39,9 @@ public class test01_axis {
 		for (Pattern pattern : patterns) {
 			try {
 				pattern.isValid(true);
-				System.out.println();
-				System.out.println("valid");
-				System.out.print(pattern);
+				System.out.println("\n\n___PATTERN_(VALID)___");
+				System.out.println(pattern.myToString());
+				System.out.print("\n___TRANSLATION___");
 				System.out.println(pattern.toXQuery());
 			} catch (Exception e) {
 				System.out.println("\nnot valid: " + e.getMessage());
