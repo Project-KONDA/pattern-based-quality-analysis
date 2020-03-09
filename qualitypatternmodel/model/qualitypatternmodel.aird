@@ -609,6 +609,14 @@
                   <styles xmi:type="notation:FontStyle" xmi:id="_8hrZAV7sEequcs-06kK9Dw" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_8hrZAl7sEequcs-06kK9Dw"/>
                 </children>
+                <children xmi:type="notation:Node" xmi:id="_PRErkGIHEeqRJMTe2Wle0g" type="3010" element="_Oz940GIHEeqRJMTe2Wle0g">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_PRErkWIHEeqRJMTe2Wle0g" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_PRErkmIHEeqRJMTe2Wle0g"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_SXaKYGIHEeqRJMTe2Wle0g" type="3010" element="_R67CsGIHEeqRJMTe2Wle0g">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_SXaKYWIHEeqRJMTe2Wle0g" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_SXaKYmIHEeqRJMTe2Wle0g"/>
+                </children>
                 <styles xmi:type="notation:SortingStyle" xmi:id="_JsypwiM0Eeq7GbtfgEc6MA"/>
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_JsypwyM0Eeq7GbtfgEc6MA"/>
               </children>
@@ -706,6 +714,18 @@
                 <children xmi:type="notation:Node" xmi:id="_Rrq4QFyBEeqYyr5VeAnn4A" type="3010" element="_RrX9XVyBEeqYyr5VeAnn4A">
                   <styles xmi:type="notation:FontStyle" xmi:id="_Rrq4QVyBEeqYyr5VeAnn4A" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_Rrq4QlyBEeqYyr5VeAnn4A"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_vIZe8GIGEeqRJMTe2Wle0g" type="3010" element="_uraoAGIGEeqRJMTe2Wle0g">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_vIZe8WIGEeqRJMTe2Wle0g" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_vIZe8mIGEeqRJMTe2Wle0g"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_xEn7EGIGEeqRJMTe2Wle0g" type="3010" element="_wpalwGIGEeqRJMTe2Wle0g">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_xEn7EWIGEeqRJMTe2Wle0g" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_xEn7EmIGEeqRJMTe2Wle0g"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_z76RQGIGEeqRJMTe2Wle0g" type="3010" element="_zesw0GIGEeqRJMTe2Wle0g">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_z76RQWIGEeqRJMTe2Wle0g" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_z76RQmIGEeqRJMTe2Wle0g"/>
                 </children>
                 <styles xmi:type="notation:SortingStyle" xmi:id="_Jsyp0CM0Eeq7GbtfgEc6MA"/>
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_Jsyp0SM0Eeq7GbtfgEc6MA"/>
@@ -3814,6 +3834,22 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_Oz940GIHEeqRJMTe2Wle0g" name="removeFromReturnElements()" tooltipText="removeFromReturnElements()">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/SingleElement/removeFromReturnElements"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/SingleElement/removeFromReturnElements"/>
+          <ownedStyle xmi:type="diagram:BundledImage" uid="_Oz-f4GIHEeqRJMTe2Wle0g" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_R67CsGIHEeqRJMTe2Wle0g" name="clearPredicatesRecursively()" tooltipText="clearPredicatesRecursively()">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/SingleElement/clearPredicatesRecursively"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/SingleElement/clearPredicatesRecursively"/>
+          <ownedStyle xmi:type="diagram:BundledImage" uid="_R67pwGIHEeqRJMTe2Wle0g" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_UBMKcB2REeqrGqxc7qjo8A" name="SetElement" tooltipText="" outgoingEdges="_sZnt4B2REeqrGqxc7qjo8A _snfo0z2xEeq9gIWC7i9f8Q" incomingEdges="_snfo0z2xEeq9gIWC7i9f8Q _L5MxNj2yEeq9gIWC7i9f8Q _bFvnPD6WEeqBYdQRAMnWmg" width="12" height="10">
         <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//graphstructure/SetElement"/>
@@ -3998,6 +4034,30 @@
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaAnd"/>
           <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaAnd/location"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_RrYkYFyBEeqYyr5VeAnn4A" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_uraoAGIGEeqRJMTe2Wle0g" name="resetCountOperatorRecursively()" tooltipText="resetCountOperatorRecursively()">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/resetCountOperatorRecursively"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/resetCountOperatorRecursively"/>
+          <ownedStyle xmi:type="diagram:BundledImage" uid="_uraoAWIGEeqRJMTe2Wle0g" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_wpalwGIGEeqRJMTe2Wle0g" name="clearMatchRecursively()" tooltipText="clearMatchRecursively()">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/clearMatchRecursively"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/clearMatchRecursively"/>
+          <ownedStyle xmi:type="diagram:BundledImage" uid="_wpalwWIGEeqRJMTe2Wle0g" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_zesw0GIGEeqRJMTe2Wle0g" name="clearComparisonRecursively()" tooltipText="clearComparisonRecursively()">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/clearComparisonRecursively"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/clearComparisonRecursively"/>
+          <ownedStyle xmi:type="diagram:BundledImage" uid="_zesw0WIGEeqRJMTe2Wle0g" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

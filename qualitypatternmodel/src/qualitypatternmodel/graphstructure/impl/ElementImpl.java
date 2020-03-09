@@ -308,6 +308,42 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		return xPredicates;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void resetCountOperatorRecursively() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void clearMatchRecursively() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void clearComparisonRecursively() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	@Override
 	public void prepareTranslation() {
 		translated = false;
@@ -873,6 +909,15 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY:
+				resetCountOperatorRecursively();
+				return null;
+			case GraphstructurePackage.ELEMENT___CLEAR_MATCH_RECURSIVELY:
+				clearMatchRecursively();
+				return null;
+			case GraphstructurePackage.ELEMENT___CLEAR_COMPARISON_RECURSIVELY:
+				clearComparisonRecursively();
+				return null;
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.ELEMENT___IS_TRANSLATABLE:

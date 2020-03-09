@@ -239,6 +239,8 @@
       </eOperations>
       <eOperations name="isRootElement" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="removeMappingsToNext"/>
+      <eOperations name="removeFromReturnElements"/>
+      <eOperations name="clearPredicatesRecursively"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
           eType="#//patternstructure/SingleElementMapping" eOpposite="#//patternstructure/SingleElementMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/SingleElementMapping"
@@ -308,6 +310,9 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>
+      <eOperations name="resetCountOperatorRecursively"/>
+      <eOperations name="clearMatchRecursively"/>
+      <eOperations name="clearComparisonRecursively"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationFromPrevious"
           eType="#//graphstructure/Relation" containment="true" eOpposite="#//graphstructure/Relation/relationTo"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" lowerBound="1"

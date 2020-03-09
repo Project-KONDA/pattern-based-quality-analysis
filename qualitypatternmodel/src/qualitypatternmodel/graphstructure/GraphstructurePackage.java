@@ -1021,13 +1021,40 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = COMPARABLE_OPERATION_COUNT + 13;
 
 	/**
+	 * The operation id for the '<em>Reset Count Operator Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 14;
+
+	/**
+	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___CLEAR_MATCH_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 15;
+
+	/**
+	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___CLEAR_COMPARISON_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 16;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 14;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 17;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
@@ -1454,6 +1481,33 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION;
 
 	/**
+	 * The operation id for the '<em>Reset Count Operator Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY = ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY;
+
+	/**
+	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___CLEAR_MATCH_RECURSIVELY = ELEMENT___CLEAR_MATCH_RECURSIVELY;
+
+	/**
+	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___CLEAR_COMPARISON_RECURSIVELY = ELEMENT___CLEAR_COMPARISON_RECURSIVELY;
+
+	/**
 	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1544,13 +1598,31 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___REMOVE_MAPPINGS_TO_NEXT = ELEMENT_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Remove From Return Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS = ELEMENT_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___CLEAR_PREDICATES_RECURSIVELY = ELEMENT_OPERATION_COUNT + 11;
+
+	/**
 	 * The number of operations of the '<em>Single Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 10;
+	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
@@ -1948,6 +2020,33 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Reset Count Operator Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY = ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY;
+
+	/**
+	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___CLEAR_MATCH_RECURSIVELY = ELEMENT___CLEAR_MATCH_RECURSIVELY;
+
+	/**
+	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___CLEAR_COMPARISON_RECURSIVELY = ELEMENT___CLEAR_COMPARISON_RECURSIVELY;
 
 	/**
 	 * The operation id for the '<em>Get Path To Previous Single Element</em>' operation.
@@ -2627,6 +2726,26 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getSingleElement__RemoveMappingsToNext();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#removeFromReturnElements() <em>Remove From Return Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove From Return Elements</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#removeFromReturnElements()
+	 * @generated
+	 */
+	EOperation getSingleElement__RemoveFromReturnElements();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clear Predicates Recursively</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#clearPredicatesRecursively()
+	 * @generated
+	 */
+	EOperation getSingleElement__ClearPredicatesRecursively();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.SetElement <em>Set Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2947,6 +3066,36 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getElement__TranslatePredicatesViaAnd__Location();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#resetCountOperatorRecursively() <em>Reset Count Operator Recursively</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Reset Count Operator Recursively</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#resetCountOperatorRecursively()
+	 * @generated
+	 */
+	EOperation getElement__ResetCountOperatorRecursively();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#clearMatchRecursively() <em>Clear Match Recursively</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clear Match Recursively</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#clearMatchRecursively()
+	 * @generated
+	 */
+	EOperation getElement__ClearMatchRecursively();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#clearComparisonRecursively() <em>Clear Comparison Recursively</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clear Comparison Recursively</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#clearComparisonRecursively()
+	 * @generated
+	 */
+	EOperation getElement__ClearComparisonRecursively();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -3514,6 +3663,22 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation SINGLE_ELEMENT___REMOVE_MAPPINGS_TO_NEXT = eINSTANCE.getSingleElement__RemoveMappingsToNext();
 
 		/**
+		 * The meta object literal for the '<em><b>Remove From Return Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS = eINSTANCE.getSingleElement__RemoveFromReturnElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Clear Predicates Recursively</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___CLEAR_PREDICATES_RECURSIVELY = eINSTANCE.getSingleElement__ClearPredicatesRecursively();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3764,6 +3929,30 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = eINSTANCE.getElement__TranslatePredicatesViaAnd__Location();
+
+		/**
+		 * The meta object literal for the '<em><b>Reset Count Operator Recursively</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY = eINSTANCE.getElement__ResetCountOperatorRecursively();
+
+		/**
+		 * The meta object literal for the '<em><b>Clear Match Recursively</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___CLEAR_MATCH_RECURSIVELY = eINSTANCE.getElement__ClearMatchRecursively();
+
+		/**
+		 * The meta object literal for the '<em><b>Clear Comparison Recursively</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___CLEAR_COMPARISON_RECURSIVELY = eINSTANCE.getElement__ClearComparisonRecursively();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

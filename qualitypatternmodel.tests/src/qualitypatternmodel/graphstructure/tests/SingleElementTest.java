@@ -24,6 +24,8 @@ import qualitypatternmodel.graphstructure.SingleElement;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#toXQueryNoCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery No Count</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#isRootElement() <em>Is Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#removeFromReturnElements() <em>Remove From Return Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -207,6 +209,32 @@ public class SingleElementTest extends ElementTest {
 	 * @generated
 	 */
 	public void testRemoveMappingsToNext() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#removeFromReturnElements() <em>Remove From Return Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#removeFromReturnElements()
+	 * @generated
+	 */
+	public void testRemoveFromReturnElements() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#clearPredicatesRecursively()
+	 * @generated
+	 */
+	public void testClearPredicatesRecursively() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

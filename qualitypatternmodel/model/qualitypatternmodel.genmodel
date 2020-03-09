@@ -231,6 +231,8 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/isRootElement"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/removeMappingsToNext"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/removeFromReturnElements"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/SingleElement/clearPredicatesRecursively"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/SetElement">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/SetElement/next"/>
@@ -278,6 +280,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaAnd">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaAnd/location"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/resetCountOperatorRecursively"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearMatchRecursively"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearComparisonRecursively"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/rootElement"/>

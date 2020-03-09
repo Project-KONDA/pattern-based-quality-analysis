@@ -1082,6 +1082,12 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			case GraphstructurePackage.SINGLE_ELEMENT___REMOVE_MAPPINGS_TO_NEXT:
 				removeMappingsToNext();
 				return null;
+			case GraphstructurePackage.SINGLE_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS:
+				removeFromReturnElements();
+				return null;
+			case GraphstructurePackage.SINGLE_ELEMENT___CLEAR_PREDICATES_RECURSIVELY:
+				clearPredicatesRecursively();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

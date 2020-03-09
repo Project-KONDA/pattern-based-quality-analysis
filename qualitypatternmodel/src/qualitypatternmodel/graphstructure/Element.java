@@ -320,10 +320,29 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 */
 	String translatePredicatesViaAnd(Location location) throws InvalidityException;
 	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void resetCountOperatorRecursively();
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void clearMatchRecursively();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void clearComparisonRecursively();
 
 } // Element
