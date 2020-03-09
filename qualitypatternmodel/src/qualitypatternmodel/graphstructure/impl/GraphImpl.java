@@ -322,10 +322,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	public NotificationChain basicSetRootElement(SingleElement newRootElement, NotificationChain msgs) {
 		getReturnElements().clear();
-		// TODO: clear comparison1/2 recursively
-		getRootElement().clearPredicatesRecursively();
-		getRootElement().clearMatchRecursively();
-		getRootElement().resetCountOperatorRecursively();
+		if(getRootElement() != null) {
+			getRootElement().clearPredicatesRecursively();
+			getRootElement().clearMatchRecursively();
+			getRootElement().resetCountOperatorRecursively();
+		}
 		SingleElement oldRootElement = rootElement;
 		rootElement = newRootElement;
 		if (eNotificationRequired()) {
