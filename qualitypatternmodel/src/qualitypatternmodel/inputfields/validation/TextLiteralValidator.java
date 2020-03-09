@@ -4,6 +4,8 @@
  */
 package qualitypatternmodel.inputfields.validation;
 
+import qualitypatternmodel.functions.Match;
+
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.inputfields.TextLiteral}.
@@ -15,4 +17,6 @@ public interface TextLiteralValidator {
 	boolean validate();
 
 	boolean validateValue(String value);
+
+	boolean validateMatch(Match value);
 }

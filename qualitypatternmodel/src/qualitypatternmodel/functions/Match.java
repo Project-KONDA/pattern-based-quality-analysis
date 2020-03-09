@@ -15,8 +15,8 @@ import qualitypatternmodel.inputfields.TextLiteral;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.Match#getProperty <em>Property</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.Match#getRegularExpression <em>Regular Expression</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.Match#getRegularExpression <em>Regular Expression</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.functions.FunctionsPackage#getMatch()
@@ -26,12 +26,14 @@ import qualitypatternmodel.inputfields.TextLiteral;
 public interface Match extends BooleanOperator {
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property</em>' reference.
 	 * @see #setProperty(Property)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_Property()
-	 * @model required="true"
+	 * @see qualitypatternmodel.graphstructure.Property#getMatch
+	 * @model opposite="match" required="true"
 	 * @generated
 	 */
 	Property getProperty();
@@ -48,12 +50,14 @@ public interface Match extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Regular Expression</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.TextLiteral#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Regular Expression</em>' reference.
 	 * @see #setRegularExpression(TextLiteral)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_RegularExpression()
-	 * @model required="true"
+	 * @see qualitypatternmodel.inputfields.TextLiteral#getMatch
+	 * @model opposite="match" required="true"
 	 * @generated
 	 */
 	TextLiteral getRegularExpression();
@@ -70,12 +74,14 @@ public interface Match extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.Boolean#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
 	 * @see #setOption(qualitypatternmodel.inputfields.Boolean)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_Option()
-	 * @model required="true"
+	 * @see qualitypatternmodel.inputfields.Boolean#getMatch
+	 * @model opposite="match" required="true"
 	 * @generated
 	 */
 	qualitypatternmodel.inputfields.Boolean getOption();

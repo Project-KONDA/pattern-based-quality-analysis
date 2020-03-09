@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.inputfields;
 
+import qualitypatternmodel.functions.Match;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +15,7 @@ package qualitypatternmodel.inputfields;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.Boolean#getValue <em>Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.Boolean#getMatch <em>Match</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.inputfields.InputfieldsPackage#getBoolean()
@@ -42,5 +45,29 @@ public interface Boolean extends InputValue {
 	 * @generated
 	 */
 	void setValue(java.lang.Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Match</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Match</em>' reference.
+	 * @see #setMatch(Match)
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getBoolean_Match()
+	 * @see qualitypatternmodel.functions.Match#getOption
+	 * @model opposite="option"
+	 * @generated
+	 */
+	Match getMatch();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Boolean#getMatch <em>Match</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Match</em>' reference.
+	 * @see #getMatch()
+	 * @generated
+	 */
+	void setMatch(Match value);
 
 } // Boolean

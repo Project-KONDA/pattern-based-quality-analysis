@@ -32,6 +32,7 @@ import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.impl.CompOptionImpl;
@@ -48,9 +49,9 @@ import qualitypatternmodel.patternstructure.impl.PatternImpl;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getArgument1 <em>Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getArgument2 <em>Argument2</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getType <em>Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.impl.ComparisonImpl#getOption <em>Option</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,16 +66,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @ordered
 	 */
 	protected qualitypatternmodel.graphstructure.Comparable argument1;
-
-	/**
-	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOption()
-	 * @generated
-	 * @ordered
-	 */
-	protected CompOption option;
 
 	/**
 	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' reference.
@@ -104,6 +95,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @ordered
 	 */
 	protected ReturnType type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected CompOption option;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -571,12 +572,34 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setOption(CompOption newOption) {
+	public NotificationChain basicSetOption(CompOption newOption, NotificationChain msgs) {
 		CompOption oldOption = option;
 		option = newOption;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTION, oldOption, option));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTION, oldOption, newOption);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOption(CompOption newOption) {
+		if (newOption != option) {
+			NotificationChain msgs = null;
+			if (option != null)
+				msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.COMP_OPTION__COMPARISON, CompOption.class, msgs);
+			if (newOption != null)
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, InputfieldsPackage.COMP_OPTION__COMPARISON, CompOption.class, msgs);
+			msgs = basicSetOption(newOption, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTION, newOption, newOption));
 	}
 
 	/**
@@ -696,6 +719,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				if (argument2 != null)
 					msgs = ((InternalEObject)argument2).eInverseRemove(this, GraphstructurePackage.COMPARABLE__COMPARISON2, qualitypatternmodel.graphstructure.Comparable.class, msgs);
 				return basicSetArgument2((qualitypatternmodel.graphstructure.Comparable)otherEnd, msgs);
+			case FunctionsPackage.COMPARISON__OPTION:
+				if (option != null)
+					msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.COMP_OPTION__COMPARISON, CompOption.class, msgs);
+				return basicSetOption((CompOption)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -712,6 +739,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return basicSetArgument1(null, msgs);
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				return basicSetArgument2(null, msgs);
+			case FunctionsPackage.COMPARISON__OPTION:
+				return basicSetOption(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -726,14 +755,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case FunctionsPackage.COMPARISON__ARGUMENT1:
 				if (resolve) return getArgument1();
 				return basicGetArgument1();
-			case FunctionsPackage.COMPARISON__OPTION:
-				if (resolve) return getOption();
-				return basicGetOption();
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				if (resolve) return getArgument2();
 				return basicGetArgument2();
 			case FunctionsPackage.COMPARISON__TYPE:
 				return getType();
+			case FunctionsPackage.COMPARISON__OPTION:
+				if (resolve) return getOption();
+				return basicGetOption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -749,14 +778,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case FunctionsPackage.COMPARISON__ARGUMENT1:
 				setArgument1((qualitypatternmodel.graphstructure.Comparable)newValue);
 				return;
-			case FunctionsPackage.COMPARISON__OPTION:
-				setOption((CompOption)newValue);
-				return;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((qualitypatternmodel.graphstructure.Comparable)newValue);
 				return;
 			case FunctionsPackage.COMPARISON__TYPE:
 				setType((ReturnType)newValue);
+				return;
+			case FunctionsPackage.COMPARISON__OPTION:
+				setOption((CompOption)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -772,14 +801,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case FunctionsPackage.COMPARISON__ARGUMENT1:
 				setArgument1((qualitypatternmodel.graphstructure.Comparable)null);
 				return;
-			case FunctionsPackage.COMPARISON__OPTION:
-				setOption((CompOption)null);
-				return;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((qualitypatternmodel.graphstructure.Comparable)null);
 				return;
 			case FunctionsPackage.COMPARISON__TYPE:
 				setType(TYPE_EDEFAULT);
+				return;
+			case FunctionsPackage.COMPARISON__OPTION:
+				setOption((CompOption)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -794,12 +823,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		switch (featureID) {
 			case FunctionsPackage.COMPARISON__ARGUMENT1:
 				return argument1 != null;
-			case FunctionsPackage.COMPARISON__OPTION:
-				return option != null;
 			case FunctionsPackage.COMPARISON__ARGUMENT2:
 				return argument2 != null;
 			case FunctionsPackage.COMPARISON__TYPE:
 				return type != TYPE_EDEFAULT;
+			case FunctionsPackage.COMPARISON__OPTION:
+				return option != null;
 		}
 		return super.eIsSet(featureID);
 	}

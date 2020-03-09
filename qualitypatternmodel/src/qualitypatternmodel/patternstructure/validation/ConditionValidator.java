@@ -6,6 +6,7 @@ package qualitypatternmodel.patternstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.Not;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
@@ -30,6 +31,8 @@ public interface ConditionValidator {
 	boolean validateFormula1(Formula value);
 
 	boolean validateFormula2(Formula value);
+
+	boolean validateNot(Not value);
 
 	boolean validateFormula(Formula value);
 

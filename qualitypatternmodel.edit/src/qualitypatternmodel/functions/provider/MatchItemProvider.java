@@ -43,8 +43,8 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPropertyPropertyDescriptor(object);
-			addRegularExpressionPropertyDescriptor(object);
 			addOptionPropertyDescriptor(object);
+			addRegularExpressionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

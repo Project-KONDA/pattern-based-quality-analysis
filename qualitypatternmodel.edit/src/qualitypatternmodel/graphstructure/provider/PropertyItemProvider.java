@@ -48,6 +48,7 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 			addComparison2PropertyDescriptor(object);
 			addPropertyOptionPropertyDescriptor(object);
 			addAttributeNamePropertyDescriptor(object);
+			addMatchPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -132,6 +133,28 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Property_attributeName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Property_attributeName_feature", "_UI_Property_type"),
 				 GraphstructurePackage.Literals.PROPERTY__ATTRIBUTE_NAME,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Match feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMatchPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Property_match_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Property_match_feature", "_UI_Property_type"),
+				 GraphstructurePackage.Literals.PROPERTY__MATCH,
 				 true,
 				 false,
 				 true,

@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.graphstructure;
 
+import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -18,6 +20,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getPropertyOption <em>Property Option</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty()
@@ -92,6 +95,20 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 * @generated
 	 */
 	void setAttributeName(TextLiteral value);
+
+	/**
+	 * Returns the value of the '<em><b>Match</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.functions.Match}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Match#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Match</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Match()
+	 * @see qualitypatternmodel.functions.Match#getProperty
+	 * @model opposite="property"
+	 * @generated
+	 */
+	EList<Match> getMatch();
 
 	/**
 	 * <!-- begin-user-doc -->

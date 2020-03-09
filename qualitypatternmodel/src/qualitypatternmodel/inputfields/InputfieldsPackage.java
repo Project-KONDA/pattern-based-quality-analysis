@@ -296,13 +296,22 @@ public interface InputfieldsPackage extends EPackage {
 	int COMP_OPTION__VALUE = INPUT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Comparison</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__COMPARISON = INPUT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Comp Option</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 2;
+	int COMP_OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1030,13 +1039,22 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN__VALUE = INPUT_VALUE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Match</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN__MATCH = INPUT_VALUE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Boolean</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_FEATURE_COUNT = INPUT_VALUE_FEATURE_COUNT + 1;
+	int BOOLEAN_FEATURE_COUNT = INPUT_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1690,13 +1708,22 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LITERAL__VALUE = TEXT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Match</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__MATCH = TEXT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Text Literal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_FEATURE_COUNT = TEXT_FEATURE_COUNT + 1;
+	int TEXT_LITERAL_FEATURE_COUNT = TEXT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -3005,6 +3032,17 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getCompOption_Value();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.inputfields.CompOption#getComparison <em>Comparison</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Comparison</em>'.
+	 * @see qualitypatternmodel.inputfields.CompOption#getComparison()
+	 * @see #getCompOption()
+	 * @generated
+	 */
+	EReference getCompOption_Comparison();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.PropertyOption <em>Property Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3100,6 +3138,17 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getBoolean_Value();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.inputfields.Boolean#getMatch <em>Match</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Match</em>'.
+	 * @see qualitypatternmodel.inputfields.Boolean#getMatch()
+	 * @see #getBoolean()
+	 * @generated
+	 */
+	EReference getBoolean_Match();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Text <em>Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3170,6 +3219,17 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTextLiteral_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.inputfields.TextLiteral#getMatch <em>Match</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Match</em>'.
+	 * @see qualitypatternmodel.inputfields.TextLiteral#getMatch()
+	 * @see #getTextLiteral()
+	 * @generated
+	 */
+	EReference getTextLiteral_Match();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Number <em>Number</em>}'.
@@ -3385,6 +3445,14 @@ public interface InputfieldsPackage extends EPackage {
 		EAttribute COMP_OPTION__VALUE = eINSTANCE.getCompOption_Value();
 
 		/**
+		 * The meta object literal for the '<em><b>Comparison</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMP_OPTION__COMPARISON = eINSTANCE.getCompOption_Comparison();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl <em>Property Option</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3463,6 +3531,14 @@ public interface InputfieldsPackage extends EPackage {
 		EAttribute BOOLEAN__VALUE = eINSTANCE.getBoolean_Value();
 
 		/**
+		 * The meta object literal for the '<em><b>Match</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOLEAN__MATCH = eINSTANCE.getBoolean_Match();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.TextImpl <em>Text</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3523,6 +3599,14 @@ public interface InputfieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT_LITERAL__VALUE = eINSTANCE.getTextLiteral_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Match</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEXT_LITERAL__MATCH = eINSTANCE.getTextLiteral_Match();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.NumberImpl <em>Number</em>}' class.

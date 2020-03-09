@@ -586,7 +586,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	public String myToString() {
 		String res = "Pattern " + name + "("; 
 		res += "\n  " + getVariableList().myToString().replace("\n", "\n  ");
-		res += "\n  " + getReturnGraph().myToString().replace("\n", "\n  ") + "\n)";
+		res += "\n  " + getReturnGraph().myToString().replace("\n", "\n  ");
 		res += "\n  " + getCondition().myToString().replace("\n", "\n  ") + "\n)";
 		return res;
 	}

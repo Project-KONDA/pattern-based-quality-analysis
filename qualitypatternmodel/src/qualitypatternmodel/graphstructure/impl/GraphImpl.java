@@ -31,6 +31,7 @@ import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Mapping;
+import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -45,33 +46,25 @@ import qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getRootElement
- * <em>Root Element</em>}</li>
- * <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList
- * <em>Operator List</em>}</li>
- * <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGraphDepth
- * <em>Graph Depth</em>}</li>
- * <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#isReturnGraph
- * <em>Return Graph</em>}</li>
- * <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGetAllElements
- * <em>Get All Elements</em>}</li>
- * <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGetAllRelations
- * <em>Get All Relations</em>}</li>
- * <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getQuantifiedCondition
- * <em>Quantified Condition</em>}</li>
- * <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getPattern
- * <em>Pattern</em>}</li>
- * <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElements
- * <em>Return Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getRootElement <em>Root Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList <em>Operator List</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGraphDepth <em>Graph Depth</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#isReturnGraph <em>Return Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGetAllElements <em>Get All Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGetAllRelations <em>Get All Relations</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getQuantifiedCondition <em>Quantified Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElements <em>Return Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getMorphismTo <em>Morphism To</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getMorphismFrom <em>Morphism From</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
-	 * The cached value of the '{@link #getRootElement() <em>Root Element</em>}'
-	 * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getRootElement() <em>Root Element</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRootElement()
 	 * @generated
 	 * @ordered
@@ -79,9 +72,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	protected SingleElement rootElement;
 
 	/**
-	 * The cached value of the '{@link #getOperatorList() <em>Operator List</em>}'
-	 * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getOperatorList() <em>Operator List</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getOperatorList()
 	 * @generated
 	 * @ordered
@@ -89,9 +81,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	protected OperatorList operatorList;
 
 	/**
-	 * The default value of the '{@link #getGraphDepth() <em>Graph Depth</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGraphDepth()
 	 * @generated
 	 * @ordered
@@ -99,9 +90,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	protected static final int GRAPH_DEPTH_EDEFAULT = -1;
 
 	/**
-	 * The cached value of the '{@link #getGraphDepth() <em>Graph Depth</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGraphDepth()
 	 * @generated
 	 * @ordered
@@ -109,9 +99,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	protected int graphDepth = GRAPH_DEPTH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isReturnGraph() <em>Return Graph</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #isReturnGraph() <em>Return Graph</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isReturnGraph()
 	 * @generated
 	 * @ordered
@@ -119,9 +108,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	protected static final boolean RETURN_GRAPH_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isReturnGraph() <em>Return Graph</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #isReturnGraph() <em>Return Graph</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isReturnGraph()
 	 * @generated
 	 * @ordered
@@ -129,15 +117,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	protected boolean returnGraph = RETURN_GRAPH_EDEFAULT;
 
 	/**
-	 * The cached setting delegate for the '{@link #getGetAllElements() <em>Get All
-	 * Elements</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached setting delegate for the '{@link #getGetAllElements() <em>Get All Elements</em>}' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGetAllElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_ELEMENTS__ESETTING_DELEGATE = ((EStructuralFeature.Internal) GraphstructurePackage.Literals.GRAPH__GET_ALL_ELEMENTS)
-			.getSettingDelegate();
+	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_ELEMENTS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.GRAPH__GET_ALL_ELEMENTS).getSettingDelegate();
 
 	/**
 	 * The cached setting delegate for the '{@link #getGetAllRelations() <em>Get All
@@ -148,18 +134,36 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated
 	 * @ordered
 	 */
-	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_RELATIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal) GraphstructurePackage.Literals.GRAPH__GET_ALL_RELATIONS)
-			.getSettingDelegate();
+	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_RELATIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.GRAPH__GET_ALL_RELATIONS).getSettingDelegate();
 
 	/**
-	 * The cached value of the '{@link #getReturnElements() <em>Return
-	 * Elements</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getReturnElements() <em>Return Elements</em>}' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReturnElements()
 	 * @generated
 	 * @ordered
 	 */
 	protected EList<SingleElement> returnElements;
+
+	/**
+	 * The cached value of the '{@link #getMorphismTo() <em>Morphism To</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMorphismTo()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Morphism> morphismTo;
+
+	/**
+	 * The cached value of the '{@link #getMorphismFrom() <em>Morphism From</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMorphismFrom()
+	 * @generated
+	 * @ordered
+	 */
+	protected Morphism morphismFrom;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -259,40 +263,42 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-			if (rootElement != null)
-				msgs = ((InternalEObject) rootElement).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
-			return basicSetRootElement((SingleElement) otherEnd, msgs);
-		case GraphstructurePackage.GRAPH__OPERATOR_LIST:
-			if (operatorList != null)
-				msgs = ((InternalEObject) operatorList).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__OPERATOR_LIST, null, msgs);
-			return basicSetOperatorList((OperatorList) otherEnd, msgs);
-		case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetQuantifiedCondition((QuantifiedCondition) otherEnd, msgs);
-		case GraphstructurePackage.GRAPH__PATTERN:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetPattern((Pattern) otherEnd, msgs);
-		case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getReturnElements()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
+				if (rootElement != null)
+					msgs = ((InternalEObject)rootElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
+				return basicSetRootElement((SingleElement)otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
+				if (operatorList != null)
+					msgs = ((InternalEObject)operatorList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__OPERATOR_LIST, null, msgs);
+				return basicSetOperatorList((OperatorList)otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetQuantifiedCondition((QuantifiedCondition)otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__PATTERN:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPattern((Pattern)otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReturnElements()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__MORPHISM_TO:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMorphismTo()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__MORPHISM_FROM:
+				if (morphismFrom != null)
+					msgs = ((InternalEObject)morphismFrom).eInverseRemove(this, PatternstructurePackage.MORPHISM__TO, Morphism.class, msgs);
+				return basicSetMorphismFrom((Morphism)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -302,7 +308,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -334,7 +339,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -342,31 +346,101 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (newRootElement != rootElement) {
 			NotificationChain msgs = null;
 			if (rootElement != null)
-				msgs = ((InternalEObject) rootElement).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__ROOT,
-						SingleElement.class, msgs);
+				msgs = ((InternalEObject)rootElement).eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__ROOT, SingleElement.class, msgs);
 			if (newRootElement != null)
-				msgs = ((InternalEObject) newRootElement).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__ROOT,
-						SingleElement.class, msgs);
+				msgs = ((InternalEObject)newRootElement).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__ROOT, SingleElement.class, msgs);
 			msgs = basicSetRootElement(newRootElement, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__ROOT_ELEMENT,
-					newRootElement, newRootElement));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__ROOT_ELEMENT, newRootElement, newRootElement));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<SingleElement> getReturnElements() {
 		if (returnElements == null) {
-			returnElements = new EObjectWithInverseResolvingEList<SingleElement>(SingleElement.class, this,
-					GraphstructurePackage.GRAPH__RETURN_ELEMENTS, GraphstructurePackage.SINGLE_ELEMENT__GRAPH);
+			returnElements = new EObjectWithInverseResolvingEList<SingleElement>(SingleElement.class, this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS, GraphstructurePackage.SINGLE_ELEMENT__GRAPH);
 		}
 		return returnElements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Morphism> getMorphismTo() {
+		if (morphismTo == null) {
+			morphismTo = new EObjectWithInverseResolvingEList<Morphism>(Morphism.class, this, GraphstructurePackage.GRAPH__MORPHISM_TO, PatternstructurePackage.MORPHISM__FROM);
+		}
+		return morphismTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Morphism getMorphismFrom() {
+		if (morphismFrom != null && morphismFrom.eIsProxy()) {
+			InternalEObject oldMorphismFrom = (InternalEObject)morphismFrom;
+			morphismFrom = (Morphism)eResolveProxy(oldMorphismFrom);
+			if (morphismFrom != oldMorphismFrom) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.GRAPH__MORPHISM_FROM, oldMorphismFrom, morphismFrom));
+			}
+		}
+		return morphismFrom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Morphism basicGetMorphismFrom() {
+		return morphismFrom;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMorphismFrom(Morphism newMorphismFrom, NotificationChain msgs) {
+		Morphism oldMorphismFrom = morphismFrom;
+		morphismFrom = newMorphismFrom;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__MORPHISM_FROM, oldMorphismFrom, newMorphismFrom);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMorphismFrom(Morphism newMorphismFrom) {
+		if (newMorphismFrom != morphismFrom) {
+			NotificationChain msgs = null;
+			if (morphismFrom != null)
+				msgs = ((InternalEObject)morphismFrom).eInverseRemove(this, PatternstructurePackage.MORPHISM__TO, Morphism.class, msgs);
+			if (newMorphismFrom != null)
+				msgs = ((InternalEObject)newMorphismFrom).eInverseAdd(this, PatternstructurePackage.MORPHISM__TO, Morphism.class, msgs);
+			msgs = basicSetMorphismFrom(newMorphismFrom, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__MORPHISM_FROM, newMorphismFrom, newMorphismFrom));
 	}
 
 	// /**
@@ -392,7 +466,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -402,26 +475,20 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
 		OperatorList oldOperatorList = operatorList;
 		operatorList = newOperatorList;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					GraphstructurePackage.GRAPH__OPERATOR_LIST, oldOperatorList, newOperatorList);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__OPERATOR_LIST, oldOperatorList, newOperatorList);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -429,22 +496,18 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (newOperatorList != operatorList) {
 			NotificationChain msgs = null;
 			if (operatorList != null)
-				msgs = ((InternalEObject) operatorList).eInverseRemove(this, FunctionsPackage.OPERATOR_LIST__GRAPH,
-						OperatorList.class, msgs);
+				msgs = ((InternalEObject)operatorList).eInverseRemove(this, FunctionsPackage.OPERATOR_LIST__GRAPH, OperatorList.class, msgs);
 			if (newOperatorList != null)
-				msgs = ((InternalEObject) newOperatorList).eInverseAdd(this, FunctionsPackage.OPERATOR_LIST__GRAPH,
-						OperatorList.class, msgs);
+				msgs = ((InternalEObject)newOperatorList).eInverseAdd(this, FunctionsPackage.OPERATOR_LIST__GRAPH, OperatorList.class, msgs);
 			msgs = basicSetOperatorList(newOperatorList, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__OPERATOR_LIST,
-					newOperatorList, newOperatorList));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__OPERATOR_LIST, newOperatorList, newOperatorList));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -454,7 +517,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -462,13 +524,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		int oldGraphDepth = graphDepth;
 		graphDepth = newGraphDepth;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__GRAPH_DEPTH,
-					oldGraphDepth, graphDepth));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__GRAPH_DEPTH, oldGraphDepth, graphDepth));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -478,7 +538,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -486,331 +545,329 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		boolean oldReturnGraph = returnGraph;
 		returnGraph = newReturnGraph;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__RETURN_GRAPH,
-					oldReturnGraph, returnGraph));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__RETURN_GRAPH, oldReturnGraph, returnGraph));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<Element> getGetAllElements() {
-		return (EList<Element>) GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+		return (EList<Element>)GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<Relation> getGetAllRelations() {
-		return (EList<Relation>) GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+		return (EList<Relation>)GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public QuantifiedCondition getQuantifiedCondition() {
-		if (eContainerFeatureID() != GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION)
-			return null;
-		return (QuantifiedCondition) eInternalContainer();
+		if (eContainerFeatureID() != GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION) return null;
+		return (QuantifiedCondition)eInternalContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition,
 			NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newQuantifiedCondition,
-				GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newQuantifiedCondition, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, msgs);
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setQuantifiedCondition(QuantifiedCondition newQuantifiedCondition) {
-		if (newQuantifiedCondition != eInternalContainer()
-				|| (eContainerFeatureID() != GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION
-						&& newQuantifiedCondition != null)) {
+		if (newQuantifiedCondition != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION && newQuantifiedCondition != null)) {
 			if (EcoreUtil.isAncestor(this, newQuantifiedCondition))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newQuantifiedCondition != null)
-				msgs = ((InternalEObject) newQuantifiedCondition).eInverseAdd(this,
-						PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, QuantifiedCondition.class, msgs);
+				msgs = ((InternalEObject)newQuantifiedCondition).eInverseAdd(this, PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, QuantifiedCondition.class, msgs);
 			msgs = basicSetQuantifiedCondition(newQuantifiedCondition, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION,
-					newQuantifiedCondition, newQuantifiedCondition));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, newQuantifiedCondition, newQuantifiedCondition));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Pattern getPattern() {
-		if (eContainerFeatureID() != GraphstructurePackage.GRAPH__PATTERN)
-			return null;
-		return (Pattern) eInternalContainer();
+		if (eContainerFeatureID() != GraphstructurePackage.GRAPH__PATTERN) return null;
+		return (Pattern)eInternalContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newPattern, GraphstructurePackage.GRAPH__PATTERN, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newPattern, GraphstructurePackage.GRAPH__PATTERN, msgs);
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setPattern(Pattern newPattern) {
-		if (newPattern != eInternalContainer()
-				|| (eContainerFeatureID() != GraphstructurePackage.GRAPH__PATTERN && newPattern != null)) {
+		if (newPattern != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.GRAPH__PATTERN && newPattern != null)) {
 			if (EcoreUtil.isAncestor(this, newPattern))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPattern != null)
-				msgs = ((InternalEObject) newPattern).eInverseAdd(this, PatternstructurePackage.PATTERN__RETURN_GRAPH,
-						Pattern.class, msgs);
+				msgs = ((InternalEObject)newPattern).eInverseAdd(this, PatternstructurePackage.PATTERN__RETURN_GRAPH, Pattern.class, msgs);
 			msgs = basicSetPattern(newPattern, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__PATTERN, newPattern,
-					newPattern));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__PATTERN, newPattern, newPattern));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-			return basicSetRootElement(null, msgs);
-		case GraphstructurePackage.GRAPH__OPERATOR_LIST:
-			return basicSetOperatorList(null, msgs);
-		case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
-			return basicSetQuantifiedCondition(null, msgs);
-		case GraphstructurePackage.GRAPH__PATTERN:
-			return basicSetPattern(null, msgs);
-		case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-			return ((InternalEList<?>) getReturnElements()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
+				return basicSetRootElement(null, msgs);
+			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
+				return basicSetOperatorList(null, msgs);
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				return basicSetQuantifiedCondition(null, msgs);
+			case GraphstructurePackage.GRAPH__PATTERN:
+				return basicSetPattern(null, msgs);
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				return ((InternalEList<?>)getReturnElements()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__MORPHISM_TO:
+				return ((InternalEList<?>)getMorphismTo()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__MORPHISM_FROM:
+				return basicSetMorphismFrom(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
-			return eInternalContainer().eInverseRemove(this, PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH,
-					QuantifiedCondition.class, msgs);
-		case GraphstructurePackage.GRAPH__PATTERN:
-			return eInternalContainer().eInverseRemove(this, PatternstructurePackage.PATTERN__RETURN_GRAPH,
-					Pattern.class, msgs);
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, QuantifiedCondition.class, msgs);
+			case GraphstructurePackage.GRAPH__PATTERN:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.PATTERN__RETURN_GRAPH, Pattern.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-			return getRootElement();
-		case GraphstructurePackage.GRAPH__OPERATOR_LIST:
-			return getOperatorList();
-		case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
-			return getGraphDepth();
-		case GraphstructurePackage.GRAPH__RETURN_GRAPH:
-			return isReturnGraph();
-		case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
-			return getGetAllElements();
-		case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
-			return getGetAllRelations();
-		case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
-			return getQuantifiedCondition();
-		case GraphstructurePackage.GRAPH__PATTERN:
-			return getPattern();
-		case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-			return getReturnElements();
+			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
+				return getRootElement();
+			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
+				return getOperatorList();
+			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
+				return getGraphDepth();
+			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
+				return isReturnGraph();
+			case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
+				return getGetAllElements();
+			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
+				return getGetAllRelations();
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				return getQuantifiedCondition();
+			case GraphstructurePackage.GRAPH__PATTERN:
+				return getPattern();
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				return getReturnElements();
+			case GraphstructurePackage.GRAPH__MORPHISM_TO:
+				return getMorphismTo();
+			case GraphstructurePackage.GRAPH__MORPHISM_FROM:
+				if (resolve) return getMorphismFrom();
+				return basicGetMorphismFrom();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-			setRootElement((SingleElement) newValue);
-			return;
-		case GraphstructurePackage.GRAPH__OPERATOR_LIST:
-			setOperatorList((OperatorList) newValue);
-			return;
-		case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
-			setGraphDepth((Integer) newValue);
-			return;
-		case GraphstructurePackage.GRAPH__RETURN_GRAPH:
-			setReturnGraph((Boolean) newValue);
-			return;
-		case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
-			setQuantifiedCondition((QuantifiedCondition) newValue);
-			return;
-		case GraphstructurePackage.GRAPH__PATTERN:
-			setPattern((Pattern) newValue);
-			return;
-		case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-			getReturnElements().clear();
-			getReturnElements().addAll((Collection<? extends SingleElement>) newValue);
-			return;
+			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
+				setRootElement((SingleElement)newValue);
+				return;
+			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
+				setOperatorList((OperatorList)newValue);
+				return;
+			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
+				setGraphDepth((Integer)newValue);
+				return;
+			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
+				setReturnGraph((Boolean)newValue);
+				return;
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				setQuantifiedCondition((QuantifiedCondition)newValue);
+				return;
+			case GraphstructurePackage.GRAPH__PATTERN:
+				setPattern((Pattern)newValue);
+				return;
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				getReturnElements().clear();
+				getReturnElements().addAll((Collection<? extends SingleElement>)newValue);
+				return;
+			case GraphstructurePackage.GRAPH__MORPHISM_TO:
+				getMorphismTo().clear();
+				getMorphismTo().addAll((Collection<? extends Morphism>)newValue);
+				return;
+			case GraphstructurePackage.GRAPH__MORPHISM_FROM:
+				setMorphismFrom((Morphism)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-			setRootElement((SingleElement) null);
-			return;
-		case GraphstructurePackage.GRAPH__OPERATOR_LIST:
-			setOperatorList((OperatorList) null);
-			return;
-		case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
-			setGraphDepth(GRAPH_DEPTH_EDEFAULT);
-			return;
-		case GraphstructurePackage.GRAPH__RETURN_GRAPH:
-			setReturnGraph(RETURN_GRAPH_EDEFAULT);
-			return;
-		case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
-			setQuantifiedCondition((QuantifiedCondition) null);
-			return;
-		case GraphstructurePackage.GRAPH__PATTERN:
-			setPattern((Pattern) null);
-			return;
-		case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-			getReturnElements().clear();
-			return;
+			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
+				setRootElement((SingleElement)null);
+				return;
+			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
+				setOperatorList((OperatorList)null);
+				return;
+			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
+				setGraphDepth(GRAPH_DEPTH_EDEFAULT);
+				return;
+			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
+				setReturnGraph(RETURN_GRAPH_EDEFAULT);
+				return;
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				setQuantifiedCondition((QuantifiedCondition)null);
+				return;
+			case GraphstructurePackage.GRAPH__PATTERN:
+				setPattern((Pattern)null);
+				return;
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				getReturnElements().clear();
+				return;
+			case GraphstructurePackage.GRAPH__MORPHISM_TO:
+				getMorphismTo().clear();
+				return;
+			case GraphstructurePackage.GRAPH__MORPHISM_FROM:
+				setMorphismFrom((Morphism)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-			return rootElement != null;
-		case GraphstructurePackage.GRAPH__OPERATOR_LIST:
-			return operatorList != null;
-		case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
-			return graphDepth != GRAPH_DEPTH_EDEFAULT;
-		case GraphstructurePackage.GRAPH__RETURN_GRAPH:
-			return returnGraph != RETURN_GRAPH_EDEFAULT;
-		case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
-			return GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
-		case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
-			return GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
-		case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
-			return getQuantifiedCondition() != null;
-		case GraphstructurePackage.GRAPH__PATTERN:
-			return getPattern() != null;
-		case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-			return returnElements != null && !returnElements.isEmpty();
+			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
+				return rootElement != null;
+			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
+				return operatorList != null;
+			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
+				return graphDepth != GRAPH_DEPTH_EDEFAULT;
+			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
+				return returnGraph != RETURN_GRAPH_EDEFAULT;
+			case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
+				return GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
+				return GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
+				return getQuantifiedCondition() != null;
+			case GraphstructurePackage.GRAPH__PATTERN:
+				return getPattern() != null;
+			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
+				return returnElements != null && !returnElements.isEmpty();
+			case GraphstructurePackage.GRAPH__MORPHISM_TO:
+				return morphismTo != null && !morphismTo.isEmpty();
+			case GraphstructurePackage.GRAPH__MORPHISM_FROM:
+				return morphismFrom != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case GraphstructurePackage.GRAPH___GET_ALL_OPERATORS:
-			try {
-				return getAllOperators();
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
-		case GraphstructurePackage.GRAPH___COPY_GRAPH__GRAPH:
-			try {
-				copyGraph((Graph) arguments.get(0));
-				return null;
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
+			case GraphstructurePackage.GRAPH___GET_ALL_OPERATORS:
+				try {
+					return getAllOperators();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.GRAPH___COPY_GRAPH__GRAPH:
+				try {
+					copyGraph((Graph)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (graphDepth: ");

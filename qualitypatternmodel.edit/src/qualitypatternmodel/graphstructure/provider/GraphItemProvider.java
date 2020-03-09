@@ -84,6 +84,50 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Morphism To feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMorphismToPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Graph_morphismTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_morphismTo_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__MORPHISM_TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Morphism From feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMorphismFromPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Graph_morphismFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_morphismFrom_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__MORPHISM_FROM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Graph Depth feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

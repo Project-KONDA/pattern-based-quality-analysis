@@ -461,7 +461,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EReference getMorphism_From() {
-		return (EReference)morphismEClass.getEStructuralFeatures().get(7);
+		return (EReference)morphismEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -471,7 +471,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EReference getMorphism_To() {
-		return (EReference)morphismEClass.getEStructuralFeatures().get(6);
+		return (EReference)morphismEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -991,8 +991,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(morphismEClass, MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS);
 		createEAttribute(morphismEClass, MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS);
 		createEReference(morphismEClass, MORPHISM__MAPPINGS);
-		createEReference(morphismEClass, MORPHISM__TO);
 		createEReference(morphismEClass, MORPHISM__FROM);
+		createEReference(morphismEClass, MORPHISM__TO);
 
 		singleElementMappingEClass = createEClass(SINGLE_ELEMENT_MAPPING);
 		createEReference(singleElementMappingEClass, SINGLE_ELEMENT_MAPPING__FROM);
@@ -1122,8 +1122,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getMorphism_CheckSingleElementMappingsUniqueness(), ecorePackage.getEBooleanObject(), "checkSingleElementMappingsUniqueness", null, 0, 1, Morphism.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMorphism_CheckRelationMappingsUniqueness(), ecorePackage.getEBooleanObject(), "checkRelationMappingsUniqueness", null, 0, 1, Morphism.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_Mappings(), this.getMapping(), this.getMapping_Morphism(), "mappings", null, 0, -1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMorphism_To(), theGraphstructurePackage.getGraph(), null, "to", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMorphism_From(), theGraphstructurePackage.getGraph(), null, "from", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMorphism_From(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_MorphismTo(), "from", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMorphism_To(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_MorphismFrom(), "to", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(singleElementMappingEClass, SingleElementMapping.class, "SingleElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSingleElementMapping_From(), theGraphstructurePackage.getSingleElement(), theGraphstructurePackage.getSingleElement_MappingTo(), "from", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

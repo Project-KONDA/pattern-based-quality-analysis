@@ -3,6 +3,7 @@
 package qualitypatternmodel.inputfields;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 
 /**
@@ -16,6 +17,7 @@ import qualitypatternmodel.functions.ComparisonOperator;
  * <ul>
  *   <li>{@link qualitypatternmodel.inputfields.CompOption#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.inputfields.CompOption#getValue <em>Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.CompOption#getComparison <em>Comparison</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.inputfields.InputfieldsPackage#getCompOption()
@@ -61,5 +63,29 @@ public interface CompOption extends Input {
 	 * @generated
 	 */
 	void setValue(ComparisonOperator value);
+
+	/**
+	 * Returns the value of the '<em><b>Comparison</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Comparison#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comparison</em>' reference.
+	 * @see #setComparison(Comparison)
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getCompOption_Comparison()
+	 * @see qualitypatternmodel.functions.Comparison#getOption
+	 * @model opposite="option"
+	 * @generated
+	 */
+	Comparison getComparison();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.CompOption#getComparison <em>Comparison</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comparison</em>' reference.
+	 * @see #getComparison()
+	 * @generated
+	 */
+	void setComparison(Comparison value);
 
 } // CompOption

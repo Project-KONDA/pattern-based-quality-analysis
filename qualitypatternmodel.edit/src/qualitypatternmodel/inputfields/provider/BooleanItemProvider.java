@@ -43,6 +43,7 @@ public class BooleanItemProvider extends InputValueItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addValuePropertyDescriptor(object);
+			addMatchPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -65,6 +66,28 @@ public class BooleanItemProvider extends InputValueItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Match feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMatchPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Boolean_match_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Boolean_match_feature", "_UI_Boolean_type"),
+				 InputfieldsPackage.Literals.BOOLEAN__MATCH,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

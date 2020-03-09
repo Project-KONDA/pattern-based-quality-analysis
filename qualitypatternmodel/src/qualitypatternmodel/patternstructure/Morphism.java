@@ -23,8 +23,8 @@ import qualitypatternmodel.graphstructure.Graph;
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness <em>Check Single Element Mappings Uniqueness</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness <em>Check Relation Mappings Uniqueness</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism()
@@ -49,12 +49,14 @@ public interface Morphism extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>From</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getMorphismTo <em>Morphism To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>From</em>' reference.
 	 * @see #setFrom(Graph)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_From()
-	 * @model required="true"
+	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismTo
+	 * @model opposite="morphismTo" required="true"
 	 * @generated
 	 */
 	Graph getFrom();
@@ -71,12 +73,14 @@ public interface Morphism extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>To</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>To</em>' reference.
 	 * @see #setTo(Graph)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_To()
-	 * @model required="true"
+	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismFrom
+	 * @model opposite="morphismFrom" required="true"
 	 * @generated
 	 */
 	Graph getTo();

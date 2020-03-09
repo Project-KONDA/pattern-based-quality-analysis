@@ -8,6 +8,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
+import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -30,6 +31,8 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getMorphismTo <em>Morphism To</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph()
@@ -74,6 +77,44 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	EList<SingleElement> getReturnElements();
+
+	/**
+	 * Returns the value of the '<em><b>Morphism To</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.patternstructure.Morphism}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Morphism To</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_MorphismTo()
+	 * @see qualitypatternmodel.patternstructure.Morphism#getFrom
+	 * @model opposite="from"
+	 * @generated
+	 */
+	EList<Morphism> getMorphismTo();
+
+	/**
+	 * Returns the value of the '<em><b>Morphism From</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Morphism From</em>' reference.
+	 * @see #setMorphismFrom(Morphism)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_MorphismFrom()
+	 * @see qualitypatternmodel.patternstructure.Morphism#getTo
+	 * @model opposite="to"
+	 * @generated
+	 */
+	Morphism getMorphismFrom();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Morphism From</em>' reference.
+	 * @see #getMorphismFrom()
+	 * @generated
+	 */
+	void setMorphismFrom(Morphism value);
 
 	/**
 	 * Returns the value of the '<em><b>Operator List</b></em>' containment reference.

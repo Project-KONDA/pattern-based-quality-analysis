@@ -45,6 +45,7 @@ public class TextLiteralItemProvider extends TextItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addValuePropertyDescriptor(object);
+			addMatchPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,6 +68,28 @@ public class TextLiteralItemProvider extends TextItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Match feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMatchPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TextLiteral_match_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextLiteral_match_feature", "_UI_TextLiteral_type"),
+				 InputfieldsPackage.Literals.TEXT_LITERAL__MATCH,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

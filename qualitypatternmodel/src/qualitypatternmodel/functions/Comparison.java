@@ -15,9 +15,9 @@ import qualitypatternmodel.inputfields.CompOption;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.Comparison#getArgument1 <em>Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.Comparison#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.Comparison#getArgument2 <em>Argument2</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.Comparison#getType <em>Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.Comparison#getOption <em>Option</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.functions.FunctionsPackage#getComparison()
@@ -51,12 +51,14 @@ public interface Comparison extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.CompOption#getComparison <em>Comparison</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
 	 * @see #setOption(CompOption)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getComparison_Option()
-	 * @model required="true"
+	 * @see qualitypatternmodel.inputfields.CompOption#getComparison
+	 * @model opposite="comparison" required="true"
 	 * @generated
 	 */
 	CompOption getOption();

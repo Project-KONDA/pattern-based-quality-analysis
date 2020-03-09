@@ -4,6 +4,8 @@
  */
 package qualitypatternmodel.graphstructure.validation;
 
+import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
@@ -21,6 +23,8 @@ public interface PropertyValidator {
 	boolean validatePropertyOption(PropertyOption value);
 	boolean validateElement(Element value);
 	boolean validateAttributeName(TextLiteral value);
+
+	boolean validateMatch(EList<Match> value);
 
 	boolean validateAttributeName(Text value);
 }

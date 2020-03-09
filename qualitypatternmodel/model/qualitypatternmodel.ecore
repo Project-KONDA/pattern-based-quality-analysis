@@ -26,6 +26,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
           eType="#//functions/ComparisonOperator"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//functions/ComparisonOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison" eType="#//functions/Comparison"
+          eOpposite="#//functions/Comparison/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PropertyOption" eSuperTypes="#//inputfields/Input">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
@@ -44,6 +46,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//inputfields/InputValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="match" eType="#//functions/Match"
+          eOpposite="#//functions/Match/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Text" abstract="true" eSuperTypes="#//inputfields/InputValue"/>
     <eClassifiers xsi:type="ecore:EClass" name="TextList" eSuperTypes="#//inputfields/Text">
@@ -56,6 +60,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="TextLiteral" eSuperTypes="#//inputfields/Text">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="match" eType="#//functions/Match"
+          eOpposite="#//functions/Match/regularExpression"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//inputfields/InputValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
@@ -123,11 +129,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="NumberOperator" abstract="true" eSuperTypes="#//functions/Operator"/>
     <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//functions/BooleanOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
-          eType="#//graphstructure/Property"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="regularExpression" lowerBound="1"
-          eType="#//inputfields/TextLiteral"/>
+          eType="#//graphstructure/Property" eOpposite="#//graphstructure/Property/match"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//inputfields/Boolean"/>
+          eType="#//inputfields/Boolean" eOpposite="#//inputfields/Boolean/match"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="regularExpression" lowerBound="1"
+          eType="#//inputfields/TextLiteral" eOpposite="#//inputfields/TextLiteral/match"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//functions/BooleanOperator">
       <eOperations name="setTypeAccordingToArgument">
@@ -136,11 +142,11 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
           eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison1"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//inputfields/CompOption"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
           eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison2"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
+          eType="#//inputfields/CompOption" eOpposite="#//inputfields/CompOption/comparison"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
       <eLiterals name="EQUAL" literal="="/>
@@ -199,6 +205,8 @@
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" lowerBound="1"
           eType="#//inputfields/TextLiteral"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
+          eType="#//functions/Match" eOpposite="#//functions/Match/property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SingleElement" eSuperTypes="#//graphstructure/Element">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -373,6 +381,10 @@
           eOpposite="#//patternstructure/Pattern/returnGraph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="returnElements" lowerBound="1"
           upperBound="-1" eType="#//graphstructure/SingleElement" eOpposite="#//graphstructure/SingleElement/graph"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="morphismTo" upperBound="-1"
+          eType="#//patternstructure/Morphism" eOpposite="#//patternstructure/Morphism/from"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="morphismFrom" eType="#//patternstructure/Morphism"
+          eOpposite="#//patternstructure/Morphism/to"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparable" abstract="true" interface="true"
         eSuperTypes="#//patternstructure/PatternElement">
@@ -526,9 +538,10 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
           eType="#//patternstructure/Mapping" containment="true" eOpposite="#//patternstructure/Mapping/morphism"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/Graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
-          eType="#//graphstructure/Graph"/>
+          eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/morphismTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/Graph"
+          eOpposite="#//graphstructure/Graph/morphismFrom"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SingleElementMapping" eSuperTypes="#//patternstructure/Mapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"

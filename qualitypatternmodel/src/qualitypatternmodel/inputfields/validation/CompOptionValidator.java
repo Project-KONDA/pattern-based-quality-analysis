@@ -6,6 +6,7 @@ package qualitypatternmodel.inputfields.validation;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 
 /**
@@ -19,6 +20,8 @@ public interface CompOptionValidator {
 
 	boolean validateOptions(EList<ComparisonOperator> value);
 	boolean validateValue(ComparisonOperator value);
+
+	boolean validateComparison(Comparison value);
 
 	boolean validateSelection(ComparisonOperator value);
 }

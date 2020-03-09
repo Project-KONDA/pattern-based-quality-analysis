@@ -507,13 +507,22 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY__ATTRIBUTE_NAME = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Match</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__MATCH = COMPARABLE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 3;
+	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2086,13 +2095,31 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__RETURN_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Morphism To</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__MORPHISM_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Morphism From</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__MORPHISM_FROM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 9;
+	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2380,6 +2407,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProperty_AttributeName();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Match</em>'.
+	 * @see qualitypatternmodel.graphstructure.Property#getMatch()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_Match();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#createInputs() <em>Create Inputs</em>}' operation.
@@ -2943,6 +2981,28 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getGraph_ReturnElements();
 
 	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Graph#getMorphismTo <em>Morphism To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Morphism To</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismTo()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_MorphismTo();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Morphism From</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismFrom()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_MorphismFrom();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3282,6 +3342,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPERTY__ATTRIBUTE_NAME = eINSTANCE.getProperty_AttributeName();
+
+		/**
+		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__MATCH = eINSTANCE.getProperty_Match();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Inputs</b></em>' operation.
@@ -3722,6 +3790,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference GRAPH__RETURN_ELEMENTS = eINSTANCE.getGraph_ReturnElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Morphism To</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__MORPHISM_TO = eINSTANCE.getGraph_MorphismTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Morphism From</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__MORPHISM_FROM = eINSTANCE.getGraph_MorphismFrom();
 
 		/**
 		 * The meta object literal for the '<em><b>Operator List</b></em>' containment reference feature.

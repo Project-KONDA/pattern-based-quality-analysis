@@ -33,6 +33,8 @@ public interface ElementValidator {
 
 	boolean validatePredicatesAreBeingTranslated(boolean value);
 
+	boolean validateName(String value);
+
 	boolean validateGetAllElements(EList<Element> value);
 
 	boolean validateGetAllRelations(EList<Relation> value);

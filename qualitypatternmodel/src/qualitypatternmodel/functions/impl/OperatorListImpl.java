@@ -26,7 +26,6 @@ import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**

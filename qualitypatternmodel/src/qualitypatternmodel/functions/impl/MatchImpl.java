@@ -3,6 +3,7 @@
 package qualitypatternmodel.functions.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -15,10 +16,12 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.impl.BooleanImpl;
 import qualitypatternmodel.inputfields.Boolean;
@@ -36,8 +39,8 @@ import qualitypatternmodel.patternstructure.impl.PatternImpl;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#getProperty <em>Property</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#getRegularExpression <em>Regular Expression</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.impl.MatchImpl#getRegularExpression <em>Regular Expression</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,16 +57,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	protected Property property;
 
 	/**
-	 * The cached value of the '{@link #getRegularExpression() <em>Regular Expression</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRegularExpression()
-	 * @generated
-	 * @ordered
-	 */
-	protected TextLiteral regularExpression;
-
-	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,6 +65,16 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @ordered
 	 */
 	protected qualitypatternmodel.inputfields.Boolean option;
+
+	/**
+	 * The cached value of the '{@link #getRegularExpression() <em>Regular Expression</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRegularExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected TextLiteral regularExpression;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -234,6 +237,21 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
+		Property oldProperty = property;
+		property = newProperty;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__PROPERTY, oldProperty, newProperty);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -286,12 +304,76 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setRegularExpression(TextLiteral newRegularExpression) {
+	public NotificationChain basicSetRegularExpression(TextLiteral newRegularExpression, NotificationChain msgs) {
 		TextLiteral oldRegularExpression = regularExpression;
 		regularExpression = newRegularExpression;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, regularExpression));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, newRegularExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRegularExpression(TextLiteral newRegularExpression) {
+		if (newRegularExpression != regularExpression) {
+			NotificationChain msgs = null;
+			if (regularExpression != null)
+				msgs = ((InternalEObject)regularExpression).eInverseRemove(this, InputfieldsPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
+			if (newRegularExpression != null)
+				msgs = ((InternalEObject)newRegularExpression).eInverseAdd(this, InputfieldsPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
+			msgs = basicSetRegularExpression(newRegularExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__REGULAR_EXPRESSION, newRegularExpression, newRegularExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FunctionsPackage.MATCH__PROPERTY:
+				if (property != null)
+					msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__MATCH, Property.class, msgs);
+				return basicSetProperty((Property)otherEnd, msgs);
+			case FunctionsPackage.MATCH__OPTION:
+				if (option != null)
+					msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.BOOLEAN__MATCH, qualitypatternmodel.inputfields.Boolean.class, msgs);
+				return basicSetOption((qualitypatternmodel.inputfields.Boolean)otherEnd, msgs);
+			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
+				if (regularExpression != null)
+					msgs = ((InternalEObject)regularExpression).eInverseRemove(this, InputfieldsPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
+				return basicSetRegularExpression((TextLiteral)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case FunctionsPackage.MATCH__PROPERTY:
+				return basicSetProperty(null, msgs);
+			case FunctionsPackage.MATCH__OPTION:
+				return basicSetOption(null, msgs);
+			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
+				return basicSetRegularExpression(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -327,12 +409,34 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setOption(qualitypatternmodel.inputfields.Boolean newOption) {
+	public NotificationChain basicSetOption(qualitypatternmodel.inputfields.Boolean newOption, NotificationChain msgs) {
 		qualitypatternmodel.inputfields.Boolean oldOption = option;
 		option = newOption;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTION, oldOption, option));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTION, oldOption, newOption);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOption(qualitypatternmodel.inputfields.Boolean newOption) {
+		if (newOption != option) {
+			NotificationChain msgs = null;
+			if (option != null)
+				msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.BOOLEAN__MATCH, qualitypatternmodel.inputfields.Boolean.class, msgs);
+			if (newOption != null)
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, InputfieldsPackage.BOOLEAN__MATCH, qualitypatternmodel.inputfields.Boolean.class, msgs);
+			msgs = basicSetOption(newOption, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTION, newOption, newOption));
 	}
 
 	/**
@@ -346,12 +450,12 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			case FunctionsPackage.MATCH__PROPERTY:
 				if (resolve) return getProperty();
 				return basicGetProperty();
-			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
-				if (resolve) return getRegularExpression();
-				return basicGetRegularExpression();
 			case FunctionsPackage.MATCH__OPTION:
 				if (resolve) return getOption();
 				return basicGetOption();
+			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
+				if (resolve) return getRegularExpression();
+				return basicGetRegularExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -368,11 +472,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			case FunctionsPackage.MATCH__PROPERTY:
 				setProperty((Property)newValue);
 				return;
-			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
-				setRegularExpression((TextLiteral)newValue);
-				return;
 			case FunctionsPackage.MATCH__OPTION:
 				setOption((qualitypatternmodel.inputfields.Boolean)newValue);
+				return;
+			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
+				setRegularExpression((TextLiteral)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -389,11 +493,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			case FunctionsPackage.MATCH__PROPERTY:
 				setProperty((Property)null);
 				return;
-			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
-				setRegularExpression((TextLiteral)null);
-				return;
 			case FunctionsPackage.MATCH__OPTION:
 				setOption((qualitypatternmodel.inputfields.Boolean)null);
+				return;
+			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
+				setRegularExpression((TextLiteral)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -409,10 +513,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		switch (featureID) {
 			case FunctionsPackage.MATCH__PROPERTY:
 				return property != null;
-			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
-				return regularExpression != null;
 			case FunctionsPackage.MATCH__OPTION:
 				return option != null;
+			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
+				return regularExpression != null;
 		}
 		return super.eIsSet(featureID);
 	}

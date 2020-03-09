@@ -44,9 +44,9 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addArgument1PropertyDescriptor(object);
-			addOptionPropertyDescriptor(object);
 			addArgument2PropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
