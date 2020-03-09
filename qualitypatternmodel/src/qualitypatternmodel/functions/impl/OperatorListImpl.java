@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.functions.BooleanOperator;
+import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
@@ -134,9 +136,17 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		for(Operator op : getOperators()) {
+			if(op instanceof BooleanOperator) {
+				((BooleanOperator) op).getElements().clear();
+			}
+			if(op instanceof Count) {
+				((Count) op).setArgument(null);
+			}
+		}
 		msgs = eBasicSetContainer((InternalEObject)newGraph, FunctionsPackage.OPERATOR_LIST__GRAPH, msgs);
 		return msgs;
 	}

@@ -13,9 +13,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
-
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Single
  * Element Mapping</b></em>'. <!-- end-user-doc -->
@@ -82,6 +82,13 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	@Override
 	protected EClass eStaticClass() {
 		return PatternstructurePackage.Literals.SINGLE_ELEMENT_MAPPING;
+	}
+	
+	@Override
+	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
+		getFrom().getMappingTo().remove(this);
+		getTo().setMappingFrom(null);
+		return super.basicSetMorphism(newMorphism, msgs);
 	}
 
 	/**

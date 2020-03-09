@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -87,6 +88,13 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	@Override
 	protected EClass eStaticClass() {
 		return PatternstructurePackage.Literals.RELATION_MAPPING;
+	}
+	
+	@Override
+	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
+		getFrom().getMappingTo().remove(this);
+		getTo().setMappingFrom(null);
+		return super.basicSetMorphism(newMorphism, msgs);
 	}
 
 	/**

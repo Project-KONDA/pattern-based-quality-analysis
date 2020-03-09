@@ -145,6 +145,8 @@ public interface SetElement extends Element {
 	 * @generated
 	 */
 	String generateWhereClause(Location location) throws InvalidityException;
+
+	
 	
 
 } // SetElement

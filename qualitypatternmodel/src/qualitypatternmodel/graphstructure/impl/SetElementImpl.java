@@ -333,9 +333,10 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetPreviousSet(SetElement newPreviousSet, NotificationChain msgs) {
+		resetCountOperatorRecursively();
 		msgs = eBasicSetContainer((InternalEObject)newPreviousSet, GraphstructurePackage.SET_ELEMENT__PREVIOUS_SET, msgs);
 		return msgs;
 	}
@@ -376,11 +377,19 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetPreviousSingle(SingleElement newPreviousSingle, NotificationChain msgs) {
+		resetCountOperatorRecursively();
 		msgs = eBasicSetContainer((InternalEObject)newPreviousSingle, GraphstructurePackage.SET_ELEMENT__PREVIOUS_SINGLE, msgs);
 		return msgs;
+	}
+	
+	public void resetCountOperatorRecursively() {
+		setCount(null);
+		for(SetElement setElement : getNext()) {
+			setElement.resetCountOperatorRecursively();
+		}
 	}
 
 	/**

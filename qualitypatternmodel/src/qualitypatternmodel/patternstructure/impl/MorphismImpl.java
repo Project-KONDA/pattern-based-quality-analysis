@@ -24,6 +24,8 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.RelationMapping;
+import qualitypatternmodel.patternstructure.SingleElementMapping;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -160,6 +162,22 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		for (Mapping mapping : getMappings())
 			if (mapping == null)
 				throw new InvalidityException("mapping invalid (" + mapping + ")");
+	}
+	
+	public void removeDanglingMappingReference() {
+		if(this != null) {
+			for(Mapping mapping : getMappings()) {			
+				if(mapping instanceof SingleElementMapping) {
+					SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
+					singleElementMapping.getFrom().getMappingTo().remove(singleElementMapping);
+					singleElementMapping.getTo().setMappingFrom(null);
+				} else if (mapping instanceof RelationMapping) {
+					RelationMapping relationMapping = (RelationMapping) mapping;
+					relationMapping.getFrom().getMappingTo().remove(relationMapping);
+					relationMapping.getTo().setMappingFrom(null);
+				}
+			}
+		}
 	}
 
 	/**

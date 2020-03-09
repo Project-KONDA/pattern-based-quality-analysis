@@ -24,14 +24,11 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.RelationMapping;
-import qualitypatternmodel.patternstructure.SingleElementMapping;
 import qualitypatternmodel.patternstructure.True;
 
 /**
@@ -172,6 +169,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	
 	@Override
 	public NotificationChain basicSetQuantifiedcondition(QuantifiedCondition newQuantifiedcondition, NotificationChain msgs) {
+		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetQuantifiedcondition(newQuantifiedcondition, msgs);
 		if(newQuantifiedcondition != null) {
 			try {
@@ -187,6 +185,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	
 	@Override
 	public NotificationChain basicSetFormula1(Formula newFormula1, NotificationChain msgs) {
+		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetFormula1(newFormula1, msgs);
 		if(newFormula1 != null) {
 			try {
@@ -202,6 +201,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	
 	@Override
 	public NotificationChain basicSetFormula2(Formula newFormula2, NotificationChain msgs) {
+		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetFormula1(newFormula2, msgs);
 		if(newFormula2 != null) {
 			try {
@@ -217,6 +217,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	
 	@Override
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
+		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetPattern(newPattern, msgs);
 		if(newPattern != null) {
 			try {
@@ -363,29 +364,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		Morphism oldMorphism = morphism;
 		morphism = newMorphism;
 		
-		removeDanglingMappingReference(oldMorphism);
+		oldMorphism.removeDanglingMappingReference();
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, oldMorphism, newMorphism);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
-	}
-
-	private void removeDanglingMappingReference(Morphism oldMorphism) {
-		if(oldMorphism != null) {
-			for(Mapping mapping : oldMorphism.getMappings()) {			
-				if(mapping instanceof SingleElementMapping) {
-					SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
-					singleElementMapping.getFrom().getMappingTo().remove(singleElementMapping);
-					singleElementMapping.getTo().setMappingFrom(null);
-				} else if (mapping instanceof RelationMapping) {
-					RelationMapping relationMapping = (RelationMapping) mapping;
-					relationMapping.getFrom().getMappingTo().remove(relationMapping);
-					relationMapping.getTo().setMappingFrom(null);
-				}
-			}
-		}
 	}
 
 	/**

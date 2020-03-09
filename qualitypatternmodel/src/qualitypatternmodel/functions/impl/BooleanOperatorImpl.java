@@ -162,6 +162,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 */
 	@Override
 	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
+		getElements().clear();
 		if(newOperatorList == null) {
 			removeInputsFromVariableList();
 		}

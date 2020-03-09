@@ -166,4 +166,8 @@ public interface Morphism extends PatternElement {
 	 */
 	Boolean getCheckRelationMappingsUniqueness();
 
+	void removeDanglingMappingReference();
+
+	
+
 } // Morphism

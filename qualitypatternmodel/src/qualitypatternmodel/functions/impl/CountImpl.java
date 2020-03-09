@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -78,6 +79,12 @@ public class CountImpl extends NumberOperatorImpl implements Count {
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
 		return true;
+	}
+	
+	@Override
+	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
+		setArgument(null);
+		return super.basicSetOperatorList(newOperatorList, msgs);	
 	}
 	
 	/**

@@ -601,6 +601,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetPrevious(SingleElement newPrevious, NotificationChain msgs) {		
+		resetCountOperatorRecursively();
+		removeFromReturnElements();
+		clearPredicatesRecursively();
 		if(getRelationFromPrevious() != null) {
 			getRelationFromPrevious().removeRelationFromPreviousGraphs();		
 			getRelationFromPrevious().removeMappingsToNext();
@@ -621,6 +624,29 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 		msgs = eBasicSetContainer((InternalEObject)newPrevious, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, msgs);
 		return msgs;
+	}
+
+	public void resetCountOperatorRecursively() {
+		for(SetElement setElement : getNextSet()) {
+			setElement.resetCountOperatorRecursively();
+		}
+		for(SingleElement singleElement : getNextSingle()) {
+			singleElement.resetCountOperatorRecursively();
+		}
+	}
+
+	public void clearPredicatesRecursively() {
+		getPredicates().clear();
+		for(SingleElement child : getNextSingle()) {
+			child.clearPredicatesRecursively();
+		}
+	}
+
+	public void removeFromReturnElements() {
+		setGraph(null);
+		for(SingleElement child : getNextSingle()) {
+			child.removeFromReturnElements();
+		}
 	}
 
 	@Override

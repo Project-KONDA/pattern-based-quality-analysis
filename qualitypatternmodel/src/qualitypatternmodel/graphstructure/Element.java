@@ -319,5 +319,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	String translatePredicatesViaAnd(Location location) throws InvalidityException;
+	
+	void resetCountOperatorRecursively();
 
 } // Element

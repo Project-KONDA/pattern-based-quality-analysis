@@ -276,4 +276,8 @@ public interface SingleElement extends Element {
 	 */
 	void removeMappingsToNext();
 
+	void removeFromReturnElements();
+
+	void clearPredicatesRecursively();
+
 } // SingleElement
