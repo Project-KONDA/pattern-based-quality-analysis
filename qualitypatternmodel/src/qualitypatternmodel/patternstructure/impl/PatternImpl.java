@@ -88,8 +88,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * The default value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getElementCounter()
 	 * @generated
 	 * @ordered
@@ -98,8 +97,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * The cached value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getElementCounter()
 	 * @generated
 	 * @ordered
@@ -107,9 +105,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	protected int elementCounter = ELEMENT_COUNTER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -117,9 +115,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -136,13 +134,14 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		SingleElementImpl returnElement = new SingleElementImpl();
 		returnElement.setPrevious(getReturnGraph().getRootElement());
 		getReturnGraph().getReturnElements().add(returnElement);
-		
+
 		setVariableList(new VariableListImpl(this));
 		getShortPatternInternalId();
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public void isValid(boolean isDefinedPattern)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
 		variableList.isValid(isDefinedPattern);
 		returnGraph.isValid(isDefinedPattern);
@@ -161,18 +160,19 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		String res = getVariableList().toXQuery(location);
-		
+
 		if (returnGraph.getReturnElements() == null || returnGraph.getReturnElements().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
 		res += returnGraph.toXQuery(Location.RETURN);
-		
+
 		res += WHERE + condition.toXQuery(Location.OUTSIDE); // TODO: schachteln!
-		
+
 		res += RETURN + "(";
 		EList<SingleElement> returnElements = returnGraph.getReturnElements();
 		for (int i = 0; i < returnElements.size(); i++) {
-			if(i!=0) res += ", ";
+			if (i != 0)
+				res += ", ";
 			res += VARIABLE + returnElements.get(i).getOriginalID();
 		}
 		return res + ")";
@@ -183,13 +183,13 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
 	public int getNewRefNo() {
-		return elementCounter++;		
+		return elementCounter++;
 	}
 
 	@Override
@@ -199,8 +199,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public EList<Input> getAllInputs() throws InvalidityException {
 		EList<Input> inputs = returnGraph.getAllInputs();
@@ -233,13 +232,17 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	public NotificationChain basicSetReturnGraph(Graph newReturnGraph, NotificationChain msgs) {
 		Graph oldReturnGraph = returnGraph;
 		returnGraph = newReturnGraph;
-		if(returnGraph != null) {
-	        returnGraph.setReturnGraph(true);
-	        returnGraph.setGraphDepth(0);
+		if (returnGraph != null) {
+			returnGraph.setReturnGraph(true);
+			returnGraph.setGraphDepth(0);
 		}
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__RETURN_GRAPH, oldReturnGraph, newReturnGraph);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PatternstructurePackage.PATTERN__RETURN_GRAPH, oldReturnGraph, newReturnGraph);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -278,12 +281,16 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
 		Condition oldCondition = condition;
 		condition = newCondition;
-		if(condition != null) {
+		if (condition != null) {
 			condition.setCondDepth(1);
 		}
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__CONDITION, oldCondition, newCondition);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					PatternstructurePackage.PATTERN__CONDITION, oldCondition, newCondition);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -308,8 +315,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -318,8 +324,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -331,8 +336,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -341,8 +345,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -396,8 +399,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -564,8 +566,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -579,6 +580,15 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		result.append(name);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public String myToString() {
+		String res = "Pattern " + name + "("; 
+		res += "\n" + getVariableList().myToString().replace("\n", "\n  ") + "\n)";
+		res += "\nreturn " + getReturnGraph().myToString();
+		res += "\n" + getCondition().myToString().replace("\n", "\n  ") + "\n)";
+		return res;
 	}
 
 } // PatternImpl

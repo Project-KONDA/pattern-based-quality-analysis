@@ -43,5 +43,10 @@ public class TrueImpl extends ConditionImpl implements True {
 	protected EClass eStaticClass() {
 		return PatternstructurePackage.Literals.TRUE;
 	}
+	
+	@Override
+	public String myToString() {
+		return "true";
+	}
 
 } //TrueImpl

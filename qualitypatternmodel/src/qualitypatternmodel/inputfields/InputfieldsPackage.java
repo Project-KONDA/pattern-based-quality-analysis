@@ -187,6 +187,15 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -357,6 +366,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMP_OPTION___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___MY_TO_STRING = INPUT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -532,6 +550,15 @@ public interface InputfieldsPackage extends EPackage {
 	int PROPERTY_OPTION___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
 
 	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___MY_TO_STRING = INPUT___MY_TO_STRING;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -684,6 +711,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.
@@ -847,6 +883,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int INPUT_VALUE___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_VALUE___MY_TO_STRING = INPUT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1057,6 +1102,15 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN___GET_ANCESTOR__CLASS = INPUT_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1254,6 +1308,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT___GET_ANCESTOR__CLASS = INPUT_VALUE___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1462,6 +1525,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST___GET_ANCESTOR__CLASS = TEXT___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___MY_TO_STRING = TEXT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1690,6 +1762,15 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LITERAL___GET_ANCESTOR__CLASS = TEXT___GET_ANCESTOR__CLASS;
 
 	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___MY_TO_STRING = TEXT___MY_TO_STRING;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1896,6 +1977,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER___GET_ANCESTOR__CLASS = INPUT_VALUE___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2106,6 +2196,15 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE___GET_ANCESTOR__CLASS = INPUT_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2314,6 +2413,15 @@ public interface InputfieldsPackage extends EPackage {
 	int TIME___GET_ANCESTOR__CLASS = INPUT_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2511,6 +2619,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNKNOWN_INPUT_VALUE___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___MY_TO_STRING = INPUT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2728,6 +2845,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME___GET_ANCESTOR__CLASS = INPUT_VALUE___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.

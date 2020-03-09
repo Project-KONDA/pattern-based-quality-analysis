@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.Not;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -31,6 +32,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getFormula1 <em>Formula1</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getFormula2 <em>Formula2</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getNot <em>Not</em>}</li>
  * </ul>
  *
  * @generated
@@ -296,6 +298,49 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * @generated
 	 */
 	@Override
+	public Not getNot() {
+		if (eContainerFeatureID() != PatternstructurePackage.CONDITION__NOT) return null;
+		return (Not)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNot(Not newNot, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newNot, PatternstructurePackage.CONDITION__NOT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNot(Not newNot) {
+		if (newNot != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.CONDITION__NOT && newNot != null)) {
+			if (EcoreUtil.isAncestor(this, newNot))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newNot != null)
+				msgs = ((InternalEObject)newNot).eInverseAdd(this, PatternstructurePackage.NOT__ARGUMENT, Not.class, msgs);
+			msgs = basicSetNot(newNot, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.CONDITION__NOT, newNot, newNot));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case PatternstructurePackage.CONDITION__PATTERN:
@@ -314,6 +359,10 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetFormula2((Formula)otherEnd, msgs);
+			case PatternstructurePackage.CONDITION__NOT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetNot((Not)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -334,6 +383,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				return basicSetFormula1(null, msgs);
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				return basicSetFormula2(null, msgs);
+			case PatternstructurePackage.CONDITION__NOT:
+				return basicSetNot(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -354,6 +405,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.FORMULA__ARGUMENT1, Formula.class, msgs);
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.FORMULA__ARGUMENT2, Formula.class, msgs);
+			case PatternstructurePackage.CONDITION__NOT:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.NOT__ARGUMENT, Not.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -378,6 +431,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				return getFormula1();
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				return getFormula2();
+			case PatternstructurePackage.CONDITION__NOT:
+				return getNot();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -406,6 +461,9 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				setFormula2((Formula)newValue);
 				return;
+			case PatternstructurePackage.CONDITION__NOT:
+				setNot((Not)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -433,6 +491,9 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				setFormula2((Formula)null);
 				return;
+			case PatternstructurePackage.CONDITION__NOT:
+				setNot((Not)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -457,6 +518,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				return getFormula1() != null;
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				return getFormula2() != null;
+			case PatternstructurePackage.CONDITION__NOT:
+				return getNot() != null;
 		}
 		return super.eIsSet(featureID);
 	}

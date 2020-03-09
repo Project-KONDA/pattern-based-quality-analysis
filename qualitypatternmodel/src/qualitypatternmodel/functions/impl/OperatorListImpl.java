@@ -24,6 +24,7 @@ import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -288,4 +289,13 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 		return super.eInvoke(operationID, arguments);
 	}
 
+	@Override
+	public String myToString() {
+		String res = "OperatorList (";
+		for (Operator operator: getOperators()) {
+			res += "\n  " + operator.myToString();
+		}
+		return res + ")";
+	}
+	
 } // OperatorListImpl

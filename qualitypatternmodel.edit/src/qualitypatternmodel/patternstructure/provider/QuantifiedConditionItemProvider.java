@@ -213,6 +213,11 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createNot()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__MORPHISM,
 				 PatternstructureFactory.eINSTANCE.createMorphism()));
 	}

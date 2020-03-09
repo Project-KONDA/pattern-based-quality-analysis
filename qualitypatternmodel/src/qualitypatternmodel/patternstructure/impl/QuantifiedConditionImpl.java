@@ -603,5 +603,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override
+	public String myToString() {
+		String res = getQuantifier().getLiteral() + "(" + getGraph().myToString() + ")";
+		res += "\n  (" + getCondition().myToString().replace("\n", "\n  ") + ")";
+		res += "\n  (" + getMorphism().myToString().replace("\n", "\n  ") + ")";
+		return res;
+	}
 
 } // QuantifiedConditionImpl

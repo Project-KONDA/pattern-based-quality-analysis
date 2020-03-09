@@ -233,6 +233,29 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.Not} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NotItemProvider notItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.Not}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNotAdapter() {
+		if (notItemProvider == null) {
+			notItemProvider = new NotItemProvider(this);
+		}
+
+		return notItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,6 +367,7 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
 		if (trueItemProvider != null) trueItemProvider.dispose();
 		if (patternItemProvider != null) patternItemProvider.dispose();
+		if (notItemProvider != null) notItemProvider.dispose();
 	}
 
 }

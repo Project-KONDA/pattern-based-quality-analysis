@@ -607,5 +607,10 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 			return null;
 		}
 	}
+	
+	@Override
+	public String myToString() {
+		return getRelationFromPrevious().myToString() + " Set" + super.myToString();
+	}
 
 } // SetElementImpl

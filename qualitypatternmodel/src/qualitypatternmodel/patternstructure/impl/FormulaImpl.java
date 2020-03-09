@@ -47,7 +47,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final LogicalOperator OPERATOR_EDEFAULT = LogicalOperator.NOT;
+	protected static final LogicalOperator OPERATOR_EDEFAULT = LogicalOperator.AND;
 
 	/**
 	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
@@ -90,13 +90,13 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	public String toXQuery(Location location) throws InvalidityException {
 		String result;
 		if (operator != null) {
-			if (operator == LogicalOperator.NOT) {
-				if (argument2 == null && argument1 != null) {
-					result = "not(" + argument1.toXQuery(location) + ")";
-				} else {
-					throw new InvalidityException("invalid argument");
-				}
-			} else {
+//			if (operator == LogicalOperator.NOT) {
+//				if (argument2 == null && argument1 != null) {
+//					result = "not(" + argument1.toXQuery(location) + ")";
+//				} else {
+//					throw new InvalidityException("invalid argument");
+//				}
+//			} else {
 				if (argument1 != null && argument2 != null) {
 					switch (operator) {
 					case AND:
@@ -125,7 +125,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				} else {
 					throw new InvalidityException("invalid arguments");
 				}
-			}
+//			}
 			
 			return addMissingBrackets(result);
 					
@@ -139,24 +139,25 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
 
-		if (operator == LogicalOperator.NOT) {
-			argument1.isValid(isDefinedPattern);
-		} else {
+//		if (operator == LogicalOperator.NOT) {
+//			argument1.isValid(isDefinedPattern);
+//		} else {
 			argument1.isValid(isDefinedPattern);
 			argument2.isValid(isDefinedPattern);
-		}
+//		}
 	}
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (operator == null)
 			throw new InvalidityException("operator null");
-		if (argument1 == null)
-			throw new InvalidityException("arguments null");
-		if (operator == LogicalOperator.NOT) {
-			if (argument2 != null || argument1 == null) {
-				throw new InvalidityException("argument invalid (op:NOT)");
-			}
-		} else if (argument1 == null || argument2 == null) {
+//		if (argument1 == null)
+//			throw new InvalidityException("arguments null");
+//		if (operator == LogicalOperator.NOT) {
+//			if (argument2 != null || argument1 == null) {
+//				throw new InvalidityException("argument invalid (op:NOT)");
+//			}
+//		} else 
+		if (argument1 == null || argument2 == null) {
 			throw new InvalidityException("arguments invalid");
 		}
 	}
@@ -424,5 +425,12 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		result.append(')');
 		return result.toString();
 	}
-
+	
+	@Override
+	public String myToString() {
+		String res = "(\n  " + getArgument1().myToString().replace("\n", "\n  ") 
+				+ "\n)" + getOperator().getLiteral() + "(\n  " + getArgument2().myToString().replace("\n", "\n  ") + "\n)";
+		return res;
+	}
+	
 } // FormulaImpl

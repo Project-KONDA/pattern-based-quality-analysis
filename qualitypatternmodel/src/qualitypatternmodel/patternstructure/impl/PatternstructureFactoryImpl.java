@@ -66,6 +66,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 			case PatternstructurePackage.FORMULA: return createFormula();
 			case PatternstructurePackage.TRUE: return createTrue();
 			case PatternstructurePackage.PATTERN: return createPattern();
+			case PatternstructurePackage.NOT: return createNot();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -196,6 +197,17 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	public Pattern createPattern() {
 		PatternImpl pattern = new PatternImpl();
 		return pattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Not createNot() {
+		NotImpl not = new NotImpl();
+		return not;
 	}
 
 	/**

@@ -115,6 +115,8 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validatePattern((Pattern)value, diagnostics, context);
 			case PatternstructurePackage.PATTERN_ELEMENT:
 				return validatePatternElement((PatternElement)value, diagnostics, context);
+			case PatternstructurePackage.NOT:
+				return validateNot((Not)value, diagnostics, context);
 			case PatternstructurePackage.LOGICAL_OPERATOR:
 				return validateLogicalOperator((LogicalOperator)value, diagnostics, context);
 			case PatternstructurePackage.QUANTIFIER:
@@ -510,6 +512,25 @@ public class PatternstructureValidator extends EObjectValidator {
 	 */
 	public boolean validatePatternElement_validate(PatternElement patternElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return patternElement.validate(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNot(Not not, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(not, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(not, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(not, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(not, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(not, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(not, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(not, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(not, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(not, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(not, diagnostics, context);
+		return result;
 	}
 
 	/**

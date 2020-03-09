@@ -306,5 +306,15 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+	
+
+	@Override
+	public String myToString() {
+		String res = "VariableList (";
+		for (Input input: getVariables()) {
+			res += "\n  " + input.myToString();
+		}
+		return res + ")";
+	}
 
 } // VariableListImpl

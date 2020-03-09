@@ -20,16 +20,6 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum LogicalOperator implements Enumerator {
 	/**
-	 * The '<em><b>NOT</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NOT_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	NOT(0, "NOT", "not"),
-
-	/**
 	 * The '<em><b>AND</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,17 +68,6 @@ public enum LogicalOperator implements Enumerator {
 	 * @ordered
 	 */
 	EQUIVALENT(5, "EQUIVALENT", "EQUIVALENT");
-
-	/**
-	 * The '<em><b>NOT</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NOT
-	 * @model literal="not"
-	 * @generated
-	 * @ordered
-	 */
-	public static final int NOT_VALUE = 0;
 
 	/**
 	 * The '<em><b>AND</b></em>' literal value.
@@ -153,7 +132,6 @@ public enum LogicalOperator implements Enumerator {
 	 */
 	private static final LogicalOperator[] VALUES_ARRAY =
 		new LogicalOperator[] {
-			NOT,
 			AND,
 			OR,
 			IMPLIES,
@@ -215,7 +193,6 @@ public enum LogicalOperator implements Enumerator {
 	 */
 	public static LogicalOperator get(int value) {
 		switch (value) {
-			case NOT_VALUE: return NOT;
 			case AND_VALUE: return AND;
 			case OR_VALUE: return OR;
 			case IMPLIES_VALUE: return IMPLIES;

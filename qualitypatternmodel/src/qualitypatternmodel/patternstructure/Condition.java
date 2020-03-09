@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getFormula1 <em>Formula1</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getFormula2 <em>Formula2</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Condition#getNot <em>Not</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition()
@@ -160,4 +161,28 @@ public interface Condition extends PatternElement {
 	 * @generated
 	 */
 	void setFormula2(Formula value);
+
+	/**
+	 * Returns the value of the '<em><b>Not</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Not#getArgument <em>Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Not</em>' container reference.
+	 * @see #setNot(Not)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_Not()
+	 * @see qualitypatternmodel.patternstructure.Not#getArgument
+	 * @model opposite="argument" transient="false"
+	 * @generated
+	 */
+	Not getNot();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Condition#getNot <em>Not</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Not</em>' container reference.
+	 * @see #getNot()
+	 * @generated
+	 */
+	void setNot(Not value);
 } // Condition

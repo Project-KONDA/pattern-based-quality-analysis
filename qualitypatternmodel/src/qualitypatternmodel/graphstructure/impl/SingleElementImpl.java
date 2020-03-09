@@ -1065,5 +1065,13 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	public Element getPreviousElement() {
 		return getPrevious();
 	}
+	
+	@Override
+	public String myToString() {
+		String res = "";
+		if (!isRootElement()) res += getRelationFromPrevious().myToString() + " ";
+		if (getGraph() != null) res += "(Return-)";
+		return res + getRelationFromPrevious().myToString() + " Single" + super.myToString();
+	}
 
 } // SingleElementImpl

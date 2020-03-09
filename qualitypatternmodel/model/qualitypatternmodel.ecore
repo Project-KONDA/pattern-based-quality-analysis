@@ -481,6 +481,8 @@
           eOpposite="#//patternstructure/Formula/argument1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="formula2" eType="#//patternstructure/Formula"
           eOpposite="#//patternstructure/Formula/argument2"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="not" eType="#//patternstructure/Not"
+          eOpposite="#//patternstructure/Not/argument"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Morphism" eSuperTypes="#//patternstructure/PatternElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -549,7 +551,6 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="True" eSuperTypes="#//patternstructure/Condition"/>
     <eClassifiers xsi:type="ecore:EEnum" name="LogicalOperator">
-      <eLiterals name="NOT" literal="not"/>
       <eLiterals name="AND" value="1" literal="and"/>
       <eLiterals name="OR" value="2" literal="or"/>
       <eLiterals name="IMPLIES" value="3" literal="implies"/>
@@ -618,6 +619,7 @@
           </eGenericType>
         </eParameters>
       </eOperations>
+      <eOperations name="myToString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortPatternInternalId"
@@ -634,5 +636,9 @@
     <eClassifiers xsi:type="ecore:EDataType" name="ClassWrapper" instanceClassName="java.lang.Class"/>
     <eClassifiers xsi:type="ecore:EDataType" name="MissingPatternContainerException"
         instanceClassName="qualitypatternmodel.exceptions.MissingPatternContainerException"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//patternstructure/Condition">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+          eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/not"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
