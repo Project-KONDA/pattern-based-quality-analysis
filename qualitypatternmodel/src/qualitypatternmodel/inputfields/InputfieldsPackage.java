@@ -88,13 +88,31 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__COMPARISON1 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT__COMPARISON2 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__VARIABLE_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int INPUT__VARIABLE_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -103,7 +121,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__DESCRIPTION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int INPUT__DESCRIPTION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -112,7 +130,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__IS_PREDEFINED = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int INPUT__IS_PREDEFINED = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Input</em>' class.
@@ -121,7 +139,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int INPUT_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -196,13 +214,40 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___GET_RETURN_TYPE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___IS_TRANSLATABLE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT___GET_ALL_ARGUMENT_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___INPUT_IS_VALID = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int INPUT___INPUT_IS_VALID = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -211,7 +256,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Input</em>' class.
@@ -220,7 +265,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+	int INPUT_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.CompOptionImpl <em>Comp Option</em>}' class.
@@ -249,6 +294,24 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMP_OPTION__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__COMPARISON1 = INPUT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION__COMPARISON2 = INPUT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -386,6 +449,33 @@ public interface InputfieldsPackage extends EPackage {
 	int COMP_OPTION___MY_TO_STRING = INPUT___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMP_OPTION___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -440,6 +530,24 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPTION__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__COMPARISON1 = INPUT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION__COMPARISON2 = INPUT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
@@ -566,6 +674,33 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPTION___MY_TO_STRING = INPUT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -777,6 +912,24 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_VALUE__COMPARISON1 = INPUT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_VALUE__COMPARISON2 = INPUT__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -804,31 +957,13 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT_VALUE__IS_PREDEFINED = INPUT__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_VALUE__COMPARISON1 = INPUT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_VALUE__COMPARISON2 = INPUT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Input Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE_FEATURE_COUNT = INPUT_FEATURE_COUNT + 2;
+	int INPUT_VALUE_FEATURE_COUNT = INPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -903,6 +1038,33 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT_VALUE___MY_TO_STRING = INPUT___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_VALUE___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_VALUE___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -912,40 +1074,13 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT_VALUE___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
 
 	/**
-	 * The operation id for the '<em>Get Return Type</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_VALUE___GET_RETURN_TYPE = INPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Is Translatable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_VALUE___IS_TRANSLATABLE = INPUT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT_OPERATION_COUNT + 2;
-
-	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT_OPERATION_COUNT + 3;
+	int INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Input Value</em>' class.
@@ -954,7 +1089,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 4;
+	int INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.BooleanImpl <em>Boolean</em>}' class.
@@ -985,6 +1120,24 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN__COMPARISON1 = INPUT_VALUE__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN__COMPARISON2 = INPUT_VALUE__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1010,24 +1163,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN__IS_PREDEFINED = INPUT_VALUE__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN__COMPARISON1 = INPUT_VALUE__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1129,15 +1264,6 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Input Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
-
-	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1163,6 +1289,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN___GET_ALL_ARGUMENT_ELEMENTS = INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1211,6 +1346,24 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__COMPARISON1 = INPUT_VALUE__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__COMPARISON2 = INPUT_VALUE__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1236,24 +1389,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT__IS_PREDEFINED = INPUT_VALUE__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT__COMPARISON1 = INPUT_VALUE__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
 	 * The number of structural features of the '<em>Text</em>' class.
@@ -1337,15 +1472,6 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Input Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
-
-	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1371,6 +1497,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT___GET_ALL_ARGUMENT_ELEMENTS = INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1419,6 +1554,24 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LIST__SHORT_PATTERN_INTERNAL_ID = TEXT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST__COMPARISON1 = TEXT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST__COMPARISON2 = TEXT__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1444,24 +1597,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST__IS_PREDEFINED = TEXT__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST__COMPARISON1 = TEXT__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST__COMPARISON2 = TEXT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' attribute list.
@@ -1554,15 +1689,6 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LIST___MY_TO_STRING = TEXT___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Input Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST___INPUT_IS_VALID = TEXT___INPUT_IS_VALID;
-
-	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1588,6 +1714,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST___GET_ALL_ARGUMENT_ELEMENTS = TEXT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST___INPUT_IS_VALID = TEXT___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1654,6 +1789,24 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LITERAL__SHORT_PATTERN_INTERNAL_ID = TEXT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__COMPARISON1 = TEXT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL__COMPARISON2 = TEXT__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1679,24 +1832,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LITERAL__IS_PREDEFINED = TEXT__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL__COMPARISON1 = TEXT__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL__COMPARISON2 = TEXT__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1798,15 +1933,6 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LITERAL___MY_TO_STRING = TEXT___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Input Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL___INPUT_IS_VALID = TEXT___INPUT_IS_VALID;
-
-	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1832,6 +1958,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LITERAL___GET_ALL_ARGUMENT_ELEMENTS = TEXT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL___INPUT_IS_VALID = TEXT___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1880,6 +2015,24 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__COMPARISON1 = INPUT_VALUE__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__COMPARISON2 = INPUT_VALUE__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1905,24 +2058,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER__IS_PREDEFINED = INPUT_VALUE__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER__COMPARISON1 = INPUT_VALUE__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2015,15 +2150,6 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Input Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
-
-	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2049,6 +2175,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER___GET_ALL_ARGUMENT_ELEMENTS = INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2097,6 +2232,24 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE__COMPARISON1 = INPUT_VALUE__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE__COMPARISON2 = INPUT_VALUE__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2122,24 +2275,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE__IS_PREDEFINED = INPUT_VALUE__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__COMPARISON1 = INPUT_VALUE__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2232,15 +2367,6 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Input Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
-
-	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2266,6 +2392,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE___GET_ALL_ARGUMENT_ELEMENTS = INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2314,6 +2449,24 @@ public interface InputfieldsPackage extends EPackage {
 	int TIME__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME__COMPARISON1 = INPUT_VALUE__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME__COMPARISON2 = INPUT_VALUE__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2339,24 +2492,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIME__IS_PREDEFINED = INPUT_VALUE__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME__COMPARISON1 = INPUT_VALUE__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2449,15 +2584,6 @@ public interface InputfieldsPackage extends EPackage {
 	int TIME___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Input Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
-
-	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2483,6 +2609,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIME___GET_ALL_ARGUMENT_ELEMENTS = INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2531,6 +2666,24 @@ public interface InputfieldsPackage extends EPackage {
 	int UNKNOWN_INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE__COMPARISON1 = INPUT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE__COMPARISON2 = INPUT__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2558,31 +2711,13 @@ public interface InputfieldsPackage extends EPackage {
 	int UNKNOWN_INPUT_VALUE__IS_PREDEFINED = INPUT__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNKNOWN_INPUT_VALUE__COMPARISON1 = INPUT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNKNOWN_INPUT_VALUE__COMPARISON2 = INPUT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Unknown Input Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE_FEATURE_COUNT = INPUT_FEATURE_COUNT + 2;
+	int UNKNOWN_INPUT_VALUE_FEATURE_COUNT = INPUT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2657,6 +2792,33 @@ public interface InputfieldsPackage extends EPackage {
 	int UNKNOWN_INPUT_VALUE___MY_TO_STRING = INPUT___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2666,40 +2828,13 @@ public interface InputfieldsPackage extends EPackage {
 	int UNKNOWN_INPUT_VALUE___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
 
 	/**
-	 * The operation id for the '<em>Get Return Type</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNKNOWN_INPUT_VALUE___GET_RETURN_TYPE = INPUT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Is Translatable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNKNOWN_INPUT_VALUE___IS_TRANSLATABLE = INPUT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNKNOWN_INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT_OPERATION_COUNT + 2;
-
-	/**
 	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT_OPERATION_COUNT + 3;
+	int UNKNOWN_INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Concretize</em>' operation.
@@ -2708,7 +2843,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___CONCRETIZE__INPUTVALUE = INPUT_OPERATION_COUNT + 4;
+	int UNKNOWN_INPUT_VALUE___CONCRETIZE__INPUTVALUE = INPUT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Unknown Input Value</em>' class.
@@ -2717,7 +2852,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 5;
+	int UNKNOWN_INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.DateTimeImpl <em>Date Time</em>}' class.
@@ -2748,6 +2883,24 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE_TIME__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME__COMPARISON1 = INPUT_VALUE__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME__COMPARISON2 = INPUT_VALUE__COMPARISON2;
+
+	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2773,24 +2926,6 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME__IS_PREDEFINED = INPUT_VALUE__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME__COMPARISON1 = INPUT_VALUE__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2883,15 +3018,6 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE_TIME___MY_TO_STRING = INPUT_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Input Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
-
-	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2917,6 +3043,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME___GET_ALL_ARGUMENT_ELEMENTS = INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME___INPUT_IS_VALID = INPUT_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.

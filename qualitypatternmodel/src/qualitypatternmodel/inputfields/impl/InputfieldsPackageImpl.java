@@ -724,8 +724,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 
 		// Obtain other dependent packages
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
-		FunctionsPackage theFunctionsPackage = (FunctionsPackage)EPackage.Registry.INSTANCE.getEPackage(FunctionsPackage.eNS_URI);
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
+		FunctionsPackage theFunctionsPackage = (FunctionsPackage)EPackage.Registry.INSTANCE.getEPackage(FunctionsPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -733,6 +733,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 
 		// Add supertypes to classes
 		inputEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
+		inputEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
 		compOptionEClass.getESuperTypes().add(this.getInput());
 		propertyOptionEClass.getESuperTypes().add(this.getInput());
 		variableListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
@@ -742,11 +743,9 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		textLiteralEClass.getESuperTypes().add(this.getText());
 		numberEClass.getESuperTypes().add(this.getInputValue());
 		inputValueEClass.getESuperTypes().add(this.getInput());
-		inputValueEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
 		dateEClass.getESuperTypes().add(this.getInputValue());
 		timeEClass.getESuperTypes().add(this.getInputValue());
 		unknownInputValueEClass.getESuperTypes().add(this.getInput());
-		unknownInputValueEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
 		dateTimeEClass.getESuperTypes().add(this.getInputValue());
 
 		// Initialize classes, features, and operations; add parameters

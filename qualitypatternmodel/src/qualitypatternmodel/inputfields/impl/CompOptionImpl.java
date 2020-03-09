@@ -21,6 +21,7 @@ import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
+import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -121,6 +122,16 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 	@Override
 	protected EClass eStaticClass() {
 		return InputfieldsPackage.Literals.COMP_OPTION;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
+		setComparison(null);
+		return super.basicSetVariableList(newVariableList, msgs);
 	}
 
 	/**

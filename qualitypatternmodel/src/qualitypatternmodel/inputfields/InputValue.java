@@ -13,5 +13,5 @@ package qualitypatternmodel.inputfields;
  * @model
  * @generated
  */
-public interface InputValue extends Input, qualitypatternmodel.graphstructure.Comparable {
+public interface InputValue extends Input {
 } // XSType

@@ -13,7 +13,7 @@ package qualitypatternmodel.inputfields;
  * @model
  * @generated
  */
-public interface UnknownInputValue extends Input, qualitypatternmodel.graphstructure.Comparable {
+public interface UnknownInputValue extends Input {
 
 	/**
 	 * <!-- begin-user-doc -->

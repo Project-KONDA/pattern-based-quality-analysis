@@ -17,6 +17,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
+import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -107,6 +108,16 @@ public class BooleanImpl extends InputValueImpl implements qualitypatternmodel.i
 	@Override
 	public Boolean getValue() {
 		return value;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
+		setMatch(null);
+		return super.basicSetVariableList(newVariableList, msgs);
 	}
 
 	/**

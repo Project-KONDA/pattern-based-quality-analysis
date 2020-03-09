@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.BooleanOperator;
+import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
@@ -148,6 +149,11 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 			}
 			if(op instanceof Match) {
 				((Match) op).reset();
+			}
+			if(op instanceof Comparison) {
+				((Comparison) op).setArgument1(null);
+				((Comparison) op).setArgument2(null);
+				((Comparison) op).setOption(null);
 			}
 		}
 		msgs = eBasicSetContainer((InternalEObject)newGraph, FunctionsPackage.OPERATOR_LIST__GRAPH, msgs);

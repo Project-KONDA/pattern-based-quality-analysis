@@ -15,6 +15,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -96,6 +97,17 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 		return InputfieldsPackage.Literals.TEXT_LITERAL;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
+		setMatch(null);
+		return super.basicSetVariableList(newVariableList, msgs);
+	}
+
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

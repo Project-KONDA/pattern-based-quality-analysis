@@ -601,7 +601,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetPrevious(SingleElement newPrevious, NotificationChain msgs) {		
+	public NotificationChain basicSetPrevious(SingleElement newPrevious, NotificationChain msgs) {	
+		clearComparisonRecursively();
 		resetCountOperatorRecursively();
 		clearMatchRecursively();
 		removeFromReturnElements();
@@ -626,6 +627,14 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 		msgs = eBasicSetContainer((InternalEObject)newPrevious, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, msgs);
 		return msgs;
+	}
+
+	public void clearComparisonRecursively() {
+		getComparison1().clear();
+		getComparison2().clear();
+		for(Element child : getNextElements()) {
+			child.clearComparisonRecursively();
+		}
 	}
 
 	public void resetCountOperatorRecursively() {

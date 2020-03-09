@@ -81,6 +81,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 			case InputfieldsPackage.INPUT: {
 				Input input = (Input)theEObject;
 				T result = caseInput(input);
+				if (result == null) result = caseComparable(input);
 				if (result == null) result = casePatternElement(input);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -89,6 +90,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				CompOption compOption = (CompOption)theEObject;
 				T result = caseCompOption(compOption);
 				if (result == null) result = caseInput(compOption);
+				if (result == null) result = caseComparable(compOption);
 				if (result == null) result = casePatternElement(compOption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -97,6 +99,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				PropertyOption propertyOption = (PropertyOption)theEObject;
 				T result = casePropertyOption(propertyOption);
 				if (result == null) result = caseInput(propertyOption);
+				if (result == null) result = caseComparable(propertyOption);
 				if (result == null) result = casePatternElement(propertyOption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

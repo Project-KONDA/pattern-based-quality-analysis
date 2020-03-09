@@ -21,7 +21,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
+import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.Boolean;
+import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -142,9 +145,22 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
+		for(Input input : getVariables()) {
+			if(input instanceof Boolean) {
+				((Boolean) input).setMatch(null);
+			}
+			if(input instanceof TextLiteral) {
+				((TextLiteral) input).setMatch(null);
+			}
+			if(input instanceof CompOption) {
+				((CompOption) input).setComparison(null);
+			}
+			input.getComparison1().clear();
+			input.getComparison2().clear();
+		}
 		msgs = eBasicSetContainer((InternalEObject)newPattern, InputfieldsPackage.VARIABLE_LIST__PATTERN, msgs);
 		return msgs;
 	}

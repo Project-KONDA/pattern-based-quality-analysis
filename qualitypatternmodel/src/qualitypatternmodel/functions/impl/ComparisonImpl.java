@@ -22,6 +22,7 @@ import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.NumberOperator;
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -558,6 +559,18 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		return option;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
+		setArgument1(null);
+		setArgument2(null);
+		setOption(null);
+		return super.basicSetOperatorList(newOperatorList, msgs);
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

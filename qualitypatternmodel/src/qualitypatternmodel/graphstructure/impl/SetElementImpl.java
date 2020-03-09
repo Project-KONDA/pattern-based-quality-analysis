@@ -331,12 +331,21 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 		return (SetElement)eInternalContainer();
 	}
 
+	public void clearComparisonRecursively() {
+		getComparison1().clear();
+		getComparison2().clear();
+		for(Element child : getNextElements()) {
+			child.clearComparisonRecursively();
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetPreviousSet(SetElement newPreviousSet, NotificationChain msgs) {
+		// TODO: clear comparison1/2 recursively
 		resetCountOperatorRecursively();
 		clearMatchRecursively();
 		msgs = eBasicSetContainer((InternalEObject)newPreviousSet, GraphstructurePackage.SET_ELEMENT__PREVIOUS_SET, msgs);
@@ -382,6 +391,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetPreviousSingle(SingleElement newPreviousSingle, NotificationChain msgs) {
+		// TODO: clear comparison1/2 recursively
 		resetCountOperatorRecursively();
 		clearMatchRecursively();
 		msgs = eBasicSetContainer((InternalEObject)newPreviousSingle, GraphstructurePackage.SET_ELEMENT__PREVIOUS_SINGLE, msgs);
