@@ -565,5 +565,13 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		}
 		return super.eInvoke(operationID, arguments);
 	}
+	
+	@Override
+	public String myToString() {
+		String res = getPropertyOption().getValue().getLiteral();
+		if (res == PropertyLocation.ATTRIBUTE.getLiteral()) res += " (" + getAttributeName().getValue() + ")";
+		res += " (" + getShortPatternInternalId() + ")";		
+		return res;
+	}
 
 } // PropertyImpl

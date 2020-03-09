@@ -183,6 +183,11 @@ public class DateImpl extends InputValueImpl implements Date {
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override 
+	public String myToString() {
+		return "" + getValue() + " (" + getShortPatternInternalId() + ")";
+	}
 
 	
 

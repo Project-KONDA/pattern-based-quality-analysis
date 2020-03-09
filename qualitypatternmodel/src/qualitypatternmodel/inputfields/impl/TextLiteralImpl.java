@@ -177,5 +177,10 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override 
+	public String myToString() {
+		return "" + getValue() + " (" + getShortPatternInternalId() + ")";
+	}
 
 } //TextLiteralImpl

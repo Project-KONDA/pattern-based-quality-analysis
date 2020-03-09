@@ -203,5 +203,15 @@ public class TextListImpl extends TextImpl implements TextList {
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override 
+	public String myToString() {
+		String res = "[";
+		for (int i = 0; i < getValues().size(); i++) {
+			if (i>0) res += ", ";
+			res += getValues().get(i);
+		}
+		return res + "] (" + getShortPatternInternalId() + ")";
+	}
 
 } // TextListImpl

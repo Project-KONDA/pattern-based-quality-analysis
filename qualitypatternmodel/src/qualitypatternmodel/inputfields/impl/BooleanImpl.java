@@ -180,5 +180,10 @@ public class BooleanImpl extends InputValueImpl implements qualitypatternmodel.i
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override 
+	public String myToString() {
+		return "" + getValue();
+	}
 
 } //BooleanImpl

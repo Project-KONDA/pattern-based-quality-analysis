@@ -231,5 +231,10 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override 
+	public String myToString() {
+		return "" + getValue() + " (" + getShortPatternInternalId() + ")";
+	}
 
 } //CompOptionImpl

@@ -304,5 +304,12 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	@Override
+	public String myToString() {
+		String res = "RelationMapping (" + getShortPatternInternalId() + ") ";
+		res += "[" +getFrom().getShortPatternInternalId() + ", " + getTo().getShortPatternInternalId() + "]";		
+		return res;
+	}
 
 } // RelationMappingImpl

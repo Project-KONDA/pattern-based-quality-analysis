@@ -347,5 +347,10 @@ public class UnknownInputValueImpl extends InputImpl implements UnknownInputValu
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	@Override 
+	public String myToString() {
+		return "unknown" + " (" + getShortPatternInternalId() + ")";
+	}
 
 } //UnknownInputValueImpl

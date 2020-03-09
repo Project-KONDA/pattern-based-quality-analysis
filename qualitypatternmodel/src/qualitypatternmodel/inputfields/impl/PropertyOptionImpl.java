@@ -230,5 +230,10 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override 
+	public String myToString() {
+		return "" + getValue() + " (" + getShortPatternInternalId() + ")";
+	}
 
 } //PropertyOptionImpl

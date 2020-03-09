@@ -299,5 +299,12 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	@Override
+	public String myToString() {
+		String res = "SingleElementMapping (" + getShortPatternInternalId() + ") ";
+		res += "[" +getFrom().getShortPatternInternalId() + ", " + getTo().getShortPatternInternalId() + "]";		
+		return res;
+	}
 
 } // SingleElementMappingImpl

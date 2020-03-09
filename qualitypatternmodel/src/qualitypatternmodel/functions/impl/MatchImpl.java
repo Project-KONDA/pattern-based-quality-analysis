@@ -416,5 +416,14 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	@Override
+	public String myToString() {
+		String res = "MATCH (" + getShortPatternInternalId() + ") [";
+		if (!getOption().getValue()) res += "not ";
+		res += getOption().getShortPatternInternalId() + "]";
+		res += "[" + getProperty().getShortPatternInternalId() + ", " + getRegularExpression().getShortPatternInternalId() + "]";
+		return res;
+	}
 
 } //MatchImpl

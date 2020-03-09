@@ -181,7 +181,11 @@ public class TimeImpl extends InputValueImpl implements Time {
 		result.append(')');
 		return result.toString();
 	}
-
+	
+	@Override 
+	public String myToString() {
+		return "" + getValue() + " (" + getShortPatternInternalId() + ")";
+	}
 	
 
 } //TimeImpl

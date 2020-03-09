@@ -188,5 +188,10 @@ public class DateTimeImpl extends InputValueImpl implements DateTime {
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override 
+	public String myToString() {
+		return "" + getValue() + " (" + getShortPatternInternalId() + ")";
+	}
 
 } //DateTimeImpl

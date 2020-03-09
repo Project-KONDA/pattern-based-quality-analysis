@@ -260,5 +260,10 @@ public class CountImpl extends NumberOperatorImpl implements Count {
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	@Override
+	public String myToString() {
+		return "Count " + argument.getShortPatternInternalId() + " (" + getShortPatternInternalId() + ")";
+	}
 
 } // CountImpl

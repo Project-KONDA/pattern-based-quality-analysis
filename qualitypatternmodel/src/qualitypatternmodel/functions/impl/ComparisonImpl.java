@@ -834,6 +834,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		result.append(')');
 		return result.toString();
 	}
+	
+	@Override
+	public String myToString() {
+		String res = "COMP (" + getShortPatternInternalId() + "):" + getReturnType() + " ";
+		res += "[" + getOption().getValue() + " (" + getOption().getShortPatternInternalId() + ")]";
+		res += "[" + getArgument1().getShortPatternInternalId() + ", " + getArgument2().getShortPatternInternalId() + "]";
+		return res;
+	}
 
 	
 
