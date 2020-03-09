@@ -96,4 +96,6 @@ public interface Match extends BooleanOperator {
 	 */
 	void setOption(qualitypatternmodel.inputfields.Boolean value);
 
+	void reset();
+
 } // Match

@@ -25,6 +25,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.Location;
@@ -337,6 +338,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	 */
 	public NotificationChain basicSetPreviousSet(SetElement newPreviousSet, NotificationChain msgs) {
 		resetCountOperatorRecursively();
+		clearMatchRecursively();
 		msgs = eBasicSetContainer((InternalEObject)newPreviousSet, GraphstructurePackage.SET_ELEMENT__PREVIOUS_SET, msgs);
 		return msgs;
 	}
@@ -381,6 +383,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	 */
 	public NotificationChain basicSetPreviousSingle(SingleElement newPreviousSingle, NotificationChain msgs) {
 		resetCountOperatorRecursively();
+		clearMatchRecursively();
 		msgs = eBasicSetContainer((InternalEObject)newPreviousSingle, GraphstructurePackage.SET_ELEMENT__PREVIOUS_SINGLE, msgs);
 		return msgs;
 	}
@@ -620,6 +623,16 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	@Override
 	public String myToString() {
 		return getRelationFromPrevious().myToString() + " Set" + super.myToString();
+	}
+	
+	@Override
+	public void clearMatchRecursively() {
+		for(Property p : getProperties()) {
+			p.getMatch().clear();
+		}		
+		for(SetElement setElement : getNext()) {
+			setElement.clearMatchRecursively();
+		}
 	}
 
 } // SetElementImpl

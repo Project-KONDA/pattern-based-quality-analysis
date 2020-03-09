@@ -29,6 +29,7 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.Location;
@@ -602,6 +603,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 */
 	public NotificationChain basicSetPrevious(SingleElement newPrevious, NotificationChain msgs) {		
 		resetCountOperatorRecursively();
+		clearMatchRecursively();
 		removeFromReturnElements();
 		clearPredicatesRecursively();
 		if(getRelationFromPrevious() != null) {
@@ -1099,6 +1101,19 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		else res += getRelationFromPrevious().myToString() + " ";
 		if (getGraph() != null) res += "(Return-)";
 		return res + " Single" + super.myToString();
+	}
+
+	@Override
+	public void clearMatchRecursively() {
+		for(Property p : getProperties()) {
+			p.getMatch().clear();
+		}
+		for(SingleElement child : getNextSingle()) {
+			child.clearMatchRecursively();
+		}
+		for(SetElement setElement : getNextSet()) {
+			setElement.clearMatchRecursively();
+		}
 	}
 
 } // SingleElementImpl

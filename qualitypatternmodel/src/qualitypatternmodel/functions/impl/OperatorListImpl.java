@@ -21,6 +21,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Graph;
@@ -144,6 +145,9 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 			}
 			if(op instanceof Count) {
 				((Count) op).setArgument(null);
+			}
+			if(op instanceof Match) {
+				((Match) op).reset();
 			}
 		}
 		msgs = eBasicSetContainer((InternalEObject)newGraph, FunctionsPackage.OPERATOR_LIST__GRAPH, msgs);

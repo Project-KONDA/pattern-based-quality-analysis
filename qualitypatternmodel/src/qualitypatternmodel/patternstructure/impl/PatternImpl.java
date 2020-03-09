@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.GetGrammarElement;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -228,8 +229,11 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetReturnGraph(Graph newReturnGraph, NotificationChain msgs) {
+		getReturnGraph().setMorphismFrom(null);
+		getReturnGraph().getMorphismTo().clear();
 		Graph oldReturnGraph = returnGraph;
 		returnGraph = newReturnGraph;
 		if (returnGraph != null) {

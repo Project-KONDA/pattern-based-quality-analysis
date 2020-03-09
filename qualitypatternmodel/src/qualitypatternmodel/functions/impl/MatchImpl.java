@@ -16,6 +16,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -402,6 +403,23 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	public qualitypatternmodel.inputfields.Boolean basicGetOption() {
 		return option;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
+		reset();
+		return super.basicSetOperatorList(newOperatorList, msgs);		
+	}
+
+	public void reset() {
+		setProperty(null);
+		setOption(null);
+		setRegularExpression(null);
 	}
 
 	/**

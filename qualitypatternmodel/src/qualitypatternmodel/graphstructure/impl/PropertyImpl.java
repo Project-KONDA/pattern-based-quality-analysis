@@ -305,6 +305,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
+		getMatch().clear();
 		if(newElement == null) {
 			removeInputsFromVariableList();		
 		}
