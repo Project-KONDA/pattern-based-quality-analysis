@@ -312,7 +312,7 @@ public class BooleanImpl extends InputValueImpl implements qualitypatternmodel.i
 	
 	@Override 
 	public String myToString() {
-		return "" + getValue();
+		return "bool " + getValue();
 	}
 
 } //BooleanImpl

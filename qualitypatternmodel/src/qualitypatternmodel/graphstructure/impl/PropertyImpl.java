@@ -675,8 +675,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public String myToString() {
 		String res = getPropertyOption().getValue().getLiteral();
-		if (res == PropertyLocation.ATTRIBUTE.getLiteral()) res += " (" + getAttributeName().getValue() + ")";
 		res += " (" + getShortPatternInternalId() + ")";		
+		res += " ('" + getAttributeName().getValue() + "' (" + getAttributeName().getShortPatternInternalId() + "))";
 		return res;
 	}
 

@@ -184,7 +184,7 @@ public class TimeImpl extends InputValueImpl implements Time {
 	
 	@Override 
 	public String myToString() {
-		return "" + getValue() + " (" + getShortPatternInternalId() + ")";
+		return "time " + getValue() + " (" + getShortPatternInternalId() + ")";
 	}
 	
 

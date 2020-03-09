@@ -928,13 +928,13 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	public String myToString() {
 		String res = "Element " + getName() + " " + getShortPatternInternalId();
 		for (Property prop : getProperties())
-			res += "\n  " + prop.myToString();
+			res += "\n. " + prop.myToString();
 		if (getNextElements().size() > 0) {
-			res += "[";
+//			res += "\n[";
 			for (Element e : getNextElements()) {
-				res += "\n  " + e.myToString().replace("\n", "\n  ");
+				res += "\n. " + e.myToString().replace("\n", "\n. ");
 			}
-			res += "\n]";
+//			res += "\n]";
 		}
 		return res;
 	}

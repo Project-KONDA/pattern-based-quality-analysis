@@ -886,11 +886,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public String myToString() {
 		String res = "";
 		if (isReturnGraph())
-			res += "return ";
-		res += "Graph " + graphDepth + " (";
-		res += "\n  " + getRootElement().myToString().replace("\n", "\n  ");
-		res += "\n  " + getOperatorList().myToString().replace("\n", "\n  ");
-		res += "\n)";
+			res += "Return-";
+		res += "Graph " + getShortPatternInternalId() + " (";
+		res += "\n. " + getRootElement().myToString().replace("\n", "\n. ");
+		res += getOperatorList().myToString().replace("\n", "\n. ") + ")";
 		return res;
 	}
 
