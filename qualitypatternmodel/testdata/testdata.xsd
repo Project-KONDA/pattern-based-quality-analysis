@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- definition of simple elements -->
+
+<xs:element name="name" type="xs:string"/>
+<xs:element name="city" type="xs:string"/>
+<xs:element name="country" type="xs:string"/>
+<xs:element name="gender" type="xs:string"/>
+<xs:element name="creator" type="xs:string"/>
+<xs:element name="birthyear" type="xs:positiveInteger"/>
+<xs:element name="deathyear" type="xs:positiveInteger"/>
+<xs:element name="place" type="xs:string"/>
+<xs:element name="table" type="xs:string"/>
+
+<!-- definition of complex elements -->
+
+<xs:element name="data">
+<xs:complexType>
+	<xs:sequence>
+	    <xs:choice maxOccurs="unbounded">
+	      <xs:element ref="painting" minOccurs="0" maxOccurs="unbounded"/>
+	      <xs:element ref="building" minOccurs="0" maxOccurs="unbounded"/>
+	      <xs:element ref="artist" minOccurs="0" maxOccurs="unbounded"/>
+	    </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="painting">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="name" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="creator" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="part">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="name" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="room" minOccurs="0" maxOccurs="unbounded"/>      
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="building">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="name" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="city" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="country" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="creator" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="part" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="room">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="name" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="table" minOccurs="0" maxOccurs="unbounded"/>      
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="artist">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="name" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="gender" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="birthyear" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="deathyear" minOccurs="0" maxOccurs="unbounded"/>      
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
