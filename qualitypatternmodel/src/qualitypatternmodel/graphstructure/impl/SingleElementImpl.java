@@ -1085,10 +1085,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public String myToString() {
 		String res = "";
-		if (isRootElement()) res += "(Root)"; 
+		if (isRootElement()) res += "Root-"; 
 		else res += getRelationFromPrevious().myToString() + " ";
-		if (getGraph() != null) res += "(Return-)";
-		return res + " Single" + super.myToString();
+		if (getGraph() != null) res += "Return-";
+		return res + "Single" + super.myToString();
 	}
 
 } // SingleElementImpl

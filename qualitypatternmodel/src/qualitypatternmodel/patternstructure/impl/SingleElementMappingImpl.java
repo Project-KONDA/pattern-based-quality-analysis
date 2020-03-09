@@ -310,7 +310,13 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	@Override
 	public String myToString() {
 		String res = "SingleElementMapping (" + getShortPatternInternalId() + ") ";
-		res += "[" +getFrom().getShortPatternInternalId() + ", " + getTo().getShortPatternInternalId() + "]";		
+		res += "[";
+		if (getFrom()!= null) res += getFrom().getShortPatternInternalId();
+		else res += "-";		
+		res += ", ";
+		if (getTo()!= null) res += getTo().getShortPatternInternalId() ;
+		else res += "-";	
+		res += "]";
 		return res;
 	}
 

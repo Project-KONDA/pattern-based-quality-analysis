@@ -331,11 +331,14 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 
 	@Override
 	public String myToString() {
-		String res = "VariableList " + getShortPatternInternalId() + " (";
-		for (Input input: getVariables()) {
-			res += "\n  " + input.myToString();
+		if (getVariables().size() > 0) {
+			String res = "\nVariableList " + getShortPatternInternalId() + " (";
+			for (Input input : getVariables()) {
+				res += "\n. " + input.myToString();
+			}
+			return res + ")";
 		}
-		return res + ")";
+		return "";
 	}
 
 } // VariableListImpl

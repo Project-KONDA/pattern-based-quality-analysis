@@ -186,7 +186,7 @@ public class DateImpl extends InputValueImpl implements Date {
 	
 	@Override 
 	public String myToString() {
-		return "" + getValue() + " (" + getShortPatternInternalId() + ")";
+		return "date " + getValue() + " (" + getShortPatternInternalId() + ")";
 	}
 
 	

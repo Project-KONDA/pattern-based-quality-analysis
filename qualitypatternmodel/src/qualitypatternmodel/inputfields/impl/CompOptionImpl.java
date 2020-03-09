@@ -363,7 +363,7 @@ public class CompOptionImpl extends InputImpl implements CompOption {
 	
 	@Override 
 	public String myToString() {
-		return "" + getValue() + " (" + getShortPatternInternalId() + ")";
+		return "comp " + getValue() + " (" + getShortPatternInternalId() + ")";
 	}
 
 } //CompOptionImpl

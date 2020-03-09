@@ -362,7 +362,7 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	
 	@Override 
 	public String myToString() {
-		return "" + getValue() + " (" + getShortPatternInternalId() + ")";
+		return "prop " + getValue() + " (" + getShortPatternInternalId() + ")";
 	}
 
 } //PropertyOptionImpl
