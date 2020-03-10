@@ -666,8 +666,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public String myToString() {
 		String res = getQuantifier().getLiteral() + " " + getShortPatternInternalId();
 		res += "\n. " + getGraph().myToString().replace("\n", "\n. ");
-		res += "\n. " + getCondition().myToString().replace("\n", "\n. ");
 		res += "\n. " + getMorphism().myToString().replace("\n", "\n. ");
+		res += "\n. " + getCondition().myToString().replace("\n", "\n. ");
 		return res;
 	}
 

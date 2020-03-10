@@ -72,11 +72,11 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (from == null)
-			throw new InvalidityException("from-element null");
+			throw new InvalidityException("RelationMapping " + getShortPatternInternalId() + ": from-element null");
 		if (to == null)
-			throw new InvalidityException("to null");
+			throw new InvalidityException("RelationMapping " + getShortPatternInternalId() + ": to null");
 		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
-			throw new InvalidityException("invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
+			throw new InvalidityException("RelationMapping " + getShortPatternInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
 					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
 		}
 	}
@@ -92,8 +92,8 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	
 	@Override
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
-		getFrom().getMappingTo().remove(this);
-		getTo().setMappingFrom(null);
+		if (getFrom() != null) getFrom().getMappingTo().remove(this);
+		if (getTo() != null) getTo().setMappingFrom(null);
 		return super.basicSetMorphism(newMorphism, msgs);
 	}
 
@@ -313,10 +313,23 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		return super.eIsSet(featureID);
 	}
 	
+//	@Override
+//	public String myToString() {
+//		String res = "RelationMapping (" + getShortPatternInternalId() + ") ";
+//		res += "[" +getFrom().getShortPatternInternalId() + ", " + getTo().getShortPatternInternalId() + "]";		
+//		return res;
+//	}
+
 	@Override
 	public String myToString() {
 		String res = "RelationMapping (" + getShortPatternInternalId() + ") ";
-		res += "[" +getFrom().getShortPatternInternalId() + ", " + getTo().getShortPatternInternalId() + "]";		
+		res += "[";
+		if (getFrom()!= null) res += getFrom().getShortPatternInternalId();
+		else res += "-";			
+		res += " -> ";
+		if (getTo()!= null) res += getTo().getShortPatternInternalId() ;
+		else res += "-";	
+		res += "]";
 		return res;
 	}
 

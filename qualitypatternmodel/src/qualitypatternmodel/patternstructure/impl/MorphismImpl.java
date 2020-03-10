@@ -155,14 +155,14 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (from == null)
-			throw new InvalidityException("from null");
+			throw new InvalidityException("Morphism " + getShortPatternInternalId() + ": from null");
 		if (to == null)
-			throw new InvalidityException("to null");
+			throw new InvalidityException("Morphism " + getShortPatternInternalId() + ": to null");
 		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMorphDepth())
-			throw new InvalidityException("invalid target graphs");
+			throw new InvalidityException("Morphism " + getShortPatternInternalId() + ": invalid target graphs");
 		for (Mapping mapping : getMappings())
 			if (mapping == null)
-				throw new InvalidityException("mapping invalid (" + mapping + ")");
+				throw new InvalidityException("Morphism " + getShortPatternInternalId() + ": mapping invalid (" + mapping + ")");
 	}
 	
 	public void removeDanglingMappingReference() {

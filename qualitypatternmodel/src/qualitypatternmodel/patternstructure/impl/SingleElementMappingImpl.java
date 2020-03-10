@@ -66,11 +66,11 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (from == null)
-			throw new InvalidityException("from-element null");
+			throw new InvalidityException("SingleElementMapping " + getShortPatternInternalId() + ": from-element null");
 		if (to == null)
-			throw new InvalidityException("to null");
+			throw new InvalidityException("SingleElementMapping " + getShortPatternInternalId() + ": to null");
 		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
-			throw new InvalidityException("invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
+			throw new InvalidityException("SingleElementMapping " + getShortPatternInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
 					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
 		}
 	}
@@ -86,8 +86,8 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	
 	@Override
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
-		getFrom().getMappingTo().remove(this);
-		getTo().setMappingFrom(null);
+		if (getFrom() != null) getFrom().getMappingTo().remove(this);
+		if (getTo() != null) getTo().setMappingFrom(null);
 		return super.basicSetMorphism(newMorphism, msgs);
 	}
 
@@ -313,7 +313,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 		res += "[";
 		if (getFrom()!= null) res += getFrom().getShortPatternInternalId();
 		else res += "-";		
-		res += ", ";
+		res += " -> ";
 		if (getTo()!= null) res += getTo().getShortPatternInternalId() ;
 		else res += "-";	
 		res += "]";
