@@ -1,9 +1,12 @@
+package qualitypatternmodel.translationtests;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.patternstructure.impl.*;
+import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -38,6 +41,11 @@ public class test06_formula {
 	}
 	public static Pattern getPatternForallNotForall() {		
 		return null; //TODO
+	}
+	public static List<PatternTestPair> getTestPairs(){
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		// ...
+		return testPairs;		
 	}
 
 }

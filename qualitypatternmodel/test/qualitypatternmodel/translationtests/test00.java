@@ -1,6 +1,9 @@
+package qualitypatternmodel.translationtests;
 import java.util.ArrayList;
+import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
+import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.exceptions.*;
 import qualitypatternmodel.graphstructure.Axis;
 
@@ -63,5 +66,11 @@ public class test00 {
 		pattern.setCondition(truecondition);
 		
 		return pattern;
+	}
+	
+	public static List<PatternTestPair> getTestPairs(){
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		testPairs.add(new PatternTestPair("base", getBasePattern(), ""));
+		return testPairs;		
 	}
 }

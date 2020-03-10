@@ -1,6 +1,9 @@
+package qualitypatternmodel.translationtests;
 import java.util.ArrayList;
+import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
+import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.inputfields.*;
 import qualitypatternmodel.functions.*;
@@ -71,6 +74,11 @@ public class test05_quantorcombinations_cond {
 		Pattern pattern = getPatternForallInExistsCond();
 		((QuantifiedCondition) pattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		return pattern;
+	}
+	public static List<PatternTestPair> getTestPairs(){
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		// ...
+		return testPairs;		
 	}
 	
 }
