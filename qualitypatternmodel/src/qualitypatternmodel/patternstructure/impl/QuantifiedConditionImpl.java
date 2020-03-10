@@ -25,6 +25,7 @@ import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
+import qualitypatternmodel.patternstructure.Not;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -187,6 +188,24 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetQuantifiedcondition(newQuantifiedcondition, msgs);
 		if (newQuantifiedcondition != null) {
+			try {
+				copyPreviousGraph();
+			} catch (MissingPatternContainerException e) {
+
+			}
+		} else {
+			// TODO
+		}
+		return msg;
+	}
+	
+	@Override
+	public NotificationChain basicSetNot(Not newNot, NotificationChain msgs) {
+		getMorphism().setFrom(null);
+		getMorphism().setTo(getGraph());
+		getMorphism().removeDanglingMappingReference();
+		NotificationChain msg = super.basicSetNot(newNot, msgs);
+		if (newNot != null) {
 			try {
 				copyPreviousGraph();
 			} catch (MissingPatternContainerException e) {
