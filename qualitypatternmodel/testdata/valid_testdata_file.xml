@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///D:/Sourcetree%20Dateien/pattern-based-quality-analysis2/qualitypatternmodel/testdata/testdata.xsd">
+
+	<painting></painting>
+	<painting>	
+		<name>a</name>
+		<name>b</name>
+		
+		<creator></creator>
+		<creator></creator>		
+	</painting>
+
+	<building></building>
+	<building>
+		<name></name>
+		<name></name>
+		
+		<country></country>
+		<country></country>
+		
+		<creator></creator>
+		<creator></creator>
+		
+		<part></part>
+		<part>
+			<name></name>
+			<name></name>
+						
+			<room></room>
+			<room>
+				<name></name>
+				<name></name>
+				
+				<table></table>
+				<table></table>
+			</room>			
+		</part>		
+	</building>
+	
+	<artist></artist>
+	<artist>
+		<name></name>
+		<name></name>
+		
+		<gender></gender>
+		<gender></gender>
+		
+		<birthyear>1</birthyear>
+		<birthyear>1</birthyear>
+		
+		<deathyear>1</deathyear>
+		<deathyear>1</deathyear>
+	</artist>
+
+</data>

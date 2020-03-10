@@ -62,7 +62,7 @@ public class CountImpl extends NumberOperatorImpl implements Count {
 				return "count(" + argument.toXQuery(location) + WHERE + argument.generateWhereClause(location) + RETURN + argument.getXQueryRepresentation(location) +  "\n)";
 			}
 		} else {
-			throw new InvalidityException("argument null");
+			throw new InvalidityException("argument null (" + getShortPatternInternalId() + ")");
 		}
 	}
 
@@ -73,7 +73,7 @@ public class CountImpl extends NumberOperatorImpl implements Count {
 	
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (argument == null)
-			throw new InvalidityException("argument null");		
+			throw new InvalidityException("argument null (" + getShortPatternInternalId() + ")");		
 	}
 
 	@Override

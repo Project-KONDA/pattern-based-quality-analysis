@@ -134,7 +134,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			return conversionStartArgument1 + argument1.toXQuery(location) + conversionEndArgument1 + operator.getLiteral() 
 				+ conversionStartArgument2 + argument2.toXQuery(location) + conversionEndArgument2;
 		} else {
-			throw new InvalidityException("invalid option");
+			throw new InvalidityException("invalid option" + " (" + getShortPatternInternalId() + ")");
 		}
 	}	
 	
@@ -152,44 +152,44 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException{
 		if (argument1 == null)
-			throw new InvalidityException("argument1 null");
+			throw new InvalidityException("argument1 null" + " (" + getShortPatternInternalId() + ")" );
 		if (argument2 == null)
-			throw new InvalidityException("argument2 null");
+			throw new InvalidityException("argument2 null" + " (" + getShortPatternInternalId() + ")" );
 		if (option == null) 
-			throw new InvalidityException("operator options null");
+			throw new InvalidityException("operator options null" + " (" + getShortPatternInternalId() + ")" );
 		
 		if (argument1.getReturnType() != argument2.getReturnType()) {
 			if(argument1.getReturnType() != ReturnType.UNSPECIFIED && argument2.getReturnType() != ReturnType.UNSPECIFIED) {
-				throw new InvalidityException("type mismatch");
+				throw new InvalidityException("type mismatch" + " (" + getShortPatternInternalId() + ")" );
 			}
 		}				
 		
 		if(argument1.getReturnType() != ReturnType.UNSPECIFIED && argument1.getReturnType() != type) {
-			throw new InvalidityException("type mismatch");	
+			throw new InvalidityException("type mismatch" + " (" + getShortPatternInternalId() + ")" );	
 		}
 		if(argument2.getReturnType() != ReturnType.UNSPECIFIED && argument2.getReturnType() != type) {
-			throw new InvalidityException("type mismatch");	
+			throw new InvalidityException("type mismatch" + " (" + getShortPatternInternalId() + ")" );	
 		}
 		
 //		if(argument1.getReturnType() == ReturnType.ELEMENT && argument2.getReturnType() != ReturnType.ELEMENT)
-//			throw new InvalidityException("type mismatch");	
+//			throw new InvalidityException("type mismatch" + " (" + getShortPatternInternalId() + ")");	
 //		if(argument1.getReturnType() != ReturnType.ELEMENT && argument2.getReturnType() == ReturnType.ELEMENT)
-//			throw new InvalidityException("type mismatch");	
+//			throw new InvalidityException("type mismatch" + " (" + getShortPatternInternalId() + ")");	
 		
 		if(isDefinedPattern && type == ReturnType.UNSPECIFIED) {
-			throw new InvalidityException("input value type unspecified");	
+			throw new InvalidityException("input value type unspecified" + " (" + getShortPatternInternalId() + ")" );	
 		}
 		
 //		if(argument1 instanceof SetElement || argument1 instanceof OtherOperators || argument1 instanceof BooleanOperator) {
-//			throw new InvalidityException("invalid argument1 type");
+//			throw new InvalidityException("invalid argument1 type" + " (" + getShortPatternInternalId() + ")");
 //		}
 //		if(argument2 instanceof SetElement || argument2 instanceof OtherOperators || argument2 instanceof BooleanOperator) {
-//			throw new InvalidityException("invalid argument2 type");
+//			throw new InvalidityException("invalid argument2 type" + " (" + getShortPatternInternalId() + ")");
 //		}
 		
 		if(argument1 instanceof Element && argument2 instanceof Element) {
 			if(option.getValue() != ComparisonOperator.EQUAL && option.getValue() != ComparisonOperator.NOTEQUAL) {
-				throw new InvalidityException("invalid comparison operator for arguments of type Element");
+				throw new InvalidityException("invalid comparison operator for arguments of type Element" + " (" + getShortPatternInternalId() + ")" );
 			}
 		}
 		
@@ -205,7 +205,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			boolean ownersInArguments = argumentsFlattened.containsAll(elements);
 	
 			if(!ownersInArguments) {
-				throw new InvalidityException("invalid predicate argument");
+				throw new InvalidityException("invalid predicate argument" + " (" + getShortPatternInternalId() + ")" );
 			}
 			
 			boolean argumentsInElements = true;
@@ -215,7 +215,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 					for(Element owner : elements) {					
 						if(argument.equals(owner)) {	
 							if(isElement) {
-								throw new InvalidityException("too many predicate owners");
+								throw new InvalidityException("too many predicate owners" + " (" + getShortPatternInternalId() + ")" );
 							}
 							isElement = true;		
 						}
@@ -224,7 +224,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				argumentsInElements &= isElement;
 			}		
 			if(!argumentsInElements) {
-				throw new InvalidityException("invalid predicate owner");
+				throw new InvalidityException("invalid predicate owner" + " (" + getShortPatternInternalId() + ")" );
 			}	
 		
 		}
@@ -278,7 +278,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		if(getOption() != null) {
 			res.add(option);
 		} else {
-			throw new InvalidityException("option null");
+			throw new InvalidityException("option null" + " (" + getShortPatternInternalId() + ")");
 		}
 		return res;
 	}

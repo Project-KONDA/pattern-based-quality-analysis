@@ -123,7 +123,8 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	 */
 	@Override
 	public void add(Operator operator) {
-		getOperators().add(operator);
+		if (!getOperators().contains(operator))
+			getOperators().add(operator);
 	}
 
 	/**

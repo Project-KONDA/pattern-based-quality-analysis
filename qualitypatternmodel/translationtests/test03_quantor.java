@@ -37,7 +37,6 @@ public class test03_quantor {
 		cond.getGraph().getReturnElements().add(se);
 		se.getNextSingle().add(se2);
 		
-		
 		// Morphism
 		Morphism m = cond.getMorphism();
 		m.setFrom(pattern.getReturnGraph());
@@ -56,7 +55,6 @@ public class test03_quantor {
 		m.getMappings().add(rm);
 		rm.setFrom(pattern.getReturnGraph().getReturnElements().get(0).getRelationFromPrevious());
 		rm.setTo(se.getRelationFromPrevious());
-		
 		
 		return pattern;
 	}

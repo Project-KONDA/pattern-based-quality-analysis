@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.exceptions.*;
+import qualitypatternmodel.graphstructure.Axis;
 
 //import qualitypatternmodel.patternstructure.*;
 //import qualitypatternmodel.patternstructure.impl.*;
@@ -16,8 +17,6 @@ import qualitypatternmodel.exceptions.*;
 public class test00 {
 	
 	public static void test(ArrayList<Pattern> patterns) {
-
-		// output
 		for (Pattern pattern : patterns) {
 			try {
 				pattern.isValid(true);
@@ -32,14 +31,15 @@ public class test00 {
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
-				
 			}
 		}
 	}
 	
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		
+		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
+		patterns.add(getBasePattern());
+		test00.test(patterns);
 	}
 
 

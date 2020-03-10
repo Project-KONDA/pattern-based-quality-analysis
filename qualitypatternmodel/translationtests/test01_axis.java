@@ -13,7 +13,8 @@ public class test01_axis {
 //		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(test00.getBasePattern());
+		patterns.add(test00.getBasePattern()); // child
+		patterns.add(getBasePattern_axis(Axis.CHILD));
 		patterns.add(getBasePattern_axis(Axis.PARENT));
 		patterns.add(getBasePattern_axis(Axis.SELF));
 		patterns.add(getBasePattern_axis(Axis.ANCESTOR));
@@ -25,18 +26,7 @@ public class test01_axis {
 		patterns.add(getBasePattern_axis(Axis.PRECEDING));
 		patterns.add(getBasePattern_axis(Axis.PRECEDING_SIBLING));;
 		
-		// output
-		for (Pattern pattern : patterns) {
-			try {
-				pattern.isValid(true);
-				System.out.println("\n\n___PATTERN_(VALID)___");
-				System.out.println(pattern.myToString());
-				System.out.print("\n___TRANSLATION___");
-				System.out.println(pattern.toXQuery());
-			} catch (Exception e) {
-				System.out.println("\nnot valid: " + e.getMessage());
-			}
-		}
+		test00.test(patterns);
 	}
 
 	public static Pattern getBasePattern_axis(Axis axis) {
