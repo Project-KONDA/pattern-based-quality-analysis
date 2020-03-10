@@ -24,8 +24,8 @@ public class test05_quantorcombinations_cond {
 
 	public static Pattern getPatternExistsInExistsCond() {
 		// Factory
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+//		PatternstructurePackage.eINSTANCE.eClass();
+//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		FunctionsPackage.eINSTANCE.eClass();
@@ -43,6 +43,7 @@ public class test05_quantorcombinations_cond {
 		SingleElement se = graph.getRootElement().getNextSingle().get(0).getNextSingle().get(0).getNextSingle().get(0);
 		Property prop = graphFactory.createProperty();
 		se.getProperties().add(prop);
+		prop.getPropertyOption().setValue(PropertyLocation.ATTRIBUTE);
 		prop.getAttributeName().setValue("abc"); // not needed, only for better visibility in textual representation
 		
 		// Comparison

@@ -150,18 +150,18 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (quantifier == null)
-			throw new InvalidityException("quantifier null");
+			throw new InvalidityException("quantifier null (" + getShortPatternInternalId() + ")");
 		if (condition == null)
-			throw new InvalidityException("condition null");
+			throw new InvalidityException("condition null (" + getShortPatternInternalId() + ")");
 		if (graph == null)
-			throw new InvalidityException("graph null");
+			throw new InvalidityException("graph null (" + getShortPatternInternalId() + ")");
 		if (morphism == null)
-			throw new InvalidityException("morphism null");
+			throw new InvalidityException("morphism null (" + getShortPatternInternalId() + ")");
 		if (quantifier != Quantifier.EXISTS && quantifier != Quantifier.FORALL)
-			throw new InvalidityException("quantifier invalid");
+			throw new InvalidityException("quantifier invalid (" + getShortPatternInternalId() + ")");
 //		if (quantifier == Quantifier.FORALL)
 //			if (getCondition() instanceof True)
-//				throw new InvalidityException("successor condition of quantified condition forall is true");
+//				throw new InvalidityException("successor condition of quantified condition forall is true (" + getShortPatternInternalId() + ")");
 
 	}
 

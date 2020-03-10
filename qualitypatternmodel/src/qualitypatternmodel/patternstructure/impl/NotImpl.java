@@ -65,7 +65,7 @@ public class NotImpl extends ConditionImpl implements Not {
 	
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (argument == null)
-			throw new InvalidityException("argument null");
+			throw new InvalidityException("argument null (" + getShortPatternInternalId() + ")");
 	}
 		
 	/**
@@ -206,8 +206,6 @@ public class NotImpl extends ConditionImpl implements Not {
 	
 	@Override
 	public String myToString() {
-		return "not(\n" + argument.myToString().replace("\n", "\n  ") + "\n)";
+		return "NOT " + getShortPatternInternalId() + " [\n. " + argument.myToString().replace("\n", "\n. ") + "\n]";
 	}
-	
-
 } // NotImpl

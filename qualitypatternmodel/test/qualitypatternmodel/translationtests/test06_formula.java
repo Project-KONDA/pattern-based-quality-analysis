@@ -31,16 +31,67 @@ public class test06_formula {
 	}
 	
 	public static Pattern getPatternNotExists() {
-		return null; //TODO
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		Pattern pattern = test00.getBasePattern();
+		
+		Not n = factory.createNot();
+		pattern.setCondition(n);
+		QuantifiedCondition qc = factory.createQuantifiedCondition();
+		n.setArgument(qc);
+		True t = factory.createTrue();
+		qc.setCondition(t);
+
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;		
+		SingleElement last = qc.getGraph().getRootElement().getNextSingle().get(0);
+		last.getNextSingle().add(graphFactory.createSingleElement());
+		
+		return pattern;
 	}
 	public static Pattern getPatternNotForall() {
-		return null; //TODO
+		Pattern pattern = getPatternNotExists();
+		QuantifiedCondition qc = ((QuantifiedCondition) ((Not) pattern.getCondition()).getArgument());
+		qc.setQuantifier(Quantifier.FORALL);
+		return pattern;
 	}
+	
 	public static Pattern getPatternExistsNotExists() {
-		return null; //TODO
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;	
+
+				
+		Pattern pattern = test03_quantor.getPatternExists();
+		True t = (True) ((QuantifiedCondition) pattern.getCondition()).getCondition();
+		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition(); 
+		Not n = factory.createNot();
+		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
+
+		SingleElement root = qc1.getGraph().getRootElement();
+		root.getNextSingle().get(0).getNextSingle().add(graphFactory.createSingleElement());
+				
+		qc1.setCondition(n);
+		n.setArgument(qc2);
+		qc2.setCondition(t);
+	
+		SingleElement root2 = qc2.getGraph().getRootElement();
+		root2.getNextSingle().get(0).getNextSingle().get(0).getNextSingle().add(graphFactory.createSingleElement());
+		
+		return pattern; 
 	}
-	public static Pattern getPatternForallNotForall() {		
-		return null; //TODO
+	public static Pattern getPatternForallNotForall() {	
+		Pattern pattern = getPatternExistsNotExists();
+		
+		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition();
+		QuantifiedCondition qc2 = (QuantifiedCondition) ((Not) qc1.getCondition()).getArgument();
+
+		qc1.setQuantifier(Quantifier.FORALL);
+		qc2.setQuantifier(Quantifier.FORALL);
+		
+		return pattern; //TODO
 	}
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();

@@ -893,6 +893,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (isReturnGraph())
 			res += "Return-";
 		res += "Graph " + getShortPatternInternalId() + " (";
+		if ( getRootElement() != null)
 		res += "\n. " + getRootElement().myToString().replace("\n", "\n. ");
 		res += getOperatorList().myToString().replace("\n", "\n. ") + ")";
 		return res;
