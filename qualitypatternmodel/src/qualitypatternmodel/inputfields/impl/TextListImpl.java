@@ -206,12 +206,12 @@ public class TextListImpl extends TextImpl implements TextList {
 	
 	@Override 
 	public String myToString() {
-		String res = "list [";
+		String res = "list " + getShortPatternInternalId() + "[";
 		for (int i = 0; i < getValues().size(); i++) {
 			if (i>0) res += ", ";
 			res += "'" + getValues().get(i) + "'";
 		}
-		return res + "] (" + getShortPatternInternalId() + ")";
+		return res + "]";
 	}
 
 } // TextListImpl

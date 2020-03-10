@@ -149,11 +149,11 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (variableList == null)
-			throw new InvalidityException("variableList null");
+			throw new InvalidityException("variableList null" + " (" + getShortPatternInternalId() + ")");
 		if (returnGraph == null)
-			throw new InvalidityException("returnGraph null");
+			throw new InvalidityException("returnGraph null" + " (" + getShortPatternInternalId() + ")");
 		if (condition == null)
-			throw new InvalidityException("condition null");
+			throw new InvalidityException("condition null" + " (" + getShortPatternInternalId() + ")");
 	}
 
 	@Override

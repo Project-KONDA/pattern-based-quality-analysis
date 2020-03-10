@@ -191,7 +191,7 @@ public class DateTimeImpl extends InputValueImpl implements DateTime {
 	
 	@Override 
 	public String myToString() {
-		return "dati " + getValue() + " (" + getShortPatternInternalId() + ")";
+		return "dati " + getShortPatternInternalId() + " " + getValue();
 	}
 
 } //DateTimeImpl

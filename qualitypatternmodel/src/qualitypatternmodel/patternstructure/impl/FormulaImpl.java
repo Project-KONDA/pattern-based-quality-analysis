@@ -149,7 +149,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (operator == null)
-			throw new InvalidityException("operator null");
+			throw new InvalidityException("operator null" + " (" + getShortPatternInternalId() + ")");
 //		if (argument1 == null)
 //			throw new InvalidityException("arguments null");
 //		if (operator == LogicalOperator.NOT) {
@@ -158,7 +158,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 //			}
 //		} else 
 		if (argument1 == null || argument2 == null) {
-			throw new InvalidityException("arguments invalid");
+			throw new InvalidityException("arguments invalid" + " (" + getShortPatternInternalId() + ")");
 		}
 	}
 
@@ -429,7 +429,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public String myToString() {
 		String res = "(\n  " + getArgument1().myToString().replace("\n", "\n  ") 
-				+ "\n)" + getOperator().getLiteral() + "(\n  " + getArgument2().myToString().replace("\n", "\n  ") + "\n)";
+				+ "\n)" + getOperator().getLiteral() + " " + getShortPatternInternalId() + " (\n  " + getArgument2().myToString().replace("\n", "\n  ") + "\n)";
 		return res;
 	}
 	
