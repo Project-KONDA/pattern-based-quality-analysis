@@ -87,6 +87,10 @@ public class test03_quantor {
 	
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		testPairs.add(new PatternTestPair("EXISTS", 	getPatternExists(), 	""));
+		testPairs.add(new PatternTestPair("EXISTSCOND", getPatternExistsCond(), ""));
+		testPairs.add(new PatternTestPair("FORALL",		getPatternForall(), 	""));
+		testPairs.add(new PatternTestPair("FORALLCOND", getPatternForallCond(), ""));
 		// ...
 		return testPairs;		
 	}

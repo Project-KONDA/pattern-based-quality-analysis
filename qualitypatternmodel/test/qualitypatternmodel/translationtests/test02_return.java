@@ -65,6 +65,9 @@ public class test02_return {
 	
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		testPairs.add(new PatternTestPair("MULRET", 	getPatternMultipleReturn(), 		""));
+		testPairs.add(new PatternTestPair("MULRETNEST", getPatternMultipleReturnNested(), 	""));
+		testPairs.add(new PatternTestPair("LATERET", 	getPatternLateReturn(), 			""));
 		// ...
 		return testPairs;		
 	}

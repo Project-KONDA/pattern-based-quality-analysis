@@ -78,7 +78,12 @@ public class test05_quantorcombinations_cond {
 	}
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		// ...
+		
+		testPairs.add(new PatternTestPair("EXEXCON", 	getPatternExistsInExistsCond(), ""));
+		testPairs.add(new PatternTestPair("EXFACON", 	getPatternForallInExistsCond(), ""));
+		testPairs.add(new PatternTestPair("FAEXCON", 	getPatternExistsInForallCond(), ""));
+		testPairs.add(new PatternTestPair("FAFACON", 	getPatternForallInForallCond(), ""));
+	
 		return testPairs;		
 	}
 	

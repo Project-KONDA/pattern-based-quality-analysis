@@ -1,6 +1,5 @@
 package qualitypatternmodel.translationtests;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +16,7 @@ import qualitypatternmodel.functions.impl.*;
 import qualitypatternmodel.inputfields.*;
 import qualitypatternmodel.inputfields.impl.*;
 
-public class test06_formula {
+public class test06_not {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
@@ -91,11 +90,17 @@ public class test06_formula {
 		qc1.setQuantifier(Quantifier.FORALL);
 		qc2.setQuantifier(Quantifier.FORALL);
 		
-		return pattern; //TODO
+		return pattern;
 	}
+	
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		// ...
+
+		testPairs.add(new PatternTestPair("NOTEX", 		getPatternNotExists(), 		""));
+		testPairs.add(new PatternTestPair("NOTFA", 		getPatternNotForall(), 		""));
+		testPairs.add(new PatternTestPair("EXNOTEX",	getPatternExistsNotExists(),""));
+		testPairs.add(new PatternTestPair("FANOTFA", 	getPatternForallNotForall(),""));
+		
 		return testPairs;		
 	}
 

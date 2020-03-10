@@ -33,9 +33,11 @@ import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.functions.impl.ComparisonImpl;
 import qualitypatternmodel.functions.impl.MatchImpl;
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
@@ -43,8 +45,11 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
 import qualitypatternmodel.inputfields.impl.UnknownInputValueImpl;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -555,26 +560,105 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	@Override
 	public void addPrimitiveComparison() {
 		Comparison comparison = new ComparisonImpl();
-		Property property = new PropertyImpl();
-		UnknownInputValue unknownInputValue = new UnknownInputValueImpl();
-		getPredicates().add(comparison);
-		getProperties().add(property);
-		comparison.setArgument1(property);
-		comparison.setArgument2(unknownInputValue);
+		try {
+//			Pattern pattern = (Pattern) getAncestor(Pattern.class);
+//			VariableList varlist = pattern.getVariableList();
+//			Graph graph = (Graph) getAncestor(Graph.class);
+//			OperatorList oplist = graph.getOperatorList();
+//					
+//			Property property = new PropertyImpl();
+//			getProperties().add(property);
+//						
+//			UnknownInputValue unknownInputValue = new UnknownInputValueImpl();
+//			varlist.add(unknownInputValue);
+//			
+//			oplist.add(comparison);	
+//			comparison.setArgument1(property);
+//			comparison.setArgument2(unknownInputValue);
+			Pattern pattern = (Pattern) getAncestor(Pattern.class);
+			VariableList varlist = pattern.getVariableList();
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+			
+			Property property = new PropertyImpl();
+			getProperties().add(property);
+
+			UnknownInputValue unknownInputValue = new UnknownInputValueImpl();
+			varlist.add(unknownInputValue);
+
+			oplist.add(comparison);	
+			comparison.setArgument1(property);
+			comparison.setArgument2(unknownInputValue);	
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());			
+		}
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+
+	public void addPrimitiveComparison(String value) {
+		Comparison comparison = new ComparisonImpl();
+		try {			
+			Pattern pattern = (Pattern) getAncestor(Pattern.class);
+			VariableList varlist = pattern.getVariableList();
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+			
+			Property property = new PropertyImpl();
+			getProperties().add(property);
+			
+			TextLiteralImpl textlit = new TextLiteralImpl();
+			varlist.add(textlit);
+			textlit.setValue(value);
+
+			oplist.add(comparison);	
+			comparison.setArgument1(property);
+			comparison.setArgument2(textlit);			
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveMatch() {
+	public void addPrimitiveMatch(String regex) {
+//		Match match = new MatchImpl();
+//		Property property = new PropertyImpl();
+//		getPredicates().add(match);
+//		getProperties().add(property);
+//		match.setProperty(property);
 		Match match = new MatchImpl();
-		Property property = new PropertyImpl();
-		getPredicates().add(match);
-		getProperties().add(property);
-		match.setProperty(property);
+		try {			
+			Pattern pattern = (Pattern) getAncestor(Pattern.class);
+			VariableList varlist = pattern.getVariableList();
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+			
+			Property property = new PropertyImpl();
+			getProperties().add(property);
+			
+//			TextLiteralImpl textlit = new TextLiteralImpl();
+//			varlist.add(textlit);
+//			textlit.setValue(regex);
+
+			oplist.add(match);	
+			match.setProperty(property);
+//			match.setArgument1(property);
+//			match.setRegularExpression(textlit);
+//			match.setArgument2(textlit);		
+			match.getRegularExpression().setValue(regex);
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+		}
 	}
 
 	/**
@@ -850,8 +934,8 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON:
 				addPrimitiveComparison();
 				return null;
-			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_MATCH:
-				addPrimitiveMatch();
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_MATCH__STRING:
+				addPrimitiveMatch((String)arguments.get(0));
 				return null;
 			case GraphstructurePackage.ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
 				return translatePathFromPrevious();
@@ -884,6 +968,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return null;
 			case GraphstructurePackage.ELEMENT___CLEAR_PREDICATES_RECURSIVELY:
 				clearPredicatesRecursively();
+				return null;
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING:
+				addPrimitiveComparison((String)arguments.get(0));
 				return null;
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
@@ -957,7 +1044,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			p.getMatch().clear();
 		}
 		for(Element child : getNextElements()) {
-			child.clearMatchRecursively();
+			((ElementImpl)child).clearMatchRecursively();
 		}
 		
 	}
@@ -967,7 +1054,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			p.reset();			
 		}
 		for(Element child : getNextElements()) {
-			child.clearPropertyRecursively();
+			((ElementImpl) child).clearPropertyRecursively();
 		}
 	}
 
@@ -976,7 +1063,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			child.resetCountOperatorRecursively();
 		}		
 	}
-
 	public void clearPredicatesRecursively() {
 		getPredicates().clear();
 		for(Element child : getNextElements()) {

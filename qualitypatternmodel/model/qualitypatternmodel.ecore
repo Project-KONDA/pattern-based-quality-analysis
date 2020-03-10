@@ -302,7 +302,9 @@
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>
       <eOperations name="addPrimitiveComparison"/>
-      <eOperations name="addPrimitiveMatch"/>
+      <eOperations name="addPrimitiveMatch">
+        <eParameters name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eOperations name="translatePathFromPrevious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -318,6 +320,9 @@
       <eOperations name="clearMatchRecursively"/>
       <eOperations name="clearComparisonRecursively"/>
       <eOperations name="clearPredicatesRecursively"/>
+      <eOperations name="addPrimitiveComparison">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationFromPrevious"
           eType="#//graphstructure/Relation" containment="true" eOpposite="#//graphstructure/Relation/relationTo"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" lowerBound="1"

@@ -212,13 +212,11 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Adds a predicate which matches a <code>Property</code> of <code>this</code> against a regular expression provided via a <code>TextLiteral</code>.
-	 * For this purpose, new <code>Property</code> and <code>Match</code> objects are created automatically.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	void addPrimitiveMatch();
+	void addPrimitiveMatch(String regex);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -351,7 +349,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model
 	 * @generated
 	 */
-	void clearPropertyRecursively();
+	void clearPredicatesRecursively();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -359,6 +357,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model
 	 * @generated
 	 */
-	void clearPredicatesRecursively();
+	void addPrimitiveComparison(String value);
 
 } // Element

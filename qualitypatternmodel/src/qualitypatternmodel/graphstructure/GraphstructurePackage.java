@@ -973,7 +973,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 8;
+	int ELEMENT___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
@@ -1057,13 +1057,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___CLEAR_PREDICATES_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 17;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 18;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 18;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 19;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
@@ -1442,7 +1451,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH = ELEMENT___ADD_PRIMITIVE_MATCH;
+	int SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH__STRING = ELEMENT___ADD_PRIMITIVE_MATCH__STRING;
 
 	/**
 	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
@@ -1524,6 +1533,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT___CLEAR_PREDICATES_RECURSIVELY = ELEMENT___CLEAR_PREDICATES_RECURSIVELY;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING;
 
 	/**
 	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
@@ -1983,7 +2001,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___ADD_PRIMITIVE_MATCH = ELEMENT___ADD_PRIMITIVE_MATCH;
+	int SET_ELEMENT___ADD_PRIMITIVE_MATCH__STRING = ELEMENT___ADD_PRIMITIVE_MATCH__STRING;
 
 	/**
 	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
@@ -2065,6 +2083,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT___CLEAR_PREDICATES_RECURSIVELY = ELEMENT___CLEAR_PREDICATES_RECURSIVELY;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Path To Previous Single Element</em>' operation.
@@ -3016,14 +3043,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__AddPrimitiveComparison();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch() <em>Add Primitive Match</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Primitive Match</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveMatch()
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveMatch(java.lang.String)
 	 * @generated
 	 */
-	EOperation getElement__AddPrimitiveMatch();
+	EOperation getElement__AddPrimitiveMatch__String();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translatePathFromPrevious() <em>Translate Path From Previous</em>}' operation.
@@ -3114,6 +3141,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getElement__ClearPredicatesRecursively();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(java.lang.String) <em>Add Primitive Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(java.lang.String)
+	 * @generated
+	 */
+	EOperation getElement__AddPrimitiveComparison__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -3898,7 +3935,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ELEMENT___ADD_PRIMITIVE_MATCH = eINSTANCE.getElement__AddPrimitiveMatch();
+		EOperation ELEMENT___ADD_PRIMITIVE_MATCH__STRING = eINSTANCE.getElement__AddPrimitiveMatch__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Translate Path From Previous</b></em>' operation.
@@ -3971,6 +4008,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___CLEAR_PREDICATES_RECURSIVELY = eINSTANCE.getElement__ClearPredicatesRecursively();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = eINSTANCE.getElement__AddPrimitiveComparison__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

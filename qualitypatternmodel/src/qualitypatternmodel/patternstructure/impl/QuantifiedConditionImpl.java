@@ -30,7 +30,6 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
-import qualitypatternmodel.patternstructure.True;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -39,25 +38,19 @@ import qualitypatternmodel.patternstructure.True;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getQuantifier
- * <em>Quantifier</em>}</li>
- * <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#isCheckMorphismOfNextGraph
- * <em>Check Morphism Of Next Graph</em>}</li>
- * <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getGraph
- * <em>Graph</em>}</li>
- * <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getCondition
- * <em>Condition</em>}</li>
- * <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getMorphism
- * <em>Morphism</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getQuantifier <em>Quantifier</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getMorphism <em>Morphism</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class QuantifiedConditionImpl extends ConditionImpl implements QuantifiedCondition {
 	/**
-	 * The default value of the '{@link #getQuantifier() <em>Quantifier</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getQuantifier()
 	 * @generated
 	 * @ordered
@@ -65,9 +58,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	protected static final Quantifier QUANTIFIER_EDEFAULT = Quantifier.EXISTS;
 
 	/**
-	 * The cached value of the '{@link #getQuantifier() <em>Quantifier</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getQuantifier()
 	 * @generated
 	 * @ordered
@@ -75,21 +67,18 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	protected Quantifier quantifier = QUANTIFIER_EDEFAULT;
 
 	/**
-	 * The cached setting delegate for the '{@link #isCheckMorphismOfNextGraph()
-	 * <em>Check Morphism Of Next Graph</em>}' attribute. <!-- begin-user-doc -->
+	 * The cached setting delegate for the '{@link #isCheckMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #isCheckMorphismOfNextGraph()
 	 * @generated
 	 * @ordered
 	 */
-	protected EStructuralFeature.Internal.SettingDelegate CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE = ((EStructuralFeature.Internal) PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH)
-			.getSettingDelegate();
+	protected EStructuralFeature.Internal.SettingDelegate CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH).getSettingDelegate();
 
 	/**
-	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' containment
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGraph()
 	 * @generated
 	 * @ordered
@@ -97,9 +86,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	protected Graph graph;
 
 	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}'
-	 * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getCondition()
 	 * @generated
 	 * @ordered
@@ -107,9 +95,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	protected Condition condition;
 
 	/**
-	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}'
-	 * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getMorphism()
 	 * @generated
 	 * @ordered
@@ -273,7 +260,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -283,7 +269,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -293,26 +278,20 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
 		Condition oldCondition = condition;
 		condition = newCondition;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, oldCondition, newCondition);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, oldCondition, newCondition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -320,44 +299,37 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (newCondition != condition) {
 			NotificationChain msgs = null;
 			if (condition != null)
-				msgs = ((InternalEObject) condition).eInverseRemove(this,
-						PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, Condition.class, msgs);
+				msgs = ((InternalEObject)condition).eInverseRemove(this, PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, Condition.class, msgs);
 			if (newCondition != null)
-				msgs = ((InternalEObject) newCondition).eInverseAdd(this,
-						PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, Condition.class, msgs);
+				msgs = ((InternalEObject)newCondition).eInverseAdd(this, PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, Condition.class, msgs);
 			msgs = basicSetCondition(newCondition, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, newCondition, newCondition));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, newCondition, newCondition));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
-			if (graph != null)
-				msgs = ((InternalEObject) graph).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, null, msgs);
-			return basicSetGraph((Graph) otherEnd, msgs);
-		case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
-			if (condition != null)
-				msgs = ((InternalEObject) condition).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, null, msgs);
-			return basicSetCondition((Condition) otherEnd, msgs);
+			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
+				if (graph != null)
+					msgs = ((InternalEObject)graph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, null, msgs);
+				return basicSetGraph((Graph)otherEnd, msgs);
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
+				if (condition != null)
+					msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, null, msgs);
+				return basicSetCondition((Condition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -417,7 +389,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -503,7 +474,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -513,7 +483,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -521,158 +490,149 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		Quantifier oldQuantifier = quantifier;
 		quantifier = newQuantifier == null ? QUANTIFIER_EDEFAULT : newQuantifier;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER, oldQuantifier, quantifier));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER, oldQuantifier, quantifier));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean isCheckMorphismOfNextGraph() {
-		return (Boolean) CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+		return (Boolean)CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
-			return basicSetGraph(null, msgs);
-		case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
-			return basicSetCondition(null, msgs);
-		case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-			return basicSetMorphism(null, msgs);
+			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
+				return basicSetGraph(null, msgs);
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
+				return basicSetCondition(null, msgs);
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+				return basicSetMorphism(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
-			return getQuantifier();
-		case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
-			return isCheckMorphismOfNextGraph();
-		case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
-			return getGraph();
-		case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
-			return getCondition();
-		case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-			return getMorphism();
+			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
+				return getQuantifier();
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
+				return isCheckMorphismOfNextGraph();
+			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
+				return getGraph();
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
+				return getCondition();
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+				return getMorphism();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
-			setQuantifier((Quantifier) newValue);
-			return;
-		case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
-			setGraph((Graph) newValue);
-			return;
-		case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
-			setCondition((Condition) newValue);
-			return;
-		case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-			setMorphism((Morphism) newValue);
-			return;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
+				setQuantifier((Quantifier)newValue);
+				return;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
+				setGraph((Graph)newValue);
+				return;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
+				setCondition((Condition)newValue);
+				return;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+				setMorphism((Morphism)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
-			setQuantifier(QUANTIFIER_EDEFAULT);
-			return;
-		case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
-			setGraph((Graph) null);
-			return;
-		case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
-			setCondition((Condition) null);
-			return;
-		case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-			setMorphism((Morphism) null);
-			return;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
+				setQuantifier(QUANTIFIER_EDEFAULT);
+				return;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
+				setGraph((Graph)null);
+				return;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
+				setCondition((Condition)null);
+				return;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+				setMorphism((Morphism)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
-			return quantifier != QUANTIFIER_EDEFAULT;
-		case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
-			return CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
-		case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
-			return graph != null;
-		case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
-			return condition != null;
-		case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-			return morphism != null;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
+				return quantifier != QUANTIFIER_EDEFAULT;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
+				return CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
+				return graph != null;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
+				return condition != null;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+				return morphism != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case PatternstructurePackage.QUANTIFIED_CONDITION___COPY_PREVIOUS_GRAPH:
-			try {
-				copyPreviousGraph();
-				return null;
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
+			case PatternstructurePackage.QUANTIFIED_CONDITION___COPY_PREVIOUS_GRAPH:
+				try {
+					copyPreviousGraph();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (quantifier: ");
