@@ -40,20 +40,16 @@ public class test05_quantorcombinations_cond {
 		SingleElement se = graph.getRootElement().getNextSingle().get(0).getNextSingle().get(0).getNextSingle().get(0);
 		Property prop = graphFactory.createProperty();
 		se.getProperties().add(prop);
-		varlist.add(prop.getPropertyOption());
-		varlist.add(prop.getAttributeName());
-		prop.getAttributeName().setValue("abc");
+//		prop.getAttributeName().setValue("abc");
 		
 		// Comparison
 		Comparison comp = functionFactory.createComparison();
+		oplist.add(comp);
+		
 		TextLiteral tl = inputFactory.createTextLiteral();
 		varlist.add(tl);
-		tl.setValue("def");
+		tl.setValue("def");		
 		
-//		CompOption compop = inputFactory.createCompOption();
-//		varlist.add(compop);
-		oplist.add(comp);
-//		comp.setOption(compop);
 		comp.setArgument1(prop);
 		comp.setArgument2(tl);
 		

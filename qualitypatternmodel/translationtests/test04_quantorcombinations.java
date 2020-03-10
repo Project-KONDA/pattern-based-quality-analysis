@@ -9,9 +9,9 @@ public class test04_quantorcombinations {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getPatternExistsInExists());
+//		patterns.add(getPatternExistsInExists());
 		patterns.add(getPatternForallInExists());
-		patterns.add(getPatternExistsInForall());
+//		patterns.add(getPatternExistsInForall());
 		patterns.add(getPatternForallInForall());
 
 		test00.test(patterns);
