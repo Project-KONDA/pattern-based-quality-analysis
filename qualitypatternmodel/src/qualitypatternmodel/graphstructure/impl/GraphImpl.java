@@ -237,14 +237,19 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 //		}	
 		SingleElement newRootElement = new SingleElementImpl();
 		newRootElement.setRoot(graph);
-		SingleElementMapping newMapping = new SingleElementMappingImpl(rootElement, newRootElement);
+		SingleElementMapping newMapping = new SingleElementMappingImpl();
 		graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
+		newMapping.setFrom(rootElement);
+		newMapping.setTo(newRootElement);
 		rootElement.copyNextElementsToNextGraphs();
 	}
 
 	private void addRootMapping(Graph graph) {
+		SingleElementMappingImpl mapping = new SingleElementMappingImpl();
 		graph.getQuantifiedCondition().getMorphism().getMappings()
-				.add(new SingleElementMappingImpl(rootElement, graph.getRootElement()));
+				.add(mapping);
+		mapping.setFrom(rootElement);
+		mapping.setTo(graph.getRootElement());
 	}
 
 	private boolean updateRootMapping(Graph graph) {

@@ -55,14 +55,8 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RelationMappingImpl() {
+	public RelationMappingImpl() {
 		super();
-	}
-	
-	public RelationMappingImpl(Relation from, Relation to) {
-		super();
-		setFrom(from);
-		setTo(to);
 	}
 
 	@Override

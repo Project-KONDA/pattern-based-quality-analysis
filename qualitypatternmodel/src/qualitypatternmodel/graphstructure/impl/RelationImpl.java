@@ -268,8 +268,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 					newCorrespondingRelation = new RelationImpl();				
 				}
 				newCorrespondingRelation.setAxis(getAxis());
-				RelationMapping mapping = new RelationMappingImpl(newCorrespondingRelation, this);
+				RelationMapping mapping = new RelationMappingImpl();
 				element.getMappingFrom().getMorphism().getMappings().add(mapping);
+				mapping.setFrom(newCorrespondingRelation);
+				mapping.setTo(this);
 			}
 		}
 	}
@@ -290,11 +292,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if(getMappingFrom() != null) {
 			Relation correspondingRelation = getMappingFrom().getFrom();
 			correspondingRelation.getRelationTo().setRelationFromPrevious(null);
-			getMappingFrom().setFrom(null);
-			if(getMappingFrom().getMorphism() != null) {
-				getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
-				getMappingFrom().setTo(null);
-			}
+//			getMappingFrom().setFrom(null);
+//			if(getMappingFrom().getMorphism() != null) {
+//				getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
+//				getMappingFrom().setTo(null);
+//			}
 		}
 	}
 

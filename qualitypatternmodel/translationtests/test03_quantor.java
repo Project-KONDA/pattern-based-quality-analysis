@@ -30,32 +30,58 @@ public class test03_quantor {
 		cond.setCondition(factory.createTrue());
 		pattern.setCondition(cond);
 		
+//		System.out.println(cond.getGraph().getRootElement().getNextSingle().size());
+		
 		// EXISTS Graph Structure
-		SingleElement se = graphFactory.createSingleElement();
+//		SingleElement se = graphFactory.createSingleElement(); // is done automatically!
 		SingleElement se2 = graphFactory.createSingleElement();
-		cond.getGraph().getRootElement().getNextSingle().add(se);
-		cond.getGraph().getReturnElements().add(se);
-		se.getNextSingle().add(se2);
+//		cond.getGraph().getRootElement().getNextSingle().add(se); // is done automatically!
+//		cond.getGraph().getReturnElements().add(se); // is done automatically!
+		cond.getGraph().getReturnElements().get(0).getNextSingle().add(se2);
+		
+//		System.out.println("from: " + cond.getMorphism().getFrom());
+//		System.out.println("to: " + cond.getMorphism().getTo());
+		
+//		for(Mapping m : cond.getMorphism().getMappings()) {
+//			if(m instanceof SingleElementMapping) {
+//				SingleElementMapping s = (SingleElementMapping) m;
+//				System.out.println(s);
+//				System.out.println("from: " + s.getFrom());
+//				System.out.println("to: " + s.getTo());
+//			}
+//			if(m instanceof RelationMapping) {
+//				RelationMapping s = (RelationMapping) m;
+//				System.out.println(m);
+//				System.out.println("from: " + s.getFrom());
+//				System.out.println("to: " + s.getTo());
+//				
+//			}
+//		}
 		
 		
+//		
+//		// is done automatically!
 		// Morphism
-		Morphism m = cond.getMorphism();
-		m.setFrom(pattern.getReturnGraph());
-		m.setTo(cond.getGraph());
-		// SEMapping 1
-		SingleElementMapping sem = (SingleElementMapping) m.getMappings().get(0);
-		sem.setFrom(pattern.getReturnGraph().getRootElement());
-		sem.setTo(cond.getGraph().getRootElement());
-		// SEMapping 2
-		SingleElementMapping sem2 = factory.createSingleElementMapping();
-		m.getMappings().add(sem2);
-		sem2.setFrom(pattern.getReturnGraph().getReturnElements().get(0));
-		sem2.setTo(se);
-		// RelationMapping
-		RelationMapping rm = factory.createRelationMapping();
-		m.getMappings().add(rm);
-		rm.setFrom(pattern.getReturnGraph().getReturnElements().get(0).getRelationFromPrevious());
-		rm.setTo(se.getRelationFromPrevious());
+//		Morphism m = cond.getMorphism();
+//		m.setFrom(pattern.getReturnGraph());
+//		m.setTo(cond.getGraph());
+//		// SEMapping 1
+//		// is done automatically
+//		SingleElementMapping sem = (SingleElementMapping) m.getMappings().get(0);
+//		sem.setFrom(pattern.getReturnGraph().getRootElement());
+//		sem.setTo(cond.getGraph().getRootElement());
+//		// SEMapping 2
+//		// is done automatically
+//		SingleElementMapping sem2 = factory.createSingleElementMapping();
+//		m.getMappings().add(sem2);
+//		sem2.setFrom(pattern.getReturnGraph().getReturnElements().get(0));
+//		sem2.setTo(se);
+//		// RelationMapping
+//		// is done automatically
+//		RelationMapping rm = factory.createRelationMapping();
+//		m.getMappings().add(rm);
+//		rm.setFrom(pattern.getReturnGraph().getReturnElements().get(0).getRelationFromPrevious());
+//		rm.setTo(se.getRelationFromPrevious());
 		
 		
 		return pattern;

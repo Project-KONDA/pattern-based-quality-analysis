@@ -57,12 +57,6 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	public SingleElementMappingImpl() {
 		super();
 	}
-	
-	public SingleElementMappingImpl(SingleElement from, SingleElement to) {
-		super();
-		setFrom(from);
-		setTo(to);	
-	}
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (from == null)
