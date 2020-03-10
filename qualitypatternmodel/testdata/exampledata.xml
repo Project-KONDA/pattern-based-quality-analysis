@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="testdata.xsd">
+
+	<painting>
+		<name>
+			A Hint of Nothing
+		</name>
+		<creator>
+			John Doe
+		</creator>		
+	</painting>
+	
+	<building>
+		<name>
+			Empire State Building
+		</name>
+		<city>
+			New York City
+		</city>
+		<country>
+			USA
+		</country>
+		<part>
+			<name>
+				1st Floor
+			</name>
+			<room>
+				<name>
+					Entrance Hall
+				</name>
+				<table>
+				</table>
+			</room>
+			<room>
+				<name>
+					Restroom
+				</name>
+				<table>
+				</table>
+			</room>
+		</part>	
+	</building>	
+	
+	<building>
+		<name>
+			Chrysler Building
+		</name>
+		<city>
+			New York City
+		</city>
+		<country>
+			Unknown
+		</country>		
+	</building>
+	
+	<artist>
+		<name>		
+			Joe Cool
+		</name>
+		<birthyear>
+			1901
+		</birthyear>
+		<deathyear>
+			1900
+		</deathyear>
+	</artist>
+	
+	<artist>
+		<gender>
+			m / f
+		</gender>
+		<deathyear>
+			1950
+		</deathyear>
+	</artist>	
+</data>
+
