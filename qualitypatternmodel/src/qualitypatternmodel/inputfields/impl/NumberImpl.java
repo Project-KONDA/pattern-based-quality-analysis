@@ -184,7 +184,7 @@ public class NumberImpl extends InputValueImpl implements qualitypatternmodel.in
 	
 	@Override 
 	public String myToString() {
-		return "numb " + getValue() + " (" + getShortPatternInternalId() + ")";
+		return "numb " + getShortPatternInternalId() + " " + getValue();
 	}
 
 } //NumberImpl

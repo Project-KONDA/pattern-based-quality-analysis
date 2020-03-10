@@ -28,7 +28,6 @@ import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -68,13 +67,13 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (getGraph() == null)
-			throw new InvalidityException("OperatorList not in Graph");
+			throw new InvalidityException("OperatorList not in Graph (" + getShortPatternInternalId() + ")");
 		if (getGraph().getAllOperators() == null)
-			throw new InvalidityException("invalid Operators of Graph");
+			throw new InvalidityException("invalid Operators of Graph" + "(" + getShortPatternInternalId() + ")");
 
 		EList<Operator> graphOps = getGraph().getAllOperators();
 		if (!(graphOps.containsAll(getOperators()) && getOperators().containsAll(graphOps))) {
-			String msg = "amount of operators in OperatorList not equal to amount of operators used in Graph: \n";
+			String msg = "amount of operators in OperatorList not equal to amount of operators used in Graph (" + getShortPatternInternalId() + "):\n";
 			msg += getOperators();
 			for (Operator op : graphOps) {
 				msg += op.getId();

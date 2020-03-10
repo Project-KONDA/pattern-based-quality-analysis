@@ -1,6 +1,10 @@
+package qualitypatternmodel.translationtests;
 import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.*;
+import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 
 public class test02_return {
@@ -57,6 +61,15 @@ public class test02_return {
 		return_elements.add(return2);
 		
 		return pattern;
+	}
+	
+	public static List<PatternTestPair> getTestPairs(){
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		testPairs.add(new PatternTestPair("MULRET", 	getPatternMultipleReturn(), 		""));
+		testPairs.add(new PatternTestPair("MULRETNEST", getPatternMultipleReturnNested(), 	""));
+		testPairs.add(new PatternTestPair("LATERET", 	getPatternLateReturn(), 			""));
+		// ...
+		return testPairs;		
 	}
 	
 }

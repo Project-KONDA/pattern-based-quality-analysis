@@ -1,8 +1,12 @@
+package qualitypatternmodel.translationtests;
 import java.util.ArrayList;
+import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
+import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.exceptions.*;
 import qualitypatternmodel.graphstructure.Axis;
+import qualitypatternmodel.graphstructure.SingleElement;
 
 //import qualitypatternmodel.patternstructure.*;
 //import qualitypatternmodel.patternstructure.impl.*;
@@ -39,6 +43,8 @@ public class test00 {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
 		patterns.add(getBasePattern());
+		patterns.add(getBasePatternCond());
+		patterns.add(getBasePatternMatch());
 		test00.test(patterns);
 	}
 
@@ -63,5 +69,25 @@ public class test00 {
 		pattern.setCondition(truecondition);
 		
 		return pattern;
+	}
+	
+	public static Pattern getBasePatternCond() {
+		Pattern pattern = getBasePattern();
+		SingleElement se = pattern.getReturnGraph().getReturnElements().get(0);
+		se.addPrimitiveComparison("hallo");
+		return pattern;
+	}
+	
+	public static Pattern getBasePatternMatch() {
+		Pattern pattern = getBasePattern();
+		SingleElement se = pattern.getReturnGraph().getReturnElements().get(0);
+		se.addPrimitiveMatch("hallo");
+		return pattern;
+	}
+	
+	public static List<PatternTestPair> getTestPairs(){
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		testPairs.add(new PatternTestPair("base", getBasePattern(), "/*"));
+		return testPairs;		
 	}
 }

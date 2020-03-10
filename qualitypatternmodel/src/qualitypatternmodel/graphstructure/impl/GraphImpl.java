@@ -193,15 +193,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, MissingPatternContainerException {
 		if (returnElements == null || returnElements.isEmpty())
-			throw new InvalidityException("returnElement empty");
+			throw new InvalidityException("returnElement empty (" + getShortPatternInternalId() + ")");
 		if (operatorList == null)
-			throw new InvalidityException("operatorList null");
+			throw new InvalidityException("operatorList null (" + getShortPatternInternalId() + ")");
 		if (rootElement == null)
-			throw new InvalidityException("rootElement null");
+			throw new InvalidityException("rootElement null (" + getShortPatternInternalId() + ")");
 
 		for (SingleElement returnElement : returnElements) {
 			if (!returnElement.getAncestor(Graph.class).equals(this)) {
-				throw new InvalidityException("returnElement not contained in this graph");
+				throw new InvalidityException("returnElement not contained in this graph (" + getShortPatternInternalId() + ")");
 			}
 		}
 	}
@@ -328,10 +328,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public NotificationChain basicSetRootElement(SingleElement newRootElement, NotificationChain msgs) {
 		getReturnElements().clear();
 		if(getRootElement() != null) {
-			getRootElement().clearPredicatesRecursively();
-			getRootElement().clearMatchRecursively();
-			getRootElement().resetCountOperatorRecursively();
-			getRootElement().clearPropertyRecursively();
+			SingleElementImpl root = (SingleElementImpl) getRootElement();
+			root.clearPredicatesRecursively();
+			root.clearMatchRecursively();
+			root.resetCountOperatorRecursively();
+			root.clearPropertyRecursively();
 		}
 		SingleElement oldRootElement = rootElement;
 		rootElement = newRootElement;
@@ -893,6 +894,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (isReturnGraph())
 			res += "Return-";
 		res += "Graph " + getShortPatternInternalId() + " (";
+		if ( getRootElement() != null)
 		res += "\n. " + getRootElement().myToString().replace("\n", "\n. ");
 		res += getOperatorList().myToString().replace("\n", "\n. ") + ")";
 		return res;

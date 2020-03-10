@@ -39,19 +39,16 @@ import qualitypatternmodel.patternstructure.impl.PatternImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link qualitypatternmodel.inputfields.impl.VariableListImpl#getVariables
- * <em>Variables</em>}</li>
- * <li>{@link qualitypatternmodel.inputfields.impl.VariableListImpl#getPattern
- * <em>Pattern</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.VariableListImpl#getVariables <em>Variables</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.VariableListImpl#getPattern <em>Pattern</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class VariableListImpl extends PatternElementImpl implements VariableList {
 	/**
-	 * The cached value of the '{@link #getVariables() <em>Variables</em>}'
-	 * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getVariables()
 	 * @generated
 	 * @ordered
@@ -60,7 +57,6 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected VariableListImpl() {
@@ -120,7 +116,6 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -130,28 +125,24 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EList<Input> getVariables() {
 		if (variables == null) {
-			variables = new EObjectContainmentWithInverseEList<Input>(Input.class, this,
-					InputfieldsPackage.VARIABLE_LIST__VARIABLES, InputfieldsPackage.INPUT__VARIABLE_LIST);
+			variables = new EObjectContainmentWithInverseEList<Input>(Input.class, this, InputfieldsPackage.VARIABLE_LIST__VARIABLES, InputfieldsPackage.INPUT__VARIABLE_LIST);
 		}
 		return variables;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Pattern getPattern() {
-		if (eContainerFeatureID() != InputfieldsPackage.VARIABLE_LIST__PATTERN)
-			return null;
-		return (Pattern) eInternalContainer();
+		if (eContainerFeatureID() != InputfieldsPackage.VARIABLE_LIST__PATTERN) return null;
+		return (Pattern)eInternalContainer();
 	}
 
 	/**
@@ -183,28 +174,23 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void setPattern(Pattern newPattern) {
-		if (newPattern != eInternalContainer()
-				|| (eContainerFeatureID() != InputfieldsPackage.VARIABLE_LIST__PATTERN && newPattern != null)) {
+		if (newPattern != eInternalContainer() || (eContainerFeatureID() != InputfieldsPackage.VARIABLE_LIST__PATTERN && newPattern != null)) {
 			if (EcoreUtil.isAncestor(this, newPattern))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString() + " ("
-						+ getShortPatternInternalId() + ")");
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPattern != null)
-				msgs = ((InternalEObject) newPattern).eInverseAdd(this, PatternstructurePackage.PATTERN__VARIABLE_LIST,
-						Pattern.class, msgs);
+				msgs = ((InternalEObject)newPattern).eInverseAdd(this, PatternstructurePackage.PATTERN__VARIABLE_LIST, Pattern.class, msgs);
 			msgs = basicSetPattern(newPattern, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.VARIABLE_LIST__PATTERN, newPattern,
-					newPattern));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.VARIABLE_LIST__PATTERN, newPattern, newPattern));
 	}
 
 	/**
@@ -220,135 +206,126 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getVariables()).basicAdd(otherEnd, msgs);
-		case InputfieldsPackage.VARIABLE_LIST__PATTERN:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetPattern((Pattern) otherEnd, msgs);
+			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getVariables()).basicAdd(otherEnd, msgs);
+			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPattern((Pattern)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-			return ((InternalEList<?>) getVariables()).basicRemove(otherEnd, msgs);
-		case InputfieldsPackage.VARIABLE_LIST__PATTERN:
-			return basicSetPattern(null, msgs);
+			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
+				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
+			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+				return basicSetPattern(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-		case InputfieldsPackage.VARIABLE_LIST__PATTERN:
-			return eInternalContainer().eInverseRemove(this, PatternstructurePackage.PATTERN__VARIABLE_LIST,
-					Pattern.class, msgs);
+			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.PATTERN__VARIABLE_LIST, Pattern.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-			return getVariables();
-		case InputfieldsPackage.VARIABLE_LIST__PATTERN:
-			return getPattern();
+			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
+				return getVariables();
+			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+				return getPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-			getVariables().clear();
-			getVariables().addAll((Collection<? extends Input>) newValue);
-			return;
-		case InputfieldsPackage.VARIABLE_LIST__PATTERN:
-			setPattern((Pattern) newValue);
-			return;
+			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
+				getVariables().clear();
+				getVariables().addAll((Collection<? extends Input>)newValue);
+				return;
+			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+				setPattern((Pattern)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-			getVariables().clear();
-			return;
-		case InputfieldsPackage.VARIABLE_LIST__PATTERN:
-			setPattern((Pattern) null);
-			return;
+			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
+				getVariables().clear();
+				return;
+			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+				setPattern((Pattern)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-			return variables != null && !variables.isEmpty();
-		case InputfieldsPackage.VARIABLE_LIST__PATTERN:
-			return getPattern() != null;
+			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
+				return variables != null && !variables.isEmpty();
+			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+				return getPattern() != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case InputfieldsPackage.VARIABLE_LIST___ADD__INPUT:
-			add((Input) arguments.get(0));
-			return null;
+			case InputfieldsPackage.VARIABLE_LIST___ADD__INPUT:
+				add((Input)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

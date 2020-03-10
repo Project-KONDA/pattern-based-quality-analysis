@@ -1,6 +1,9 @@
+package qualitypatternmodel.translationtests;
 import java.util.ArrayList;
+import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
+import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.inputfields.*;
 import qualitypatternmodel.functions.*;
@@ -21,8 +24,8 @@ public class test05_quantorcombinations_cond {
 
 	public static Pattern getPatternExistsInExistsCond() {
 		// Factory
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+//		PatternstructurePackage.eINSTANCE.eClass();
+//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		FunctionsPackage.eINSTANCE.eClass();
@@ -40,7 +43,8 @@ public class test05_quantorcombinations_cond {
 		SingleElement se = graph.getRootElement().getNextSingle().get(0).getNextSingle().get(0).getNextSingle().get(0);
 		Property prop = graphFactory.createProperty();
 		se.getProperties().add(prop);
-//		prop.getAttributeName().setValue("abc");
+		prop.getPropertyOption().setValue(PropertyLocation.ATTRIBUTE);
+		prop.getAttributeName().setValue("abc"); // not needed, only for better visibility in textual representation
 		
 		// Comparison
 		Comparison comp = functionFactory.createComparison();
@@ -71,6 +75,16 @@ public class test05_quantorcombinations_cond {
 		Pattern pattern = getPatternForallInExistsCond();
 		((QuantifiedCondition) pattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		return pattern;
+	}
+	public static List<PatternTestPair> getTestPairs(){
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		
+		testPairs.add(new PatternTestPair("EXEXCON", 	getPatternExistsInExistsCond(), ""));
+		testPairs.add(new PatternTestPair("EXFACON", 	getPatternForallInExistsCond(), ""));
+		testPairs.add(new PatternTestPair("FAEXCON", 	getPatternExistsInForallCond(), ""));
+		testPairs.add(new PatternTestPair("FAFACON", 	getPatternForallInForallCond(), ""));
+	
+		return testPairs;		
 	}
 	
 }

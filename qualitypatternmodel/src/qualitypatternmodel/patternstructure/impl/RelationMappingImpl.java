@@ -53,7 +53,7 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public RelationMappingImpl() {
 		super();

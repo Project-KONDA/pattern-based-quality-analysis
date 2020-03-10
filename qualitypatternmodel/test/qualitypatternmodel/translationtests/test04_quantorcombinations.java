@@ -1,6 +1,9 @@
+package qualitypatternmodel.translationtests;
 import java.util.ArrayList;
+import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
+import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.exceptions.*;
 
@@ -9,9 +12,9 @@ public class test04_quantorcombinations {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-//		patterns.add(getPatternExistsInExists());
+		patterns.add(getPatternExistsInExists());
 		patterns.add(getPatternForallInExists());
-//		patterns.add(getPatternExistsInForall());
+		patterns.add(getPatternExistsInForall());
 		patterns.add(getPatternForallInForall());
 
 		test00.test(patterns);
@@ -55,6 +58,16 @@ public class test04_quantorcombinations {
 		Pattern pattern = getPatternForallInExists();
 		((QuantifiedCondition) pattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		return pattern;
+	}
+	public static List<PatternTestPair> getTestPairs(){
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+
+		testPairs.add(new PatternTestPair("EXEX", 	getPatternExistsInExists(), ""));
+		testPairs.add(new PatternTestPair("EXFA", 	getPatternForallInExists(), ""));
+		testPairs.add(new PatternTestPair("FAEX", 	getPatternExistsInForall(), ""));
+		testPairs.add(new PatternTestPair("FAFA", 	getPatternForallInForall(), ""));
+		
+		return testPairs;		
 	}
 	
 }

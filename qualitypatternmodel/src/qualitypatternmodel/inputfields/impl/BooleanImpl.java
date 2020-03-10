@@ -88,6 +88,11 @@ public class BooleanImpl extends InputValueImpl implements qualitypatternmodel.i
 		return ReturnType.BOOLEAN;
 	}
 	
+	@Override
+	public boolean inputIsValid() {
+		return getValue() || !getValue();
+	}
+	
 
 
 	/**
@@ -312,7 +317,7 @@ public class BooleanImpl extends InputValueImpl implements qualitypatternmodel.i
 	
 	@Override 
 	public String myToString() {
-		return "bool " + getValue();
+		return "bool " + getShortPatternInternalId() + " " + getValue();
 	}
 
 } //BooleanImpl
