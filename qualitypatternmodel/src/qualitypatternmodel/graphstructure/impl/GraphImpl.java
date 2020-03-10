@@ -193,15 +193,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, MissingPatternContainerException {
 		if (returnElements == null || returnElements.isEmpty())
-			throw new InvalidityException("returnElement empty");
+			throw new InvalidityException("returnElement empty (" + getShortPatternInternalId() + ")");
 		if (operatorList == null)
-			throw new InvalidityException("operatorList null");
+			throw new InvalidityException("operatorList null (" + getShortPatternInternalId() + ")");
 		if (rootElement == null)
-			throw new InvalidityException("rootElement null");
+			throw new InvalidityException("rootElement null (" + getShortPatternInternalId() + ")");
 
 		for (SingleElement returnElement : returnElements) {
 			if (!returnElement.getAncestor(Graph.class).equals(this)) {
-				throw new InvalidityException("returnElement not contained in this graph");
+				throw new InvalidityException("returnElement not contained in this graph (" + getShortPatternInternalId() + ")");
 			}
 		}
 	}

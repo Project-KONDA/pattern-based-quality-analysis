@@ -40,7 +40,7 @@ public class test05_quantorcombinations_cond {
 		SingleElement se = graph.getRootElement().getNextSingle().get(0).getNextSingle().get(0).getNextSingle().get(0);
 		Property prop = graphFactory.createProperty();
 		se.getProperties().add(prop);
-//		prop.getAttributeName().setValue("abc");
+		prop.getAttributeName().setValue("abc"); // not needed, only for better visibility in textual representation
 		
 		// Comparison
 		Comparison comp = functionFactory.createComparison();
