@@ -4,39 +4,23 @@
 xsi:noNamespaceSchemaLocation="testdata.xsd">
 
 	<painting>
-		<name>
-			A Hint of Nothing
-		</name>
-		<creator>
-			John Doe
-		</creator>		
+		<name>A Hint of Nothing</name>
+		<creator>John Doe</creator>		
 	</painting>
 	
 	<building>
-		<name>
-			Empire State Building
-		</name>
-		<city>
-			New York City
-		</city>
-		<country>
-			USA
-		</country>
+		<name>Empire State Building</name>
+		<city>New York City</city>
+		<country>USA</country>
 		<part>
-			<name>
-				1st Floor
-			</name>
+			<name>1st Floor</name>
 			<room>
-				<name>
-					Entrance Hall
-				</name>
+				<name>Entrance Hall</name>
 				<table>
 				</table>
 			</room>
 			<room>
-				<name>
-					Restroom
-				</name>
+				<name>Restroom</name>
 				<table>
 				</table>
 			</room>
@@ -44,36 +28,20 @@ xsi:noNamespaceSchemaLocation="testdata.xsd">
 	</building>	
 	
 	<building>
-		<name>
-			Chrysler Building
-		</name>
-		<city>
-			New York City
-		</city>
-		<country>
-			Unknown
-		</country>		
+		<name>Chrysler Building</name>
+		<city>New York City</city>
+		<country>Unknown</country>		
 	</building>
 	
 	<artist>
-		<name>		
-			Joe Cool
-		</name>
-		<birthyear>
-			1901
-		</birthyear>
-		<deathyear>
-			1900
-		</deathyear>
+		<name>Joe Cool</name>
+		<birthyear>1901</birthyear>
+		<deathyear>1900</deathyear>
 	</artist>
 	
 	<artist>
-		<gender>
-			m / f
-		</gender>
-		<deathyear>
-			1950
-		</deathyear>
+		<gender>m / f</gender>
+		<deathyear>1950</deathyear>
 	</artist>	
 </data>
 

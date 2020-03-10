@@ -275,11 +275,15 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 					Graph nextGraph = mapping.getMorphism().getTo();
 					nextGraph.getReturnElements().add(newElementInNextGraph);
 				}
-				SingleElementMapping newNextElementMapping = new SingleElementMappingImpl(nextElement, newElementInNextGraph);	
+				SingleElementMapping newNextElementMapping = new SingleElementMappingImpl();	
 				mapping.getMorphism().getMappings().add(newNextElementMapping);
+				newNextElementMapping.setFrom(nextElement);
+				newNextElementMapping.setTo(newElementInNextGraph);
 				if(nextElement.getRelationFromPrevious() != null) {
-					RelationMapping newRelationMapping = new RelationMappingImpl(nextElement.getRelationFromPrevious(), newElementInNextGraph.getRelationFromPrevious());	
+					RelationMapping newRelationMapping = new RelationMappingImpl();	
 					mapping.getMorphism().getMappings().add(newRelationMapping);	
+					newRelationMapping.setFrom(nextElement.getRelationFromPrevious());
+					newRelationMapping.setTo(newElementInNextGraph.getRelationFromPrevious());
 				}
 			}
 			nextElement.copyNextElementsToNextGraphs(); 
@@ -293,9 +297,10 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	 */
 	@Override
 	public void removeElementFromPreviousGraphs() {
-		getMappingFrom().getFrom().setPrevious(null);
-		getMappingFrom().getFrom().setRoot(null);
-		getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
+		SingleElement correspondingPreviousElement = getMappingFrom().getFrom();
+		correspondingPreviousElement.setPrevious(null);
+		correspondingPreviousElement.setRoot(null);
+//		getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
 		EList<SingleElement> nextSingleElementsCopy = new BasicEList<SingleElement>();
 		nextSingleElementsCopy.addAll(getNextSingle());		
 		for(SingleElement singleElement : nextSingleElementsCopy) {
@@ -317,11 +322,15 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		SingleElementMapping mapping = getMappingFrom();						
 		SingleElement sourceElement = mapping.getFrom();
 		sourceElement.getNextSingle().add(newElementInPreviousGraph);
-		SingleElementMapping newNextElementMapping = new SingleElementMappingImpl(newElementInPreviousGraph, nextElement);	
+		SingleElementMapping newNextElementMapping = new SingleElementMappingImpl();	
 		mapping.getMorphism().getMappings().add(newNextElementMapping);
+		newNextElementMapping.setFrom(newElementInPreviousGraph);
+		newNextElementMapping.setTo(nextElement);
 		if(nextElement.getRelationFromPrevious() != null) {
-			RelationMapping newRelationMapping = new RelationMappingImpl(newElementInPreviousGraph.getRelationFromPrevious(), nextElement.getRelationFromPrevious());	
+			RelationMapping newRelationMapping = new RelationMappingImpl();	
 			mapping.getMorphism().getMappings().add(newRelationMapping);	
+			newRelationMapping.setFrom(newElementInPreviousGraph.getRelationFromPrevious());
+			newRelationMapping.setTo(nextElement.getRelationFromPrevious());
 		}			
 		nextElement.copyNextElementsToPreviousGraphs(recursive); 
 		if(recursive) {

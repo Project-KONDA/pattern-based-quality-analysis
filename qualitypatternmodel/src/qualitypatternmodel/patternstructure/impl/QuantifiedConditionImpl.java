@@ -183,7 +183,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public NotificationChain basicSetQuantifiedcondition(QuantifiedCondition newQuantifiedcondition,
 			NotificationChain msgs) {
 		getMorphism().setFrom(null);
-		getMorphism().setTo(null);
+		getMorphism().setTo(getGraph());
 		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetQuantifiedcondition(newQuantifiedcondition, msgs);
 		if (newQuantifiedcondition != null) {
@@ -201,7 +201,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public NotificationChain basicSetFormula1(Formula newFormula1, NotificationChain msgs) {
 		getMorphism().setFrom(null);
-		getMorphism().setTo(null);
+		getMorphism().setTo(getGraph());
 		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetFormula1(newFormula1, msgs);
 		if (newFormula1 != null) {
@@ -219,7 +219,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public NotificationChain basicSetFormula2(Formula newFormula2, NotificationChain msgs) {
 		getMorphism().setFrom(null);
-		getMorphism().setTo(null);
+		getMorphism().setTo(getGraph());
 		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetFormula1(newFormula2, msgs);
 		if (newFormula2 != null) {
@@ -237,7 +237,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
 		getMorphism().setFrom(null);
-		getMorphism().setTo(null);
+		getMorphism().setTo(getGraph());
 		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetPattern(newPattern, msgs);
 		if (newPattern != null) {
@@ -414,7 +414,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
 		if (getMorphism() != null) {
 			getMorphism().setFrom(null);
-			getMorphism().setTo(null);
+			getMorphism().setTo(getGraph());
 		}
 		Morphism oldMorphism = morphism;
 		morphism = newMorphism;
