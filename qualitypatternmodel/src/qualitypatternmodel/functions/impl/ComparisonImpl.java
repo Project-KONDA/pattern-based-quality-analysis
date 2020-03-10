@@ -321,10 +321,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			
 			if(getOption() == null) {
 				CompOption compOption = new CompOptionImpl();			
-				pattern.getVariableList().getVariables().add(compOption);
+				pattern.getVariableList().add(compOption);
 				setOption(compOption);			
 			} else {
-				pattern.getVariableList().getVariables().add(getOption());
+				pattern.getVariableList().add(getOption());
 			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block

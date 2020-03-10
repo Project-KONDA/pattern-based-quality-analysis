@@ -196,17 +196,17 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			
 			if(getPropertyOption() == null) {
 				PropertyOption propertyOption = new PropertyOptionImpl();			
-				pattern.getVariableList().getVariables().add(propertyOption);
+				pattern.getVariableList().add(propertyOption);
 				setPropertyOption(propertyOption);
 			} else {
-				pattern.getVariableList().getVariables().add(getPropertyOption());
+				pattern.getVariableList().add(getPropertyOption());
 			}
 			if(getAttributeName() == null) {
 				TextLiteral textLiteral = new TextLiteralImpl();
-				pattern.getVariableList().getVariables().add(textLiteral);
+				pattern.getVariableList().add(textLiteral);
 				setAttributeName(textLiteral);
 			} else {
-				pattern.getVariableList().getVariables().add(getAttributeName());
+				pattern.getVariableList().add(getAttributeName());
 			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block

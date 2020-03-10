@@ -164,17 +164,17 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			
 			if(getOption() == null) {
 				Boolean bool = new BooleanImpl();			
-				pattern.getVariableList().getVariables().add(bool);
+				pattern.getVariableList().add(bool);
 				setOption(bool);
 			} else {
-				pattern.getVariableList().getVariables().add(getOption());
+				pattern.getVariableList().add(getOption());
 			}
 			if(getRegularExpression() == null) {
 				TextLiteral textLiteral = new TextLiteralImpl();
-				pattern.getVariableList().getVariables().add(textLiteral);
+				pattern.getVariableList().add(textLiteral);
 				setRegularExpression(textLiteral);
 			} else {
-				pattern.getVariableList().getVariables().add(getRegularExpression());
+				pattern.getVariableList().add(getRegularExpression());
 			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
