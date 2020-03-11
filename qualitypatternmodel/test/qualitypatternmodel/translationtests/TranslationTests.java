@@ -37,7 +37,7 @@ public class TranslationTests {
 		testPairs.addAll(Test03Quantor.getTestPairs());
 		testPairs.addAll(Test04QuantorCombinations.getTestPairs());
 		testPairs.addAll(Test05QuantorCombinationsCond.getTestPairs());
-		testPairs.addAll(Test06Not.getTestPairs());
+		testPairs.addAll(Test06NotElement.getTestPairs());
 		
 		for(PatternTestPair testPair : testPairs) {
 			runTestQueryResultComparison(testPair);

@@ -337,7 +337,7 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/LogicalOperator/OR"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/LogicalOperator/IMPLIES"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/LogicalOperator/XOR"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/LogicalOperator/EQUIVALENT"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/LogicalOperator/EQUAL"/>
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//patternstructure/Quantifier">
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Quantifier/EXISTS"/>

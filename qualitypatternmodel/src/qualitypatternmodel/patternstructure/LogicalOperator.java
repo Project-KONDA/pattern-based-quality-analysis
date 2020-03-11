@@ -60,14 +60,14 @@ public enum LogicalOperator implements Enumerator {
 	XOR(4, "XOR", "xor"),
 
 	/**
-	 * The '<em><b>EQUIVALENT</b></em>' literal object.
+	 * The '<em><b>EQUAL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EQUIVALENT_VALUE
+	 * @see #EQUAL_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	EQUIVALENT(5, "EQUIVALENT", "EQUIVALENT");
+	EQUAL(5, "EQUAL", "EQUAL");
 
 	/**
 	 * The '<em><b>AND</b></em>' literal value.
@@ -114,15 +114,15 @@ public enum LogicalOperator implements Enumerator {
 	public static final int XOR_VALUE = 4;
 
 	/**
-	 * The '<em><b>EQUIVALENT</b></em>' literal value.
+	 * The '<em><b>EQUAL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EQUIVALENT
+	 * @see #EQUAL
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EQUIVALENT_VALUE = 5;
+	public static final int EQUAL_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Logical Operator</b></em>' enumerators.
@@ -136,7 +136,7 @@ public enum LogicalOperator implements Enumerator {
 			OR,
 			IMPLIES,
 			XOR,
-			EQUIVALENT,
+			EQUAL,
 		};
 
 	/**
@@ -197,7 +197,7 @@ public enum LogicalOperator implements Enumerator {
 			case OR_VALUE: return OR;
 			case IMPLIES_VALUE: return IMPLIES;
 			case XOR_VALUE: return XOR;
-			case EQUIVALENT_VALUE: return EQUIVALENT;
+			case EQUAL_VALUE: return EQUAL;
 		}
 		return null;
 	}

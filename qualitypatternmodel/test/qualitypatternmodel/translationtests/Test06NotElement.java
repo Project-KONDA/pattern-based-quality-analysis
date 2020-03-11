@@ -16,7 +16,7 @@ import qualitypatternmodel.functions.impl.*;
 import qualitypatternmodel.inputfields.*;
 import qualitypatternmodel.inputfields.impl.*;
 
-public class Test06Not {
+public class Test06NotElement {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 

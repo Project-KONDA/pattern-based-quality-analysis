@@ -113,7 +113,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 						+ condition2.toXQuery(location) + "))" + Constants.OR + "((" + condition.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
 						+ condition2.toXQuery(location) + "))";
 						break;
-					case EQUIVALENT:
+					case EQUAL:
 						result = "(" + Constants.NOT + "(" + condition.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
 						+ condition2.toXQuery(location) + "))" + Constants.OR + "((" + condition.toXQuery(location) + ")" + Constants.AND + "("
 						+ condition2.toXQuery(location) + "))";			
@@ -428,8 +428,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	
 	@Override
 	public String myToString() {
-		String res = "(\n  " + getCondition().myToString().replace("\n", "\n  ") 
-				+ "\n)" + getOperator().getLiteral() + " " + getInternalId() + " (\n  " + getCondition2().myToString().replace("\n", "\n  ") + "\n)";
+		String res = "(\n. " + getCondition().myToString().replace("\n", "\n. ") 
+				+ "\n)" + getOperator().getLiteral() + " " + getInternalId() + " (\n. " + getCondition2().myToString().replace("\n", "\n. ") + "\n)";
 		return res;
 	}
 	

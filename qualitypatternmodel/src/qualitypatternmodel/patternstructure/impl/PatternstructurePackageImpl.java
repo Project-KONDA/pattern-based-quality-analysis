@@ -1208,7 +1208,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.OR);
 		addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.IMPLIES);
 		addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.XOR);
-		addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.EQUIVALENT);
+		addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.EQUAL);
 
 		initEEnum(quantifierEEnum, Quantifier.class, "Quantifier");
 		addEEnumLiteral(quantifierEEnum, Quantifier.EXISTS);
