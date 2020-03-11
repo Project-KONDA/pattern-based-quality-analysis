@@ -67,14 +67,14 @@ public interface PropertyOption extends Input {
 
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getPropertyOption <em>Property Option</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property</em>' reference.
 	 * @see #setProperty(Property)
 	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getPropertyOption_Property()
-	 * @see qualitypatternmodel.graphstructure.Property#getPropertyOption
-	 * @model opposite="propertyOption"
+	 * @see qualitypatternmodel.graphstructure.Property#getOption
+	 * @model opposite="option"
 	 * @generated
 	 */
 	Property getProperty();

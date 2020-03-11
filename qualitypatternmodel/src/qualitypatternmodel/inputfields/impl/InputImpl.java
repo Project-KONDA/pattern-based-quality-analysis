@@ -252,9 +252,9 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override	
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (getVariableList() == null)
-			throw new InvalidityException("variableList null" + " (" + getShortPatternInternalId() + ")" );
+			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")" );
 		if ((isDefinedPattern && !inputIsValid()))
-			throw new InvalidityException("input missing or invalid" + " (" + getShortPatternInternalId() + ")" );
+			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")" );
 	}
 
 	/**

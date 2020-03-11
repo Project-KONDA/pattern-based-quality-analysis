@@ -105,7 +105,7 @@ public class OperatorItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Operator operator = (Operator) object;
-		return getString("_UI_Operator_type") + " " + operator.getShortPatternInternalId();		
+		return getString("_UI_Operator_type") + " " + operator.getInternalId();		
 	}
 
 

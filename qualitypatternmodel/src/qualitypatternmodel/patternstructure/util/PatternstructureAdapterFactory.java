@@ -95,8 +95,8 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 				return createFormulaAdapter();
 			}
 			@Override
-			public Adapter caseTrue(True object) {
-				return createTrueAdapter();
+			public Adapter caseTrueElement(TrueElement object) {
+				return createTrueElementAdapter();
 			}
 			@Override
 			public Adapter casePattern(Pattern object) {
@@ -107,8 +107,8 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 				return createPatternElementAdapter();
 			}
 			@Override
-			public Adapter caseNot(Not object) {
-				return createNotAdapter();
+			public Adapter caseNotElement(NotElement object) {
+				return createNotElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -229,16 +229,16 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.True <em>True</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.TrueElement <em>True Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.True
+	 * @see qualitypatternmodel.patternstructure.TrueElement
 	 * @generated
 	 */
-	public Adapter createTrueAdapter() {
+	public Adapter createTrueElementAdapter() {
 		return null;
 	}
 
@@ -271,16 +271,16 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.Not <em>Not</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.NotElement <em>Not Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.Not
+	 * @see qualitypatternmodel.patternstructure.NotElement
 	 * @generated
 	 */
-	public Adapter createNotAdapter() {
+	public Adapter createNotElementAdapter() {
 		return null;
 	}
 

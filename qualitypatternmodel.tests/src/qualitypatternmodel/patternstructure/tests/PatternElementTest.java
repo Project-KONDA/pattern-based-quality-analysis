@@ -20,8 +20,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValidLocal(boolean) <em>Is Valid Local</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class) <em>Get Ancestor</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}</li>
  * </ul>
  * </p>
  * @generated

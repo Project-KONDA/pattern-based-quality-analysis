@@ -60,7 +60,7 @@ public interface Condition extends PatternElement {
 	 * @return the value of the '<em>Get Next Quantified Conditions</em>' reference list.
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_GetNextQuantifiedConditions()
 	 * @model changeable="false" volatile="true" derived="true" ordered="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\n\t\t\t\tif self.oclIsTypeOf(QuantifiedCondition) then \n\t\t\t\t\tSet{self.oclAsType(QuantifiedCondition)}\n\t\t\t\telse \n\t\t\t\t\tif self.oclIsTypeOf(Formula) then \t\t\t\t\t\n\t\t\t\t\t\tif(self.oclAsType(Formula).argument2-&gt;notEmpty()) then\n\t\t\t\t\t\t\tself.oclAsType(Formula).argument1.getNextQuantifiedConditions-&gt;union(self.oclAsType(Formula).argument2.getNextQuantifiedConditions)\t\t\t\t\t\t\t\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tself.oclAsType(Formula).argument1.getNextQuantifiedConditions\n\t\t\t\t\t\tendif\n\t\t\t\t\telse \n\t\t\t\t\t\tSet{}\n\t\t\t\t\tendif\n\t\t\t\tendif'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\n\t\t\t\tif self.oclIsTypeOf(QuantifiedCondition) then \n\t\t\t\t\tSet{self.oclAsType(QuantifiedCondition)}\n\t\t\t\telse \n\t\t\t\t\tif self.oclIsTypeOf(Formula) then \t\t\t\t\t\n\t\t\t\t\t\tif(self.oclAsType(Formula).condition2-&gt;notEmpty()) then\n\t\t\t\t\t\t\tself.oclAsType(Formula).condition.getNextQuantifiedConditions-&gt;union(self.oclAsType(Formula).condition2.getNextQuantifiedConditions)\t\t\t\t\t\t\t\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tself.oclAsType(Formula).condition.getNextQuantifiedConditions\n\t\t\t\t\t\tendif\n\t\t\t\t\telse \n\t\t\t\t\t\tSet{}\n\t\t\t\t\tendif\n\t\t\t\tendif'"
 	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
 	 */
@@ -116,14 +116,14 @@ public interface Condition extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Formula1</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Formula#getArgument1 <em>Argument1</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Formula#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Formula1</em>' container reference.
 	 * @see #setFormula1(Formula)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_Formula1()
-	 * @see qualitypatternmodel.patternstructure.Formula#getArgument1
-	 * @model opposite="argument1" transient="false"
+	 * @see qualitypatternmodel.patternstructure.Formula#getCondition
+	 * @model opposite="condition" transient="false"
 	 * @generated
 	 */
 	Formula getFormula1();
@@ -140,14 +140,14 @@ public interface Condition extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Formula2</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Formula#getArgument2 <em>Argument2</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Formula#getCondition2 <em>Condition2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Formula2</em>' container reference.
 	 * @see #setFormula2(Formula)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_Formula2()
-	 * @see qualitypatternmodel.patternstructure.Formula#getArgument2
-	 * @model opposite="argument2" transient="false"
+	 * @see qualitypatternmodel.patternstructure.Formula#getCondition2
+	 * @model opposite="condition2" transient="false"
 	 * @generated
 	 */
 	Formula getFormula2();
@@ -164,17 +164,17 @@ public interface Condition extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Not</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Not#getArgument <em>Argument</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.NotElement#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Not</em>' container reference.
-	 * @see #setNot(Not)
+	 * @see #setNot(NotElement)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_Not()
-	 * @see qualitypatternmodel.patternstructure.Not#getArgument
-	 * @model opposite="argument" transient="false"
+	 * @see qualitypatternmodel.patternstructure.NotElement#getCondition
+	 * @model opposite="condition" transient="false"
 	 * @generated
 	 */
-	Not getNot();
+	NotElement getNot();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Condition#getNot <em>Not</em>}' container reference.
@@ -184,5 +184,5 @@ public interface Condition extends PatternElement {
 	 * @see #getNot()
 	 * @generated
 	 */
-	void setNot(Not value);
+	void setNot(NotElement value);
 } // Condition

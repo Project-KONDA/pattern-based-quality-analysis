@@ -112,7 +112,7 @@ public class SingleElementMappingItemProvider extends MappingItemProvider {
 	@Override
 	public String getText(Object object) {
 		SingleElementMapping singleElementMapping = (SingleElementMapping) object;
-		String text = getString("_UI_SingleElementMapping_type") + " " + singleElementMapping.getShortPatternInternalId();		
+		String text = getString("_UI_SingleElementMapping_type") + " " + singleElementMapping.getInternalId();		
 //		if(singleElementMapping.getFrom() != null) {
 //			text += " from " + getString("_UI_SingleElement_type") + " " + singleElementMapping.getFrom().getRefNo();
 //		}

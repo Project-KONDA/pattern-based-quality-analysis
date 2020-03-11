@@ -111,7 +111,7 @@ public class RelationMappingItemProvider extends MappingItemProvider {
 	@Override
 	public String getText(Object object) {
 		RelationMapping relationMapping = (RelationMapping) object;
-		String text = getString("_UI_RelationMapping_type") + " " + relationMapping.getShortPatternInternalId();		
+		String text = getString("_UI_RelationMapping_type") + " " + relationMapping.getInternalId();		
 //		if(relationMapping.getFrom() != null) {
 //			text += " from " + getString("_UI_Relation_type") + " " + relationMapping.getFrom().getRefNo();
 //		}

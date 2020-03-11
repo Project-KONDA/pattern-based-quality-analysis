@@ -5,25 +5,29 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import qualitypatternmodel.patternstructure.NotElement;
+import qualitypatternmodel.patternstructure.TrueElement;
+
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.True} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.TrueElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TrueItemProvider extends ConditionItemProvider {
+public class TrueElementItemProvider extends ConditionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TrueItemProvider(AdapterFactory adapterFactory) {
+	public TrueElementItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -43,14 +47,14 @@ public class TrueItemProvider extends ConditionItemProvider {
 	}
 
 	/**
-	 * This returns True.gif.
+	 * This returns TrueElement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/True"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrueElement"));
 	}
 
 	/**
@@ -61,7 +65,14 @@ public class TrueItemProvider extends ConditionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_True_type");	
+		TrueElement trueelem = (TrueElement) object;
+		String text = "True " + trueelem.getInternalId();
+//		String text = getString("_UI_TrueElement_type") + " " + trueelem.getInternalId();
+		return text;
+//		String label = ((TrueElement)object).getId();
+//		return label == null || label.length() == 0 ?
+//			getString("_UI_TrueElement_type") :
+//			getString("_UI_TrueElement_type") + " " + label;
 	}
 
 

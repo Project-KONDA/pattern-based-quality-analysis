@@ -36,7 +36,7 @@ import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl#getId <em>Id</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl#getShortPatternInternalId <em>Short Pattern Internal Id</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl#getInternalId <em>Internal Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,23 +62,23 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	protected String id = EcoreUtil.generateUUID();
 
 	/**
-	 * The default value of the '{@link #getShortPatternInternalId() <em>Short Pattern Internal Id</em>}' attribute.
+	 * The default value of the '{@link #getInternalId() <em>Internal Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getShortPatternInternalId()
+	 * @see #getInternalId()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int SHORT_PATTERN_INTERNAL_ID_EDEFAULT = -1;
+	protected static final int INTERNAL_ID_EDEFAULT = -1;
 	/**
-	 * The cached value of the '{@link #getShortPatternInternalId() <em>Ref No</em>}' attribute. <!--
+	 * The cached value of the '{@link #getInternalId() <em>Ref No</em>}' attribute. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getShortPatternInternalId()
+	 * @see #getInternalId()
 	 * @generated
 	 * @ordered
 	 */
-	protected int shortPatternInternalId = SHORT_PATTERN_INTERNAL_ID_EDEFAULT;
+	protected int internalId = INTERNAL_ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -230,11 +230,11 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public void setShortPatternInternalId(int newShortPatternInternalId) {
-		int oldShortPatternInternalId = shortPatternInternalId;
-		shortPatternInternalId = newShortPatternInternalId;
+	public void setInternalId(int newInternalId) {
+		int oldInternalId = internalId;
+		internalId = newInternalId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID, oldShortPatternInternalId, shortPatternInternalId));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID, oldInternalId, internalId));
 	}
 
 	/**
@@ -243,17 +243,17 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	@Override
-	public int getShortPatternInternalId() {
-		if (shortPatternInternalId == -1) {
+	public int getInternalId() {
+		if (internalId == -1) {
 				try {
-					shortPatternInternalId = ((PatternImpl) this.getAncestor(PatternImpl.class)).getNewRefNo();
+					internalId = ((PatternImpl) this.getAncestor(PatternImpl.class)).getNewRefNo();
 				} catch (MissingPatternContainerException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
 		}
-		return shortPatternInternalId;
+		return internalId;
 	}
 
 	/**
@@ -272,8 +272,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
 				return getId();
-			case PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID:
-				return getShortPatternInternalId();
+			case PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID:
+				return getInternalId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -288,8 +288,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
 				setId((String)newValue);
 				return;
-			case PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID:
-				setShortPatternInternalId((Integer)newValue);
+			case PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID:
+				setInternalId((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -305,8 +305,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID:
-				setShortPatternInternalId(SHORT_PATTERN_INTERNAL_ID_EDEFAULT);
+			case PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID:
+				setInternalId(INTERNAL_ID_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -321,8 +321,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID:
-				return shortPatternInternalId != SHORT_PATTERN_INTERNAL_ID_EDEFAULT;
+			case PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID:
+				return internalId != INTERNAL_ID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -382,10 +382,10 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP:
-				return validate((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 			case PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING:
 				return myToString();
+			case PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP:
+				return validate((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -401,8 +401,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (id: ");
 		result.append(id);
-		result.append(", shortPatternInternalId: ");
-		result.append(shortPatternInternalId);
+		result.append(", internalId: ");
+		result.append(internalId);
 		result.append(')');
 		return result.toString();
 	}

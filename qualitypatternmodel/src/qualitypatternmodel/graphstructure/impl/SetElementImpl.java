@@ -179,7 +179,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	
 	@Override
 	public int getOriginalID() {
-		return this.getShortPatternInternalId();		
+		return this.getInternalId();		
 	}
 	
 	/**

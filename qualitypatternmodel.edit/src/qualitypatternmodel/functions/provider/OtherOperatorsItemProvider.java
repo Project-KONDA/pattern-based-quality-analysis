@@ -52,7 +52,7 @@ public class OtherOperatorsItemProvider extends OperatorItemProvider {
 	@Override
 	public String getText(Object object) {
 		OtherOperators otherOperator = (OtherOperators) object;
-		return getString("_UI_OtherOperators_type") + " " + otherOperator.getShortPatternInternalId();			
+		return getString("_UI_OtherOperators_type") + " " + otherOperator.getInternalId();			
 	}
 
 

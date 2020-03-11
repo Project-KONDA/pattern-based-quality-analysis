@@ -788,7 +788,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public int getOriginalID() {
 		if (mappingFrom == null)
-			return this.getShortPatternInternalId();
+			return this.getInternalId();
 		else
 			return mappingFrom.getFrom().getOriginalID();
 	}

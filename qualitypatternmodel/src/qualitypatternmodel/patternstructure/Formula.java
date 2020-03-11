@@ -13,8 +13,8 @@ package qualitypatternmodel.patternstructure;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Formula#getOperator <em>Operator</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Formula#getArgument1 <em>Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Formula#getArgument2 <em>Argument2</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Formula#getCondition <em>Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Formula#getCondition2 <em>Condition2</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula()
@@ -48,51 +48,51 @@ public interface Formula extends Condition {
 	void setOperator(LogicalOperator value);
 
 	/**
-	 * Returns the value of the '<em><b>Argument1</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Condition#getFormula1 <em>Formula1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Argument1</em>' containment reference.
-	 * @see #setArgument1(Condition)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula_Argument1()
+	 * @return the value of the '<em>Condition</em>' containment reference.
+	 * @see #setCondition(Condition)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula_Condition()
 	 * @see qualitypatternmodel.patternstructure.Condition#getFormula1
 	 * @model opposite="formula1" containment="true" required="true"
 	 * @generated
 	 */
-	Condition getArgument1();
+	Condition getCondition();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Formula#getArgument1 <em>Argument1</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Formula#getCondition <em>Condition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Argument1</em>' containment reference.
-	 * @see #getArgument1()
+	 * @param value the new value of the '<em>Condition</em>' containment reference.
+	 * @see #getCondition()
 	 * @generated
 	 */
-	void setArgument1(Condition value);
+	void setCondition(Condition value);
 
 	/**
-	 * Returns the value of the '<em><b>Argument2</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Condition2</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Condition#getFormula2 <em>Formula2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Argument2</em>' containment reference.
-	 * @see #setArgument2(Condition)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula_Argument2()
+	 * @return the value of the '<em>Condition2</em>' containment reference.
+	 * @see #setCondition2(Condition)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula_Condition2()
 	 * @see qualitypatternmodel.patternstructure.Condition#getFormula2
 	 * @model opposite="formula2" containment="true"
 	 * @generated
 	 */
-	Condition getArgument2();
+	Condition getCondition2();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Formula#getArgument2 <em>Argument2</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Formula#getCondition2 <em>Condition2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Argument2</em>' containment reference.
-	 * @see #getArgument2()
+	 * @param value the new value of the '<em>Condition2</em>' containment reference.
+	 * @see #getCondition2()
 	 * @generated
 	 */
-	void setArgument2(Condition value);
+	void setCondition2(Condition value);
 
 } // Formula

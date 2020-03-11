@@ -221,9 +221,9 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 		if (newProperty != property) {
 			NotificationChain msgs = null;
 			if (property != null)
-				msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__PROPERTY_OPTION, Property.class, msgs);
+				msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__OPTION, Property.class, msgs);
 			if (newProperty != null)
-				msgs = ((InternalEObject)newProperty).eInverseAdd(this, GraphstructurePackage.PROPERTY__PROPERTY_OPTION, Property.class, msgs);
+				msgs = ((InternalEObject)newProperty).eInverseAdd(this, GraphstructurePackage.PROPERTY__OPTION, Property.class, msgs);
 			msgs = basicSetProperty(newProperty, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -241,7 +241,7 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 		switch (featureID) {
 			case InputfieldsPackage.PROPERTY_OPTION__PROPERTY:
 				if (property != null)
-					msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__PROPERTY_OPTION, Property.class, msgs);
+					msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__OPTION, Property.class, msgs);
 				return basicSetProperty((Property)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -362,7 +362,7 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	
 	@Override 
 	public String myToString() {
-		return "prop " + getShortPatternInternalId() + " " + getValue();
+		return "prop " + getInternalId() + " " + getValue();
 	}
 
 } //PropertyOptionImpl

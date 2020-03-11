@@ -14,24 +14,25 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.patternstructure.Not;
+import qualitypatternmodel.patternstructure.Morphism;
+import qualitypatternmodel.patternstructure.NotElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.Not} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.NotElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NotItemProvider extends ConditionItemProvider {
+public class NotElementItemProvider extends ConditionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotItemProvider(AdapterFactory adapterFactory) {
+	public NotElementItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,7 +63,7 @@ public class NotItemProvider extends ConditionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.NOT__ARGUMENT);
+			childrenFeatures.add(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION);
 		}
 		return childrenFeatures;
 	}
@@ -81,28 +82,32 @@ public class NotItemProvider extends ConditionItemProvider {
 	}
 
 	/**
-	 * This returns Not.gif.
+	 * This returns NotElement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Not"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NotElement"));
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Not)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Not_type") :
-			getString("_UI_Not_type") + " " + label;
+		NotElement notelem = (NotElement) object;
+//		String text = getString("_UI_NotElement_type") + " " + notelem.getInternalId();
+		String text = "Not " + notelem.getInternalId();
+		return text;
+//		String label = ((NotElement)object).getId();
+//		return label == null || label.length() == 0 ?
+//			getString("_UI_NotElement_type") :
+//			getString("_UI_NotElement_type") + " " + label;
 	}
 
 
@@ -117,8 +122,8 @@ public class NotItemProvider extends ConditionItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Not.class)) {
-			case PatternstructurePackage.NOT__ARGUMENT:
+		switch (notification.getFeatureID(NotElement.class)) {
+			case PatternstructurePackage.NOT_ELEMENT__CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,23 +143,23 @@ public class NotItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.NOT__ARGUMENT,
+				(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createQuantifiedCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.NOT__ARGUMENT,
+				(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createFormula()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.NOT__ARGUMENT,
-				 PatternstructureFactory.eINSTANCE.createTrue()));
+				(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createTrueElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.NOT__ARGUMENT,
-				 PatternstructureFactory.eINSTANCE.createNot()));
+				(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createNotElement()));
 	}
 
 }

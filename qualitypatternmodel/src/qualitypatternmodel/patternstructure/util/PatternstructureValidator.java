@@ -109,14 +109,14 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validateMapping((Mapping)value, diagnostics, context);
 			case PatternstructurePackage.FORMULA:
 				return validateFormula((Formula)value, diagnostics, context);
-			case PatternstructurePackage.TRUE:
-				return validateTrue((True)value, diagnostics, context);
+			case PatternstructurePackage.TRUE_ELEMENT:
+				return validateTrueElement((TrueElement)value, diagnostics, context);
 			case PatternstructurePackage.PATTERN:
 				return validatePattern((Pattern)value, diagnostics, context);
 			case PatternstructurePackage.PATTERN_ELEMENT:
 				return validatePatternElement((PatternElement)value, diagnostics, context);
-			case PatternstructurePackage.NOT:
-				return validateNot((Not)value, diagnostics, context);
+			case PatternstructurePackage.NOT_ELEMENT:
+				return validateNotElement((NotElement)value, diagnostics, context);
 			case PatternstructurePackage.LOGICAL_OPERATOR:
 				return validateLogicalOperator((LogicalOperator)value, diagnostics, context);
 			case PatternstructurePackage.QUANTIFIER:
@@ -422,17 +422,17 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateTrue(True true_, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(true_, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(true_, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(true_, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(true_, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(true_, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(true_, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(true_, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(true_, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(true_, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePatternElement_validate(true_, diagnostics, context);
+	public boolean validateTrueElement(TrueElement trueElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(trueElement, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(trueElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(trueElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(trueElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(trueElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(trueElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(trueElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(trueElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(trueElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(trueElement, diagnostics, context);
 		return result;
 	}
 
@@ -519,17 +519,17 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateNot(Not not, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(not, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(not, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(not, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(not, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(not, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(not, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(not, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(not, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(not, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePatternElement_validate(not, diagnostics, context);
+	public boolean validateNotElement(NotElement notElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(notElement, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(notElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(notElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(notElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(notElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(notElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(notElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(notElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(notElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(notElement, diagnostics, context);
 		return result;
 	}
 

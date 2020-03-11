@@ -193,15 +193,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, MissingPatternContainerException {
 		if (returnElements == null || returnElements.isEmpty())
-			throw new InvalidityException("returnElement empty (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("returnElement empty (" + getInternalId() + ")");
 		if (operatorList == null)
-			throw new InvalidityException("operatorList null (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("operatorList null (" + getInternalId() + ")");
 		if (rootElement == null)
-			throw new InvalidityException("rootElement null (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("rootElement null (" + getInternalId() + ")");
 
 		for (SingleElement returnElement : returnElements) {
 			if (!returnElement.getAncestor(Graph.class).equals(this)) {
-				throw new InvalidityException("returnElement not contained in this graph (" + getShortPatternInternalId() + ")");
+				throw new InvalidityException("returnElement not contained in this graph (" + getInternalId() + ")");
 			}
 		}
 	}
@@ -651,7 +651,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPattern != null)
-				msgs = ((InternalEObject)newPattern).eInverseAdd(this, PatternstructurePackage.PATTERN__RETURN_GRAPH, Pattern.class, msgs);
+				msgs = ((InternalEObject)newPattern).eInverseAdd(this, PatternstructurePackage.PATTERN__GRAPH, Pattern.class, msgs);
 			msgs = basicSetPattern(newPattern, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -694,7 +694,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, QuantifiedCondition.class, msgs);
 			case GraphstructurePackage.GRAPH__PATTERN:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.PATTERN__RETURN_GRAPH, Pattern.class, msgs);
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.PATTERN__GRAPH, Pattern.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -893,7 +893,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		String res = "";
 		if (isReturnGraph())
 			res += "Return-";
-		res += "Graph " + getShortPatternInternalId() + " (";
+		res += "Graph " + getInternalId() + " (";
 		if ( getRootElement() != null)
 		res += "\n. " + getRootElement().myToString().replace("\n", "\n. ");
 		res += getOperatorList().myToString().replace("\n", "\n. ") + ")";

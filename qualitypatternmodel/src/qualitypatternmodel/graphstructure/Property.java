@@ -20,7 +20,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#getPropertyOption <em>Property Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getOption <em>Option</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty()
@@ -29,28 +29,28 @@ import qualitypatternmodel.patternstructure.PatternElement;
  */
 public interface Property extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 	/**
-	 * Returns the value of the '<em><b>Property Option</b></em>' reference.
+	 * Returns the value of the '<em><b>Option</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.PropertyOption#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Option</em>' reference.
-	 * @see #setPropertyOption(PropertyOption)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_PropertyOption()
+	 * @return the value of the '<em>Option</em>' reference.
+	 * @see #setOption(PropertyOption)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Option()
 	 * @see qualitypatternmodel.inputfields.PropertyOption#getProperty
 	 * @model opposite="property" required="true"
 	 * @generated
 	 */
-	PropertyOption getPropertyOption();
+	PropertyOption getOption();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getPropertyOption <em>Property Option</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getOption <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property Option</em>' reference.
-	 * @see #getPropertyOption()
+	 * @param value the new value of the '<em>Option</em>' reference.
+	 * @see #getOption()
 	 * @generated
 	 */
-	void setPropertyOption(PropertyOption value);
+	void setOption(PropertyOption value);
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.

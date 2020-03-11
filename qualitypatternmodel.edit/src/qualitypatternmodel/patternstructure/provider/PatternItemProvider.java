@@ -136,7 +136,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__VARIABLE_LIST);
-			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__RETURN_GRAPH);
+			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__GRAPH);
 			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__CONDITION);
 		}
 		return childrenFeatures;
@@ -175,7 +175,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Pattern pattern = (Pattern) object;
-		String text = getString("_UI_Pattern_type") + " " + pattern.getShortPatternInternalId();
+		String text = getString("_UI_Pattern_type") + " " + pattern.getInternalId();
 		if(pattern.getName() != null) {
 			text += " " + pattern.getName();
 		}
@@ -201,7 +201,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
-			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
+			case PatternstructurePackage.PATTERN__GRAPH:
 			case PatternstructurePackage.PATTERN__CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -227,7 +227,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.PATTERN__RETURN_GRAPH,
+				(PatternstructurePackage.Literals.PATTERN__GRAPH,
 				 GraphstructureFactory.eINSTANCE.createGraph()));
 
 		newChildDescriptors.add
@@ -243,12 +243,12 @@ public class PatternItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.PATTERN__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createTrue()));
+				 PatternstructureFactory.eINSTANCE.createTrueElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.PATTERN__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createNot()));
+				 PatternstructureFactory.eINSTANCE.createNotElement()));
 	}
 
 }

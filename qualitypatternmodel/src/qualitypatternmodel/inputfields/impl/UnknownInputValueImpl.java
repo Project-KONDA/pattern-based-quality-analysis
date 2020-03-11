@@ -88,7 +88,7 @@ public class UnknownInputValueImpl extends InputImpl implements UnknownInputValu
 	
 	@Override 
 	public String myToString() {
-		return "unknown" + " (" + getShortPatternInternalId() + ")";
+		return "unknown" + " (" + getInternalId() + ")";
 	}
 
 } //UnknownInputValueImpl

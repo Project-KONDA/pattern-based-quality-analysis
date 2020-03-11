@@ -25,7 +25,7 @@ import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
-import qualitypatternmodel.patternstructure.Not;
+import qualitypatternmodel.patternstructure.NotElement;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -137,15 +137,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (quantifier == null)
-			throw new InvalidityException("quantifier null (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("quantifier null (" + getInternalId() + ")");
 		if (condition == null)
-			throw new InvalidityException("condition null (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("condition null (" + getInternalId() + ")");
 		if (graph == null)
-			throw new InvalidityException("graph null (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("graph null (" + getInternalId() + ")");
 		if (morphism == null)
-			throw new InvalidityException("morphism null (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("morphism null (" + getInternalId() + ")");
 		if (quantifier != Quantifier.EXISTS && quantifier != Quantifier.FORALL)
-			throw new InvalidityException("quantifier invalid (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("quantifier invalid (" + getInternalId() + ")");
 //		if (quantifier == Quantifier.FORALL)
 //			if (getCondition() instanceof True)
 //				throw new InvalidityException("successor condition of quantified condition forall is true (" + getShortPatternInternalId() + ")");
@@ -187,7 +187,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	
 	@Override
-	public NotificationChain basicSetNot(Not newNot, NotificationChain msgs) {
+	public NotificationChain basicSetNot(NotElement newNot, NotificationChain msgs) {
 		getMorphism().setFrom(null);
 		getMorphism().setTo(getGraph());
 		getMorphism().removeDanglingMappingReference();
@@ -462,7 +462,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			Pattern pattern;
 			try {
 				pattern = (Pattern) getAncestor(Pattern.class);
-				previousGraph = pattern.getReturnGraph();
+				previousGraph = pattern.getGraph();
 			} catch (MissingPatternContainerException e1) {
 				e1.printStackTrace();
 				return;
@@ -643,7 +643,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	@Override
 	public String myToString() {
-		String res = getQuantifier().getLiteral() + " " + getShortPatternInternalId();
+		String res = getQuantifier().getLiteral() + " " + getInternalId();
 		res += "\n. " + getGraph().myToString().replace("\n", "\n. ");
 		res += "\n. " + getMorphism().myToString().replace("\n", "\n. ");
 		res += "\n. " + getCondition().myToString().replace("\n", "\n. ");

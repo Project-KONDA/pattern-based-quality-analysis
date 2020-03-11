@@ -82,13 +82,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int RELATION__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
@@ -199,15 +199,6 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -215,6 +206,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Graph Depth</em>' operation.
@@ -281,13 +281,13 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPARABLE__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARABLE__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int COMPARABLE__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -453,13 +453,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY__ID = COMPARABLE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__SHORT_PATTERN_INTERNAL_ID = COMPARABLE__SHORT_PATTERN_INTERNAL_ID;
+	int PROPERTY__INTERNAL_ID = COMPARABLE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -507,13 +507,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY__ATTRIBUTE_NAME = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Property Option</b></em>' reference.
+	 * The feature id for the '<em><b>Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__PROPERTY_OPTION = COMPARABLE_FEATURE_COUNT + 3;
+	int PROPERTY__OPTION = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Property</em>' class.
@@ -679,13 +679,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__ID = COMPARABLE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__SHORT_PATTERN_INTERNAL_ID = COMPARABLE__SHORT_PATTERN_INTERNAL_ID;
+	int ELEMENT__INTERNAL_ID = COMPARABLE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1094,13 +1094,13 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT__ID = ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__SHORT_PATTERN_INTERNAL_ID = ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int SINGLE_ELEMENT__INTERNAL_ID = ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1671,13 +1671,13 @@ public interface GraphstructurePackage extends EPackage {
 	int SET_ELEMENT__ID = ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__SHORT_PATTERN_INTERNAL_ID = ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int SET_ELEMENT__INTERNAL_ID = ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2149,13 +2149,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int GRAPH__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Root Element</b></em>' containment reference.
@@ -2329,15 +2329,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2345,6 +2336,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int GRAPH___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -2520,17 +2520,6 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getProperty();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getPropertyOption <em>Property Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Property Option</em>'.
-	 * @see qualitypatternmodel.graphstructure.Property#getPropertyOption()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EReference getProperty_PropertyOption();
-
-	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2551,6 +2540,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProperty_AttributeName();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option</em>'.
+	 * @see qualitypatternmodel.graphstructure.Property#getOption()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_Option();
 
 	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
@@ -3524,14 +3524,6 @@ public interface GraphstructurePackage extends EPackage {
 		EClass PROPERTY = eINSTANCE.getProperty();
 
 		/**
-		 * The meta object literal for the '<em><b>Property Option</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__PROPERTY_OPTION = eINSTANCE.getProperty_PropertyOption();
-
-		/**
 		 * The meta object literal for the '<em><b>Element</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3546,6 +3538,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPERTY__ATTRIBUTE_NAME = eINSTANCE.getProperty_AttributeName();
+
+		/**
+		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__OPTION = eINSTANCE.getProperty_Option();
 
 		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.

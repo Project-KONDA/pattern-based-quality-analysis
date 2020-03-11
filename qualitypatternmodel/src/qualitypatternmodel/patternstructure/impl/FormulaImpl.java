@@ -33,8 +33,8 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getOperator <em>Operator</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getArgument1 <em>Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getArgument2 <em>Argument2</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getCondition2 <em>Condition2</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,24 +59,24 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	protected LogicalOperator operator = OPERATOR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getArgument1() <em>Argument1</em>}' containment reference.
+	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getArgument1()
+	 * @see #getCondition()
 	 * @generated
 	 * @ordered
 	 */
-	protected Condition argument1;
+	protected Condition condition;
 
 	/**
-	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' containment reference.
+	 * The cached value of the '{@link #getCondition2() <em>Condition2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getArgument2()
+	 * @see #getCondition2()
 	 * @generated
 	 * @ordered
 	 */
-	protected Condition argument2;
+	protected Condition condition2;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -91,32 +91,32 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		String result;
 		if (operator != null) {
 //			if (operator == LogicalOperator.NOT) {
-//				if (argument2 == null && argument1 != null) {
-//					result = "not(" + argument1.toXQuery(location) + ")";
+//				if (condition2 == null && condition != null) {
+//					result = "not(" + condition.toXQuery(location) + ")";
 //				} else {
 //					throw new InvalidityException("invalid argument");
 //				}
 //			} else {
-				if (argument1 != null && argument2 != null) {
+				if (condition != null && condition2 != null) {
 					switch (operator) {
 					case AND:
 					case OR:
-						result = "((" + argument1.toXQuery(location) + ")" + operator.getLiteral() + "("
-						+ argument2.toXQuery(location) + "))";
+						result = "((" + condition.toXQuery(location) + ")" + operator.getLiteral() + "("
+						+ condition2.toXQuery(location) + "))";
 						break;
 					case IMPLIES:
-						result = "(" + Constants.NOT + "(" + argument1.toXQuery(location) + ")" + Constants.OR + "("
-						+ argument2.toXQuery(location) + "))";
+						result = "(" + Constants.NOT + "(" + condition.toXQuery(location) + ")" + Constants.OR + "("
+						+ condition2.toXQuery(location) + "))";
 						break;
 					case XOR:
-						result = "(" + Constants.NOT + "(" + argument1.toXQuery(location) + ")" + Constants.AND + "("
-						+ argument2.toXQuery(location) + "))" + Constants.OR + "((" + argument1.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
-						+ argument2.toXQuery(location) + "))";
+						result = "(" + Constants.NOT + "(" + condition.toXQuery(location) + ")" + Constants.AND + "("
+						+ condition2.toXQuery(location) + "))" + Constants.OR + "((" + condition.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
+						+ condition2.toXQuery(location) + "))";
 						break;
 					case EQUIVALENT:
-						result = "(" + Constants.NOT + "(" + argument1.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
-						+ argument2.toXQuery(location) + "))" + Constants.OR + "((" + argument1.toXQuery(location) + ")" + Constants.AND + "("
-						+ argument2.toXQuery(location) + "))";			
+						result = "(" + Constants.NOT + "(" + condition.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
+						+ condition2.toXQuery(location) + "))" + Constants.OR + "((" + condition.toXQuery(location) + ")" + Constants.AND + "("
+						+ condition2.toXQuery(location) + "))";			
 						break;
 					default:
 						throw new InvalidityException("invalid arguments");
@@ -140,42 +140,42 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		isValidLocal(isDefinedPattern);
 
 //		if (operator == LogicalOperator.NOT) {
-//			argument1.isValid(isDefinedPattern);
+//			condition.isValid(isDefinedPattern);
 //		} else {
-			argument1.isValid(isDefinedPattern);
-			argument2.isValid(isDefinedPattern);
+			condition.isValid(isDefinedPattern);
+			condition2.isValid(isDefinedPattern);
 //		}
 	}
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (operator == null)
-			throw new InvalidityException("operator null" + " (" + getShortPatternInternalId() + ")");
-//		if (argument1 == null)
+			throw new InvalidityException("operator null" + " (" + getInternalId() + ")");
+//		if (condition == null)
 //			throw new InvalidityException("arguments null");
 //		if (operator == LogicalOperator.NOT) {
-//			if (argument2 != null || argument1 == null) {
+//			if (condition2 != null || condition == null) {
 //				throw new InvalidityException("argument invalid (op:NOT)");
 //			}
 //		} else 
-		if (argument1 == null || argument2 == null) {
-			throw new InvalidityException("arguments invalid" + " (" + getShortPatternInternalId() + ")");
+		if (condition == null || condition2 == null) {
+			throw new InvalidityException("arguments invalid" + " (" + getInternalId() + ")");
 		}
 	}
 
 	@Override
 	public void prepareTranslation() {
-		argument1.prepareTranslation();
-		if(argument2 != null) {
-			argument2.prepareTranslation();
+		condition.prepareTranslation();
+		if(condition2 != null) {
+			condition2.prepareTranslation();
 		}		
 	}
 
 	@Override
 	public EList<Input> getAllInputs() throws InvalidityException {
 		EList<Input> inputs = new BasicEList<Input>();
-		inputs.addAll(argument1.getAllInputs());
-		if(argument2 != null) {
-			inputs.addAll(argument2.getAllInputs());
+		inputs.addAll(condition.getAllInputs());
+		if(condition2 != null) {
+			inputs.addAll(condition2.getAllInputs());
 		}	
 		return inputs;
 	}
@@ -198,14 +198,14 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.FORMULA__ARGUMENT1:
-				if (argument1 != null)
-					msgs = ((InternalEObject)argument1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.FORMULA__ARGUMENT1, null, msgs);
-				return basicSetArgument1((Condition)otherEnd, msgs);
-			case PatternstructurePackage.FORMULA__ARGUMENT2:
-				if (argument2 != null)
-					msgs = ((InternalEObject)argument2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.FORMULA__ARGUMENT2, null, msgs);
-				return basicSetArgument2((Condition)otherEnd, msgs);
+			case PatternstructurePackage.FORMULA__CONDITION:
+				if (condition != null)
+					msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.FORMULA__CONDITION, null, msgs);
+				return basicSetCondition((Condition)otherEnd, msgs);
+			case PatternstructurePackage.FORMULA__CONDITION2:
+				if (condition2 != null)
+					msgs = ((InternalEObject)condition2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.FORMULA__CONDITION2, null, msgs);
+				return basicSetCondition2((Condition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -237,8 +237,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * @generated
 	 */
 	@Override
-	public Condition getArgument1() {
-		return argument1;
+	public Condition getCondition() {
+		return condition;
 	}
 
 	/**
@@ -246,11 +246,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetArgument1(Condition newArgument1, NotificationChain msgs) {
-		Condition oldArgument1 = argument1;
-		argument1 = newArgument1;
+	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
+		Condition oldCondition = condition;
+		condition = newCondition;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__ARGUMENT1, oldArgument1, newArgument1);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__CONDITION, oldCondition, newCondition);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -262,18 +262,18 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * @generated
 	 */
 	@Override
-	public void setArgument1(Condition newArgument1) {
-		if (newArgument1 != argument1) {
+	public void setCondition(Condition newCondition) {
+		if (newCondition != condition) {
 			NotificationChain msgs = null;
-			if (argument1 != null)
-				msgs = ((InternalEObject)argument1).eInverseRemove(this, PatternstructurePackage.CONDITION__FORMULA1, Condition.class, msgs);
-			if (newArgument1 != null)
-				msgs = ((InternalEObject)newArgument1).eInverseAdd(this, PatternstructurePackage.CONDITION__FORMULA1, Condition.class, msgs);
-			msgs = basicSetArgument1(newArgument1, msgs);
+			if (condition != null)
+				msgs = ((InternalEObject)condition).eInverseRemove(this, PatternstructurePackage.CONDITION__FORMULA1, Condition.class, msgs);
+			if (newCondition != null)
+				msgs = ((InternalEObject)newCondition).eInverseAdd(this, PatternstructurePackage.CONDITION__FORMULA1, Condition.class, msgs);
+			msgs = basicSetCondition(newCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__ARGUMENT1, newArgument1, newArgument1));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__CONDITION, newCondition, newCondition));
 	}
 
 	/**
@@ -282,8 +282,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * @generated
 	 */
 	@Override
-	public Condition getArgument2() {
-		return argument2;
+	public Condition getCondition2() {
+		return condition2;
 	}
 
 	/**
@@ -291,11 +291,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetArgument2(Condition newArgument2, NotificationChain msgs) {
-		Condition oldArgument2 = argument2;
-		argument2 = newArgument2;
+	public NotificationChain basicSetCondition2(Condition newCondition2, NotificationChain msgs) {
+		Condition oldCondition2 = condition2;
+		condition2 = newCondition2;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__ARGUMENT2, oldArgument2, newArgument2);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__CONDITION2, oldCondition2, newCondition2);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -307,18 +307,18 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * @generated
 	 */
 	@Override
-	public void setArgument2(Condition newArgument2) {
-		if (newArgument2 != argument2) {
+	public void setCondition2(Condition newCondition2) {
+		if (newCondition2 != condition2) {
 			NotificationChain msgs = null;
-			if (argument2 != null)
-				msgs = ((InternalEObject)argument2).eInverseRemove(this, PatternstructurePackage.CONDITION__FORMULA2, Condition.class, msgs);
-			if (newArgument2 != null)
-				msgs = ((InternalEObject)newArgument2).eInverseAdd(this, PatternstructurePackage.CONDITION__FORMULA2, Condition.class, msgs);
-			msgs = basicSetArgument2(newArgument2, msgs);
+			if (condition2 != null)
+				msgs = ((InternalEObject)condition2).eInverseRemove(this, PatternstructurePackage.CONDITION__FORMULA2, Condition.class, msgs);
+			if (newCondition2 != null)
+				msgs = ((InternalEObject)newCondition2).eInverseAdd(this, PatternstructurePackage.CONDITION__FORMULA2, Condition.class, msgs);
+			msgs = basicSetCondition2(newCondition2, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__ARGUMENT2, newArgument2, newArgument2));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__CONDITION2, newCondition2, newCondition2));
 	}
 
 	/**
@@ -328,10 +328,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.FORMULA__ARGUMENT1:
-				return basicSetArgument1(null, msgs);
-			case PatternstructurePackage.FORMULA__ARGUMENT2:
-				return basicSetArgument2(null, msgs);
+			case PatternstructurePackage.FORMULA__CONDITION:
+				return basicSetCondition(null, msgs);
+			case PatternstructurePackage.FORMULA__CONDITION2:
+				return basicSetCondition2(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -345,10 +345,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		switch (featureID) {
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				return getOperator();
-			case PatternstructurePackage.FORMULA__ARGUMENT1:
-				return getArgument1();
-			case PatternstructurePackage.FORMULA__ARGUMENT2:
-				return getArgument2();
+			case PatternstructurePackage.FORMULA__CONDITION:
+				return getCondition();
+			case PatternstructurePackage.FORMULA__CONDITION2:
+				return getCondition2();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -364,11 +364,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				setOperator((LogicalOperator)newValue);
 				return;
-			case PatternstructurePackage.FORMULA__ARGUMENT1:
-				setArgument1((Condition)newValue);
+			case PatternstructurePackage.FORMULA__CONDITION:
+				setCondition((Condition)newValue);
 				return;
-			case PatternstructurePackage.FORMULA__ARGUMENT2:
-				setArgument2((Condition)newValue);
+			case PatternstructurePackage.FORMULA__CONDITION2:
+				setCondition2((Condition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -384,11 +384,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				setOperator(OPERATOR_EDEFAULT);
 				return;
-			case PatternstructurePackage.FORMULA__ARGUMENT1:
-				setArgument1((Condition)null);
+			case PatternstructurePackage.FORMULA__CONDITION:
+				setCondition((Condition)null);
 				return;
-			case PatternstructurePackage.FORMULA__ARGUMENT2:
-				setArgument2((Condition)null);
+			case PatternstructurePackage.FORMULA__CONDITION2:
+				setCondition2((Condition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -403,10 +403,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		switch (featureID) {
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				return operator != OPERATOR_EDEFAULT;
-			case PatternstructurePackage.FORMULA__ARGUMENT1:
-				return argument1 != null;
-			case PatternstructurePackage.FORMULA__ARGUMENT2:
-				return argument2 != null;
+			case PatternstructurePackage.FORMULA__CONDITION:
+				return condition != null;
+			case PatternstructurePackage.FORMULA__CONDITION2:
+				return condition2 != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -428,8 +428,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	
 	@Override
 	public String myToString() {
-		String res = "(\n  " + getArgument1().myToString().replace("\n", "\n  ") 
-				+ "\n)" + getOperator().getLiteral() + " " + getShortPatternInternalId() + " (\n  " + getArgument2().myToString().replace("\n", "\n  ") + "\n)";
+		String res = "(\n  " + getCondition().myToString().replace("\n", "\n  ") 
+				+ "\n)" + getOperator().getLiteral() + " " + getInternalId() + " (\n  " + getCondition2().myToString().replace("\n", "\n  ") + "\n)";
 		return res;
 	}
 	

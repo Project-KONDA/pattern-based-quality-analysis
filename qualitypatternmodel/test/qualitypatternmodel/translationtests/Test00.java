@@ -18,7 +18,7 @@ import qualitypatternmodel.graphstructure.SingleElement;
 //import qualitypatternmodel.inputfields.impl.*;
 //import qualitypatternmodel.exceptions.*;
 
-public class test00 {
+public class Test00 {
 	
 	public static void test(ArrayList<Pattern> patterns) {
 		for (Pattern pattern : patterns) {
@@ -43,9 +43,9 @@ public class test00 {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
 		patterns.add(getBasePattern());
-		patterns.add(getBasePatternCond());
-		patterns.add(getBasePatternMatch());
-		test00.test(patterns);
+		patterns.add(getBasePatternCond("my_cond"));
+		patterns.add(getBasePatternMatch("my_regex"));
+		Test00.test(patterns);
 	}
 
 
@@ -59,35 +59,35 @@ public class test00 {
 //		VariableList varlist = pattern.getVariableList();
 
 		// RETURN GRAPH
-//		Graph return_graph = pattern.getReturnGraph();
-//		SingleElement return_root = return_graph.getRootElement();
-//		OperatorList return_opList = return_graph.getOperatorList();
-//		SingleElement return_return = return_root.getNextSingle().get(0);
+//		Graph returnGraph = pattern.getReturnGraph();
+//		SingleElement returnRoot = returnGraph.getRootElement();
+//		OperatorList returnOpList = returnGraph.getOperatorList();
+//		SingleElement returnReturn = returnRoot.getNextSingle().get(0);
 		
 		// FIRST CONDITION
-		Condition truecondition = factory.createTrue();
+		Condition truecondition = factory.createTrueElement();
 		pattern.setCondition(truecondition);
 		
 		return pattern;
 	}
 	
-	public static Pattern getBasePatternCond() {
+	public static Pattern getBasePatternCond(String comp) {
 		Pattern pattern = getBasePattern();
-		SingleElement se = pattern.getReturnGraph().getReturnElements().get(0);
-		se.addPrimitiveComparison("hallo");
+		SingleElement se = pattern.getGraph().getReturnElements().get(0);
+		se.addPrimitiveComparison(comp);
 		return pattern;
 	}
 	
-	public static Pattern getBasePatternMatch() {
+	public static Pattern getBasePatternMatch(String regex) {
 		Pattern pattern = getBasePattern();
-		SingleElement se = pattern.getReturnGraph().getReturnElements().get(0);
-		se.addPrimitiveMatch("hallo");
+		SingleElement se = pattern.getGraph().getReturnElements().get(0);
+		se.addPrimitiveMatch(regex);
 		return pattern;
 	}
 	
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("base", getBasePattern(), "/*"));
+		testPairs.add(new PatternTestPair("BASE", getBasePattern(), "/*"));
 		return testPairs;		
 	}
 }

@@ -39,7 +39,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getVariableList <em>Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getReturnGraph <em>Return Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getName <em>Name</em>}</li>
@@ -68,13 +68,13 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	protected EStructuralFeature.Internal.SettingDelegate CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH).getSettingDelegate();
 
 	/**
-	 * The cached value of the '{@link #getReturnGraph() <em>Return Graph</em>}' containment reference.
+	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getReturnGraph()
+	 * @see #getGraph()
 	 * @generated
 	 * @ordered
 	 */
-	protected Graph returnGraph;
+	protected Graph graph;
 
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
@@ -128,14 +128,14 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 */
 	protected PatternImpl() {
 		super();
-		setReturnGraph(new GraphImpl());
-		getReturnGraph().setRootElement(new SingleElementImpl());
+		setGraph(new GraphImpl());
+		getGraph().setRootElement(new SingleElementImpl());
 		SingleElementImpl returnElement = new SingleElementImpl();
-		returnElement.setPrevious(getReturnGraph().getRootElement());
-		getReturnGraph().getReturnElements().add(returnElement);
+		returnElement.setPrevious(getGraph().getRootElement());
+		getGraph().getReturnElements().add(returnElement);
 
 		setVariableList(new VariableListImpl(this));
-		getShortPatternInternalId();
+		getInternalId();
 	}
 
 	@Override
@@ -143,32 +143,32 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
 		variableList.isValid(isDefinedPattern);
-		returnGraph.isValid(isDefinedPattern);
+		graph.isValid(isDefinedPattern);
 		condition.isValid(isDefinedPattern);
 	}
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (variableList == null)
-			throw new InvalidityException("variableList null" + " (" + getShortPatternInternalId() + ")");
-		if (returnGraph == null)
-			throw new InvalidityException("returnGraph null" + " (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
+		if (graph == null)
+			throw new InvalidityException("Graph null" + " (" + getInternalId() + ")");
 		if (condition == null)
-			throw new InvalidityException("condition null" + " (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("condition null" + " (" + getInternalId() + ")");
 	}
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		String res = getVariableList().toXQuery(location);
 
-		if (returnGraph.getReturnElements() == null || returnGraph.getReturnElements().isEmpty()) {
+		if (graph.getReturnElements() == null || graph.getReturnElements().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
-		res += returnGraph.toXQuery(Location.RETURN);
+		res += graph.toXQuery(Location.RETURN);
 
 		res += WHERE + condition.toXQuery(Location.OUTSIDE); // TODO: schachteln!
 
 		res += RETURN + "(";
-		EList<SingleElement> returnElements = returnGraph.getReturnElements();
+		EList<SingleElement> returnElements = graph.getReturnElements();
 		for (int i = 0; i < returnElements.size(); i++) {
 			if (i != 0)
 				res += ", ";
@@ -193,7 +193,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	@Override
 	public void prepareTranslation() {
-		returnGraph.prepareTranslation();
+		graph.prepareTranslation();
 		condition.prepareTranslation();
 	}
 
@@ -201,7 +201,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> inputs = returnGraph.getAllInputs();
+		EList<Input> inputs = graph.getAllInputs();
 		if (condition != null)
 			inputs.addAll(condition.getAllInputs());
 		return inputs;
@@ -221,28 +221,28 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * @generated
 	 */
 	@Override
-	public Graph getReturnGraph() {
-		return returnGraph;
+	public Graph getGraph() {
+		return graph;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetReturnGraph(Graph newReturnGraph, NotificationChain msgs) {
-		if(getReturnGraph() != null) {
-			getReturnGraph().setMorphismFrom(null);
-			getReturnGraph().getMorphismTo().clear();
+	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		if(getGraph() != null) {
+			getGraph().setMorphismFrom(null);
+			getGraph().getMorphismTo().clear();
 		}
-		Graph oldReturnGraph = returnGraph;
-		returnGraph = newReturnGraph;
-		if (returnGraph != null) {
-			returnGraph.setReturnGraph(true);
-			returnGraph.setGraphDepth(0);
+		Graph oldGraph = graph;
+		graph = newGraph;
+		if (graph != null) {
+			graph.setReturnGraph(true);
+			graph.setGraphDepth(0);
 		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PatternstructurePackage.PATTERN__RETURN_GRAPH, oldReturnGraph, newReturnGraph);
+					PatternstructurePackage.PATTERN__GRAPH, oldGraph, newGraph);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -256,18 +256,18 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * @generated
 	 */
 	@Override
-	public void setReturnGraph(Graph newReturnGraph) {
-		if (newReturnGraph != returnGraph) {
+	public void setGraph(Graph newGraph) {
+		if (newGraph != graph) {
 			NotificationChain msgs = null;
-			if (returnGraph != null)
-				msgs = ((InternalEObject)returnGraph).eInverseRemove(this, GraphstructurePackage.GRAPH__PATTERN, Graph.class, msgs);
-			if (newReturnGraph != null)
-				msgs = ((InternalEObject)newReturnGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__PATTERN, Graph.class, msgs);
-			msgs = basicSetReturnGraph(newReturnGraph, msgs);
+			if (graph != null)
+				msgs = ((InternalEObject)graph).eInverseRemove(this, GraphstructurePackage.GRAPH__PATTERN, Graph.class, msgs);
+			if (newGraph != null)
+				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__PATTERN, Graph.class, msgs);
+			msgs = basicSetGraph(newGraph, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__RETURN_GRAPH, newReturnGraph, newReturnGraph));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__GRAPH, newGraph, newGraph));
 	}
 
 	/**
@@ -422,10 +422,10 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				if (variableList != null)
 					msgs = ((InternalEObject)variableList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__VARIABLE_LIST, null, msgs);
 				return basicSetVariableList((VariableList)otherEnd, msgs);
-			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
-				if (returnGraph != null)
-					msgs = ((InternalEObject)returnGraph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__RETURN_GRAPH, null, msgs);
-				return basicSetReturnGraph((Graph)otherEnd, msgs);
+			case PatternstructurePackage.PATTERN__GRAPH:
+				if (graph != null)
+					msgs = ((InternalEObject)graph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__GRAPH, null, msgs);
+				return basicSetGraph((Graph)otherEnd, msgs);
 			case PatternstructurePackage.PATTERN__CONDITION:
 				if (condition != null)
 					msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__CONDITION, null, msgs);
@@ -443,8 +443,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				return basicSetVariableList(null, msgs);
-			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
-				return basicSetReturnGraph(null, msgs);
+			case PatternstructurePackage.PATTERN__GRAPH:
+				return basicSetGraph(null, msgs);
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return basicSetCondition(null, msgs);
 		}
@@ -462,8 +462,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return getVariableList();
 			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				return isCheckMorphismOfNextGraph();
-			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
-				return getReturnGraph();
+			case PatternstructurePackage.PATTERN__GRAPH:
+				return getGraph();
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return getCondition();
 			case PatternstructurePackage.PATTERN__ELEMENT_COUNTER:
@@ -484,8 +484,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				setVariableList((VariableList)newValue);
 				return;
-			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
-				setReturnGraph((Graph)newValue);
+			case PatternstructurePackage.PATTERN__GRAPH:
+				setGraph((Graph)newValue);
 				return;
 			case PatternstructurePackage.PATTERN__CONDITION:
 				setCondition((Condition)newValue);
@@ -510,8 +510,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 				setVariableList((VariableList)null);
 				return;
-			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
-				setReturnGraph((Graph)null);
+			case PatternstructurePackage.PATTERN__GRAPH:
+				setGraph((Graph)null);
 				return;
 			case PatternstructurePackage.PATTERN__CONDITION:
 				setCondition((Condition)null);
@@ -537,8 +537,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 				return variableList != null;
 			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				return CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
-			case PatternstructurePackage.PATTERN__RETURN_GRAPH:
-				return returnGraph != null;
+			case PatternstructurePackage.PATTERN__GRAPH:
+				return graph != null;
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return condition != null;
 			case PatternstructurePackage.PATTERN__ELEMENT_COUNTER:
@@ -588,9 +588,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	@Override
 	public String myToString() {
-		String res = "Pattern " + getShortPatternInternalId() + " " + name +" ("; 
+		String res = "Pattern " + getInternalId() + " " + name +" ("; 
 		res += getVariableList().myToString().replace("\n", "\n. ");
-		res += "\n. " + getReturnGraph().myToString().replace("\n", "\n. ");
+		res += "\n. " + getGraph().myToString().replace("\n", "\n. ");
 		res += "\n. " + getCondition().myToString().replace("\n", "\n. ") + "\n)";
 		return res;
 	}

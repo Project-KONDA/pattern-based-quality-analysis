@@ -85,8 +85,8 @@ public class FormulaItemProvider extends ConditionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.FORMULA__ARGUMENT1);
-			childrenFeatures.add(PatternstructurePackage.Literals.FORMULA__ARGUMENT2);
+			childrenFeatures.add(PatternstructurePackage.Literals.FORMULA__CONDITION);
+			childrenFeatures.add(PatternstructurePackage.Literals.FORMULA__CONDITION2);
 		}
 		return childrenFeatures;
 	}
@@ -143,8 +143,8 @@ public class FormulaItemProvider extends ConditionItemProvider {
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case PatternstructurePackage.FORMULA__ARGUMENT1:
-			case PatternstructurePackage.FORMULA__ARGUMENT2:
+			case PatternstructurePackage.FORMULA__CONDITION:
+			case PatternstructurePackage.FORMULA__CONDITION2:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -164,43 +164,43 @@ public class FormulaItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__ARGUMENT1,
+				(PatternstructurePackage.Literals.FORMULA__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createQuantifiedCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__ARGUMENT1,
+				(PatternstructurePackage.Literals.FORMULA__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createFormula()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__ARGUMENT1,
-				 PatternstructureFactory.eINSTANCE.createTrue()));
+				(PatternstructurePackage.Literals.FORMULA__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createTrueElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__ARGUMENT1,
-				 PatternstructureFactory.eINSTANCE.createNot()));
+				(PatternstructurePackage.Literals.FORMULA__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createNotElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__ARGUMENT2,
+				(PatternstructurePackage.Literals.FORMULA__CONDITION2,
 				 PatternstructureFactory.eINSTANCE.createQuantifiedCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__ARGUMENT2,
+				(PatternstructurePackage.Literals.FORMULA__CONDITION2,
 				 PatternstructureFactory.eINSTANCE.createFormula()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__ARGUMENT2,
-				 PatternstructureFactory.eINSTANCE.createTrue()));
+				(PatternstructurePackage.Literals.FORMULA__CONDITION2,
+				 PatternstructureFactory.eINSTANCE.createTrueElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.FORMULA__ARGUMENT2,
-				 PatternstructureFactory.eINSTANCE.createNot()));
+				(PatternstructurePackage.Literals.FORMULA__CONDITION2,
+				 PatternstructureFactory.eINSTANCE.createNotElement()));
 	}
 
 	/**
@@ -215,8 +215,8 @@ public class FormulaItemProvider extends ConditionItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == PatternstructurePackage.Literals.FORMULA__ARGUMENT1 ||
-			childFeature == PatternstructurePackage.Literals.FORMULA__ARGUMENT2;
+			childFeature == PatternstructurePackage.Literals.FORMULA__CONDITION ||
+			childFeature == PatternstructurePackage.Literals.FORMULA__CONDITION2;
 
 		if (qualify) {
 			return getString

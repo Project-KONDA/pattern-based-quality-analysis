@@ -541,10 +541,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	
 	@Override
 	public String myToString() {
-		String res = "MATCH (" + getShortPatternInternalId() + ") [";
+		String res = "MATCH (" + getInternalId() + ") [";
 		if (!getOption().getValue()) res += "not ";
-		res += getOption().getShortPatternInternalId() + "]";
-		res += "[" + getProperty().getShortPatternInternalId() + ", " + getRegularExpression().getShortPatternInternalId() + "]";
+		res += getOption().getInternalId() + "]";
+		res += "[" + getProperty().getInternalId() + ", " + getRegularExpression().getInternalId() + "]";
 		return res;
 	}
 

@@ -79,13 +79,13 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int INPUT__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -287,13 +287,13 @@ public interface InputfieldsPackage extends EPackage {
 	int COMP_OPTION__ID = INPUT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
+	int COMP_OPTION__INTERNAL_ID = INPUT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -523,13 +523,13 @@ public interface InputfieldsPackage extends EPackage {
 	int PROPERTY_OPTION__ID = INPUT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
+	int PROPERTY_OPTION__INTERNAL_ID = INPUT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -758,13 +758,13 @@ public interface InputfieldsPackage extends EPackage {
 	int VARIABLE_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int VARIABLE_LIST__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
@@ -857,15 +857,6 @@ public interface InputfieldsPackage extends EPackage {
 	int VARIABLE_LIST___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -873,6 +864,15 @@ public interface InputfieldsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_LIST___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.
@@ -912,13 +912,13 @@ public interface InputfieldsPackage extends EPackage {
 	int INPUT_VALUE__ID = INPUT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
+	int INPUT_VALUE__INTERNAL_ID = INPUT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1120,13 +1120,13 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
+	int BOOLEAN__INTERNAL_ID = INPUT_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1346,13 +1346,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
+	int TEXT__INTERNAL_ID = INPUT_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1554,13 +1554,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LIST__ID = TEXT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST__SHORT_PATTERN_INTERNAL_ID = TEXT__SHORT_PATTERN_INTERNAL_ID;
+	int TEXT_LIST__INTERNAL_ID = TEXT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1789,13 +1789,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LITERAL__ID = TEXT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__SHORT_PATTERN_INTERNAL_ID = TEXT__SHORT_PATTERN_INTERNAL_ID;
+	int TEXT_LITERAL__INTERNAL_ID = TEXT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2024,13 +2024,13 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
+	int NUMBER__INTERNAL_ID = INPUT_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2241,13 +2241,13 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
+	int DATE__INTERNAL_ID = INPUT_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2458,13 +2458,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TIME__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
+	int TIME__INTERNAL_ID = INPUT_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2675,13 +2675,13 @@ public interface InputfieldsPackage extends EPackage {
 	int UNKNOWN_INPUT_VALUE__ID = INPUT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID = INPUT__SHORT_PATTERN_INTERNAL_ID;
+	int UNKNOWN_INPUT_VALUE__INTERNAL_ID = INPUT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2892,13 +2892,13 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE_TIME__ID = INPUT_VALUE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME__SHORT_PATTERN_INTERNAL_ID = INPUT_VALUE__SHORT_PATTERN_INTERNAL_ID;
+	int DATE_TIME__INTERNAL_ID = INPUT_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.

@@ -52,7 +52,7 @@ import qualitypatternmodel.patternstructure.impl.PatternImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getMatch <em>Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getPropertyOption <em>Property Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getOption <em>Option</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,14 +99,14 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	protected TextLiteral attributeName;
 
 	/**
-	 * The cached value of the '{@link #getPropertyOption() <em>Property Option</em>}' reference.
+	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPropertyOption()
+	 * @see #getOption()
 	 * @generated
 	 * @ordered
 	 */
-	protected PropertyOption propertyOption;
+	protected PropertyOption option;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -119,25 +119,25 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
 		isValidLocal(isDefinedPattern);
-		propertyOption.isValid(isDefinedPattern);
+		option.isValid(isDefinedPattern);
 	}
 	
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (getElement() == null) 
 			throw new InvalidityException("element null");
-		if (propertyOption == null) 
+		if (option == null) 
 			throw new InvalidityException("location or propertyOptions invalid");
-		if (propertyOption.getValue() != null && propertyOption.getValue() == PropertyLocation.ATTRIBUTE && attributeName == null)
+		if (option.getValue() != null && option.getValue() == PropertyLocation.ATTRIBUTE && attributeName == null)
 			throw new InvalidityException("attributeName null");		
 	}
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {		
-		if(propertyOption == null || propertyOption.getValue() == null) {
+		if(option == null || option.getValue() == null) {
 			throw new InvalidityException("propertyOptions invalid");
 		}				
 		String propertyElementTranslation = getElement().getXQueryRepresentation(location);
-		switch (propertyOption.getValue()) {
+		switch (option.getValue()) {
 			case ATTRIBUTE: 
 				if(attributeName == null || attributeName.getValue() == null) {
 					throw new InvalidityException("attributeName invalid");
@@ -159,7 +159,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	public EList<Input> getAllInputs() throws InvalidityException {
 		EList<Input> res = new BasicEList<Input>();
 		res.add(getAttributeName());
-		res.add(getPropertyOption());
+		res.add(getOption());
 		return res;
 	}
 
@@ -194,12 +194,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			
-			if(getPropertyOption() == null) {
-				PropertyOption propertyOption = new PropertyOptionImpl();			
-				pattern.getVariableList().add(propertyOption);
-				setPropertyOption(propertyOption);
+			if(getOption() == null) {
+				PropertyOption option = new PropertyOptionImpl();			
+				pattern.getVariableList().add(option);
+				setOption(option);
 			} else {
-				pattern.getVariableList().add(getPropertyOption());
+				pattern.getVariableList().add(getOption());
 			}
 			if(getAttributeName() == null) {
 				TextLiteral textLiteral = new TextLiteralImpl();
@@ -256,16 +256,16 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public PropertyOption getPropertyOption() {
-		if (propertyOption != null && propertyOption.eIsProxy()) {
-			InternalEObject oldPropertyOption = (InternalEObject)propertyOption;
-			propertyOption = (PropertyOption)eResolveProxy(oldPropertyOption);
-			if (propertyOption != oldPropertyOption) {
+	public PropertyOption getOption() {
+		if (option != null && option.eIsProxy()) {
+			InternalEObject oldOption = (InternalEObject)option;
+			option = (PropertyOption)eResolveProxy(oldOption);
+			if (option != oldOption) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__PROPERTY_OPTION, oldPropertyOption, propertyOption));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__OPTION, oldOption, option));
 			}
 		}
-		return propertyOption;
+		return option;
 	}
 
 	/**
@@ -273,8 +273,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropertyOption basicGetPropertyOption() {
-		return propertyOption;
+	public PropertyOption basicGetOption() {
+		return option;
 	}
 
 	/**
@@ -282,11 +282,11 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPropertyOption(PropertyOption newPropertyOption, NotificationChain msgs) {
-		PropertyOption oldPropertyOption = propertyOption;
-		propertyOption = newPropertyOption;
+	public NotificationChain basicSetOption(PropertyOption newOption, NotificationChain msgs) {
+		PropertyOption oldOption = option;
+		option = newOption;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__PROPERTY_OPTION, oldPropertyOption, newPropertyOption);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -298,18 +298,18 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
-	public void setPropertyOption(PropertyOption newPropertyOption) {
-		if (newPropertyOption != propertyOption) {
+	public void setOption(PropertyOption newOption) {
+		if (newOption != option) {
 			NotificationChain msgs = null;
-			if (propertyOption != null)
-				msgs = ((InternalEObject)propertyOption).eInverseRemove(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
-			if (newPropertyOption != null)
-				msgs = ((InternalEObject)newPropertyOption).eInverseAdd(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
-			msgs = basicSetPropertyOption(newPropertyOption, msgs);
+			if (option != null)
+				msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
+			if (newOption != null)
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
+			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__PROPERTY_OPTION, newPropertyOption, newPropertyOption));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__OPTION, newOption, newOption));
 	}
 
 	/**
@@ -343,7 +343,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 
 	public void reset() {
 		setAttributeName(null);
-		setPropertyOption(null);
+		setOption(null);
 		getMatch().clear();
 	}
 
@@ -351,7 +351,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	public void removeInputsFromVariableList() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getVariableList().getVariables().remove(getPropertyOption());
+			pattern.getVariableList().getVariables().remove(getOption());
 		} catch (MissingPatternContainerException e) {
 			// since this property is not contained in a pattern, do nothing
 		}				
@@ -482,10 +482,10 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				if (attributeName != null)
 					msgs = ((InternalEObject)attributeName).eInverseRemove(this, InputfieldsPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
 				return basicSetAttributeName((TextLiteral)otherEnd, msgs);
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
-				if (propertyOption != null)
-					msgs = ((InternalEObject)propertyOption).eInverseRemove(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
-				return basicSetPropertyOption((PropertyOption)otherEnd, msgs);
+			case GraphstructurePackage.PROPERTY__OPTION:
+				if (option != null)
+					msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
+				return basicSetOption((PropertyOption)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -508,8 +508,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return ((InternalEList<?>)getMatch()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
 				return basicSetAttributeName(null, msgs);
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
-				return basicSetPropertyOption(null, msgs);
+			case GraphstructurePackage.PROPERTY__OPTION:
+				return basicSetOption(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -546,9 +546,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
 				if (resolve) return getAttributeName();
 				return basicGetAttributeName();
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
-				if (resolve) return getPropertyOption();
-				return basicGetPropertyOption();
+			case GraphstructurePackage.PROPERTY__OPTION:
+				if (resolve) return getOption();
+				return basicGetOption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -579,8 +579,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
 				setAttributeName((TextLiteral)newValue);
 				return;
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
-				setPropertyOption((PropertyOption)newValue);
+			case GraphstructurePackage.PROPERTY__OPTION:
+				setOption((PropertyOption)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -608,8 +608,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
 				setAttributeName((TextLiteral)null);
 				return;
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
-				setPropertyOption((PropertyOption)null);
+			case GraphstructurePackage.PROPERTY__OPTION:
+				setOption((PropertyOption)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -632,8 +632,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return match != null && !match.isEmpty();
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
 				return attributeName != null;
-			case GraphstructurePackage.PROPERTY__PROPERTY_OPTION:
-				return propertyOption != null;
+			case GraphstructurePackage.PROPERTY__OPTION:
+				return option != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -674,9 +674,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	
 	@Override
 	public String myToString() {
-		String res = getPropertyOption().getValue().getLiteral();
-		res += " (" + getShortPatternInternalId() + ")";		
-		res += " ('" + getAttributeName().getValue() + "' (" + getAttributeName().getShortPatternInternalId() + "))";
+		String res = getOption().getValue().getLiteral();
+		res += " (" + getInternalId() + ")";		
+		res += " ('" + getAttributeName().getValue() + "' (" + getAttributeName().getInternalId() + "))";
 		return res;
 	}
 

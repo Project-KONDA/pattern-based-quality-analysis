@@ -112,7 +112,7 @@ public class BooleanItemProvider extends InputValueItemProvider {
 	@Override
 	public String getText(Object object) {
 		qualitypatternmodel.inputfields.Boolean bool = (qualitypatternmodel.inputfields.Boolean) object;
-		String text = getString("_UI_Boolean_type") + " " + bool.getShortPatternInternalId();
+		String text = getString("_UI_Boolean_type") + " " + bool.getInternalId();
 		if(bool.getValue() != null) {
 			text += " " + bool.getValue();
 		}
