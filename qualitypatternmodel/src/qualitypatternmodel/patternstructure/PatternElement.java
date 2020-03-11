@@ -23,7 +23,7 @@ import qualitypatternmodel.inputfields.Input;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getId <em>Id</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getShortPatternInternalId <em>Short Pattern Internal Id</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getInternalId <em>Internal Id</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPatternElement()
@@ -54,27 +54,27 @@ public interface PatternElement extends EObject {
 	void setId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Internal Id</b></em>' attribute.
 	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Short Pattern Internal Id</em>' attribute.
-	 * @see #setShortPatternInternalId(int)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPatternElement_ShortPatternInternalId()
+	 * @return the value of the '<em>Internal Id</em>' attribute.
+	 * @see #setInternalId(int)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPatternElement_InternalId()
 	 * @model default="-1" required="true"
 	 * @generated
 	 */
-	int getShortPatternInternalId();
+	int getInternalId();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.PatternElement#getShortPatternInternalId <em>Short Pattern Internal Id</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.PatternElement#getInternalId <em>Internal Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Short Pattern Internal Id</em>' attribute.
-	 * @see #getShortPatternInternalId()
+	 * @param value the new value of the '<em>Internal Id</em>' attribute.
+	 * @see #getInternalId()
 	 * @generated
 	 */
-	void setShortPatternInternalId(int value);
+	void setInternalId(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

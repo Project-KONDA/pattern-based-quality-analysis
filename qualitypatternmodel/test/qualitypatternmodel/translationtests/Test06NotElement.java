@@ -16,7 +16,7 @@ import qualitypatternmodel.functions.impl.*;
 import qualitypatternmodel.inputfields.*;
 import qualitypatternmodel.inputfields.impl.*;
 
-public class test06_not {
+public class Test06NotElement {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
@@ -26,19 +26,19 @@ public class test06_not {
 		patterns.add(getPatternExistsNotExists());
 		patterns.add(getPatternForallNotForall());
 
-		test00.test(patterns);
+		Test00.test(patterns);
 	}
 	
 	public static Pattern getPatternNotExists() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		Pattern pattern = test00.getBasePattern();
+		Pattern pattern = Test00.getBasePattern();
 		
-		Not n = factory.createNot();
+		NotElement n = factory.createNotElement();
 		pattern.setCondition(n);
 		QuantifiedCondition qc = factory.createQuantifiedCondition();
-		n.setArgument(qc);
-		True t = factory.createTrue();
+		n.setCondition(qc);
+		TrueElement t = factory.createTrueElement();
 		qc.setCondition(t);
 
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -50,7 +50,7 @@ public class test06_not {
 	}
 	public static Pattern getPatternNotForall() {
 		Pattern pattern = getPatternNotExists();
-		QuantifiedCondition qc = ((QuantifiedCondition) ((Not) pattern.getCondition()).getArgument());
+		QuantifiedCondition qc = ((QuantifiedCondition) ((NotElement) pattern.getCondition()).getCondition());
 		qc.setQuantifier(Quantifier.FORALL);
 		return pattern;
 	}
@@ -63,17 +63,17 @@ public class test06_not {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;	
 
 				
-		Pattern pattern = test03_quantor.getPatternExists();
-		True t = (True) ((QuantifiedCondition) pattern.getCondition()).getCondition();
+		Pattern pattern = Test03Quantor.getPatternExists();
+		TrueElement t = (TrueElement) ((QuantifiedCondition) pattern.getCondition()).getCondition();
 		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition(); 
-		Not n = factory.createNot();
+		NotElement n = factory.createNotElement();
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
 
 		SingleElement root = qc1.getGraph().getRootElement();
 		root.getNextSingle().get(0).getNextSingle().add(graphFactory.createSingleElement());
 				
 		qc1.setCondition(n);
-		n.setArgument(qc2);
+		n.setCondition(qc2);
 		qc2.setCondition(t);
 	
 		SingleElement root2 = qc2.getGraph().getRootElement();
@@ -85,7 +85,7 @@ public class test06_not {
 		Pattern pattern = getPatternExistsNotExists();
 		
 		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition();
-		QuantifiedCondition qc2 = (QuantifiedCondition) ((Not) qc1.getCondition()).getArgument();
+		QuantifiedCondition qc2 = (QuantifiedCondition) ((NotElement) qc1.getCondition()).getCondition();
 
 		qc1.setQuantifier(Quantifier.FORALL);
 		qc2.setQuantifier(Quantifier.FORALL);

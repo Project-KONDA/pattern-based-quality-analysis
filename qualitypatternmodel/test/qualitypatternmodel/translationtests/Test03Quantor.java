@@ -8,7 +8,7 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.functions.*;
 import qualitypatternmodel.inputfields.*;
 
-public class test03_quantor {
+public class Test03Quantor {
 
 	public static void main(String[] args) {
 //		System.out.println(getPatternExists().myToString());
@@ -19,7 +19,7 @@ public class test03_quantor {
 		patterns.add(getPatternForall());
 		patterns.add(getPatternForallCond());
 
-		test00.test(patterns);
+		Test00.test(patterns);
 	}
 
 	public static Pattern getPatternExists() {
@@ -29,9 +29,9 @@ public class test03_quantor {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		// Pattern Structure
-		Pattern pattern = test00.getBasePattern();
+		Pattern pattern = Test00.getBasePattern();
 		QuantifiedCondition cond = factory.createQuantifiedCondition();
-		cond.setCondition(factory.createTrue());
+		cond.setCondition(factory.createTrueElement());
 		pattern.setCondition(cond);
 				
 		// EXISTS additional graph structure
@@ -51,23 +51,23 @@ public class test03_quantor {
 		InputfieldsFactory inputFactory = InputfieldsFactory.eINSTANCE;
 		
 		Pattern pattern = getPatternExists();
-		VariableList varlist = pattern.getVariableList();
+//		VariableList varlist = pattern.getVariableList();
 		Graph graph2 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
-		OperatorList oplist = graph2.getOperatorList();
+//		OperatorList oplist = graph2.getOperatorList();
 		SingleElement last = graph2.getRootElement().getNextSingle().get(0).getNextSingle().get(0);
-		
-		Comparison comp = functionFactory.createComparison();
-		oplist.add(comp);
-			
-		Property prop = graphFactory.createProperty();
-		last.getProperties().add(prop);
-		comp.setArgument1(prop);
-		
-		TextLiteral textlit = inputFactory.createTextLiteral();
-		textlit.setValue("myvalue");
-		varlist.add(textlit);
-		
-		comp.setArgument2(textlit);
+		last.addPrimitiveComparison("myvalue");
+//		Comparison comp = functionFactory.createComparison();
+//		oplist.add(comp);
+//			
+//		Property prop = graphFactory.createProperty();
+//		last.getProperties().add(prop);
+//		comp.setArgument1(prop);
+//		
+//		TextLiteral textlit = inputFactory.createTextLiteral();
+//		textlit.setValue("myvalue");
+//		varlist.add(textlit);
+//		
+//		comp.setArgument2(textlit);
 		return pattern;
 	}
 

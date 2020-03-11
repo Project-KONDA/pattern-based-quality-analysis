@@ -209,12 +209,12 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createTrue()));
+				 PatternstructureFactory.eINSTANCE.createTrueElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createNot()));
+				 PatternstructureFactory.eINSTANCE.createNotElement()));
 
 		newChildDescriptors.add
 			(createChildParameter

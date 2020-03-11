@@ -82,13 +82,13 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR__ID = GraphstructurePackage.COMPARABLE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR__SHORT_PATTERN_INTERNAL_ID = GraphstructurePackage.COMPARABLE__SHORT_PATTERN_INTERNAL_ID;
+	int OPERATOR__INTERNAL_ID = GraphstructurePackage.COMPARABLE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -308,13 +308,13 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR__ID = OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR__SHORT_PATTERN_INTERNAL_ID = OPERATOR__SHORT_PATTERN_INTERNAL_ID;
+	int BOOLEAN_OPERATOR__INTERNAL_ID = OPERATOR__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -597,13 +597,13 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATOR__ID = OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATOR__SHORT_PATTERN_INTERNAL_ID = OPERATOR__SHORT_PATTERN_INTERNAL_ID;
+	int NUMBER_OPERATOR__INTERNAL_ID = OPERATOR__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -823,13 +823,13 @@ public interface FunctionsPackage extends EPackage {
 	int COUNT__ID = NUMBER_OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT__SHORT_PATTERN_INTERNAL_ID = NUMBER_OPERATOR__SHORT_PATTERN_INTERNAL_ID;
+	int COUNT__INTERNAL_ID = NUMBER_OPERATOR__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1058,13 +1058,13 @@ public interface FunctionsPackage extends EPackage {
 	int OTHER_OPERATOR__ID = OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATOR__SHORT_PATTERN_INTERNAL_ID = OPERATOR__SHORT_PATTERN_INTERNAL_ID;
+	int OTHER_OPERATOR__INTERNAL_ID = OPERATOR__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1284,13 +1284,13 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH__ID = BOOLEAN_OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH__SHORT_PATTERN_INTERNAL_ID = BOOLEAN_OPERATOR__SHORT_PATTERN_INTERNAL_ID;
+	int MATCH__INTERNAL_ID = BOOLEAN_OPERATOR__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1600,13 +1600,13 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON__ID = BOOLEAN_OPERATOR__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON__SHORT_PATTERN_INTERNAL_ID = BOOLEAN_OPERATOR__SHORT_PATTERN_INTERNAL_ID;
+	int COMPARISON__INTERNAL_ID = BOOLEAN_OPERATOR__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1934,13 +1934,13 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST__SHORT_PATTERN_INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int OPERATOR_LIST__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -2033,15 +2033,6 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR_LIST___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2049,6 +2040,15 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.

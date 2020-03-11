@@ -159,7 +159,7 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 	@Override
 	public String getText(Object object) {
 		Comparison comp = (Comparison) object;
-		String text = getString("_UI_Comparison_type") + " " + comp.getShortPatternInternalId();
+		String text = getString("_UI_Comparison_type") + " " + comp.getInternalId();
 		if(comp.getOption() != null && comp.getOption().getValue() != null) {
 			text += " " + comp.getOption().getValue().getName();
 		}

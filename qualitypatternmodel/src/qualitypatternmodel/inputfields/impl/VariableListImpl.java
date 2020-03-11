@@ -76,17 +76,17 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	@Override
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (getPattern() == null)
-			throw new InvalidityException("VariableList not in Pattern" + " (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("VariableList not in Pattern" + " (" + getInternalId() + ")");
 
 		EList<Input> patternVars = getPattern().getAllInputs();
 		if (patternVars == null)
-			throw new InvalidityException("invalid Operators of Graph" + " (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("invalid Operators of Graph" + " (" + getInternalId() + ")");
 
 		if (!(patternVars.containsAll(getVariables()) && getVariables().containsAll(patternVars))) {
 			String msg = "variables from VariableList not equal to amount of variables used in Graph" + " ("
-					+ getShortPatternInternalId() + ")" + ": \n";
+					+ getInternalId() + ")" + ": \n";
 			for (Input var : patternVars) {
-				msg += "[" + var.myToString() + " " + var.getShortPatternInternalId() + "]";
+				msg += "[" + var.myToString() + "]";
 				if (!getVariables().contains(var))
 					msg += "- ";
 				else
@@ -94,13 +94,13 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 			}
 			msg += "\n";
 			for (Input var : getVariables()) {
-				msg += "[" + var.myToString() + " " + var.getShortPatternInternalId() + "]";
+				msg += "[" + var.myToString() + "]";
 				if (!patternVars.contains(var))
 					msg += "- ";
 				else
 					msg += "+ ";
 			}
-			throw new InvalidityException(msg + " (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException(msg + " (" + getInternalId() + ")");
 		}
 	}
 
@@ -333,7 +333,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	@Override
 	public String myToString() {
 		if (getVariables().size() > 0) {
-			String res = "\nVariableList " + getShortPatternInternalId() + " (";
+			String res = "\nVariableList " + getInternalId() + " (";
 			for (Input input : getVariables()) {
 				res += "\n. " + input.myToString();
 			}

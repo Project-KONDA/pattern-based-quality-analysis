@@ -64,9 +64,9 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 			case PatternstructurePackage.MORPHISM: return createMorphism();
 			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING: return createSingleElementMapping();
 			case PatternstructurePackage.FORMULA: return createFormula();
-			case PatternstructurePackage.TRUE: return createTrue();
+			case PatternstructurePackage.TRUE_ELEMENT: return createTrueElement();
 			case PatternstructurePackage.PATTERN: return createPattern();
-			case PatternstructurePackage.NOT: return createNot();
+			case PatternstructurePackage.NOT_ELEMENT: return createNotElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -183,9 +183,9 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public True createTrue() {
-		TrueImpl true_ = new TrueImpl();
-		return true_;
+	public TrueElement createTrueElement() {
+		TrueElementImpl trueElement = new TrueElementImpl();
+		return trueElement;
 	}
 
 	/**
@@ -205,9 +205,9 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public Not createNot() {
-		NotImpl not = new NotImpl();
-		return not;
+	public NotElement createNotElement() {
+		NotElementImpl notElement = new NotElementImpl();
+		return notElement;
 	}
 
 	/**

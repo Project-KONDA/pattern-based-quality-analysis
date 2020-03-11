@@ -60,11 +60,11 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (from == null)
-			throw new InvalidityException("SingleElementMapping " + getShortPatternInternalId() + ": from-element null");
+			throw new InvalidityException("SingleElementMapping " + getInternalId() + ": from-element null");
 		if (to == null)
-			throw new InvalidityException("SingleElementMapping " + getShortPatternInternalId() + ": to null");
+			throw new InvalidityException("SingleElementMapping " + getInternalId() + ": to null");
 		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
-			throw new InvalidityException("SingleElementMapping " + getShortPatternInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
+			throw new InvalidityException("SingleElementMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
 					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
 		}
 	}
@@ -303,12 +303,12 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	
 	@Override
 	public String myToString() {
-		String res = "SingleElementMapping (" + getShortPatternInternalId() + ") ";
+		String res = "SingleElementMapping (" + getInternalId() + ") ";
 		res += "[";
-		if (getFrom()!= null) res += getFrom().getShortPatternInternalId();
+		if (getFrom()!= null) res += getFrom().getInternalId();
 		else res += "-";		
 		res += " -> ";
-		if (getTo()!= null) res += getTo().getShortPatternInternalId() ;
+		if (getTo()!= null) res += getTo().getInternalId() ;
 		else res += "-";	
 		res += "]";
 		return res;

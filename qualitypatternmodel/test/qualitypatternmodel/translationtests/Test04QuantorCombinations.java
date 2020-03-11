@@ -7,7 +7,7 @@ import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.exceptions.*;
 
-public class test04_quantorcombinations {
+public class Test04QuantorCombinations {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
@@ -17,7 +17,7 @@ public class test04_quantorcombinations {
 		patterns.add(getPatternExistsInForall());
 		patterns.add(getPatternForallInForall());
 
-		test00.test(patterns);
+		Test00.test(patterns);
 	}
 
 	public static Pattern getPatternExistsInExists() {
@@ -25,11 +25,11 @@ public class test04_quantorcombinations {
 		// PatternStructure
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		Pattern pattern = test03_quantor.getPatternExists();
+		Pattern pattern = Test03Quantor.getPatternExists();
 		QuantifiedCondition qcond = (QuantifiedCondition) pattern.getCondition();
 		QuantifiedCondition qcond2 =  factory.createQuantifiedCondition();
 		qcond.setCondition(qcond2);
-		True t = factory.createTrue();
+		TrueElement t = factory.createTrueElement();
 		qcond2.setCondition(t);
 		
 		

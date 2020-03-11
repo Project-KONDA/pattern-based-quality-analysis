@@ -15,7 +15,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Not;
+import qualitypatternmodel.patternstructure.NotElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
@@ -25,47 +25,47 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.NotImpl#getArgument <em>Argument</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.NotElementImpl#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NotImpl extends ConditionImpl implements Not {
+public class NotElementImpl extends ConditionImpl implements NotElement {
 	/**
-	 * The cached value of the '{@link #getArgument() <em>Argument</em>}' containment reference.
+	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getArgument()
+	 * @see #getCondition()
 	 * @generated
 	 * @ordered
 	 */
-	protected Condition argument;
+	protected Condition condition;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NotImpl() {
+	protected NotElementImpl() {
 		super();
 	}
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		if (argument != null) {
-			return "not(" + argument.toXQuery(location) + ")";
+		if (condition != null) {
+			return "not(" + condition.toXQuery(location) + ")";
 		} else {
-			throw new InvalidityException("invalid argument");
+			throw new InvalidityException("invalid condition");
 		}
 	}
 	
 	@Override
 	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
-		argument.isValid(isDefinedPattern);
+		condition.isValid(isDefinedPattern);
 	}
 	
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		if (argument == null)
-			throw new InvalidityException("argument null (" + getShortPatternInternalId() + ")");
+		if (condition == null)
+			throw new InvalidityException("condition null (" + getInternalId() + ")");
 	}
 		
 	/**
@@ -74,7 +74,7 @@ public class NotImpl extends ConditionImpl implements Not {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PatternstructurePackage.Literals.NOT;
+		return PatternstructurePackage.Literals.NOT_ELEMENT;
 	}
 
 	/**
@@ -83,8 +83,8 @@ public class NotImpl extends ConditionImpl implements Not {
 	 * @generated
 	 */
 	@Override
-	public Condition getArgument() {
-		return argument;
+	public Condition getCondition() {
+		return condition;
 	}
 
 	/**
@@ -92,11 +92,11 @@ public class NotImpl extends ConditionImpl implements Not {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetArgument(Condition newArgument, NotificationChain msgs) {
-		Condition oldArgument = argument;
-		argument = newArgument;
+	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
+		Condition oldCondition = condition;
+		condition = newCondition;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NOT__ARGUMENT, oldArgument, newArgument);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NOT_ELEMENT__CONDITION, oldCondition, newCondition);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -108,18 +108,18 @@ public class NotImpl extends ConditionImpl implements Not {
 	 * @generated
 	 */
 	@Override
-	public void setArgument(Condition newArgument) {
-		if (newArgument != argument) {
+	public void setCondition(Condition newCondition) {
+		if (newCondition != condition) {
 			NotificationChain msgs = null;
-			if (argument != null)
-				msgs = ((InternalEObject)argument).eInverseRemove(this, PatternstructurePackage.CONDITION__NOT, Condition.class, msgs);
-			if (newArgument != null)
-				msgs = ((InternalEObject)newArgument).eInverseAdd(this, PatternstructurePackage.CONDITION__NOT, Condition.class, msgs);
-			msgs = basicSetArgument(newArgument, msgs);
+			if (condition != null)
+				msgs = ((InternalEObject)condition).eInverseRemove(this, PatternstructurePackage.CONDITION__NOT, Condition.class, msgs);
+			if (newCondition != null)
+				msgs = ((InternalEObject)newCondition).eInverseAdd(this, PatternstructurePackage.CONDITION__NOT, Condition.class, msgs);
+			msgs = basicSetCondition(newCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NOT__ARGUMENT, newArgument, newArgument));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NOT_ELEMENT__CONDITION, newCondition, newCondition));
 	}
 
 	/**
@@ -129,10 +129,10 @@ public class NotImpl extends ConditionImpl implements Not {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.NOT__ARGUMENT:
-				if (argument != null)
-					msgs = ((InternalEObject)argument).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.NOT__ARGUMENT, null, msgs);
-				return basicSetArgument((Condition)otherEnd, msgs);
+			case PatternstructurePackage.NOT_ELEMENT__CONDITION:
+				if (condition != null)
+					msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.NOT_ELEMENT__CONDITION, null, msgs);
+				return basicSetCondition((Condition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -144,8 +144,8 @@ public class NotImpl extends ConditionImpl implements Not {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.NOT__ARGUMENT:
-				return basicSetArgument(null, msgs);
+			case PatternstructurePackage.NOT_ELEMENT__CONDITION:
+				return basicSetCondition(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -157,8 +157,8 @@ public class NotImpl extends ConditionImpl implements Not {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.NOT__ARGUMENT:
-				return getArgument();
+			case PatternstructurePackage.NOT_ELEMENT__CONDITION:
+				return getCondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,8 +170,8 @@ public class NotImpl extends ConditionImpl implements Not {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.NOT__ARGUMENT:
-				setArgument((Condition)newValue);
+			case PatternstructurePackage.NOT_ELEMENT__CONDITION:
+				setCondition((Condition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -184,8 +184,8 @@ public class NotImpl extends ConditionImpl implements Not {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.NOT__ARGUMENT:
-				setArgument((Condition)null);
+			case PatternstructurePackage.NOT_ELEMENT__CONDITION:
+				setCondition((Condition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -198,14 +198,14 @@ public class NotImpl extends ConditionImpl implements Not {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.NOT__ARGUMENT:
-				return argument != null;
+			case PatternstructurePackage.NOT_ELEMENT__CONDITION:
+				return condition != null;
 		}
 		return super.eIsSet(featureID);
 	}
 	
 	@Override
 	public String myToString() {
-		return "NOT " + getShortPatternInternalId() + " [\n. " + argument.myToString().replace("\n", "\n. ") + "\n]";
+		return "NOT " + getInternalId() + " [\n. " + condition.myToString().replace("\n", "\n. ") + "\n]";
 	}
 } // NotImpl

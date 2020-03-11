@@ -66,11 +66,11 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (from == null)
-			throw new InvalidityException("RelationMapping " + getShortPatternInternalId() + ": from-element null");
+			throw new InvalidityException("RelationMapping " + getInternalId() + ": from-element null");
 		if (to == null)
-			throw new InvalidityException("RelationMapping " + getShortPatternInternalId() + ": to null");
+			throw new InvalidityException("RelationMapping " + getInternalId() + ": to null");
 		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
-			throw new InvalidityException("RelationMapping " + getShortPatternInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
+			throw new InvalidityException("RelationMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
 					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
 		}
 	}
@@ -316,12 +316,12 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 
 	@Override
 	public String myToString() {
-		String res = "RelationMapping (" + getShortPatternInternalId() + ") ";
+		String res = "RelationMapping (" + getInternalId() + ") ";
 		res += "[";
-		if (getFrom()!= null) res += getFrom().getShortPatternInternalId();
+		if (getFrom()!= null) res += getFrom().getInternalId();
 		else res += "-";			
 		res += " -> ";
-		if (getTo()!= null) res += getTo().getShortPatternInternalId() ;
+		if (getTo()!= null) res += getTo().getInternalId() ;
 		else res += "-";	
 		res += "]";
 		return res;

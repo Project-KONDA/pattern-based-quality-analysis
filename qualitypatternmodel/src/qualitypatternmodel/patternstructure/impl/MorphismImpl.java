@@ -155,14 +155,14 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (from == null)
-			throw new InvalidityException("Morphism " + getShortPatternInternalId() + ": from null");
+			throw new InvalidityException("Morphism " + getInternalId() + ": from null");
 		if (to == null)
-			throw new InvalidityException("Morphism " + getShortPatternInternalId() + ": to null");
+			throw new InvalidityException("Morphism " + getInternalId() + ": to null");
 		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMorphDepth())
-			throw new InvalidityException("Morphism " + getShortPatternInternalId() + ": invalid target graphs");
+			throw new InvalidityException("Morphism " + getInternalId() + ": invalid target graphs");
 		for (Mapping mapping : getMappings())
 			if (mapping == null)
-				throw new InvalidityException("Morphism " + getShortPatternInternalId() + ": mapping invalid (" + mapping + ")");
+				throw new InvalidityException("Morphism " + getInternalId() + ": mapping invalid (" + mapping + ")");
 	}
 	
 	public void removeDanglingMappingReference() {
@@ -546,14 +546,14 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public String myToString() {
 		if (getMappings().size() >0) {
-			String res = "Morphism " + getShortPatternInternalId() + " (";
+			String res = "Morphism " + getInternalId() + " (";
 			for (Mapping map : getMappings()) {
 				res += "\n. " + map.myToString();
 			}
 			res += ")";
 			return res;
 		}
-		return "Morphism (" + getShortPatternInternalId() + ")";
+		return "Morphism (" + getInternalId() + ")";
 	}
 
 } // MorphismImpl

@@ -78,7 +78,7 @@ public class BooleanOperatorItemProvider extends OperatorItemProvider {
 	@Override
 	public String getText(Object object) {
 		BooleanOperator booleanOperator = (BooleanOperator) object;
-		return getString("_UI_BooleanOperator_type") + " " + booleanOperator.getShortPatternInternalId();
+		return getString("_UI_BooleanOperator_type") + " " + booleanOperator.getInternalId();
 	}
 
 

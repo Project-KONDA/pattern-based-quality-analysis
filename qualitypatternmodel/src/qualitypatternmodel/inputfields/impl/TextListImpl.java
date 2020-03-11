@@ -108,7 +108,7 @@ public class TextListImpl extends TextImpl implements TextList {
 	 */
 	@Override
 	public String getListVar() {
-		return LISTVARIABLE + getShortPatternInternalId();
+		return LISTVARIABLE + getInternalId();
 	}
 
 
@@ -206,7 +206,7 @@ public class TextListImpl extends TextImpl implements TextList {
 	
 	@Override 
 	public String myToString() {
-		String res = "list " + getShortPatternInternalId() + "[";
+		String res = "list " + getInternalId() + "[";
 		for (int i = 0; i < getValues().size(); i++) {
 			if (i>0) res += ", ";
 			res += "'" + getValues().get(i) + "'";

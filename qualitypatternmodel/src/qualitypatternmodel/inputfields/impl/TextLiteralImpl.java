@@ -404,7 +404,7 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 	@Override 
 	public String myToString() {
 		
-		return "text " + getShortPatternInternalId() + " '" + getValue() + "'";
+		return "text " + getInternalId() + " '" + getValue() + "'";
 	}
 
 } //TextLiteralImpl

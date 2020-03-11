@@ -9,9 +9,9 @@ package qualitypatternmodel.patternstructure;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getTrue()
+ * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getTrueElement()
  * @model
  * @generated
  */
-public interface True extends Condition {
+public interface TrueElement extends Condition {
 } // True

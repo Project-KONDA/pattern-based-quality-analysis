@@ -48,7 +48,7 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 			addComparison2PropertyDescriptor(object);
 			addMatchPropertyDescriptor(object);
 			addAttributeNamePropertyDescriptor(object);
-			addPropertyOptionPropertyDescriptor(object);
+			addOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -98,28 +98,6 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Property Option feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPropertyOptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_propertyOption_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_propertyOption_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__PROPERTY_OPTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Attribute Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,6 +111,28 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Property_attributeName_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Property_attributeName_feature", "_UI_Property_type"),
 				 GraphstructurePackage.Literals.PROPERTY__ATTRIBUTE_NAME,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Option feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Property_option_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Property_option_feature", "_UI_Property_type"),
+				 GraphstructurePackage.Literals.PROPERTY__OPTION,
 				 true,
 				 false,
 				 true,
@@ -183,7 +183,7 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Property property = (Property) object;
-		return getString("_UI_Property_type") + " " + property.getShortPatternInternalId();			
+		return getString("_UI_Property_type") + " " + property.getInternalId();			
 	}
 
 

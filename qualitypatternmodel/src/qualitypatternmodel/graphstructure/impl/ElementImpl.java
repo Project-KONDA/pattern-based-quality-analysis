@@ -41,6 +41,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Input;
@@ -590,7 +591,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			comparison.setArgument1(property);
 			comparison.setArgument2(unknownInputValue);	
 		} catch (Exception e) {
-			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());			
+			System.out.println("Adding Condition Failed: " + e.getMessage());			
 		}
 	}
 
@@ -611,6 +612,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			
 			Property property = new PropertyImpl();
 			getProperties().add(property);
+			property.getOption().setValue(PropertyLocation.TAG);
 			
 			TextLiteralImpl textlit = new TextLiteralImpl();
 			varlist.add(textlit);
@@ -620,7 +622,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			comparison.setArgument1(property);
 			comparison.setArgument2(textlit);			
 		} catch (Exception e) {
-			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			System.out.println("Adding Condition Failed: " + e.getMessage());
 		}
 	}
 	
@@ -1013,7 +1015,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 
 	@Override
 	public String myToString() {
-		String res = "Element " + getName() + " " + getShortPatternInternalId();
+		String res = "Element " + getName() + " " + getInternalId();
 		for (Property prop : getProperties())
 			res += "\n. " + prop.myToString();
 		if (getNextElements().size() > 0) {

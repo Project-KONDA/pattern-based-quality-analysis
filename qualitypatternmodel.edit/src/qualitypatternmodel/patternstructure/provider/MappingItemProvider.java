@@ -79,7 +79,7 @@ public class MappingItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Mapping mapping = (Mapping) object;
-		return getString("_UI_Mapping_type") + " " + mapping.getShortPatternInternalId();		
+		return getString("_UI_Mapping_type") + " " + mapping.getInternalId();		
 	}
 
 

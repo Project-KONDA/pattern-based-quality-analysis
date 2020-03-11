@@ -80,13 +80,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT__ID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID = 1;
+	int PATTERN_ELEMENT__INTERNAL_ID = 1;
 
 	/**
 	 * The number of structural features of the '<em>Pattern Element</em>' class.
@@ -161,22 +161,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___GET_ANCESTOR__CLASS = 6;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = 7;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___MY_TO_STRING = 8;
+	int PATTERN_ELEMENT___MY_TO_STRING = 7;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = 8;
 
 	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
@@ -207,13 +207,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING__ID = PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING__SHORT_PATTERN_INTERNAL_ID = PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int MAPPING__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
@@ -306,15 +306,6 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,6 +313,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
@@ -352,13 +352,13 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING__ID = MAPPING__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING__SHORT_PATTERN_INTERNAL_ID = MAPPING__SHORT_PATTERN_INTERNAL_ID;
+	int RELATION_MAPPING__INTERNAL_ID = MAPPING__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
@@ -469,15 +469,6 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING___GET_ANCESTOR__CLASS = MAPPING___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -485,6 +476,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING___MY_TO_STRING = MAPPING___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Relation Mapping</em>' class.
@@ -515,13 +515,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION__ID = PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__SHORT_PATTERN_INTERNAL_ID = PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int CONDITION__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -659,15 +659,6 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -675,6 +666,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -705,13 +705,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION__ID = CONDITION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION__SHORT_PATTERN_INTERNAL_ID = CONDITION__SHORT_PATTERN_INTERNAL_ID;
+	int QUANTIFIED_CONDITION__INTERNAL_ID = CONDITION__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -894,15 +894,6 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -910,6 +901,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int QUANTIFIED_CONDITION___MY_TO_STRING = CONDITION___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Copy Previous Graph</em>' operation.
@@ -949,13 +949,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM__ID = PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__SHORT_PATTERN_INTERNAL_ID = PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int MORPHISM__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Morph Depth</b></em>' attribute.
@@ -1102,15 +1102,6 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1118,6 +1109,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
@@ -1148,13 +1148,13 @@ public interface PatternstructurePackage extends EPackage {
 	int SINGLE_ELEMENT_MAPPING__ID = MAPPING__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING__SHORT_PATTERN_INTERNAL_ID = MAPPING__SHORT_PATTERN_INTERNAL_ID;
+	int SINGLE_ELEMENT_MAPPING__INTERNAL_ID = MAPPING__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
@@ -1265,15 +1265,6 @@ public interface PatternstructurePackage extends EPackage {
 	int SINGLE_ELEMENT_MAPPING___GET_ANCESTOR__CLASS = MAPPING___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1281,6 +1272,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT_MAPPING___MY_TO_STRING = MAPPING___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Single Element Mapping</em>' class.
@@ -1311,13 +1311,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA__ID = CONDITION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__SHORT_PATTERN_INTERNAL_ID = CONDITION__SHORT_PATTERN_INTERNAL_ID;
+	int FORMULA__INTERNAL_ID = CONDITION__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -1392,22 +1392,22 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA__OPERATOR = CONDITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Argument1</b></em>' containment reference.
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__ARGUMENT1 = CONDITION_FEATURE_COUNT + 1;
+	int FORMULA__CONDITION = CONDITION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Argument2</b></em>' containment reference.
+	 * The feature id for the '<em><b>Condition2</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__ARGUMENT2 = CONDITION_FEATURE_COUNT + 2;
+	int FORMULA__CONDITION2 = CONDITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Formula</em>' class.
@@ -1482,15 +1482,6 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1498,6 +1489,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int FORMULA___MY_TO_STRING = CONDITION___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Formula</em>' class.
@@ -1509,14 +1509,14 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.TrueImpl <em>True</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.TrueElementImpl <em>True Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.impl.TrueImpl
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getTrue()
+	 * @see qualitypatternmodel.patternstructure.impl.TrueElementImpl
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getTrueElement()
 	 * @generated
 	 */
-	int TRUE = 7;
+	int TRUE_ELEMENT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1525,16 +1525,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE__ID = CONDITION__ID;
+	int TRUE_ELEMENT__ID = CONDITION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE__SHORT_PATTERN_INTERNAL_ID = CONDITION__SHORT_PATTERN_INTERNAL_ID;
+	int TRUE_ELEMENT__INTERNAL_ID = CONDITION__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -1543,7 +1543,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE__COND_DEPTH = CONDITION__COND_DEPTH;
+	int TRUE_ELEMENT__COND_DEPTH = CONDITION__COND_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Get Next Quantified Conditions</b></em>' reference list.
@@ -1552,7 +1552,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE__GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS;
+	int TRUE_ELEMENT__GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -1561,7 +1561,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE__PATTERN = CONDITION__PATTERN;
+	int TRUE_ELEMENT__PATTERN = CONDITION__PATTERN;
 
 	/**
 	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
@@ -1570,7 +1570,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
+	int TRUE_ELEMENT__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
@@ -1579,7 +1579,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE__FORMULA1 = CONDITION__FORMULA1;
+	int TRUE_ELEMENT__FORMULA1 = CONDITION__FORMULA1;
 
 	/**
 	 * The feature id for the '<em><b>Formula2</b></em>' container reference.
@@ -1588,7 +1588,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE__FORMULA2 = CONDITION__FORMULA2;
+	int TRUE_ELEMENT__FORMULA2 = CONDITION__FORMULA2;
 
 	/**
 	 * The feature id for the '<em><b>Not</b></em>' container reference.
@@ -1597,16 +1597,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE__NOT = CONDITION__NOT;
+	int TRUE_ELEMENT__NOT = CONDITION__NOT;
 
 	/**
-	 * The number of structural features of the '<em>True</em>' class.
+	 * The number of structural features of the '<em>True Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
+	int TRUE_ELEMENT_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1615,7 +1615,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
+	int TRUE_ELEMENT___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1624,7 +1624,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
+	int TRUE_ELEMENT___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1633,7 +1633,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
+	int TRUE_ELEMENT___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1642,7 +1642,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int TRUE_ELEMENT___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1651,7 +1651,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
+	int TRUE_ELEMENT___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1660,7 +1660,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___GET_CONTAINER = CONDITION___GET_CONTAINER;
+	int TRUE_ELEMENT___GET_CONTAINER = CONDITION___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1669,16 +1669,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int TRUE_ELEMENT___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1687,16 +1678,25 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE___MY_TO_STRING = CONDITION___MY_TO_STRING;
+	int TRUE_ELEMENT___MY_TO_STRING = CONDITION___MY_TO_STRING;
 
 	/**
-	 * The number of operations of the '<em>True</em>' class.
+	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+	int TRUE_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>True Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.PatternImpl <em>Pattern</em>}' class.
@@ -1718,13 +1718,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__ID = PATTERN_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__SHORT_PATTERN_INTERNAL_ID = PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID;
+	int PATTERN__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Variable List</b></em>' containment reference.
@@ -1745,13 +1745,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Return Graph</b></em>' containment reference.
+	 * The feature id for the '<em><b>Graph</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__RETURN_GRAPH = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int PATTERN__GRAPH = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -1844,15 +1844,6 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
 	 * The operation id for the '<em>My To String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1860,6 +1851,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1898,14 +1898,14 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotImpl <em>Not</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotElementImpl <em>Not Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.impl.NotImpl
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNot()
+	 * @see qualitypatternmodel.patternstructure.impl.NotElementImpl
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNotElement()
 	 * @generated
 	 */
-	int NOT = 10;
+	int NOT_ELEMENT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1914,16 +1914,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT__ID = CONDITION__ID;
+	int NOT_ELEMENT__ID = CONDITION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Short Pattern Internal Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT__SHORT_PATTERN_INTERNAL_ID = CONDITION__SHORT_PATTERN_INTERNAL_ID;
+	int NOT_ELEMENT__INTERNAL_ID = CONDITION__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -1932,7 +1932,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT__COND_DEPTH = CONDITION__COND_DEPTH;
+	int NOT_ELEMENT__COND_DEPTH = CONDITION__COND_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Get Next Quantified Conditions</b></em>' reference list.
@@ -1941,7 +1941,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT__GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS;
+	int NOT_ELEMENT__GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -1950,7 +1950,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT__PATTERN = CONDITION__PATTERN;
+	int NOT_ELEMENT__PATTERN = CONDITION__PATTERN;
 
 	/**
 	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
@@ -1959,7 +1959,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
+	int NOT_ELEMENT__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
@@ -1968,7 +1968,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT__FORMULA1 = CONDITION__FORMULA1;
+	int NOT_ELEMENT__FORMULA1 = CONDITION__FORMULA1;
 
 	/**
 	 * The feature id for the '<em><b>Formula2</b></em>' container reference.
@@ -1977,7 +1977,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT__FORMULA2 = CONDITION__FORMULA2;
+	int NOT_ELEMENT__FORMULA2 = CONDITION__FORMULA2;
 
 	/**
 	 * The feature id for the '<em><b>Not</b></em>' container reference.
@@ -1986,25 +1986,25 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT__NOT = CONDITION__NOT;
+	int NOT_ELEMENT__NOT = CONDITION__NOT;
 
 	/**
-	 * The feature id for the '<em><b>Argument</b></em>' containment reference.
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT__ARGUMENT = CONDITION_FEATURE_COUNT + 0;
+	int NOT_ELEMENT__CONDITION = CONDITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Not</em>' class.
+	 * The number of structural features of the '<em>Not Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
+	int NOT_ELEMENT_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2013,7 +2013,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
+	int NOT_ELEMENT___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2022,7 +2022,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
+	int NOT_ELEMENT___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2031,7 +2031,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
+	int NOT_ELEMENT___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2040,7 +2040,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int NOT_ELEMENT___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2049,7 +2049,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
+	int NOT_ELEMENT___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2058,7 +2058,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT___GET_CONTAINER = CONDITION___GET_CONTAINER;
+	int NOT_ELEMENT___GET_CONTAINER = CONDITION___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2067,16 +2067,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int NOT_ELEMENT___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2085,16 +2076,25 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT___MY_TO_STRING = CONDITION___MY_TO_STRING;
+	int NOT_ELEMENT___MY_TO_STRING = CONDITION___MY_TO_STRING;
 
 	/**
-	 * The number of operations of the '<em>Not</em>' class.
+	 * The operation id for the '<em>Validate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+	int NOT_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Not Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_ELEMENT_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.LogicalOperator <em>Logical Operator</em>}' enum.
@@ -2534,36 +2534,36 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getFormula_Operator();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Formula#getArgument1 <em>Argument1</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Formula#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Argument1</em>'.
-	 * @see qualitypatternmodel.patternstructure.Formula#getArgument1()
+	 * @return the meta object for the containment reference '<em>Condition</em>'.
+	 * @see qualitypatternmodel.patternstructure.Formula#getCondition()
 	 * @see #getFormula()
 	 * @generated
 	 */
-	EReference getFormula_Argument1();
+	EReference getFormula_Condition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Formula#getArgument2 <em>Argument2</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Formula#getCondition2 <em>Condition2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Argument2</em>'.
-	 * @see qualitypatternmodel.patternstructure.Formula#getArgument2()
+	 * @return the meta object for the containment reference '<em>Condition2</em>'.
+	 * @see qualitypatternmodel.patternstructure.Formula#getCondition2()
 	 * @see #getFormula()
 	 * @generated
 	 */
-	EReference getFormula_Argument2();
+	EReference getFormula_Condition2();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.True <em>True</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.TrueElement <em>True Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>True</em>'.
-	 * @see qualitypatternmodel.patternstructure.True
+	 * @return the meta object for class '<em>True Element</em>'.
+	 * @see qualitypatternmodel.patternstructure.TrueElement
 	 * @generated
 	 */
-	EClass getTrue();
+	EClass getTrueElement();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Pattern <em>Pattern</em>}'.
@@ -2574,17 +2574,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPattern();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getReturnGraph <em>Return Graph</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Return Graph</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getReturnGraph()
-	 * @see #getPattern()
-	 * @generated
-	 */
-	EReference getPattern_ReturnGraph();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}'.
@@ -2642,6 +2631,17 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getPattern_CheckMorphismOfNextGraph();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Graph</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getGraph()
+	 * @see #getPattern()
+	 * @generated
+	 */
+	EReference getPattern_Graph();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#isValid(boolean) <em>Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2693,15 +2693,15 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getPatternElement_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.PatternElement#getShortPatternInternalId <em>Short Pattern Internal Id</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.PatternElement#getInternalId <em>Internal Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Short Pattern Internal Id</em>'.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getShortPatternInternalId()
+	 * @return the meta object for the attribute '<em>Internal Id</em>'.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getInternalId()
 	 * @see #getPatternElement()
 	 * @generated
 	 */
-	EAttribute getPatternElement_ShortPatternInternalId();
+	EAttribute getPatternElement_InternalId();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location) <em>To XQuery</em>}' operation.
@@ -2744,6 +2744,27 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__Validate__DiagnosticChain_Map();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.NotElement <em>Not Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Not Element</em>'.
+	 * @see qualitypatternmodel.patternstructure.NotElement
+	 * @generated
+	 */
+	EClass getNotElement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.NotElement#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Condition</em>'.
+	 * @see qualitypatternmodel.patternstructure.NotElement#getCondition()
+	 * @see #getNotElement()
+	 * @generated
+	 */
+	EReference getNotElement_Condition();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2752,27 +2773,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__MyToString();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Not <em>Not</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Not</em>'.
-	 * @see qualitypatternmodel.patternstructure.Not
-	 * @generated
-	 */
-	EClass getNot();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Not#getArgument <em>Argument</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Argument</em>'.
-	 * @see qualitypatternmodel.patternstructure.Not#getArgument()
-	 * @see #getNot()
-	 * @generated
-	 */
-	EReference getNot_Argument();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}' operation.
@@ -3195,30 +3195,30 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute FORMULA__OPERATOR = eINSTANCE.getFormula_Operator();
 
 		/**
-		 * The meta object literal for the '<em><b>Argument1</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FORMULA__ARGUMENT1 = eINSTANCE.getFormula_Argument1();
+		EReference FORMULA__CONDITION = eINSTANCE.getFormula_Condition();
 
 		/**
-		 * The meta object literal for the '<em><b>Argument2</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Condition2</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FORMULA__ARGUMENT2 = eINSTANCE.getFormula_Argument2();
+		EReference FORMULA__CONDITION2 = eINSTANCE.getFormula_Condition2();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.TrueImpl <em>True</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.TrueElementImpl <em>True Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.TrueImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getTrue()
+		 * @see qualitypatternmodel.patternstructure.impl.TrueElementImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getTrueElement()
 		 * @generated
 		 */
-		EClass TRUE = eINSTANCE.getTrue();
+		EClass TRUE_ELEMENT = eINSTANCE.getTrueElement();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternImpl <em>Pattern</em>}' class.
@@ -3229,14 +3229,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EClass PATTERN = eINSTANCE.getPattern();
-
-		/**
-		 * The meta object literal for the '<em><b>Return Graph</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PATTERN__RETURN_GRAPH = eINSTANCE.getPattern_ReturnGraph();
 
 		/**
 		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
@@ -3277,6 +3269,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH = eINSTANCE.getPattern_CheckMorphismOfNextGraph();
+
+		/**
+		 * The meta object literal for the '<em><b>Graph</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATTERN__GRAPH = eINSTANCE.getPattern_Graph();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
@@ -3321,12 +3321,12 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute PATTERN_ELEMENT__ID = eINSTANCE.getPatternElement_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Short Pattern Internal Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Internal Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID = eINSTANCE.getPatternElement_ShortPatternInternalId();
+		EAttribute PATTERN_ELEMENT__INTERNAL_ID = eINSTANCE.getPatternElement_InternalId();
 
 		/**
 		 * The meta object literal for the '<em><b>To XQuery</b></em>' operation.
@@ -3361,30 +3361,30 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getPatternElement__Validate__DiagnosticChain_Map();
 
 		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NotElementImpl <em>Not Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.patternstructure.impl.NotElementImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNotElement()
+		 * @generated
+		 */
+		EClass NOT_ELEMENT = eINSTANCE.getNotElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NOT_ELEMENT__CONDITION = eINSTANCE.getNotElement_Condition();
+
+		/**
 		 * The meta object literal for the '<em><b>My To String</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___MY_TO_STRING = eINSTANCE.getPatternElement__MyToString();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NotImpl <em>Not</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.NotImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNot()
-		 * @generated
-		 */
-		EClass NOT = eINSTANCE.getNot();
-
-		/**
-		 * The meta object literal for the '<em><b>Argument</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NOT__ARGUMENT = eINSTANCE.getNot_Argument();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Container</b></em>' operation.

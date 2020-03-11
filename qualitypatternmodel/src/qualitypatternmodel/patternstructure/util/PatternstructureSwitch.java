@@ -118,11 +118,11 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.TRUE: {
-				True true_ = (True)theEObject;
-				T result = caseTrue(true_);
-				if (result == null) result = caseCondition(true_);
-				if (result == null) result = casePatternElement(true_);
+			case PatternstructurePackage.TRUE_ELEMENT: {
+				TrueElement trueElement = (TrueElement)theEObject;
+				T result = caseTrueElement(trueElement);
+				if (result == null) result = caseCondition(trueElement);
+				if (result == null) result = casePatternElement(trueElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,11 +139,11 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.NOT: {
-				Not not = (Not)theEObject;
-				T result = caseNot(not);
-				if (result == null) result = caseCondition(not);
-				if (result == null) result = casePatternElement(not);
+			case PatternstructurePackage.NOT_ELEMENT: {
+				NotElement notElement = (NotElement)theEObject;
+				T result = caseNotElement(notElement);
+				if (result == null) result = caseCondition(notElement);
+				if (result == null) result = casePatternElement(notElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -257,17 +257,17 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>True</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>True Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>True</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>True Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTrue(True object) {
+	public T caseTrueElement(TrueElement object) {
 		return null;
 	}
 
@@ -302,17 +302,17 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Not</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Not Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Not</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Not Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNot(Not object) {
+	public T caseNotElement(NotElement object) {
 		return null;
 	}
 

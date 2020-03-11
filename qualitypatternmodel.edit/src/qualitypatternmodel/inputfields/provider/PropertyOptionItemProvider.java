@@ -137,7 +137,7 @@ public class PropertyOptionItemProvider extends InputItemProvider {
 	@Override
 	public String getText(Object object) {
 		PropertyOption propertyOption = (PropertyOption)object;
-		return getString("_UI_PropertyOption_type") + " " + propertyOption.getShortPatternInternalId() + " " + propertyOption.getValue().getName();
+		return getString("_UI_PropertyOption_type") + " " + propertyOption.getInternalId() + " " + propertyOption.getValue().getName();
 	}
 
 

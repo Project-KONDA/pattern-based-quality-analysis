@@ -187,26 +187,26 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.True} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.TrueElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TrueItemProvider trueItemProvider;
+	protected TrueElementItemProvider trueElementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.True}.
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.TrueElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTrueAdapter() {
-		if (trueItemProvider == null) {
-			trueItemProvider = new TrueItemProvider(this);
+	public Adapter createTrueElementAdapter() {
+		if (trueElementItemProvider == null) {
+			trueElementItemProvider = new TrueElementItemProvider(this);
 		}
 
-		return trueItemProvider;
+		return trueElementItemProvider;
 	}
 
 	/**
@@ -233,26 +233,26 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.Not} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.NotElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NotItemProvider notItemProvider;
+	protected NotElementItemProvider notElementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.Not}.
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.NotElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNotAdapter() {
-		if (notItemProvider == null) {
-			notItemProvider = new NotItemProvider(this);
+	public Adapter createNotElementAdapter() {
+		if (notElementItemProvider == null) {
+			notElementItemProvider = new NotElementItemProvider(this);
 		}
 
-		return notItemProvider;
+		return notElementItemProvider;
 	}
 
 	/**
@@ -365,9 +365,9 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		if (morphismItemProvider != null) morphismItemProvider.dispose();
 		if (singleElementMappingItemProvider != null) singleElementMappingItemProvider.dispose();
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
-		if (trueItemProvider != null) trueItemProvider.dispose();
+		if (trueElementItemProvider != null) trueElementItemProvider.dispose();
 		if (patternItemProvider != null) patternItemProvider.dispose();
-		if (notItemProvider != null) notItemProvider.dispose();
+		if (notElementItemProvider != null) notElementItemProvider.dispose();
 	}
 
 }

@@ -102,7 +102,7 @@ public class ConditionItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Condition condition = (Condition) object;
-		return getString("_UI_Condition_type") + " " + condition.getShortPatternInternalId();		
+		return getString("_UI_Condition_type") + " " + condition.getInternalId();		
 	}
 
 

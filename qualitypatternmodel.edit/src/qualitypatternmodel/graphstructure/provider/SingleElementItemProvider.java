@@ -168,7 +168,7 @@ public class SingleElementItemProvider extends ElementItemProvider {
 	public String getText(Object object) {
 		SingleElement singleElement = (SingleElement) object;
 //		System.out.println(singleElement.getId());
-		return getString("_UI_SingleElement_type") + " " + singleElement.getShortPatternInternalId();
+		return getString("_UI_SingleElement_type") + " " + singleElement.getInternalId();
 		
 //		String label = ((SingleElement)object).getId();
 //		return label == null || label.length() == 0 ?

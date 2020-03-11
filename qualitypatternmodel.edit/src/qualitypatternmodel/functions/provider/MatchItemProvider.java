@@ -135,7 +135,7 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 	@Override
 	public String getText(Object object) {
 		Match match = (Match) object;
-		String text = getString("_UI_Match_type") + " " + match.getShortPatternInternalId();
+		String text = getString("_UI_Match_type") + " " + match.getInternalId();
 //		if(match.getRegularExpression() != null && match.getRegularExpression().getValue() != null) {
 //			text += " " + match.getRegularExpression().getValue();
 //		}

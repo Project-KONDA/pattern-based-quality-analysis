@@ -4,16 +4,16 @@ package qualitypatternmodel.patternstructure.tests;
 
 import junit.textui.TestRunner;
 
+import qualitypatternmodel.patternstructure.NotElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.True;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>True</b></em>'.
+ * A test case for the model object '<em><b>Not Element</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class TrueTest extends ConditionTest {
+public class NotElementTest extends ConditionTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class TrueTest extends ConditionTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(TrueTest.class);
+		TestRunner.run(NotElementTest.class);
 	}
 
 	/**
-	 * Constructs a new True test case with the given name.
+	 * Constructs a new Not Element test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TrueTest(String name) {
+	public NotElementTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this True test case.
+	 * Returns the fixture for this Not Element test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected True getFixture() {
-		return (True)fixture;
+	protected NotElement getFixture() {
+		return (NotElement)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class TrueTest extends ConditionTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PatternstructureFactory.eINSTANCE.createTrue());
+		setFixture(PatternstructureFactory.eINSTANCE.createNotElement());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class TrueTest extends ConditionTest {
 		setFixture(null);
 	}
 
-} //TrueTest
+} //NotElementTest

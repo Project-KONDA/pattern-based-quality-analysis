@@ -60,7 +60,7 @@ public class PatternElementItemProvider
 			super.getPropertyDescriptors(object);
 
 			addIdPropertyDescriptor(object);
-			addShortPatternInternalIdPropertyDescriptor(object);
+			addInternalIdPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -88,19 +88,19 @@ public class PatternElementItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Short Pattern Internal Id feature.
+	 * This adds a property descriptor for the Internal Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addShortPatternInternalIdPropertyDescriptor(Object object) {
+	protected void addInternalIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PatternElement_shortPatternInternalId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PatternElement_shortPatternInternalId_feature", "_UI_PatternElement_type"),
-				 PatternstructurePackage.Literals.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID,
+				 getString("_UI_PatternElement_internalId_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PatternElement_internalId_feature", "_UI_PatternElement_type"),
+				 PatternstructurePackage.Literals.PATTERN_ELEMENT__INTERNAL_ID,
 				 true,
 				 false,
 				 false,
@@ -137,7 +137,7 @@ public class PatternElementItemProvider
 
 		switch (notification.getFeatureID(PatternElement.class)) {
 			case PatternstructurePackage.PATTERN_ELEMENT__ID:
-			case PatternstructurePackage.PATTERN_ELEMENT__SHORT_PATTERN_INTERNAL_ID:
+			case PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

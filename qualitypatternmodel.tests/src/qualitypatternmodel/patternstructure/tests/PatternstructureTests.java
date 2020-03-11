@@ -36,9 +36,9 @@ public class PatternstructureTests extends TestSuite {
 		suite.addTestSuite(MorphismTest.class);
 		suite.addTestSuite(SingleElementMappingTest.class);
 		suite.addTestSuite(FormulaTest.class);
-		suite.addTestSuite(TrueTest.class);
+		suite.addTestSuite(TrueElementTest.class);
 		suite.addTestSuite(PatternTest.class);
-		suite.addTestSuite(NotTest.class);
+		suite.addTestSuite(NotElementTest.class);
 		return suite;
 	}
 

@@ -7,7 +7,7 @@ import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 
-public class test02_return {
+public class Test02Return {
 
 	public static void main(String[] args) {
 
@@ -16,17 +16,17 @@ public class test02_return {
 		patterns.add(getPatternMultipleReturnNested());
 		patterns.add(getPatternLateReturn());
 
-		test00.test(patterns);
+		Test00.test(patterns);
 	}
 
 	public static Pattern getPatternMultipleReturn() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 			
-		Pattern pattern = test00.getBasePattern();
-		Graph return_graph = pattern.getReturnGraph();
+		Pattern pattern = Test00.getBasePattern();
+		Graph return_graph = pattern.getGraph();
 		
-		SingleElement root = pattern.getReturnGraph().getRootElement();
+		SingleElement root = pattern.getGraph().getRootElement();
 		SingleElement return2 = graphFactory.createSingleElement();
 		root.getNextSingle().add(return2);
 		return_graph.getReturnElements().add(return2);
@@ -38,11 +38,11 @@ public class test02_return {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		Pattern pattern = test00.getBasePattern();
+		Pattern pattern = Test00.getBasePattern();
 		
 		SingleElement return2 = graphFactory.createSingleElement();
-		pattern.getReturnGraph().getReturnElements().get(0).getNextSingle().add(return2);
-		pattern.getReturnGraph().getReturnElements().add(return2);
+		pattern.getGraph().getReturnElements().get(0).getNextSingle().add(return2);
+		pattern.getGraph().getReturnElements().add(return2);
 		
 		return pattern;
 	}
@@ -51,8 +51,8 @@ public class test02_return {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 			
-		Pattern pattern = test00.getBasePattern();
-		Graph return_graph = pattern.getReturnGraph();
+		Pattern pattern = Test00.getBasePattern();
+		Graph return_graph = pattern.getGraph();
 		
 		SingleElement return2 = graphFactory.createSingleElement();
 		EList<SingleElement> return_elements = return_graph.getReturnElements();

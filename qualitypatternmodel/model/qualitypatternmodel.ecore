@@ -34,7 +34,7 @@
           eType="#//graphstructure/PropertyLocation"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//graphstructure/PropertyLocation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//graphstructure/Property"
-          eOpposite="#//graphstructure/Property/propertyOption"/>
+          eOpposite="#//graphstructure/Property/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableList" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="add">
@@ -210,7 +210,7 @@
           eType="#//functions/Match" eOpposite="#//functions/Match/property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" lowerBound="1"
           eType="#//inputfields/TextLiteral" eOpposite="#//inputfields/TextLiteral/property"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOption" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//inputfields/PropertyOption" eOpposite="#//inputfields/PropertyOption/property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SingleElement" eSuperTypes="#//graphstructure/Element">
@@ -393,7 +393,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedCondition"
           eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//patternstructure/Pattern"
-          eOpposite="#//patternstructure/Pattern/returnGraph"/>
+          eOpposite="#//patternstructure/Pattern/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="returnElements" lowerBound="1"
           upperBound="-1" eType="#//graphstructure/SingleElement" eOpposite="#//graphstructure/SingleElement/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphismTo" upperBound="-1"
@@ -494,7 +494,7 @@
           ordered="false" upperBound="-1" eType="#//patternstructure/QuantifiedCondition"
           changeable="false" volatile="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;if self.oclIsTypeOf(QuantifiedCondition) then &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Set{self.oclAsType(QuantifiedCondition)}&#xA;&#x9;&#x9;&#x9;&#x9;else &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if self.oclIsTypeOf(Formula) then &#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(self.oclAsType(Formula).argument2->notEmpty()) then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.oclAsType(Formula).argument1.getNextQuantifiedConditions->union(self.oclAsType(Formula).argument2.getNextQuantifiedConditions)&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.oclAsType(Formula).argument1.getNextQuantifiedConditions&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Set{}&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;endif"/>
+          <details key="derivation" value="&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;if self.oclIsTypeOf(QuantifiedCondition) then &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Set{self.oclAsType(QuantifiedCondition)}&#xA;&#x9;&#x9;&#x9;&#x9;else &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if self.oclIsTypeOf(Formula) then &#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(self.oclAsType(Formula).condition2->notEmpty()) then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.oclAsType(Formula).condition.getNextQuantifiedConditions->union(self.oclAsType(Formula).condition2.getNextQuantifiedConditions)&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.oclAsType(Formula).condition.getNextQuantifiedConditions&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Set{}&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/OCL/Collection">
           <details key="nullFree" value="false"/>
@@ -505,11 +505,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedcondition"
           eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/condition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="formula1" eType="#//patternstructure/Formula"
-          eOpposite="#//patternstructure/Formula/argument1"/>
+          eOpposite="#//patternstructure/Formula/condition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="formula2" eType="#//patternstructure/Formula"
-          eOpposite="#//patternstructure/Formula/argument2"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="not" eType="#//patternstructure/Not"
-          eOpposite="#//patternstructure/Not/argument"/>
+          eOpposite="#//patternstructure/Formula/condition2"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="not" eType="#//patternstructure/NotElement"
+          eOpposite="#//patternstructure/NotElement/condition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Morphism" eSuperTypes="#//patternstructure/PatternElement">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -572,18 +572,18 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Formula" eSuperTypes="#//patternstructure/Condition">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//patternstructure/LogicalOperator"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
           eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/formula1"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" eType="#//patternstructure/Condition"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition2" eType="#//patternstructure/Condition"
           containment="true" eOpposite="#//patternstructure/Condition/formula2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="True" eSuperTypes="#//patternstructure/Condition"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TrueElement" eSuperTypes="#//patternstructure/Condition"/>
     <eClassifiers xsi:type="ecore:EEnum" name="LogicalOperator">
       <eLiterals name="AND" value="1" literal="and"/>
       <eLiterals name="OR" value="2" literal="or"/>
       <eLiterals name="IMPLIES" value="3" literal="implies"/>
       <eLiterals name="XOR" value="4" literal="xor"/>
-      <eLiterals name="EQUIVALENT" value="5" literal="EQUIVALENT"/>
+      <eLiterals name="EQUAL" value="5" literal="EQUAL"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Quantifier">
       <eLiterals name="EXISTS" literal="EXISTS"/>
@@ -608,10 +608,10 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           changeable="false" volatile="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if self.condition.oclIsTypeOf(QuantifiedCondition) then self.returnGraph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else self.condition.getNextQuantifiedConditions->forAll(e|self.returnGraph = e.morphism.from and e.graph = e.morphism.to) endif"/>
+          <details key="derivation" value="&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else self.condition.getNextQuantifiedConditions->forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="returnGraph" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
           eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/pattern"/>
@@ -638,6 +638,7 @@
       <eOperations name="getAncestor" eType="#//patternstructure/PatternElement" eExceptions="#//patternstructure/MissingPatternContainerException">
         <eParameters name="cls" eType="#//patternstructure/ClassWrapper"/>
       </eOperations>
+      <eOperations name="myToString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context">
@@ -647,12 +648,10 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eOperations name="myToString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortPatternInternalId"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          defaultValueLiteral="-1"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Location">
       <eLiterals name="RETURN" value="1" literal="RETURN"/>
@@ -664,8 +663,8 @@
     <eClassifiers xsi:type="ecore:EDataType" name="ClassWrapper" instanceClassName="java.lang.Class"/>
     <eClassifiers xsi:type="ecore:EDataType" name="MissingPatternContainerException"
         instanceClassName="qualitypatternmodel.exceptions.MissingPatternContainerException"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//patternstructure/Condition">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
+    <eClassifiers xsi:type="ecore:EClass" name="NotElement" eSuperTypes="#//patternstructure/Condition">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
           eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/not"/>
     </eClassifiers>
   </eSubpackages>

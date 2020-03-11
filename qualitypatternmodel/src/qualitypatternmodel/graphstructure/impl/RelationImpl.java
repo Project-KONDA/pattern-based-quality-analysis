@@ -507,7 +507,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	
 	@Override
 	public String myToString() {
-		return getAxis().getLiteral() + " (" + getShortPatternInternalId() + ")";
+		return getAxis().getLiteral() + " (" + getInternalId() + ")";
 	}
 
 } // RelationImpl

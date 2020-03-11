@@ -31,13 +31,13 @@ public class TranslationTests {
 		
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		// TODO: add all test cases to testpairs
-		testPairs.addAll(test00.getTestPairs());
-		testPairs.addAll(test01_axis.getTestPairs());
-		testPairs.addAll(test02_return.getTestPairs());
-		testPairs.addAll(test03_quantor.getTestPairs());
-		testPairs.addAll(test04_quantorcombinations.getTestPairs());
-		testPairs.addAll(test05_quantorcombinations_cond.getTestPairs());
-		testPairs.addAll(test06_not.getTestPairs());
+		testPairs.addAll(Test00.getTestPairs());
+		testPairs.addAll(Test01Axis.getTestPairs());
+		testPairs.addAll(Test02Return.getTestPairs());
+		testPairs.addAll(Test03Quantor.getTestPairs());
+		testPairs.addAll(Test04QuantorCombinations.getTestPairs());
+		testPairs.addAll(Test05QuantorCombinationsCond.getTestPairs());
+		testPairs.addAll(Test06NotElement.getTestPairs());
 		
 		for(PatternTestPair testPair : testPairs) {
 			runTestQueryResultComparison(testPair);

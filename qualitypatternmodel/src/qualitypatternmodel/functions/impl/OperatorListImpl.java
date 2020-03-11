@@ -67,13 +67,13 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (getGraph() == null)
-			throw new InvalidityException("OperatorList not in Graph (" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("OperatorList not in Graph (" + getInternalId() + ")");
 		if (getGraph().getAllOperators() == null)
-			throw new InvalidityException("invalid Operators of Graph" + "(" + getShortPatternInternalId() + ")");
+			throw new InvalidityException("invalid Operators of Graph" + "(" + getInternalId() + ")");
 
 		EList<Operator> graphOps = getGraph().getAllOperators();
 		if (!(graphOps.containsAll(getOperators()) && getOperators().containsAll(graphOps))) {
-			String msg = "amount of operators in OperatorList not equal to amount of operators used in Graph (" + getShortPatternInternalId() + "):\n";
+			String msg = "amount of operators in OperatorList not equal to amount of operators used in Graph (" + getInternalId() + "):\n";
 			msg += getOperators();
 			for (Operator op : graphOps) {
 				msg += op.getId();
@@ -312,7 +312,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	@Override
 	public String myToString() {
 		if (getOperators().size() > 0) {
-			String res = "\nOperatorList " + getShortPatternInternalId() + " (";
+			String res = "\nOperatorList " + getInternalId() + " (";
 			for (Operator operator: getOperators()) {
 				res += "\n. " + operator.myToString();
 			}

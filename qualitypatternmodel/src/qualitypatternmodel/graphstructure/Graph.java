@@ -240,14 +240,14 @@ public interface Graph extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Pattern</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Pattern#getReturnGraph <em>Return Graph</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pattern</em>' container reference.
 	 * @see #setPattern(Pattern)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_Pattern()
-	 * @see qualitypatternmodel.patternstructure.Pattern#getReturnGraph
-	 * @model opposite="returnGraph" transient="false"
+	 * @see qualitypatternmodel.patternstructure.Pattern#getGraph
+	 * @model opposite="graph" transient="false"
 	 * @generated
 	 */
 	Pattern getPattern();

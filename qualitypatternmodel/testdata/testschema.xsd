@@ -25,15 +25,48 @@
 							    	<xs:element name="child4" minOccurs="0" maxOccurs="unbounded">
 									  <xs:complexType>
 									    <xs:sequence>
-									    	<xs:element name="leaf" minOccurs="0" maxOccurs="unbounded"/>	
-									    	<xs:element name="lString" minOccurs="0" maxOccurs="unbounded"/>
-											<xs:element name="lDouble" minOccurs="0" maxOccurs="unbounded"/>
-											<xs:element name="lInt" minOccurs="0" maxOccurs="unbounded"/>
-											<xs:element name="lBool" minOccurs="0" maxOccurs="unbounded"/>
-											<xs:element name="lDate" minOccurs="0" maxOccurs="unbounded"/>
-											<xs:element name="lTime" minOccurs="0" maxOccurs="unbounded"/>
-											<xs:element name="lDateTime" minOccurs="0" maxOccurs="unbounded"/>										  
+									    	<xs:element name="leaf" minOccurs="0" maxOccurs="unbounded">	
+									    		<xs:complexType mixed="true">
+									    			<xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+									    		</xs:complexType>
+									    	</xs:element>
+									    	<xs:element name="lString" minOccurs="0" maxOccurs="unbounded">
+									    		<xs:complexType mixed="true">
+									    			<xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+									    		</xs:complexType>
+									    	</xs:element>
+											<xs:element name="lDouble" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType mixed="true">
+													<xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+									    		</xs:complexType>
+									    	</xs:element>
+											<xs:element name="lInt" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType mixed="true">
+													<xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+									    		</xs:complexType>
+									    	</xs:element>
+											<xs:element name="lBool" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType mixed="true">
+													<xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+									    		</xs:complexType>
+									    	</xs:element>
+											<xs:element name="lDate" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType mixed="true">
+													<xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+									    		</xs:complexType>
+									    	</xs:element>
+											<xs:element name="lTime" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType mixed="true">
+													<xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+									    		</xs:complexType>
+									    	</xs:element>
+											<xs:element name="lDateTime" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType mixed="true">
+													<xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+									    		</xs:complexType>
+									    	</xs:element>										  
 									    </xs:sequence>
+									    <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
 									    <xs:attribute name="aString" type="xs:string"/>
 									    <xs:attribute name="aDouble" type="xs:double"/>
 									    <xs:attribute name="aInt" type="xs:integer"/>
@@ -51,6 +84,7 @@
 									  </xs:complexType>
 									</xs:element>
 							    </xs:sequence>
+							    <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
 							    <xs:attribute name="aString" type="xs:string"/>
 							    <xs:attribute name="aDouble" type="xs:double"/>
 							    <xs:attribute name="aInt" type="xs:integer"/>
@@ -68,6 +102,7 @@
 							  </xs:complexType>
 							</xs:element>
 					    </xs:sequence>
+					    <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
 					    <xs:attribute name="aString" type="xs:string"/>
 					    <xs:attribute name="aDouble" type="xs:double"/>
 					    <xs:attribute name="aInt" type="xs:integer"/>
@@ -85,6 +120,7 @@
 					  </xs:complexType>
 					</xs:element>
 			    </xs:sequence>
+			    <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
 			    <xs:attribute name="aString" type="xs:string"/>
 			    <xs:attribute name="aDouble" type="xs:double"/>
 			    <xs:attribute name="aInt" type="xs:integer"/>

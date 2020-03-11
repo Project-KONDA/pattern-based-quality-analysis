@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.True;
+import qualitypatternmodel.patternstructure.TrueElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,13 +16,13 @@ import qualitypatternmodel.patternstructure.True;
  *
  * @generated
  */
-public class TrueImpl extends ConditionImpl implements True {
+public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TrueImpl() {
+	protected TrueElementImpl() {
 		super();
 	}
 	
@@ -41,7 +41,7 @@ public class TrueImpl extends ConditionImpl implements True {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PatternstructurePackage.Literals.TRUE;
+		return PatternstructurePackage.Literals.TRUE_ELEMENT;
 	}
 	
 	@Override

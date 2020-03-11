@@ -67,13 +67,13 @@ public interface PatternstructureFactory extends EFactory {
 	Formula createFormula();
 
 	/**
-	 * Returns a new object of class '<em>True</em>'.
+	 * Returns a new object of class '<em>True Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>True</em>'.
+	 * @return a new object of class '<em>True Element</em>'.
 	 * @generated
 	 */
-	True createTrue();
+	TrueElement createTrueElement();
 
 	/**
 	 * Returns a new object of class '<em>Pattern</em>'.
@@ -85,13 +85,13 @@ public interface PatternstructureFactory extends EFactory {
 	Pattern createPattern();
 
 	/**
-	 * Returns a new object of class '<em>Not</em>'.
+	 * Returns a new object of class '<em>Not Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Not</em>'.
+	 * @return a new object of class '<em>Not Element</em>'.
 	 * @generated
 	 */
-	Not createNot();
+	NotElement createNotElement();
 
 	/**
 	 * Returns the package supported by this factory.

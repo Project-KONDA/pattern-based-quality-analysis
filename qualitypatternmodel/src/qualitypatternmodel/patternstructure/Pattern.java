@@ -21,7 +21,7 @@ import qualitypatternmodel.inputfields.VariableList;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getVariableList <em>Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getReturnGraph <em>Return Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getName <em>Name</em>}</li>
@@ -34,28 +34,28 @@ import qualitypatternmodel.inputfields.VariableList;
  */
 public interface Pattern extends PatternElement {
 	/**
-	 * Returns the value of the '<em><b>Return Graph</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Graph</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Return Graph</em>' containment reference.
-	 * @see #setReturnGraph(Graph)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_ReturnGraph()
+	 * @return the value of the '<em>Graph</em>' containment reference.
+	 * @see #setGraph(Graph)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_Graph()
 	 * @see qualitypatternmodel.graphstructure.Graph#getPattern
 	 * @model opposite="pattern" containment="true" required="true"
 	 * @generated
 	 */
-	Graph getReturnGraph();
+	Graph getGraph();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getReturnGraph <em>Return Graph</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Return Graph</em>' containment reference.
-	 * @see #getReturnGraph()
+	 * @param value the new value of the '<em>Graph</em>' containment reference.
+	 * @see #getGraph()
 	 * @generated
 	 */
-	void setReturnGraph(Graph value);
+	void setGraph(Graph value);
 
 	/**
 	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
@@ -157,7 +157,7 @@ public interface Pattern extends PatternElement {
 	 * @return the value of the '<em>Check Morphism Of Next Graph</em>' attribute.
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_CheckMorphismOfNextGraph()
 	 * @model required="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\t\n\t\t\t\t\t\t\t\tif self.condition.oclIsTypeOf(QuantifiedCondition) then self.returnGraph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to\n\t\t\t\t\t\t\t\telse self.condition.getNextQuantifiedConditions-&gt;forAll(e|self.returnGraph = e.morphism.from and e.graph = e.morphism.to) endif'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\t\n\t\t\t\t\t\t\t\tif self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to\n\t\t\t\t\t\t\t\telse self.condition.getNextQuantifiedConditions-&gt;forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif'"
 	 * @generated
 	 */
 	boolean isCheckMorphismOfNextGraph();

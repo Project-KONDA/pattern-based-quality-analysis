@@ -92,7 +92,7 @@ public class TextListItemProvider extends TextItemProvider {
 	@Override
 	public String getText(Object object) {
 		TextList textList = (TextList) object;
-		String text = getString("_UI_TextList_type") + " " + textList.getShortPatternInternalId();		
+		String text = getString("_UI_TextList_type") + " " + textList.getInternalId();		
 		if(textList.getValues() != null) {
 			for(String value : textList.getValues()) {
 				text += " " + value;
