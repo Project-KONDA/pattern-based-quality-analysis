@@ -26,18 +26,18 @@ public class Test05QuantorCombinationsCond {
 		// Factory
 //		PatternstructurePackage.eINSTANCE.eClass();
 //		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		FunctionsPackage.eINSTANCE.eClass();
-		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
-		InputfieldsPackage.eINSTANCE.eClass();
-		InputfieldsFactory inputFactory = InputfieldsFactory.eINSTANCE;
+//		GraphstructurePackage.eINSTANCE.eClass();
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		FunctionsPackage.eINSTANCE.eClass();
+//		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
+//		InputfieldsPackage.eINSTANCE.eClass();
+//		InputfieldsFactory inputFactory = InputfieldsFactory.eINSTANCE;
 		
 		// PatternStructure
 		Pattern pattern = Test04QuantorCombinations.getPatternExistsInExists();
-		VariableList varlist = pattern.getVariableList();
+//		VariableList varlist = pattern.getVariableList();
 		Graph graph = ((QuantifiedCondition)((QuantifiedCondition) pattern.getCondition()).getCondition()).getGraph();
-		OperatorList oplist = graph.getOperatorList();
+//		OperatorList oplist = graph.getOperatorList();
 		
 		// Property
 		SingleElement se = graph.getRootElement().getNextSingle().get(0).getNextSingle().get(0).getNextSingle().get(0);

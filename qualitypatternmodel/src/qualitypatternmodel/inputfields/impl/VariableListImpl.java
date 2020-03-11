@@ -86,7 +86,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 			String msg = "variables from VariableList not equal to amount of variables used in Graph" + " ("
 					+ getInternalId() + ")" + ": \n";
 			for (Input var : patternVars) {
-				msg += "[" + var.myToString() + " " + var.getInternalId() + "]";
+				msg += "[" + var.myToString() + "]";
 				if (!getVariables().contains(var))
 					msg += "- ";
 				else
@@ -94,7 +94,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 			}
 			msg += "\n";
 			for (Input var : getVariables()) {
-				msg += "[" + var.myToString() + " " + var.getInternalId() + "]";
+				msg += "[" + var.myToString() + "]";
 				if (!patternVars.contains(var))
 					msg += "- ";
 				else

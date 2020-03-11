@@ -583,7 +583,7 @@
       <eLiterals name="OR" value="2" literal="or"/>
       <eLiterals name="IMPLIES" value="3" literal="implies"/>
       <eLiterals name="XOR" value="4" literal="xor"/>
-      <eLiterals name="EQUIVALENT" value="5" literal="EQUIVALENT"/>
+      <eLiterals name="EQUAL" value="5" literal="EQUAL"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Quantifier">
       <eLiterals name="EXISTS" literal="EXISTS"/>
