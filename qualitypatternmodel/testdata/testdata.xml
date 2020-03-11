@@ -2,142 +2,142 @@
 
 <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="testschema.xsd">
-	<child1>
-		<child2 aString="a">
-			<child3 aDouble="1.1">
-				<child4 aInt="5">
-					<lString>lString1</lString>
+	<child1 id="1">
+		<child2 aString="a" id="2">
+			<child3 aDouble="1.1"  id="3">
+				<child4 aInt="5"  id="4">
+					<lString  id="5">lString1</lString>
 				</child4>
-				<child4 aBool="true">
-					<lDouble>2.2</lDouble>
-				</child4>
-			</child3>
-			<child3 aBool="0">
-				<child4 aDate="1645-08-27">
-					<lInt>3</lInt>
-				</child4>
-				<child4 aTime="09:30:14">
-					<lBool>true()</lBool>
+				<child4 aBool="true"  id="6">
+					<lDouble  id="7">2.2</lDouble>
 				</child4>
 			</child3>
-			<child3 aDateTime="1840-02-03T07:13:01">
-				<child4>
-					<lDate>1950-01-31</lDate>
+			<child3 aBool="0" id="8">
+				<child4 aDate="1645-08-27" id="9">
+					<lInt id="10">3</lInt>
 				</child4>
-				<child4>
-					<lTime>03:50:55</lTime>
+				<child4 aTime="09:30:14" id="11">
+					<lBool id="12">true()</lBool>
 				</child4>
 			</child3>
-			<child3>
-				<child4>
-					<lDateTime>1810-05-15T10:41:05</lDateTime>
+			<child3 aDateTime="1840-02-03T07:13:01" id="13">
+				<child4 id="14">
+					<lDate id="15">1950-01-31</lDate>
 				</child4>
-				<child4>
-					<lString>lString8</lString>
+				<child4 id="16">
+					<lTime id="17">03:50:55</lTime>
+				</child4>
+			</child3>
+			<child3 id="18">
+				<child4 id="19">
+					<lDateTime id="20">1810-05-15T10:41:05</lDateTime>
+				</child4>
+				<child4 id="21">
+					<lString id="22">lString8</lString>
 				</child4>
 			</child3>
 		</child2>
-		<child2>
-			<child3>
-				<child4>
-					<lString>lString9</lString>
+		<child2 id="23">
+			<child3 id="24">
+				<child4 id="25">
+					<lString id="26">lString9</lString>
 				</child4>
-				<child4>
-					<lString>lString10</lString>
-				</child4>
-			</child3>
-			<child3>
-				<child4>
-					<lString>lString11</lString>
-				</child4>
-				<child4>
-					<lString>lString12</lString>
+				<child4 id="27">
+					<lString id="28">lString10</lString>
 				</child4>
 			</child3>
-			<child3>
-				<child4>
-					<lString>lString13</lString>
+			<child3 id="29">
+				<child4 id="30">
+					<lString id="31">lString11</lString>
 				</child4>
-				<child4>
-					<lString>lString14</lString>
+				<child4 id="32">
+					<lString id="33">lString12</lString>
 				</child4>
 			</child3>
-			<child3>
-				<child4>
-					<lString>lString15</lString>
+			<child3 id="34">
+				<child4 id="35">
+					<lString id="36">lString13</lString>
 				</child4>
-				<child4>
-					<lString>lString16</lString>
+				<child4 id="37">
+					<lString id="38">lString14</lString>
+				</child4>
+			</child3>
+			<child3 id="39">
+				<child4 id="40">
+					<lString id="41">lString15</lString>
+				</child4>
+				<child4 id="42">
+					<lString id="43">lString16</lString>
 				</child4>
 			</child3>
 		</child2>	
 	</child1>
-	<child1>
-		<child2>
-			<child3>
-				<child4>
-					<lString>lString1</lString>
+	<child1 id="44">
+		<child2 id="45">
+			<child3 id="46">
+				<child4 id="47">
+					<lString id="48">lString1</lString>
 				</child4>
-				<child4>
-					<lString>lString2</lString>
-				</child4>
-			</child3>
-			<child3>
-				<child4>
-					<lString>lString3</lString>
-				</child4>
-				<child4>
-					<lString>lString4</lString>
+				<child4 id="49">
+					<lString id="50">lString2</lString>
 				</child4>
 			</child3>
-			<child3>
-				<child4>
-					<lString>lString5</lString>
+			<child3 id="51">
+				<child4 id="52">
+					<lString id="53">lString3</lString>
 				</child4>
-				<child4>
-					<lString>lString6</lString>
+				<child4 id="54">
+					<lString id="55">lString4</lString>
 				</child4>
 			</child3>
-			<child3>
-				<child4>
-					<lString>lString7</lString>
+			<child3 id="56">
+				<child4 id="57">
+					<lString id="58">lString5</lString>
 				</child4>
-				<child4>
-					<lString>lString8</lString>
+				<child4 id="59">
+					<lString id="60">lString6</lString>
+				</child4>
+			</child3>
+			<child3 id="61">
+				<child4 id="62">
+					<lString id="63">lString7</lString>
+				</child4>
+				<child4 id="64">
+					<lString id="65">lString8</lString>
 				</child4>
 			</child3>
 		</child2>
-		<child2>
-			<child3>
-				<child4>
-					<lString>lString1</lString>
+		<child2 id="66">
+			<child3 id="67">
+				<child4 id="68">
+					<lString id="69">lString1</lString>
 				</child4>
-				<child4>
-					<lString>lString2</lString>
-				</child4>
-			</child3>
-			<child3>
-				<child4>
-					<lString>lString3</lString>
-				</child4>
-				<child4>
-					<lString>lString4</lString>
+				<child4 id="70">
+					<lString id="71">lString2</lString>
 				</child4>
 			</child3>
-			<child3>
-				<child4>
-					<lString>lString5</lString>
+			<child3 id="72">
+				<child4 id="73">
+					<lString id="74">lString3</lString>
 				</child4>
-				<child4>
-					<lString>lString6</lString>
+				<child4 id="75">
+					<lString id="76">lString4</lString>
 				</child4>
 			</child3>
-			<child3>
-				<child4>
-					<lString>lString7</lString>
+			<child3 id="77">
+				<child4 id="78">
+					<lString id="79">lString5</lString>
 				</child4>
-				<child4>
-					<lString>lString8</lString>
+				<child4 id="80">
+					<lString id="81">lString6</lString>
+				</child4>
+			</child3>
+			<child3 id="82">
+				<child4 id="83">
+					<lString id="84">lString7</lString>
+				</child4>
+				<child4 id="85">
+					<lString id="86">lString8</lString>
 				</child4>
 			</child3>
 		</child2>	
