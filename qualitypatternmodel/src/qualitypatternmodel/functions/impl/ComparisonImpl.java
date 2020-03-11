@@ -225,12 +225,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}		
 			if(!argumentsInElements) {
 				throw new InvalidityException("invalid predicate owner" + " (" + getInternalId() + ")" );
-			}	
-		
-		}
-		
-		isCycleFree();
-		
+			}			
+		}		
+		isCycleFree();		
 	}
 	
 	@Override
@@ -282,11 +279,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 		return res;
 	}
-
-	@Override
-	public ReturnType getReturnType() {
-		return ReturnType.BOOLEAN;
-	}
 	
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
@@ -327,7 +319,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				pattern.getVariableList().add(getOption());
 			}
 		} catch (MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
+			// since this comparison is not contained in a pattern, do nothing
 			e.printStackTrace();
 		}
 	}
@@ -339,6 +331,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			pattern.getVariableList().getVariables().remove(getOption());
 		} catch (MissingPatternContainerException e) {
 			// since this comparison is not contained in a pattern, do nothing
+			e.printStackTrace();
 		}
 	}
 	
@@ -884,12 +877,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	@Override
 	public String myToString() {
 		String res = "COMP (" + getInternalId() + "):" + getReturnType() + " ";
-		res += "[" + getArgument1().getInternalId();
-		res += " " + getOption().getValue() + "(" + getOption().getInternalId() + ") ";
-		res += getArgument2().getInternalId() + "]";
-		return res;
+		res += "[";
+		if (getArgument1() != null) res += getArgument1().getInternalId() + " "; else res += "- ";
+		res += " ";
+		if (getOption() != null) res += getOption().getValue() + "(" + getOption().getInternalId() + ")"; else res += "-";
+		if (getArgument2() != null) res += " " + getArgument2().getInternalId(); else res += " -";
+		return res + "]";
 	}
-
-	
 
 } // ComparisonImpl

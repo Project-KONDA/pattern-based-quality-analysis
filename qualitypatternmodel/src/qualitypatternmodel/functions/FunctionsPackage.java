@@ -2069,6 +2069,313 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.ReferenceOperatorImpl <em>Reference Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.impl.ReferenceOperatorImpl
+	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getReferenceOperator()
+	 * @generated
+	 */
+	int REFERENCE_OPERATOR = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR__ID = BOOLEAN_OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR__INTERNAL_ID = BOOLEAN_OPERATOR__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR__COMPARISON1 = BOOLEAN_OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR__COMPARISON2 = BOOLEAN_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR__OPERATOR_LIST = BOOLEAN_OPERATOR__OPERATOR_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR__ELEMENTS = BOOLEAN_OPERATOR__ELEMENTS;
+
+	/**
+	 * The feature id for the '<em><b>Property2</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR__PROPERTY2 = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR__PROPERTY = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Reference Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___TO_XQUERY__LOCATION = BOOLEAN_OPERATOR___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___GET_ALL_INPUTS = BOOLEAN_OPERATOR___GET_ALL_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___PREPARE_TRANSLATION = BOOLEAN_OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___IS_VALID__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___IS_VALID_LOCAL__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___GET_CONTAINER = BOOLEAN_OPERATOR___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___GET_ANCESTOR__CLASS = BOOLEAN_OPERATOR___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___MY_TO_STRING = BOOLEAN_OPERATOR___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___GET_RETURN_TYPE = BOOLEAN_OPERATOR___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___IS_TRANSLATABLE = BOOLEAN_OPERATOR___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = BOOLEAN_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get Root Boolean Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS = BOOLEAN_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___IS_CYCLE_FREE__ELIST = BOOLEAN_OPERATOR___IS_CYCLE_FREE__ELIST;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___IS_CYCLE_FREE = BOOLEAN_OPERATOR___IS_CYCLE_FREE;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___GET_ARGUMENTS = BOOLEAN_OPERATOR___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___ADD_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Create Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___CREATE_INPUTS = BOOLEAN_OPERATOR___CREATE_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST = BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST;
+
+	/**
+	 * The operation id for the '<em>Has Count Predicate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___HAS_COUNT_PREDICATE = BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___RESET = BOOLEAN_OPERATOR___RESET;
+
+	/**
+	 * The number of operations of the '<em>Reference Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.ComparisonOperator <em>Comparison Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2076,7 +2383,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getComparisonOperator()
 	 * @generated
 	 */
-	int COMPARISON_OPERATOR = 8;
+	int COMPARISON_OPERATOR = 9;
 
 
 	/**
@@ -2087,7 +2394,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getOperatorCycleExceptionWrapper()
 	 * @generated
 	 */
-	int OPERATOR_CYCLE_EXCEPTION_WRAPPER = 9;
+	int OPERATOR_CYCLE_EXCEPTION_WRAPPER = 10;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.BooleanOperator <em>Boolean Operator</em>}'.
@@ -2431,6 +2738,38 @@ public interface FunctionsPackage extends EPackage {
 	EOperation getOperatorList__Add__Operator();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.functions.ReferenceOperator <em>Reference Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Reference Operator</em>'.
+	 * @see qualitypatternmodel.functions.ReferenceOperator
+	 * @generated
+	 */
+	EClass getReferenceOperator();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty2 <em>Property2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Property2</em>'.
+	 * @see qualitypatternmodel.functions.ReferenceOperator#getProperty2()
+	 * @see #getReferenceOperator()
+	 * @generated
+	 */
+	EReference getReferenceOperator_Property2();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Property</em>'.
+	 * @see qualitypatternmodel.functions.ReferenceOperator#getProperty()
+	 * @see #getReferenceOperator()
+	 * @generated
+	 */
+	EReference getReferenceOperator_Property();
+
+	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.functions.OperatorList#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2764,6 +3103,32 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation OPERATOR_LIST___ADD__OPERATOR = eINSTANCE.getOperatorList__Add__Operator();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.ReferenceOperatorImpl <em>Reference Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.functions.impl.ReferenceOperatorImpl
+		 * @see qualitypatternmodel.functions.impl.FunctionsPackageImpl#getReferenceOperator()
+		 * @generated
+		 */
+		EClass REFERENCE_OPERATOR = eINSTANCE.getReferenceOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Property2</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFERENCE_OPERATOR__PROPERTY2 = eINSTANCE.getReferenceOperator_Property2();
+
+		/**
+		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFERENCE_OPERATOR__PROPERTY = eINSTANCE.getReferenceOperator_Property();
 
 		/**
 		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.

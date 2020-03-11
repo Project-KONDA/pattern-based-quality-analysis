@@ -71,7 +71,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
           defaultValueLiteral="0.0"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InputValue" eSuperTypes="#//inputfields/Input"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InputValue" abstract="true" eSuperTypes="#//inputfields/Input"/>
     <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//inputfields/InputValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
@@ -172,6 +172,12 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="OperatorCycleExceptionWrapper"
         instanceClassName="qualitypatternmodel.exceptions.OperatorCycleException"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ReferenceOperator" eSuperTypes="#//functions/BooleanOperator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property2" eType="#//graphstructure/Property"
+          eOpposite="#//graphstructure/Property/referenceOperator2"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//graphstructure/Property"
+          eOpposite="#//graphstructure/Property/referenceOperator"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -212,6 +218,10 @@
           eType="#//inputfields/TextLiteral" eOpposite="#//inputfields/TextLiteral/property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//inputfields/PropertyOption" eOpposite="#//inputfields/PropertyOption/property"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="referenceOperator2" eType="#//functions/ReferenceOperator"
+          eOpposite="#//functions/ReferenceOperator/property2"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="referenceOperator" eType="#//functions/ReferenceOperator"
+          eOpposite="#//functions/ReferenceOperator/property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SingleElement" eSuperTypes="#//graphstructure/Element">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -583,7 +593,7 @@
       <eLiterals name="OR" value="2" literal="or"/>
       <eLiterals name="IMPLIES" value="3" literal="implies"/>
       <eLiterals name="XOR" value="4" literal="xor"/>
-      <eLiterals name="EQUAL" value="5" literal="EQUAL"/>
+      <eLiterals name="EQUAL" value="5" literal="equal"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Quantifier">
       <eLiterals name="EXISTS" literal="EXISTS"/>

@@ -312,11 +312,11 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	@Override
 	public String myToString() {
 		if (getOperators().size() > 0) {
-			String res = "\nOperatorList " + getInternalId() + " (";
+			String res = "\nOperatorList " + getInternalId();
 			for (Operator operator: getOperators()) {
-				res += "\n. " + operator.myToString();
+				res += "\n- " + operator.myToString();
 			}
-			return res + ")";
+			return res;
 		}
 		return "";
 	}

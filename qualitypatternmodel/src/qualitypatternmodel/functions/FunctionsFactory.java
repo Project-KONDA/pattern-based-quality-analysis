@@ -58,6 +58,15 @@ public interface FunctionsFactory extends EFactory {
 	OperatorList createOperatorList();
 
 	/**
+	 * Returns a new object of class '<em>Reference Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Reference Operator</em>'.
+	 * @generated
+	 */
+	ReferenceOperator createReferenceOperator();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -49,6 +49,8 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 			addMatchPropertyDescriptor(object);
 			addAttributeNamePropertyDescriptor(object);
 			addOptionPropertyDescriptor(object);
+			addReferenceOperator2PropertyDescriptor(object);
+			addReferenceOperatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -133,6 +135,50 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Property_option_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Property_option_feature", "_UI_Property_type"),
 				 GraphstructurePackage.Literals.PROPERTY__OPTION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Reference Operator2 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferenceOperator2PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Property_referenceOperator2_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Property_referenceOperator2_feature", "_UI_Property_type"),
+				 GraphstructurePackage.Literals.PROPERTY__REFERENCE_OPERATOR2,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Reference Operator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferenceOperatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Property_referenceOperator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Property_referenceOperator_feature", "_UI_Property_type"),
+				 GraphstructurePackage.Literals.PROPERTY__REFERENCE_OPERATOR,
 				 true,
 				 false,
 				 true,

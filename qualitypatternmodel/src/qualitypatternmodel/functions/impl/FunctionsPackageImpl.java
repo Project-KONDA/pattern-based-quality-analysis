@@ -24,6 +24,7 @@ import qualitypatternmodel.functions.NumberOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.functions.OtherOperator;
+import qualitypatternmodel.functions.ReferenceOperator;
 import qualitypatternmodel.functions.util.FunctionsValidator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
@@ -98,6 +99,13 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	private EClass operatorListEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass referenceOperatorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -534,6 +542,36 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getReferenceOperator() {
+		return referenceOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getReferenceOperator_Property2() {
+		return (EReference)referenceOperatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getReferenceOperator_Property() {
+		return (EReference)referenceOperatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getOperatorList_Graph() {
 		return (EReference)operatorListEClass.getEStructuralFeatures().get(0);
 	}
@@ -629,6 +667,10 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEReference(operatorListEClass, OPERATOR_LIST__OPERATORS);
 		createEOperation(operatorListEClass, OPERATOR_LIST___ADD__OPERATOR);
 
+		referenceOperatorEClass = createEClass(REFERENCE_OPERATOR);
+		createEReference(referenceOperatorEClass, REFERENCE_OPERATOR__PROPERTY2);
+		createEReference(referenceOperatorEClass, REFERENCE_OPERATOR__PROPERTY);
+
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
 
@@ -678,6 +720,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		matchEClass.getESuperTypes().add(this.getBooleanOperator());
 		comparisonEClass.getESuperTypes().add(this.getBooleanOperator());
 		operatorListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
+		referenceOperatorEClass.getESuperTypes().add(this.getBooleanOperator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(booleanOperatorEClass, BooleanOperator.class, "BooleanOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -751,6 +794,10 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		op = initEOperation(getOperatorList__Add__Operator(), null, "add", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getOperator(), "Operator", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(referenceOperatorEClass, ReferenceOperator.class, "ReferenceOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getReferenceOperator_Property2(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_ReferenceOperator2(), "property2", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReferenceOperator_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_ReferenceOperator(), "property", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");

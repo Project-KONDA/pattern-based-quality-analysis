@@ -21,7 +21,6 @@ import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.VariableList;
-import qualitypatternmodel.inputfields.InputValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -74,7 +73,6 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 			case InputfieldsPackage.TEXT_LIST: return createTextList();
 			case InputfieldsPackage.TEXT_LITERAL: return createTextLiteral();
 			case InputfieldsPackage.NUMBER: return createNumber();
-			case InputfieldsPackage.INPUT_VALUE: return createInputValue();
 			case InputfieldsPackage.DATE: return createDate();
 			case InputfieldsPackage.TIME: return createTime();
 			case InputfieldsPackage.UNKNOWN_INPUT_VALUE: return createUnknownInputValue();
@@ -159,17 +157,6 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	public qualitypatternmodel.inputfields.Number createNumber() {
 		NumberImpl number = new NumberImpl();
 		return number;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public InputValue createInputValue() {
-		InputValueImpl inputValue = new InputValueImpl();
-		return inputValue;
 	}
 
 	/**

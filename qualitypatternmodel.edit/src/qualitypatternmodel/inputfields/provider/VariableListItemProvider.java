@@ -148,11 +148,6 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
-				 InputfieldsFactory.eINSTANCE.createInputValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
 				 InputfieldsFactory.eINSTANCE.createBoolean()));
 
 		newChildDescriptors.add

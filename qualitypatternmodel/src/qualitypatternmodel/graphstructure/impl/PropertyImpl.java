@@ -23,6 +23,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.functions.ReferenceOperator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -53,6 +54,8 @@ import qualitypatternmodel.patternstructure.impl.PatternImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getMatch <em>Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getReferenceOperator2 <em>Reference Operator2</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getReferenceOperator <em>Reference Operator</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,6 +110,26 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @ordered
 	 */
 	protected PropertyOption option;
+
+	/**
+	 * The cached value of the '{@link #getReferenceOperator2() <em>Reference Operator2</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceOperator2()
+	 * @generated
+	 * @ordered
+	 */
+	protected ReferenceOperator referenceOperator2;
+
+	/**
+	 * The cached value of the '{@link #getReferenceOperator() <em>Reference Operator</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected ReferenceOperator referenceOperator;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -313,6 +336,130 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ReferenceOperator getReferenceOperator2() {
+		if (referenceOperator2 != null && referenceOperator2.eIsProxy()) {
+			InternalEObject oldReferenceOperator2 = (InternalEObject)referenceOperator2;
+			referenceOperator2 = (ReferenceOperator)eResolveProxy(oldReferenceOperator2);
+			if (referenceOperator2 != oldReferenceOperator2) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2, oldReferenceOperator2, referenceOperator2));
+			}
+		}
+		return referenceOperator2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReferenceOperator basicGetReferenceOperator2() {
+		return referenceOperator2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReferenceOperator2(ReferenceOperator newReferenceOperator2, NotificationChain msgs) {
+		ReferenceOperator oldReferenceOperator2 = referenceOperator2;
+		referenceOperator2 = newReferenceOperator2;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2, oldReferenceOperator2, newReferenceOperator2);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReferenceOperator2(ReferenceOperator newReferenceOperator2) {
+		if (newReferenceOperator2 != referenceOperator2) {
+			NotificationChain msgs = null;
+			if (referenceOperator2 != null)
+				msgs = ((InternalEObject)referenceOperator2).eInverseRemove(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2, ReferenceOperator.class, msgs);
+			if (newReferenceOperator2 != null)
+				msgs = ((InternalEObject)newReferenceOperator2).eInverseAdd(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2, ReferenceOperator.class, msgs);
+			msgs = basicSetReferenceOperator2(newReferenceOperator2, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2, newReferenceOperator2, newReferenceOperator2));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ReferenceOperator getReferenceOperator() {
+		if (referenceOperator != null && referenceOperator.eIsProxy()) {
+			InternalEObject oldReferenceOperator = (InternalEObject)referenceOperator;
+			referenceOperator = (ReferenceOperator)eResolveProxy(oldReferenceOperator);
+			if (referenceOperator != oldReferenceOperator) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR, oldReferenceOperator, referenceOperator));
+			}
+		}
+		return referenceOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReferenceOperator basicGetReferenceOperator() {
+		return referenceOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetReferenceOperator(ReferenceOperator newReferenceOperator, NotificationChain msgs) {
+		ReferenceOperator oldReferenceOperator = referenceOperator;
+		referenceOperator = newReferenceOperator;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR, oldReferenceOperator, newReferenceOperator);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReferenceOperator(ReferenceOperator newReferenceOperator) {
+		if (newReferenceOperator != referenceOperator) {
+			NotificationChain msgs = null;
+			if (referenceOperator != null)
+				msgs = ((InternalEObject)referenceOperator).eInverseRemove(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY, ReferenceOperator.class, msgs);
+			if (newReferenceOperator != null)
+				msgs = ((InternalEObject)newReferenceOperator).eInverseAdd(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY, ReferenceOperator.class, msgs);
+			msgs = basicSetReferenceOperator(newReferenceOperator, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR, newReferenceOperator, newReferenceOperator));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -486,6 +633,14 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				if (option != null)
 					msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
 				return basicSetOption((PropertyOption)otherEnd, msgs);
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
+				if (referenceOperator2 != null)
+					msgs = ((InternalEObject)referenceOperator2).eInverseRemove(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2, ReferenceOperator.class, msgs);
+				return basicSetReferenceOperator2((ReferenceOperator)otherEnd, msgs);
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR:
+				if (referenceOperator != null)
+					msgs = ((InternalEObject)referenceOperator).eInverseRemove(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY, ReferenceOperator.class, msgs);
+				return basicSetReferenceOperator((ReferenceOperator)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -510,6 +665,10 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return basicSetAttributeName(null, msgs);
 			case GraphstructurePackage.PROPERTY__OPTION:
 				return basicSetOption(null, msgs);
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
+				return basicSetReferenceOperator2(null, msgs);
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR:
+				return basicSetReferenceOperator(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -549,6 +708,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__OPTION:
 				if (resolve) return getOption();
 				return basicGetOption();
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
+				if (resolve) return getReferenceOperator2();
+				return basicGetReferenceOperator2();
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR:
+				if (resolve) return getReferenceOperator();
+				return basicGetReferenceOperator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -582,6 +747,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__OPTION:
 				setOption((PropertyOption)newValue);
 				return;
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
+				setReferenceOperator2((ReferenceOperator)newValue);
+				return;
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR:
+				setReferenceOperator((ReferenceOperator)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -611,6 +782,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__OPTION:
 				setOption((PropertyOption)null);
 				return;
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
+				setReferenceOperator2((ReferenceOperator)null);
+				return;
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR:
+				setReferenceOperator((ReferenceOperator)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -634,6 +811,10 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return attributeName != null;
 			case GraphstructurePackage.PROPERTY__OPTION:
 				return option != null;
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
+				return referenceOperator2 != null;
+			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR:
+				return referenceOperator != null;
 		}
 		return super.eIsSet(featureID);
 	}
