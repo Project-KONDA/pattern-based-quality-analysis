@@ -11,7 +11,8 @@
 <xs:element name="birthyear" type="xs:positiveInteger"/>
 <xs:element name="deathyear" type="xs:positiveInteger"/>
 <xs:element name="place" type="xs:string"/>
-<xs:element name="table" type="xs:string"/>
+<xs:element name="uncertain" type="xs:string"/>
+<xs:element name="value" type="xs:positiveInteger"/>
 
 <!-- definition of complex elements -->
 
@@ -38,11 +39,11 @@
 			  <xs:complexType>
 			    <xs:sequence>
 			      <xs:element ref="name" minOccurs="0" maxOccurs="unbounded"/>
-			      <xs:element name="room" minOccurs="0" maxOccurs="unbounded">
+			      <xs:element name="creationyear" minOccurs="0" maxOccurs="unbounded">
 					  <xs:complexType>
 					    <xs:sequence>
-					      <xs:element ref="name" minOccurs="0" maxOccurs="unbounded"/>
-					      <xs:element ref="table" minOccurs="0" maxOccurs="unbounded"/>      
+					    	<xs:element ref="value" minOccurs="0" maxOccurs="unbounded"/>
+					     	<xs:element ref="uncertain" minOccurs="0" maxOccurs="unbounded"/>
 					    </xs:sequence>
 					  </xs:complexType>
 					</xs:element>     
