@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="runningexample.xsd">
+	<painting id="1">
+		<name>Mona Lisa</name>
+		<creator ref="5"/>
+	</painting>	
+	<painting id="2">
+		<name>The Last Supper</name>
+		<creator ref="5"/>
+	</painting>	
+	<building id="3">
+		<name>Empire State Building</name>
+		<creator ref="6"/>
+		<city>New York City</city>
+		<country>USA</country>		
+	</building>		
+	<building id="4">
+		<name>Chrysler Building</name>
+		<creator ref="7"/>
+		<city>New York City</city>
+		<country>unknown</country>		
+	</building>	
+	<artist id="5">
+		<name>Leonardo da Vinci</name>
+		<profession>architect</profession>
+	</artist>		
+	<artist id="6">
+		<name>William F. Lamb</name>
+		<profession>architect</profession>
+	</artist>	
+</data>

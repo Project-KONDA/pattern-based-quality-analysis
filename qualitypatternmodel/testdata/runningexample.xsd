@@ -6,7 +6,7 @@
 <xs:element name="name" type="xs:string"/>
 <xs:element name="city" type="xs:string"/>
 <xs:element name="country" type="xs:string"/>
-<xs:element name="occupation" type="xs:string"/>
+<xs:element name="profession" type="xs:string"/>
 <!-- <xs:element name="creator" type="xs:string"/> -->
 <xs:element name="birthyear" type="xs:positiveInteger"/>
 <xs:element name="firstmentioning" type="xs:positiveInteger"/>
@@ -30,6 +30,7 @@
     	</xs:element>
    		<xs:element ref="creationyear" minOccurs="0" maxOccurs="unbounded"/>	 			      
     </xs:sequence>
+    <xs:attribute name="id" type="xs:string"/>
 </xs:complexType>
 
 <xs:element name="data">
@@ -44,6 +45,10 @@
 					</xs:extension>
 				</xs:complexContent>			
 			</xs:complexType>
+			 <xs:key name="painting">
+	          <xs:selector xpath="painting"/>
+	          <xs:field xpath="@id"/>
+          </xs:key>
 			</xs:element>
 	      <xs:element name="building" minOccurs="0" maxOccurs="unbounded">
 		  <xs:complexType>
@@ -70,12 +75,16 @@
 		     </xs:extension>
 		    </xs:complexContent>
 		  </xs:complexType>
+		  <xs:key name="building">
+	          <xs:selector xpath="building"/>
+	          <xs:field xpath="@id"/>
+          </xs:key>
 		</xs:element>
 	      <xs:element name="artist" minOccurs="0" maxOccurs="unbounded">
 		  <xs:complexType>
 		    <xs:sequence>
 		      <xs:element ref="name" minOccurs="0" maxOccurs="unbounded"/>
-		      <xs:element ref="occupation" minOccurs="0" maxOccurs="unbounded"/>
+		      <xs:element ref="profession" minOccurs="0" maxOccurs="unbounded"/>
 		      <xs:element ref="birthyear" minOccurs="0" maxOccurs="unbounded"/>
 		      <xs:element ref="deathyear" minOccurs="0" maxOccurs="unbounded"/>      
 		    </xs:sequence>

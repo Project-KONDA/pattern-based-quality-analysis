@@ -6,24 +6,25 @@ xsi:noNamespaceSchemaLocation="runningexample.xsd">
 	<painting>
 		<name>Mona Lisa</name>
 		<creator ref="1"/>
-		<creationyear>around 1503/1507</creationyear>
+		<creationyear>around 1503-1507</creationyear>
+	</painting>
+	
+	<painting>
+		<name>The Last Supper</name>
+		<creator ref="1"/>
+		<creationyear>1494-1497</creationyear>
 	</painting>
 	
 	<building>
 		<name>Empire State Building</name>
-		<creator ref="3"/>
+		<creator ref="2"/>
 		<city>New York City</city>
-		<country>USA</country>
-		<part>
-			<name>1st Floor</name>
-			<room>
-			<name>entrance hall</name>
-			</room>
-		</part>	
+		<country>USA</country>		
 	</building>	
 	
 	<building>
 		<name>Chrysler Building</name>
+		<creator ref="3"/>
 		<city>New York City</city>
 		<country>Unknown</country>		
 	</building>
@@ -31,16 +32,11 @@ xsi:noNamespaceSchemaLocation="runningexample.xsd">
 	<artist id="1">
 		<name>Leonardo da Vinci</name>
 		<occupation>architect</occupation>
-		<birthyear>1452</birthyear>
-		<deathyear>1519</deathyear>
-	</artist>
+	</artist>	
 	
 	<artist id="2">
-		<name>Vincent van Gogh</name>
-		<occupation>painter</occupation>
-		<birthyear>1853</birthyear>
-		<deathyear>1890</deathyear>
-	</artist>
-	
+		<name>William F. Lamb</name>
+		<occupation>architect</occupation>
+	</artist>		
 
 </data>
