@@ -121,16 +121,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			ComparisonOperator operator = option.getValue();
 			String conversionStartArgument1 = type.getConversion();
 			String conversionEndArgument1 = type.getConversionEnd();
-			if(argument1 instanceof Text) {
-				conversionStartArgument1 = "";
-				conversionEndArgument1 = "";
-			}
+//			if(argument1 instanceof Text) {
+//				conversionStartArgument1 = "";
+//				conversionEndArgument1 = "";
+//			}
 			String conversionStartArgument2 = type.getConversion();
 			String conversionEndArgument2 = type.getConversionEnd();
-			if(argument2 instanceof Text) {
-				conversionStartArgument2 = "";
-				conversionEndArgument2 = "";
-			}					
+//			if(argument2 instanceof Text) {
+//				conversionStartArgument2 = "";
+//				conversionEndArgument2 = "";
+//			}					
 			return conversionStartArgument1 + argument1.toXQuery(location) + conversionEndArgument1 + operator.getLiteral() 
 				+ conversionStartArgument2 + argument2.toXQuery(location) + conversionEndArgument2;
 		} else {
