@@ -516,13 +516,31 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY__OPTION = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Reference Operator2</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__REFERENCE_OPERATOR2 = COMPARABLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Reference Operator</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__REFERENCE_OPERATOR = COMPARABLE_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 4;
+	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2553,6 +2571,28 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getProperty_Option();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator2 <em>Reference Operator2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Operator2</em>'.
+	 * @see qualitypatternmodel.graphstructure.Property#getReferenceOperator2()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_ReferenceOperator2();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator <em>Reference Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference Operator</em>'.
+	 * @see qualitypatternmodel.graphstructure.Property#getReferenceOperator()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_ReferenceOperator();
+
+	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3546,6 +3586,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPERTY__OPTION = eINSTANCE.getProperty_Option();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference Operator2</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__REFERENCE_OPERATOR2 = eINSTANCE.getProperty_ReferenceOperator2();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference Operator</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__REFERENCE_OPERATOR = eINSTANCE.getProperty_ReferenceOperator();
 
 		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.

@@ -85,15 +85,6 @@ public interface InputfieldsFactory extends EFactory {
 	Number createNumber();
 
 	/**
-	 * Returns a new object of class '<em>Input Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Input Value</em>'.
-	 * @generated
-	 */
-	InputValue createInputValue();
-
-	/**
 	 * Returns a new object of class '<em>Date</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

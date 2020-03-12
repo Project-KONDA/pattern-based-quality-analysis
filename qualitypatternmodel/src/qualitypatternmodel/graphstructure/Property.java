@@ -4,6 +4,7 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.functions.ReferenceOperator;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -21,6 +22,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator2 <em>Reference Operator2</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator <em>Reference Operator</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty()
@@ -51,6 +54,54 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 * @generated
 	 */
 	void setOption(PropertyOption value);
+
+	/**
+	 * Returns the value of the '<em><b>Reference Operator2</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty2 <em>Property2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Operator2</em>' reference.
+	 * @see #setReferenceOperator2(ReferenceOperator)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_ReferenceOperator2()
+	 * @see qualitypatternmodel.functions.ReferenceOperator#getProperty2
+	 * @model opposite="property2"
+	 * @generated
+	 */
+	ReferenceOperator getReferenceOperator2();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator2 <em>Reference Operator2</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference Operator2</em>' reference.
+	 * @see #getReferenceOperator2()
+	 * @generated
+	 */
+	void setReferenceOperator2(ReferenceOperator value);
+
+	/**
+	 * Returns the value of the '<em><b>Reference Operator</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Operator</em>' reference.
+	 * @see #setReferenceOperator(ReferenceOperator)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_ReferenceOperator()
+	 * @see qualitypatternmodel.functions.ReferenceOperator#getProperty
+	 * @model opposite="property"
+	 * @generated
+	 */
+	ReferenceOperator getReferenceOperator();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator <em>Reference Operator</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference Operator</em>' reference.
+	 * @see #getReferenceOperator()
+	 * @generated
+	 */
+	void setReferenceOperator(ReferenceOperator value);
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.

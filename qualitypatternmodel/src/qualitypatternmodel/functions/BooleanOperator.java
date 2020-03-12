@@ -3,6 +3,7 @@
 package qualitypatternmodel.functions;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Element;
 
 

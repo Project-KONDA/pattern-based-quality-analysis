@@ -10,7 +10,7 @@ package qualitypatternmodel.inputfields;
  *
  *
  * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInputValue()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface InputValue extends Input {

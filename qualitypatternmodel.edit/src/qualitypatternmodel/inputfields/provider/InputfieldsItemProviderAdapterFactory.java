@@ -164,29 +164,6 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.InputValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected InputValueItemProvider inputValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.InputValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createInputValueAdapter() {
-		if (inputValueItemProvider == null) {
-			inputValueItemProvider = new InputValueItemProvider(this);
-		}
-
-		return inputValueItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.Date} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -459,7 +436,6 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 		if (textListItemProvider != null) textListItemProvider.dispose();
 		if (textLiteralItemProvider != null) textLiteralItemProvider.dispose();
 		if (numberItemProvider != null) numberItemProvider.dispose();
-		if (inputValueItemProvider != null) inputValueItemProvider.dispose();
 		if (dateItemProvider != null) dateItemProvider.dispose();
 		if (timeItemProvider != null) timeItemProvider.dispose();
 		if (unknownInputValueItemProvider != null) unknownInputValueItemProvider.dispose();

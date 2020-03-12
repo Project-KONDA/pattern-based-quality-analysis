@@ -2,10 +2,7 @@
  */
 package qualitypatternmodel.inputfields.tests;
 
-import junit.textui.TestRunner;
-
 import qualitypatternmodel.inputfields.InputValue;
-import qualitypatternmodel.inputfields.InputfieldsFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,16 +10,7 @@ import qualitypatternmodel.inputfields.InputfieldsFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class InputValueTest extends InputTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(InputValueTest.class);
-	}
+public abstract class InputValueTest extends InputTest {
 
 	/**
 	 * Constructs a new Input Value test case with the given name.
@@ -43,28 +31,6 @@ public class InputValueTest extends InputTest {
 	@Override
 	protected InputValue getFixture() {
 		return (InputValue)fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(InputfieldsFactory.eINSTANCE.createInputValue());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 } //InputValueTest

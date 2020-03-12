@@ -428,8 +428,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	
 	@Override
 	public String myToString() {
-		String res = "(\n. " + getCondition().myToString().replace("\n", "\n. ") 
-				+ "\n)" + getOperator().getLiteral() + " " + getInternalId() + " (\n. " + getCondition2().myToString().replace("\n", "\n. ") + "\n)";
+		String res = "( " + getCondition().myToString().replace("\n", "\n. ") 
+				+ "\n)\n" + getOperator().getName() + " " + getInternalId() + "\n( " + getCondition2().myToString().replace("\n", "\n. ") + "\n)";
 		return res;
 	}
 	

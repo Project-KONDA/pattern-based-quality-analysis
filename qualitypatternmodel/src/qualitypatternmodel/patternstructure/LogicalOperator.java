@@ -67,7 +67,7 @@ public enum LogicalOperator implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EQUAL(5, "EQUAL", "EQUAL");
+	EQUAL(5, "EQUAL", "equal");
 
 	/**
 	 * The '<em><b>AND</b></em>' literal value.
@@ -118,7 +118,7 @@ public enum LogicalOperator implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #EQUAL
-	 * @model
+	 * @model literal="equal"
 	 * @generated
 	 * @ordered
 	 */
