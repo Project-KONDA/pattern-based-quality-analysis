@@ -16,9 +16,11 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.functions.ReferenceOperator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.graphstructure.Comparable;
@@ -37,6 +39,7 @@ import qualitypatternmodel.graphstructure.Comparable;
  *
  * @generated
  */
+// TODO: should this be allowed as an argument to another operator?
 public class ReferenceOperatorImpl extends BooleanOperatorImpl implements ReferenceOperator {
 	/**
 	 * The cached value of the '{@link #getProperty2() <em>Property2</em>}' reference.
@@ -68,6 +71,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
+		// TODO: add type and adapt translation
 		if(property != null && property2 != null) {
 			ComparisonOperator operator = ComparisonOperator.EQUAL;				
 			return property.toXQuery(location) + operator.getLiteral() + property2.toXQuery(location);
@@ -87,6 +91,13 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 			throw new InvalidityException("referenceSource null (" + getInternalId() + ")" );
 		if (property2 == null)
 			throw new InvalidityException("referenceSource2 null (" + getInternalId() + ")" );
+		
+		// TODO:
+//		if(isDefinedPattern && type == ReturnType.UNSPECIFIED) {
+//			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")" );	
+//		}
+		
+		// TODO: ensure "predicate owner must be argument" constraint: container elements of both properties must have predicates edge
 	}
 
 	/**
@@ -118,10 +129,22 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	}
 	
 	public void removeInputsFromVariableList() {}
+	
 	public void createInputs() {}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
+		reset();
+		return super.basicSetOperatorList(newOperatorList, msgs);
+	}
+	
 	public void reset() {
-		property = null;
-		property2 = null;
+		setProperty(null);;
+		setProperty2(null);
 	}
 
 	/**
@@ -139,6 +162,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	 * @generated
 	 */
 	public NotificationChain basicSetProperty2(Property newProperty2, NotificationChain msgs) {
+		// TODO: adaptOperatorElementAssociation: remove old edge, add new edge - addNewArgumentElementsToRootOperator and removeOldArgumentElementsFromRootOperator
 		Property oldProperty2 = property2;
 		property2 = newProperty2;
 		if (eNotificationRequired()) {
@@ -201,6 +225,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	 * @generated
 	 */
 	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
+		// TODO: adaptOperatorElementAssociation: remove old edge, add new edge - addNewArgumentElementsToRootOperator and removeOldArgumentElementsFromRootOperator
 		Property oldProperty = property;
 		property = newProperty;
 		if (eNotificationRequired()) {
