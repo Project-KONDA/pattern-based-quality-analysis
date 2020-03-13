@@ -34,7 +34,6 @@ import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputValue;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.impl.CompOptionImpl;
 import qualitypatternmodel.inputfields.impl.InputImpl;
@@ -196,13 +195,15 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		// ensure "predicate owner must be argument" constraint:	
 		
 		if(getComparison1().isEmpty() && getComparison2().isEmpty()) {
+			
+			// TODO: root operator
 		
 			EList<ListOfElements> arguments = getAllArgumentElements();
 			
 			EList<Element> argumentsFlattened = new BasicEList<Element>();
 			arguments.forEach(argumentsFlattened::addAll);		
 			
-			boolean ownersInArguments = argumentsFlattened.containsAll(elements);
+			boolean ownersInArguments = argumentsFlattened.containsAll(elements); 
 	
 			if(!ownersInArguments) {
 				throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")" );

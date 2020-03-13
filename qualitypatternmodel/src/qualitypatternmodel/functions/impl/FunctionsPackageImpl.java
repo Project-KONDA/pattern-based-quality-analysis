@@ -572,6 +572,16 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getReferenceOperator_Type() {
+		return (EAttribute)referenceOperatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getOperatorList_Graph() {
 		return (EReference)operatorListEClass.getEStructuralFeatures().get(0);
 	}
@@ -670,6 +680,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		referenceOperatorEClass = createEClass(REFERENCE_OPERATOR);
 		createEReference(referenceOperatorEClass, REFERENCE_OPERATOR__PROPERTY2);
 		createEReference(referenceOperatorEClass, REFERENCE_OPERATOR__PROPERTY);
+		createEAttribute(referenceOperatorEClass, REFERENCE_OPERATOR__TYPE);
 
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
@@ -798,6 +809,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		initEClass(referenceOperatorEClass, ReferenceOperator.class, "ReferenceOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReferenceOperator_Property2(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_ReferenceOperator2(), "property2", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReferenceOperator_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_ReferenceOperator(), "property", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReferenceOperator_Type(), theGraphstructurePackage.getReturnType(), "type", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");

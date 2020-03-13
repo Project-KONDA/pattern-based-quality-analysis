@@ -2151,13 +2151,22 @@ public interface FunctionsPackage extends EPackage {
 	int REFERENCE_OPERATOR__PROPERTY = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR__TYPE = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Reference Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_OPERATOR_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
+	int REFERENCE_OPERATOR_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2770,6 +2779,17 @@ public interface FunctionsPackage extends EPackage {
 	EReference getReferenceOperator_Property();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.functions.ReferenceOperator#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see qualitypatternmodel.functions.ReferenceOperator#getType()
+	 * @see #getReferenceOperator()
+	 * @generated
+	 */
+	EAttribute getReferenceOperator_Type();
+
+	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.functions.OperatorList#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3129,6 +3149,14 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REFERENCE_OPERATOR__PROPERTY = eINSTANCE.getReferenceOperator_Property();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCE_OPERATOR__TYPE = eINSTANCE.getReferenceOperator_Type();
 
 		/**
 		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.

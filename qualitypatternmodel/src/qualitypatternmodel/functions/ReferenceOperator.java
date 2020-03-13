@@ -3,6 +3,7 @@
 package qualitypatternmodel.functions;
 
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.ReturnType;
 
 
 /**
@@ -16,6 +17,7 @@ import qualitypatternmodel.graphstructure.Property;
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.ReferenceOperator#getProperty2 <em>Property2</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.ReferenceOperator#getProperty <em>Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.ReferenceOperator#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.functions.FunctionsPackage#getReferenceOperator()
@@ -71,4 +73,29 @@ public interface ReferenceOperator extends BooleanOperator {
 	 * @generated
 	 */
 	void setProperty(Property value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.ReturnType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see qualitypatternmodel.graphstructure.ReturnType
+	 * @see #setType(ReturnType)
+	 * @see qualitypatternmodel.functions.FunctionsPackage#getReferenceOperator_Type()
+	 * @model
+	 * @generated
+	 */
+	ReturnType getType();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.functions.ReferenceOperator#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see qualitypatternmodel.graphstructure.ReturnType
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(ReturnType value);
 } // ReferenceOperator

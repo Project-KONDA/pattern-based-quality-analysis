@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.OperatorList;
@@ -21,9 +22,9 @@ import qualitypatternmodel.functions.ReferenceOperator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.Element;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +36,7 @@ import qualitypatternmodel.graphstructure.Comparable;
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.impl.ReferenceOperatorImpl#getProperty2 <em>Property2</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.ReferenceOperatorImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.impl.ReferenceOperatorImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,6 +63,25 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	protected Property property;
 
 	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ReturnType TYPE_EDEFAULT = ReturnType.UNSPECIFIED;
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ReturnType type = TYPE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -68,13 +89,18 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	protected ReferenceOperatorImpl() {
 		super();
 	}
-
+	
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		// TODO: add type and adapt translation
 		if(property != null && property2 != null) {
+			String conversionStartArgument1 = type.getConversion();
+			String conversionEndArgument1 = type.getConversionEnd();
+
+			String conversionStartArgument2 = type.getConversion();
+			String conversionEndArgument2 = type.getConversionEnd();
+					
 			ComparisonOperator operator = ComparisonOperator.EQUAL;				
-			return property.toXQuery(location) + operator.getLiteral() + property2.toXQuery(location);
+			return conversionStartArgument1 + property.toXQuery(location) + conversionEndArgument1 + operator.getLiteral() + conversionStartArgument2 +  property2.toXQuery(location) + conversionEndArgument2;
 		} else {
 			throw new InvalidityException("invalid arguments for Reference" + " (" + getInternalId() + ")");
 		}
@@ -92,12 +118,15 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 		if (property2 == null)
 			throw new InvalidityException("referenceSource2 null (" + getInternalId() + ")" );
 		
-		// TODO:
-//		if(isDefinedPattern && type == ReturnType.UNSPECIFIED) {
-//			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")" );	
-//		}
+		if(isDefinedPattern && type == ReturnType.UNSPECIFIED) {
+			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")" );	
+		}
 		
 		// TODO: ensure "predicate owner must be argument" constraint: container elements of both properties must have predicates edge
+		// TODO: root operator
+		if(getElements().size() > 2) {
+			throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")" );
+		}
 	}
 
 	/**
@@ -159,12 +188,14 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetProperty2(Property newProperty2, NotificationChain msgs) {
-		// TODO: adaptOperatorElementAssociation: remove old edge, add new edge - addNewArgumentElementsToRootOperator and removeOldArgumentElementsFromRootOperator
 		Property oldProperty2 = property2;
 		property2 = newProperty2;
+		
+		adaptOperatorElementAssociation(newProperty2, oldProperty2);
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2, oldProperty2, newProperty2);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -172,6 +203,34 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 		return msgs;
 	}
 
+	private void adaptOperatorElementAssociation(Property newArgument, Property oldArgument) {
+		EList<BooleanOperator> rootOperators = getRootBooleanOperators();
+		
+		addNewArgumentElementsToRootOperator(newArgument, rootOperators);		
+		
+		for(BooleanOperator rootOperator : rootOperators) {			
+			removeOldArgumentElementsFromRootOperator(oldArgument, rootOperator);					
+		}
+	}
+	
+	private void removeOldArgumentElementsFromRootOperator(Property oldArgument,
+			BooleanOperator booleanOperator) {
+		if(oldArgument != null && oldArgument.getElement() != null) {				
+			booleanOperator.removeElement(oldArgument.getElement());
+		}		
+	}
+	
+	private void addNewArgumentElementsToRootOperator(Property newArgument,
+			EList<BooleanOperator> rootBooleanOperators) {		
+		if(newArgument.getElement() != null) {
+			for(BooleanOperator boolOp : rootBooleanOperators) {
+				if(newArgument != null) {
+					boolOp.addElement(newArgument.getElement());
+				}				
+			}			
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,12 +281,14 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
-		// TODO: adaptOperatorElementAssociation: remove old edge, add new edge - addNewArgumentElementsToRootOperator and removeOldArgumentElementsFromRootOperator
 		Property oldProperty = property;
 		property = newProperty;
+		
+		adaptOperatorElementAssociation(newProperty, oldProperty);
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY, oldProperty, newProperty);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -253,6 +314,29 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY, newProperty, newProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ReturnType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setType(ReturnType newType) {
+		ReturnType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.REFERENCE_OPERATOR__TYPE, oldType, type));
 	}
 
 	/**
@@ -305,6 +389,8 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY:
 				if (resolve) return getProperty();
 				return basicGetProperty();
+			case FunctionsPackage.REFERENCE_OPERATOR__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -322,6 +408,9 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 				return;
 			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY:
 				setProperty((Property)newValue);
+				return;
+			case FunctionsPackage.REFERENCE_OPERATOR__TYPE:
+				setType((ReturnType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -341,6 +430,9 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY:
 				setProperty((Property)null);
 				return;
+			case FunctionsPackage.REFERENCE_OPERATOR__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -357,8 +449,26 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 				return property2 != null;
 			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY:
 				return property != null;
+			case FunctionsPackage.REFERENCE_OPERATOR__TYPE:
+				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (type: ");
+		result.append(type);
+		result.append(')');
+		return result.toString();
 	}
 
 	@Override
