@@ -195,9 +195,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		// ensure "predicate owner must be argument" constraint:	
 		
 		if(getComparison1().isEmpty() && getComparison2().isEmpty()) {
-			
-			// TODO: root operator
-		
+			// this is root operator
+					
 			EList<ListOfElements> arguments = getAllArgumentElements();
 			
 			EList<Element> argumentsFlattened = new BasicEList<Element>();

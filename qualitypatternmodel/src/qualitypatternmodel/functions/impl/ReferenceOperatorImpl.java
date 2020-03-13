@@ -20,6 +20,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.functions.ReferenceOperator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.patternstructure.Location;
@@ -122,8 +123,22 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")" );	
 		}
 		
-		// TODO: ensure "predicate owner must be argument" constraint: container elements of both properties must have predicates edge
-		// TODO: root operator
+		// ensure "predicate owner must be argument" constraint: 
+		
+		if(getComparison1().isEmpty() && getComparison2().isEmpty()) {
+			// this is root operator
+
+			if(!getElements().contains(getProperty().getElement()) || !getElements().contains(getProperty2().getElement())) {
+				throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")" );
+			}			
+		}		
+		
+		for(Element element : getElements()) {
+			if(!element.equals(getProperty().getElement()) && !element.equals(getProperty2().getElement())) {
+				throw new InvalidityException("too many predicate owners" + " (" + getInternalId() + ")" );
+			}
+		}
+
 		if(getElements().size() > 2) {
 			throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")" );
 		}
@@ -482,6 +497,19 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
 		return property.isTranslatable() && property2.isTranslatable();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * 
+	 */
+	@Override
+	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {				
+		EList<ListOfElements> arguments = getProperty().getAllArgumentElements();
+		arguments.addAll(getProperty2().getAllArgumentElements());
+		return arguments;
 	}
 	
 	@Override
