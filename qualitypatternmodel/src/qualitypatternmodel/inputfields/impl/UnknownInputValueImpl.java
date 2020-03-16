@@ -51,6 +51,8 @@ public class UnknownInputValueImpl extends InputImpl implements UnknownInputValu
 	 */
 	@Override
 	public void concretize(InputValue concreteInputValue) {
+		concreteInputValue.setVariableList(getVariableList());
+		
 		EList<Comparison> comparison1Copy = new BasicEList<Comparison>();
 		comparison1Copy.addAll(getComparison1());
 		for(Comparison comparison : comparison1Copy) {
@@ -61,6 +63,8 @@ public class UnknownInputValueImpl extends InputImpl implements UnknownInputValu
 		for(Comparison comparison : comparison2Copy) {
 			comparison.setArgument2(concreteInputValue);	
 		}
+		
+		getVariableList().getVariables().remove(this);
 	}
 
 	/**
