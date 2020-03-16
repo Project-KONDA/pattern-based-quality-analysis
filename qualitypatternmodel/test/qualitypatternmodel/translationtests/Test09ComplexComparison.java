@@ -24,10 +24,11 @@ public class Test09ComplexComparison {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getPatternSelfTwoProps());
-		patterns.add(getPatternTwoProps());
+//		patterns.add(getPatternSelfTwoProps());
+//		patterns.add(getPatternTwoProps());
 //		patterns.add(getPatternTwoSEs());
-		patterns.add(getPatternTwoSetEs());
+//		patterns.add(getPatternTwoSetEs());
+		patterns.add(getPatternTwoOps());
 		
 		Test00.test(patterns);
 	}
@@ -97,6 +98,8 @@ public class Test09ComplexComparison {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		FunctionsPackage.eINSTANCE.eClass();
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
+		InputfieldsPackage.eINSTANCE.eClass();
+		InputfieldsFactory inputsFactory = InputfieldsFactory.eINSTANCE;
 
 		Pattern pattern = Test00.getBasePattern();
 		SingleElement ret = pattern.getGraph().getReturnElements().get(0);
@@ -112,8 +115,7 @@ public class Test09ComplexComparison {
 		pattern.getGraph().getOperatorList().add(comp);
 		comp.setArgument1(se1);
 		comp.setArgument2(se2);
-		comp.setType(ReturnType.ELEMENT);
-
+		
 		return pattern;
 	}	
 
@@ -126,52 +128,83 @@ public class Test09ComplexComparison {
 		InputfieldsFactory inputsFactory = InputfieldsFactory.eINSTANCE;
 
 		Pattern pattern = Test03Quantor.getPatternExists();
-		VariableList varlist = pattern.getVariableList();
-		SingleElement ret = ((QuantifiedCondition)pattern.getCondition()).getGraph().getReturnElements().get(0);
 
+		OperatorList oplist = ((QuantifiedCondition)pattern.getCondition()).getGraph().getOperatorList();
+		SingleElement ret = ((QuantifiedCondition)pattern.getCondition()).getGraph().getReturnElements().get(0);
+		ret.getNextSingle().remove(0);
+
+		SetElement se1 = graphFactory.createSetElement();
+		ret.getNextSet().add(se1);
+		SetElement se2 = graphFactory.createSetElement();		
+		se1.getNext().add(se2);
+				
+		Comparison countcomp = functionFactory.createComparison();
+		oplist.add(countcomp);
+		Count count = functionFactory.createCount();
+		oplist.add(count);
+		Comparison comp = functionFactory.createComparison();
+		oplist.add(comp);
+
+		ret.getPredicates().add(countcomp);
+		countcomp.setArgument1(count);
+		Number num = inputsFactory.createNumber();
+		pattern.getVariableList().add(num);
+		countcomp.setArgument2(num);
+		
+		count.setArgument(se1);
+		
+		comp.setArgument1(se1);
+		comp.setArgument2(se2);
+		
+		return pattern;
+	}	
+
+	public static Pattern getPatternTwoOps() {
+		FunctionsPackage.eINSTANCE.eClass();
+		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
+		InputfieldsPackage.eINSTANCE.eClass();
+		InputfieldsFactory inputsFactory = InputfieldsFactory.eINSTANCE;
+		
+		Pattern pattern = Test00.getBasePattern();
+		VariableList varlist = pattern.getVariableList();
+		OperatorList oplist = pattern.getGraph().getOperatorList();
+		SingleElement se = pattern.getGraph().getReturnElements().get(0);
+		
+		TextLiteral tl = inputsFactory.createTextLiteral();
+		tl.setValue("a");
+		TextLiteral tl2 = inputsFactory.createTextLiteral();
+		tl.setValue("a");
+		TextLiteral tl3 = inputsFactory.createTextLiteral();
+		tl.setValue("a");
+		TextLiteral tl4 = inputsFactory.createTextLiteral();
+		tl.setValue("a");
+
+		varlist.add(tl);
+		varlist.add(tl2);
+		varlist.add(tl3);
+		varlist.add(tl4);
 
 		Comparison comp0 = functionFactory.createComparison();
 		Comparison comp1 = functionFactory.createComparison();
 		Comparison comp2 = functionFactory.createComparison();
-		ret.getPredicates().add(comp0);
-		ret.getPredicates().add(comp1);
-		ret.getPredicates().add(comp2);
-		
-		Count count1 = functionFactory.createCount();
-		Count count2 = functionFactory.createCount();
-				
-		SetElement se1 = graphFactory.createSetElement();
-		SetElement se2 = graphFactory.createSetElement();
-		
-		count1.setArgument(se1);
-		count2.setArgument(se2);		
-		
-		ret.getNextSet().add(se1);
-		ret.getNextSet().add(se2);
-		
-		((QuantifiedCondition)pattern.getCondition()).getGraph().getOperatorList().add(comp0);
-		comp0.setArgument1(se1);
-		comp0.setArgument2(se2);
-		comp0.setType(ReturnType.ELEMENT);
+		oplist.add(comp0);
+		oplist.add(comp1);
+		oplist.add(comp2);
+		se.getPredicates().add(comp0);
+		comp0.setArgument1(comp1);
+		comp0.setArgument1(comp2);
 
-		comp1.setArgument1(count1);
-		comp2.setArgument1(count2);
-
-		comp1.setArgument2(inputsFactory.createNumber());
-		comp2.setArgument2(inputsFactory.createNumber());
-
-		CompOption cop0 = inputsFactory.createCompOption();
-		CompOption cop1 = inputsFactory.createCompOption();
-		CompOption cop2 = inputsFactory.createCompOption();
-		comp0.setOption(cop0);
-		comp1.setOption(cop1);
-		comp2.setOption(cop2);
-		varlist.add(comp0.getOption());
-		varlist.add(comp1.getOption());
-		varlist.add(comp2.getOption());
-				
+		comp1.setArgument1(tl);
+		comp1.setArgument2(tl2);
+		comp2.setArgument2(tl3);
+		comp2.setArgument2(tl4);
+		
+		
 		return pattern;
-	}	
+		
+		
+	}
+	
 	
 	
 
