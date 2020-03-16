@@ -85,6 +85,11 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 		super();
 	}
 	
+	public TextLiteralImpl(String value) {
+		super();
+		this.value = value;
+	}
+	
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		if(inputIsValid()) {
