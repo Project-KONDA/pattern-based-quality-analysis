@@ -6,6 +6,7 @@ package qualitypatternmodel.graphstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.functions.ReferenceOperator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
@@ -23,6 +24,12 @@ public interface PropertyValidator {
 	boolean validatePropertyOption(PropertyOption value);
 	boolean validateElement(Element value);
 	boolean validateAttributeName(TextLiteral value);
+
+	boolean validateOption(PropertyOption value);
+
+	boolean validateReferenceOperator2(ReferenceOperator value);
+
+	boolean validateReferenceOperator(ReferenceOperator value);
 
 	boolean validateMatch(EList<Match> value);
 

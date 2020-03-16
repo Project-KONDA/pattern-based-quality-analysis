@@ -21,6 +21,10 @@ public interface FormulaValidator {
 	boolean validateArguments(EList<Condition> value);
 	boolean validateOperator(LogicalOperator value);
 
+	boolean validateCondition(Condition value);
+
+	boolean validateCondition2(Condition value);
+
 	boolean validateArgument1(Condition value);
 
 	boolean validateArgument2(Condition value);

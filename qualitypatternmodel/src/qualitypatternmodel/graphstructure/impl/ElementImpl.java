@@ -562,20 +562,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	public void addPrimitiveComparison() {
 		Comparison comparison = new ComparisonImpl();
 		try {
-//			Pattern pattern = (Pattern) getAncestor(Pattern.class);
-//			VariableList varlist = pattern.getVariableList();
-//			Graph graph = (Graph) getAncestor(Graph.class);
-//			OperatorList oplist = graph.getOperatorList();
-//					
-//			Property property = new PropertyImpl();
-//			getProperties().add(property);
-//						
-//			UnknownInputValue unknownInputValue = new UnknownInputValueImpl();
-//			varlist.add(unknownInputValue);
-//			
-//			oplist.add(comparison);	
-//			comparison.setArgument1(property);
-//			comparison.setArgument2(unknownInputValue);
 			Pattern pattern = (Pattern) getAncestor(Pattern.class);
 			VariableList varlist = pattern.getVariableList();
 			Graph graph = (Graph) getAncestor(Graph.class);
@@ -655,6 +641,16 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void addPrimitiveMatch() {
+		addPrimitiveMatch(null);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -685,7 +681,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 //			match.setArgument1(property);
 //			match.setRegularExpression(textlit);
 //			match.setArgument2(textlit);		
-			match.getRegularExpression().setValue(regex);
+			if(regex != null) {
+				match.getRegularExpression().setValue(regex);
+			}
 		} catch (Exception e) {
 			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 		}
@@ -1004,6 +1002,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return null;
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__INPUT:
 				addPrimitiveComparison((Input)arguments.get(0));
+				return null;
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_MATCH:
+				addPrimitiveMatch();
 				return null;
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();

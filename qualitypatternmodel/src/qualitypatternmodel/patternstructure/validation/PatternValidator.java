@@ -26,4 +26,6 @@ public interface PatternValidator {
 	boolean validateVariableList(VariableList value);
 
 	boolean validateCheckMorphismOfNextGraph(boolean value);
+
+	boolean validateGraph(Graph value);
 }

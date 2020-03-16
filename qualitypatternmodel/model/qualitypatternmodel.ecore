@@ -337,6 +337,7 @@
       <eOperations name="addPrimitiveComparison">
         <eParameters name="input" eType="#//inputfields/Input"/>
       </eOperations>
+      <eOperations name="addPrimitiveMatch"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationFromPrevious"
           eType="#//graphstructure/Relation" containment="true" eOpposite="#//graphstructure/Relation/relationTo"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" lowerBound="1"
