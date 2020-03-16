@@ -35,6 +35,7 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputValue;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.inputfields.impl.CompOptionImpl;
 import qualitypatternmodel.inputfields.impl.InputImpl;
 import qualitypatternmodel.patternstructure.Location;
@@ -261,6 +262,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	@Override
 	public EList<Input> getAllInputs() throws InvalidityException {
+//		System.out.println(argument1 + " " + argument2);
 		EList<Input> res = new BasicEList<Input>();
 		if (argument1 instanceof Input) {
 			res.add((Input) argument1);
@@ -580,11 +582,26 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(CompOption newOption, NotificationChain msgs) {
 		CompOption oldOption = option;
 		option = newOption;
+		
+		try {
+			Pattern pattern;
+			pattern = (Pattern) getAncestor(Pattern.class);
+			VariableList varlist = pattern.getVariableList();
+			if(oldOption != null) {				
+				varlist.getVariables().remove(oldOption);
+			}
+			if(newOption != null) {
+				varlist.add(newOption);
+			}
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+		}	
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

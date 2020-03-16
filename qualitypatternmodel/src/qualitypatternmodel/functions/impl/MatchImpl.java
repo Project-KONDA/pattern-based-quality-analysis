@@ -24,6 +24,7 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.inputfields.impl.BooleanImpl;
 import qualitypatternmodel.inputfields.Boolean;
 import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
@@ -303,11 +304,26 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetRegularExpression(TextLiteral newRegularExpression, NotificationChain msgs) {
 		TextLiteral oldRegularExpression = regularExpression;
 		regularExpression = newRegularExpression;
+		
+		try {
+			Pattern pattern;
+			pattern = (Pattern) getAncestor(Pattern.class);
+			VariableList varlist = pattern.getVariableList();
+			if(oldRegularExpression != null) {				
+				varlist.getVariables().remove(oldRegularExpression);
+			}
+			if(newRegularExpression != null) {
+				varlist.add(newRegularExpression);
+			}
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+		}	
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, newRegularExpression);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -425,11 +441,26 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(qualitypatternmodel.inputfields.Boolean newOption, NotificationChain msgs) {
 		qualitypatternmodel.inputfields.Boolean oldOption = option;
 		option = newOption;
+		
+		try {
+			Pattern pattern;
+			pattern = (Pattern) getAncestor(Pattern.class);
+			VariableList varlist = pattern.getVariableList();
+			if(oldOption != null) {				
+				varlist.getVariables().remove(oldOption);
+			}
+			if(newOption != null) {
+				varlist.add(newOption);
+			}
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+		}	
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

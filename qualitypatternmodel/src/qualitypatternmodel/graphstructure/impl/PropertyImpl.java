@@ -34,6 +34,7 @@ import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.inputfields.impl.PropertyOptionImpl;
 import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
 import qualitypatternmodel.patternstructure.Location;
@@ -303,11 +304,26 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(PropertyOption newOption, NotificationChain msgs) {
 		PropertyOption oldOption = option;
 		option = newOption;
+		
+		try {
+			Pattern pattern;
+			pattern = (Pattern) getAncestor(Pattern.class);
+			VariableList varlist = pattern.getVariableList();
+			if(oldOption != null) {				
+				varlist.getVariables().remove(oldOption);
+			}
+			if(newOption != null) {
+				varlist.add(newOption);
+			}
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+		}	
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -561,11 +577,27 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetAttributeName(TextLiteral newAttributeName, NotificationChain msgs) {
 		TextLiteral oldAttributeName = attributeName;
 		attributeName = newAttributeName;
+		
+		try {
+			Pattern pattern;
+			pattern = (Pattern) getAncestor(Pattern.class);
+			VariableList varlist = pattern.getVariableList();
+			if(oldAttributeName != null) {				
+				varlist.getVariables().remove(oldAttributeName);
+			}
+			if(newAttributeName != null) {
+				varlist.add(newAttributeName);
+			}
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+		}	
+		
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, oldAttributeName, newAttributeName);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
