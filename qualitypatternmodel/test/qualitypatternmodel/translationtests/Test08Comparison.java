@@ -24,30 +24,13 @@ public class Test08Comparison {
 		Test00.test(patterns);
 	}
 	
-	public static Pattern getFormulaPattern(LogicalOperator op) {
+	public static Pattern getPrimCondPattern(PropertyLocation pl, LogicalOperator op) {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		Pattern pattern = factory.createPattern();
-		Formula form = factory.createFormula();
-		pattern.setCondition(form);
-		form.setOperator(op);
-
-		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
-		TrueElement te1 = factory.createTrueElement();
-		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
-		TrueElement te2 = factory.createTrueElement();
-		
-		form.setCondition(qc1);
-		qc1.setCondition(te1);
-		form.setCondition2(qc2);
-		qc2.setCondition(te2);
-
-		qc1.getGraph().getReturnElements().get(0).getNextSingle().add(graphFactory.createSingleElement());
-		qc2.getGraph().getReturnElements().get(0).getNextSingle().add(graphFactory.createSingleElement());
-		
+		Pattern pattern = factory.createPattern();	
+		Condition truecondition = factory.createTrueElement();
+		pattern.setCondition(truecondition);
 		return pattern;
 	}
 	

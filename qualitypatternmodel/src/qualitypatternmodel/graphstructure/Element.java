@@ -359,4 +359,12 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 */
 	void addPrimitiveComparison(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPrimitiveComparison(Input input);
+
 } // Element

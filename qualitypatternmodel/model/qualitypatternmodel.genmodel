@@ -304,6 +304,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.1">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.1/value"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.2">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.2/input"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/rootElement"/>

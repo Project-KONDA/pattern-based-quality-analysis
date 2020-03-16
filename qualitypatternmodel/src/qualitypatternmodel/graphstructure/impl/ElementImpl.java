@@ -627,6 +627,34 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	}
 	
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addPrimitiveComparison(Input input) {
+		Comparison comparison = new ComparisonImpl();
+		try {			
+			Pattern pattern = (Pattern) getAncestor(Pattern.class);
+			VariableList varlist = pattern.getVariableList();
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+			
+			Property property = new PropertyImpl();
+			getProperties().add(property);
+			property.getOption().setValue(PropertyLocation.TAG);
+			
+			varlist.add(input);
+
+			oplist.add(comparison);	
+			comparison.setArgument1(property);
+			comparison.setArgument2(input);			
+		} catch (Exception e) {
+			System.out.println("Adding Condition Failed: " + e.getMessage());
+		}		
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -973,6 +1001,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return null;
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING:
 				addPrimitiveComparison((String)arguments.get(0));
+				return null;
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__INPUT:
+				addPrimitiveComparison((Input)arguments.get(0));
 				return null;
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();

@@ -69,6 +69,7 @@ public class TextItemProvider extends InputValueItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**
