@@ -69,8 +69,8 @@ public class Test06NotElement {
 		NotElement n = factory.createNotElement();
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
 
-		SingleElement root = qc1.getGraph().getRootElement();
-		root.getNextSingle().get(0).getNextSingle().add(graphFactory.createSingleElement());
+//		SingleElement root = qc1.getGraph().getRootElement();
+//		root.getNextSingle().get(0).getNextSingle().add(graphFactory.createSingleElement());
 				
 		qc1.setCondition(n);
 		n.setCondition(qc2);

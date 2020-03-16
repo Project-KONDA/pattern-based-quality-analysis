@@ -4,7 +4,8 @@ package qualitypatternmodel.patternstructure.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NotElement;
@@ -66,6 +68,19 @@ public class NotElementImpl extends ConditionImpl implements NotElement {
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (condition == null)
 			throw new InvalidityException("condition null (" + getInternalId() + ")");
+	}
+	
+	@Override
+	public void prepareTranslation() {
+		condition.prepareTranslation();
+				
+	}
+
+	@Override
+	public EList<Input> getAllInputs() throws InvalidityException {
+		EList<Input> inputs = new BasicEList<Input>();
+		inputs.addAll(condition.getAllInputs());		
+		return inputs;
 	}
 		
 	/**

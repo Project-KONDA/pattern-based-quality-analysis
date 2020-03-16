@@ -264,10 +264,12 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			res.addAll(element.getAllInputs());
 		}
 //		res.addAll(getRelationFromPrevious().getAllVariables());
-		for (Property p : getProperties())
+		for (Property p : getProperties()) {
 			res.addAll(p.getAllInputs());
-		for (Operator op : getPredicates())
+		}
+		for (Operator op : getPredicates()) {
 			res.addAll(op.getAllInputs());
+		}
 		return res;
 	}
 
@@ -576,7 +578,8 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 
 			oplist.add(comparison);	
 			comparison.setArgument1(property);
-			comparison.setArgument2(unknownInputValue);	
+			comparison.setArgument2(unknownInputValue);						
+			
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());			
 		}
