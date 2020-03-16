@@ -29,6 +29,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Input;
@@ -121,18 +122,22 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			ComparisonOperator operator = option.getValue();
 			String conversionStartArgument1 = type.getConversion();
 			String conversionEndArgument1 = type.getConversionEnd();
-//			if(argument1 instanceof Text) {
-//				conversionStartArgument1 = "";
-//				conversionEndArgument1 = "";
-//			}
+			String argument1Translated = "";
+			if(argument1 instanceof SingleElement) {
+				argument1Translated = ((SingleElement) argument1).getXQueryRepresentation(location);
+			} else {
+				argument1Translated = argument1.toXQuery(location);
+			}
 			String conversionStartArgument2 = type.getConversion();
 			String conversionEndArgument2 = type.getConversionEnd();
-//			if(argument2 instanceof Text) {
-//				conversionStartArgument2 = "";
-//				conversionEndArgument2 = "";
-//			}					
-			return conversionStartArgument1 + argument1.toXQuery(location) + conversionEndArgument1 + operator.getLiteral() 
-				+ conversionStartArgument2 + argument2.toXQuery(location) + conversionEndArgument2;
+			String argument2Translated = "";
+			if(argument2 instanceof SingleElement) {
+				argument2Translated = ((SingleElement) argument2).getXQueryRepresentation(location);
+			} else {
+				argument2Translated = argument2.toXQuery(location);
+			}	
+			return conversionStartArgument1 + argument1Translated + conversionEndArgument1 + operator.getLiteral() 
+				+ conversionStartArgument2 + argument2Translated + conversionEndArgument2;
 		} else {
 			throw new InvalidityException("invalid option" + " (" + getInternalId() + ")");
 		}
@@ -268,11 +273,15 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			res.add((Input) argument1);
 		} else if (argument1 instanceof Operator) {
 			res.addAll(((Operator) argument1).getAllInputs());
+		} else if (argument1 instanceof Property) {
+			res.addAll(((Property) argument1).getAllInputs());
 		}
 		if (argument2 instanceof Input) {
 			res.add((Input) argument2);
 		} else if (argument2 instanceof Operator) {
 			res.addAll(((Operator) argument2).getAllInputs());
+		} else if (argument2 instanceof Property) {
+			res.addAll(((Property) argument2).getAllInputs());
 		}
 		if(getOption() != null) {
 			res.add(option);
