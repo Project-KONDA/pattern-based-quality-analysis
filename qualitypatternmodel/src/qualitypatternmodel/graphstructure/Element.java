@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.BooleanOperator;
+import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.inputfields.Input;
 import qualitypatternmodel.patternstructure.Location;
@@ -374,5 +375,13 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	void addPrimitiveMatch();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, Input input);
 
 } // Element

@@ -1102,13 +1102,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 20;
 
 	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_INPUT = COMPARABLE_OPERATION_COUNT + 21;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 21;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 22;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
@@ -1596,6 +1605,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH = ELEMENT___ADD_PRIMITIVE_MATCH;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_INPUT = ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_INPUT;
 
 	/**
 	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
@@ -2164,6 +2182,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_ELEMENT___ADD_PRIMITIVE_MATCH = ELEMENT___ADD_PRIMITIVE_MATCH;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_INPUT = ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_INPUT;
 
 	/**
 	 * The operation id for the '<em>Get Path To Previous Single Element</em>' operation.
@@ -3267,6 +3294,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__AddPrimitiveMatch();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.inputfields.Input) <em>Add Primitive Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.inputfields.Input)
+	 * @generated
+	 */
+	EOperation getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Input();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4162,6 +4199,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___ADD_PRIMITIVE_MATCH = eINSTANCE.getElement__AddPrimitiveMatch();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_INPUT = eINSTANCE.getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Input();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

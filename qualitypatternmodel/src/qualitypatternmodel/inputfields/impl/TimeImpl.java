@@ -71,7 +71,7 @@ public class TimeImpl extends InputValueImpl implements Time {
 	
 	@Override
 	public boolean inputIsValid() {		
-		String regex = "(" + REGEX_TIME_HOURS_MINUTES_SECONDS + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + ")" + "|(" + REGEX_TIME_HOURS_MINUTES_SECONDS + "Z?)";		
+		String regex = "(" + REGEX_TIME_HOURS_MINUTES_SECONDS + REGEX_POSITIVE_NEGATIVE + REGEX_TIME_HOURS_MINUTES + ")" + "|(" + REGEX_TIME_HOURS_MINUTES_SECONDS + "Z?)";
 		return getValue() != null && getValue().matches(regex);
 	}
 	

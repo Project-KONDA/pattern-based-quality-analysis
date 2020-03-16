@@ -90,7 +90,7 @@ public class BooleanImpl extends InputValueImpl implements qualitypatternmodel.i
 	
 	@Override
 	public boolean inputIsValid() {
-		return getValue() || !getValue();
+		return (getValue() instanceof Boolean);
 	}
 	
 

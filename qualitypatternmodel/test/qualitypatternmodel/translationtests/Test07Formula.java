@@ -21,11 +21,11 @@ public class Test07Formula {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getFormulaPattern(LogicalOperator.AND));
-		patterns.add(getFormulaPattern(LogicalOperator.OR));
-		patterns.add(getFormulaPattern(LogicalOperator.IMPLIES));
-		patterns.add(getFormulaPattern(LogicalOperator.XOR));
-		patterns.add(getFormulaPattern(LogicalOperator.EQUAL));
+		
+		for (LogicalOperator lo: LogicalOperator.VALUES) {
+			patterns.add(getFormulaPattern(lo));
+		}
+
 		Test00.test(patterns);
 	}
 	

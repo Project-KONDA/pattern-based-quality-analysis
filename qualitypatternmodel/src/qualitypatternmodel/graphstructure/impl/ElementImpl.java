@@ -30,6 +30,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 
 import qualitypatternmodel.functions.Comparison;
+import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.Operator;
@@ -637,13 +638,43 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			comparison.setArgument2(input);			
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
-		}		
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
+	 */
+	@Override
+	public void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, Input input) {
+		Comparison comparison = new ComparisonImpl();
+		try {		
+			Pattern pattern = (Pattern) getAncestor(Pattern.class);
+			VariableList varlist = pattern.getVariableList();
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+			Property property1 = new PropertyImpl();
+			
+			getProperties().add(property1);
+			property1.getOption().setValue(property);
+			property1.getAttributeName().setValue(attr);
+			
+			varlist.add(input);
+
+			oplist.add(comparison);	
+			comparison.getOption().setValue(operator);
+			comparison.setArgument1(property1);
+			comparison.setArgument2(input);				
+		} catch (Exception e) {
+			System.out.println("Adding Condition Failed: " + e.getMessage());
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	@Override
 	public void addPrimitiveMatch() {
@@ -1005,6 +1036,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return null;
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_MATCH:
 				addPrimitiveMatch();
+				return null;
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_INPUT:
+				addPrimitiveComparison((PropertyLocation)arguments.get(0), (String)arguments.get(1), (ComparisonOperator)arguments.get(2), (Input)arguments.get(3));
 				return null;
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
