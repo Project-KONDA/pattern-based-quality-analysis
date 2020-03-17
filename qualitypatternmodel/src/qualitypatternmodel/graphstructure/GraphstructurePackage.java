@@ -1715,13 +1715,22 @@ public interface GraphstructurePackage extends EPackage {
 	int SINGLE_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS = ELEMENT_OPERATION_COUNT + 10;
 
 	/**
+	 * The operation id for the '<em>Add Count Operation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___ADD_COUNT_OPERATION = ELEMENT_OPERATION_COUNT + 11;
+
+	/**
 	 * The number of operations of the '<em>Single Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 11;
+	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
@@ -2902,6 +2911,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getSingleElement__RemoveFromReturnElements();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#addCountOperation() <em>Add Count Operation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Count Operation</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#addCountOperation()
+	 * @generated
+	 */
+	EOperation getSingleElement__AddCountOperation();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.SetElement <em>Set Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3891,6 +3910,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SINGLE_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS = eINSTANCE.getSingleElement__RemoveFromReturnElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Count Operation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___ADD_COUNT_OPERATION = eINSTANCE.getSingleElement__AddCountOperation();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.

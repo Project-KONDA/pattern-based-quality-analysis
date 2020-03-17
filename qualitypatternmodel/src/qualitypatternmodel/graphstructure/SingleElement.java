@@ -284,4 +284,12 @@ public interface SingleElement extends Element {
 	 */
 	void removeFromReturnElements();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addCountOperation();
+
 } // SingleElement

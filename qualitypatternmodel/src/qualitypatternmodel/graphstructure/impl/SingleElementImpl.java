@@ -25,13 +25,23 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
+import qualitypatternmodel.functions.Comparison;
+import qualitypatternmodel.functions.Count;
+import qualitypatternmodel.functions.FunctionsFactory;
+import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.inputfields.InputfieldsFactory;
+import qualitypatternmodel.inputfields.InputfieldsPackage;
+import qualitypatternmodel.inputfields.VariableList;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
@@ -683,6 +693,47 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		}
 	}
 
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	@Override
+	public void addCountOperation() {
+
+		try {
+			GraphstructurePackage.eINSTANCE.eClass();
+			GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+			FunctionsPackage.eINSTANCE.eClass();
+			FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
+			InputfieldsPackage.eINSTANCE.eClass();
+			InputfieldsFactory inputsFactory = InputfieldsFactory.eINSTANCE;
+			
+			OperatorList oplist = ((Graph) getAncestor(Graph.class)).getOperatorList();
+			VariableList varlist = ((Pattern) getAncestor(Pattern.class)).getVariableList();
+
+			SetElement set = graphFactory.createSetElement();
+			this.getNextSet().add(set);
+
+			Count count = functionFactory.createCount();
+			Comparison comp = functionFactory.createComparison();
+
+			oplist.add(comp);
+			oplist.add(count);
+
+			getPredicates().add(comp);
+			qualitypatternmodel.inputfields.Number number = inputsFactory.createNumber();
+			varlist.add(number);
+
+			comp.setArgument1(count);
+			comp.setArgument2(number);
+			
+			count.setArgument(set);
+		} catch (MissingPatternContainerException e) {
+			e.printStackTrace();
+		}
+	}
+
 	@Override
 	public void removeMappingsToNext() {
 		EList<SingleElementMapping> mappingToCopy = new BasicEList<SingleElementMapping>();
@@ -1146,6 +1197,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			return null;
 		case GraphstructurePackage.SINGLE_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS:
 			removeFromReturnElements();
+			return null;
+		case GraphstructurePackage.SINGLE_ELEMENT___ADD_COUNT_OPERATION:
+			addCountOperation();
 			return null;
 		}
 		return super.eInvoke(operationID, arguments);

@@ -129,10 +129,14 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	protected PatternImpl() {
 		super();
 		setGraph(new GraphImpl());
-		getGraph().setRootElement(new SingleElementImpl());
+		SingleElementImpl rootElement = new SingleElementImpl();
+		getGraph().setRootElement(rootElement);
 		SingleElementImpl returnElement = new SingleElementImpl();
 		returnElement.setPrevious(getGraph().getRootElement());
 		getGraph().getReturnElements().add(returnElement);
+		
+		rootElement.setName("Root");
+		returnElement.setName("Return");
 
 		setVariableList(new VariableListImpl(this));
 		getInternalId();

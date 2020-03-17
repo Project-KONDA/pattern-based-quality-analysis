@@ -25,6 +25,7 @@ import qualitypatternmodel.graphstructure.SingleElement;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#isRootElement() <em>Is Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#removeFromReturnElements() <em>Remove From Return Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#addCountOperation() <em>Add Count Operation</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -221,6 +222,19 @@ public class SingleElementTest extends ElementTest {
 	 * @generated
 	 */
 	public void testRemoveFromReturnElements() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.SingleElement#addCountOperation() <em>Add Count Operation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.SingleElement#addCountOperation()
+	 * @generated
+	 */
+	public void testAddCountOperation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

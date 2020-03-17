@@ -24,15 +24,26 @@ public class Test09ComplexComparison {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
+//		patterns.add(getPatternCount());
 //		patterns.add(getPatternSelfTwoProps());
 //		patterns.add(getPatternTwoProps());
-//		patterns.add(getPatternTwoSEs());
+//		patterns.add(getPatternTwoEs());
+		patterns.add(getPatternEtoSE());
 //		patterns.add(getPatternTwoSetEs());
-		patterns.add(getPatternTwoOps());
+//		patterns.add(getPatternTwoOps());
 		
 		Test00.test(patterns);
 	}
 
+	public static Pattern getPatternCount() {
+		
+		Pattern pattern = Test03Quantor.getPatternExists();		
+		Graph graph = ((QuantifiedCondition) pattern.getCondition()).getGraph();
+		SingleElement se = graph.getReturnElements().get(0);
+		se.addCountOperation();
+		return pattern;		
+	}
+	
 	public static Pattern getPatternSelfTwoProps() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
@@ -93,13 +104,11 @@ public class Test09ComplexComparison {
 		return pattern;
 	}
 
-	public static Pattern getPatternTwoSEs() {
+	public static Pattern getPatternTwoEs() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		FunctionsPackage.eINSTANCE.eClass();
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
-		InputfieldsPackage.eINSTANCE.eClass();
-		InputfieldsFactory inputsFactory = InputfieldsFactory.eINSTANCE;
 
 		Pattern pattern = Test00.getBasePattern();
 		SingleElement ret = pattern.getGraph().getReturnElements().get(0);
@@ -118,6 +127,52 @@ public class Test09ComplexComparison {
 		
 		return pattern;
 	}	
+
+	public static Pattern getPatternEtoSE() {
+//		GraphstructurePackage.eINSTANCE.eClass();
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+		FunctionsPackage.eINSTANCE.eClass();
+		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
+//		InputfieldsPackage.eINSTANCE.eClass();
+//		InputfieldsFactory inputsFactory = InputfieldsFactory.eINSTANCE;
+//
+//		Pattern pattern = Test03Quantor.getPatternExists();
+//		SingleElement ret = graph.getReturnElements().get(0);
+//
+//		Graph graph = ((QuantifiedCondition) pattern.getCondition()).getGraph();
+//		OperatorList oplist = graph.getOperatorList();
+//		SetElement se = graphFactory.createSetElement();
+//		ret.getNextSet().add(se);
+//		
+//		Comparison countcomp = functionFactory.createComparison();
+//		Count count = functionFactory.createCount();
+//		Comparison comp = functionFactory.createComparison();
+//		
+//		oplist.add(count);
+//		oplist.add(countcomp);
+//		oplist.add(comp);
+//		
+//		
+//		countcomp.setArgument1(count);
+//		countcomp.setArgument2(inputsFactory.createNumber());
+//		comp.setArgument1(ret);
+//		comp.setArgument2(se);
+//		count.setArgument(se);
+		
+		Pattern pattern = getPatternCount();
+		Graph graph = ((QuantifiedCondition) pattern.getCondition()).getGraph();
+		OperatorList oplist = graph.getOperatorList();
+		Comparison comp = functionFactory.createComparison();
+		
+		oplist.add(comp);
+		
+		SingleElement se = graph.getReturnElements().get(0);
+		
+		comp.setArgument1(se.getNextSet().get(0));
+		comp.setArgument2(se.getNextSingle().get(0));
+		
+		return pattern;
+	}
 
 	public static Pattern getPatternTwoSetEs() {
 		GraphstructurePackage.eINSTANCE.eClass();
