@@ -112,11 +112,14 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetFrom(SingleElement newFrom, NotificationChain msgs) {
 		SingleElement oldFrom = from;
 		from = newFrom;
+		if (newFrom != null && getTo() != null) {
+			newFrom.setName(getTo().getName());
+		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM, oldFrom, newFrom);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -170,11 +173,14 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetTo(SingleElement newTo, NotificationChain msgs) {
 		SingleElement oldTo = to;
 		to = newTo;
+		if (newTo != null && getFrom() != null) {
+			newTo.setName(getFrom().getName());
+		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, oldTo, newTo);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

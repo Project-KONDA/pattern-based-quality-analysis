@@ -200,9 +200,7 @@ public class Test09ComplexComparison {
 		comp2.setArgument2(tl4);
 		
 		
-		return pattern;
-		
-		
+		return pattern;		
 	}
 	
 	
