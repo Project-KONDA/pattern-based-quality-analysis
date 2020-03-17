@@ -57,23 +57,23 @@ public class Eval06Func {
 		fieldAOtherRecord.addPrimitiveComparison(); 
 		fieldBOtherRecord.addPrimitiveComparison(); 
 		
-		Comparison comparisonA = functionsFactory.createComparison(); // TODO: set option automatically
-		Property propertyAReturn = graphFactory.createProperty(); // TODO: set option automatically
+		Comparison comparisonA = functionsFactory.createComparison();
+		graph1.getOperatorList().add(comparisonA);
+		Property propertyAReturn = graphFactory.createProperty();
 		propertyAReturn.setElement(fieldAReturn);
 		comparisonA.setArgument1(propertyAReturn);
 		Property propertyAOtherRecord = graphFactory.createProperty();
 		propertyAOtherRecord.setElement(fieldAOtherRecord);
-		comparisonA.setArgument2(propertyAOtherRecord);
-		graph1.getOperatorList().add(comparisonA);
+		comparisonA.setArgument2(propertyAOtherRecord);		
 		
-		Comparison comparisonB = functionsFactory.createComparison(); // TODO: set option automatically
-		Property propertyBReturn = graphFactory.createProperty(); // TODO: set option automatically
+		Comparison comparisonB = functionsFactory.createComparison(); 
+		graph1.getOperatorList().add(comparisonB);
+		Property propertyBReturn = graphFactory.createProperty();
 		propertyBReturn.setElement(fieldBReturn);
 		comparisonB.setArgument1(propertyBReturn);
 		Property propertyBOtherRecord = graphFactory.createProperty();
 		propertyBOtherRecord.setElement(fieldBOtherRecord);
-		comparisonB.setArgument2(propertyBOtherRecord);
-		graph1.getOperatorList().add(comparisonB);
+		comparisonB.setArgument2(propertyBOtherRecord);		
 		
 		return pattern;
 	}

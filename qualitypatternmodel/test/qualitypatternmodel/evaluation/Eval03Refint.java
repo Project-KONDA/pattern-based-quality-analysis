@@ -10,6 +10,7 @@ import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.patternstructure.NotElement;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
@@ -39,7 +40,7 @@ public class Eval03Refint {
 		SingleElement nextToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);					
 		nextToReturnElementInGraph1.addPrimitiveComparison(); 	
 		
-		Graph graph2 = ((QuantifiedCondition) ((QuantifiedCondition) pattern.getCondition()).getCondition()).getGraph();
+		Graph graph2 = ((QuantifiedCondition) ((NotElement) ((QuantifiedCondition) pattern.getCondition()).getCondition()).getCondition()).getGraph();
 		SingleElement rootElementInGraph2 = graph2.getRootElement();
 
 		SingleElement returnElementInGraph2 = graph2.getReturnElements().get(0);
@@ -58,9 +59,9 @@ public class Eval03Refint {
 		propertyNextToOtherRecordInGraph2.setElement(nextToOtherRecordInGraph2);
 		
 		Comparison comparison = functionsFactory.createComparison();
+		graph2.getOperatorList().add(comparison);
 		comparison.setArgument1(propertyNextToReturnElementInGraph2);
 		comparison.setArgument2(propertyNextToOtherRecordInGraph2);
-		graph2.getOperatorList().add(comparison);
 		
 		return pattern;
 	}

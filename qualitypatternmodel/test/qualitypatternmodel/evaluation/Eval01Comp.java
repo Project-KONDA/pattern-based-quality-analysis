@@ -48,9 +48,10 @@ public class Eval01Comp {
 		property2.setElement(next2);
 		
 		Comparison comparison = functionsFactory.createComparison();
+		graph1.getOperatorList().add(comparison);		
 		comparison.setArgument1(property1);
 		comparison.setArgument2(property2);
-		graph1.getOperatorList().add(comparison);		
+		
 		
 		return pattern;		
 	}
