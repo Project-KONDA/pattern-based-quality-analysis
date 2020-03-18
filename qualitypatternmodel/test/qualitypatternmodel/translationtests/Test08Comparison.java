@@ -14,6 +14,8 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.*;
 import qualitypatternmodel.functions.impl.*;
 import qualitypatternmodel.parameters.*;
+import qualitypatternmodel.parameters.Boolean;
+import qualitypatternmodel.parameters.Number;
 import qualitypatternmodel.parameters.impl.*;
 
 public class Test08Comparison {
