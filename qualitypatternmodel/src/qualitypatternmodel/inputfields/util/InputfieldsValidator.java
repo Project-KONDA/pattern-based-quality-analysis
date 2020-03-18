@@ -25,7 +25,7 @@ import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.ParameterList;
-import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.ParameterValue;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
 
 /**
@@ -144,8 +144,8 @@ public class InputfieldsValidator extends EObjectValidator {
 				return validateTextLiteral((TextLiteral)value, diagnostics, context);
 			case InputfieldsPackage.NUMBER:
 				return validateNumber((qualitypatternmodel.inputfields.Number)value, diagnostics, context);
-			case InputfieldsPackage.INPUT_VALUE:
-				return validateInputValue((InputValue)value, diagnostics, context);
+			case InputfieldsPackage.PARAMETER_VALUE:
+				return validateParameterValue((ParameterValue)value, diagnostics, context);
 			case InputfieldsPackage.DATE:
 				return validateDate((Date)value, diagnostics, context);
 			case InputfieldsPackage.TIME:
@@ -347,17 +347,17 @@ public class InputfieldsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateInputValue(InputValue inputValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(inputValue, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(inputValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(inputValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(inputValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(inputValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(inputValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(inputValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(inputValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(inputValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validateParameter_validate(inputValue, diagnostics, context);
+	public boolean validateParameterValue(ParameterValue parameterValue, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(parameterValue, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(parameterValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(parameterValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(parameterValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(parameterValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(parameterValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(parameterValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(parameterValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(parameterValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(parameterValue, diagnostics, context);
 		return result;
 	}
 

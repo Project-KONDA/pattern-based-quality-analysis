@@ -8,27 +8,25 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.Time;
+
+import qualitypatternmodel.inputfields.ParameterValue;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.Time} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.ParameterValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TimeItemProvider extends ParameterValueItemProvider {
+public class ParameterValueItemProvider extends ParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeItemProvider(AdapterFactory adapterFactory) {
+	public ParameterValueItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -43,42 +41,8 @@ public class TimeItemProvider extends ParameterValueItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Time_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Time_value_feature", "_UI_Time_type"),
-				 InputfieldsPackage.Literals.TIME__VALUE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Time.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Time"));
 	}
 
 	/**
@@ -89,10 +53,10 @@ public class TimeItemProvider extends ParameterValueItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Time)object).getId();
+		String label = ((ParameterValue)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Time_type") :
-			getString("_UI_Time_type") + " " + label;
+			getString("_UI_ParameterValue_type") :
+			getString("_UI_ParameterValue_type") + " " + label;
 	}
 
 
@@ -106,13 +70,6 @@ public class TimeItemProvider extends ParameterValueItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Time.class)) {
-			case InputfieldsPackage.TIME__VALUE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
-		super.notifyChanged(notification);
 	}
 
 	/**

@@ -19,7 +19,7 @@ import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.ParameterList;
-import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -115,7 +115,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 			case InputfieldsPackage.BOOLEAN: {
 				qualitypatternmodel.inputfields.Boolean boolean_ = (qualitypatternmodel.inputfields.Boolean)theEObject;
 				T result = caseBoolean(boolean_);
-				if (result == null) result = caseInputValue(boolean_);
+				if (result == null) result = caseParameterValue(boolean_);
 				if (result == null) result = caseParameter(boolean_);
 				if (result == null) result = caseComparable(boolean_);
 				if (result == null) result = casePatternElement(boolean_);
@@ -125,7 +125,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 			case InputfieldsPackage.TEXT: {
 				Text text = (Text)theEObject;
 				T result = caseText(text);
-				if (result == null) result = caseInputValue(text);
+				if (result == null) result = caseParameterValue(text);
 				if (result == null) result = caseParameter(text);
 				if (result == null) result = caseComparable(text);
 				if (result == null) result = casePatternElement(text);
@@ -136,7 +136,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				TextList textList = (TextList)theEObject;
 				T result = caseTextList(textList);
 				if (result == null) result = caseText(textList);
-				if (result == null) result = caseInputValue(textList);
+				if (result == null) result = caseParameterValue(textList);
 				if (result == null) result = caseParameter(textList);
 				if (result == null) result = caseComparable(textList);
 				if (result == null) result = casePatternElement(textList);
@@ -147,7 +147,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				TextLiteral textLiteral = (TextLiteral)theEObject;
 				T result = caseTextLiteral(textLiteral);
 				if (result == null) result = caseText(textLiteral);
-				if (result == null) result = caseInputValue(textLiteral);
+				if (result == null) result = caseParameterValue(textLiteral);
 				if (result == null) result = caseParameter(textLiteral);
 				if (result == null) result = caseComparable(textLiteral);
 				if (result == null) result = casePatternElement(textLiteral);
@@ -157,26 +157,26 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 			case InputfieldsPackage.NUMBER: {
 				qualitypatternmodel.inputfields.Number number = (qualitypatternmodel.inputfields.Number)theEObject;
 				T result = caseNumber(number);
-				if (result == null) result = caseInputValue(number);
+				if (result == null) result = caseParameterValue(number);
 				if (result == null) result = caseParameter(number);
 				if (result == null) result = caseComparable(number);
 				if (result == null) result = casePatternElement(number);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case InputfieldsPackage.INPUT_VALUE: {
-				InputValue inputValue = (InputValue)theEObject;
-				T result = caseInputValue(inputValue);
-				if (result == null) result = caseParameter(inputValue);
-				if (result == null) result = caseComparable(inputValue);
-				if (result == null) result = casePatternElement(inputValue);
+			case InputfieldsPackage.PARAMETER_VALUE: {
+				ParameterValue parameterValue = (ParameterValue)theEObject;
+				T result = caseParameterValue(parameterValue);
+				if (result == null) result = caseParameter(parameterValue);
+				if (result == null) result = caseComparable(parameterValue);
+				if (result == null) result = casePatternElement(parameterValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case InputfieldsPackage.DATE: {
 				Date date = (Date)theEObject;
 				T result = caseDate(date);
-				if (result == null) result = caseInputValue(date);
+				if (result == null) result = caseParameterValue(date);
 				if (result == null) result = caseParameter(date);
 				if (result == null) result = caseComparable(date);
 				if (result == null) result = casePatternElement(date);
@@ -186,7 +186,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 			case InputfieldsPackage.TIME: {
 				Time time = (Time)theEObject;
 				T result = caseTime(time);
-				if (result == null) result = caseInputValue(time);
+				if (result == null) result = caseParameterValue(time);
 				if (result == null) result = caseParameter(time);
 				if (result == null) result = caseComparable(time);
 				if (result == null) result = casePatternElement(time);
@@ -205,7 +205,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 			case InputfieldsPackage.DATE_TIME: {
 				DateTime dateTime = (DateTime)theEObject;
 				T result = caseDateTime(dateTime);
-				if (result == null) result = caseInputValue(dateTime);
+				if (result == null) result = caseParameterValue(dateTime);
 				if (result == null) result = caseParameter(dateTime);
 				if (result == null) result = caseComparable(dateTime);
 				if (result == null) result = casePatternElement(dateTime);
@@ -361,17 +361,17 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Input Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Input Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseInputValue(InputValue object) {
+	public T caseParameterValue(ParameterValue object) {
 		return null;
 	}
 

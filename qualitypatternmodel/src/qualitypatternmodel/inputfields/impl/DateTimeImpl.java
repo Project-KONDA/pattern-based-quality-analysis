@@ -32,7 +32,7 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class DateTimeImpl extends InputValueImpl implements DateTime {
+public class DateTimeImpl extends ParameterValueImpl implements DateTime {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

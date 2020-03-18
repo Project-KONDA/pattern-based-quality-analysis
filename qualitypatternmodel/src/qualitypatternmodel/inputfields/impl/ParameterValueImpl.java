@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.ParameterValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,13 +17,13 @@ import qualitypatternmodel.inputfields.InputValue;
  *
  * @generated
  */
-public abstract class InputValueImpl extends ParameterImpl implements InputValue {
+public abstract class ParameterValueImpl extends ParameterImpl implements ParameterValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InputValueImpl() {
+	protected ParameterValueImpl() {
 		super();
 	}
 
@@ -34,7 +34,7 @@ public abstract class InputValueImpl extends ParameterImpl implements InputValue
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return InputfieldsPackage.Literals.INPUT_VALUE;
+		return InputfieldsPackage.Literals.PARAMETER_VALUE;
 	}
 	
 	/**

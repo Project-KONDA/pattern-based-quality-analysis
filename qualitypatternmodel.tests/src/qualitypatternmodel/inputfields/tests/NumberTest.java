@@ -12,7 +12,7 @@ import qualitypatternmodel.inputfields.InputfieldsFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NumberTest extends InputValueTest {
+public class NumberTest extends ParameterValueTest {
 
 	/**
 	 * <!-- begin-user-doc -->

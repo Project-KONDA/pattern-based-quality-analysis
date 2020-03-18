@@ -45,13 +45,13 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/Pattern" eOpposite="#//patternstructure/Pattern/parameterList"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//inputfields/InputValue">
+    <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//inputfields/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           defaultValueLiteral="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" eType="#//functions/Match"
           eOpposite="#//functions/Match/option"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Text" abstract="true" eSuperTypes="#//inputfields/InputValue"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Text" abstract="true" eSuperTypes="#//inputfields/ParameterValue"/>
     <eClassifiers xsi:type="ecore:EClass" name="TextList" eSuperTypes="#//inputfields/Text">
       <eOperations name="getListDeclaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getListVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -67,25 +67,25 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//graphstructure/Property"
           eOpposite="#//graphstructure/Property/attributeName"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//inputfields/InputValue">
+    <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//inputfields/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
           defaultValueLiteral="0.0"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InputValue" abstract="true" eSuperTypes="#//inputfields/Parameter"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//inputfields/InputValue">
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="#//inputfields/Parameter"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//inputfields/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Time" eSuperTypes="#//inputfields/InputValue">
+    <eClassifiers xsi:type="ecore:EClass" name="Time" eSuperTypes="#//inputfields/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UnknownInputValue" eSuperTypes="#//inputfields/Parameter">
       <eOperations name="concretize">
-        <eParameters name="concreteInputValue" eType="#//inputfields/InputValue"/>
+        <eParameters name="concreteInputValue" eType="#//inputfields/ParameterValue"/>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DateTime" eSuperTypes="#//inputfields/InputValue">
+    <eClassifiers xsi:type="ecore:EClass" name="DateTime" eSuperTypes="#//inputfields/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>

@@ -9,10 +9,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.ParameterValue;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.InputValue} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.ParameterValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -62,7 +62,7 @@ public class InputValueItemProvider extends ParameterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((InputValue)object).getId();
+		String label = ((ParameterValue)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_InputValue_type") :
 			getString("_UI_InputValue_type") + " " + label;

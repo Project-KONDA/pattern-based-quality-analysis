@@ -26,7 +26,7 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class NumberImpl extends InputValueImpl implements qualitypatternmodel.inputfields.Number {
+public class NumberImpl extends ParameterValueImpl implements qualitypatternmodel.inputfields.Number {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

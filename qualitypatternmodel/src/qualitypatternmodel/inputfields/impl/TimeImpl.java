@@ -26,7 +26,7 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
  *
  * @generated
  */
-public class TimeImpl extends InputValueImpl implements Time {
+public class TimeImpl extends ParameterValueImpl implements Time {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

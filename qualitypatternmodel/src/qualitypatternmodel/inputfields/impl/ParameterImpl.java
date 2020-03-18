@@ -175,8 +175,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated
 	 */
 	public NotificationChain basicSetParameterList(ParameterList newParameterList, NotificationChain msgs) {
-		getComparison1().clear();
-		getComparison2().clear();
 		msgs = eBasicSetContainer((InternalEObject)newParameterList, InputfieldsPackage.PARAMETER__PARAMETER_LIST, msgs);
 		return msgs;
 	}

@@ -14,7 +14,7 @@ import qualitypatternmodel.inputfields.Text;
  *
  * @generated
  */
-public abstract class TextImpl extends InputValueImpl implements Text {
+public abstract class TextImpl extends ParameterValueImpl implements Text {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

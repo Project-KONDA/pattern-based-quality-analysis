@@ -21,7 +21,7 @@ import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.ParameterList;
-import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -117,8 +117,8 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 				return createNumberAdapter();
 			}
 			@Override
-			public Adapter caseInputValue(InputValue object) {
-				return createInputValueAdapter();
+			public Adapter caseParameterValue(ParameterValue object) {
+				return createParameterValueAdapter();
 			}
 			@Override
 			public Adapter caseDate(Date object) {
@@ -295,16 +295,16 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.InputValue <em>Input Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.ParameterValue <em>Parameter Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.inputfields.InputValue
+	 * @see qualitypatternmodel.inputfields.ParameterValue
 	 * @generated
 	 */
-	public Adapter createInputValueAdapter() {
+	public Adapter createParameterValueAdapter() {
 		return null;
 	}
 

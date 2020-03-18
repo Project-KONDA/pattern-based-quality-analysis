@@ -13,7 +13,7 @@ import qualitypatternmodel.inputfields.InputfieldsFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DateTest extends InputValueTest {
+public class DateTest extends ParameterValueTest {
 
 	/**
 	 * <!-- begin-user-doc -->

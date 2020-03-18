@@ -33,7 +33,7 @@ import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Parameter;
-import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.ParameterValue;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.UnknownInputValue;
 import qualitypatternmodel.inputfields.ParameterList;
@@ -462,8 +462,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (newArgument instanceof NumberOperator) {
 				setType(ReturnType.NUMBER);
 			}
-			if (newArgument instanceof InputValue) {
-				InputValue xsType = (InputValue) newArgument;
+			if (newArgument instanceof ParameterValue) {
+				ParameterValue xsType = (ParameterValue) newArgument;
 				setType(xsType.getReturnType());
 			}
 			if (newArgument instanceof UnknownInputValue) {

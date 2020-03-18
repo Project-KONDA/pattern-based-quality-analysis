@@ -14,7 +14,7 @@ import qualitypatternmodel.inputfields.UnknownInputValue;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.UnknownInputValue#concretize(qualitypatternmodel.inputfields.InputValue) <em>Concretize</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.UnknownInputValue#concretize(qualitypatternmodel.inputfields.ParameterValue) <em>Concretize</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -74,13 +74,13 @@ public class UnknownInputValueTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.inputfields.UnknownInputValue#concretize(qualitypatternmodel.inputfields.InputValue) <em>Concretize</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.inputfields.UnknownInputValue#concretize(qualitypatternmodel.inputfields.ParameterValue) <em>Concretize</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.inputfields.UnknownInputValue#concretize(qualitypatternmodel.inputfields.InputValue)
+	 * @see qualitypatternmodel.inputfields.UnknownInputValue#concretize(qualitypatternmodel.inputfields.ParameterValue)
 	 * @generated
 	 */
-	public void testConcretize__InputValue() {
+	public void testConcretize__ParameterValue() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

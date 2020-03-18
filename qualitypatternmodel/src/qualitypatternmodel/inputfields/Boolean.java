@@ -22,7 +22,7 @@ import qualitypatternmodel.functions.Match;
  * @model
  * @generated
  */
-public interface Boolean extends InputValue {
+public interface Boolean extends ParameterValue {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * The default value is <code>"true"</code>.

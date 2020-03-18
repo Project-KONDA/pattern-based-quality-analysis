@@ -28,7 +28,7 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
  *
  * @generated
  */
-public class DateImpl extends InputValueImpl implements Date {
+public class DateImpl extends ParameterValueImpl implements Date {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -20,7 +20,7 @@ import qualitypatternmodel.inputfields.InputfieldsPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BooleanItemProvider extends InputValueItemProvider {
+public class BooleanItemProvider extends ParameterValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

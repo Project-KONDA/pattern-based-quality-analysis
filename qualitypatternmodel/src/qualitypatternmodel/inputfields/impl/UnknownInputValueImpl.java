@@ -10,7 +10,7 @@ import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.UnknownInputValue;
-import qualitypatternmodel.inputfields.InputValue;
+import qualitypatternmodel.inputfields.ParameterValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,7 +50,7 @@ public class UnknownInputValueImpl extends ParameterImpl implements UnknownInput
 	 * @generated NOT
 	 */
 	@Override
-	public void concretize(InputValue concreteInputValue) {
+	public void concretize(ParameterValue concreteInputValue) {
 		concreteInputValue.setParameterList(getParameterList());
 		
 		EList<Comparison> comparison1Copy = new BasicEList<Comparison>();
@@ -75,8 +75,8 @@ public class UnknownInputValueImpl extends ParameterImpl implements UnknownInput
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case InputfieldsPackage.UNKNOWN_INPUT_VALUE___CONCRETIZE__INPUTVALUE:
-				concretize((InputValue)arguments.get(0));
+			case InputfieldsPackage.UNKNOWN_INPUT_VALUE___CONCRETIZE__PARAMETERVALUE:
+				concretize((ParameterValue)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

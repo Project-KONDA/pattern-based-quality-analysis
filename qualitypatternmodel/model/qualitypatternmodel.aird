@@ -3379,9 +3379,9 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_9LabIFbsEeqq28gUaBHbCA" name="InputValue" tooltipText="" outgoingEdges="_AGJt9lbtEeqq28gUaBHbCA" incomingEdges="_rFi24x2REeqrGqxc7qjo8A _rW5Flh2REeqrGqxc7qjo8A _c5Kc1kKVEeqVq_rPQGyS5A _Y9VC5lbtEeqq28gUaBHbCA _ZggBZlbtEeqq28gUaBHbCA _B1wjM1cVEeqLx62jXSDiJg" width="12" height="10">
-        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
-        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_9LabIFbsEeqq28gUaBHbCA" name="ParameterValue" tooltipText="" outgoingEdges="_AGJt9lbtEeqq28gUaBHbCA" incomingEdges="_rFi24x2REeqrGqxc7qjo8A _rW5Flh2REeqrGqxc7qjo8A _c5Kc1kKVEeqVq_rPQGyS5A _Y9VC5lbtEeqq28gUaBHbCA _ZggBZlbtEeqq28gUaBHbCA _B1wjM1cVEeqLx62jXSDiJg" width="12" height="10">
+        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ParameterValue"/>
+        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ParameterValue"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -3439,7 +3439,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_fxC1kFbxEeqq28gUaBHbCA" name="concretize(concreteInputValue InputValue)" tooltipText="concretize(concreteInputValue)">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_fxC1kFbxEeqq28gUaBHbCA" name="concretize(concreteInputValue ParameterValue)" tooltipText="concretize(concreteInputValue)">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/concretize"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/concretize"/>
           <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/concretize/concreteInputValue"/>
@@ -5682,8 +5682,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_AGJt9lbtEeqq28gUaBHbCA" sourceNode="_9LabIFbsEeqq28gUaBHbCA" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
-      <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
+      <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ParameterValue"/>
+      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ParameterValue"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_AGKVA1btEeqq28gUaBHbCA">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -9282,9 +9282,9 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_H1zrs2g1EeqqIutgaIr-iw" name="InputValue" visible="false" tooltipText="" outgoingEdges="_H105zGg1EeqqIutgaIr-iw" width="12" height="10">
-        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
-        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_H1zrs2g1EeqqIutgaIr-iw" name="ParameterValue" visible="false" tooltipText="" outgoingEdges="_H105zGg1EeqqIutgaIr-iw" width="12" height="10">
+        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ParameterValue"/>
+        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ParameterValue"/>
         <graphicalFilters xmi:type="diagram:HideFilter" uid="_RGpkRmg1EeqqIutgaIr-iw"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -9348,7 +9348,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_H1zrv2g1EeqqIutgaIr-iw" name="concretize(concreteInputValue InputValue)" visible="false" tooltipText="concretize(concreteInputValue)">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_H1zrv2g1EeqqIutgaIr-iw" name="concretize(concreteInputValue ParameterValue)" visible="false" tooltipText="concretize(concreteInputValue)">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/concretize"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/concretize"/>
           <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/concretize/concreteInputValue"/>
@@ -11958,8 +11958,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_H105zGg1EeqqIutgaIr-iw" visible="false" sourceNode="_H1zrs2g1EeqqIutgaIr-iw" targetNode="_H1zrg2g1EeqqIutgaIr-iw">
-      <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/InputValue"/>
+      <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ParameterValue"/>
+      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ParameterValue"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_H105zWg1EeqqIutgaIr-iw">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>

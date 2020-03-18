@@ -58,7 +58,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/Number">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Number/value"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/InputValue"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//inputfields/ParameterValue"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/Date">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Date/value"/>
       </genClasses>

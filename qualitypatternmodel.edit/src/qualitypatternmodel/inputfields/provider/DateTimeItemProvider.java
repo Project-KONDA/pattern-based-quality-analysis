@@ -23,7 +23,7 @@ import qualitypatternmodel.inputfields.InputfieldsPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DateTimeItemProvider extends InputValueItemProvider {
+public class DateTimeItemProvider extends ParameterValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -16,7 +16,7 @@ import qualitypatternmodel.inputfields.Text;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextItemProvider extends InputValueItemProvider {
+public class TextItemProvider extends ParameterValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

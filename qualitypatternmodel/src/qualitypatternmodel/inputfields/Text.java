@@ -13,6 +13,6 @@ package qualitypatternmodel.inputfields;
  * @model abstract="true"
  * @generated
  */
-public interface Text extends InputValue {
+public interface Text extends ParameterValue {
 
 } // Text

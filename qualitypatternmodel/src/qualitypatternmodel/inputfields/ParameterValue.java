@@ -9,9 +9,9 @@ package qualitypatternmodel.inputfields;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInputValue()
+ * @see qualitypatternmodel.inputfields.InputfieldsPackage#getParameterValue()
  * @model abstract="true"
  * @generated
  */
-public interface InputValue extends Parameter {
+public interface ParameterValue extends Parameter {
 } // XSType

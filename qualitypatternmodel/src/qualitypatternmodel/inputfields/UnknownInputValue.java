@@ -21,5 +21,5 @@ public interface UnknownInputValue extends Parameter {
 	 * @model
 	 * @generated
 	 */
-	void concretize(InputValue concreteInputValue);
+	void concretize(ParameterValue concreteInputValue);
 } // UnknownInputValue

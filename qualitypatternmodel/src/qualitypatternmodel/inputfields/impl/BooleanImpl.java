@@ -34,7 +34,7 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class BooleanImpl extends InputValueImpl implements qualitypatternmodel.inputfields.Boolean {
+public class BooleanImpl extends ParameterValueImpl implements qualitypatternmodel.inputfields.Boolean {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
