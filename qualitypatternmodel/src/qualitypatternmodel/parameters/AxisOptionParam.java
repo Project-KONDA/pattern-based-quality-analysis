@@ -3,7 +3,6 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-
 import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Relation;
 
@@ -49,7 +48,7 @@ public interface AxisOptionParam extends Parameter {
 	 * @see qualitypatternmodel.graphstructure.Axis
 	 * @see #setValue(Axis)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getAxisOptionParam_Value()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Axis getValue();

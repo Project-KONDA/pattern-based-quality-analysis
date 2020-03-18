@@ -49,7 +49,7 @@ public interface PropertyOptionParam extends Parameter {
 	 * @see qualitypatternmodel.graphstructure.PropertyLocation
 	 * @see #setValue(PropertyLocation)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getPropertyOptionParam_Value()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	PropertyLocation getValue();

@@ -31,7 +31,7 @@ public interface Formula extends Condition {
 	 * @see qualitypatternmodel.patternstructure.LogicalOperator
 	 * @see #setOperator(LogicalOperator)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula_Operator()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	LogicalOperator getOperator();
