@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 import qualitypatternmodel.inputfields.AxisOption;
-import qualitypatternmodel.inputfields.CompOption;
+import qualitypatternmodel.inputfields.ComparisonOption;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.DateTime;
 import qualitypatternmodel.inputfields.Parameter;
@@ -87,12 +87,12 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case InputfieldsPackage.COMP_OPTION: {
-				CompOption compOption = (CompOption)theEObject;
-				T result = caseCompOption(compOption);
-				if (result == null) result = caseParameter(compOption);
-				if (result == null) result = caseComparable(compOption);
-				if (result == null) result = casePatternElement(compOption);
+			case InputfieldsPackage.COMPARISON_OPTION: {
+				ComparisonOption comparisonOption = (ComparisonOption)theEObject;
+				T result = caseComparisonOption(comparisonOption);
+				if (result == null) result = caseParameter(comparisonOption);
+				if (result == null) result = caseComparable(comparisonOption);
+				if (result == null) result = casePatternElement(comparisonOption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -241,17 +241,17 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Comp Option</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Comparison Option</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Comp Option</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Comparison Option</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCompOption(CompOption object) {
+	public T caseComparisonOption(ComparisonOption object) {
 		return null;
 	}
 

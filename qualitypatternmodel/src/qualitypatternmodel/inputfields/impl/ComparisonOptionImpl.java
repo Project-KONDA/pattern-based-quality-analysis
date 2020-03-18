@@ -19,7 +19,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.inputfields.CompOption;
+import qualitypatternmodel.inputfields.ComparisonOption;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
@@ -32,14 +32,14 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.impl.CompOptionImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.impl.CompOptionImpl#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.impl.CompOptionImpl#getComparison <em>Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.ComparisonOptionImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.ComparisonOptionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.ComparisonOptionImpl#getComparison <em>Comparison</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CompOptionImpl extends ParameterImpl implements CompOption {
+public class ComparisonOptionImpl extends ParameterImpl implements ComparisonOption {
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -85,7 +85,7 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public CompOptionImpl() {
+	public ComparisonOptionImpl() {
 		super();
 		getOptions().add(ComparisonOperator.EQUAL);
 //		getOptions().add(ComparisonOperator.LESS);
@@ -121,7 +121,7 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return InputfieldsPackage.Literals.COMP_OPTION;
+		return InputfieldsPackage.Literals.COMPARISON_OPTION;
 	}
 	
 	/**
@@ -142,7 +142,7 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 	@Override
 	public EList<ComparisonOperator> getOptions() {
 		if (options == null) {
-			options = new EDataTypeUniqueEList<ComparisonOperator>(ComparisonOperator.class, this, InputfieldsPackage.COMP_OPTION__OPTIONS);
+			options = new EDataTypeUniqueEList<ComparisonOperator>(ComparisonOperator.class, this, InputfieldsPackage.COMPARISON_OPTION__OPTIONS);
 		}
 		return options;
 	}
@@ -167,7 +167,7 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 		ComparisonOperator oldValue = value;
 		value = newValue == null ? VALUE_EDEFAULT : newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.COMP_OPTION__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.COMPARISON_OPTION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -182,7 +182,7 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 			comparison = (Comparison)eResolveProxy(oldComparison);
 			if (comparison != oldComparison) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InputfieldsPackage.COMP_OPTION__COMPARISON, oldComparison, comparison));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InputfieldsPackage.COMPARISON_OPTION__COMPARISON, oldComparison, comparison));
 			}
 		}
 		return comparison;
@@ -206,7 +206,7 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 		Comparison oldComparison = comparison;
 		comparison = newComparison;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InputfieldsPackage.COMP_OPTION__COMPARISON, oldComparison, newComparison);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InputfieldsPackage.COMPARISON_OPTION__COMPARISON, oldComparison, newComparison);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -229,7 +229,7 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.COMP_OPTION__COMPARISON, newComparison, newComparison));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.COMPARISON_OPTION__COMPARISON, newComparison, newComparison));
 	}
 
 	/**
@@ -240,7 +240,7 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InputfieldsPackage.COMP_OPTION__COMPARISON:
+			case InputfieldsPackage.COMPARISON_OPTION__COMPARISON:
 				if (comparison != null)
 					msgs = ((InternalEObject)comparison).eInverseRemove(this, FunctionsPackage.COMPARISON__OPTION, Comparison.class, msgs);
 				return basicSetComparison((Comparison)otherEnd, msgs);
@@ -256,7 +256,7 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InputfieldsPackage.COMP_OPTION__COMPARISON:
+			case InputfieldsPackage.COMPARISON_OPTION__COMPARISON:
 				return basicSetComparison(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -270,11 +270,11 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InputfieldsPackage.COMP_OPTION__OPTIONS:
+			case InputfieldsPackage.COMPARISON_OPTION__OPTIONS:
 				return getOptions();
-			case InputfieldsPackage.COMP_OPTION__VALUE:
+			case InputfieldsPackage.COMPARISON_OPTION__VALUE:
 				return getValue();
-			case InputfieldsPackage.COMP_OPTION__COMPARISON:
+			case InputfieldsPackage.COMPARISON_OPTION__COMPARISON:
 				if (resolve) return getComparison();
 				return basicGetComparison();
 		}
@@ -290,14 +290,14 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InputfieldsPackage.COMP_OPTION__OPTIONS:
+			case InputfieldsPackage.COMPARISON_OPTION__OPTIONS:
 				getOptions().clear();
 				getOptions().addAll((Collection<? extends ComparisonOperator>)newValue);
 				return;
-			case InputfieldsPackage.COMP_OPTION__VALUE:
+			case InputfieldsPackage.COMPARISON_OPTION__VALUE:
 				setValue((ComparisonOperator)newValue);
 				return;
-			case InputfieldsPackage.COMP_OPTION__COMPARISON:
+			case InputfieldsPackage.COMPARISON_OPTION__COMPARISON:
 				setComparison((Comparison)newValue);
 				return;
 		}
@@ -312,13 +312,13 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.COMP_OPTION__OPTIONS:
+			case InputfieldsPackage.COMPARISON_OPTION__OPTIONS:
 				getOptions().clear();
 				return;
-			case InputfieldsPackage.COMP_OPTION__VALUE:
+			case InputfieldsPackage.COMPARISON_OPTION__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case InputfieldsPackage.COMP_OPTION__COMPARISON:
+			case InputfieldsPackage.COMPARISON_OPTION__COMPARISON:
 				setComparison((Comparison)null);
 				return;
 		}
@@ -333,11 +333,11 @@ public class CompOptionImpl extends ParameterImpl implements CompOption {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.COMP_OPTION__OPTIONS:
+			case InputfieldsPackage.COMPARISON_OPTION__OPTIONS:
 				return options != null && !options.isEmpty();
-			case InputfieldsPackage.COMP_OPTION__VALUE:
+			case InputfieldsPackage.COMPARISON_OPTION__VALUE:
 				return value != VALUE_EDEFAULT;
-			case InputfieldsPackage.COMP_OPTION__COMPARISON:
+			case InputfieldsPackage.COMPARISON_OPTION__COMPARISON:
 				return comparison != null;
 		}
 		return super.eIsSet(featureID);

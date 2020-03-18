@@ -18,11 +18,11 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//inputfields/Parameter/validate/context"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/CompOption">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/CompOption/options"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/CompOption/value"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/ComparisonOption">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/ComparisonOption/options"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/ComparisonOption/value"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/CompOption/comparison"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/ComparisonOption/comparison"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/PropertyOption">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/PropertyOption/options"/>

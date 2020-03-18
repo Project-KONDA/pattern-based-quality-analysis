@@ -13,23 +13,23 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.inputfields.CompOption;
+import qualitypatternmodel.inputfields.ComparisonOption;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.CompOption} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.ComparisonOption} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompOptionItemProvider extends ParameterItemProvider {
+public class ComparisonOptionItemProvider extends ParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompOptionItemProvider(AdapterFactory adapterFactory) {
+	public ComparisonOptionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,9 +62,9 @@ public class CompOptionItemProvider extends ParameterItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompOption_options_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompOption_options_feature", "_UI_CompOption_type"),
-				 InputfieldsPackage.Literals.COMP_OPTION__OPTIONS,
+				 getString("_UI_ComparisonOption_options_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComparisonOption_options_feature", "_UI_ComparisonOption_type"),
+				 InputfieldsPackage.Literals.COMPARISON_OPTION__OPTIONS,
 				 true,
 				 false,
 				 false,
@@ -84,9 +84,9 @@ public class CompOptionItemProvider extends ParameterItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompOption_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompOption_value_feature", "_UI_CompOption_type"),
-				 InputfieldsPackage.Literals.COMP_OPTION__VALUE,
+				 getString("_UI_ComparisonOption_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComparisonOption_value_feature", "_UI_ComparisonOption_type"),
+				 InputfieldsPackage.Literals.COMPARISON_OPTION__VALUE,
 				 true,
 				 false,
 				 false,
@@ -106,9 +106,9 @@ public class CompOptionItemProvider extends ParameterItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompOption_comparison_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompOption_comparison_feature", "_UI_CompOption_type"),
-				 InputfieldsPackage.Literals.COMP_OPTION__COMPARISON,
+				 getString("_UI_ComparisonOption_comparison_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComparisonOption_comparison_feature", "_UI_ComparisonOption_type"),
+				 InputfieldsPackage.Literals.COMPARISON_OPTION__COMPARISON,
 				 true,
 				 false,
 				 true,
@@ -118,14 +118,14 @@ public class CompOptionItemProvider extends ParameterItemProvider {
 	}
 
 	/**
-	 * This returns CompOption.gif.
+	 * This returns ComparisonOption.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompOption"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComparisonOption"));
 	}
 
 	/**
@@ -136,8 +136,8 @@ public class CompOptionItemProvider extends ParameterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		CompOption compOption = (CompOption) object;
-		return getString("_UI_CompOption_type") + " " + compOption.getInternalId() + " " + compOption.getValue().getName();
+		ComparisonOption comparisonOption = (ComparisonOption) object;
+		return getString("_UI_CompOption_type") + " " + comparisonOption.getInternalId() + " " + comparisonOption.getValue().getName();
 	}
 
 
@@ -152,9 +152,9 @@ public class CompOptionItemProvider extends ParameterItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CompOption.class)) {
-			case InputfieldsPackage.COMP_OPTION__OPTIONS:
-			case InputfieldsPackage.COMP_OPTION__VALUE:
+		switch (notification.getFeatureID(ComparisonOption.class)) {
+			case InputfieldsPackage.COMPARISON_OPTION__OPTIONS:
+			case InputfieldsPackage.COMPARISON_OPTION__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

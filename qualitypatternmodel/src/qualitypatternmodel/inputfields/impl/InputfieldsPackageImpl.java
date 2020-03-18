@@ -18,7 +18,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 import qualitypatternmodel.inputfields.AxisOption;
-import qualitypatternmodel.inputfields.CompOption;
+import qualitypatternmodel.inputfields.ComparisonOption;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.DateTime;
 import qualitypatternmodel.inputfields.Parameter;
@@ -56,7 +56,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass compOptionEClass = null;
+	private EClass comparisonOptionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -300,8 +300,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EClass getCompOption() {
-		return compOptionEClass;
+	public EClass getComparisonOption() {
+		return comparisonOptionEClass;
 	}
 
 	/**
@@ -310,8 +310,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCompOption_Options() {
-		return (EAttribute)compOptionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getComparisonOption_Options() {
+		return (EAttribute)comparisonOptionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -320,8 +320,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCompOption_Value() {
-		return (EAttribute)compOptionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getComparisonOption_Value() {
+		return (EAttribute)comparisonOptionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -330,8 +330,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EReference getCompOption_Comparison() {
-		return (EReference)compOptionEClass.getEStructuralFeatures().get(2);
+	public EReference getComparisonOption_Comparison() {
+		return (EReference)comparisonOptionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -720,10 +720,10 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		createEOperation(parameterEClass, PARAMETER___INPUT_IS_VALID);
 		createEOperation(parameterEClass, PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
-		compOptionEClass = createEClass(COMP_OPTION);
-		createEAttribute(compOptionEClass, COMP_OPTION__OPTIONS);
-		createEAttribute(compOptionEClass, COMP_OPTION__VALUE);
-		createEReference(compOptionEClass, COMP_OPTION__COMPARISON);
+		comparisonOptionEClass = createEClass(COMPARISON_OPTION);
+		createEAttribute(comparisonOptionEClass, COMPARISON_OPTION__OPTIONS);
+		createEAttribute(comparisonOptionEClass, COMPARISON_OPTION__VALUE);
+		createEReference(comparisonOptionEClass, COMPARISON_OPTION__COMPARISON);
 
 		propertyOptionEClass = createEClass(PROPERTY_OPTION);
 		createEAttribute(propertyOptionEClass, PROPERTY_OPTION__OPTIONS);
@@ -809,7 +809,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		// Add supertypes to classes
 		parameterEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		parameterEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
-		compOptionEClass.getESuperTypes().add(this.getParameter());
+		comparisonOptionEClass.getESuperTypes().add(this.getParameter());
 		propertyOptionEClass.getESuperTypes().add(this.getParameter());
 		parameterListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		booleanEClass.getESuperTypes().add(this.getParameterValue());
@@ -841,10 +841,10 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(compOptionEClass, CompOption.class, "CompOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCompOption_Options(), theFunctionsPackage.getComparisonOperator(), "options", null, 0, -1, CompOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCompOption_Value(), theFunctionsPackage.getComparisonOperator(), "value", null, 0, 1, CompOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCompOption_Comparison(), theFunctionsPackage.getComparison(), theFunctionsPackage.getComparison_Option(), "comparison", null, 0, 1, CompOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comparisonOptionEClass, ComparisonOption.class, "ComparisonOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComparisonOption_Options(), theFunctionsPackage.getComparisonOperator(), "options", null, 0, -1, ComparisonOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComparisonOption_Value(), theFunctionsPackage.getComparisonOperator(), "value", null, 0, 1, ComparisonOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparisonOption_Comparison(), theFunctionsPackage.getComparison(), theFunctionsPackage.getComparison_Option(), "comparison", null, 0, 1, ComparisonOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyOptionEClass, PropertyOption.class, "PropertyOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPropertyOption_Options(), theGraphstructurePackage.getPropertyLocation(), "options", null, 0, -1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

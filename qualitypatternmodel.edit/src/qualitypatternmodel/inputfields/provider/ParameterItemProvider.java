@@ -151,14 +151,12 @@ public class ParameterItemProvider extends PatternElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Parameter)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Parameter_type") :
-			getString("_UI_Parameter_type") + " " + label;
+		Parameter parameter = (Parameter) object;
+		return getString("_UI_Input_type") + " " + parameter.getInternalId();
 	}
 
 

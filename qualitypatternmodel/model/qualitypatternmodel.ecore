@@ -22,7 +22,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPredefined" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CompOption" eSuperTypes="#//inputfields/Parameter">
+    <eClassifiers xsi:type="ecore:EClass" name="ComparisonOption" eSuperTypes="#//inputfields/Parameter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
           eType="#//functions/ComparisonOperator"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//functions/ComparisonOperator"/>
@@ -158,7 +158,7 @@
           eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison2"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//inputfields/CompOption" eOpposite="#//inputfields/CompOption/comparison"/>
+          eType="#//inputfields/ComparisonOption" eOpposite="#//inputfields/ComparisonOption/comparison"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
       <eLiterals name="EQUAL" literal="="/>

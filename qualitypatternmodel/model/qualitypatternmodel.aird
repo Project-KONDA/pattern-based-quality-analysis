@@ -2553,7 +2553,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yqbV5WHzEeqRJMTe2Wle0g" x="97" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_yqbV5mHzEeqRJMTe2Wle0g" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yqbV52HzEeqRJMTe2Wle0g" x="-25" y="74"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yqbV52HzEeqRJMTe2Wle0g" x="-50" y="38"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_yqbV6GHzEeqRJMTe2Wle0g" type="6003">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yqbV6WHzEeqRJMTe2Wle0g" x="135" y="17"/>
@@ -3201,9 +3201,9 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_if88QDh7EeqWT8u6R6QK9w" name="CompOption" tooltipText="" outgoingEdges="_igl1cDh7EeqWT8u6R6QK9w _yp3VPGHzEeqRJMTe2Wle0g" width="12" height="10">
-        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/CompOption"/>
-        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/CompOption"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_if88QDh7EeqWT8u6R6QK9w" name="ComparisonOption" tooltipText="" outgoingEdges="_igl1cDh7EeqWT8u6R6QK9w _yp3VPGHzEeqRJMTe2Wle0g" width="12" height="10">
+        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption"/>
+        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -3212,16 +3212,16 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_igKXojh7EeqWT8u6R6QK9w" name="options : ComparisonOperator" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/CompOption/options"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/CompOption/options"/>
+          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/options"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/options"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_qhFhIjh7EeqWT8u6R6QK9w" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_igK-sDh7EeqWT8u6R6QK9w" name="value : ComparisonOperator = =" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/CompOption/value"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/CompOption/value"/>
+          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/value"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/value"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_rkthVzh7EeqWT8u6R6QK9w" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>
@@ -5273,8 +5273,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_igl1cDh7EeqWT8u6R6QK9w" sourceNode="_if88QDh7EeqWT8u6R6QK9w" targetNode="_jLRH8B2REeqrGqxc7qjo8A">
-      <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/CompOption"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/CompOption"/>
+      <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption"/>
+      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_igmchjh7EeqWT8u6R6QK9w">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>
@@ -5863,8 +5863,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_yp3VPGHzEeqRJMTe2Wle0g" sourceNode="_if88QDh7EeqWT8u6R6QK9w" targetNode="_6DW00B2jEeqrGqxc7qjo8A" beginLabel="[1..1] option" endLabel="[0..1] comparison">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//inputfields/CompOption/comparison"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//inputfields/CompOption/comparison"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/comparison"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/comparison"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Comparison/option"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_yp38QGHzEeqRJMTe2Wle0g" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -9062,9 +9062,9 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_H1zrjWg1EeqqIutgaIr-iw" name="CompOption" visible="false" tooltipText="" outgoingEdges="_H105RGg1EeqqIutgaIr-iw" width="12" height="10">
-        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/CompOption"/>
-        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/CompOption"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_H1zrjWg1EeqqIutgaIr-iw" name="ComparisonOption" visible="false" tooltipText="" outgoingEdges="_H105RGg1EeqqIutgaIr-iw" width="12" height="10">
+        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption"/>
+        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption"/>
         <graphicalFilters xmi:type="diagram:HideFilter" uid="_RGpkWmg1EeqqIutgaIr-iw"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
@@ -9074,8 +9074,8 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_H1zrj2g1EeqqIutgaIr-iw" name="options : ComparisonOperator" visible="false" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/CompOption/options"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/CompOption/options"/>
+          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/options"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/options"/>
           <graphicalFilters xmi:type="diagram:HideFilter" uid="_RGpkUmg1EeqqIutgaIr-iw"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_H1zrkGg1EeqqIutgaIr-iw" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
@@ -9083,8 +9083,8 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_H1zrkWg1EeqqIutgaIr-iw" name="value : ComparisonOperator = =" visible="false" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/CompOption/value"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/CompOption/value"/>
+          <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/value"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/value"/>
           <graphicalFilters xmi:type="diagram:HideFilter" uid="_RGpkV2g1EeqqIutgaIr-iw"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_H1zrkmg1EeqqIutgaIr-iw" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
@@ -9092,8 +9092,8 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_Qv5WQGjnEeqrp_Bk8ukhmg" name=" comparison : Comparison" visible="false" tooltipText="">
-          <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//inputfields/CompOption/comparison"/>
-          <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//inputfields/CompOption/comparison"/>
+          <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/comparison"/>
+          <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption/comparison"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_Qv5WQWjnEeqrp_Bk8ukhmg" labelAlignment="LEFT" color="114,159,207">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
           </ownedStyle>
@@ -9640,7 +9640,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_QwDuUWjnEeqrp_Bk8ukhmg" name=" option : CompOption" visible="false" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_QwDuUWjnEeqrp_Bk8ukhmg" name=" option : ComparisonOption" visible="false" tooltipText="">
           <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Comparison/option"/>
           <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Comparison/option"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_QwDuUmjnEeqrp_Bk8ukhmg" labelAlignment="LEFT" description="_Qv-11GjnEeqrp_Bk8ukhmg" color="114,159,207">
@@ -11524,8 +11524,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_H105RGg1EeqqIutgaIr-iw" visible="false" sourceNode="_H1zrjWg1EeqqIutgaIr-iw" targetNode="_H1zrg2g1EeqqIutgaIr-iw">
-      <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/CompOption"/>
-      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/CompOption"/>
+      <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption"/>
+      <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//inputfields/ComparisonOption"/>
       <decorations xmi:type="viewpoint:Decoration" uid="_H105RWg1EeqqIutgaIr-iw">
         <description xmi:type="description:SemanticBasedDecoration" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@decorationDescriptionsSet/@decorationDescriptions[name='External']"/>
       </decorations>

@@ -15,16 +15,16 @@ import qualitypatternmodel.functions.ComparisonOperator;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.CompOption#getOptions <em>Options</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.CompOption#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.CompOption#getComparison <em>Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.ComparisonOption#getOptions <em>Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.ComparisonOption#getValue <em>Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.ComparisonOption#getComparison <em>Comparison</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.inputfields.InputfieldsPackage#getCompOption()
+ * @see qualitypatternmodel.inputfields.InputfieldsPackage#getComparisonOption()
  * @model
  * @generated
  */
-public interface CompOption extends Parameter {
+public interface ComparisonOption extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
 	 * The list contents are of type {@link qualitypatternmodel.functions.ComparisonOperator}.
@@ -33,7 +33,7 @@ public interface CompOption extends Parameter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' attribute list.
 	 * @see qualitypatternmodel.functions.ComparisonOperator
-	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getCompOption_Options()
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getComparisonOption_Options()
 	 * @model
 	 * @generated
 	 */
@@ -47,14 +47,14 @@ public interface CompOption extends Parameter {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see qualitypatternmodel.functions.ComparisonOperator
 	 * @see #setValue(ComparisonOperator)
-	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getCompOption_Value()
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getComparisonOption_Value()
 	 * @model
 	 * @generated
 	 */
 	ComparisonOperator getValue();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.inputfields.CompOption#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.ComparisonOption#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
@@ -71,7 +71,7 @@ public interface CompOption extends Parameter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comparison</em>' reference.
 	 * @see #setComparison(Comparison)
-	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getCompOption_Comparison()
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getComparisonOption_Comparison()
 	 * @see qualitypatternmodel.functions.Comparison#getOption
 	 * @model opposite="option"
 	 * @generated
@@ -79,7 +79,7 @@ public interface CompOption extends Parameter {
 	Comparison getComparison();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.inputfields.CompOption#getComparison <em>Comparison</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.ComparisonOption#getComparison <em>Comparison</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Comparison</em>' reference.

@@ -4,16 +4,16 @@ package qualitypatternmodel.inputfields.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.inputfields.CompOption;
+import qualitypatternmodel.inputfields.ComparisonOption;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Comp Option</b></em>'.
+ * A test case for the model object '<em><b>Comparison Option</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompOptionTest extends ParameterTest {
+public class ComparisonOptionTest extends ParameterTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class CompOptionTest extends ParameterTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(CompOptionTest.class);
+		TestRunner.run(ComparisonOptionTest.class);
 	}
 
 	/**
-	 * Constructs a new Comp Option test case with the given name.
+	 * Constructs a new Comparison Option test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompOptionTest(String name) {
+	public ComparisonOptionTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Comp Option test case.
+	 * Returns the fixture for this Comparison Option test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected CompOption getFixture() {
-		return (CompOption)fixture;
+	protected ComparisonOption getFixture() {
+		return (ComparisonOption)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class CompOptionTest extends ParameterTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(InputfieldsFactory.eINSTANCE.createCompOption());
+		setFixture(InputfieldsFactory.eINSTANCE.createComparisonOption());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class CompOptionTest extends ParameterTest {
 		setFixture(null);
 	}
 
-} //CompOptionTest
+} //ComparisonOptionTest

@@ -5,7 +5,7 @@
 package qualitypatternmodel.functions.validation;
 
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.inputfields.CompOption;
+import qualitypatternmodel.inputfields.ComparisonOption;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.functions.Comparison}.
@@ -18,7 +18,7 @@ public interface ComparisonValidator {
 
 	boolean validateArgument1(qualitypatternmodel.graphstructure.Comparable value);
 
-	boolean validateOption(CompOption value);
+	boolean validateOption(ComparisonOption value);
 	boolean validateArgument2(qualitypatternmodel.graphstructure.Comparable value);
 
 	boolean validateType(ReturnType value);

@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import qualitypatternmodel.graphstructure.util.GraphstructureValidator;
 import qualitypatternmodel.inputfields.AxisOption;
-import qualitypatternmodel.inputfields.CompOption;
+import qualitypatternmodel.inputfields.ComparisonOption;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.DateTime;
 import qualitypatternmodel.inputfields.Parameter;
@@ -128,8 +128,8 @@ public class InputfieldsValidator extends EObjectValidator {
 		switch (classifierID) {
 			case InputfieldsPackage.PARAMETER:
 				return validateParameter((Parameter)value, diagnostics, context);
-			case InputfieldsPackage.COMP_OPTION:
-				return validateCompOption((CompOption)value, diagnostics, context);
+			case InputfieldsPackage.COMPARISON_OPTION:
+				return validateComparisonOption((ComparisonOption)value, diagnostics, context);
 			case InputfieldsPackage.PROPERTY_OPTION:
 				return validatePropertyOption((PropertyOption)value, diagnostics, context);
 			case InputfieldsPackage.PARAMETER_LIST:
@@ -195,17 +195,17 @@ public class InputfieldsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCompOption(CompOption compOption, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(compOption, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(compOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(compOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(compOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(compOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(compOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(compOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(compOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(compOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validateParameter_validate(compOption, diagnostics, context);
+	public boolean validateComparisonOption(ComparisonOption comparisonOption, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(comparisonOption, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(comparisonOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(comparisonOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(comparisonOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(comparisonOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(comparisonOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(comparisonOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(comparisonOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(comparisonOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(comparisonOption, diagnostics, context);
 		return result;
 	}
 

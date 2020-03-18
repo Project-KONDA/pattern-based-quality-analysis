@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import qualitypatternmodel.inputfields.AxisOption;
-import qualitypatternmodel.inputfields.CompOption;
+import qualitypatternmodel.inputfields.ComparisonOption;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.DateTime;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
@@ -67,7 +67,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case InputfieldsPackage.COMP_OPTION: return createCompOption();
+			case InputfieldsPackage.COMPARISON_OPTION: return createComparisonOption();
 			case InputfieldsPackage.PROPERTY_OPTION: return createPropertyOption();
 			case InputfieldsPackage.PARAMETER_LIST: return createParameterList();
 			case InputfieldsPackage.BOOLEAN: return createBoolean();
@@ -90,9 +90,9 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * @generated
 	 */
 	@Override
-	public CompOption createCompOption() {
-		CompOptionImpl compOption = new CompOptionImpl();
-		return compOption;
+	public ComparisonOption createComparisonOption() {
+		ComparisonOptionImpl comparisonOption = new ComparisonOptionImpl();
+		return comparisonOption;
 	}
 
 	/**

@@ -25,7 +25,7 @@ import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.Boolean;
-import qualitypatternmodel.inputfields.CompOption;
+import qualitypatternmodel.inputfields.ComparisonOption;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -159,8 +159,8 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 				((TextLiteral) parameter).setMatch(null);
 				((TextLiteral) parameter).setProperty(null);
 			}
-			if (parameter instanceof CompOption) {
-				((CompOption) parameter).setComparison(null);
+			if (parameter instanceof ComparisonOption) {
+				((ComparisonOption) parameter).setComparison(null);
 			}
 			if (parameter instanceof PropertyOption) {
 				((PropertyOption) parameter).setProperty(null);

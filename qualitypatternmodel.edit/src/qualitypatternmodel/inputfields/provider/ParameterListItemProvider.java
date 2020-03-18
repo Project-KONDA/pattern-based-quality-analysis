@@ -138,7 +138,7 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 InputfieldsFactory.eINSTANCE.createCompOption()));
+				 InputfieldsFactory.eINSTANCE.createComparisonOption()));
 
 		newChildDescriptors.add
 			(createChildParameter

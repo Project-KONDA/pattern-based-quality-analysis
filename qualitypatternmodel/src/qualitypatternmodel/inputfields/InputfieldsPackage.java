@@ -268,14 +268,14 @@ public interface InputfieldsPackage extends EPackage {
 	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.CompOptionImpl <em>Comp Option</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.ComparisonOptionImpl <em>Comparison Option</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.inputfields.impl.CompOptionImpl
-	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getCompOption()
+	 * @see qualitypatternmodel.inputfields.impl.ComparisonOptionImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getComparisonOption()
 	 * @generated
 	 */
-	int COMP_OPTION = 1;
+	int COMPARISON_OPTION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -284,7 +284,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__ID = PARAMETER__ID;
+	int COMPARISON_OPTION__ID = PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -293,7 +293,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__INTERNAL_ID = PARAMETER__INTERNAL_ID;
+	int COMPARISON_OPTION__INTERNAL_ID = PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -302,7 +302,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__COMPARISON1 = PARAMETER__COMPARISON1;
+	int COMPARISON_OPTION__COMPARISON1 = PARAMETER__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -311,7 +311,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__COMPARISON2 = PARAMETER__COMPARISON2;
+	int COMPARISON_OPTION__COMPARISON2 = PARAMETER__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -320,7 +320,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
+	int COMPARISON_OPTION__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -329,7 +329,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__DESCRIPTION = PARAMETER__DESCRIPTION;
+	int COMPARISON_OPTION__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -338,7 +338,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+	int COMPARISON_OPTION__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -347,7 +347,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__OPTIONS = PARAMETER_FEATURE_COUNT + 0;
+	int COMPARISON_OPTION__OPTIONS = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -356,7 +356,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__VALUE = PARAMETER_FEATURE_COUNT + 1;
+	int COMPARISON_OPTION__VALUE = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison</b></em>' reference.
@@ -365,16 +365,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__COMPARISON = PARAMETER_FEATURE_COUNT + 2;
+	int COMPARISON_OPTION__COMPARISON = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Comp Option</em>' class.
+	 * The number of structural features of the '<em>Comparison Option</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
+	int COMPARISON_OPTION_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -383,7 +383,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
+	int COMPARISON_OPTION___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -392,7 +392,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
+	int COMPARISON_OPTION___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -401,7 +401,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
+	int COMPARISON_OPTION___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -410,7 +410,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
+	int COMPARISON_OPTION___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -419,7 +419,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
+	int COMPARISON_OPTION___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -428,7 +428,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_CONTAINER = PARAMETER___GET_CONTAINER;
+	int COMPARISON_OPTION___GET_CONTAINER = PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -437,7 +437,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
+	int COMPARISON_OPTION___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -446,7 +446,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___MY_TO_STRING = PARAMETER___MY_TO_STRING;
+	int COMPARISON_OPTION___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -455,7 +455,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
+	int COMPARISON_OPTION___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -464,7 +464,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
+	int COMPARISON_OPTION___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -473,7 +473,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
+	int COMPARISON_OPTION___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -482,7 +482,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
+	int COMPARISON_OPTION___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -491,17 +491,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int COMPARISON_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Comp Option</em>' class.
+	 * The number of operations of the '<em>Comparison Option</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
-
+	int COMPARISON_OPTION_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl <em>Property Option</em>}' class.
@@ -3388,47 +3387,47 @@ public interface InputfieldsPackage extends EPackage {
 	EOperation getParameter__Validate__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.CompOption <em>Comp Option</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.ComparisonOption <em>Comparison Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Comp Option</em>'.
-	 * @see qualitypatternmodel.inputfields.CompOption
+	 * @return the meta object for class '<em>Comparison Option</em>'.
+	 * @see qualitypatternmodel.inputfields.ComparisonOption
 	 * @generated
 	 */
-	EClass getCompOption();
+	EClass getComparisonOption();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.inputfields.CompOption#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.inputfields.ComparisonOption#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Options</em>'.
-	 * @see qualitypatternmodel.inputfields.CompOption#getOptions()
-	 * @see #getCompOption()
+	 * @see qualitypatternmodel.inputfields.ComparisonOption#getOptions()
+	 * @see #getComparisonOption()
 	 * @generated
 	 */
-	EAttribute getCompOption_Options();
+	EAttribute getComparisonOption_Options();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.CompOption#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.ComparisonOption#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.inputfields.CompOption#getValue()
-	 * @see #getCompOption()
+	 * @see qualitypatternmodel.inputfields.ComparisonOption#getValue()
+	 * @see #getComparisonOption()
 	 * @generated
 	 */
-	EAttribute getCompOption_Value();
+	EAttribute getComparisonOption_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.inputfields.CompOption#getComparison <em>Comparison</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.inputfields.ComparisonOption#getComparison <em>Comparison</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Comparison</em>'.
-	 * @see qualitypatternmodel.inputfields.CompOption#getComparison()
-	 * @see #getCompOption()
+	 * @see qualitypatternmodel.inputfields.ComparisonOption#getComparison()
+	 * @see #getComparisonOption()
 	 * @generated
 	 */
-	EReference getCompOption_Comparison();
+	EReference getComparisonOption_Comparison();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.PropertyOption <em>Property Option</em>}'.
@@ -3872,14 +3871,14 @@ public interface InputfieldsPackage extends EPackage {
 		EOperation PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getParameter__Validate__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.CompOptionImpl <em>Comp Option</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.ComparisonOptionImpl <em>Comparison Option</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.inputfields.impl.CompOptionImpl
-		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getCompOption()
+		 * @see qualitypatternmodel.inputfields.impl.ComparisonOptionImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getComparisonOption()
 		 * @generated
 		 */
-		EClass COMP_OPTION = eINSTANCE.getCompOption();
+		EClass COMPARISON_OPTION = eINSTANCE.getComparisonOption();
 
 		/**
 		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
@@ -3887,7 +3886,7 @@ public interface InputfieldsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMP_OPTION__OPTIONS = eINSTANCE.getCompOption_Options();
+		EAttribute COMPARISON_OPTION__OPTIONS = eINSTANCE.getComparisonOption_Options();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -3895,7 +3894,7 @@ public interface InputfieldsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMP_OPTION__VALUE = eINSTANCE.getCompOption_Value();
+		EAttribute COMPARISON_OPTION__VALUE = eINSTANCE.getComparisonOption_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Comparison</b></em>' reference feature.
@@ -3903,7 +3902,7 @@ public interface InputfieldsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMP_OPTION__COMPARISON = eINSTANCE.getCompOption_Comparison();
+		EReference COMPARISON_OPTION__COMPARISON = eINSTANCE.getComparisonOption_Comparison();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.PropertyOptionImpl <em>Property Option</em>}' class.

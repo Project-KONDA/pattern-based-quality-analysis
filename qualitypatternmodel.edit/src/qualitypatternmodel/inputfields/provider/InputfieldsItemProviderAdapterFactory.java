@@ -72,26 +72,26 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.CompOption} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.ComparisonOption} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CompOptionItemProvider compOptionItemProvider;
+	protected ComparisonOptionItemProvider comparisonOptionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.CompOption}.
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.ComparisonOption}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCompOptionAdapter() {
-		if (compOptionItemProvider == null) {
-			compOptionItemProvider = new CompOptionItemProvider(this);
+	public Adapter createComparisonOptionAdapter() {
+		if (comparisonOptionItemProvider == null) {
+			comparisonOptionItemProvider = new ComparisonOptionItemProvider(this);
 		}
 
-		return compOptionItemProvider;
+		return comparisonOptionItemProvider;
 	}
 
 	/**
@@ -452,7 +452,7 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	 */
 	@Override
 	public void dispose() {
-		if (compOptionItemProvider != null) compOptionItemProvider.dispose();
+		if (comparisonOptionItemProvider != null) comparisonOptionItemProvider.dispose();
 		if (propertyOptionItemProvider != null) propertyOptionItemProvider.dispose();
 		if (parameterListItemProvider != null) parameterListItemProvider.dispose();
 		if (booleanItemProvider != null) booleanItemProvider.dispose();

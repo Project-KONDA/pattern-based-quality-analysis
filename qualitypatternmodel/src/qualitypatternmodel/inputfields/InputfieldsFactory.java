@@ -22,13 +22,13 @@ public interface InputfieldsFactory extends EFactory {
 	InputfieldsFactory eINSTANCE = qualitypatternmodel.inputfields.impl.InputfieldsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Comp Option</em>'.
+	 * Returns a new object of class '<em>Comparison Option</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Comp Option</em>'.
+	 * @return a new object of class '<em>Comparison Option</em>'.
 	 * @generated
 	 */
-	CompOption createCompOption();
+	ComparisonOption createComparisonOption();
 
 	/**
 	 * Returns a new object of class '<em>Property Option</em>'.
