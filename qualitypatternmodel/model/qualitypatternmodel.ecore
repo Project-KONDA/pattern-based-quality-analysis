@@ -423,27 +423,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphismFrom" eType="#//patternstructure/Morphism"
           eOpposite="#//patternstructure/Morphism/to"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Comparable" abstract="true" interface="true"
-        eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>
-      <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getAllArgumentElements" upperBound="-1" eType="#//graphstructure/ListOfElements"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
-        <eParameters name="context">
-          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-          </eGenericType>
-        </eParameters>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison1" upperBound="-1"
-          eType="#//functions/Comparison" eOpposite="#//functions/Comparison/argument1"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison2" upperBound="-1"
-          eType="#//functions/Comparison" eOpposite="#//functions/Comparison/argument2"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PropertyLocation">
       <eLiterals name="DATA" literal="DATA"/>
       <eLiterals name="TAG" value="1" literal="TAG"/>
@@ -473,6 +452,27 @@
       <eLiterals name="DATETIME" value="8"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="ListOfElements" instanceClassName="qualitypatternmodel.graphstructure.ListOfElements"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Comparable" abstract="true" interface="true"
+        eSuperTypes="#//patternstructure/PatternElement">
+      <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>
+      <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getAllArgumentElements" upperBound="-1" eType="#//graphstructure/ListOfElements"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+        <eParameters name="context">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison1" upperBound="-1"
+          eType="#//functions/Comparison" eOpposite="#//functions/Comparison/argument1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison2" upperBound="-1"
+          eType="#//functions/Comparison" eOpposite="#//functions/Comparison/argument2"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="patternstructure" nsURI="patternstructure" nsPrefix="patternstructure">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
