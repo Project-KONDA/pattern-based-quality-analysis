@@ -42,6 +42,7 @@ public class InputfieldsTests extends TestSuite {
 		suite.addTestSuite(TimeTest.class);
 		suite.addTestSuite(UnknownInputValueTest.class);
 		suite.addTestSuite(DateTimeTest.class);
+		suite.addTestSuite(AxisOptionTest.class);
 		return suite;
 	}
 

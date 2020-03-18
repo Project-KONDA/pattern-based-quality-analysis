@@ -20,6 +20,8 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#copyToNewNextGraphs(qualitypatternmodel.graphstructure.Element) <em>Copy To New Next Graphs</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#createInputs() <em>Create Inputs</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -125,6 +127,32 @@ public class RelationTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testCopyToNewNextGraphs__Element() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#createInputs() <em>Create Inputs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#createInputs()
+	 * @generated
+	 */
+	public void testCreateInputs() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#removeInputsFromVariableList()
+	 * @generated
+	 */
+	public void testRemoveInputsFromVariableList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -6,6 +6,9 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
+import qualitypatternmodel.inputfields.AxisOption;
+import qualitypatternmodel.inputfields.InputfieldsFactory;
+import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.exceptions.*;
 
 public class Test01Axis {
@@ -28,8 +31,14 @@ public class Test01Axis {
 	}
 
 	public static Pattern getBasePatternAxis(Axis axis) {
+		InputfieldsPackage.eINSTANCE.eClass();
+		InputfieldsFactory inputfieldsFactory = InputfieldsFactory.eINSTANCE;
+		
 		Pattern pattern = Test00.getBasePattern();
-		pattern.getGraph().getRootElement().getNextSingle().get(0).getRelationFromPrevious().setAxis(axis);
+		AxisOption axisOption = inputfieldsFactory.createAxisOption();		
+		pattern.getGraph().getRootElement().getNextSingle().get(0).getRelationFromPrevious().setOption(axisOption);
+		axisOption.getOptions().add(axis);
+		axisOption.setValue(axis);
 		return pattern;
 	}
 

@@ -17,6 +17,7 @@ import qualitypatternmodel.functions.impl.FunctionsPackageImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
+import qualitypatternmodel.inputfields.AxisOption;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.DateTime;
@@ -140,6 +141,13 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	private EClass dateTimeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass axisOptionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -642,6 +650,46 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
+	public EClass getAxisOption() {
+		return axisOptionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAxisOption_Options() {
+		return (EAttribute)axisOptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAxisOption_Value() {
+		return (EAttribute)axisOptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAxisOption_Relation() {
+		return (EReference)axisOptionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public InputfieldsFactory getInputfieldsFactory() {
 		return (InputfieldsFactory)getEFactoryInstance();
 	}
@@ -719,6 +767,11 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 
 		dateTimeEClass = createEClass(DATE_TIME);
 		createEAttribute(dateTimeEClass, DATE_TIME__VALUE);
+
+		axisOptionEClass = createEClass(AXIS_OPTION);
+		createEAttribute(axisOptionEClass, AXIS_OPTION__OPTIONS);
+		createEAttribute(axisOptionEClass, AXIS_OPTION__VALUE);
+		createEReference(axisOptionEClass, AXIS_OPTION__RELATION);
 	}
 
 	/**
@@ -769,6 +822,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		timeEClass.getESuperTypes().add(this.getInputValue());
 		unknownInputValueEClass.getESuperTypes().add(this.getInput());
 		dateTimeEClass.getESuperTypes().add(this.getInputValue());
+		axisOptionEClass.getESuperTypes().add(this.getInput());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -840,6 +894,11 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 
 		initEClass(dateTimeEClass, DateTime.class, "DateTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateTime_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(axisOptionEClass, AxisOption.class, "AxisOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAxisOption_Options(), theGraphstructurePackage.getAxis(), "options", null, 0, -1, AxisOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAxisOption_Value(), theGraphstructurePackage.getAxis(), "value", null, 0, 1, AxisOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAxisOption_Relation(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_Option(), "relation", null, 0, 1, AxisOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

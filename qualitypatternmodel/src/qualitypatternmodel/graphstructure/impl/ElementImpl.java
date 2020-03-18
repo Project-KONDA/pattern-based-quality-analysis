@@ -728,7 +728,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	 * @generated
 	 */
 	@Override
-	public String translatePathFromPrevious() {
+	public String translatePathFromPrevious() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -1000,7 +1000,12 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				addPrimitiveMatch((String)arguments.get(0));
 				return null;
 			case GraphstructurePackage.ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
-				return translatePathFromPrevious();
+				try {
+					return translatePathFromPrevious();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.ELEMENT___GET_XQUERY_VARIABLE:
 				return getXQueryVariable();
 			case GraphstructurePackage.ELEMENT___GET_ORIGINAL_ID:

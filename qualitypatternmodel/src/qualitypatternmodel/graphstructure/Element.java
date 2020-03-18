@@ -273,10 +273,10 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * Returns a <code>String</code> representing the XPath path expression for navigating from the previous element to <code>this</code> element.
 	 * @return the <code>String</code> representing the XPath path expression for navigating from the previous element to <code>this</code> element.
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String translatePathFromPrevious();
+	String translatePathFromPrevious() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

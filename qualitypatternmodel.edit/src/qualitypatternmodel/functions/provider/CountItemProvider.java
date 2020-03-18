@@ -103,7 +103,6 @@ public class CountItemProvider extends NumberOperatorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

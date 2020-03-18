@@ -3090,6 +3090,241 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE_TIME_OPERATION_COUNT = INPUT_VALUE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.AxisOptionImpl <em>Axis Option</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.inputfields.impl.AxisOptionImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getAxisOption()
+	 * @generated
+	 */
+	int AXIS_OPTION = 14;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION__ID = INPUT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION__INTERNAL_ID = INPUT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION__COMPARISON1 = INPUT__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION__COMPARISON2 = INPUT__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION__DESCRIPTION = INPUT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION__IS_PREDEFINED = INPUT__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION__OPTIONS = INPUT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION__VALUE = INPUT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Relation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION__RELATION = INPUT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Axis Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___GET_CONTAINER = INPUT___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___MY_TO_STRING = INPUT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The number of operations of the '<em>Axis Option</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Input <em>Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3521,6 +3756,49 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getDateTime_Value();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.AxisOption <em>Axis Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Axis Option</em>'.
+	 * @see qualitypatternmodel.inputfields.AxisOption
+	 * @generated
+	 */
+	EClass getAxisOption();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.inputfields.AxisOption#getOptions <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Options</em>'.
+	 * @see qualitypatternmodel.inputfields.AxisOption#getOptions()
+	 * @see #getAxisOption()
+	 * @generated
+	 */
+	EAttribute getAxisOption_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.AxisOption#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.inputfields.AxisOption#getValue()
+	 * @see #getAxisOption()
+	 * @generated
+	 */
+	EAttribute getAxisOption_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.inputfields.AxisOption#getRelation <em>Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Relation</em>'.
+	 * @see qualitypatternmodel.inputfields.AxisOption#getRelation()
+	 * @see #getAxisOption()
+	 * @generated
+	 */
+	EReference getAxisOption_Relation();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3898,6 +4176,40 @@ public interface InputfieldsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATE_TIME__VALUE = eINSTANCE.getDateTime_Value();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.AxisOptionImpl <em>Axis Option</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.inputfields.impl.AxisOptionImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getAxisOption()
+		 * @generated
+		 */
+		EClass AXIS_OPTION = eINSTANCE.getAxisOption();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AXIS_OPTION__OPTIONS = eINSTANCE.getAxisOption_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AXIS_OPTION__VALUE = eINSTANCE.getAxisOption_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Relation</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AXIS_OPTION__RELATION = eINSTANCE.getAxisOption_Relation();
 
 	}
 

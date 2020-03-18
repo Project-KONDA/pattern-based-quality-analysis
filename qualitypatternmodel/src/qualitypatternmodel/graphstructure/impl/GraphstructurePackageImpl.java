@@ -241,8 +241,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EAttribute getRelation_Axis() {
-		return (EAttribute)relationEClass.getEStructuralFeatures().get(2);
+	public EReference getRelation_RelationTo() {
+		return (EReference)relationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -251,7 +251,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getRelation_RelationTo() {
+	public EReference getRelation_Option() {
 		return (EReference)relationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -293,6 +293,26 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EOperation getRelation__CopyToNewNextGraphs__Element() {
 		return relationEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRelation__CreateInputs() {
+		return relationEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRelation__RemoveInputsFromVariableList() {
+		return relationEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -1257,12 +1277,14 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		relationEClass = createEClass(RELATION);
 		createEReference(relationEClass, RELATION__MAPPING_FROM);
 		createEReference(relationEClass, RELATION__MAPPING_TO);
-		createEAttribute(relationEClass, RELATION__AXIS);
 		createEReference(relationEClass, RELATION__RELATION_TO);
+		createEReference(relationEClass, RELATION__OPTION);
 		createEOperation(relationEClass, RELATION___GET_GRAPH_DEPTH);
 		createEOperation(relationEClass, RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS);
 		createEOperation(relationEClass, RELATION___REMOVE_MAPPINGS_TO_NEXT);
 		createEOperation(relationEClass, RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT);
+		createEOperation(relationEClass, RELATION___CREATE_INPUTS);
+		createEOperation(relationEClass, RELATION___REMOVE_INPUTS_FROM_VARIABLE_LIST);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEReference(propertyEClass, PROPERTY__ELEMENT);
@@ -1393,8 +1415,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		// Obtain other dependent packages
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
-		FunctionsPackage theFunctionsPackage = (FunctionsPackage)EPackage.Registry.INSTANCE.getEPackage(FunctionsPackage.eNS_URI);
 		InputfieldsPackage theInputfieldsPackage = (InputfieldsPackage)EPackage.Registry.INSTANCE.getEPackage(InputfieldsPackage.eNS_URI);
+		FunctionsPackage theFunctionsPackage = (FunctionsPackage)EPackage.Registry.INSTANCE.getEPackage(FunctionsPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1415,8 +1437,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRelation_MappingFrom(), thePatternstructurePackage.getRelationMapping(), thePatternstructurePackage.getRelationMapping_To(), "mappingFrom", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_MappingTo(), thePatternstructurePackage.getRelationMapping(), thePatternstructurePackage.getRelationMapping_From(), "mappingTo", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRelation_Axis(), this.getAxis(), "axis", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_RelationTo(), this.getElement(), this.getElement_RelationFromPrevious(), "relationTo", null, 1, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelation_Option(), theInputfieldsPackage.getAxisOption(), theInputfieldsPackage.getAxisOption_Relation(), "option", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getRelation__GetGraphDepth(), ecorePackage.getEInt(), "getGraphDepth", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
@@ -1427,6 +1449,10 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		op = initEOperation(getRelation__CopyToNewNextGraphs__Element(), null, "copyToNewNextGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getElement(), "newRelationTo", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getRelation__CreateInputs(), null, "createInputs", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getRelation__RemoveInputsFromVariableList(), null, "removeInputsFromVariableList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProperty_Element(), this.getElement(), this.getElement_Properties(), "element", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1535,7 +1561,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getElement__AddPrimitiveMatch__String(), null, "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "regex", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getElement__TranslatePathFromPrevious(), ecorePackage.getEString(), "translatePathFromPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getElement__TranslatePathFromPrevious(), ecorePackage.getEString(), "translatePathFromPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEOperation(getElement__GetXQueryVariable(), ecorePackage.getEString(), "getXQueryVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 

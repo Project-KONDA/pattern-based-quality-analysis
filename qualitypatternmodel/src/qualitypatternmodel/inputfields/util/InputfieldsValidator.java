@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import qualitypatternmodel.graphstructure.util.GraphstructureValidator;
+import qualitypatternmodel.inputfields.AxisOption;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.DateTime;
@@ -153,6 +154,8 @@ public class InputfieldsValidator extends EObjectValidator {
 				return validateUnknownInputValue((UnknownInputValue)value, diagnostics, context);
 			case InputfieldsPackage.DATE_TIME:
 				return validateDateTime((DateTime)value, diagnostics, context);
+			case InputfieldsPackage.AXIS_OPTION:
+				return validateAxisOption((AxisOption)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -431,6 +434,25 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dateTime, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dateTime, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInput_validate(dateTime, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAxisOption(AxisOption axisOption, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(axisOption, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(axisOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(axisOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(axisOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(axisOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(axisOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(axisOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(axisOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(axisOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInput_validate(axisOption, diagnostics, context);
 		return result;
 	}
 

@@ -12,9 +12,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
@@ -50,7 +47,7 @@ public class RelationItemProvider extends PatternElementItemProvider {
 
 			addMappingFromPropertyDescriptor(object);
 			addMappingToPropertyDescriptor(object);
-			addAxisPropertyDescriptor(object);
+			addOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,23 +97,23 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Axis feature.
+	 * This adds a property descriptor for the Option feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAxisPropertyDescriptor(Object object) {
+	protected void addOptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Relation_axis_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_axis_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__AXIS,
+				 getString("_UI_Relation_option_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_option_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__OPTION,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -141,7 +138,11 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Relation relation = (Relation) object;
-		return getString("_UI_Relation_type") + " " + relation.getInternalId() + " " + relation.getAxis().getName();
+		String text = getString("_UI_Relation_type") + " " + relation.getInternalId();
+		if(relation.getOption() != null && relation.getOption().getValue() != null) {
+			text += " " + relation.getOption().getValue().getName();
+		}
+		return text;
 	}
 
 
@@ -155,13 +156,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Relation.class)) {
-			case GraphstructurePackage.RELATION__AXIS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
-		super.notifyChanged(notification);
 	}
 
 	/**

@@ -73,6 +73,12 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/DateTime">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/DateTime/value"/>
       </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/AxisOption">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/AxisOption/options"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/AxisOption/value"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/AxisOption/relation"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Functions" basePackage="qualitypatternmodel" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//functions">
@@ -191,14 +197,17 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/mappingFrom"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/mappingTo"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Relation/axis"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/relationTo"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/option"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/getGraphDepth"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeRelationFromPreviousGraphs"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeMappingsToNext"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/copyToNewNextGraphs">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Relation/copyToNewNextGraphs/newRelationTo"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/createInputs"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeInputsFromVariableList"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Property">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Property/element"/>

@@ -89,6 +89,13 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AxisOption" eSuperTypes="#//inputfields/Input">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
+          eType="#//graphstructure/Axis"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//graphstructure/Axis"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relation" eType="#//graphstructure/Relation"
+          eOpposite="#//graphstructure/Relation/option"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="functions" nsURI="functions" nsPrefix="functions">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//functions/Operator">
@@ -200,13 +207,16 @@
       <eOperations name="copyToNewNextGraphs">
         <eParameters name="newRelationTo" eType="#//graphstructure/Element"/>
       </eOperations>
+      <eOperations name="createInputs"/>
+      <eOperations name="removeInputsFromVariableList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/to"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
           eType="#//patternstructure/RelationMapping" eOpposite="#//patternstructure/RelationMapping/from"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="#//graphstructure/Axis"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationTo" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/relationFromPrevious"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//inputfields/AxisOption"
+          eOpposite="#//inputfields/AxisOption/relation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
       <eOperations name="createInputs"/>
@@ -317,7 +327,8 @@
       <eOperations name="addPrimitiveMatch">
         <eParameters name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="translatePathFromPrevious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="translatePathFromPrevious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eOperations name="translatePredicatesViaBrackets" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

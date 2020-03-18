@@ -121,6 +121,15 @@ public interface InputfieldsFactory extends EFactory {
 	DateTime createDateTime();
 
 	/**
+	 * Returns a new object of class '<em>Axis Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Axis Option</em>'.
+	 * @generated
+	 */
+	AxisOption createAxisOption();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

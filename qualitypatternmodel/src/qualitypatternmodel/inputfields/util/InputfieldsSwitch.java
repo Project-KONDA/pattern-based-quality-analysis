@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
+import qualitypatternmodel.inputfields.AxisOption;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.DateTime;
@@ -208,6 +209,15 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInput(dateTime);
 				if (result == null) result = caseComparable(dateTime);
 				if (result == null) result = casePatternElement(dateTime);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InputfieldsPackage.AXIS_OPTION: {
+				AxisOption axisOption = (AxisOption)theEObject;
+				T result = caseAxisOption(axisOption);
+				if (result == null) result = caseInput(axisOption);
+				if (result == null) result = caseComparable(axisOption);
+				if (result == null) result = casePatternElement(axisOption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -422,6 +432,21 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDateTime(DateTime object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Axis Option</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Axis Option</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAxisOption(AxisOption object) {
 		return null;
 	}
 

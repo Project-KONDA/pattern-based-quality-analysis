@@ -293,8 +293,13 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	}
 
 	@Override
-	public String translatePathFromPrevious() {
-		return "/" + relationFromPrevious.getAxis() + "::*";
+	public String translatePathFromPrevious() throws InvalidityException {
+		if(relationFromPrevious.getOption() != null) {
+			return "/" + relationFromPrevious.getOption().getValue() + "::*";
+		} else {
+			throw new InvalidityException("relation option null");
+		}
+		
 	}
 
 	/**

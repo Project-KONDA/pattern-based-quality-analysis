@@ -109,22 +109,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__MAPPING_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Axis</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION__AXIS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Relation To</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__RELATION_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int RELATION__RELATION_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION__OPTION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Relation</em>' class.
@@ -253,13 +253,31 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Create Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___CREATE_INPUTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___REMOVE_INPUTS_FROM_VARIABLE_LIST = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.
@@ -2556,17 +2574,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getRelation_MappingFrom();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Relation#getAxis <em>Axis</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Axis</em>'.
-	 * @see qualitypatternmodel.graphstructure.Relation#getAxis()
-	 * @see #getRelation()
-	 * @generated
-	 */
-	EAttribute getRelation_Axis();
-
-	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2576,6 +2583,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRelation_RelationTo();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option</em>'.
+	 * @see qualitypatternmodel.graphstructure.Relation#getOption()
+	 * @see #getRelation()
+	 * @generated
+	 */
+	EReference getRelation_Option();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth() <em>Get Graph Depth</em>}' operation.
@@ -2616,6 +2634,26 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRelation__CopyToNewNextGraphs__Element();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#createInputs() <em>Create Inputs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Inputs</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#createInputs()
+	 * @generated
+	 */
+	EOperation getRelation__CreateInputs();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Inputs From Variable List</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#removeInputsFromVariableList()
+	 * @generated
+	 */
+	EOperation getRelation__RemoveInputsFromVariableList();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Property <em>Property</em>}'.
@@ -3636,20 +3674,20 @@ public interface GraphstructurePackage extends EPackage {
 		EReference RELATION__MAPPING_FROM = eINSTANCE.getRelation_MappingFrom();
 
 		/**
-		 * The meta object literal for the '<em><b>Axis</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RELATION__AXIS = eINSTANCE.getRelation_Axis();
-
-		/**
 		 * The meta object literal for the '<em><b>Relation To</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference RELATION__RELATION_TO = eINSTANCE.getRelation_RelationTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION__OPTION = eINSTANCE.getRelation_Option();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Graph Depth</b></em>' operation.
@@ -3682,6 +3720,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = eINSTANCE.getRelation__CopyToNewNextGraphs__Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Inputs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION___CREATE_INPUTS = eINSTANCE.getRelation__CreateInputs();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Inputs From Variable List</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION___REMOVE_INPUTS_FROM_VARIABLE_LIST = eINSTANCE.getRelation__RemoveInputsFromVariableList();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
