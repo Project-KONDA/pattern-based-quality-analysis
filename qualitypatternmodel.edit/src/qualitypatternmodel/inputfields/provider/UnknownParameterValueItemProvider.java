@@ -8,7 +8,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import qualitypatternmodel.inputfields.UnknownParameterValue;
 
 /**
@@ -17,14 +19,14 @@ import qualitypatternmodel.inputfields.UnknownParameterValue;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UnknownInputValueItemProvider extends ParameterItemProvider {
+public class UnknownParameterValueItemProvider extends ParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UnknownInputValueItemProvider(AdapterFactory adapterFactory) {
+	public UnknownParameterValueItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,14 +46,14 @@ public class UnknownInputValueItemProvider extends ParameterItemProvider {
 	}
 
 	/**
-	 * This returns UnknownInputValue.gif.
+	 * This returns UnknownParameterValue.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/UnknownInputValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/UnknownParameterValue"));
 	}
 
 	/**
@@ -64,8 +66,8 @@ public class UnknownInputValueItemProvider extends ParameterItemProvider {
 	public String getText(Object object) {
 		String label = ((UnknownParameterValue)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_UnknownInputValue_type") :
-			getString("_UI_UnknownInputValue_type") + " " + label;
+			getString("_UI_UnknownParameterValue_type") :
+			getString("_UI_UnknownParameterValue_type") + " " + label;
 	}
 
 

@@ -17,7 +17,7 @@ import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
-import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.UnknownParameterValue;
 import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -193,12 +193,12 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case InputfieldsPackage.UNKNOWN_INPUT_VALUE: {
-				UnknownInputValue unknownInputValue = (UnknownInputValue)theEObject;
-				T result = caseUnknownInputValue(unknownInputValue);
-				if (result == null) result = caseParameter(unknownInputValue);
-				if (result == null) result = caseComparable(unknownInputValue);
-				if (result == null) result = casePatternElement(unknownInputValue);
+			case InputfieldsPackage.UNKNOWN_PARAMETER_VALUE: {
+				UnknownParameterValue unknownParameterValue = (UnknownParameterValue)theEObject;
+				T result = caseUnknownParameterValue(unknownParameterValue);
+				if (result == null) result = caseParameter(unknownParameterValue);
+				if (result == null) result = caseComparable(unknownParameterValue);
+				if (result == null) result = casePatternElement(unknownParameterValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -406,17 +406,17 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unknown Input Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Unknown Parameter Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unknown Input Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Unknown Parameter Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUnknownInputValue(UnknownInputValue object) {
+	public T caseUnknownParameterValue(UnknownParameterValue object) {
 		return null;
 	}
 

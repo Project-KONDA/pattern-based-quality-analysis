@@ -210,26 +210,26 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.UnknownInputValue} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.UnknownParameterValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UnknownInputValueItemProvider unknownInputValueItemProvider;
+	protected UnknownParameterValueItemProvider unknownParameterValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.UnknownInputValue}.
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.UnknownParameterValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createUnknownInputValueAdapter() {
-		if (unknownInputValueItemProvider == null) {
-			unknownInputValueItemProvider = new UnknownInputValueItemProvider(this);
+	public Adapter createUnknownParameterValueAdapter() {
+		if (unknownParameterValueItemProvider == null) {
+			unknownParameterValueItemProvider = new UnknownParameterValueItemProvider(this);
 		}
 
-		return unknownInputValueItemProvider;
+		return unknownParameterValueItemProvider;
 	}
 
 	/**
@@ -461,7 +461,7 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 		if (numberItemProvider != null) numberItemProvider.dispose();
 		if (dateItemProvider != null) dateItemProvider.dispose();
 		if (timeItemProvider != null) timeItemProvider.dispose();
-		if (unknownInputValueItemProvider != null) unknownInputValueItemProvider.dispose();
+		if (unknownParameterValueItemProvider != null) unknownParameterValueItemProvider.dispose();
 		if (dateTimeItemProvider != null) dateTimeItemProvider.dispose();
 		if (axisOptionItemProvider != null) axisOptionItemProvider.dispose();
 	}

@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.UnknownParameterValue;
 import qualitypatternmodel.inputfields.ParameterValue;
 
 /**
@@ -19,13 +19,13 @@ import qualitypatternmodel.inputfields.ParameterValue;
  *
  * @generated
  */
-public class UnknownInputValueImpl extends ParameterImpl implements UnknownInputValue {
+public class UnknownParameterValueImpl extends ParameterImpl implements UnknownParameterValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public UnknownInputValueImpl() {
+	public UnknownParameterValueImpl() {
 		super();
 	}
 
@@ -41,7 +41,7 @@ public class UnknownInputValueImpl extends ParameterImpl implements UnknownInput
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return InputfieldsPackage.Literals.UNKNOWN_INPUT_VALUE;
+		return InputfieldsPackage.Literals.UNKNOWN_PARAMETER_VALUE;
 	}
 
 	/**
@@ -75,7 +75,7 @@ public class UnknownInputValueImpl extends ParameterImpl implements UnknownInput
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case InputfieldsPackage.UNKNOWN_INPUT_VALUE___CONCRETIZE__PARAMETERVALUE:
+			case InputfieldsPackage.UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE:
 				concretize((ParameterValue)arguments.get(0));
 				return null;
 		}

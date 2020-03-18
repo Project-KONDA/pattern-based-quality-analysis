@@ -65,9 +65,9 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/Time">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Time/value"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/UnknownInputValue">
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/concretize">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//inputfields/UnknownInputValue/concretize/concreteInputValue"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/UnknownParameterValue">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//inputfields/UnknownParameterValue/concretize">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//inputfields/UnknownParameterValue/concretize/concreteInputValue"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/DateTime">

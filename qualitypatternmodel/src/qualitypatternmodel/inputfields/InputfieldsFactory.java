@@ -103,13 +103,13 @@ public interface InputfieldsFactory extends EFactory {
 	Time createTime();
 
 	/**
-	 * Returns a new object of class '<em>Unknown Input Value</em>'.
+	 * Returns a new object of class '<em>Unknown Parameter Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unknown Input Value</em>'.
+	 * @return a new object of class '<em>Unknown Parameter Value</em>'.
 	 * @generated
 	 */
-	UnknownInputValue createUnknownInputValue();
+	UnknownParameterValue createUnknownParameterValue();
 
 	/**
 	 * Returns a new object of class '<em>Date Time</em>'.

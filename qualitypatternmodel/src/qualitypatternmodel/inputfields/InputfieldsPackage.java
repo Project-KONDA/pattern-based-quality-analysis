@@ -2656,14 +2656,14 @@ public interface InputfieldsPackage extends EPackage {
 	int TIME_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.UnknownInputValueImpl <em>Unknown Input Value</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.UnknownParameterValueImpl <em>Unknown Parameter Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.inputfields.impl.UnknownInputValueImpl
-	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getUnknownInputValue()
+	 * @see qualitypatternmodel.inputfields.impl.UnknownParameterValueImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getUnknownParameterValue()
 	 * @generated
 	 */
-	int UNKNOWN_INPUT_VALUE = 12;
+	int UNKNOWN_PARAMETER_VALUE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2672,7 +2672,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__ID = PARAMETER__ID;
+	int UNKNOWN_PARAMETER_VALUE__ID = PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2681,7 +2681,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__INTERNAL_ID = PARAMETER__INTERNAL_ID;
+	int UNKNOWN_PARAMETER_VALUE__INTERNAL_ID = PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2690,7 +2690,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__COMPARISON1 = PARAMETER__COMPARISON1;
+	int UNKNOWN_PARAMETER_VALUE__COMPARISON1 = PARAMETER__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -2699,7 +2699,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__COMPARISON2 = PARAMETER__COMPARISON2;
+	int UNKNOWN_PARAMETER_VALUE__COMPARISON2 = PARAMETER__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -2708,7 +2708,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
+	int UNKNOWN_PARAMETER_VALUE__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2717,7 +2717,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__DESCRIPTION = PARAMETER__DESCRIPTION;
+	int UNKNOWN_PARAMETER_VALUE__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -2726,16 +2726,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+	int UNKNOWN_PARAMETER_VALUE__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
-	 * The number of structural features of the '<em>Unknown Input Value</em>' class.
+	 * The number of structural features of the '<em>Unknown Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 0;
+	int UNKNOWN_PARAMETER_VALUE_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2744,7 +2744,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
+	int UNKNOWN_PARAMETER_VALUE___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2753,7 +2753,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
+	int UNKNOWN_PARAMETER_VALUE___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2762,7 +2762,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
+	int UNKNOWN_PARAMETER_VALUE___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2771,7 +2771,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
+	int UNKNOWN_PARAMETER_VALUE___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2780,7 +2780,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
+	int UNKNOWN_PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2789,7 +2789,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___GET_CONTAINER = PARAMETER___GET_CONTAINER;
+	int UNKNOWN_PARAMETER_VALUE___GET_CONTAINER = PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2798,7 +2798,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
+	int UNKNOWN_PARAMETER_VALUE___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2807,7 +2807,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___MY_TO_STRING = PARAMETER___MY_TO_STRING;
+	int UNKNOWN_PARAMETER_VALUE___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2816,7 +2816,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
+	int UNKNOWN_PARAMETER_VALUE___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -2825,7 +2825,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
+	int UNKNOWN_PARAMETER_VALUE___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -2834,7 +2834,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
+	int UNKNOWN_PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2843,7 +2843,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
+	int UNKNOWN_PARAMETER_VALUE___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2852,7 +2852,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int UNKNOWN_PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Concretize</em>' operation.
@@ -2861,16 +2861,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___CONCRETIZE__PARAMETERVALUE = PARAMETER_OPERATION_COUNT + 0;
+	int UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Unknown Input Value</em>' class.
+	 * The number of operations of the '<em>Unknown Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 1;
+	int UNKNOWN_PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.DateTimeImpl <em>Date Time</em>}' class.
@@ -3715,24 +3715,24 @@ public interface InputfieldsPackage extends EPackage {
 	EAttribute getTime_Value();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.UnknownInputValue <em>Unknown Input Value</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.UnknownParameterValue <em>Unknown Parameter Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Unknown Input Value</em>'.
-	 * @see qualitypatternmodel.inputfields.UnknownInputValue
+	 * @return the meta object for class '<em>Unknown Parameter Value</em>'.
+	 * @see qualitypatternmodel.inputfields.UnknownParameterValue
 	 * @generated
 	 */
-	EClass getUnknownInputValue();
+	EClass getUnknownParameterValue();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.UnknownInputValue#concretize(qualitypatternmodel.inputfields.ParameterValue) <em>Concretize</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.UnknownParameterValue#concretize(qualitypatternmodel.inputfields.ParameterValue) <em>Concretize</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Concretize</em>' operation.
-	 * @see qualitypatternmodel.inputfields.UnknownInputValue#concretize(qualitypatternmodel.inputfields.ParameterValue)
+	 * @see qualitypatternmodel.inputfields.UnknownParameterValue#concretize(qualitypatternmodel.inputfields.ParameterValue)
 	 * @generated
 	 */
-	EOperation getUnknownInputValue__Concretize__ParameterValue();
+	EOperation getUnknownParameterValue__Concretize__ParameterValue();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.DateTime <em>Date Time</em>}'.
@@ -4142,14 +4142,14 @@ public interface InputfieldsPackage extends EPackage {
 		EAttribute TIME__VALUE = eINSTANCE.getTime_Value();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.UnknownInputValueImpl <em>Unknown Input Value</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.UnknownParameterValueImpl <em>Unknown Parameter Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.inputfields.impl.UnknownInputValueImpl
-		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getUnknownInputValue()
+		 * @see qualitypatternmodel.inputfields.impl.UnknownParameterValueImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getUnknownParameterValue()
 		 * @generated
 		 */
-		EClass UNKNOWN_INPUT_VALUE = eINSTANCE.getUnknownInputValue();
+		EClass UNKNOWN_PARAMETER_VALUE = eINSTANCE.getUnknownParameterValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Concretize</b></em>' operation.
@@ -4157,7 +4157,7 @@ public interface InputfieldsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation UNKNOWN_INPUT_VALUE___CONCRETIZE__PARAMETERVALUE = eINSTANCE.getUnknownInputValue__Concretize__ParameterValue();
+		EOperation UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE = eINSTANCE.getUnknownParameterValue__Concretize__ParameterValue();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.DateTimeImpl <em>Date Time</em>}' class.

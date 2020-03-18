@@ -80,7 +80,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UnknownInputValue" eSuperTypes="#//inputfields/Parameter">
+    <eClassifiers xsi:type="ecore:EClass" name="UnknownParameterValue" eSuperTypes="#//inputfields/Parameter">
       <eOperations name="concretize">
         <eParameters name="concreteInputValue" eType="#//inputfields/ParameterValue"/>
       </eOperations>

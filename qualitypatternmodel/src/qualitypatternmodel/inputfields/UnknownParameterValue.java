@@ -9,11 +9,11 @@ package qualitypatternmodel.inputfields;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.inputfields.InputfieldsPackage#getUnknownInputValue()
+ * @see qualitypatternmodel.inputfields.InputfieldsPackage#getUnknownParameterValue()
  * @model
  * @generated
  */
-public interface UnknownInputValue extends Parameter {
+public interface UnknownParameterValue extends Parameter {
 
 	/**
 	 * <!-- begin-user-doc -->

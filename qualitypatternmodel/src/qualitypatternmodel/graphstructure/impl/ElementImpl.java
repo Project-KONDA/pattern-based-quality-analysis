@@ -46,10 +46,10 @@ import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.inputfields.Parameter;
-import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.UnknownParameterValue;
 import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
-import qualitypatternmodel.inputfields.impl.UnknownInputValueImpl;
+import qualitypatternmodel.inputfields.impl.UnknownParameterValueImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -573,12 +573,12 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			Property property = new PropertyImpl();
 			getProperties().add(property);
 
-			UnknownInputValue unknownInputValue = new UnknownInputValueImpl();
-			varlist.add(unknownInputValue);
+			UnknownParameterValue unknownParameterValue = new UnknownParameterValueImpl();
+			varlist.add(unknownParameterValue);
 
 			oplist.add(comparison);	
 			comparison.setArgument1(property);
-			comparison.setArgument2(unknownInputValue);						
+			comparison.setArgument2(unknownParameterValue);						
 			
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());			

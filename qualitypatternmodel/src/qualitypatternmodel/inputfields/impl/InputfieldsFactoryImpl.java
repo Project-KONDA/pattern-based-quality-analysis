@@ -20,7 +20,7 @@ import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
-import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.UnknownParameterValue;
 import qualitypatternmodel.inputfields.ParameterList;
 
 /**
@@ -76,7 +76,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 			case InputfieldsPackage.NUMBER: return createNumber();
 			case InputfieldsPackage.DATE: return createDate();
 			case InputfieldsPackage.TIME: return createTime();
-			case InputfieldsPackage.UNKNOWN_INPUT_VALUE: return createUnknownInputValue();
+			case InputfieldsPackage.UNKNOWN_PARAMETER_VALUE: return createUnknownParameterValue();
 			case InputfieldsPackage.DATE_TIME: return createDateTime();
 			case InputfieldsPackage.AXIS_OPTION: return createAxisOption();
 			default:
@@ -189,9 +189,9 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * @generated
 	 */
 	@Override
-	public UnknownInputValue createUnknownInputValue() {
-		UnknownInputValueImpl unknownInputValue = new UnknownInputValueImpl();
-		return unknownInputValue;
+	public UnknownParameterValue createUnknownParameterValue() {
+		UnknownParameterValueImpl unknownParameterValue = new UnknownParameterValueImpl();
+		return unknownParameterValue;
 	}
 
 	/**

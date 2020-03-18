@@ -29,7 +29,7 @@ import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
-import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.UnknownParameterValue;
 import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.ParameterValue;
 import qualitypatternmodel.inputfields.util.InputfieldsValidator;
@@ -133,7 +133,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass unknownInputValueEClass = null;
+	private EClass unknownParameterValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -610,8 +610,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EClass getUnknownInputValue() {
-		return unknownInputValueEClass;
+	public EClass getUnknownParameterValue() {
+		return unknownParameterValueEClass;
 	}
 
 	/**
@@ -620,8 +620,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EOperation getUnknownInputValue__Concretize__ParameterValue() {
-		return unknownInputValueEClass.getEOperations().get(0);
+	public EOperation getUnknownParameterValue__Concretize__ParameterValue() {
+		return unknownParameterValueEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -762,8 +762,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		timeEClass = createEClass(TIME);
 		createEAttribute(timeEClass, TIME__VALUE);
 
-		unknownInputValueEClass = createEClass(UNKNOWN_INPUT_VALUE);
-		createEOperation(unknownInputValueEClass, UNKNOWN_INPUT_VALUE___CONCRETIZE__PARAMETERVALUE);
+		unknownParameterValueEClass = createEClass(UNKNOWN_PARAMETER_VALUE);
+		createEOperation(unknownParameterValueEClass, UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE);
 
 		dateTimeEClass = createEClass(DATE_TIME);
 		createEAttribute(dateTimeEClass, DATE_TIME__VALUE);
@@ -820,7 +820,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		parameterValueEClass.getESuperTypes().add(this.getParameter());
 		dateEClass.getESuperTypes().add(this.getParameterValue());
 		timeEClass.getESuperTypes().add(this.getParameterValue());
-		unknownInputValueEClass.getESuperTypes().add(this.getParameter());
+		unknownParameterValueEClass.getESuperTypes().add(this.getParameter());
 		dateTimeEClass.getESuperTypes().add(this.getParameterValue());
 		axisOptionEClass.getESuperTypes().add(this.getParameter());
 
@@ -887,9 +887,9 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		initEClass(timeEClass, Time.class, "Time", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTime_Value(), ecorePackage.getEString(), "value", "", 0, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(unknownInputValueEClass, UnknownInputValue.class, "UnknownInputValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(unknownParameterValueEClass, UnknownParameterValue.class, "UnknownParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getUnknownInputValue__Concretize__ParameterValue(), null, "concretize", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getUnknownParameterValue__Concretize__ParameterValue(), null, "concretize", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getParameterValue(), "concreteInputValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dateTimeEClass, DateTime.class, "DateTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

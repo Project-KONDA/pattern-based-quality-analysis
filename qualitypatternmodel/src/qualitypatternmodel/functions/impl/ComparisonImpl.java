@@ -35,7 +35,7 @@ import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.ParameterValue;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.UnknownParameterValue;
 import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.impl.CompOptionImpl;
 import qualitypatternmodel.inputfields.impl.ParameterImpl;
@@ -449,7 +449,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (otherArgument instanceof Property) {
 				setType(ReturnType.UNSPECIFIED);
 			}
-			if (otherArgument instanceof UnknownInputValue) {
+			if (otherArgument instanceof UnknownParameterValue) {
 				setType(ReturnType.UNSPECIFIED);
 			}
 		} else {
@@ -466,7 +466,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				ParameterValue xsType = (ParameterValue) newArgument;
 				setType(xsType.getReturnType());
 			}
-			if (newArgument instanceof UnknownInputValue) {
+			if (newArgument instanceof UnknownParameterValue) {
 				setType(ReturnType.UNSPECIFIED);
 			}
 		}

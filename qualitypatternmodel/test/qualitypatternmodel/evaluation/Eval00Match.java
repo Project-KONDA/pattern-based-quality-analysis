@@ -9,7 +9,7 @@ import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.TextLiteral;
-import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.UnknownParameterValue;
 import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -50,7 +50,7 @@ public class Eval00Match {
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteral concreteInputValue = inputfieldsFactory.createTextLiteral();
 		concreteInputValue.setValue("kue");
-		((UnknownInputValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
+		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
 		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		
@@ -59,7 +59,7 @@ public class Eval00Match {
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteral concreteInputValue2 = inputfieldsFactory.createTextLiteral();
 		concreteInputValue2.setValue("3162");
-		((UnknownInputValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
+		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
 		element2.getProperties().get(0).getAttributeName().setValue("Type");
 		element2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		

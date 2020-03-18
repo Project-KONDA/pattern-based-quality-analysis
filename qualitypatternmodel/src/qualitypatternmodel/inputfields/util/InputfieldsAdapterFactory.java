@@ -19,7 +19,7 @@ import qualitypatternmodel.inputfields.Text;
 import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
-import qualitypatternmodel.inputfields.UnknownInputValue;
+import qualitypatternmodel.inputfields.UnknownParameterValue;
 import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -129,8 +129,8 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 				return createTimeAdapter();
 			}
 			@Override
-			public Adapter caseUnknownInputValue(UnknownInputValue object) {
-				return createUnknownInputValueAdapter();
+			public Adapter caseUnknownParameterValue(UnknownParameterValue object) {
+				return createUnknownParameterValueAdapter();
 			}
 			@Override
 			public Adapter caseDateTime(DateTime object) {
@@ -337,16 +337,16 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.UnknownInputValue <em>Unknown Input Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.UnknownParameterValue <em>Unknown Parameter Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.inputfields.UnknownInputValue
+	 * @see qualitypatternmodel.inputfields.UnknownParameterValue
 	 * @generated
 	 */
-	public Adapter createUnknownInputValueAdapter() {
+	public Adapter createUnknownParameterValueAdapter() {
 		return null;
 	}
 
