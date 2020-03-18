@@ -30,13 +30,13 @@ import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.inputfields.Parameter;
-import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.PropertyOption;
-import qualitypatternmodel.inputfields.TextLiteral;
-import qualitypatternmodel.inputfields.ParameterList;
-import qualitypatternmodel.inputfields.impl.PropertyOptionImpl;
-import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.PropertyOption;
+import qualitypatternmodel.parameters.TextLiteral;
+import qualitypatternmodel.parameters.impl.PropertyOptionImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -341,9 +341,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -615,9 +615,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if (newAttributeName != attributeName) {
 			NotificationChain msgs = null;
 			if (attributeName != null)
-				msgs = ((InternalEObject)attributeName).eInverseRemove(this, InputfieldsPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
+				msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
 			if (newAttributeName != null)
-				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, InputfieldsPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
+				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, ParametersPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
 			msgs = basicSetAttributeName(newAttributeName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -659,11 +659,11 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatch()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
 				if (attributeName != null)
-					msgs = ((InternalEObject)attributeName).eInverseRemove(this, InputfieldsPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
+					msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
 				return basicSetAttributeName((TextLiteral)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
 				return basicSetOption((PropertyOption)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
 				if (referenceOperator2 != null)

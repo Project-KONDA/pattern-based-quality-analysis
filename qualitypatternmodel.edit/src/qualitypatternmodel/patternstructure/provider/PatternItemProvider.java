@@ -16,8 +16,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
-
-import qualitypatternmodel.inputfields.InputfieldsFactory;
+import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -223,7 +222,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.PATTERN__PARAMETER_LIST,
-				 InputfieldsFactory.eINSTANCE.createParameterList()));
+				 ParametersFactory.eINSTANCE.createParameterList()));
 
 		newChildDescriptors.add
 			(createChildParameter

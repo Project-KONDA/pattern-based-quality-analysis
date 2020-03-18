@@ -37,9 +37,9 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
-import qualitypatternmodel.inputfields.InputfieldsFactory;
-import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.ParameterList;
+import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -673,8 +673,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 			FunctionsPackage.eINSTANCE.eClass();
 			FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
-			InputfieldsPackage.eINSTANCE.eClass();
-			InputfieldsFactory inputsFactory = InputfieldsFactory.eINSTANCE;
+			ParametersPackage.eINSTANCE.eClass();
+			ParametersFactory inputsFactory = ParametersFactory.eINSTANCE;
 			
 			OperatorList oplist = ((Graph) getAncestor(Graph.class)).getOperatorList();
 			ParameterList varlist = ((Pattern) getAncestor(Pattern.class)).getParameterList();
@@ -689,7 +689,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			oplist.add(count);
 
 			getPredicates().add(comp);
-			qualitypatternmodel.inputfields.Number number = inputsFactory.createNumber();
+			qualitypatternmodel.parameters.Number number = inputsFactory.createNumber();
 			varlist.add(number);
 
 			comp.setArgument1(count);

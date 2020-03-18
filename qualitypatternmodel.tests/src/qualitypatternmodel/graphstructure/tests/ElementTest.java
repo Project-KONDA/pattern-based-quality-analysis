@@ -38,9 +38,9 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearComparisonRecursively() <em>Clear Comparison Recursively</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(java.lang.String) <em>Add Primitive Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.inputfields.Parameter) <em>Add Primitive Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch() <em>Add Primitive Match</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.inputfields.Parameter) <em>Add Primitive Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
@@ -345,10 +345,10 @@ public abstract class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.inputfields.Parameter) <em>Add Primitive Comparison</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.inputfields.Parameter)
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.Parameter)
 	 * @generated
 	 */
 	public void testAddPrimitiveComparison__Parameter() {
@@ -371,10 +371,10 @@ public abstract class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.inputfields.Parameter) <em>Add Primitive Comparison</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.inputfields.Parameter)
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter)
 	 * @generated
 	 */
 	public void testAddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter() {

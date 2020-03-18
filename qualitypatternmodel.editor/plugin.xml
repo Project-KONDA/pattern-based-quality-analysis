@@ -12,28 +12,28 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="qualitypatternmodel.inputfields.presentation.InputfieldsModelWizardID"
-            name="%_UI_InputfieldsModelWizard_label"
-            class="qualitypatternmodel.inputfields.presentation.InputfieldsModelWizard"
+            id="qualitypatternmodel.parameters.presentation.ParametersModelWizardID"
+            name="%_UI_ParametersModelWizard_label"
+            class="qualitypatternmodel.parameters.presentation.ParametersModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/InputfieldsModelFile.gif">
-         <description>%_UI_InputfieldsModelWizard_description</description>
+            icon="icons/full/obj16/ParametersModelFile.gif">
+         <description>%_UI_ParametersModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
 
+
    <extension point="org.eclipse.ui.editors">
       <!-- @generated qualitypatternmodel -->
       <editor
-            id="qualitypatternmodel.inputfields.presentation.InputfieldsEditorID"
-            name="%_UI_InputfieldsEditor_label"
-            icon="icons/full/obj16/InputfieldsModelFile.gif"
-            extensions="inputfields"
-            class="qualitypatternmodel.inputfields.presentation.InputfieldsEditor"
-            contributorClass="qualitypatternmodel.inputfields.presentation.InputfieldsActionBarContributor">
+            id="qualitypatternmodel.parameters.presentation.ParametersEditorID"
+            name="%_UI_ParametersEditor_label"
+            icon="icons/full/obj16/ParametersModelFile.gif"
+            extensions="parameters"
+            class="qualitypatternmodel.parameters.presentation.ParametersEditor"
+            contributorClass="qualitypatternmodel.parameters.presentation.ParametersActionBarContributor">
       </editor>
    </extension>
-
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated qualitypatternmodel -->
       <category

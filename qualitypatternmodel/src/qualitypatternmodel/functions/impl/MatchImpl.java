@@ -21,13 +21,13 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.inputfields.Parameter;
-import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.TextLiteral;
-import qualitypatternmodel.inputfields.ParameterList;
-import qualitypatternmodel.inputfields.impl.BooleanImpl;
-import qualitypatternmodel.inputfields.Boolean;
-import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
+import qualitypatternmodel.parameters.Boolean;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextLiteral;
+import qualitypatternmodel.parameters.impl.BooleanImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.impl.PatternImpl;
@@ -66,7 +66,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 * @ordered
 	 */
-	protected qualitypatternmodel.inputfields.Boolean option;
+	protected qualitypatternmodel.parameters.Boolean option;
 
 	/**
 	 * The cached value of the '{@link #getRegularExpression() <em>Regular Expression</em>}' reference.
@@ -341,9 +341,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		if (newRegularExpression != regularExpression) {
 			NotificationChain msgs = null;
 			if (regularExpression != null)
-				msgs = ((InternalEObject)regularExpression).eInverseRemove(this, InputfieldsPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
+				msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
 			if (newRegularExpression != null)
-				msgs = ((InternalEObject)newRegularExpression).eInverseAdd(this, InputfieldsPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
+				msgs = ((InternalEObject)newRegularExpression).eInverseAdd(this, ParametersPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
 			msgs = basicSetRegularExpression(newRegularExpression, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -365,11 +365,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return basicSetProperty((Property)otherEnd, msgs);
 			case FunctionsPackage.MATCH__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.BOOLEAN__MATCH, qualitypatternmodel.inputfields.Boolean.class, msgs);
-				return basicSetOption((qualitypatternmodel.inputfields.Boolean)otherEnd, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN__MATCH, qualitypatternmodel.parameters.Boolean.class, msgs);
+				return basicSetOption((qualitypatternmodel.parameters.Boolean)otherEnd, msgs);
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				if (regularExpression != null)
-					msgs = ((InternalEObject)regularExpression).eInverseRemove(this, InputfieldsPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
+					msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
 				return basicSetRegularExpression((TextLiteral)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -400,10 +400,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public qualitypatternmodel.inputfields.Boolean getOption() {
+	public qualitypatternmodel.parameters.Boolean getOption() {
 		if (option != null && option.eIsProxy()) {
 			InternalEObject oldOption = (InternalEObject)option;
-			option = (qualitypatternmodel.inputfields.Boolean)eResolveProxy(oldOption);
+			option = (qualitypatternmodel.parameters.Boolean)eResolveProxy(oldOption);
 			if (option != oldOption) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.MATCH__OPTION, oldOption, option));
@@ -417,7 +417,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public qualitypatternmodel.inputfields.Boolean basicGetOption() {
+	public qualitypatternmodel.parameters.Boolean basicGetOption() {
 		return option;
 	}
 	
@@ -443,8 +443,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetOption(qualitypatternmodel.inputfields.Boolean newOption, NotificationChain msgs) {
-		qualitypatternmodel.inputfields.Boolean oldOption = option;
+	public NotificationChain basicSetOption(qualitypatternmodel.parameters.Boolean newOption, NotificationChain msgs) {
+		qualitypatternmodel.parameters.Boolean oldOption = option;
 		option = newOption;
 		
 		try {
@@ -474,13 +474,13 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@Override
-	public void setOption(qualitypatternmodel.inputfields.Boolean newOption) {
+	public void setOption(qualitypatternmodel.parameters.Boolean newOption) {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.BOOLEAN__MATCH, qualitypatternmodel.inputfields.Boolean.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN__MATCH, qualitypatternmodel.parameters.Boolean.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, InputfieldsPackage.BOOLEAN__MATCH, qualitypatternmodel.inputfields.Boolean.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.BOOLEAN__MATCH, qualitypatternmodel.parameters.Boolean.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -522,7 +522,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setProperty((Property)newValue);
 				return;
 			case FunctionsPackage.MATCH__OPTION:
-				setOption((qualitypatternmodel.inputfields.Boolean)newValue);
+				setOption((qualitypatternmodel.parameters.Boolean)newValue);
 				return;
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				setRegularExpression((TextLiteral)newValue);
@@ -543,7 +543,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setProperty((Property)null);
 				return;
 			case FunctionsPackage.MATCH__OPTION:
-				setOption((qualitypatternmodel.inputfields.Boolean)null);
+				setOption((qualitypatternmodel.parameters.Boolean)null);
 				return;
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				setRegularExpression((TextLiteral)null);

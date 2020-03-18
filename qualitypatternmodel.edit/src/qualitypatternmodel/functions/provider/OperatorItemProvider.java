@@ -15,7 +15,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import qualitypatternmodel.functions.Operator;
 
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**

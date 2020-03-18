@@ -162,8 +162,8 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import qualitypatternmodel.functions.provider.FunctionsItemProviderAdapterFactory;
 
 import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAdapterFactory;
-import qualitypatternmodel.inputfields.presentation.QualitypatternmodelEditorPlugin;
-import qualitypatternmodel.inputfields.provider.InputfieldsItemProviderAdapterFactory;
+import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin;
+import qualitypatternmodel.parameters.provider.ParametersItemProviderAdapterFactory;
 
 
 /**
@@ -716,7 +716,7 @@ public class PatternstructureEditor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new InputfieldsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ParametersItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new FunctionsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new GraphstructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PatternstructureItemProviderAdapterFactory());

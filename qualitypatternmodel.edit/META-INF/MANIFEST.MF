@@ -5,13 +5,13 @@ Bundle-SymbolicName: qualitypatternmodel.edit;singleton:=true
 Automatic-Module-Name: qualitypatternmodel.edit
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin$Implementation
+Bundle-Activator: qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: qualitypatternmodel.functions.provider,
  qualitypatternmodel.graphstructure.provider,
- qualitypatternmodel.inputfields.provider,
+ qualitypatternmodel.parameters.provider,
  qualitypatternmodel.patternstructure.provider
 Require-Bundle: org.eclipse.core.runtime,
  qualitypatternmodel;visibility:=reexport,

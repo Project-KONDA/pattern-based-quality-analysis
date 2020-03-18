@@ -13,10 +13,8 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.*;
 import qualitypatternmodel.functions.impl.*;
-import qualitypatternmodel.inputfields.*;
-import qualitypatternmodel.inputfields.Boolean;
-import qualitypatternmodel.inputfields.Number;
-import qualitypatternmodel.inputfields.impl.*;
+import qualitypatternmodel.parameters.*;
+import qualitypatternmodel.parameters.impl.*;
 
 public class Test08Comparison {
 
@@ -42,8 +40,8 @@ public class Test08Comparison {
 
 		ArrayList<Parameter> parameters = new ArrayList<Parameter>();
 
-		InputfieldsPackage.eINSTANCE.eClass();
-		InputfieldsFactory inputFactory = InputfieldsFactory.eINSTANCE;
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory inputFactory = ParametersFactory.eINSTANCE;
 		TextLiteral input1 = inputFactory.createTextLiteral();
 		input1.setValue("abc");
 		TextList input2 = inputFactory.createTextList();

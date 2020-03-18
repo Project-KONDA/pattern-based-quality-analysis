@@ -13,10 +13,8 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.*;
 import qualitypatternmodel.functions.impl.*;
-import qualitypatternmodel.inputfields.*;
-import qualitypatternmodel.inputfields.Boolean;
-import qualitypatternmodel.inputfields.Number;
-import qualitypatternmodel.inputfields.impl.*;
+import qualitypatternmodel.parameters.*;
+import qualitypatternmodel.parameters.impl.*;
 
 public class Test09ComplexComparison {
 
@@ -179,8 +177,8 @@ public class Test09ComplexComparison {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		FunctionsPackage.eINSTANCE.eClass();
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
-		InputfieldsPackage.eINSTANCE.eClass();
-		InputfieldsFactory inputsFactory = InputfieldsFactory.eINSTANCE;
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory inputsFactory = ParametersFactory.eINSTANCE;
 
 		Pattern pattern = Test03Quantor.getPatternExists();
 
@@ -217,8 +215,8 @@ public class Test09ComplexComparison {
 	public static Pattern getPatternTwoOps() {
 		FunctionsPackage.eINSTANCE.eClass();
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
-		InputfieldsPackage.eINSTANCE.eClass();
-		InputfieldsFactory inputsFactory = InputfieldsFactory.eINSTANCE;
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory inputsFactory = ParametersFactory.eINSTANCE;
 		
 		Pattern pattern = Test00.getBasePattern();
 		ParameterList varlist = pattern.getParameterList();

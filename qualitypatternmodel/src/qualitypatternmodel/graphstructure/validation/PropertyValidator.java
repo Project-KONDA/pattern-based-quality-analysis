@@ -8,9 +8,9 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.ReferenceOperator;
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.inputfields.PropertyOption;
-import qualitypatternmodel.inputfields.Text;
-import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.parameters.PropertyOption;
+import qualitypatternmodel.parameters.Text;
+import qualitypatternmodel.parameters.TextLiteral;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.Property}.

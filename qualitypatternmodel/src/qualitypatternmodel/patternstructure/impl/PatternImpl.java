@@ -21,10 +21,10 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.graphstructure.impl.SingleElementImpl;
-import qualitypatternmodel.inputfields.Parameter;
-import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.ParameterList;
-import qualitypatternmodel.inputfields.impl.ParameterListImpl;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.impl.ParameterListImpl;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -255,9 +255,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		if (newParameterList != parameterList) {
 			NotificationChain msgs = null;
 			if (parameterList != null)
-				msgs = ((InternalEObject)parameterList).eInverseRemove(this, InputfieldsPackage.PARAMETER_LIST__PATTERN, ParameterList.class, msgs);
+				msgs = ((InternalEObject)parameterList).eInverseRemove(this, ParametersPackage.PARAMETER_LIST__PATTERN, ParameterList.class, msgs);
 			if (newParameterList != null)
-				msgs = ((InternalEObject)newParameterList).eInverseAdd(this, InputfieldsPackage.PARAMETER_LIST__PATTERN, ParameterList.class, msgs);
+				msgs = ((InternalEObject)newParameterList).eInverseAdd(this, ParametersPackage.PARAMETER_LIST__PATTERN, ParameterList.class, msgs);
 			msgs = basicSetParameterList(newParameterList, msgs);
 			if (msgs != null) msgs.dispatch();
 		}

@@ -26,7 +26,7 @@ import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.inputfields.Parameter;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**

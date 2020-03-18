@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.inputfields.Parameter;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Location;

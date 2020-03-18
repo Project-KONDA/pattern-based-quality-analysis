@@ -6,7 +6,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.inputfields.ParameterList;
+import qualitypatternmodel.parameters.ParameterList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,13 +35,13 @@ import qualitypatternmodel.inputfields.ParameterList;
 public interface Pattern extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Parameter List</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.ParameterList#getPattern <em>Pattern</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.ParameterList#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter List</em>' containment reference.
 	 * @see #setParameterList(ParameterList)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_ParameterList()
-	 * @see qualitypatternmodel.inputfields.ParameterList#getPattern
+	 * @see qualitypatternmodel.parameters.ParameterList#getPattern
 	 * @model opposite="pattern" containment="true" required="true"
 	 * @generated
 	 */

@@ -3,7 +3,7 @@
 package qualitypatternmodel.functions;
 
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.parameters.TextLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,13 +50,13 @@ public interface Match extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Regular Expression</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.TextLiteral#getMatch <em>Match</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteral#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Regular Expression</em>' reference.
 	 * @see #setRegularExpression(TextLiteral)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_RegularExpression()
-	 * @see qualitypatternmodel.inputfields.TextLiteral#getMatch
+	 * @see qualitypatternmodel.parameters.TextLiteral#getMatch
 	 * @model opposite="match" required="true"
 	 * @generated
 	 */
@@ -74,17 +74,17 @@ public interface Match extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.Boolean#getMatch <em>Match</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.Boolean#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
-	 * @see #setOption(qualitypatternmodel.inputfields.Boolean)
+	 * @see #setOption(qualitypatternmodel.parameters.Boolean)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_Option()
-	 * @see qualitypatternmodel.inputfields.Boolean#getMatch
+	 * @see qualitypatternmodel.parameters.Boolean#getMatch
 	 * @model opposite="match" required="true"
 	 * @generated
 	 */
-	qualitypatternmodel.inputfields.Boolean getOption();
+	qualitypatternmodel.parameters.Boolean getOption();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}' reference.
@@ -94,7 +94,7 @@ public interface Match extends BooleanOperator {
 	 * @see #getOption()
 	 * @generated
 	 */
-	void setOption(qualitypatternmodel.inputfields.Boolean value);
+	void setOption(qualitypatternmodel.parameters.Boolean value);
 
 	void reset();
 

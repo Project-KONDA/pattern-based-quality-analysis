@@ -13,7 +13,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**

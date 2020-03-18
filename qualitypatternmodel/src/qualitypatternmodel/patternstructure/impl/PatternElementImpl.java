@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.inputfields.Parameter;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;

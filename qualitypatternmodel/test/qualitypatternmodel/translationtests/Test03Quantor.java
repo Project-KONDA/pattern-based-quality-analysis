@@ -5,8 +5,8 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
+import qualitypatternmodel.parameters.*;
 import qualitypatternmodel.functions.*;
-import qualitypatternmodel.inputfields.*;
 
 public class Test03Quantor {
 
@@ -47,8 +47,8 @@ public class Test03Quantor {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		FunctionsPackage.eINSTANCE.eClass();
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
-		InputfieldsPackage.eINSTANCE.eClass();
-		InputfieldsFactory inputFactory = InputfieldsFactory.eINSTANCE;
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory inputFactory = ParametersFactory.eINSTANCE;
 		
 		Pattern pattern = getPatternExists();
 //		VariableList varlist = pattern.getVariableList();

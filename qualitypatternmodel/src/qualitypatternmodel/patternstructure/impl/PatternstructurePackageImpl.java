@@ -22,9 +22,8 @@ import qualitypatternmodel.functions.impl.FunctionsPackageImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
-import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl;
-
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Location;
@@ -217,8 +216,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(InputfieldsPackage.eNS_URI);
-		InputfieldsPackageImpl theInputfieldsPackage = (InputfieldsPackageImpl)(registeredPackage instanceof InputfieldsPackageImpl ? registeredPackage : InputfieldsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
+		ParametersPackageImpl theParametersPackage = (ParametersPackageImpl)(registeredPackage instanceof ParametersPackageImpl ? registeredPackage : ParametersPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FunctionsPackage.eNS_URI);
 		FunctionsPackageImpl theFunctionsPackage = (FunctionsPackageImpl)(registeredPackage instanceof FunctionsPackageImpl ? registeredPackage : FunctionsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
@@ -226,13 +225,13 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		// Create package meta-data objects
 		thePatternstructurePackage.createPackageContents();
-		theInputfieldsPackage.createPackageContents();
+		theParametersPackage.createPackageContents();
 		theFunctionsPackage.createPackageContents();
 		theGraphstructurePackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePatternstructurePackage.initializePackageContents();
-		theInputfieldsPackage.initializePackageContents();
+		theParametersPackage.initializePackageContents();
 		theFunctionsPackage.initializePackageContents();
 		theGraphstructurePackage.initializePackageContents();
 
@@ -1072,7 +1071,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		// Obtain other dependent packages
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
-		InputfieldsPackage theInputfieldsPackage = (InputfieldsPackage)EPackage.Registry.INSTANCE.getEPackage(InputfieldsPackage.eNS_URI);
+		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 		FunctionsPackage theFunctionsPackage = (FunctionsPackage)EPackage.Registry.INSTANCE.getEPackage(FunctionsPackage.eNS_URI);
 
 		// Create type parameters
@@ -1141,7 +1140,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEClass(trueElementEClass, TrueElement.class, "TrueElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(patternEClass, Pattern.class, "Pattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPattern_ParameterList(), theInputfieldsPackage.getParameterList(), theInputfieldsPackage.getParameterList_Pattern(), "parameterList", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPattern_ParameterList(), theParametersPackage.getParameterList(), theParametersPackage.getParameterList_Pattern(), "parameterList", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPattern_CheckMorphismOfNextGraph(), ecorePackage.getEBoolean(), "checkMorphismOfNextGraph", null, 1, 1, Pattern.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_Pattern(), "graph", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_Condition(), this.getCondition(), this.getCondition_Pattern(), "condition", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1166,7 +1165,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEParameter(op, this.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getPatternElement__GetAllInputs(), theInputfieldsPackage.getParameter(), "getAllInputs", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__GetAllInputs(), theParametersPackage.getParameter(), "getAllInputs", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEOperation(getPatternElement__PrepareTranslation(), null, "prepareTranslation", 0, 1, IS_UNIQUE, IS_ORDERED);

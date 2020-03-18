@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.inputfields.Parameter;
+import qualitypatternmodel.parameters.Parameter;
 
 /**
  * <!-- begin-user-doc -->

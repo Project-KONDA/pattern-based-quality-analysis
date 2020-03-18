@@ -5,8 +5,8 @@ package qualitypatternmodel.graphstructure;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.ReferenceOperator;
-import qualitypatternmodel.inputfields.PropertyOption;
-import qualitypatternmodel.inputfields.TextLiteral;
+import qualitypatternmodel.parameters.PropertyOption;
+import qualitypatternmodel.parameters.TextLiteral;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -33,13 +33,13 @@ import qualitypatternmodel.patternstructure.PatternElement;
 public interface Property extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.PropertyOption#getProperty <em>Property</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.PropertyOption#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
 	 * @see #setOption(PropertyOption)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Option()
-	 * @see qualitypatternmodel.inputfields.PropertyOption#getProperty
+	 * @see qualitypatternmodel.parameters.PropertyOption#getProperty
 	 * @model opposite="property" required="true"
 	 * @generated
 	 */
@@ -129,13 +129,13 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * Returns the value of the '<em><b>Attribute Name</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.TextLiteral#getProperty <em>Property</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteral#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute Name</em>' reference.
 	 * @see #setAttributeName(TextLiteral)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_AttributeName()
-	 * @see qualitypatternmodel.inputfields.TextLiteral#getProperty
+	 * @see qualitypatternmodel.parameters.TextLiteral#getProperty
 	 * @model opposite="property" required="true"
 	 * @generated
 	 */

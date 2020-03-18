@@ -29,10 +29,8 @@ import qualitypatternmodel.functions.util.FunctionsValidator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
-import qualitypatternmodel.inputfields.InputfieldsPackage;
-
-import qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl;
-
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
@@ -169,8 +167,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		isInited = true;
 
 		// Obtain or create and register interdependencies
-		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(InputfieldsPackage.eNS_URI);
-		InputfieldsPackageImpl theInputfieldsPackage = (InputfieldsPackageImpl)(registeredPackage instanceof InputfieldsPackageImpl ? registeredPackage : InputfieldsPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
+		ParametersPackageImpl theParametersPackage = (ParametersPackageImpl)(registeredPackage instanceof ParametersPackageImpl ? registeredPackage : ParametersPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		GraphstructurePackageImpl theGraphstructurePackage = (GraphstructurePackageImpl)(registeredPackage instanceof GraphstructurePackageImpl ? registeredPackage : GraphstructurePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
@@ -178,13 +176,13 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		// Create package meta-data objects
 		theFunctionsPackage.createPackageContents();
-		theInputfieldsPackage.createPackageContents();
+		theParametersPackage.createPackageContents();
 		theGraphstructurePackage.createPackageContents();
 		thePatternstructurePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theFunctionsPackage.initializePackageContents();
-		theInputfieldsPackage.initializePackageContents();
+		theParametersPackage.initializePackageContents();
 		theGraphstructurePackage.initializePackageContents();
 		thePatternstructurePackage.initializePackageContents();
 
@@ -715,7 +713,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		// Obtain other dependent packages
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
-		InputfieldsPackage theInputfieldsPackage = (InputfieldsPackage)EPackage.Registry.INSTANCE.getEPackage(InputfieldsPackage.eNS_URI);
+		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -786,14 +784,14 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		initEClass(matchEClass, Match.class, "Match", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMatch_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_Match(), "property", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMatch_Option(), theInputfieldsPackage.getBoolean(), theInputfieldsPackage.getBoolean_Match(), "option", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMatch_RegularExpression(), theInputfieldsPackage.getTextLiteral(), theInputfieldsPackage.getTextLiteral_Match(), "regularExpression", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMatch_Option(), theParametersPackage.getBoolean(), theParametersPackage.getBoolean_Match(), "option", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMatch_RegularExpression(), theParametersPackage.getTextLiteral(), theParametersPackage.getTextLiteral_Match(), "regularExpression", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComparison_Argument1(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison1(), "argument1", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Argument2(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison2(), "argument2", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComparison_Type(), theGraphstructurePackage.getReturnType(), "type", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComparison_Option(), theInputfieldsPackage.getComparisonOption(), theInputfieldsPackage.getComparisonOption_Comparison(), "option", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparison_Option(), theParametersPackage.getComparisonOption(), theParametersPackage.getComparisonOption_Comparison(), "option", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getComparison__SetTypeAccordingToArgument__Comparable_Comparable(), null, "setTypeAccordingToArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theGraphstructurePackage.getComparable(), "newArgument", 0, 1, IS_UNIQUE, IS_ORDERED);

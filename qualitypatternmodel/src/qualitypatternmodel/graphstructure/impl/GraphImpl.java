@@ -28,7 +28,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
-import qualitypatternmodel.inputfields.Parameter;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;

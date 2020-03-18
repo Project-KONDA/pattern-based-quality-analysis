@@ -21,7 +21,7 @@ import qualitypatternmodel.functions.FunctionsFactory;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**

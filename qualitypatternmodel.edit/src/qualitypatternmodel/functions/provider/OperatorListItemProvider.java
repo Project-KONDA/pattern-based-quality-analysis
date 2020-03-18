@@ -18,7 +18,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.functions.FunctionsFactory;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.OperatorList;
-import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**

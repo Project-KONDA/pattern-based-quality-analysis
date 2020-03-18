@@ -5,7 +5,7 @@
 package qualitypatternmodel.functions.validation;
 
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.inputfields.ComparisonOption;
+import qualitypatternmodel.parameters.ComparisonOption;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.functions.Comparison}.

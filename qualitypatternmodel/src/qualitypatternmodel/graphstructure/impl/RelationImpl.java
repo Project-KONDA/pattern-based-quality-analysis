@@ -22,9 +22,9 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
-import qualitypatternmodel.inputfields.AxisOption;
-import qualitypatternmodel.inputfields.Parameter;
-import qualitypatternmodel.inputfields.InputfieldsPackage;
+import qualitypatternmodel.parameters.AxisOption;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
@@ -404,9 +404,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.AXIS_OPTION__RELATION, AxisOption.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.AXIS_OPTION__RELATION, AxisOption.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, InputfieldsPackage.AXIS_OPTION__RELATION, AxisOption.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.AXIS_OPTION__RELATION, AxisOption.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -434,7 +434,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicSetRelationTo((Element)otherEnd, msgs);
 			case GraphstructurePackage.RELATION__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.AXIS_OPTION__RELATION, AxisOption.class, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.AXIS_OPTION__RELATION, AxisOption.class, msgs);
 				return basicSetOption((AxisOption)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

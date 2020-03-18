@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated qualitypatternmodel -->
       <factory
-            uri="inputfields"
-            class="qualitypatternmodel.inputfields.provider.InputfieldsItemProviderAdapterFactory"
+            uri="parameters"
+            class="qualitypatternmodel.parameters.provider.ParametersItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

@@ -3331,11 +3331,11 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__AddPrimitiveComparison__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.inputfields.Parameter) <em>Add Primitive Comparison</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.inputfields.Parameter)
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.Parameter)
 	 * @generated
 	 */
 	EOperation getElement__AddPrimitiveComparison__Parameter();
@@ -3351,11 +3351,11 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__AddPrimitiveMatch();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.inputfields.Parameter) <em>Add Primitive Comparison</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.inputfields.Parameter)
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter)
 	 * @generated
 	 */
 	EOperation getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter();

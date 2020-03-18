@@ -6,78 +6,77 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>qualitypatternmodel.ecore</foreignModel>
   <genPackages prefix="Qualitypatternmodel" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#/">
-    <nestedGenPackages prefix="Inputfields" basePackage="qualitypatternmodel" disposableProviderFactory="true"
-        ecorePackage="qualitypatternmodel.ecore#//inputfields">
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//inputfields/Parameter">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/Parameter/parameterList"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Parameter/description"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Parameter/isPredefined"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//inputfields/Parameter/inputIsValid"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//inputfields/Parameter/validate">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//inputfields/Parameter/validate/diagnostics"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//inputfields/Parameter/validate/context"/>
+    <nestedGenPackages prefix="Parameters" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//parameters">
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/Parameter">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/Parameter/parameterList"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/description"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/isPredefined"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/inputIsValid"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/validate">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/Parameter/validate/diagnostics"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/Parameter/validate/context"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/ComparisonOption">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/ComparisonOption/options"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/ComparisonOption/value"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/ComparisonOption">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/ComparisonOption/options"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/ComparisonOption/value"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/ComparisonOption/comparison"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/ComparisonOption/comparison"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/PropertyOption">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/PropertyOption/options"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/PropertyOption/value"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/PropertyOption">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/PropertyOption/options"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/PropertyOption/value"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/PropertyOption/property"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/PropertyOption/property"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/ParameterList">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/ParameterList/parameters"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/ParameterList/pattern"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//inputfields/ParameterList/add">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//inputfields/ParameterList/add/Input"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/ParameterList">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/ParameterList/parameters"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/ParameterList/pattern"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterList/add">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ParameterList/add/Input"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/Boolean">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Boolean/value"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/Boolean">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Boolean/value"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/Boolean/match"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/Boolean/match"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//inputfields/Text"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/TextList">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/TextList/values"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//inputfields/TextList/getListDeclaration"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//inputfields/TextList/getListVar"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/Text"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TextList">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/TextList/values"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextList/getListDeclaration"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextList/getListVar"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/TextLiteral">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/TextLiteral/value"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TextLiteral">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/TextLiteral/value"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/TextLiteral/match"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteral/match"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/TextLiteral/property"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteral/property"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/Number">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Number/value"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/Number">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Number/value"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//inputfields/ParameterValue"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/Date">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Date/value"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/ParameterValue"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/Date">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Date/value"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/Time">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/Time/value"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/Time">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Time/value"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/UnknownParameterValue">
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//inputfields/UnknownParameterValue/concretize">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//inputfields/UnknownParameterValue/concretize/concreteInputValue"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/UnknownParameterValue">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize/concreteInputValue"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/DateTime">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/DateTime/value"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateTime">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/DateTime/value"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//inputfields/AxisOption">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/AxisOption/options"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//inputfields/AxisOption/value"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/AxisOption">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/AxisOption/options"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/AxisOption/value"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//inputfields/AxisOption/relation"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/AxisOption/relation"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Functions" basePackage="qualitypatternmodel" disposableProviderFactory="true"

@@ -20,7 +20,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.inputfields.Parameter;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Location;

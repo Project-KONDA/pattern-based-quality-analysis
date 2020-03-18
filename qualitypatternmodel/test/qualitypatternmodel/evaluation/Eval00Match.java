@@ -6,11 +6,11 @@ import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.SingleElement;
-import qualitypatternmodel.inputfields.InputfieldsFactory;
-import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.TextLiteral;
-import qualitypatternmodel.inputfields.UnknownParameterValue;
-import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
+import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextLiteral;
+import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.impl.TextLiteralImpl;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
@@ -42,13 +42,13 @@ public class Eval00Match {
 	
 	public static Pattern getMatchMidas() {
 		
-		InputfieldsPackage.eINSTANCE.eClass();
-		InputfieldsFactory inputfieldsFactory = InputfieldsFactory.eINSTANCE;
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		Pattern pattern = getMatchAbstract();
 		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
-		TextLiteral concreteInputValue = inputfieldsFactory.createTextLiteral();
+		TextLiteral concreteInputValue = parametersFactory.createTextLiteral();
 		concreteInputValue.setValue("kue");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
@@ -57,7 +57,7 @@ public class Eval00Match {
 		SingleElement returnElementInGraph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph().getReturnElements().get(0);				
 		SingleElement element2 = returnElementInGraph1.getNextSingle().get(0);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
-		TextLiteral concreteInputValue2 = inputfieldsFactory.createTextLiteral();
+		TextLiteral concreteInputValue2 = parametersFactory.createTextLiteral();
 		concreteInputValue2.setValue("3162");
 		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
 		element2.getProperties().get(0).getAttributeName().setValue("Type");

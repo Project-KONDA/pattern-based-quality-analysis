@@ -8,7 +8,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.Operator;
-import qualitypatternmodel.inputfields.Parameter;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
 

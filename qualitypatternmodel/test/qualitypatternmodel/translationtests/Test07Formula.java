@@ -13,8 +13,8 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.*;
 import qualitypatternmodel.functions.impl.*;
-import qualitypatternmodel.inputfields.*;
-import qualitypatternmodel.inputfields.impl.*;
+import qualitypatternmodel.parameters.*;
+import qualitypatternmodel.parameters.impl.*;
 
 public class Test07Formula {
 

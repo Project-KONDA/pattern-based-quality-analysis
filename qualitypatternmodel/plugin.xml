@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated qualitypatternmodel -->
       <package
-            uri="inputfields"
-            class="qualitypatternmodel.inputfields.InputfieldsPackage"
+            uri="parameters"
+            class="qualitypatternmodel.parameters.ParametersPackage"
             genModel="model/qualitypatternmodel.genmodel"/>
    </extension>
 

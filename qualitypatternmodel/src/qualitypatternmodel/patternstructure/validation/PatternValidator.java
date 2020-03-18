@@ -5,7 +5,7 @@
 package qualitypatternmodel.patternstructure.validation;
 
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.inputfields.ParameterList;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
 
 /**
