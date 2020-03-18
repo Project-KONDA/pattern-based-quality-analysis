@@ -15,39 +15,39 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.Input#getVariableList <em>Variable List</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.Input#getDescription <em>Description</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.Input#isIsPredefined <em>Is Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.Parameter#getParameterList <em>Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.Parameter#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.Parameter#isIsPredefined <em>Is Predefined</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput()
+ * @see qualitypatternmodel.inputfields.InputfieldsPackage#getParameter()
  * @model abstract="true"
  * @generated
  */
-public interface Input extends PatternElement, qualitypatternmodel.graphstructure.Comparable {
+public interface Parameter extends PatternElement, qualitypatternmodel.graphstructure.Comparable {
 	/**
-	 * Returns the value of the '<em><b>Variable List</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.VariableList#getVariables <em>Variables</em>}'.
+	 * Returns the value of the '<em><b>Parameter List</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.ParameterList#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variable List</em>' container reference.
-	 * @see #setVariableList(VariableList)
-	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput_VariableList()
-	 * @see qualitypatternmodel.inputfields.VariableList#getVariables
-	 * @model opposite="variables" required="true" transient="false"
+	 * @return the value of the '<em>Parameter List</em>' container reference.
+	 * @see #setParameterList(ParameterList)
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getParameter_ParameterList()
+	 * @see qualitypatternmodel.inputfields.ParameterList#getParameters
+	 * @model opposite="parameters" required="true" transient="false"
 	 * @generated
 	 */
-	VariableList getVariableList();
+	ParameterList getParameterList();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Input#getVariableList <em>Variable List</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Parameter#getParameterList <em>Parameter List</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Variable List</em>' container reference.
-	 * @see #getVariableList()
+	 * @param value the new value of the '<em>Parameter List</em>' container reference.
+	 * @see #getParameterList()
 	 * @generated
 	 */
-	void setVariableList(VariableList value);
+	void setParameterList(ParameterList value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
@@ -55,14 +55,14 @@ public interface Input extends PatternElement, qualitypatternmodel.graphstructur
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput_Description()
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getParameter_Description()
 	 * @model
 	 * @generated
 	 */
 	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Input#getDescription <em>Description</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Parameter#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Description</em>' attribute.
@@ -77,14 +77,14 @@ public interface Input extends PatternElement, qualitypatternmodel.graphstructur
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Is Predefined</em>' attribute.
 	 * @see #setIsPredefined(boolean)
-	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getInput_IsPredefined()
+	 * @see qualitypatternmodel.inputfields.InputfieldsPackage#getParameter_IsPredefined()
 	 * @model required="true"
 	 * @generated
 	 */
 	boolean isIsPredefined();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Input#isIsPredefined <em>Is Predefined</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.inputfields.Parameter#isIsPredefined <em>Is Predefined</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Is Predefined</em>' attribute.

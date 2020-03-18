@@ -23,9 +23,9 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -35,16 +35,16 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getComparison1 <em>Comparison1</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getComparison2 <em>Comparison2</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getVariableList <em>Variable List</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.impl.InputImpl#isIsPredefined <em>Is Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.ParameterImpl#getComparison1 <em>Comparison1</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.ParameterImpl#getComparison2 <em>Comparison2</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.ParameterImpl#getParameterList <em>Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.ParameterImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.ParameterImpl#isIsPredefined <em>Is Predefined</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class InputImpl extends PatternElementImpl implements Input {
+public abstract class ParameterImpl extends PatternElementImpl implements Parameter {
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -103,7 +103,7 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InputImpl() {
+	protected ParameterImpl() {
 		super();
 	}
 	
@@ -113,8 +113,8 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 //	}
 
 	@Override
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> res = new BasicEList<Input>();
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(this);
 		return res;
 	}
@@ -130,7 +130,7 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return InputfieldsPackage.Literals.INPUT;
+		return InputfieldsPackage.Literals.PARAMETER;
 	}
 
 	/**
@@ -141,7 +141,7 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public EList<Comparison> getComparison1() {
 		if (comparison1 == null) {
-			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, InputfieldsPackage.INPUT__COMPARISON1, FunctionsPackage.COMPARISON__ARGUMENT1);
+			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, InputfieldsPackage.PARAMETER__COMPARISON1, FunctionsPackage.COMPARISON__ARGUMENT1);
 		}
 		return comparison1;
 	}
@@ -154,7 +154,7 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public EList<Comparison> getComparison2() {
 		if (comparison2 == null) {
-			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, InputfieldsPackage.INPUT__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
+			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, InputfieldsPackage.PARAMETER__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
 		}
 		return comparison2;
 	}
@@ -164,20 +164,20 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	 * @generated
 	 */
 	@Override
-	public VariableList getVariableList() {
-		if (eContainerFeatureID() != InputfieldsPackage.INPUT__VARIABLE_LIST) return null;
-		return (VariableList)eInternalContainer();
+	public ParameterList getParameterList() {
+		if (eContainerFeatureID() != InputfieldsPackage.PARAMETER__PARAMETER_LIST) return null;
+		return (ParameterList)eInternalContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
+	public NotificationChain basicSetParameterList(ParameterList newParameterList, NotificationChain msgs) {
 		getComparison1().clear();
 		getComparison2().clear();
-		msgs = eBasicSetContainer((InternalEObject)newVariableList, InputfieldsPackage.INPUT__VARIABLE_LIST, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newParameterList, InputfieldsPackage.PARAMETER__PARAMETER_LIST, msgs);
 		return msgs;
 	}
 
@@ -187,20 +187,20 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	 * @generated
 	 */
 	@Override
-	public void setVariableList(VariableList newVariableList) {
-		if (newVariableList != eInternalContainer() || (eContainerFeatureID() != InputfieldsPackage.INPUT__VARIABLE_LIST && newVariableList != null)) {
-			if (EcoreUtil.isAncestor(this, newVariableList))
+	public void setParameterList(ParameterList newParameterList) {
+		if (newParameterList != eInternalContainer() || (eContainerFeatureID() != InputfieldsPackage.PARAMETER__PARAMETER_LIST && newParameterList != null)) {
+			if (EcoreUtil.isAncestor(this, newParameterList))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newVariableList != null)
-				msgs = ((InternalEObject)newVariableList).eInverseAdd(this, InputfieldsPackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
-			msgs = basicSetVariableList(newVariableList, msgs);
+			if (newParameterList != null)
+				msgs = ((InternalEObject)newParameterList).eInverseAdd(this, InputfieldsPackage.PARAMETER_LIST__PARAMETERS, ParameterList.class, msgs);
+			msgs = basicSetParameterList(newParameterList, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.INPUT__VARIABLE_LIST, newVariableList, newVariableList));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.PARAMETER__PARAMETER_LIST, newParameterList, newParameterList));
 	}
 
 	/**
@@ -223,7 +223,7 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.INPUT__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.PARAMETER__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -246,12 +246,12 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 		boolean oldIsPredefined = isPredefined;
 		isPredefined = newIsPredefined;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.INPUT__IS_PREDEFINED, oldIsPredefined, isPredefined));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.PARAMETER__IS_PREDEFINED, oldIsPredefined, isPredefined));
 	}
 
 	@Override	
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
-		if (getVariableList() == null)
+		if (getParameterList() == null)
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")" );
 		if ((isDefinedPattern && !inputIsValid()))
 			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")" );
@@ -307,14 +307,14 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
+			case InputfieldsPackage.PARAMETER__COMPARISON1:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison1()).basicAdd(otherEnd, msgs);
-			case InputfieldsPackage.INPUT__COMPARISON2:
+			case InputfieldsPackage.PARAMETER__COMPARISON2:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison2()).basicAdd(otherEnd, msgs);
-			case InputfieldsPackage.INPUT__VARIABLE_LIST:
+			case InputfieldsPackage.PARAMETER__PARAMETER_LIST:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetVariableList((VariableList)otherEnd, msgs);
+				return basicSetParameterList((ParameterList)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -326,12 +326,12 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
+			case InputfieldsPackage.PARAMETER__COMPARISON1:
 				return ((InternalEList<?>)getComparison1()).basicRemove(otherEnd, msgs);
-			case InputfieldsPackage.INPUT__COMPARISON2:
+			case InputfieldsPackage.PARAMETER__COMPARISON2:
 				return ((InternalEList<?>)getComparison2()).basicRemove(otherEnd, msgs);
-			case InputfieldsPackage.INPUT__VARIABLE_LIST:
-				return basicSetVariableList(null, msgs);
+			case InputfieldsPackage.PARAMETER__PARAMETER_LIST:
+				return basicSetParameterList(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -344,8 +344,8 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case InputfieldsPackage.INPUT__VARIABLE_LIST:
-				return eInternalContainer().eInverseRemove(this, InputfieldsPackage.VARIABLE_LIST__VARIABLES, VariableList.class, msgs);
+			case InputfieldsPackage.PARAMETER__PARAMETER_LIST:
+				return eInternalContainer().eInverseRemove(this, InputfieldsPackage.PARAMETER_LIST__PARAMETERS, ParameterList.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -357,15 +357,15 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
+			case InputfieldsPackage.PARAMETER__COMPARISON1:
 				return getComparison1();
-			case InputfieldsPackage.INPUT__COMPARISON2:
+			case InputfieldsPackage.PARAMETER__COMPARISON2:
 				return getComparison2();
-			case InputfieldsPackage.INPUT__VARIABLE_LIST:
-				return getVariableList();
-			case InputfieldsPackage.INPUT__DESCRIPTION:
+			case InputfieldsPackage.PARAMETER__PARAMETER_LIST:
+				return getParameterList();
+			case InputfieldsPackage.PARAMETER__DESCRIPTION:
 				return getDescription();
-			case InputfieldsPackage.INPUT__IS_PREDEFINED:
+			case InputfieldsPackage.PARAMETER__IS_PREDEFINED:
 				return isIsPredefined();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -379,21 +379,21 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
+			case InputfieldsPackage.PARAMETER__COMPARISON1:
 				getComparison1().clear();
 				getComparison1().addAll((Collection<? extends Comparison>)newValue);
 				return;
-			case InputfieldsPackage.INPUT__COMPARISON2:
+			case InputfieldsPackage.PARAMETER__COMPARISON2:
 				getComparison2().clear();
 				getComparison2().addAll((Collection<? extends Comparison>)newValue);
 				return;
-			case InputfieldsPackage.INPUT__VARIABLE_LIST:
-				setVariableList((VariableList)newValue);
+			case InputfieldsPackage.PARAMETER__PARAMETER_LIST:
+				setParameterList((ParameterList)newValue);
 				return;
-			case InputfieldsPackage.INPUT__DESCRIPTION:
+			case InputfieldsPackage.PARAMETER__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case InputfieldsPackage.INPUT__IS_PREDEFINED:
+			case InputfieldsPackage.PARAMETER__IS_PREDEFINED:
 				setIsPredefined((Boolean)newValue);
 				return;
 		}
@@ -407,19 +407,19 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
+			case InputfieldsPackage.PARAMETER__COMPARISON1:
 				getComparison1().clear();
 				return;
-			case InputfieldsPackage.INPUT__COMPARISON2:
+			case InputfieldsPackage.PARAMETER__COMPARISON2:
 				getComparison2().clear();
 				return;
-			case InputfieldsPackage.INPUT__VARIABLE_LIST:
-				setVariableList((VariableList)null);
+			case InputfieldsPackage.PARAMETER__PARAMETER_LIST:
+				setParameterList((ParameterList)null);
 				return;
-			case InputfieldsPackage.INPUT__DESCRIPTION:
+			case InputfieldsPackage.PARAMETER__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case InputfieldsPackage.INPUT__IS_PREDEFINED:
+			case InputfieldsPackage.PARAMETER__IS_PREDEFINED:
 				setIsPredefined(IS_PREDEFINED_EDEFAULT);
 				return;
 		}
@@ -433,15 +433,15 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.INPUT__COMPARISON1:
+			case InputfieldsPackage.PARAMETER__COMPARISON1:
 				return comparison1 != null && !comparison1.isEmpty();
-			case InputfieldsPackage.INPUT__COMPARISON2:
+			case InputfieldsPackage.PARAMETER__COMPARISON2:
 				return comparison2 != null && !comparison2.isEmpty();
-			case InputfieldsPackage.INPUT__VARIABLE_LIST:
-				return getVariableList() != null;
-			case InputfieldsPackage.INPUT__DESCRIPTION:
+			case InputfieldsPackage.PARAMETER__PARAMETER_LIST:
+				return getParameterList() != null;
+			case InputfieldsPackage.PARAMETER__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case InputfieldsPackage.INPUT__IS_PREDEFINED:
+			case InputfieldsPackage.PARAMETER__IS_PREDEFINED:
 				return isPredefined != IS_PREDEFINED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -456,8 +456,8 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
 			switch (derivedFeatureID) {
-				case InputfieldsPackage.INPUT__COMPARISON1: return GraphstructurePackage.COMPARABLE__COMPARISON1;
-				case InputfieldsPackage.INPUT__COMPARISON2: return GraphstructurePackage.COMPARABLE__COMPARISON2;
+				case InputfieldsPackage.PARAMETER__COMPARISON1: return GraphstructurePackage.COMPARABLE__COMPARISON1;
+				case InputfieldsPackage.PARAMETER__COMPARISON2: return GraphstructurePackage.COMPARABLE__COMPARISON2;
 				default: return -1;
 			}
 		}
@@ -473,8 +473,8 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
 			switch (baseFeatureID) {
-				case GraphstructurePackage.COMPARABLE__COMPARISON1: return InputfieldsPackage.INPUT__COMPARISON1;
-				case GraphstructurePackage.COMPARABLE__COMPARISON2: return InputfieldsPackage.INPUT__COMPARISON2;
+				case GraphstructurePackage.COMPARABLE__COMPARISON1: return InputfieldsPackage.PARAMETER__COMPARISON1;
+				case GraphstructurePackage.COMPARABLE__COMPARISON2: return InputfieldsPackage.PARAMETER__COMPARISON2;
 				default: return -1;
 			}
 		}
@@ -490,10 +490,10 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
 			switch (baseOperationID) {
-				case GraphstructurePackage.COMPARABLE___GET_RETURN_TYPE: return InputfieldsPackage.INPUT___GET_RETURN_TYPE;
-				case GraphstructurePackage.COMPARABLE___IS_TRANSLATABLE: return InputfieldsPackage.INPUT___IS_TRANSLATABLE;
-				case GraphstructurePackage.COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS: return InputfieldsPackage.INPUT___GET_ALL_ARGUMENT_ELEMENTS;
-				case GraphstructurePackage.COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP: return InputfieldsPackage.INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+				case GraphstructurePackage.COMPARABLE___GET_RETURN_TYPE: return InputfieldsPackage.PARAMETER___GET_RETURN_TYPE;
+				case GraphstructurePackage.COMPARABLE___IS_TRANSLATABLE: return InputfieldsPackage.PARAMETER___IS_TRANSLATABLE;
+				case GraphstructurePackage.COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS: return InputfieldsPackage.PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
+				case GraphstructurePackage.COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP: return InputfieldsPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 				default: return -1;
 			}
 		}
@@ -507,18 +507,18 @@ public abstract class InputImpl extends PatternElementImpl implements Input {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case InputfieldsPackage.INPUT___INPUT_IS_VALID:
+			case InputfieldsPackage.PARAMETER___INPUT_IS_VALID:
 				return inputIsValid();
-			case InputfieldsPackage.INPUT___GET_RETURN_TYPE:
+			case InputfieldsPackage.PARAMETER___GET_RETURN_TYPE:
 				return getReturnType();
-			case InputfieldsPackage.INPUT___IS_TRANSLATABLE:
+			case InputfieldsPackage.PARAMETER___IS_TRANSLATABLE:
 				try {
 					return isTranslatable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case InputfieldsPackage.INPUT___GET_ALL_ARGUMENT_ELEMENTS:
+			case InputfieldsPackage.PARAMETER___GET_ALL_ARGUMENT_ELEMENTS:
 				try {
 					return getAllArgumentElements();
 				}

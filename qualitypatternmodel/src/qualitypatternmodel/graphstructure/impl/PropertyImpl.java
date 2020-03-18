@@ -30,11 +30,11 @@ import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.impl.PropertyOptionImpl;
 import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
 import qualitypatternmodel.patternstructure.Location;
@@ -180,8 +180,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> res = new BasicEList<Input>();
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(getAttributeName());
 		res.add(getOption());
 		return res;
@@ -220,17 +220,17 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			
 			if(getOption() == null) {
 				PropertyOption option = new PropertyOptionImpl();			
-				pattern.getVariableList().add(option);
+				pattern.getParameterList().add(option);
 				setOption(option);
 			} else {
-				pattern.getVariableList().add(getOption());
+				pattern.getParameterList().add(getOption());
 			}
 			if(getAttributeName() == null) {
 				TextLiteral textLiteral = new TextLiteralImpl();
-				pattern.getVariableList().add(textLiteral);
+				pattern.getParameterList().add(textLiteral);
 				setAttributeName(textLiteral);
 			} else {
-				pattern.getVariableList().add(getAttributeName());
+				pattern.getParameterList().add(getAttributeName());
 			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
@@ -313,9 +313,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		try {
 			Pattern pattern;
 			pattern = (Pattern) getAncestor(Pattern.class);
-			VariableList varlist = pattern.getVariableList();
+			ParameterList varlist = pattern.getParameterList();
 			if(oldOption != null) {				
-				varlist.getVariables().remove(oldOption);
+				varlist.getParameters().remove(oldOption);
 			}
 			if(newOption != null) {
 				varlist.add(newOption);
@@ -514,13 +514,13 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	public void removeInputsFromVariableList() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getVariableList().getVariables().remove(getOption());
+			pattern.getParameterList().getParameters().remove(getOption());
 		} catch (MissingPatternContainerException e) {
 			// since this property is not contained in a pattern, do nothing
 		}				
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getVariableList().getVariables().remove(getAttributeName());
+			pattern.getParameterList().getParameters().remove(getAttributeName());
 		} catch (MissingPatternContainerException e) {
 			// since this property is not contained in a pattern, do nothing
 		}
@@ -586,9 +586,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		try {
 			Pattern pattern;
 			pattern = (Pattern) getAncestor(Pattern.class);
-			VariableList varlist = pattern.getVariableList();
+			ParameterList varlist = pattern.getParameterList();
 			if(oldAttributeName != null) {				
-				varlist.getVariables().remove(oldAttributeName);
+				varlist.getParameters().remove(oldAttributeName);
 			}
 			if(newAttributeName != null) {
 				varlist.add(newAttributeName);

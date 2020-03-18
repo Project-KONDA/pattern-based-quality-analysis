@@ -3,23 +3,25 @@
 package qualitypatternmodel.inputfields.tests;
 
 import junit.textui.TestRunner;
+
 import qualitypatternmodel.inputfields.InputfieldsFactory;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
+
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Variable List</b></em>'.
+ * A test case for the model object '<em><b>Parameter List</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.VariableList#add(qualitypatternmodel.inputfields.Input) <em>Add</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.ParameterList#add(qualitypatternmodel.inputfields.Parameter) <em>Add</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class VariableListTest extends PatternElementTest {
+public class ParameterListTest extends PatternElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -27,28 +29,28 @@ public class VariableListTest extends PatternElementTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(VariableListTest.class);
+		TestRunner.run(ParameterListTest.class);
 	}
 
 	/**
-	 * Constructs a new Variable List test case with the given name.
+	 * Constructs a new Parameter List test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableListTest(String name) {
+	public ParameterListTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Variable List test case.
+	 * Returns the fixture for this Parameter List test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected VariableList getFixture() {
-		return (VariableList)fixture;
+	protected ParameterList getFixture() {
+		return (ParameterList)fixture;
 	}
 
 	/**
@@ -59,7 +61,7 @@ public class VariableListTest extends PatternElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(InputfieldsFactory.eINSTANCE.createVariableList());
+		setFixture(InputfieldsFactory.eINSTANCE.createParameterList());
 	}
 
 	/**
@@ -74,16 +76,16 @@ public class VariableListTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.inputfields.VariableList#add(qualitypatternmodel.inputfields.Input) <em>Add</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.inputfields.ParameterList#add(qualitypatternmodel.inputfields.Parameter) <em>Add</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.inputfields.VariableList#add(qualitypatternmodel.inputfields.Input)
+	 * @see qualitypatternmodel.inputfields.ParameterList#add(qualitypatternmodel.inputfields.Parameter)
 	 * @generated
 	 */
-	public void testAdd__Input() {
+	public void testAdd__Parameter() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
-} //VariableListTest
+} //ParameterListTest

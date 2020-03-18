@@ -5,7 +5,7 @@
 package qualitypatternmodel.patternstructure.validation;
 
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
 
 /**
@@ -23,7 +23,7 @@ public interface PatternValidator {
 
 	boolean validateName(String value);
 
-	boolean validateVariableList(VariableList value);
+	boolean validateVariableList(ParameterList value);
 
 	boolean validateCheckMorphismOfNextGraph(boolean value);
 

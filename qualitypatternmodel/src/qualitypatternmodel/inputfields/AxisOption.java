@@ -25,7 +25,7 @@ import qualitypatternmodel.graphstructure.Relation;
  * @model
  * @generated
  */
-public interface AxisOption extends Input {
+public interface AxisOption extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Axis}.

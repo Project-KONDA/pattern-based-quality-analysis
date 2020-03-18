@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -91,8 +91,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllInputs() throws InvalidityException {
-		return new BasicEList<Input>();
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		return new BasicEList<Parameter>();
 	}
 
 	/**

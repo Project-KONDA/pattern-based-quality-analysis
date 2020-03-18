@@ -40,13 +40,13 @@ public interface InputfieldsFactory extends EFactory {
 	PropertyOption createPropertyOption();
 
 	/**
-	 * Returns a new object of class '<em>Variable List</em>'.
+	 * Returns a new object of class '<em>Parameter List</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Variable List</em>'.
+	 * @return a new object of class '<em>Parameter List</em>'.
 	 * @generated
 	 */
-	VariableList createVariableList();
+	ParameterList createParameterList();
 
 	/**
 	 * Returns a new object of class '<em>Boolean</em>'.

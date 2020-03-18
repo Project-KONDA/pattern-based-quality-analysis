@@ -32,13 +32,13 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.inputfields.CompOption;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputValue;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.UnknownInputValue;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.impl.CompOptionImpl;
-import qualitypatternmodel.inputfields.impl.InputImpl;
+import qualitypatternmodel.inputfields.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.impl.PatternImpl;
@@ -147,9 +147,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
 
-		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof InputImpl)
+		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof ParameterImpl)
 			argument1.isValid(isDefinedPattern);
-		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof InputImpl)
+		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof ParameterImpl)
 			argument2.isValid(isDefinedPattern);
 		option.isValid(isDefinedPattern);
 
@@ -269,18 +269,18 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	@Override
-	public EList<Input> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllInputs() throws InvalidityException {
 //		System.out.println(argument1 + " " + argument2);
-		EList<Input> res = new BasicEList<Input>();
-		if (argument1 instanceof Input) {
-			res.add((Input) argument1);
+		EList<Parameter> res = new BasicEList<Parameter>();
+		if (argument1 instanceof Parameter) {
+			res.add((Parameter) argument1);
 		} else if (argument1 instanceof Operator) {
 			res.addAll(((Operator) argument1).getAllInputs());
 		} else if (argument1 instanceof Property) {
 			res.addAll(((Property) argument1).getAllInputs());
 		}
-		if (argument2 instanceof Input) {
-			res.add((Input) argument2);
+		if (argument2 instanceof Parameter) {
+			res.add((Parameter) argument2);
 		} else if (argument2 instanceof Operator) {
 			res.addAll(((Operator) argument2).getAllInputs());
 		} else if (argument2 instanceof Property) {
@@ -327,10 +327,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 			if (getOption() == null) {
 				CompOption compOption = new CompOptionImpl();
-				pattern.getVariableList().add(compOption);
+				pattern.getParameterList().add(compOption);
 				setOption(compOption);
 			} else {
-				pattern.getVariableList().add(getOption());
+				pattern.getParameterList().add(getOption());
 			}
 		} catch (MissingPatternContainerException e) {
 			// since this comparison is not contained in a pattern, do nothing
@@ -342,7 +342,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public void removeInputsFromVariableList() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getVariableList().getVariables().remove(getOption());
+			pattern.getParameterList().getParameters().remove(getOption());
 		} catch (MissingPatternContainerException e) {
 			// since this comparison is not contained in a pattern, do nothing
 			e.printStackTrace();
@@ -605,9 +605,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		try {
 			Pattern pattern;
 			pattern = (Pattern) getAncestor(Pattern.class);
-			VariableList varlist = pattern.getVariableList();
+			ParameterList varlist = pattern.getParameterList();
 			if (oldOption != null) {
-				varlist.getVariables().remove(oldOption);
+				varlist.getParameters().remove(oldOption);
 			}
 			if (newOption != null) {
 				varlist.add(newOption);

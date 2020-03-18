@@ -19,7 +19,7 @@ import qualitypatternmodel.inputfields.InputValue;
  *
  * @generated
  */
-public class UnknownInputValueImpl extends InputImpl implements UnknownInputValue {
+public class UnknownInputValueImpl extends ParameterImpl implements UnknownInputValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -51,7 +51,7 @@ public class UnknownInputValueImpl extends InputImpl implements UnknownInputValu
 	 */
 	@Override
 	public void concretize(InputValue concreteInputValue) {
-		concreteInputValue.setVariableList(getVariableList());
+		concreteInputValue.setParameterList(getParameterList());
 		
 		EList<Comparison> comparison1Copy = new BasicEList<Comparison>();
 		comparison1Copy.addAll(getComparison1());
@@ -64,7 +64,7 @@ public class UnknownInputValueImpl extends InputImpl implements UnknownInputValu
 			comparison.setArgument2(concreteInputValue);	
 		}
 		
-		getVariableList().getVariables().remove(this);
+		getParameterList().getParameters().remove(this);
 	}
 
 	/**

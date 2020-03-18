@@ -22,7 +22,7 @@ import qualitypatternmodel.inputfields.InputfieldsPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompOptionItemProvider extends InputItemProvider {
+public class CompOptionItemProvider extends ParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

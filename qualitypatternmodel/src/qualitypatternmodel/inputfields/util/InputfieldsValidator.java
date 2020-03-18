@@ -16,7 +16,7 @@ import qualitypatternmodel.inputfields.AxisOption;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.DateTime;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
@@ -24,7 +24,7 @@ import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.inputfields.UnknownInputValue;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.InputValue;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
 
@@ -55,12 +55,12 @@ public class InputfieldsValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "qualitypatternmodel.inputfields";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Validate' of 'Input'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Validate' of 'Parameter'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int INPUT__VALIDATE = 1;
+	public static final int PARAMETER__VALIDATE = 1;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -126,14 +126,14 @@ public class InputfieldsValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
-			case InputfieldsPackage.INPUT:
-				return validateInput((Input)value, diagnostics, context);
+			case InputfieldsPackage.PARAMETER:
+				return validateParameter((Parameter)value, diagnostics, context);
 			case InputfieldsPackage.COMP_OPTION:
 				return validateCompOption((CompOption)value, diagnostics, context);
 			case InputfieldsPackage.PROPERTY_OPTION:
 				return validatePropertyOption((PropertyOption)value, diagnostics, context);
-			case InputfieldsPackage.VARIABLE_LIST:
-				return validateVariableList((VariableList)value, diagnostics, context);
+			case InputfieldsPackage.PARAMETER_LIST:
+				return validateParameterList((ParameterList)value, diagnostics, context);
 			case InputfieldsPackage.BOOLEAN:
 				return validateBoolean((qualitypatternmodel.inputfields.Boolean)value, diagnostics, context);
 			case InputfieldsPackage.TEXT:
@@ -166,28 +166,28 @@ public class InputfieldsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateInput(Input input, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(input, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(input, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(input, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(input, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(input, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(input, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(input, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(input, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(input, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(input, diagnostics, context);
+	public boolean validateParameter(Parameter parameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(parameter, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(parameter, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(parameter, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the validate constraint of '<em>Input</em>'.
+	 * Validates the validate constraint of '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateInput_validate(Input input, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return input.validate(diagnostics, context);
+	public boolean validateParameter_validate(Parameter parameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return parameter.validate(diagnostics, context);
 	}
 
 	/**
@@ -205,7 +205,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(compOption, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(compOption, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(compOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(compOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(compOption, diagnostics, context);
 		return result;
 	}
 
@@ -224,7 +224,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(propertyOption, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(propertyOption, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(propertyOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(propertyOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(propertyOption, diagnostics, context);
 		return result;
 	}
 
@@ -233,17 +233,17 @@ public class InputfieldsValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateVariableList(VariableList variableList, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(variableList, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(variableList, diagnostics, context);
-		if (result || diagnostics != null) result &= patternstructureValidator.validatePatternElement_validate(variableList, diagnostics, context);
+	public boolean validateParameterList(ParameterList parameterList, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(parameterList, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(parameterList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(parameterList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(parameterList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(parameterList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(parameterList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(parameterList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(parameterList, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(parameterList, diagnostics, context);
+		if (result || diagnostics != null) result &= patternstructureValidator.validatePatternElement_validate(parameterList, diagnostics, context);
 		return result;
 	}
 
@@ -262,7 +262,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(boolean_, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(boolean_, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(boolean_, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(boolean_, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(boolean_, diagnostics, context);
 		return result;
 	}
 
@@ -281,7 +281,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(text, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(text, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(text, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(text, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(text, diagnostics, context);
 		return result;
 	}
 
@@ -300,7 +300,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(textList, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(textList, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(textList, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(textList, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(textList, diagnostics, context);
 		return result;
 	}
 
@@ -319,7 +319,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(textLiteral, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(textLiteral, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(textLiteral, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(textLiteral, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(textLiteral, diagnostics, context);
 		return result;
 	}
 
@@ -338,7 +338,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(number, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(number, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(number, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(number, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(number, diagnostics, context);
 		return result;
 	}
 
@@ -357,7 +357,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(inputValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(inputValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(inputValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(inputValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(inputValue, diagnostics, context);
 		return result;
 	}
 
@@ -376,7 +376,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(date, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(date, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(date, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(date, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(date, diagnostics, context);
 		return result;
 	}
 
@@ -395,7 +395,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(time, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(time, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(time, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(time, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(time, diagnostics, context);
 		return result;
 	}
 
@@ -414,7 +414,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(unknownInputValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(unknownInputValue, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(unknownInputValue, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(unknownInputValue, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(unknownInputValue, diagnostics, context);
 		return result;
 	}
 
@@ -433,7 +433,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(dateTime, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dateTime, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dateTime, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(dateTime, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(dateTime, diagnostics, context);
 		return result;
 	}
 
@@ -452,7 +452,7 @@ public class InputfieldsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(axisOption, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(axisOption, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(axisOption, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInput_validate(axisOption, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(axisOption, diagnostics, context);
 		return result;
 	}
 

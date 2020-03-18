@@ -13,5 +13,5 @@ package qualitypatternmodel.inputfields;
  * @model abstract="true"
  * @generated
  */
-public interface InputValue extends Input {
+public interface InputValue extends Parameter {
 } // XSType

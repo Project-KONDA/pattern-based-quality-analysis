@@ -13,7 +13,7 @@ import qualitypatternmodel.inputfields.InputfieldsFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompOptionTest extends InputTest {
+public class CompOptionTest extends ParameterTest {
 
 	/**
 	 * <!-- begin-user-doc -->

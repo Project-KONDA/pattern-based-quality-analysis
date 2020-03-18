@@ -17,7 +17,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.TextLiteral;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -120,10 +120,10 @@ public class TextLiteralImpl extends TextImpl implements TextLiteral {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
+	public NotificationChain basicSetVariableList(ParameterList newVariableList, NotificationChain msgs) {
 		setMatch(null);
 		setProperty(null);
-		return super.basicSetVariableList(newVariableList, msgs);
+		return super.basicSetParameterList(newVariableList, msgs);
 	}
 
 	

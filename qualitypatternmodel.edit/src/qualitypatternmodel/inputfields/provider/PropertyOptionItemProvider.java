@@ -22,7 +22,7 @@ import qualitypatternmodel.inputfields.PropertyOption;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PropertyOptionItemProvider extends InputItemProvider {
+public class PropertyOptionItemProvider extends ParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -15,12 +15,12 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.Input} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.Parameter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -112,7 +112,7 @@ public class InputItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Input_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_description_feature", "_UI_Input_type"),
-				 InputfieldsPackage.Literals.INPUT__DESCRIPTION,
+				 InputfieldsPackage.Literals.PARAMETER__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -134,7 +134,7 @@ public class InputItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Input_isPredefined_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Input_isPredefined_feature", "_UI_Input_type"),
-				 InputfieldsPackage.Literals.INPUT__IS_PREDEFINED,
+				 InputfieldsPackage.Literals.PARAMETER__IS_PREDEFINED,
 				 true,
 				 false,
 				 false,
@@ -151,8 +151,8 @@ public class InputItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Input input = (Input) object;
-		return getString("_UI_Input_type") + " " + input.getInternalId();	
+		Parameter parameter = (Parameter) object;
+		return getString("_UI_Input_type") + " " + parameter.getInternalId();	
 	}
 
 
@@ -167,9 +167,9 @@ public class InputItemProvider extends PatternElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Input.class)) {
-			case InputfieldsPackage.INPUT__DESCRIPTION:
-			case InputfieldsPackage.INPUT__IS_PREDEFINED:
+		switch (notification.getFeatureID(Parameter.class)) {
+			case InputfieldsPackage.PARAMETER__DESCRIPTION:
+			case InputfieldsPackage.PARAMETER__IS_PREDEFINED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,7 +92,7 @@ public interface PatternElement extends EObject {
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<Input> getAllInputs() throws InvalidityException;
+	EList<Parameter> getAllInputs() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

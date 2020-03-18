@@ -135,7 +135,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__VARIABLE_LIST);
+			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__PARAMETER_LIST);
 			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__GRAPH);
 			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__CONDITION);
 		}
@@ -200,7 +200,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 			case PatternstructurePackage.PATTERN__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
+			case PatternstructurePackage.PATTERN__PARAMETER_LIST:
 			case PatternstructurePackage.PATTERN__GRAPH:
 			case PatternstructurePackage.PATTERN__CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -222,8 +222,8 @@ public class PatternItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.PATTERN__VARIABLE_LIST,
-				 InputfieldsFactory.eINSTANCE.createVariableList()));
+				(PatternstructurePackage.Literals.PATTERN__PARAMETER_LIST,
+				 InputfieldsFactory.eINSTANCE.createParameterList()));
 
 		newChildDescriptors.add
 			(createChildParameter

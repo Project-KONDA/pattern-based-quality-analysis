@@ -17,7 +17,7 @@ import qualitypatternmodel.inputfields.InputValue;
  *
  * @generated
  */
-public abstract class InputValueImpl extends InputImpl implements InputValue {
+public abstract class InputValueImpl extends ParameterImpl implements InputValue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

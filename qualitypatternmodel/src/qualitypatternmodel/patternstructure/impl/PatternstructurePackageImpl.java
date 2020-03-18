@@ -650,6 +650,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EReference getPattern_ParameterList() {
+		return (EReference)patternEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getPattern_Condition() {
 		return (EReference)patternEClass.getEStructuralFeatures().get(3);
 	}
@@ -672,16 +682,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EAttribute getPattern_Name() {
 		return (EAttribute)patternEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPattern_VariableList() {
-		return (EReference)patternEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1010,7 +1010,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		trueElementEClass = createEClass(TRUE_ELEMENT);
 
 		patternEClass = createEClass(PATTERN);
-		createEReference(patternEClass, PATTERN__VARIABLE_LIST);
+		createEReference(patternEClass, PATTERN__PARAMETER_LIST);
 		createEAttribute(patternEClass, PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH);
 		createEReference(patternEClass, PATTERN__GRAPH);
 		createEReference(patternEClass, PATTERN__CONDITION);
@@ -1141,7 +1141,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEClass(trueElementEClass, TrueElement.class, "TrueElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(patternEClass, Pattern.class, "Pattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPattern_VariableList(), theInputfieldsPackage.getVariableList(), theInputfieldsPackage.getVariableList_Pattern(), "variableList", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPattern_ParameterList(), theInputfieldsPackage.getParameterList(), theInputfieldsPackage.getParameterList_Pattern(), "parameterList", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPattern_CheckMorphismOfNextGraph(), ecorePackage.getEBoolean(), "checkMorphismOfNextGraph", null, 1, 1, Pattern.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_Pattern(), "graph", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_Condition(), this.getCondition(), this.getCondition_Pattern(), "condition", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1166,7 +1166,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEParameter(op, this.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getPatternElement__GetAllInputs(), theInputfieldsPackage.getInput(), "getAllInputs", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__GetAllInputs(), theInputfieldsPackage.getParameter(), "getAllInputs", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEOperation(getPatternElement__PrepareTranslation(), null, "prepareTranslation", 0, 1, IS_UNIQUE, IS_ORDERED);

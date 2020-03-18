@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface BoolOption extends Input {
+public interface BoolOption extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.Boolean}.

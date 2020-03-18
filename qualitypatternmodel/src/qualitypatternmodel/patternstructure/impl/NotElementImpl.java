@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NotElement;
@@ -77,10 +77,10 @@ public class NotElementImpl extends ConditionImpl implements NotElement {
 	}
 
 	@Override
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> inputs = new BasicEList<Input>();
-		inputs.addAll(condition.getAllInputs());		
-		return inputs;
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		EList<Parameter> parameters = new BasicEList<Parameter>();
+		parameters.addAll(condition.getAllInputs());		
+		return parameters;
 	}
 		
 	/**

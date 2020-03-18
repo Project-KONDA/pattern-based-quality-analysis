@@ -28,7 +28,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
@@ -212,8 +212,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> res = rootElement.getAllInputs();
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		EList<Parameter> res = rootElement.getAllInputs();
 		return res;
 	}
 

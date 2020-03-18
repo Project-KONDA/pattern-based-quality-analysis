@@ -15,23 +15,23 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.VariableList} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.inputfields.ParameterList} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableListItemProvider extends PatternElementItemProvider {
+public class ParameterListItemProvider extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableListItemProvider(AdapterFactory adapterFactory) {
+	public ParameterListItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,7 +62,7 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES);
+			childrenFeatures.add(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -81,14 +81,14 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This returns VariableList.gif.
+	 * This returns ParameterList.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableList"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParameterList"));
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		VariableList variableList = (VariableList) object;
+		ParameterList parameterList = (ParameterList) object;
 		return getString("_UI_VariableList_type");
 //		+ " " + variableList.getRefNo();
 	}
@@ -116,8 +116,8 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(VariableList.class)) {
-			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
+		switch (notification.getFeatureID(ParameterList.class)) {
+			case InputfieldsPackage.PARAMETER_LIST__PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -137,57 +137,57 @@ public class VariableListItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 InputfieldsFactory.eINSTANCE.createCompOption()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 InputfieldsFactory.eINSTANCE.createPropertyOption()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 InputfieldsFactory.eINSTANCE.createBoolean()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 InputfieldsFactory.eINSTANCE.createTextList()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 InputfieldsFactory.eINSTANCE.createTextLiteral()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 InputfieldsFactory.eINSTANCE.createNumber()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 InputfieldsFactory.eINSTANCE.createDate()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 InputfieldsFactory.eINSTANCE.createTime()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 InputfieldsFactory.eINSTANCE.createUnknownInputValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 InputfieldsFactory.eINSTANCE.createDateTime()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InputfieldsPackage.Literals.VARIABLE_LIST__VARIABLES,
+				(InputfieldsPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 InputfieldsFactory.eINSTANCE.createAxisOption()));
 	}
 

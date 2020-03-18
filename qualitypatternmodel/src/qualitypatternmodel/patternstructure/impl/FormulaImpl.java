@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Location;
@@ -171,13 +171,13 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	@Override
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> inputs = new BasicEList<Input>();
-		inputs.addAll(condition.getAllInputs());
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		EList<Parameter> parameters = new BasicEList<Parameter>();
+		parameters.addAll(condition.getAllInputs());
 		if(condition2 != null) {
-			inputs.addAll(condition2.getAllInputs());
+			parameters.addAll(condition2.getAllInputs());
 		}	
-		return inputs;
+		return parameters;
 	}
 
 	/**

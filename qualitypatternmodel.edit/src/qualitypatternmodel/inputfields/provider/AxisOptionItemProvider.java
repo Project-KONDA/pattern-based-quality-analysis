@@ -23,7 +23,7 @@ import qualitypatternmodel.inputfields.InputfieldsPackage;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AxisOptionItemProvider extends InputItemProvider {
+public class AxisOptionItemProvider extends ParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

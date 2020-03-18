@@ -10,7 +10,7 @@ import qualitypatternmodel.inputfields.AxisOption;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.DateTime;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
@@ -18,7 +18,7 @@ import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.inputfields.UnknownInputValue;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.InputValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -79,18 +79,18 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case InputfieldsPackage.INPUT: {
-				Input input = (Input)theEObject;
-				T result = caseInput(input);
-				if (result == null) result = caseComparable(input);
-				if (result == null) result = casePatternElement(input);
+			case InputfieldsPackage.PARAMETER: {
+				Parameter parameter = (Parameter)theEObject;
+				T result = caseParameter(parameter);
+				if (result == null) result = caseComparable(parameter);
+				if (result == null) result = casePatternElement(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case InputfieldsPackage.COMP_OPTION: {
 				CompOption compOption = (CompOption)theEObject;
 				T result = caseCompOption(compOption);
-				if (result == null) result = caseInput(compOption);
+				if (result == null) result = caseParameter(compOption);
 				if (result == null) result = caseComparable(compOption);
 				if (result == null) result = casePatternElement(compOption);
 				if (result == null) result = defaultCase(theEObject);
@@ -99,16 +99,16 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 			case InputfieldsPackage.PROPERTY_OPTION: {
 				PropertyOption propertyOption = (PropertyOption)theEObject;
 				T result = casePropertyOption(propertyOption);
-				if (result == null) result = caseInput(propertyOption);
+				if (result == null) result = caseParameter(propertyOption);
 				if (result == null) result = caseComparable(propertyOption);
 				if (result == null) result = casePatternElement(propertyOption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case InputfieldsPackage.VARIABLE_LIST: {
-				VariableList variableList = (VariableList)theEObject;
-				T result = caseVariableList(variableList);
-				if (result == null) result = casePatternElement(variableList);
+			case InputfieldsPackage.PARAMETER_LIST: {
+				ParameterList parameterList = (ParameterList)theEObject;
+				T result = caseParameterList(parameterList);
+				if (result == null) result = casePatternElement(parameterList);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -116,7 +116,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				qualitypatternmodel.inputfields.Boolean boolean_ = (qualitypatternmodel.inputfields.Boolean)theEObject;
 				T result = caseBoolean(boolean_);
 				if (result == null) result = caseInputValue(boolean_);
-				if (result == null) result = caseInput(boolean_);
+				if (result == null) result = caseParameter(boolean_);
 				if (result == null) result = caseComparable(boolean_);
 				if (result == null) result = casePatternElement(boolean_);
 				if (result == null) result = defaultCase(theEObject);
@@ -126,7 +126,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				Text text = (Text)theEObject;
 				T result = caseText(text);
 				if (result == null) result = caseInputValue(text);
-				if (result == null) result = caseInput(text);
+				if (result == null) result = caseParameter(text);
 				if (result == null) result = caseComparable(text);
 				if (result == null) result = casePatternElement(text);
 				if (result == null) result = defaultCase(theEObject);
@@ -137,7 +137,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				T result = caseTextList(textList);
 				if (result == null) result = caseText(textList);
 				if (result == null) result = caseInputValue(textList);
-				if (result == null) result = caseInput(textList);
+				if (result == null) result = caseParameter(textList);
 				if (result == null) result = caseComparable(textList);
 				if (result == null) result = casePatternElement(textList);
 				if (result == null) result = defaultCase(theEObject);
@@ -148,7 +148,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				T result = caseTextLiteral(textLiteral);
 				if (result == null) result = caseText(textLiteral);
 				if (result == null) result = caseInputValue(textLiteral);
-				if (result == null) result = caseInput(textLiteral);
+				if (result == null) result = caseParameter(textLiteral);
 				if (result == null) result = caseComparable(textLiteral);
 				if (result == null) result = casePatternElement(textLiteral);
 				if (result == null) result = defaultCase(theEObject);
@@ -158,7 +158,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				qualitypatternmodel.inputfields.Number number = (qualitypatternmodel.inputfields.Number)theEObject;
 				T result = caseNumber(number);
 				if (result == null) result = caseInputValue(number);
-				if (result == null) result = caseInput(number);
+				if (result == null) result = caseParameter(number);
 				if (result == null) result = caseComparable(number);
 				if (result == null) result = casePatternElement(number);
 				if (result == null) result = defaultCase(theEObject);
@@ -167,7 +167,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 			case InputfieldsPackage.INPUT_VALUE: {
 				InputValue inputValue = (InputValue)theEObject;
 				T result = caseInputValue(inputValue);
-				if (result == null) result = caseInput(inputValue);
+				if (result == null) result = caseParameter(inputValue);
 				if (result == null) result = caseComparable(inputValue);
 				if (result == null) result = casePatternElement(inputValue);
 				if (result == null) result = defaultCase(theEObject);
@@ -177,7 +177,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				Date date = (Date)theEObject;
 				T result = caseDate(date);
 				if (result == null) result = caseInputValue(date);
-				if (result == null) result = caseInput(date);
+				if (result == null) result = caseParameter(date);
 				if (result == null) result = caseComparable(date);
 				if (result == null) result = casePatternElement(date);
 				if (result == null) result = defaultCase(theEObject);
@@ -187,7 +187,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				Time time = (Time)theEObject;
 				T result = caseTime(time);
 				if (result == null) result = caseInputValue(time);
-				if (result == null) result = caseInput(time);
+				if (result == null) result = caseParameter(time);
 				if (result == null) result = caseComparable(time);
 				if (result == null) result = casePatternElement(time);
 				if (result == null) result = defaultCase(theEObject);
@@ -196,7 +196,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 			case InputfieldsPackage.UNKNOWN_INPUT_VALUE: {
 				UnknownInputValue unknownInputValue = (UnknownInputValue)theEObject;
 				T result = caseUnknownInputValue(unknownInputValue);
-				if (result == null) result = caseInput(unknownInputValue);
+				if (result == null) result = caseParameter(unknownInputValue);
 				if (result == null) result = caseComparable(unknownInputValue);
 				if (result == null) result = casePatternElement(unknownInputValue);
 				if (result == null) result = defaultCase(theEObject);
@@ -206,7 +206,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 				DateTime dateTime = (DateTime)theEObject;
 				T result = caseDateTime(dateTime);
 				if (result == null) result = caseInputValue(dateTime);
-				if (result == null) result = caseInput(dateTime);
+				if (result == null) result = caseParameter(dateTime);
 				if (result == null) result = caseComparable(dateTime);
 				if (result == null) result = casePatternElement(dateTime);
 				if (result == null) result = defaultCase(theEObject);
@@ -215,7 +215,7 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 			case InputfieldsPackage.AXIS_OPTION: {
 				AxisOption axisOption = (AxisOption)theEObject;
 				T result = caseAxisOption(axisOption);
-				if (result == null) result = caseInput(axisOption);
+				if (result == null) result = caseParameter(axisOption);
 				if (result == null) result = caseComparable(axisOption);
 				if (result == null) result = casePatternElement(axisOption);
 				if (result == null) result = defaultCase(theEObject);
@@ -226,17 +226,17 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Input</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseInput(Input object) {
+	public T caseParameter(Parameter object) {
 		return null;
 	}
 
@@ -271,17 +271,17 @@ public class InputfieldsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable List</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter List</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable List</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter List</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVariableList(VariableList object) {
+	public T caseParameterList(ParameterList object) {
 		return null;
 	}
 

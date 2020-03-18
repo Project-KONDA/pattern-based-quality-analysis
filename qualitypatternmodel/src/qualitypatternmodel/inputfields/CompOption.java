@@ -24,7 +24,7 @@ import qualitypatternmodel.functions.ComparisonOperator;
  * @model
  * @generated
  */
-public interface CompOption extends Input {
+public interface CompOption extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
 	 * The list contents are of type {@link qualitypatternmodel.functions.ComparisonOperator}.

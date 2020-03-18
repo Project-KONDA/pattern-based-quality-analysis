@@ -23,7 +23,7 @@ import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.inputfields.AxisOption;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -41,7 +41,7 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class AxisOptionImpl extends InputImpl implements AxisOption {
+public class AxisOptionImpl extends ParameterImpl implements AxisOption {
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -125,9 +125,9 @@ public class AxisOptionImpl extends InputImpl implements AxisOption {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
+	public NotificationChain basicSetVariableList(ParameterList newVariableList, NotificationChain msgs) {
 		setRelation(null);
-		return super.basicSetVariableList(newVariableList, msgs);
+		return super.basicSetParameterList(newVariableList, msgs);
 	}
 
 	/**

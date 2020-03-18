@@ -17,7 +17,7 @@ import qualitypatternmodel.inputfields.UnknownInputValue;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UnknownInputValueItemProvider extends InputItemProvider {
+public class UnknownInputValueItemProvider extends ParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

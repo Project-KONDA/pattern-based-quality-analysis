@@ -21,10 +21,10 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.graphstructure.impl.SingleElementImpl;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.VariableList;
-import qualitypatternmodel.inputfields.impl.VariableListImpl;
+import qualitypatternmodel.inputfields.ParameterList;
+import qualitypatternmodel.inputfields.impl.ParameterListImpl;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -37,7 +37,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getVariableList <em>Variable List</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getCondition <em>Condition</em>}</li>
@@ -49,13 +49,13 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  */
 public class PatternImpl extends PatternElementImpl implements Pattern {
 	/**
-	 * The cached value of the '{@link #getVariableList() <em>Variable List</em>}' containment reference.
+	 * The cached value of the '{@link #getParameterList() <em>Parameter List</em>}' containment reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getVariableList()
+	 * @see #getParameterList()
 	 * @generated
 	 * @ordered
 	 */
-	protected VariableList variableList;
+	protected ParameterList parameterList;
 
 	/**
 	 * The cached setting delegate for the '{@link #isCheckMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' attribute.
@@ -138,7 +138,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		rootElement.setName("Root");
 		returnElement.setName("Return");
 
-		setVariableList(new VariableListImpl(this));
+		setParameterList(new ParameterListImpl(this));
 		getInternalId();
 	}
 
@@ -146,13 +146,13 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	public void isValid(boolean isDefinedPattern)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
-		variableList.isValid(isDefinedPattern);
+		parameterList.isValid(isDefinedPattern);
 		graph.isValid(isDefinedPattern);
 		condition.isValid(isDefinedPattern);
 	}
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		if (variableList == null)
+		if (parameterList == null)
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
 		if (graph == null)
 			throw new InvalidityException("Graph null" + " (" + getInternalId() + ")");
@@ -162,7 +162,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		String res = getVariableList().toXQuery(location);
+		String res = getParameterList().toXQuery(location);
 
 		if (graph.getReturnElements() == null || graph.getReturnElements().isEmpty()) {
 			throw new InvalidityException("return elements missing");
@@ -204,11 +204,11 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> inputs = graph.getAllInputs();
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		EList<Parameter> parameters = graph.getAllInputs();
 		if (condition != null)
-			inputs.addAll(condition.getAllInputs());
-		return inputs;
+			parameters.addAll(condition.getAllInputs());
+		return parameters;
 	}
 
 	/**
@@ -218,6 +218,51 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	protected EClass eStaticClass() {
 		return PatternstructurePackage.Literals.PATTERN;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ParameterList getParameterList() {
+		return parameterList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParameterList(ParameterList newParameterList, NotificationChain msgs) {
+		ParameterList oldParameterList = parameterList;
+		parameterList = newParameterList;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__PARAMETER_LIST, oldParameterList, newParameterList);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setParameterList(ParameterList newParameterList) {
+		if (newParameterList != parameterList) {
+			NotificationChain msgs = null;
+			if (parameterList != null)
+				msgs = ((InternalEObject)parameterList).eInverseRemove(this, InputfieldsPackage.PARAMETER_LIST__PATTERN, ParameterList.class, msgs);
+			if (newParameterList != null)
+				msgs = ((InternalEObject)newParameterList).eInverseAdd(this, InputfieldsPackage.PARAMETER_LIST__PATTERN, ParameterList.class, msgs);
+			msgs = basicSetParameterList(newParameterList, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__PARAMETER_LIST, newParameterList, newParameterList));
 	}
 
 	/**
@@ -369,48 +414,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * @generated
 	 */
 	@Override
-	public VariableList getVariableList() {
-		return variableList;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {
-		VariableList oldVariableList = variableList;
-		variableList = newVariableList;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__VARIABLE_LIST, oldVariableList, newVariableList);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setVariableList(VariableList newVariableList) {
-		if (newVariableList != variableList) {
-			NotificationChain msgs = null;
-			if (variableList != null)
-				msgs = ((InternalEObject)variableList).eInverseRemove(this, InputfieldsPackage.VARIABLE_LIST__PATTERN, VariableList.class, msgs);
-			if (newVariableList != null)
-				msgs = ((InternalEObject)newVariableList).eInverseAdd(this, InputfieldsPackage.VARIABLE_LIST__PATTERN, VariableList.class, msgs);
-			msgs = basicSetVariableList(newVariableList, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__VARIABLE_LIST, newVariableList, newVariableList));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public boolean isCheckMorphismOfNextGraph() {
 		return (Boolean)CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
@@ -422,10 +425,10 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
-				if (variableList != null)
-					msgs = ((InternalEObject)variableList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__VARIABLE_LIST, null, msgs);
-				return basicSetVariableList((VariableList)otherEnd, msgs);
+			case PatternstructurePackage.PATTERN__PARAMETER_LIST:
+				if (parameterList != null)
+					msgs = ((InternalEObject)parameterList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__PARAMETER_LIST, null, msgs);
+				return basicSetParameterList((ParameterList)otherEnd, msgs);
 			case PatternstructurePackage.PATTERN__GRAPH:
 				if (graph != null)
 					msgs = ((InternalEObject)graph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.PATTERN__GRAPH, null, msgs);
@@ -445,8 +448,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
-				return basicSetVariableList(null, msgs);
+			case PatternstructurePackage.PATTERN__PARAMETER_LIST:
+				return basicSetParameterList(null, msgs);
 			case PatternstructurePackage.PATTERN__GRAPH:
 				return basicSetGraph(null, msgs);
 			case PatternstructurePackage.PATTERN__CONDITION:
@@ -462,8 +465,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
-				return getVariableList();
+			case PatternstructurePackage.PATTERN__PARAMETER_LIST:
+				return getParameterList();
 			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				return isCheckMorphismOfNextGraph();
 			case PatternstructurePackage.PATTERN__GRAPH:
@@ -485,8 +488,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
-				setVariableList((VariableList)newValue);
+			case PatternstructurePackage.PATTERN__PARAMETER_LIST:
+				setParameterList((ParameterList)newValue);
 				return;
 			case PatternstructurePackage.PATTERN__GRAPH:
 				setGraph((Graph)newValue);
@@ -511,8 +514,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
-				setVariableList((VariableList)null);
+			case PatternstructurePackage.PATTERN__PARAMETER_LIST:
+				setParameterList((ParameterList)null);
 				return;
 			case PatternstructurePackage.PATTERN__GRAPH:
 				setGraph((Graph)null);
@@ -537,8 +540,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
-				return variableList != null;
+			case PatternstructurePackage.PATTERN__PARAMETER_LIST:
+				return parameterList != null;
 			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				return CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case PatternstructurePackage.PATTERN__GRAPH:
@@ -593,7 +596,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public String myToString() {
 		String res = "Pattern " + getInternalId() + " " + name +" ("; 
-		res += getVariableList().myToString().replace("\n", "\n  ");
+		res += getParameterList().myToString().replace("\n", "\n  ");
 		res += "\n  " + getGraph().myToString().replace("\n", "\n  ");
 		res += "\n  " + getCondition().myToString().replace("\n", "\n  ") + "\n)";
 		return res;

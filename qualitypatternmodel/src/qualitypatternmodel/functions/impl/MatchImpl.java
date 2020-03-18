@@ -21,10 +21,10 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.TextLiteral;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.impl.BooleanImpl;
 import qualitypatternmodel.inputfields.Boolean;
 import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
@@ -126,8 +126,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> res = new BasicEList<Input>();
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(regularExpression);
 		res.add(option);
 		return res;
@@ -165,17 +165,17 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			
 			if(getOption() == null) {
 				Boolean bool = new BooleanImpl();			
-				pattern.getVariableList().add(bool);
+				pattern.getParameterList().add(bool);
 				setOption(bool);
 			} else {
-				pattern.getVariableList().add(getOption());
+				pattern.getParameterList().add(getOption());
 			}
 			if(getRegularExpression() == null) {
 				TextLiteral textLiteral = new TextLiteralImpl();
-				pattern.getVariableList().add(textLiteral);
+				pattern.getParameterList().add(textLiteral);
 				setRegularExpression(textLiteral);
 			} else {
-				pattern.getVariableList().add(getRegularExpression());
+				pattern.getParameterList().add(getRegularExpression());
 			}
 		} catch (MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
@@ -187,13 +187,13 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public void removeInputsFromVariableList() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getVariableList().getVariables().remove(getOption());
+			pattern.getParameterList().getParameters().remove(getOption());
 		} catch (MissingPatternContainerException e) {
 			// since this comparison is not contained in a pattern, do nothing
 		}
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getVariableList().getVariables().remove(getRegularExpression());
+			pattern.getParameterList().getParameters().remove(getRegularExpression());
 		} catch (MissingPatternContainerException e) {
 			// since this comparison is not contained in a pattern, do nothing
 		}
@@ -313,9 +313,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		try {
 			Pattern pattern;
 			pattern = (Pattern) getAncestor(Pattern.class);
-			VariableList varlist = pattern.getVariableList();
+			ParameterList varlist = pattern.getParameterList();
 			if(oldRegularExpression != null) {				
-				varlist.getVariables().remove(oldRegularExpression);
+				varlist.getParameters().remove(oldRegularExpression);
 			}
 			if(newRegularExpression != null) {
 				varlist.add(newRegularExpression);
@@ -450,9 +450,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		try {
 			Pattern pattern;
 			pattern = (Pattern) getAncestor(Pattern.class);
-			VariableList varlist = pattern.getVariableList();
+			ParameterList varlist = pattern.getParameterList();
 			if(oldOption != null) {				
-				varlist.getVariables().remove(oldOption);
+				varlist.getParameters().remove(oldOption);
 			}
 			if(newOption != null) {
 				varlist.add(newOption);

@@ -21,7 +21,7 @@ import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.inputfields.UnknownInputValue;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 		switch (eClass.getClassifierID()) {
 			case InputfieldsPackage.COMP_OPTION: return createCompOption();
 			case InputfieldsPackage.PROPERTY_OPTION: return createPropertyOption();
-			case InputfieldsPackage.VARIABLE_LIST: return createVariableList();
+			case InputfieldsPackage.PARAMETER_LIST: return createParameterList();
 			case InputfieldsPackage.BOOLEAN: return createBoolean();
 			case InputfieldsPackage.TEXT_LIST: return createTextList();
 			case InputfieldsPackage.TEXT_LITERAL: return createTextLiteral();
@@ -112,9 +112,9 @@ public class InputfieldsFactoryImpl extends EFactoryImpl implements InputfieldsF
 	 * @generated
 	 */
 	@Override
-	public VariableList createVariableList() {
-		VariableListImpl variableList = new VariableListImpl();
-		return variableList;
+	public ParameterList createParameterList() {
+		ParameterListImpl parameterList = new ParameterListImpl();
+		return parameterList;
 	}
 
 	/**

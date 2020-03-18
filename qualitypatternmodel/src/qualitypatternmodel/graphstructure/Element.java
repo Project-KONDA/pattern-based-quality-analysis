@@ -8,7 +8,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.Operator;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -256,7 +256,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<Input> getAllVariables() throws InvalidityException;
+	EList<Parameter> getAllVariables() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -366,7 +366,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model
 	 * @generated
 	 */
-	void addPrimitiveComparison(Input input);
+	void addPrimitiveComparison(Parameter input);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -382,6 +382,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model
 	 * @generated
 	 */
-	void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, Input input);
+	void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, Parameter input);
 
 } // Element

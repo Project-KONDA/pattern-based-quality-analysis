@@ -13,7 +13,7 @@ import qualitypatternmodel.inputfields.InputfieldsFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AxisOptionTest extends InputTest {
+public class AxisOptionTest extends ParameterTest {
 
 	/**
 	 * <!-- begin-user-doc -->

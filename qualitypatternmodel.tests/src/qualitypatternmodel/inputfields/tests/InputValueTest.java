@@ -10,7 +10,7 @@ import qualitypatternmodel.inputfields.InputValue;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class InputValueTest extends InputTest {
+public abstract class InputValueTest extends ParameterTest {
 
 	/**
 	 * Constructs a new Input Value test case with the given name.

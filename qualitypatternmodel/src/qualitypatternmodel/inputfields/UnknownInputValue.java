@@ -13,7 +13,7 @@ package qualitypatternmodel.inputfields;
  * @model
  * @generated
  */
-public interface UnknownInputValue extends Input {
+public interface UnknownInputValue extends Parameter {
 
 	/**
 	 * <!-- begin-user-doc -->

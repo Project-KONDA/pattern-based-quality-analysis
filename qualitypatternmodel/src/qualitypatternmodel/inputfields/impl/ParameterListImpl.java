@@ -19,11 +19,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.TextLiteral;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.Boolean;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.patternstructure.Location;
@@ -39,31 +39,31 @@ import qualitypatternmodel.patternstructure.impl.PatternImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.inputfields.impl.VariableListImpl#getVariables <em>Variables</em>}</li>
- *   <li>{@link qualitypatternmodel.inputfields.impl.VariableListImpl#getPattern <em>Pattern</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.ParameterListImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link qualitypatternmodel.inputfields.impl.ParameterListImpl#getPattern <em>Pattern</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class VariableListImpl extends PatternElementImpl implements VariableList {
+public class ParameterListImpl extends PatternElementImpl implements ParameterList {
 	/**
-	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getVariables()
+	 * @see #getParameters()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Input> variables;
+	protected EList<Parameter> parameters;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VariableListImpl() {
+	protected ParameterListImpl() {
 		super();
 	}
 
-	public VariableListImpl(PatternImpl patternImpl) {
+	public ParameterListImpl(PatternImpl patternImpl) {
 		super();
 		setPattern(patternImpl);
 	}
@@ -78,22 +78,22 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 		if (getPattern() == null)
 			throw new InvalidityException("VariableList not in Pattern" + " (" + getInternalId() + ")");
 
-		EList<Input> patternVars = getPattern().getAllInputs();
+		EList<Parameter> patternVars = getPattern().getAllInputs();
 		if (patternVars == null)
 			throw new InvalidityException("invalid Operators of Graph" + " (" + getInternalId() + ")");
 
-		if (!(patternVars.containsAll(getVariables()) && getVariables().containsAll(patternVars))) {
+		if (!(patternVars.containsAll(getParameters()) && getParameters().containsAll(patternVars))) {
 			String msg = "variables from VariableList not equal to amount of variables used in Graph" + " ("
 					+ getInternalId() + ")" + ": \n";
-			for (Input var : patternVars) {
+			for (Parameter var : patternVars) {
 				msg += "[" + var.myToString() + "]";
-				if (!getVariables().contains(var))
+				if (!getParameters().contains(var))
 					msg += "- ";
 				else
 					msg += "+ ";
 			}
 			msg += "\n";
-			for (Input var : getVariables()) {
+			for (Parameter var : getParameters()) {
 				msg += "[" + var.myToString() + "]";
 				if (!patternVars.contains(var))
 					msg += "- ";
@@ -107,9 +107,9 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		String res = "";
-		for (Input input : getVariables()) {
-			if (input instanceof TextListImpl)
-				res += ((TextListImpl) input).getListDeclaration();
+		for (Parameter parameter : getParameters()) {
+			if (parameter instanceof TextListImpl)
+				res += ((TextListImpl) parameter).getListDeclaration();
 		}
 		return res;
 	}
@@ -120,7 +120,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return InputfieldsPackage.Literals.VARIABLE_LIST;
+		return InputfieldsPackage.Literals.PARAMETER_LIST;
 	}
 
 	/**
@@ -128,11 +128,11 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	 * @generated
 	 */
 	@Override
-	public EList<Input> getVariables() {
-		if (variables == null) {
-			variables = new EObjectContainmentWithInverseEList<Input>(Input.class, this, InputfieldsPackage.VARIABLE_LIST__VARIABLES, InputfieldsPackage.INPUT__VARIABLE_LIST);
+	public EList<Parameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class, this, InputfieldsPackage.PARAMETER_LIST__PARAMETERS, InputfieldsPackage.PARAMETER__PARAMETER_LIST);
 		}
-		return variables;
+		return parameters;
 	}
 
 	/**
@@ -141,7 +141,7 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	 */
 	@Override
 	public Pattern getPattern() {
-		if (eContainerFeatureID() != InputfieldsPackage.VARIABLE_LIST__PATTERN) return null;
+		if (eContainerFeatureID() != InputfieldsPackage.PARAMETER_LIST__PATTERN) return null;
 		return (Pattern)eInternalContainer();
 	}
 
@@ -151,24 +151,24 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
-		for (Input input : getVariables()) {
-			if (input instanceof Boolean) {
-				((Boolean) input).setMatch(null);
+		for (Parameter parameter : getParameters()) {
+			if (parameter instanceof Boolean) {
+				((Boolean) parameter).setMatch(null);
 			}
-			if (input instanceof TextLiteral) {
-				((TextLiteral) input).setMatch(null);
-				((TextLiteral) input).setProperty(null);
+			if (parameter instanceof TextLiteral) {
+				((TextLiteral) parameter).setMatch(null);
+				((TextLiteral) parameter).setProperty(null);
 			}
-			if (input instanceof CompOption) {
-				((CompOption) input).setComparison(null);
+			if (parameter instanceof CompOption) {
+				((CompOption) parameter).setComparison(null);
 			}
-			if (input instanceof PropertyOption) {
-				((PropertyOption) input).setProperty(null);
+			if (parameter instanceof PropertyOption) {
+				((PropertyOption) parameter).setProperty(null);
 			}
-			input.getComparison1().clear();
-			input.getComparison2().clear();
+			parameter.getComparison1().clear();
+			parameter.getComparison2().clear();
 		}
-		msgs = eBasicSetContainer((InternalEObject) newPattern, InputfieldsPackage.VARIABLE_LIST__PATTERN, msgs);
+		msgs = eBasicSetContainer((InternalEObject) newPattern, InputfieldsPackage.PARAMETER_LIST__PATTERN, msgs);
 		return msgs;
 	}
 
@@ -178,19 +178,19 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	 */
 	@Override
 	public void setPattern(Pattern newPattern) {
-		if (newPattern != eInternalContainer() || (eContainerFeatureID() != InputfieldsPackage.VARIABLE_LIST__PATTERN && newPattern != null)) {
+		if (newPattern != eInternalContainer() || (eContainerFeatureID() != InputfieldsPackage.PARAMETER_LIST__PATTERN && newPattern != null)) {
 			if (EcoreUtil.isAncestor(this, newPattern))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPattern != null)
-				msgs = ((InternalEObject)newPattern).eInverseAdd(this, PatternstructurePackage.PATTERN__VARIABLE_LIST, Pattern.class, msgs);
+				msgs = ((InternalEObject)newPattern).eInverseAdd(this, PatternstructurePackage.PATTERN__PARAMETER_LIST, Pattern.class, msgs);
 			msgs = basicSetPattern(newPattern, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.VARIABLE_LIST__PATTERN, newPattern, newPattern));
+			eNotify(new ENotificationImpl(this, Notification.SET, InputfieldsPackage.PARAMETER_LIST__PATTERN, newPattern, newPattern));
 	}
 
 	/**
@@ -199,9 +199,9 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	 * @generated NOT
 	 */
 	@Override
-	public void add(Input input) {
-		if (!getVariables().contains(input))
-			getVariables().add(input);
+	public void add(Parameter parameter) {
+		if (!getParameters().contains(parameter))
+			getParameters().add(parameter);
 	}
 
 	/**
@@ -212,9 +212,9 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getVariables()).basicAdd(otherEnd, msgs);
-			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+			case InputfieldsPackage.PARAMETER_LIST__PARAMETERS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameters()).basicAdd(otherEnd, msgs);
+			case InputfieldsPackage.PARAMETER_LIST__PATTERN:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPattern((Pattern)otherEnd, msgs);
@@ -229,9 +229,9 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-				return ((InternalEList<?>)getVariables()).basicRemove(otherEnd, msgs);
-			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+			case InputfieldsPackage.PARAMETER_LIST__PARAMETERS:
+				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+			case InputfieldsPackage.PARAMETER_LIST__PATTERN:
 				return basicSetPattern(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -244,8 +244,8 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.PATTERN__VARIABLE_LIST, Pattern.class, msgs);
+			case InputfieldsPackage.PARAMETER_LIST__PATTERN:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.PATTERN__PARAMETER_LIST, Pattern.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -257,9 +257,9 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-				return getVariables();
-			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+			case InputfieldsPackage.PARAMETER_LIST__PARAMETERS:
+				return getParameters();
+			case InputfieldsPackage.PARAMETER_LIST__PATTERN:
 				return getPattern();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -273,11 +273,11 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-				getVariables().clear();
-				getVariables().addAll((Collection<? extends Input>)newValue);
+			case InputfieldsPackage.PARAMETER_LIST__PARAMETERS:
+				getParameters().clear();
+				getParameters().addAll((Collection<? extends Parameter>)newValue);
 				return;
-			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+			case InputfieldsPackage.PARAMETER_LIST__PATTERN:
 				setPattern((Pattern)newValue);
 				return;
 		}
@@ -291,10 +291,10 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-				getVariables().clear();
+			case InputfieldsPackage.PARAMETER_LIST__PARAMETERS:
+				getParameters().clear();
 				return;
-			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+			case InputfieldsPackage.PARAMETER_LIST__PATTERN:
 				setPattern((Pattern)null);
 				return;
 		}
@@ -308,9 +308,9 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InputfieldsPackage.VARIABLE_LIST__VARIABLES:
-				return variables != null && !variables.isEmpty();
-			case InputfieldsPackage.VARIABLE_LIST__PATTERN:
+			case InputfieldsPackage.PARAMETER_LIST__PARAMETERS:
+				return parameters != null && !parameters.isEmpty();
+			case InputfieldsPackage.PARAMETER_LIST__PATTERN:
 				return getPattern() != null;
 		}
 		return super.eIsSet(featureID);
@@ -323,8 +323,8 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case InputfieldsPackage.VARIABLE_LIST___ADD__INPUT:
-				add((Input)arguments.get(0));
+			case InputfieldsPackage.PARAMETER_LIST___ADD__PARAMETER:
+				add((Parameter)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -332,10 +332,10 @@ public class VariableListImpl extends PatternElementImpl implements VariableList
 
 	@Override
 	public String myToString() {
-		if (getVariables().size() > 0) {
+		if (getParameters().size() > 0) {
 			String res = "\nVariableList " + getInternalId();
-			for (Input input : getVariables()) {
-				res += "\n- " + input.myToString();
+			for (Parameter parameter : getParameters()) {
+				res += "\n- " + parameter.myToString();
 			}
 			return res;
 		}

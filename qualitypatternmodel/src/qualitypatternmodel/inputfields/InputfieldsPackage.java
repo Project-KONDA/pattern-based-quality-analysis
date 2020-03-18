@@ -60,14 +60,14 @@ public interface InputfieldsPackage extends EPackage {
 	InputfieldsPackage eINSTANCE = qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.InputImpl <em>Input</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.ParameterImpl <em>Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.inputfields.impl.InputImpl
-	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getInput()
+	 * @see qualitypatternmodel.inputfields.impl.ParameterImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getParameter()
 	 * @generated
 	 */
-	int INPUT = 0;
+	int PARAMETER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -76,7 +76,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
+	int PARAMETER__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -85,7 +85,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
+	int PARAMETER__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -94,7 +94,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__COMPARISON1 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int PARAMETER__COMPARISON1 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -103,16 +103,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__COMPARISON2 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int PARAMETER__COMPARISON2 = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__VARIABLE_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int PARAMETER__PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -121,7 +121,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__DESCRIPTION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int PARAMETER__DESCRIPTION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -130,16 +130,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT__IS_PREDEFINED = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int PARAMETER__IS_PREDEFINED = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>Input</em>' class.
+	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int PARAMETER_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -148,7 +148,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int PARAMETER___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -157,7 +157,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int PARAMETER___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -166,7 +166,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
+	int PARAMETER___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -175,7 +175,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int PARAMETER___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -184,7 +184,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int PARAMETER___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -193,7 +193,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___GET_CONTAINER = PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER;
+	int PARAMETER___GET_CONTAINER = PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -202,7 +202,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int PARAMETER___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -211,7 +211,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
+	int PARAMETER___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -220,7 +220,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___GET_RETURN_TYPE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int PARAMETER___GET_RETURN_TYPE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -229,7 +229,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___IS_TRANSLATABLE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int PARAMETER___IS_TRANSLATABLE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -238,7 +238,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___GET_ALL_ARGUMENT_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+	int PARAMETER___GET_ALL_ARGUMENT_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -247,7 +247,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___INPUT_IS_VALID = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int PARAMETER___INPUT_IS_VALID = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -256,16 +256,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
-	 * The number of operations of the '<em>Input</em>' class.
+	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
+	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.CompOptionImpl <em>Comp Option</em>}' class.
@@ -284,7 +284,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__ID = INPUT__ID;
+	int COMP_OPTION__ID = PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -293,7 +293,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__INTERNAL_ID = INPUT__INTERNAL_ID;
+	int COMP_OPTION__INTERNAL_ID = PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -302,7 +302,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__COMPARISON1 = INPUT__COMPARISON1;
+	int COMP_OPTION__COMPARISON1 = PARAMETER__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -311,16 +311,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__COMPARISON2 = INPUT__COMPARISON2;
+	int COMP_OPTION__COMPARISON2 = PARAMETER__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+	int COMP_OPTION__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -329,7 +329,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__DESCRIPTION = INPUT__DESCRIPTION;
+	int COMP_OPTION__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -338,7 +338,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__IS_PREDEFINED = INPUT__IS_PREDEFINED;
+	int COMP_OPTION__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -347,7 +347,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__OPTIONS = INPUT_FEATURE_COUNT + 0;
+	int COMP_OPTION__OPTIONS = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -356,7 +356,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__VALUE = INPUT_FEATURE_COUNT + 1;
+	int COMP_OPTION__VALUE = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison</b></em>' reference.
@@ -365,7 +365,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION__COMPARISON = INPUT_FEATURE_COUNT + 2;
+	int COMP_OPTION__COMPARISON = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Comp Option</em>' class.
@@ -374,7 +374,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 3;
+	int COMP_OPTION_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -383,7 +383,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
+	int COMP_OPTION___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -392,7 +392,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
+	int COMP_OPTION___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -401,7 +401,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+	int COMP_OPTION___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -410,7 +410,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+	int COMP_OPTION___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -419,7 +419,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
+	int COMP_OPTION___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -428,7 +428,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_CONTAINER = INPUT___GET_CONTAINER;
+	int COMP_OPTION___GET_CONTAINER = PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -437,7 +437,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
+	int COMP_OPTION___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -446,7 +446,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___MY_TO_STRING = INPUT___MY_TO_STRING;
+	int COMP_OPTION___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -455,7 +455,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+	int COMP_OPTION___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -464,7 +464,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+	int COMP_OPTION___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -473,7 +473,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
+	int COMP_OPTION___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -482,7 +482,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+	int COMP_OPTION___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -491,7 +491,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int COMP_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Comp Option</em>' class.
@@ -500,7 +500,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMP_OPTION_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+	int COMP_OPTION_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 
 	/**
@@ -520,7 +520,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__ID = INPUT__ID;
+	int PROPERTY_OPTION__ID = PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -529,7 +529,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__INTERNAL_ID = INPUT__INTERNAL_ID;
+	int PROPERTY_OPTION__INTERNAL_ID = PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -538,7 +538,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__COMPARISON1 = INPUT__COMPARISON1;
+	int PROPERTY_OPTION__COMPARISON1 = PARAMETER__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -547,16 +547,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__COMPARISON2 = INPUT__COMPARISON2;
+	int PROPERTY_OPTION__COMPARISON2 = PARAMETER__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+	int PROPERTY_OPTION__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -565,7 +565,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__DESCRIPTION = INPUT__DESCRIPTION;
+	int PROPERTY_OPTION__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -574,7 +574,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__IS_PREDEFINED = INPUT__IS_PREDEFINED;
+	int PROPERTY_OPTION__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -583,7 +583,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__OPTIONS = INPUT_FEATURE_COUNT + 0;
+	int PROPERTY_OPTION__OPTIONS = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -592,7 +592,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__VALUE = INPUT_FEATURE_COUNT + 1;
+	int PROPERTY_OPTION__VALUE = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' reference.
@@ -601,7 +601,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__PROPERTY = INPUT_FEATURE_COUNT + 2;
+	int PROPERTY_OPTION__PROPERTY = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Property Option</em>' class.
@@ -610,7 +610,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 3;
+	int PROPERTY_OPTION_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -619,7 +619,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
+	int PROPERTY_OPTION___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -628,7 +628,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
+	int PROPERTY_OPTION___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -637,7 +637,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+	int PROPERTY_OPTION___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -646,7 +646,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+	int PROPERTY_OPTION___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -655,7 +655,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
+	int PROPERTY_OPTION___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -664,7 +664,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_CONTAINER = INPUT___GET_CONTAINER;
+	int PROPERTY_OPTION___GET_CONTAINER = PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -673,7 +673,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
+	int PROPERTY_OPTION___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -682,7 +682,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___MY_TO_STRING = INPUT___MY_TO_STRING;
+	int PROPERTY_OPTION___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -691,7 +691,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+	int PROPERTY_OPTION___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -700,7 +700,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+	int PROPERTY_OPTION___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -709,7 +709,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
+	int PROPERTY_OPTION___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -718,7 +718,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+	int PROPERTY_OPTION___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -727,7 +727,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int PROPERTY_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Property Option</em>' class.
@@ -736,17 +736,17 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+	int PROPERTY_OPTION_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.VariableListImpl <em>Variable List</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.ParameterListImpl <em>Parameter List</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.inputfields.impl.VariableListImpl
-	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getVariableList()
+	 * @see qualitypatternmodel.inputfields.impl.ParameterListImpl
+	 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getParameterList()
 	 * @generated
 	 */
-	int VARIABLE_LIST = 3;
+	int PARAMETER_LIST = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -755,7 +755,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
+	int PARAMETER_LIST__ID = PatternstructurePackage.PATTERN_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -764,16 +764,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
+	int PARAMETER_LIST__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Variables</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST__VARIABLES = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int PARAMETER_LIST__PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -782,16 +782,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST__PATTERN = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int PARAMETER_LIST__PATTERN = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Variable List</em>' class.
+	 * The number of structural features of the '<em>Parameter List</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int PARAMETER_LIST_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -800,7 +800,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int PARAMETER_LIST___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -809,7 +809,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int PARAMETER_LIST___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -818,7 +818,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
+	int PARAMETER_LIST___PREPARE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -827,7 +827,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int PARAMETER_LIST___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -836,7 +836,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int PARAMETER_LIST___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -845,7 +845,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___GET_CONTAINER = PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER;
+	int PARAMETER_LIST___GET_CONTAINER = PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -854,7 +854,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int PARAMETER_LIST___GET_ANCESTOR__CLASS = PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -863,7 +863,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
+	int PARAMETER_LIST___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -872,7 +872,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int PARAMETER_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.
@@ -881,16 +881,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST___ADD__INPUT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int PARAMETER_LIST___ADD__PARAMETER = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Variable List</em>' class.
+	 * The number of operations of the '<em>Parameter List</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int PARAMETER_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.InputValueImpl <em>Input Value</em>}' class.
@@ -909,7 +909,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE__ID = INPUT__ID;
+	int INPUT_VALUE__ID = PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -918,7 +918,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE__INTERNAL_ID = INPUT__INTERNAL_ID;
+	int INPUT_VALUE__INTERNAL_ID = PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -927,7 +927,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE__COMPARISON1 = INPUT__COMPARISON1;
+	int INPUT_VALUE__COMPARISON1 = PARAMETER__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -936,16 +936,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE__COMPARISON2 = INPUT__COMPARISON2;
+	int INPUT_VALUE__COMPARISON2 = PARAMETER__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+	int INPUT_VALUE__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -954,7 +954,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE__DESCRIPTION = INPUT__DESCRIPTION;
+	int INPUT_VALUE__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -963,7 +963,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE__IS_PREDEFINED = INPUT__IS_PREDEFINED;
+	int INPUT_VALUE__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
 	 * The number of structural features of the '<em>Input Value</em>' class.
@@ -972,7 +972,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE_FEATURE_COUNT = INPUT_FEATURE_COUNT + 0;
+	int INPUT_VALUE_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -981,7 +981,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
+	int INPUT_VALUE___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -990,7 +990,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
+	int INPUT_VALUE___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -999,7 +999,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+	int INPUT_VALUE___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1008,7 +1008,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+	int INPUT_VALUE___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1017,7 +1017,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
+	int INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1026,7 +1026,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___GET_CONTAINER = INPUT___GET_CONTAINER;
+	int INPUT_VALUE___GET_CONTAINER = PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1035,7 +1035,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
+	int INPUT_VALUE___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1044,7 +1044,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___MY_TO_STRING = INPUT___MY_TO_STRING;
+	int INPUT_VALUE___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1053,7 +1053,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+	int INPUT_VALUE___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1062,7 +1062,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+	int INPUT_VALUE___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1071,7 +1071,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
+	int INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1080,7 +1080,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+	int INPUT_VALUE___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1089,7 +1089,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Input Value</em>' class.
@@ -1098,7 +1098,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+	int INPUT_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.BooleanImpl <em>Boolean</em>}' class.
@@ -1147,13 +1147,13 @@ public interface InputfieldsPackage extends EPackage {
 	int BOOLEAN__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__VARIABLE_LIST = INPUT_VALUE__VARIABLE_LIST;
+	int BOOLEAN__PARAMETER_LIST = INPUT_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1373,13 +1373,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__VARIABLE_LIST = INPUT_VALUE__VARIABLE_LIST;
+	int TEXT__PARAMETER_LIST = INPUT_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1581,13 +1581,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LIST__COMPARISON2 = TEXT__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST__VARIABLE_LIST = TEXT__VARIABLE_LIST;
+	int TEXT_LIST__PARAMETER_LIST = TEXT__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1816,13 +1816,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TEXT_LITERAL__COMPARISON2 = TEXT__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__VARIABLE_LIST = TEXT__VARIABLE_LIST;
+	int TEXT_LITERAL__PARAMETER_LIST = TEXT__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2051,13 +2051,13 @@ public interface InputfieldsPackage extends EPackage {
 	int NUMBER__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__VARIABLE_LIST = INPUT_VALUE__VARIABLE_LIST;
+	int NUMBER__PARAMETER_LIST = INPUT_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2268,13 +2268,13 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__VARIABLE_LIST = INPUT_VALUE__VARIABLE_LIST;
+	int DATE__PARAMETER_LIST = INPUT_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2485,13 +2485,13 @@ public interface InputfieldsPackage extends EPackage {
 	int TIME__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__VARIABLE_LIST = INPUT_VALUE__VARIABLE_LIST;
+	int TIME__PARAMETER_LIST = INPUT_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2672,7 +2672,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__ID = INPUT__ID;
+	int UNKNOWN_INPUT_VALUE__ID = PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2681,7 +2681,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__INTERNAL_ID = INPUT__INTERNAL_ID;
+	int UNKNOWN_INPUT_VALUE__INTERNAL_ID = PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2690,7 +2690,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__COMPARISON1 = INPUT__COMPARISON1;
+	int UNKNOWN_INPUT_VALUE__COMPARISON1 = PARAMETER__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -2699,16 +2699,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__COMPARISON2 = INPUT__COMPARISON2;
+	int UNKNOWN_INPUT_VALUE__COMPARISON2 = PARAMETER__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+	int UNKNOWN_INPUT_VALUE__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2717,7 +2717,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__DESCRIPTION = INPUT__DESCRIPTION;
+	int UNKNOWN_INPUT_VALUE__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -2726,7 +2726,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE__IS_PREDEFINED = INPUT__IS_PREDEFINED;
+	int UNKNOWN_INPUT_VALUE__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
 	 * The number of structural features of the '<em>Unknown Input Value</em>' class.
@@ -2735,7 +2735,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE_FEATURE_COUNT = INPUT_FEATURE_COUNT + 0;
+	int UNKNOWN_INPUT_VALUE_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2744,7 +2744,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
+	int UNKNOWN_INPUT_VALUE___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2753,7 +2753,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
+	int UNKNOWN_INPUT_VALUE___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2762,7 +2762,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+	int UNKNOWN_INPUT_VALUE___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2771,7 +2771,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+	int UNKNOWN_INPUT_VALUE___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2780,7 +2780,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
+	int UNKNOWN_INPUT_VALUE___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2789,7 +2789,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___GET_CONTAINER = INPUT___GET_CONTAINER;
+	int UNKNOWN_INPUT_VALUE___GET_CONTAINER = PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2798,7 +2798,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
+	int UNKNOWN_INPUT_VALUE___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2807,7 +2807,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___MY_TO_STRING = INPUT___MY_TO_STRING;
+	int UNKNOWN_INPUT_VALUE___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2816,7 +2816,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+	int UNKNOWN_INPUT_VALUE___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -2825,7 +2825,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+	int UNKNOWN_INPUT_VALUE___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -2834,7 +2834,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
+	int UNKNOWN_INPUT_VALUE___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2843,7 +2843,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+	int UNKNOWN_INPUT_VALUE___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2852,7 +2852,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int UNKNOWN_INPUT_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Concretize</em>' operation.
@@ -2861,7 +2861,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE___CONCRETIZE__INPUTVALUE = INPUT_OPERATION_COUNT + 0;
+	int UNKNOWN_INPUT_VALUE___CONCRETIZE__INPUTVALUE = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Unknown Input Value</em>' class.
@@ -2870,7 +2870,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_INPUT_VALUE_OPERATION_COUNT = INPUT_OPERATION_COUNT + 1;
+	int UNKNOWN_INPUT_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.inputfields.impl.DateTimeImpl <em>Date Time</em>}' class.
@@ -2919,13 +2919,13 @@ public interface InputfieldsPackage extends EPackage {
 	int DATE_TIME__COMPARISON2 = INPUT_VALUE__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME__VARIABLE_LIST = INPUT_VALUE__VARIABLE_LIST;
+	int DATE_TIME__PARAMETER_LIST = INPUT_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3106,7 +3106,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__ID = INPUT__ID;
+	int AXIS_OPTION__ID = PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -3115,7 +3115,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__INTERNAL_ID = INPUT__INTERNAL_ID;
+	int AXIS_OPTION__INTERNAL_ID = PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -3124,7 +3124,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__COMPARISON1 = INPUT__COMPARISON1;
+	int AXIS_OPTION__COMPARISON1 = PARAMETER__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -3133,16 +3133,16 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__COMPARISON2 = INPUT__COMPARISON2;
+	int AXIS_OPTION__COMPARISON2 = PARAMETER__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__VARIABLE_LIST = INPUT__VARIABLE_LIST;
+	int AXIS_OPTION__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3151,7 +3151,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__DESCRIPTION = INPUT__DESCRIPTION;
+	int AXIS_OPTION__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -3160,7 +3160,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__IS_PREDEFINED = INPUT__IS_PREDEFINED;
+	int AXIS_OPTION__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -3169,7 +3169,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__OPTIONS = INPUT_FEATURE_COUNT + 0;
+	int AXIS_OPTION__OPTIONS = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3178,7 +3178,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__VALUE = INPUT_FEATURE_COUNT + 1;
+	int AXIS_OPTION__VALUE = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Relation</b></em>' reference.
@@ -3187,7 +3187,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__RELATION = INPUT_FEATURE_COUNT + 2;
+	int AXIS_OPTION__RELATION = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Axis Option</em>' class.
@@ -3196,7 +3196,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION_FEATURE_COUNT = INPUT_FEATURE_COUNT + 3;
+	int AXIS_OPTION_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -3205,7 +3205,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___TO_XQUERY__LOCATION = INPUT___TO_XQUERY__LOCATION;
+	int AXIS_OPTION___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3214,7 +3214,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___GET_ALL_INPUTS = INPUT___GET_ALL_INPUTS;
+	int AXIS_OPTION___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3223,7 +3223,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___PREPARE_TRANSLATION = INPUT___PREPARE_TRANSLATION;
+	int AXIS_OPTION___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3232,7 +3232,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___IS_VALID__BOOLEAN = INPUT___IS_VALID__BOOLEAN;
+	int AXIS_OPTION___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3241,7 +3241,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___IS_VALID_LOCAL__BOOLEAN = INPUT___IS_VALID_LOCAL__BOOLEAN;
+	int AXIS_OPTION___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3250,7 +3250,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___GET_CONTAINER = INPUT___GET_CONTAINER;
+	int AXIS_OPTION___GET_CONTAINER = PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -3259,7 +3259,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___GET_ANCESTOR__CLASS = INPUT___GET_ANCESTOR__CLASS;
+	int AXIS_OPTION___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -3268,7 +3268,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___MY_TO_STRING = INPUT___MY_TO_STRING;
+	int AXIS_OPTION___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3277,7 +3277,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___GET_RETURN_TYPE = INPUT___GET_RETURN_TYPE;
+	int AXIS_OPTION___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -3286,7 +3286,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___IS_TRANSLATABLE = INPUT___IS_TRANSLATABLE;
+	int AXIS_OPTION___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -3295,7 +3295,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___GET_ALL_ARGUMENT_ELEMENTS = INPUT___GET_ALL_ARGUMENT_ELEMENTS;
+	int AXIS_OPTION___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3304,7 +3304,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___INPUT_IS_VALID = INPUT___INPUT_IS_VALID;
+	int AXIS_OPTION___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3313,7 +3313,7 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int AXIS_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Axis Option</em>' class.
@@ -3322,70 +3322,70 @@ public interface InputfieldsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION_OPERATION_COUNT = INPUT_OPERATION_COUNT + 0;
+	int AXIS_OPTION_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Input <em>Input</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Input</em>'.
-	 * @see qualitypatternmodel.inputfields.Input
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see qualitypatternmodel.inputfields.Parameter
 	 * @generated
 	 */
-	EClass getInput();
+	EClass getParameter();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.inputfields.Input#getVariableList <em>Variable List</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.inputfields.Parameter#getParameterList <em>Parameter List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Variable List</em>'.
-	 * @see qualitypatternmodel.inputfields.Input#getVariableList()
-	 * @see #getInput()
+	 * @return the meta object for the container reference '<em>Parameter List</em>'.
+	 * @see qualitypatternmodel.inputfields.Parameter#getParameterList()
+	 * @see #getParameter()
 	 * @generated
 	 */
-	EReference getInput_VariableList();
+	EReference getParameter_ParameterList();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Input#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Parameter#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see qualitypatternmodel.inputfields.Input#getDescription()
-	 * @see #getInput()
+	 * @see qualitypatternmodel.inputfields.Parameter#getDescription()
+	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getInput_Description();
+	EAttribute getParameter_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Input#isIsPredefined <em>Is Predefined</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.inputfields.Parameter#isIsPredefined <em>Is Predefined</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Is Predefined</em>'.
-	 * @see qualitypatternmodel.inputfields.Input#isIsPredefined()
-	 * @see #getInput()
+	 * @see qualitypatternmodel.inputfields.Parameter#isIsPredefined()
+	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getInput_IsPredefined();
+	EAttribute getParameter_IsPredefined();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Input#inputIsValid() <em>Input Is Valid</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Parameter#inputIsValid() <em>Input Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Input Is Valid</em>' operation.
-	 * @see qualitypatternmodel.inputfields.Input#inputIsValid()
+	 * @see qualitypatternmodel.inputfields.Parameter#inputIsValid()
 	 * @generated
 	 */
-	EOperation getInput__InputIsValid();
+	EOperation getParameter__InputIsValid();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Input#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.Parameter#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Validate</em>' operation.
-	 * @see qualitypatternmodel.inputfields.Input#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see qualitypatternmodel.inputfields.Parameter#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
 	 * @generated
 	 */
-	EOperation getInput__Validate__DiagnosticChain_Map();
+	EOperation getParameter__Validate__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.CompOption <em>Comp Option</em>}'.
@@ -3474,46 +3474,46 @@ public interface InputfieldsPackage extends EPackage {
 	EReference getPropertyOption_Property();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.VariableList <em>Variable List</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.ParameterList <em>Parameter List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Variable List</em>'.
-	 * @see qualitypatternmodel.inputfields.VariableList
+	 * @return the meta object for class '<em>Parameter List</em>'.
+	 * @see qualitypatternmodel.inputfields.ParameterList
 	 * @generated
 	 */
-	EClass getVariableList();
+	EClass getParameterList();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.inputfields.VariableList#getVariables <em>Variables</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.inputfields.ParameterList#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Variables</em>'.
-	 * @see qualitypatternmodel.inputfields.VariableList#getVariables()
-	 * @see #getVariableList()
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see qualitypatternmodel.inputfields.ParameterList#getParameters()
+	 * @see #getParameterList()
 	 * @generated
 	 */
-	EReference getVariableList_Variables();
+	EReference getParameterList_Parameters();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.inputfields.VariableList#getPattern <em>Pattern</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.inputfields.ParameterList#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Pattern</em>'.
-	 * @see qualitypatternmodel.inputfields.VariableList#getPattern()
-	 * @see #getVariableList()
+	 * @see qualitypatternmodel.inputfields.ParameterList#getPattern()
+	 * @see #getParameterList()
 	 * @generated
 	 */
-	EReference getVariableList_Pattern();
+	EReference getParameterList_Pattern();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.VariableList#add(qualitypatternmodel.inputfields.Input) <em>Add</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.inputfields.ParameterList#add(qualitypatternmodel.inputfields.Parameter) <em>Add</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add</em>' operation.
-	 * @see qualitypatternmodel.inputfields.VariableList#add(qualitypatternmodel.inputfields.Input)
+	 * @see qualitypatternmodel.inputfields.ParameterList#add(qualitypatternmodel.inputfields.Parameter)
 	 * @generated
 	 */
-	EOperation getVariableList__Add__Input();
+	EOperation getParameterList__Add__Parameter();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.inputfields.Boolean <em>Boolean</em>}'.
@@ -3822,22 +3822,22 @@ public interface InputfieldsPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.InputImpl <em>Input</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.ParameterImpl <em>Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.inputfields.impl.InputImpl
-		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getInput()
+		 * @see qualitypatternmodel.inputfields.impl.ParameterImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getParameter()
 		 * @generated
 		 */
-		EClass INPUT = eINSTANCE.getInput();
+		EClass PARAMETER = eINSTANCE.getParameter();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable List</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Parameter List</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INPUT__VARIABLE_LIST = eINSTANCE.getInput_VariableList();
+		EReference PARAMETER__PARAMETER_LIST = eINSTANCE.getParameter_ParameterList();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -3845,7 +3845,7 @@ public interface InputfieldsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INPUT__DESCRIPTION = eINSTANCE.getInput_Description();
+		EAttribute PARAMETER__DESCRIPTION = eINSTANCE.getParameter_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Predefined</b></em>' attribute feature.
@@ -3853,7 +3853,7 @@ public interface InputfieldsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INPUT__IS_PREDEFINED = eINSTANCE.getInput_IsPredefined();
+		EAttribute PARAMETER__IS_PREDEFINED = eINSTANCE.getParameter_IsPredefined();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Is Valid</b></em>' operation.
@@ -3861,7 +3861,7 @@ public interface InputfieldsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation INPUT___INPUT_IS_VALID = eINSTANCE.getInput__InputIsValid();
+		EOperation PARAMETER___INPUT_IS_VALID = eINSTANCE.getParameter__InputIsValid();
 
 		/**
 		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
@@ -3869,7 +3869,7 @@ public interface InputfieldsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getInput__Validate__DiagnosticChain_Map();
+		EOperation PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getParameter__Validate__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.CompOptionImpl <em>Comp Option</em>}' class.
@@ -3940,22 +3940,22 @@ public interface InputfieldsPackage extends EPackage {
 		EReference PROPERTY_OPTION__PROPERTY = eINSTANCE.getPropertyOption_Property();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.VariableListImpl <em>Variable List</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.ParameterListImpl <em>Parameter List</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.inputfields.impl.VariableListImpl
-		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getVariableList()
+		 * @see qualitypatternmodel.inputfields.impl.ParameterListImpl
+		 * @see qualitypatternmodel.inputfields.impl.InputfieldsPackageImpl#getParameterList()
 		 * @generated
 		 */
-		EClass VARIABLE_LIST = eINSTANCE.getVariableList();
+		EClass PARAMETER_LIST = eINSTANCE.getParameterList();
 
 		/**
-		 * The meta object literal for the '<em><b>Variables</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARIABLE_LIST__VARIABLES = eINSTANCE.getVariableList_Variables();
+		EReference PARAMETER_LIST__PARAMETERS = eINSTANCE.getParameterList_Parameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Pattern</b></em>' container reference feature.
@@ -3963,7 +3963,7 @@ public interface InputfieldsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VARIABLE_LIST__PATTERN = eINSTANCE.getVariableList_Pattern();
+		EReference PARAMETER_LIST__PATTERN = eINSTANCE.getParameterList_Pattern();
 
 		/**
 		 * The meta object literal for the '<em><b>Add</b></em>' operation.
@@ -3971,7 +3971,7 @@ public interface InputfieldsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation VARIABLE_LIST___ADD__INPUT = eINSTANCE.getVariableList__Add__Input();
+		EOperation PARAMETER_LIST___ADD__PARAMETER = eINSTANCE.getParameterList__Add__Parameter();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.inputfields.impl.BooleanImpl <em>Boolean</em>}' class.

@@ -39,7 +39,7 @@ import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -677,7 +677,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			InputfieldsFactory inputsFactory = InputfieldsFactory.eINSTANCE;
 			
 			OperatorList oplist = ((Graph) getAncestor(Graph.class)).getOperatorList();
-			VariableList varlist = ((Pattern) getAncestor(Pattern.class)).getVariableList();
+			ParameterList varlist = ((Pattern) getAncestor(Pattern.class)).getParameterList();
 
 			SetElement set = graphFactory.createSetElement();
 			this.getNextSet().add(set);

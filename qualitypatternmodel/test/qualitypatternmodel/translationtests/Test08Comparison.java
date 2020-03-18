@@ -26,10 +26,10 @@ public class Test08Comparison {
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
 
 		for (PropertyLocation pl : PropertyLocation.VALUES) {
-				for (Input input : getExampleInputs()) {
+				for (Parameter parameter : getExampleInputs()) {
 					Pattern pattern = Test00.getBasePattern();
-					pattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.EQUAL, input);
-					pattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.NOTEQUAL, input);
+					pattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.EQUAL, parameter);
+					pattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.NOTEQUAL, parameter);
 					patterns.add(pattern);
 				
 			}
@@ -38,9 +38,9 @@ public class Test08Comparison {
 		Test00.test(patterns);
 	}
 
-	public static ArrayList<Input> getExampleInputs() {
+	public static ArrayList<Parameter> getExampleInputs() {
 
-		ArrayList<Input> inputs = new ArrayList<Input>();
+		ArrayList<Parameter> parameters = new ArrayList<Parameter>();
 
 		InputfieldsPackage.eINSTANCE.eClass();
 		InputfieldsFactory inputFactory = InputfieldsFactory.eINSTANCE;
@@ -60,24 +60,24 @@ public class Test08Comparison {
 		DateTime input7 = inputFactory.createDateTime();
 		input7.setValue("2002-05-30T09:00:00");
 
-		inputs.add(input1);
-		inputs.add(input2);
-		inputs.add(input3);
-		inputs.add(input4);
-		inputs.add(input5);
-		inputs.add(input6);
-		inputs.add(input7);
+		parameters.add(input1);
+		parameters.add(input2);
+		parameters.add(input3);
+		parameters.add(input4);
+		parameters.add(input5);
+		parameters.add(input6);
+		parameters.add(input7);
 
-		return inputs;
+		return parameters;
 	}
 
-	public static Pattern getPrimCondPattern(PropertyLocation pl, LogicalOperator op, Input input) {
+	public static Pattern getPrimCondPattern(PropertyLocation pl, LogicalOperator op, Parameter parameter) {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
 		Pattern pattern = Test00.getBasePattern();
 		SingleElement ret = pattern.getGraph().getReturnElements().get(0);
-		ret.addPrimitiveComparison(input);
+		ret.addPrimitiveComparison(parameter);
 		return pattern;
 	}
 

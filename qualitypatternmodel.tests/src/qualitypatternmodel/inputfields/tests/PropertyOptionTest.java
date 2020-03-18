@@ -13,7 +13,7 @@ import qualitypatternmodel.inputfields.PropertyOption;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PropertyOptionTest extends InputTest {
+public class PropertyOptionTest extends ParameterTest {
 
 	/**
 	 * <!-- begin-user-doc -->

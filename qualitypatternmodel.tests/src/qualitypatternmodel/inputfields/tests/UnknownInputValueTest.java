@@ -19,7 +19,7 @@ import qualitypatternmodel.inputfields.UnknownInputValue;
  * </p>
  * @generated
  */
-public class UnknownInputValueTest extends InputTest {
+public class UnknownInputValueTest extends ParameterTest {
 
 	/**
 	 * <!-- begin-user-doc -->

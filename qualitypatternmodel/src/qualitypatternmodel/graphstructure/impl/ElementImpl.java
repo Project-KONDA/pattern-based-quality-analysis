@@ -45,9 +45,9 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.UnknownInputValue;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
 import qualitypatternmodel.inputfields.impl.UnknownInputValueImpl;
 import qualitypatternmodel.patternstructure.Location;
@@ -249,7 +249,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	 * @generated
 	 */
 	@Override
-	public EList<Input> getAllVariables() throws InvalidityException {
+	public EList<Parameter> getAllVariables() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -258,8 +258,8 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> res = new BasicEList<Input>();
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		EList<Parameter> res = new BasicEList<Parameter>();
 		for (Element element : getNextElements()) {
 			res.addAll(element.getAllInputs());
 		}
@@ -566,7 +566,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		Comparison comparison = new ComparisonImpl();
 		try {
 			Pattern pattern = (Pattern) getAncestor(Pattern.class);
-			VariableList varlist = pattern.getVariableList();
+			ParameterList varlist = pattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			
@@ -596,7 +596,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		Comparison comparison = new ComparisonImpl();
 		try {			
 			Pattern pattern = (Pattern) getAncestor(Pattern.class);
-			VariableList varlist = pattern.getVariableList();
+			ParameterList varlist = pattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			
@@ -622,11 +622,11 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveComparison(Input input) {
+	public void addPrimitiveComparison(Parameter parameter) {
 		Comparison comparison = new ComparisonImpl();
 		try {			
 			Pattern pattern = (Pattern) getAncestor(Pattern.class);
-			VariableList varlist = pattern.getVariableList();
+			ParameterList varlist = pattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			
@@ -634,11 +634,11 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			getProperties().add(property);
 			property.getOption().setValue(PropertyLocation.TAG);
 			
-			varlist.add(input);
+			varlist.add(parameter);
 
 			oplist.add(comparison);	
 			comparison.setArgument1(property);
-			comparison.setArgument2(input);			
+			comparison.setArgument2(parameter);			
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
 		}
@@ -650,11 +650,11 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, Input input) {
+	public void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, Parameter parameter) {
 		Comparison comparison = new ComparisonImpl();
 		try {		
 			Pattern pattern = (Pattern) getAncestor(Pattern.class);
-			VariableList varlist = pattern.getVariableList();
+			ParameterList varlist = pattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			Property property1 = new PropertyImpl();
@@ -663,12 +663,12 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			property1.getOption().setValue(property);
 			property1.getAttributeName().setValue(attr);
 			
-			varlist.add(input);
+			varlist.add(parameter);
 
 			oplist.add(comparison);	
 			comparison.getOption().setValue(operator);
 			comparison.setArgument1(property1);
-			comparison.setArgument2(input);				
+			comparison.setArgument2(parameter);				
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
 		}
@@ -699,7 +699,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		Match match = new MatchImpl();
 		try {			
 			Pattern pattern = (Pattern) getAncestor(Pattern.class);
-			VariableList varlist = pattern.getVariableList();
+			ParameterList varlist = pattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			
@@ -1039,14 +1039,14 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING:
 				addPrimitiveComparison((String)arguments.get(0));
 				return null;
-			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__INPUT:
-				addPrimitiveComparison((Input)arguments.get(0));
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER:
+				addPrimitiveComparison((Parameter)arguments.get(0));
 				return null;
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_MATCH:
 				addPrimitiveMatch();
 				return null;
-			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_INPUT:
-				addPrimitiveComparison((PropertyLocation)arguments.get(0), (String)arguments.get(1), (ComparisonOperator)arguments.get(2), (Input)arguments.get(3));
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER:
+				addPrimitiveComparison((PropertyLocation)arguments.get(0), (String)arguments.get(1), (ComparisonOperator)arguments.get(2), (Parameter)arguments.get(3));
 				return null;
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();

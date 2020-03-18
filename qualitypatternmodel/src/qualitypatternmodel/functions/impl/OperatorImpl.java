@@ -26,7 +26,7 @@ import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -404,8 +404,8 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllInputs() throws InvalidityException {
-		return new BasicEList<Input>();
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		return new BasicEList<Parameter>();
 	}
 
 	/**

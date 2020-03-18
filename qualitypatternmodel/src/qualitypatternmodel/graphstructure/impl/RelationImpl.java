@@ -23,7 +23,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.inputfields.AxisOption;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -105,8 +105,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	@Override
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> res = new BasicEList<Input>();
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		EList<Parameter> res = new BasicEList<Parameter>();
 		if (getOption() != null) {
 			res.add(option);
 		} else {

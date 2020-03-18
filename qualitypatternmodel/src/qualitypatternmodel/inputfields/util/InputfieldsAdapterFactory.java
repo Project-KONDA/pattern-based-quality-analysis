@@ -12,7 +12,7 @@ import qualitypatternmodel.inputfields.AxisOption;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.DateTime;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
 import qualitypatternmodel.inputfields.Text;
@@ -20,7 +20,7 @@ import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.inputfields.UnknownInputValue;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.InputValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -81,8 +81,8 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	protected InputfieldsSwitch<Adapter> modelSwitch =
 		new InputfieldsSwitch<Adapter>() {
 			@Override
-			public Adapter caseInput(Input object) {
-				return createInputAdapter();
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
 			}
 			@Override
 			public Adapter caseCompOption(CompOption object) {
@@ -93,8 +93,8 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 				return createPropertyOptionAdapter();
 			}
 			@Override
-			public Adapter caseVariableList(VariableList object) {
-				return createVariableListAdapter();
+			public Adapter caseParameterList(ParameterList object) {
+				return createParameterListAdapter();
 			}
 			@Override
 			public Adapter caseBoolean(qualitypatternmodel.inputfields.Boolean object) {
@@ -169,16 +169,16 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Input <em>Input</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.inputfields.Input
+	 * @see qualitypatternmodel.inputfields.Parameter
 	 * @generated
 	 */
-	public Adapter createInputAdapter() {
+	public Adapter createParameterAdapter() {
 		return null;
 	}
 
@@ -211,16 +211,16 @@ public class InputfieldsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.VariableList <em>Variable List</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.inputfields.ParameterList <em>Parameter List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.inputfields.VariableList
+	 * @see qualitypatternmodel.inputfields.ParameterList
 	 * @generated
 	 */
-	public Adapter createVariableListAdapter() {
+	public Adapter createParameterListAdapter() {
 		return null;
 	}
 

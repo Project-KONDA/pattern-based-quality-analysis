@@ -118,26 +118,26 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.VariableList} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.inputfields.ParameterList} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VariableListItemProvider variableListItemProvider;
+	protected ParameterListItemProvider parameterListItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.VariableList}.
+	 * This creates an adapter for a {@link qualitypatternmodel.inputfields.ParameterList}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createVariableListAdapter() {
-		if (variableListItemProvider == null) {
-			variableListItemProvider = new VariableListItemProvider(this);
+	public Adapter createParameterListAdapter() {
+		if (parameterListItemProvider == null) {
+			parameterListItemProvider = new ParameterListItemProvider(this);
 		}
 
-		return variableListItemProvider;
+		return parameterListItemProvider;
 	}
 
 	/**
@@ -454,7 +454,7 @@ public class InputfieldsItemProviderAdapterFactory extends InputfieldsAdapterFac
 	public void dispose() {
 		if (compOptionItemProvider != null) compOptionItemProvider.dispose();
 		if (propertyOptionItemProvider != null) propertyOptionItemProvider.dispose();
-		if (variableListItemProvider != null) variableListItemProvider.dispose();
+		if (parameterListItemProvider != null) parameterListItemProvider.dispose();
 		if (booleanItemProvider != null) booleanItemProvider.dispose();
 		if (textListItemProvider != null) textListItemProvider.dispose();
 		if (textLiteralItemProvider != null) textLiteralItemProvider.dispose();

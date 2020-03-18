@@ -25,7 +25,7 @@ import qualitypatternmodel.graphstructure.PropertyLocation;
  * @model
  * @generated
  */
-public interface PropertyOption extends Input {
+public interface PropertyOption extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.PropertyLocation}.

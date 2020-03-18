@@ -203,7 +203,7 @@ public class Test09ComplexComparison {
 		ret.getPredicates().add(countcomp);
 		countcomp.setArgument1(count);
 		Number num = inputsFactory.createNumber();
-		pattern.getVariableList().add(num);
+		pattern.getParameterList().add(num);
 		countcomp.setArgument2(num);
 		
 		count.setArgument(se1);
@@ -221,7 +221,7 @@ public class Test09ComplexComparison {
 		InputfieldsFactory inputsFactory = InputfieldsFactory.eINSTANCE;
 		
 		Pattern pattern = Test00.getBasePattern();
-		VariableList varlist = pattern.getVariableList();
+		ParameterList varlist = pattern.getParameterList();
 		OperatorList oplist = pattern.getGraph().getOperatorList();
 		SingleElement se = pattern.getGraph().getReturnElements().get(0);
 		

@@ -1727,13 +1727,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Variable List</b></em>' containment reference.
+	 * The feature id for the '<em><b>Parameter List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__VARIABLE_LIST = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int PATTERN__PARAMETER_LIST = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Check Morphism Of Next Graph</b></em>' attribute.
@@ -2576,6 +2576,17 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getPattern();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getParameterList <em>Parameter List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Parameter List</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getParameterList()
+	 * @see #getPattern()
+	 * @generated
+	 */
+	EReference getPattern_ParameterList();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2607,17 +2618,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPattern_Name();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getVariableList <em>Variable List</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Variable List</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getVariableList()
-	 * @see #getPattern()
-	 * @generated
-	 */
-	EReference getPattern_VariableList();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}'.
@@ -3231,6 +3231,14 @@ public interface PatternstructurePackage extends EPackage {
 		EClass PATTERN = eINSTANCE.getPattern();
 
 		/**
+		 * The meta object literal for the '<em><b>Parameter List</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATTERN__PARAMETER_LIST = eINSTANCE.getPattern_ParameterList();
+
+		/**
 		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3253,14 +3261,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PATTERN__NAME = eINSTANCE.getPattern_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Variable List</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PATTERN__VARIABLE_LIST = eINSTANCE.getPattern_VariableList();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Morphism Of Next Graph</b></em>' attribute feature.

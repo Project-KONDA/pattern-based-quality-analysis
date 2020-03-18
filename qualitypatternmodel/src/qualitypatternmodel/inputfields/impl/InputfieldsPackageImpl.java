@@ -21,7 +21,7 @@ import qualitypatternmodel.inputfields.AxisOption;
 import qualitypatternmodel.inputfields.CompOption;
 import qualitypatternmodel.inputfields.Date;
 import qualitypatternmodel.inputfields.DateTime;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
@@ -30,7 +30,7 @@ import qualitypatternmodel.inputfields.TextList;
 import qualitypatternmodel.inputfields.TextLiteral;
 import qualitypatternmodel.inputfields.Time;
 import qualitypatternmodel.inputfields.UnknownInputValue;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.inputfields.InputValue;
 import qualitypatternmodel.inputfields.util.InputfieldsValidator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -49,7 +49,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass inputEClass = null;
+	private EClass parameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,7 +70,7 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass variableListEClass = null;
+	private EClass parameterListEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -240,8 +240,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EClass getInput() {
-		return inputEClass;
+	public EClass getParameter() {
+		return parameterEClass;
 	}
 
 	/**
@@ -250,8 +250,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EReference getInput_VariableList() {
-		return (EReference)inputEClass.getEStructuralFeatures().get(0);
+	public EReference getParameter_ParameterList() {
+		return (EReference)parameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -260,8 +260,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getInput_Description() {
-		return (EAttribute)inputEClass.getEStructuralFeatures().get(1);
+	public EAttribute getParameter_Description() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -270,8 +270,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getInput_IsPredefined() {
-		return (EAttribute)inputEClass.getEStructuralFeatures().get(2);
+	public EAttribute getParameter_IsPredefined() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -280,8 +280,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EOperation getInput__InputIsValid() {
-		return inputEClass.getEOperations().get(0);
+	public EOperation getParameter__InputIsValid() {
+		return parameterEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -290,8 +290,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EOperation getInput__Validate__DiagnosticChain_Map() {
-		return inputEClass.getEOperations().get(1);
+	public EOperation getParameter__Validate__DiagnosticChain_Map() {
+		return parameterEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -380,8 +380,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EClass getVariableList() {
-		return variableListEClass;
+	public EClass getParameterList() {
+		return parameterListEClass;
 	}
 
 	/**
@@ -390,8 +390,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EReference getVariableList_Variables() {
-		return (EReference)variableListEClass.getEStructuralFeatures().get(0);
+	public EReference getParameterList_Parameters() {
+		return (EReference)parameterListEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -400,8 +400,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EReference getVariableList_Pattern() {
-		return (EReference)variableListEClass.getEStructuralFeatures().get(1);
+	public EReference getParameterList_Pattern() {
+		return (EReference)parameterListEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -410,8 +410,8 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 	 * @generated
 	 */
 	@Override
-	public EOperation getVariableList__Add__Input() {
-		return variableListEClass.getEOperations().get(0);
+	public EOperation getParameterList__Add__Parameter() {
+		return parameterListEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -713,12 +713,12 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		isCreated = true;
 
 		// Create classes and their features
-		inputEClass = createEClass(INPUT);
-		createEReference(inputEClass, INPUT__VARIABLE_LIST);
-		createEAttribute(inputEClass, INPUT__DESCRIPTION);
-		createEAttribute(inputEClass, INPUT__IS_PREDEFINED);
-		createEOperation(inputEClass, INPUT___INPUT_IS_VALID);
-		createEOperation(inputEClass, INPUT___VALIDATE__DIAGNOSTICCHAIN_MAP);
+		parameterEClass = createEClass(PARAMETER);
+		createEReference(parameterEClass, PARAMETER__PARAMETER_LIST);
+		createEAttribute(parameterEClass, PARAMETER__DESCRIPTION);
+		createEAttribute(parameterEClass, PARAMETER__IS_PREDEFINED);
+		createEOperation(parameterEClass, PARAMETER___INPUT_IS_VALID);
+		createEOperation(parameterEClass, PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		compOptionEClass = createEClass(COMP_OPTION);
 		createEAttribute(compOptionEClass, COMP_OPTION__OPTIONS);
@@ -730,10 +730,10 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		createEAttribute(propertyOptionEClass, PROPERTY_OPTION__VALUE);
 		createEReference(propertyOptionEClass, PROPERTY_OPTION__PROPERTY);
 
-		variableListEClass = createEClass(VARIABLE_LIST);
-		createEReference(variableListEClass, VARIABLE_LIST__VARIABLES);
-		createEReference(variableListEClass, VARIABLE_LIST__PATTERN);
-		createEOperation(variableListEClass, VARIABLE_LIST___ADD__INPUT);
+		parameterListEClass = createEClass(PARAMETER_LIST);
+		createEReference(parameterListEClass, PARAMETER_LIST__PARAMETERS);
+		createEReference(parameterListEClass, PARAMETER_LIST__PATTERN);
+		createEOperation(parameterListEClass, PARAMETER_LIST___ADD__PARAMETER);
 
 		booleanEClass = createEClass(BOOLEAN);
 		createEAttribute(booleanEClass, BOOLEAN__VALUE);
@@ -807,32 +807,32 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		inputEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
-		inputEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
-		compOptionEClass.getESuperTypes().add(this.getInput());
-		propertyOptionEClass.getESuperTypes().add(this.getInput());
-		variableListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
+		parameterEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
+		parameterEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
+		compOptionEClass.getESuperTypes().add(this.getParameter());
+		propertyOptionEClass.getESuperTypes().add(this.getParameter());
+		parameterListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		booleanEClass.getESuperTypes().add(this.getInputValue());
 		textEClass.getESuperTypes().add(this.getInputValue());
 		textListEClass.getESuperTypes().add(this.getText());
 		textLiteralEClass.getESuperTypes().add(this.getText());
 		numberEClass.getESuperTypes().add(this.getInputValue());
-		inputValueEClass.getESuperTypes().add(this.getInput());
+		inputValueEClass.getESuperTypes().add(this.getParameter());
 		dateEClass.getESuperTypes().add(this.getInputValue());
 		timeEClass.getESuperTypes().add(this.getInputValue());
-		unknownInputValueEClass.getESuperTypes().add(this.getInput());
+		unknownInputValueEClass.getESuperTypes().add(this.getParameter());
 		dateTimeEClass.getESuperTypes().add(this.getInputValue());
-		axisOptionEClass.getESuperTypes().add(this.getInput());
+		axisOptionEClass.getESuperTypes().add(this.getParameter());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(inputEClass, Input.class, "Input", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInput_VariableList(), this.getVariableList(), this.getVariableList_Variables(), "variableList", null, 1, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInput_Description(), ecorePackage.getEString(), "description", null, 0, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getInput_IsPredefined(), ecorePackage.getEBoolean(), "isPredefined", null, 1, 1, Input.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameter_ParameterList(), this.getParameterList(), this.getParameterList_Parameters(), "parameterList", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Description(), ecorePackage.getEString(), "description", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_IsPredefined(), ecorePackage.getEBoolean(), "isPredefined", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getInput__InputIsValid(), ecorePackage.getEBoolean(), "inputIsValid", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getParameter__InputIsValid(), ecorePackage.getEBoolean(), "inputIsValid", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getInput__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getParameter__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -851,12 +851,12 @@ public class InputfieldsPackageImpl extends EPackageImpl implements InputfieldsP
 		initEAttribute(getPropertyOption_Value(), theGraphstructurePackage.getPropertyLocation(), "value", null, 0, 1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPropertyOption_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_Option(), "property", null, 0, 1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(variableListEClass, VariableList.class, "VariableList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariableList_Variables(), this.getInput(), this.getInput_VariableList(), "variables", null, 0, -1, VariableList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVariableList_Pattern(), thePatternstructurePackage.getPattern(), thePatternstructurePackage.getPattern_VariableList(), "pattern", null, 1, 1, VariableList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(parameterListEClass, ParameterList.class, "ParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterList_Parameters(), this.getParameter(), this.getParameter_ParameterList(), "parameters", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterList_Pattern(), thePatternstructurePackage.getPattern(), thePatternstructurePackage.getPattern_ParameterList(), "pattern", null, 1, 1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getVariableList__Add__Input(), null, "add", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getInput(), "Input", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getParameterList__Add__Parameter(), null, "add", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getParameter(), "Input", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(booleanEClass, qualitypatternmodel.inputfields.Boolean.class, "Boolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBoolean_Value(), ecorePackage.getEBooleanObject(), "value", "true", 0, 1, qualitypatternmodel.inputfields.Boolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

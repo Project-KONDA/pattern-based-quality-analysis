@@ -20,7 +20,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.inputfields.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Location;
@@ -159,12 +159,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> inputs = graph.getAllInputs();
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		EList<Parameter> parameters = graph.getAllInputs();
 		if (condition != null) {
-			inputs.addAll(condition.getAllInputs());
+			parameters.addAll(condition.getAllInputs());
 		}
-		return inputs;
+		return parameters;
 	}
 
 	@Override

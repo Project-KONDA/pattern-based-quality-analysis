@@ -23,7 +23,7 @@ import qualitypatternmodel.graphstructure.PropertyLocation;
 
 import qualitypatternmodel.inputfields.InputfieldsPackage;
 import qualitypatternmodel.inputfields.PropertyOption;
-import qualitypatternmodel.inputfields.VariableList;
+import qualitypatternmodel.inputfields.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -41,7 +41,7 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class PropertyOptionImpl extends InputImpl implements PropertyOption {
+public class PropertyOptionImpl extends ParameterImpl implements PropertyOption {
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -118,9 +118,9 @@ public class PropertyOptionImpl extends InputImpl implements PropertyOption {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetVariableList(VariableList newVariableList, NotificationChain msgs) {		
+	public NotificationChain basicSetVariableList(ParameterList newVariableList, NotificationChain msgs) {		
 		setProperty(null);
-		return super.basicSetVariableList(newVariableList, msgs);
+		return super.basicSetParameterList(newVariableList, msgs);
 	}
 	
 	/**
