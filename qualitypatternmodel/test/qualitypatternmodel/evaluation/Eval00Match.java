@@ -8,9 +8,9 @@ import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteral;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
-import qualitypatternmodel.parameters.impl.TextLiteralImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
@@ -48,7 +48,7 @@ public class Eval00Match {
 		Pattern pattern = getMatchAbstract();
 		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
-		TextLiteral concreteInputValue = parametersFactory.createTextLiteral();
+		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
@@ -57,14 +57,14 @@ public class Eval00Match {
 		SingleElement returnElementInGraph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph().getReturnElements().get(0);				
 		SingleElement element2 = returnElementInGraph1.getNextSingle().get(0);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
-		TextLiteral concreteInputValue2 = parametersFactory.createTextLiteral();
+		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("3162");
 		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
 		element2.getProperties().get(0).getAttributeName().setValue("Type");
 		element2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		
 		BooleanOperator matchElement2 = element2.getPredicates().get(1);
-		TextLiteral regularExpression = (TextLiteral) matchElement2.getArguments().get(1);
+		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
 		regularExpression.setValue(".*\\?.*");
 		element2.getProperties().get(1).getAttributeName().setValue("Value");
 		element2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);

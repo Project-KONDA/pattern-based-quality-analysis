@@ -14,8 +14,8 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.*;
 import qualitypatternmodel.functions.impl.*;
 import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.parameters.Boolean;
-import qualitypatternmodel.parameters.Number;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.impl.*;
 
 public class Test08Comparison {
@@ -44,20 +44,20 @@ public class Test08Comparison {
 
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory inputFactory = ParametersFactory.eINSTANCE;
-		TextLiteral input1 = inputFactory.createTextLiteral();
+		TextLiteralParam input1 = inputFactory.createTextLiteralParam();
 		input1.setValue("abc");
-		TextList input2 = inputFactory.createTextList();
+		TextListParam input2 = inputFactory.createTextListParam();
 		input2.getValues().add("eins");
 		input2.getValues().add("zwei");
-		Number input3 = inputFactory.createNumber();
+		NumberParam input3 = inputFactory.createNumberParam();
 		input3.setValue(0.);
-		Boolean input4 = inputFactory.createBoolean();
+		BooleanParam input4 = inputFactory.createBooleanParam();
 		input4.setValue(true);
-		Date input5 = inputFactory.createDate();
+		DateParam input5 = inputFactory.createDateParam();
 		input5.setValue("2000-01-01");
-		Time input6 = inputFactory.createTime();
+		TimeParam input6 = inputFactory.createTimeParam();
 		input6.setValue("09:00:00");
-		DateTime input7 = inputFactory.createDateTime();
+		DateTimeParam input7 = inputFactory.createDateTimeParam();
 		input7.setValue("2002-05-30T09:00:00");
 
 		parameters.add(input1);

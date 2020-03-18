@@ -48,7 +48,7 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.UnknownParameterValue;
-import qualitypatternmodel.parameters.impl.TextLiteralImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -604,7 +604,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			getProperties().add(property);
 			property.getOption().setValue(PropertyLocation.TAG);
 			
-			TextLiteralImpl textlit = new TextLiteralImpl();
+			TextLiteralParamImpl textlit = new TextLiteralParamImpl();
 			varlist.add(textlit);
 			textlit.setValue(value);
 

@@ -3,7 +3,8 @@
 package qualitypatternmodel.functions;
 
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.parameters.TextLiteral;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,17 +51,17 @@ public interface Match extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Regular Expression</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteral#getMatch <em>Match</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Regular Expression</em>' reference.
-	 * @see #setRegularExpression(TextLiteral)
+	 * @see #setRegularExpression(TextLiteralParam)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_RegularExpression()
-	 * @see qualitypatternmodel.parameters.TextLiteral#getMatch
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getMatch
 	 * @model opposite="match" required="true"
 	 * @generated
 	 */
-	TextLiteral getRegularExpression();
+	TextLiteralParam getRegularExpression();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.functions.Match#getRegularExpression <em>Regular Expression</em>}' reference.
@@ -70,21 +71,21 @@ public interface Match extends BooleanOperator {
 	 * @see #getRegularExpression()
 	 * @generated
 	 */
-	void setRegularExpression(TextLiteral value);
+	void setRegularExpression(TextLiteralParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.Boolean#getMatch <em>Match</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.BooleanParam#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
-	 * @see #setOption(qualitypatternmodel.parameters.Boolean)
+	 * @see #setOption(BooleanParam)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_Option()
-	 * @see qualitypatternmodel.parameters.Boolean#getMatch
+	 * @see qualitypatternmodel.parameters.BooleanParam#getMatch
 	 * @model opposite="match" required="true"
 	 * @generated
 	 */
-	qualitypatternmodel.parameters.Boolean getOption();
+	BooleanParam getOption();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}' reference.
@@ -94,7 +95,7 @@ public interface Match extends BooleanOperator {
 	 * @see #getOption()
 	 * @generated
 	 */
-	void setOption(qualitypatternmodel.parameters.Boolean value);
+	void setOption(BooleanParam value);
 
 	void reset();
 

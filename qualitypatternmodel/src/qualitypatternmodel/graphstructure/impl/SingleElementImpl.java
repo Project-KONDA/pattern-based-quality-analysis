@@ -689,7 +689,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			oplist.add(count);
 
 			getPredicates().add(comp);
-			qualitypatternmodel.parameters.Number number = inputsFactory.createNumber();
+			qualitypatternmodel.parameters.NumberParam number = inputsFactory.createNumberParam();
 			varlist.add(number);
 
 			comp.setArgument1(count);

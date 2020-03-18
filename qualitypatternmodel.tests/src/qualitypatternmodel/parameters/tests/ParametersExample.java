@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import qualitypatternmodel.parameters.ComparisonOption;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 
@@ -60,7 +60,7 @@ public class ParametersExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.parameters"));
-				ComparisonOption root = ParametersFactory.eINSTANCE.createComparisonOption();
+				ComparisonOptionParam root = ParametersFactory.eINSTANCE.createComparisonOptionParam();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

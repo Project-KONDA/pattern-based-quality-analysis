@@ -14,7 +14,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.*;
 import qualitypatternmodel.functions.impl.*;
 import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.parameters.Number;
+import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.impl.*;
 
 public class Test09ComplexComparison {
@@ -201,7 +201,7 @@ public class Test09ComplexComparison {
 
 		ret.getPredicates().add(countcomp);
 		countcomp.setArgument1(count);
-		Number num = inputsFactory.createNumber();
+		NumberParam num = inputsFactory.createNumberParam();
 		pattern.getParameterList().add(num);
 		countcomp.setArgument2(num);
 		
@@ -224,13 +224,13 @@ public class Test09ComplexComparison {
 		OperatorList oplist = pattern.getGraph().getOperatorList();
 		SingleElement se = pattern.getGraph().getReturnElements().get(0);
 		
-		TextLiteral tl = inputsFactory.createTextLiteral();
+		TextLiteralParam tl = inputsFactory.createTextLiteralParam();
 		tl.setValue("a");
-		TextLiteral tl2 = inputsFactory.createTextLiteral();
+		TextLiteralParam tl2 = inputsFactory.createTextLiteralParam();
 		tl.setValue("a");
-		TextLiteral tl3 = inputsFactory.createTextLiteral();
+		TextLiteralParam tl3 = inputsFactory.createTextLiteralParam();
 		tl.setValue("a");
-		TextLiteral tl4 = inputsFactory.createTextLiteral();
+		TextLiteralParam tl4 = inputsFactory.createTextLiteralParam();
 		tl.setValue("a");
 
 		varlist.add(tl);

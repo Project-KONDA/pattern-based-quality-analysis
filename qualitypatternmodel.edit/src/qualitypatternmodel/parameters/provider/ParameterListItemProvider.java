@@ -139,42 +139,42 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createComparisonOption()));
+				 ParametersFactory.eINSTANCE.createComparisonOptionParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createPropertyOption()));
+				 ParametersFactory.eINSTANCE.createPropertyOptionParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createBoolean()));
+				 ParametersFactory.eINSTANCE.createBooleanParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createTextList()));
+				 ParametersFactory.eINSTANCE.createTextListParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createTextLiteral()));
+				 ParametersFactory.eINSTANCE.createTextLiteralParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createNumber()));
+				 ParametersFactory.eINSTANCE.createNumberParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createDate()));
+				 ParametersFactory.eINSTANCE.createDateParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createTime()));
+				 ParametersFactory.eINSTANCE.createTimeParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -184,12 +184,12 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createDateTime()));
+				 ParametersFactory.eINSTANCE.createDateTimeParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createAxisOption()));
+				 ParametersFactory.eINSTANCE.createAxisOptionParam()));
 	}
 
 	/**

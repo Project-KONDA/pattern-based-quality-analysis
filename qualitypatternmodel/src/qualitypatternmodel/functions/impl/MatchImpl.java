@@ -21,13 +21,13 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.parameters.Boolean;
+import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteral;
-import qualitypatternmodel.parameters.impl.BooleanImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralImpl;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.BooleanParamImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.impl.PatternImpl;
@@ -66,7 +66,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 * @ordered
 	 */
-	protected qualitypatternmodel.parameters.Boolean option;
+	protected BooleanParam option;
 
 	/**
 	 * The cached value of the '{@link #getRegularExpression() <em>Regular Expression</em>}' reference.
@@ -76,7 +76,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 * @ordered
 	 */
-	protected TextLiteral regularExpression;
+	protected TextLiteralParam regularExpression;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,14 +164,14 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			
 			if(getOption() == null) {
-				Boolean bool = new BooleanImpl();			
+				BooleanParam bool = new BooleanParamImpl();			
 				pattern.getParameterList().add(bool);
 				setOption(bool);
 			} else {
 				pattern.getParameterList().add(getOption());
 			}
 			if(getRegularExpression() == null) {
-				TextLiteral textLiteral = new TextLiteralImpl();
+				TextLiteralParam textLiteral = new TextLiteralParamImpl();
 				pattern.getParameterList().add(textLiteral);
 				setRegularExpression(textLiteral);
 			} else {
@@ -280,10 +280,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@Override
-	public TextLiteral getRegularExpression() {
+	public TextLiteralParam getRegularExpression() {
 		if (regularExpression != null && regularExpression.eIsProxy()) {
 			InternalEObject oldRegularExpression = (InternalEObject)regularExpression;
-			regularExpression = (TextLiteral)eResolveProxy(oldRegularExpression);
+			regularExpression = (TextLiteralParam)eResolveProxy(oldRegularExpression);
 			if (regularExpression != oldRegularExpression) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, regularExpression));
@@ -297,7 +297,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextLiteral basicGetRegularExpression() {
+	public TextLiteralParam basicGetRegularExpression() {
 		return regularExpression;
 	}
 
@@ -306,8 +306,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetRegularExpression(TextLiteral newRegularExpression, NotificationChain msgs) {
-		TextLiteral oldRegularExpression = regularExpression;
+	public NotificationChain basicSetRegularExpression(TextLiteralParam newRegularExpression, NotificationChain msgs) {
+		TextLiteralParam oldRegularExpression = regularExpression;
 		regularExpression = newRegularExpression;
 		
 		try {
@@ -337,13 +337,13 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@Override
-	public void setRegularExpression(TextLiteral newRegularExpression) {
+	public void setRegularExpression(TextLiteralParam newRegularExpression) {
 		if (newRegularExpression != regularExpression) {
 			NotificationChain msgs = null;
 			if (regularExpression != null)
-				msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
+				msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCH, TextLiteralParam.class, msgs);
 			if (newRegularExpression != null)
-				msgs = ((InternalEObject)newRegularExpression).eInverseAdd(this, ParametersPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
+				msgs = ((InternalEObject)newRegularExpression).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCH, TextLiteralParam.class, msgs);
 			msgs = basicSetRegularExpression(newRegularExpression, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -365,12 +365,12 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return basicSetProperty((Property)otherEnd, msgs);
 			case FunctionsPackage.MATCH__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN__MATCH, qualitypatternmodel.parameters.Boolean.class, msgs);
-				return basicSetOption((qualitypatternmodel.parameters.Boolean)otherEnd, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__MATCH, BooleanParam.class, msgs);
+				return basicSetOption((BooleanParam)otherEnd, msgs);
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				if (regularExpression != null)
-					msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL__MATCH, TextLiteral.class, msgs);
-				return basicSetRegularExpression((TextLiteral)otherEnd, msgs);
+					msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCH, TextLiteralParam.class, msgs);
+				return basicSetRegularExpression((TextLiteralParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -400,10 +400,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public qualitypatternmodel.parameters.Boolean getOption() {
+	public BooleanParam getOption() {
 		if (option != null && option.eIsProxy()) {
 			InternalEObject oldOption = (InternalEObject)option;
-			option = (qualitypatternmodel.parameters.Boolean)eResolveProxy(oldOption);
+			option = (BooleanParam)eResolveProxy(oldOption);
 			if (option != oldOption) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.MATCH__OPTION, oldOption, option));
@@ -417,7 +417,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public qualitypatternmodel.parameters.Boolean basicGetOption() {
+	public BooleanParam basicGetOption() {
 		return option;
 	}
 	
@@ -426,25 +426,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@Override
-	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
-		reset();
-		return super.basicSetOperatorList(newOperatorList, msgs);		
-	}
-
-	public void reset() {
-		setProperty(null);
-		setOption(null);
-		setRegularExpression(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public NotificationChain basicSetOption(qualitypatternmodel.parameters.Boolean newOption, NotificationChain msgs) {
-		qualitypatternmodel.parameters.Boolean oldOption = option;
+	public NotificationChain basicSetOption(BooleanParam newOption, NotificationChain msgs) {
+		qualitypatternmodel.parameters.BooleanParam oldOption = option;
 		option = newOption;
 		
 		try {
@@ -474,18 +457,35 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@Override
-	public void setOption(qualitypatternmodel.parameters.Boolean newOption) {
+	public void setOption(BooleanParam newOption) {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN__MATCH, qualitypatternmodel.parameters.Boolean.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__MATCH, BooleanParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.BOOLEAN__MATCH, qualitypatternmodel.parameters.Boolean.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.BOOLEAN_PARAM__MATCH, BooleanParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTION, newOption, newOption));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
+		reset();
+		return super.basicSetOperatorList(newOperatorList, msgs);		
+	}
+
+	public void reset() {
+		setProperty(null);
+		setOption(null);
+		setRegularExpression(null);
 	}
 
 	/**
@@ -522,10 +522,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setProperty((Property)newValue);
 				return;
 			case FunctionsPackage.MATCH__OPTION:
-				setOption((qualitypatternmodel.parameters.Boolean)newValue);
+				setOption((BooleanParam)newValue);
 				return;
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
-				setRegularExpression((TextLiteral)newValue);
+				setRegularExpression((TextLiteralParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -543,10 +543,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				setProperty((Property)null);
 				return;
 			case FunctionsPackage.MATCH__OPTION:
-				setOption((qualitypatternmodel.parameters.Boolean)null);
+				setOption((BooleanParam)null);
 				return;
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
-				setRegularExpression((TextLiteral)null);
+				setRegularExpression((TextLiteralParam)null);
 				return;
 		}
 		super.eUnset(featureID);

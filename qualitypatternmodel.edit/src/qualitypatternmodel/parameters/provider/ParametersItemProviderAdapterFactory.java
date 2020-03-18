@@ -72,49 +72,49 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.ComparisonOption} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.ComparisonOptionParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComparisonOptionItemProvider comparisonOptionItemProvider;
+	protected ComparisonOptionParamItemProvider comparisonOptionParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.ComparisonOption}.
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.ComparisonOptionParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createComparisonOptionAdapter() {
-		if (comparisonOptionItemProvider == null) {
-			comparisonOptionItemProvider = new ComparisonOptionItemProvider(this);
+	public Adapter createComparisonOptionParamAdapter() {
+		if (comparisonOptionParamItemProvider == null) {
+			comparisonOptionParamItemProvider = new ComparisonOptionParamItemProvider(this);
 		}
 
-		return comparisonOptionItemProvider;
+		return comparisonOptionParamItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.PropertyOption} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.PropertyOptionParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropertyOptionItemProvider propertyOptionItemProvider;
+	protected PropertyOptionParamItemProvider propertyOptionParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.PropertyOption}.
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.PropertyOptionParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropertyOptionAdapter() {
-		if (propertyOptionItemProvider == null) {
-			propertyOptionItemProvider = new PropertyOptionItemProvider(this);
+	public Adapter createPropertyOptionParamAdapter() {
+		if (propertyOptionParamItemProvider == null) {
+			propertyOptionParamItemProvider = new PropertyOptionParamItemProvider(this);
 		}
 
-		return propertyOptionItemProvider;
+		return propertyOptionParamItemProvider;
 	}
 
 	/**
@@ -141,72 +141,141 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.Number} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.BooleanParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NumberItemProvider numberItemProvider;
+	protected BooleanParamItemProvider booleanParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.Number}.
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.BooleanParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNumberAdapter() {
-		if (numberItemProvider == null) {
-			numberItemProvider = new NumberItemProvider(this);
+	public Adapter createBooleanParamAdapter() {
+		if (booleanParamItemProvider == null) {
+			booleanParamItemProvider = new BooleanParamItemProvider(this);
 		}
 
-		return numberItemProvider;
+		return booleanParamItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.Date} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.TextListParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DateItemProvider dateItemProvider;
+	protected TextListParamItemProvider textListParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.Date}.
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.TextListParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDateAdapter() {
-		if (dateItemProvider == null) {
-			dateItemProvider = new DateItemProvider(this);
+	public Adapter createTextListParamAdapter() {
+		if (textListParamItemProvider == null) {
+			textListParamItemProvider = new TextListParamItemProvider(this);
 		}
 
-		return dateItemProvider;
+		return textListParamItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.Time} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.TextLiteralParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TimeItemProvider timeItemProvider;
+	protected TextLiteralParamItemProvider textLiteralParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.Time}.
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.TextLiteralParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTimeAdapter() {
-		if (timeItemProvider == null) {
-			timeItemProvider = new TimeItemProvider(this);
+	public Adapter createTextLiteralParamAdapter() {
+		if (textLiteralParamItemProvider == null) {
+			textLiteralParamItemProvider = new TextLiteralParamItemProvider(this);
 		}
 
-		return timeItemProvider;
+		return textLiteralParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.NumberParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberParamItemProvider numberParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.NumberParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberParamAdapter() {
+		if (numberParamItemProvider == null) {
+			numberParamItemProvider = new NumberParamItemProvider(this);
+		}
+
+		return numberParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.DateParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DateParamItemProvider dateParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.DateParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDateParamAdapter() {
+		if (dateParamItemProvider == null) {
+			dateParamItemProvider = new DateParamItemProvider(this);
+		}
+
+		return dateParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.TimeParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TimeParamItemProvider timeParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.TimeParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTimeParamAdapter() {
+		if (timeParamItemProvider == null) {
+			timeParamItemProvider = new TimeParamItemProvider(this);
+		}
+
+		return timeParamItemProvider;
 	}
 
 	/**
@@ -233,118 +302,49 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.DateTime} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.DateTimeParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DateTimeItemProvider dateTimeItemProvider;
+	protected DateTimeParamItemProvider dateTimeParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.DateTime}.
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.DateTimeParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDateTimeAdapter() {
-		if (dateTimeItemProvider == null) {
-			dateTimeItemProvider = new DateTimeItemProvider(this);
+	public Adapter createDateTimeParamAdapter() {
+		if (dateTimeParamItemProvider == null) {
+			dateTimeParamItemProvider = new DateTimeParamItemProvider(this);
 		}
 
-		return dateTimeItemProvider;
+		return dateTimeParamItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.AxisOption} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.AxisOptionParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AxisOptionItemProvider axisOptionItemProvider;
+	protected AxisOptionParamItemProvider axisOptionParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.AxisOption}.
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.AxisOptionParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAxisOptionAdapter() {
-		if (axisOptionItemProvider == null) {
-			axisOptionItemProvider = new AxisOptionItemProvider(this);
+	public Adapter createAxisOptionParamAdapter() {
+		if (axisOptionParamItemProvider == null) {
+			axisOptionParamItemProvider = new AxisOptionParamItemProvider(this);
 		}
 
-		return axisOptionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.Boolean} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BooleanItemProvider booleanItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.Boolean}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBooleanAdapter() {
-		if (booleanItemProvider == null) {
-			booleanItemProvider = new BooleanItemProvider(this);
-		}
-
-		return booleanItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.TextLiteral} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TextLiteralItemProvider textLiteralItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.TextLiteral}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTextLiteralAdapter() {
-		if (textLiteralItemProvider == null) {
-			textLiteralItemProvider = new TextLiteralItemProvider(this);
-		}
-
-		return textLiteralItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.TextList} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TextListItemProvider textListItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.TextList}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTextListAdapter() {
-		if (textListItemProvider == null) {
-			textListItemProvider = new TextListItemProvider(this);
-		}
-
-		return textListItemProvider;
+		return axisOptionParamItemProvider;
 	}
 
 	/**
@@ -452,18 +452,18 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	 */
 	@Override
 	public void dispose() {
-		if (comparisonOptionItemProvider != null) comparisonOptionItemProvider.dispose();
-		if (propertyOptionItemProvider != null) propertyOptionItemProvider.dispose();
+		if (comparisonOptionParamItemProvider != null) comparisonOptionParamItemProvider.dispose();
+		if (propertyOptionParamItemProvider != null) propertyOptionParamItemProvider.dispose();
 		if (parameterListItemProvider != null) parameterListItemProvider.dispose();
-		if (booleanItemProvider != null) booleanItemProvider.dispose();
-		if (textListItemProvider != null) textListItemProvider.dispose();
-		if (textLiteralItemProvider != null) textLiteralItemProvider.dispose();
-		if (numberItemProvider != null) numberItemProvider.dispose();
-		if (dateItemProvider != null) dateItemProvider.dispose();
-		if (timeItemProvider != null) timeItemProvider.dispose();
+		if (booleanParamItemProvider != null) booleanParamItemProvider.dispose();
+		if (textListParamItemProvider != null) textListParamItemProvider.dispose();
+		if (textLiteralParamItemProvider != null) textLiteralParamItemProvider.dispose();
+		if (numberParamItemProvider != null) numberParamItemProvider.dispose();
+		if (dateParamItemProvider != null) dateParamItemProvider.dispose();
+		if (timeParamItemProvider != null) timeParamItemProvider.dispose();
 		if (unknownParameterValueItemProvider != null) unknownParameterValueItemProvider.dispose();
-		if (dateTimeItemProvider != null) dateTimeItemProvider.dispose();
-		if (axisOptionItemProvider != null) axisOptionItemProvider.dispose();
+		if (dateTimeParamItemProvider != null) dateTimeParamItemProvider.dispose();
+		if (axisOptionParamItemProvider != null) axisOptionParamItemProvider.dispose();
 	}
 
 }

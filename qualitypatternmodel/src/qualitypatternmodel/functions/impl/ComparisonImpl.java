@@ -31,13 +31,13 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
-import qualitypatternmodel.parameters.ComparisonOption;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.UnknownParameterValue;
-import qualitypatternmodel.parameters.impl.ComparisonOptionImpl;
+import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -104,7 +104,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 * @ordered
 	 */
-	protected ComparisonOption option;
+	protected ComparisonOptionParam option;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -326,7 +326,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 
 			if (getOption() == null) {
-				ComparisonOption comparisonOption = new ComparisonOptionImpl();
+				ComparisonOptionParam comparisonOption = new ComparisonOptionParamImpl();
 				pattern.getParameterList().add(comparisonOption);
 				setOption(comparisonOption);
 			} else {
@@ -557,10 +557,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public ComparisonOption getOption() {
+	public ComparisonOptionParam getOption() {
 		if (option != null && option.eIsProxy()) {
 			InternalEObject oldOption = (InternalEObject)option;
-			option = (ComparisonOption)eResolveProxy(oldOption);
+			option = (ComparisonOptionParam)eResolveProxy(oldOption);
 			if (option != oldOption) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.COMPARISON__OPTION, oldOption, option));
@@ -589,7 +589,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComparisonOption basicGetOption() {
+	public ComparisonOptionParam basicGetOption() {
 		return option;
 	}
 
@@ -598,8 +598,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * 
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetOption(ComparisonOption newOption, NotificationChain msgs) {
-		ComparisonOption oldOption = option;
+	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
+		ComparisonOptionParam oldOption = option;
 		option = newOption;
 
 		try {
@@ -633,13 +633,13 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 */
 	@Override
-	public void setOption(ComparisonOption newOption) {
+	public void setOption(ComparisonOptionParam newOption) {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION__COMPARISON, ComparisonOption.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON, ComparisonOptionParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.COMPARISON_OPTION__COMPARISON, ComparisonOption.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON, ComparisonOptionParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -768,8 +768,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return basicSetArgument2((qualitypatternmodel.graphstructure.Comparable)otherEnd, msgs);
 			case FunctionsPackage.COMPARISON__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION__COMPARISON, ComparisonOption.class, msgs);
-				return basicSetOption((ComparisonOption)otherEnd, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON, ComparisonOptionParam.class, msgs);
+				return basicSetOption((ComparisonOptionParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -831,7 +831,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				setType((ReturnType)newValue);
 				return;
 			case FunctionsPackage.COMPARISON__OPTION:
-				setOption((ComparisonOption)newValue);
+				setOption((ComparisonOptionParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -854,7 +854,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				setType(TYPE_EDEFAULT);
 				return;
 			case FunctionsPackage.COMPARISON__OPTION:
-				setOption((ComparisonOption)null);
+				setOption((ComparisonOptionParam)null);
 				return;
 		}
 		super.eUnset(featureID);

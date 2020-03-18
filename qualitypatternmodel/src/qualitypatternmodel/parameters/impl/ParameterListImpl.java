@@ -19,13 +19,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.Boolean;
-import qualitypatternmodel.parameters.ComparisonOption;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.PropertyOption;
-import qualitypatternmodel.parameters.TextLiteral;
+import qualitypatternmodel.parameters.PropertyOptionParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -108,8 +108,8 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	public String toXQuery(Location location) throws InvalidityException {
 		String res = "";
 		for (Parameter parameter : getParameters()) {
-			if (parameter instanceof TextListImpl)
-				res += ((TextListImpl) parameter).getListDeclaration();
+			if (parameter instanceof TextListParamImpl)
+				res += ((TextListParamImpl) parameter).getListDeclaration();
 		}
 		return res;
 	}
@@ -152,18 +152,18 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	 */
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
 		for (Parameter parameter : getParameters()) {
-			if (parameter instanceof Boolean) {
-				((Boolean) parameter).setMatch(null);
+			if (parameter instanceof BooleanParam) {
+				((BooleanParam) parameter).setMatch(null);
 			}
-			if (parameter instanceof TextLiteral) {
-				((TextLiteral) parameter).setMatch(null);
-				((TextLiteral) parameter).setProperty(null);
+			if (parameter instanceof TextLiteralParam) {
+				((TextLiteralParam) parameter).setMatch(null);
+				((TextLiteralParam) parameter).setProperty(null);
 			}
-			if (parameter instanceof ComparisonOption) {
-				((ComparisonOption) parameter).setComparison(null);
+			if (parameter instanceof ComparisonOptionParam) {
+				((ComparisonOptionParam) parameter).setComparison(null);
 			}
-			if (parameter instanceof PropertyOption) {
-				((PropertyOption) parameter).setProperty(null);
+			if (parameter instanceof PropertyOptionParam) {
+				((PropertyOptionParam) parameter).setProperty(null);
 			}
 			parameter.getComparison1().clear();
 			parameter.getComparison2().clear();

@@ -7,19 +7,20 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import qualitypatternmodel.parameters.AxisOption;
-import qualitypatternmodel.parameters.ComparisonOption;
-import qualitypatternmodel.parameters.Date;
-import qualitypatternmodel.parameters.DateTime;
+import qualitypatternmodel.parameters.*;
+import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.DateParam;
+import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
-import qualitypatternmodel.parameters.PropertyOption;
-import qualitypatternmodel.parameters.Text;
-import qualitypatternmodel.parameters.TextList;
-import qualitypatternmodel.parameters.TextLiteral;
-import qualitypatternmodel.parameters.Time;
+import qualitypatternmodel.parameters.PropertyOptionParam;
+import qualitypatternmodel.parameters.TextParam;
+import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -88,21 +89,21 @@ public class ParametersSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.COMPARISON_OPTION: {
-				ComparisonOption comparisonOption = (ComparisonOption)theEObject;
-				T result = caseComparisonOption(comparisonOption);
-				if (result == null) result = caseParameter(comparisonOption);
-				if (result == null) result = caseComparable(comparisonOption);
-				if (result == null) result = casePatternElement(comparisonOption);
+			case ParametersPackage.COMPARISON_OPTION_PARAM: {
+				ComparisonOptionParam comparisonOptionParam = (ComparisonOptionParam)theEObject;
+				T result = caseComparisonOptionParam(comparisonOptionParam);
+				if (result == null) result = caseParameter(comparisonOptionParam);
+				if (result == null) result = caseComparable(comparisonOptionParam);
+				if (result == null) result = casePatternElement(comparisonOptionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.PROPERTY_OPTION: {
-				PropertyOption propertyOption = (PropertyOption)theEObject;
-				T result = casePropertyOption(propertyOption);
-				if (result == null) result = caseParameter(propertyOption);
-				if (result == null) result = caseComparable(propertyOption);
-				if (result == null) result = casePatternElement(propertyOption);
+			case ParametersPackage.PROPERTY_OPTION_PARAM: {
+				PropertyOptionParam propertyOptionParam = (PropertyOptionParam)theEObject;
+				T result = casePropertyOptionParam(propertyOptionParam);
+				if (result == null) result = caseParameter(propertyOptionParam);
+				if (result == null) result = caseComparable(propertyOptionParam);
+				if (result == null) result = casePatternElement(propertyOptionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -113,55 +114,55 @@ public class ParametersSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.BOOLEAN: {
-				qualitypatternmodel.parameters.Boolean boolean_ = (qualitypatternmodel.parameters.Boolean)theEObject;
-				T result = caseBoolean(boolean_);
-				if (result == null) result = caseParameterValue(boolean_);
-				if (result == null) result = caseParameter(boolean_);
-				if (result == null) result = caseComparable(boolean_);
-				if (result == null) result = casePatternElement(boolean_);
+			case ParametersPackage.BOOLEAN_PARAM: {
+				BooleanParam booleanParam = (BooleanParam)theEObject;
+				T result = caseBooleanParam(booleanParam);
+				if (result == null) result = caseParameterValue(booleanParam);
+				if (result == null) result = caseParameter(booleanParam);
+				if (result == null) result = caseComparable(booleanParam);
+				if (result == null) result = casePatternElement(booleanParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.TEXT: {
-				Text text = (Text)theEObject;
-				T result = caseText(text);
-				if (result == null) result = caseParameterValue(text);
-				if (result == null) result = caseParameter(text);
-				if (result == null) result = caseComparable(text);
-				if (result == null) result = casePatternElement(text);
+			case ParametersPackage.TEXT_PARAM: {
+				TextParam textParam = (TextParam)theEObject;
+				T result = caseTextParam(textParam);
+				if (result == null) result = caseParameterValue(textParam);
+				if (result == null) result = caseParameter(textParam);
+				if (result == null) result = caseComparable(textParam);
+				if (result == null) result = casePatternElement(textParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.TEXT_LIST: {
-				TextList textList = (TextList)theEObject;
-				T result = caseTextList(textList);
-				if (result == null) result = caseText(textList);
-				if (result == null) result = caseParameterValue(textList);
-				if (result == null) result = caseParameter(textList);
-				if (result == null) result = caseComparable(textList);
-				if (result == null) result = casePatternElement(textList);
+			case ParametersPackage.TEXT_LIST_PARAM: {
+				TextListParam textListParam = (TextListParam)theEObject;
+				T result = caseTextListParam(textListParam);
+				if (result == null) result = caseTextParam(textListParam);
+				if (result == null) result = caseParameterValue(textListParam);
+				if (result == null) result = caseParameter(textListParam);
+				if (result == null) result = caseComparable(textListParam);
+				if (result == null) result = casePatternElement(textListParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.TEXT_LITERAL: {
-				TextLiteral textLiteral = (TextLiteral)theEObject;
-				T result = caseTextLiteral(textLiteral);
-				if (result == null) result = caseText(textLiteral);
-				if (result == null) result = caseParameterValue(textLiteral);
-				if (result == null) result = caseParameter(textLiteral);
-				if (result == null) result = caseComparable(textLiteral);
-				if (result == null) result = casePatternElement(textLiteral);
+			case ParametersPackage.TEXT_LITERAL_PARAM: {
+				TextLiteralParam textLiteralParam = (TextLiteralParam)theEObject;
+				T result = caseTextLiteralParam(textLiteralParam);
+				if (result == null) result = caseTextParam(textLiteralParam);
+				if (result == null) result = caseParameterValue(textLiteralParam);
+				if (result == null) result = caseParameter(textLiteralParam);
+				if (result == null) result = caseComparable(textLiteralParam);
+				if (result == null) result = casePatternElement(textLiteralParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.NUMBER: {
-				qualitypatternmodel.parameters.Number number = (qualitypatternmodel.parameters.Number)theEObject;
-				T result = caseNumber(number);
-				if (result == null) result = caseParameterValue(number);
-				if (result == null) result = caseParameter(number);
-				if (result == null) result = caseComparable(number);
-				if (result == null) result = casePatternElement(number);
+			case ParametersPackage.NUMBER_PARAM: {
+				NumberParam numberParam = (NumberParam)theEObject;
+				T result = caseNumberParam(numberParam);
+				if (result == null) result = caseParameterValue(numberParam);
+				if (result == null) result = caseParameter(numberParam);
+				if (result == null) result = caseComparable(numberParam);
+				if (result == null) result = casePatternElement(numberParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -174,23 +175,23 @@ public class ParametersSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.DATE: {
-				Date date = (Date)theEObject;
-				T result = caseDate(date);
-				if (result == null) result = caseParameterValue(date);
-				if (result == null) result = caseParameter(date);
-				if (result == null) result = caseComparable(date);
-				if (result == null) result = casePatternElement(date);
+			case ParametersPackage.DATE_PARAM: {
+				DateParam dateParam = (DateParam)theEObject;
+				T result = caseDateParam(dateParam);
+				if (result == null) result = caseParameterValue(dateParam);
+				if (result == null) result = caseParameter(dateParam);
+				if (result == null) result = caseComparable(dateParam);
+				if (result == null) result = casePatternElement(dateParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.TIME: {
-				Time time = (Time)theEObject;
-				T result = caseTime(time);
-				if (result == null) result = caseParameterValue(time);
-				if (result == null) result = caseParameter(time);
-				if (result == null) result = caseComparable(time);
-				if (result == null) result = casePatternElement(time);
+			case ParametersPackage.TIME_PARAM: {
+				TimeParam timeParam = (TimeParam)theEObject;
+				T result = caseTimeParam(timeParam);
+				if (result == null) result = caseParameterValue(timeParam);
+				if (result == null) result = caseParameter(timeParam);
+				if (result == null) result = caseComparable(timeParam);
+				if (result == null) result = casePatternElement(timeParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -203,22 +204,22 @@ public class ParametersSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.DATE_TIME: {
-				DateTime dateTime = (DateTime)theEObject;
-				T result = caseDateTime(dateTime);
-				if (result == null) result = caseParameterValue(dateTime);
-				if (result == null) result = caseParameter(dateTime);
-				if (result == null) result = caseComparable(dateTime);
-				if (result == null) result = casePatternElement(dateTime);
+			case ParametersPackage.DATE_TIME_PARAM: {
+				DateTimeParam dateTimeParam = (DateTimeParam)theEObject;
+				T result = caseDateTimeParam(dateTimeParam);
+				if (result == null) result = caseParameterValue(dateTimeParam);
+				if (result == null) result = caseParameter(dateTimeParam);
+				if (result == null) result = caseComparable(dateTimeParam);
+				if (result == null) result = casePatternElement(dateTimeParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.AXIS_OPTION: {
-				AxisOption axisOption = (AxisOption)theEObject;
-				T result = caseAxisOption(axisOption);
-				if (result == null) result = caseParameter(axisOption);
-				if (result == null) result = caseComparable(axisOption);
-				if (result == null) result = casePatternElement(axisOption);
+			case ParametersPackage.AXIS_OPTION_PARAM: {
+				AxisOptionParam axisOptionParam = (AxisOptionParam)theEObject;
+				T result = caseAxisOptionParam(axisOptionParam);
+				if (result == null) result = caseParameter(axisOptionParam);
+				if (result == null) result = caseComparable(axisOptionParam);
+				if (result == null) result = casePatternElement(axisOptionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -242,32 +243,32 @@ public class ParametersSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Comparison Option</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Comparison Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Comparison Option</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Comparison Option Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseComparisonOption(ComparisonOption object) {
+	public T caseComparisonOptionParam(ComparisonOptionParam object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property Option</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Property Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property Option</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Property Option Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropertyOption(PropertyOption object) {
+	public T casePropertyOptionParam(PropertyOptionParam object) {
 		return null;
 	}
 
@@ -287,77 +288,77 @@ public class ParametersSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Boolean</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Boolean Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Boolean</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Boolean Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBoolean(qualitypatternmodel.parameters.Boolean object) {
+	public T caseBooleanParam(BooleanParam object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Text Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Text</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Text Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseText(Text object) {
+	public T caseTextParam(TextParam object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Text List</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Text List Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Text List</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Text List Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTextList(TextList object) {
+	public T caseTextListParam(TextListParam object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Text Literal</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Text Literal Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Text Literal</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Text Literal Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTextLiteral(TextLiteral object) {
+	public T caseTextLiteralParam(TextLiteralParam object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Number</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Number Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Number</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Number Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNumber(qualitypatternmodel.parameters.Number object) {
+	public T caseNumberParam(NumberParam object) {
 		return null;
 	}
 
@@ -377,32 +378,32 @@ public class ParametersSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Date</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Date Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Date</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Date Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDate(Date object) {
+	public T caseDateParam(DateParam object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Time</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Time Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Time</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Time Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTime(Time object) {
+	public T caseTimeParam(TimeParam object) {
 		return null;
 	}
 
@@ -422,32 +423,32 @@ public class ParametersSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Date Time</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Date Time Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Date Time</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Date Time Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDateTime(DateTime object) {
+	public T caseDateTimeParam(DateTimeParam object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Axis Option</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Axis Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Axis Option</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Axis Option Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAxisOption(AxisOption object) {
+	public T caseAxisOptionParam(AxisOptionParam object) {
 		return null;
 	}
 

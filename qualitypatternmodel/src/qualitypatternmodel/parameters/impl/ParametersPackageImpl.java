@@ -17,20 +17,22 @@ import qualitypatternmodel.functions.impl.FunctionsPackageImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
-import qualitypatternmodel.parameters.AxisOption;
-import qualitypatternmodel.parameters.ComparisonOption;
-import qualitypatternmodel.parameters.Date;
-import qualitypatternmodel.parameters.DateTime;
+import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.DateParam;
+import qualitypatternmodel.parameters.DateTimeParam;
+import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
-import qualitypatternmodel.parameters.PropertyOption;
-import qualitypatternmodel.parameters.Text;
-import qualitypatternmodel.parameters.TextList;
-import qualitypatternmodel.parameters.TextLiteral;
-import qualitypatternmodel.parameters.Time;
+import qualitypatternmodel.parameters.PropertyOptionParam;
+import qualitypatternmodel.parameters.TextParam;
+import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.parameters.util.ParametersValidator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -56,14 +58,14 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass comparisonOptionEClass = null;
+	private EClass comparisonOptionParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propertyOptionEClass = null;
+	private EClass propertyOptionParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,35 +79,35 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass booleanEClass = null;
+	private EClass booleanParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass textEClass = null;
+	private EClass textParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass textListEClass = null;
+	private EClass textListParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass textLiteralEClass = null;
+	private EClass textLiteralParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass numberEClass = null;
+	private EClass numberParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,14 +121,14 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dateEClass = null;
+	private EClass dateParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass timeEClass = null;
+	private EClass timeParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,14 +142,14 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dateTimeEClass = null;
+	private EClass dateTimeParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass axisOptionEClass = null;
+	private EClass axisOptionParamEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -300,8 +302,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getComparisonOption() {
-		return comparisonOptionEClass;
+	public EClass getComparisonOptionParam() {
+		return comparisonOptionParamEClass;
 	}
 
 	/**
@@ -310,8 +312,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getComparisonOption_Options() {
-		return (EAttribute)comparisonOptionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getComparisonOptionParam_Options() {
+		return (EAttribute)comparisonOptionParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -320,8 +322,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getComparisonOption_Value() {
-		return (EAttribute)comparisonOptionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getComparisonOptionParam_Value() {
+		return (EAttribute)comparisonOptionParamEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -330,8 +332,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EReference getComparisonOption_Comparison() {
-		return (EReference)comparisonOptionEClass.getEStructuralFeatures().get(2);
+	public EReference getComparisonOptionParam_Comparison() {
+		return (EReference)comparisonOptionParamEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -340,8 +342,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getPropertyOption() {
-		return propertyOptionEClass;
+	public EClass getPropertyOptionParam() {
+		return propertyOptionParamEClass;
 	}
 
 	/**
@@ -350,8 +352,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPropertyOption_Options() {
-		return (EAttribute)propertyOptionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getPropertyOptionParam_Options() {
+		return (EAttribute)propertyOptionParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -360,8 +362,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPropertyOption_Value() {
-		return (EAttribute)propertyOptionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPropertyOptionParam_Value() {
+		return (EAttribute)propertyOptionParamEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -370,8 +372,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EReference getPropertyOption_Property() {
-		return (EReference)propertyOptionEClass.getEStructuralFeatures().get(2);
+	public EReference getPropertyOptionParam_Property() {
+		return (EReference)propertyOptionParamEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -420,8 +422,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getBoolean() {
-		return booleanEClass;
+	public EClass getBooleanParam() {
+		return booleanParamEClass;
 	}
 
 	/**
@@ -430,8 +432,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBoolean_Value() {
-		return (EAttribute)booleanEClass.getEStructuralFeatures().get(0);
+	public EAttribute getBooleanParam_Value() {
+		return (EAttribute)booleanParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -440,8 +442,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EReference getBoolean_Match() {
-		return (EReference)booleanEClass.getEStructuralFeatures().get(1);
+	public EReference getBooleanParam_Match() {
+		return (EReference)booleanParamEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -450,8 +452,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getText() {
-		return textEClass;
+	public EClass getTextParam() {
+		return textParamEClass;
 	}
 
 	/**
@@ -460,8 +462,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getTextList() {
-		return textListEClass;
+	public EClass getTextListParam() {
+		return textListParamEClass;
 	}
 
 	/**
@@ -470,8 +472,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTextList_Values() {
-		return (EAttribute)textListEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTextListParam_Values() {
+		return (EAttribute)textListParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -480,8 +482,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getTextList__GetListDeclaration() {
-		return textListEClass.getEOperations().get(0);
+	public EOperation getTextListParam__GetListDeclaration() {
+		return textListParamEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -490,8 +492,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getTextList__GetListVar() {
-		return textListEClass.getEOperations().get(1);
+	public EOperation getTextListParam__GetListVar() {
+		return textListParamEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -500,8 +502,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getTextLiteral() {
-		return textLiteralEClass;
+	public EClass getTextLiteralParam() {
+		return textLiteralParamEClass;
 	}
 
 	/**
@@ -510,8 +512,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTextLiteral_Value() {
-		return (EAttribute)textLiteralEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTextLiteralParam_Value() {
+		return (EAttribute)textLiteralParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -520,8 +522,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EReference getTextLiteral_Match() {
-		return (EReference)textLiteralEClass.getEStructuralFeatures().get(1);
+	public EReference getTextLiteralParam_Match() {
+		return (EReference)textLiteralParamEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -530,8 +532,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EReference getTextLiteral_Property() {
-		return (EReference)textLiteralEClass.getEStructuralFeatures().get(2);
+	public EReference getTextLiteralParam_Property() {
+		return (EReference)textLiteralParamEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -540,8 +542,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getNumber() {
-		return numberEClass;
+	public EClass getNumberParam() {
+		return numberParamEClass;
 	}
 
 	/**
@@ -550,8 +552,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNumber_Value() {
-		return (EAttribute)numberEClass.getEStructuralFeatures().get(0);
+	public EAttribute getNumberParam_Value() {
+		return (EAttribute)numberParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -570,8 +572,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getDate() {
-		return dateEClass;
+	public EClass getDateParam() {
+		return dateParamEClass;
 	}
 
 	/**
@@ -580,8 +582,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDate_Value() {
-		return (EAttribute)dateEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDateParam_Value() {
+		return (EAttribute)dateParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -590,8 +592,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getTime() {
-		return timeEClass;
+	public EClass getTimeParam() {
+		return timeParamEClass;
 	}
 
 	/**
@@ -600,8 +602,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTime_Value() {
-		return (EAttribute)timeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getTimeParam_Value() {
+		return (EAttribute)timeParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -630,8 +632,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getDateTime() {
-		return dateTimeEClass;
+	public EClass getDateTimeParam() {
+		return dateTimeParamEClass;
 	}
 
 	/**
@@ -640,8 +642,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getDateTime_Value() {
-		return (EAttribute)dateTimeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDateTimeParam_Value() {
+		return (EAttribute)dateTimeParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -650,8 +652,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getAxisOption() {
-		return axisOptionEClass;
+	public EClass getAxisOptionParam() {
+		return axisOptionParamEClass;
 	}
 
 	/**
@@ -660,8 +662,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAxisOption_Options() {
-		return (EAttribute)axisOptionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getAxisOptionParam_Options() {
+		return (EAttribute)axisOptionParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -670,8 +672,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAxisOption_Value() {
-		return (EAttribute)axisOptionEClass.getEStructuralFeatures().get(1);
+	public EAttribute getAxisOptionParam_Value() {
+		return (EAttribute)axisOptionParamEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -680,8 +682,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EReference getAxisOption_Relation() {
-		return (EReference)axisOptionEClass.getEStructuralFeatures().get(2);
+	public EReference getAxisOptionParam_Relation() {
+		return (EReference)axisOptionParamEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -720,58 +722,58 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterEClass, PARAMETER___INPUT_IS_VALID);
 		createEOperation(parameterEClass, PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
-		comparisonOptionEClass = createEClass(COMPARISON_OPTION);
-		createEAttribute(comparisonOptionEClass, COMPARISON_OPTION__OPTIONS);
-		createEAttribute(comparisonOptionEClass, COMPARISON_OPTION__VALUE);
-		createEReference(comparisonOptionEClass, COMPARISON_OPTION__COMPARISON);
+		comparisonOptionParamEClass = createEClass(COMPARISON_OPTION_PARAM);
+		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__OPTIONS);
+		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__VALUE);
+		createEReference(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__COMPARISON);
 
-		propertyOptionEClass = createEClass(PROPERTY_OPTION);
-		createEAttribute(propertyOptionEClass, PROPERTY_OPTION__OPTIONS);
-		createEAttribute(propertyOptionEClass, PROPERTY_OPTION__VALUE);
-		createEReference(propertyOptionEClass, PROPERTY_OPTION__PROPERTY);
+		propertyOptionParamEClass = createEClass(PROPERTY_OPTION_PARAM);
+		createEAttribute(propertyOptionParamEClass, PROPERTY_OPTION_PARAM__OPTIONS);
+		createEAttribute(propertyOptionParamEClass, PROPERTY_OPTION_PARAM__VALUE);
+		createEReference(propertyOptionParamEClass, PROPERTY_OPTION_PARAM__PROPERTY);
 
 		parameterListEClass = createEClass(PARAMETER_LIST);
 		createEReference(parameterListEClass, PARAMETER_LIST__PARAMETERS);
 		createEReference(parameterListEClass, PARAMETER_LIST__PATTERN);
 		createEOperation(parameterListEClass, PARAMETER_LIST___ADD__PARAMETER);
 
-		booleanEClass = createEClass(BOOLEAN);
-		createEAttribute(booleanEClass, BOOLEAN__VALUE);
-		createEReference(booleanEClass, BOOLEAN__MATCH);
+		booleanParamEClass = createEClass(BOOLEAN_PARAM);
+		createEAttribute(booleanParamEClass, BOOLEAN_PARAM__VALUE);
+		createEReference(booleanParamEClass, BOOLEAN_PARAM__MATCH);
 
-		textEClass = createEClass(TEXT);
+		textParamEClass = createEClass(TEXT_PARAM);
 
-		textListEClass = createEClass(TEXT_LIST);
-		createEAttribute(textListEClass, TEXT_LIST__VALUES);
-		createEOperation(textListEClass, TEXT_LIST___GET_LIST_DECLARATION);
-		createEOperation(textListEClass, TEXT_LIST___GET_LIST_VAR);
+		textListParamEClass = createEClass(TEXT_LIST_PARAM);
+		createEAttribute(textListParamEClass, TEXT_LIST_PARAM__VALUES);
+		createEOperation(textListParamEClass, TEXT_LIST_PARAM___GET_LIST_DECLARATION);
+		createEOperation(textListParamEClass, TEXT_LIST_PARAM___GET_LIST_VAR);
 
-		textLiteralEClass = createEClass(TEXT_LITERAL);
-		createEAttribute(textLiteralEClass, TEXT_LITERAL__VALUE);
-		createEReference(textLiteralEClass, TEXT_LITERAL__MATCH);
-		createEReference(textLiteralEClass, TEXT_LITERAL__PROPERTY);
+		textLiteralParamEClass = createEClass(TEXT_LITERAL_PARAM);
+		createEAttribute(textLiteralParamEClass, TEXT_LITERAL_PARAM__VALUE);
+		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__MATCH);
+		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__PROPERTY);
 
-		numberEClass = createEClass(NUMBER);
-		createEAttribute(numberEClass, NUMBER__VALUE);
+		numberParamEClass = createEClass(NUMBER_PARAM);
+		createEAttribute(numberParamEClass, NUMBER_PARAM__VALUE);
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
 
-		dateEClass = createEClass(DATE);
-		createEAttribute(dateEClass, DATE__VALUE);
+		dateParamEClass = createEClass(DATE_PARAM);
+		createEAttribute(dateParamEClass, DATE_PARAM__VALUE);
 
-		timeEClass = createEClass(TIME);
-		createEAttribute(timeEClass, TIME__VALUE);
+		timeParamEClass = createEClass(TIME_PARAM);
+		createEAttribute(timeParamEClass, TIME_PARAM__VALUE);
 
 		unknownParameterValueEClass = createEClass(UNKNOWN_PARAMETER_VALUE);
 		createEOperation(unknownParameterValueEClass, UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE);
 
-		dateTimeEClass = createEClass(DATE_TIME);
-		createEAttribute(dateTimeEClass, DATE_TIME__VALUE);
+		dateTimeParamEClass = createEClass(DATE_TIME_PARAM);
+		createEAttribute(dateTimeParamEClass, DATE_TIME_PARAM__VALUE);
 
-		axisOptionEClass = createEClass(AXIS_OPTION);
-		createEAttribute(axisOptionEClass, AXIS_OPTION__OPTIONS);
-		createEAttribute(axisOptionEClass, AXIS_OPTION__VALUE);
-		createEReference(axisOptionEClass, AXIS_OPTION__RELATION);
+		axisOptionParamEClass = createEClass(AXIS_OPTION_PARAM);
+		createEAttribute(axisOptionParamEClass, AXIS_OPTION_PARAM__OPTIONS);
+		createEAttribute(axisOptionParamEClass, AXIS_OPTION_PARAM__VALUE);
+		createEReference(axisOptionParamEClass, AXIS_OPTION_PARAM__RELATION);
 	}
 
 	/**
@@ -809,20 +811,20 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		// Add supertypes to classes
 		parameterEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		parameterEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
-		comparisonOptionEClass.getESuperTypes().add(this.getParameter());
-		propertyOptionEClass.getESuperTypes().add(this.getParameter());
+		comparisonOptionParamEClass.getESuperTypes().add(this.getParameter());
+		propertyOptionParamEClass.getESuperTypes().add(this.getParameter());
 		parameterListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
-		booleanEClass.getESuperTypes().add(this.getParameterValue());
-		textEClass.getESuperTypes().add(this.getParameterValue());
-		textListEClass.getESuperTypes().add(this.getText());
-		textLiteralEClass.getESuperTypes().add(this.getText());
-		numberEClass.getESuperTypes().add(this.getParameterValue());
+		booleanParamEClass.getESuperTypes().add(this.getParameterValue());
+		textParamEClass.getESuperTypes().add(this.getParameterValue());
+		textListParamEClass.getESuperTypes().add(this.getTextParam());
+		textLiteralParamEClass.getESuperTypes().add(this.getTextParam());
+		numberParamEClass.getESuperTypes().add(this.getParameterValue());
 		parameterValueEClass.getESuperTypes().add(this.getParameter());
-		dateEClass.getESuperTypes().add(this.getParameterValue());
-		timeEClass.getESuperTypes().add(this.getParameterValue());
+		dateParamEClass.getESuperTypes().add(this.getParameterValue());
+		timeParamEClass.getESuperTypes().add(this.getParameterValue());
 		unknownParameterValueEClass.getESuperTypes().add(this.getParameter());
-		dateTimeEClass.getESuperTypes().add(this.getParameterValue());
-		axisOptionEClass.getESuperTypes().add(this.getParameter());
+		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
+		axisOptionParamEClass.getESuperTypes().add(this.getParameter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -841,15 +843,15 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(comparisonOptionEClass, ComparisonOption.class, "ComparisonOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getComparisonOption_Options(), theFunctionsPackage.getComparisonOperator(), "options", null, 0, -1, ComparisonOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComparisonOption_Value(), theFunctionsPackage.getComparisonOperator(), "value", null, 0, 1, ComparisonOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComparisonOption_Comparison(), theFunctionsPackage.getComparison(), theFunctionsPackage.getComparison_Option(), "comparison", null, 0, 1, ComparisonOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comparisonOptionParamEClass, ComparisonOptionParam.class, "ComparisonOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComparisonOptionParam_Options(), theFunctionsPackage.getComparisonOperator(), "options", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComparisonOptionParam_Value(), theFunctionsPackage.getComparisonOperator(), "value", null, 0, 1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparisonOptionParam_Comparison(), theFunctionsPackage.getComparison(), theFunctionsPackage.getComparison_Option(), "comparison", null, 0, 1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(propertyOptionEClass, PropertyOption.class, "PropertyOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPropertyOption_Options(), theGraphstructurePackage.getPropertyLocation(), "options", null, 0, -1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPropertyOption_Value(), theGraphstructurePackage.getPropertyLocation(), "value", null, 0, 1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropertyOption_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_Option(), "property", null, 0, 1, PropertyOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(propertyOptionParamEClass, PropertyOptionParam.class, "PropertyOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPropertyOptionParam_Options(), theGraphstructurePackage.getPropertyLocation(), "options", null, 0, -1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPropertyOptionParam_Value(), theGraphstructurePackage.getPropertyLocation(), "value", null, 0, 1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPropertyOptionParam_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_Option(), "property", null, 0, 1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterListEClass, ParameterList.class, "ParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterList_Parameters(), this.getParameter(), this.getParameter_ParameterList(), "parameters", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -858,47 +860,47 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		op = initEOperation(getParameterList__Add__Parameter(), null, "add", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getParameter(), "Input", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(booleanEClass, qualitypatternmodel.parameters.Boolean.class, "Boolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBoolean_Value(), ecorePackage.getEBooleanObject(), "value", "true", 0, 1, qualitypatternmodel.parameters.Boolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBoolean_Match(), theFunctionsPackage.getMatch(), theFunctionsPackage.getMatch_Option(), "match", null, 0, 1, qualitypatternmodel.parameters.Boolean.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(booleanParamEClass, BooleanParam.class, "BooleanParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBooleanParam_Value(), ecorePackage.getEBooleanObject(), "value", "true", 0, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBooleanParam_Match(), theFunctionsPackage.getMatch(), theFunctionsPackage.getMatch_Option(), "match", null, 0, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(textEClass, Text.class, "Text", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(textParamEClass, TextParam.class, "TextParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(textListEClass, TextList.class, "TextList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTextList_Values(), ecorePackage.getEString(), "values", "", 0, -1, TextList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(textListParamEClass, TextListParam.class, "TextListParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTextListParam_Values(), ecorePackage.getEString(), "values", "", 0, -1, TextListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getTextList__GetListDeclaration(), ecorePackage.getEString(), "getListDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTextListParam__GetListDeclaration(), ecorePackage.getEString(), "getListDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getTextList__GetListVar(), ecorePackage.getEString(), "getListVar", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTextListParam__GetListVar(), ecorePackage.getEString(), "getListVar", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(textLiteralEClass, TextLiteral.class, "TextLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTextLiteral_Value(), ecorePackage.getEString(), "value", "", 0, 1, TextLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTextLiteral_Match(), theFunctionsPackage.getMatch(), theFunctionsPackage.getMatch_RegularExpression(), "match", null, 0, 1, TextLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTextLiteral_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_AttributeName(), "property", null, 0, 1, TextLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(textLiteralParamEClass, TextLiteralParam.class, "TextLiteralParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTextLiteralParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTextLiteralParam_Match(), theFunctionsPackage.getMatch(), theFunctionsPackage.getMatch_RegularExpression(), "match", null, 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTextLiteralParam_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_AttributeName(), "property", null, 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(numberEClass, qualitypatternmodel.parameters.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNumber_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, qualitypatternmodel.parameters.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(numberParamEClass, NumberParam.class, "NumberParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumberParam_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDate_Value(), ecorePackage.getEString(), "value", "", 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dateParamEClass, DateParam.class, "DateParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDateParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(timeEClass, Time.class, "Time", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTime_Value(), ecorePackage.getEString(), "value", "", 0, 1, Time.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(timeParamEClass, TimeParam.class, "TimeParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTimeParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, TimeParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(unknownParameterValueEClass, UnknownParameterValue.class, "UnknownParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getUnknownParameterValue__Concretize__ParameterValue(), null, "concretize", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getParameterValue(), "concreteInputValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(dateTimeEClass, DateTime.class, "DateTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDateTime_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dateTimeParamEClass, DateTimeParam.class, "DateTimeParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDateTimeParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateTimeParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(axisOptionEClass, AxisOption.class, "AxisOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAxisOption_Options(), theGraphstructurePackage.getAxis(), "options", null, 0, -1, AxisOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAxisOption_Value(), theGraphstructurePackage.getAxis(), "value", null, 0, 1, AxisOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAxisOption_Relation(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_Option(), "relation", null, 0, 1, AxisOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(axisOptionParamEClass, AxisOptionParam.class, "AxisOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAxisOptionParam_Options(), theGraphstructurePackage.getAxis(), "options", null, 0, -1, AxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAxisOptionParam_Value(), theGraphstructurePackage.getAxis(), "value", null, 0, 1, AxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAxisOptionParam_Relation(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_Option(), "relation", null, 0, 1, AxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -10,17 +10,18 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import qualitypatternmodel.parameters.AxisOption;
-import qualitypatternmodel.parameters.ComparisonOption;
-import qualitypatternmodel.parameters.Date;
-import qualitypatternmodel.parameters.DateTime;
+import qualitypatternmodel.parameters.*;
+import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.DateParam;
+import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.PropertyOption;
-import qualitypatternmodel.parameters.TextList;
-import qualitypatternmodel.parameters.TextLiteral;
-import qualitypatternmodel.parameters.Time;
+import qualitypatternmodel.parameters.PropertyOptionParam;
+import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 
 /**
@@ -67,18 +68,18 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ParametersPackage.COMPARISON_OPTION: return createComparisonOption();
-			case ParametersPackage.PROPERTY_OPTION: return createPropertyOption();
+			case ParametersPackage.COMPARISON_OPTION_PARAM: return createComparisonOptionParam();
+			case ParametersPackage.PROPERTY_OPTION_PARAM: return createPropertyOptionParam();
 			case ParametersPackage.PARAMETER_LIST: return createParameterList();
-			case ParametersPackage.BOOLEAN: return createBoolean();
-			case ParametersPackage.TEXT_LIST: return createTextList();
-			case ParametersPackage.TEXT_LITERAL: return createTextLiteral();
-			case ParametersPackage.NUMBER: return createNumber();
-			case ParametersPackage.DATE: return createDate();
-			case ParametersPackage.TIME: return createTime();
+			case ParametersPackage.BOOLEAN_PARAM: return createBooleanParam();
+			case ParametersPackage.TEXT_LIST_PARAM: return createTextListParam();
+			case ParametersPackage.TEXT_LITERAL_PARAM: return createTextLiteralParam();
+			case ParametersPackage.NUMBER_PARAM: return createNumberParam();
+			case ParametersPackage.DATE_PARAM: return createDateParam();
+			case ParametersPackage.TIME_PARAM: return createTimeParam();
 			case ParametersPackage.UNKNOWN_PARAMETER_VALUE: return createUnknownParameterValue();
-			case ParametersPackage.DATE_TIME: return createDateTime();
-			case ParametersPackage.AXIS_OPTION: return createAxisOption();
+			case ParametersPackage.DATE_TIME_PARAM: return createDateTimeParam();
+			case ParametersPackage.AXIS_OPTION_PARAM: return createAxisOptionParam();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -90,9 +91,9 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public ComparisonOption createComparisonOption() {
-		ComparisonOptionImpl comparisonOption = new ComparisonOptionImpl();
-		return comparisonOption;
+	public ComparisonOptionParam createComparisonOptionParam() {
+		ComparisonOptionParamImpl comparisonOptionParam = new ComparisonOptionParamImpl();
+		return comparisonOptionParam;
 	}
 
 	/**
@@ -101,9 +102,9 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public PropertyOption createPropertyOption() {
-		PropertyOptionImpl propertyOption = new PropertyOptionImpl();
-		return propertyOption;
+	public PropertyOptionParam createPropertyOptionParam() {
+		PropertyOptionParamImpl propertyOptionParam = new PropertyOptionParamImpl();
+		return propertyOptionParam;
 	}
 
 	/**
@@ -123,9 +124,9 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public qualitypatternmodel.parameters.Boolean createBoolean() {
-		BooleanImpl boolean_ = new BooleanImpl();
-		return boolean_;
+	public BooleanParam createBooleanParam() {
+		BooleanParamImpl booleanParam = new BooleanParamImpl();
+		return booleanParam;
 	}
 
 	/**
@@ -134,9 +135,9 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public TextList createTextList() {
-		TextListImpl textList = new TextListImpl();
-		return textList;
+	public TextListParam createTextListParam() {
+		TextListParamImpl textListParam = new TextListParamImpl();
+		return textListParam;
 	}
 
 	/**
@@ -145,9 +146,9 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public TextLiteral createTextLiteral() {
-		TextLiteralImpl textLiteral = new TextLiteralImpl();
-		return textLiteral;
+	public TextLiteralParam createTextLiteralParam() {
+		TextLiteralParamImpl textLiteralParam = new TextLiteralParamImpl();
+		return textLiteralParam;
 	}
 
 	/**
@@ -156,9 +157,9 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public qualitypatternmodel.parameters.Number createNumber() {
-		NumberImpl number = new NumberImpl();
-		return number;
+	public NumberParam createNumberParam() {
+		NumberParamImpl numberParam = new NumberParamImpl();
+		return numberParam;
 	}
 
 	/**
@@ -167,9 +168,9 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public Date createDate() {
-		DateImpl date = new DateImpl();
-		return date;
+	public DateParam createDateParam() {
+		DateParamImpl dateParam = new DateParamImpl();
+		return dateParam;
 	}
 
 	/**
@@ -178,9 +179,9 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public Time createTime() {
-		TimeImpl time = new TimeImpl();
-		return time;
+	public TimeParam createTimeParam() {
+		TimeParamImpl timeParam = new TimeParamImpl();
+		return timeParam;
 	}
 
 	/**
@@ -200,9 +201,9 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public DateTime createDateTime() {
-		DateTimeImpl dateTime = new DateTimeImpl();
-		return dateTime;
+	public DateTimeParam createDateTimeParam() {
+		DateTimeParamImpl dateTimeParam = new DateTimeParamImpl();
+		return dateTimeParam;
 	}
 
 	/**
@@ -211,9 +212,9 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public AxisOption createAxisOption() {
-		AxisOptionImpl axisOption = new AxisOptionImpl();
-		return axisOption;
+	public AxisOptionParam createAxisOptionParam() {
+		AxisOptionParamImpl axisOptionParam = new AxisOptionParamImpl();
+		return axisOptionParam;
 	}
 
 	/**

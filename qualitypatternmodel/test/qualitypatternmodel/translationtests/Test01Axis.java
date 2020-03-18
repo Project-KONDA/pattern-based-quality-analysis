@@ -6,7 +6,7 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.parameters.AxisOption;
+import qualitypatternmodel.parameters.AxisOptionParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.exceptions.*;
@@ -35,7 +35,7 @@ public class Test01Axis {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		Pattern pattern = Test00.getBasePattern();
-		AxisOption axisOption = parametersFactory.createAxisOption();		
+		AxisOptionParam axisOption = parametersFactory.createAxisOptionParam();		
 		pattern.getGraph().getRootElement().getNextSingle().get(0).getRelationFromPrevious().setOption(axisOption);
 		axisOption.getOptions().add(axis);
 		axisOption.setValue(axis);

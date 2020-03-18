@@ -5,8 +5,8 @@ package qualitypatternmodel.graphstructure;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.ReferenceOperator;
-import qualitypatternmodel.parameters.PropertyOption;
-import qualitypatternmodel.parameters.TextLiteral;
+import qualitypatternmodel.parameters.PropertyOptionParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -33,17 +33,17 @@ import qualitypatternmodel.patternstructure.PatternElement;
 public interface Property extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.PropertyOption#getProperty <em>Property</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.PropertyOptionParam#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
-	 * @see #setOption(PropertyOption)
+	 * @see #setOption(PropertyOptionParam)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Option()
-	 * @see qualitypatternmodel.parameters.PropertyOption#getProperty
+	 * @see qualitypatternmodel.parameters.PropertyOptionParam#getProperty
 	 * @model opposite="property" required="true"
 	 * @generated
 	 */
-	PropertyOption getOption();
+	PropertyOptionParam getOption();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getOption <em>Option</em>}' reference.
@@ -53,7 +53,7 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 * @see #getOption()
 	 * @generated
 	 */
-	void setOption(PropertyOption value);
+	void setOption(PropertyOptionParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Reference Operator2</b></em>' reference.
@@ -129,17 +129,17 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * Returns the value of the '<em><b>Attribute Name</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteral#getProperty <em>Property</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute Name</em>' reference.
-	 * @see #setAttributeName(TextLiteral)
+	 * @see #setAttributeName(TextLiteralParam)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_AttributeName()
-	 * @see qualitypatternmodel.parameters.TextLiteral#getProperty
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperty
 	 * @model opposite="property" required="true"
 	 * @generated
 	 */
-	TextLiteral getAttributeName();
+	TextLiteralParam getAttributeName();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}' reference.
@@ -149,7 +149,7 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 * @see #getAttributeName()
 	 * @generated
 	 */
-	void setAttributeName(TextLiteral value);
+	void setAttributeName(TextLiteralParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Match</b></em>' reference list.

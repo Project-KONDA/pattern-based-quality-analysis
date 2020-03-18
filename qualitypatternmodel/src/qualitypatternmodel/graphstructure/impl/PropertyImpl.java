@@ -33,10 +33,10 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.PropertyOption;
-import qualitypatternmodel.parameters.TextLiteral;
-import qualitypatternmodel.parameters.impl.PropertyOptionImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralImpl;
+import qualitypatternmodel.parameters.PropertyOptionParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -100,7 +100,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 * @ordered
 	 */
-	protected TextLiteral attributeName;
+	protected TextLiteralParam attributeName;
 
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
@@ -110,7 +110,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 * @ordered
 	 */
-	protected PropertyOption option;
+	protected PropertyOptionParam option;
 
 	/**
 	 * The cached value of the '{@link #getReferenceOperator2() <em>Reference Operator2</em>}' reference.
@@ -219,14 +219,14 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			
 			if(getOption() == null) {
-				PropertyOption option = new PropertyOptionImpl();			
+				PropertyOptionParam option = new PropertyOptionParamImpl();			
 				pattern.getParameterList().add(option);
 				setOption(option);
 			} else {
 				pattern.getParameterList().add(getOption());
 			}
 			if(getAttributeName() == null) {
-				TextLiteral textLiteral = new TextLiteralImpl();
+				TextLiteralParam textLiteral = new TextLiteralParamImpl();
 				pattern.getParameterList().add(textLiteral);
 				setAttributeName(textLiteral);
 			} else {
@@ -280,10 +280,10 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public PropertyOption getOption() {
+	public PropertyOptionParam getOption() {
 		if (option != null && option.eIsProxy()) {
 			InternalEObject oldOption = (InternalEObject)option;
-			option = (PropertyOption)eResolveProxy(oldOption);
+			option = (PropertyOptionParam)eResolveProxy(oldOption);
 			if (option != oldOption) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__OPTION, oldOption, option));
@@ -297,7 +297,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropertyOption basicGetOption() {
+	public PropertyOptionParam basicGetOption() {
 		return option;
 	}
 
@@ -306,8 +306,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetOption(PropertyOption newOption, NotificationChain msgs) {
-		PropertyOption oldOption = option;
+	public NotificationChain basicSetOption(PropertyOptionParam newOption, NotificationChain msgs) {
+		PropertyOptionParam oldOption = option;
 		option = newOption;
 		
 		try {
@@ -337,13 +337,13 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
-	public void setOption(PropertyOption newOption) {
+	public void setOption(PropertyOptionParam newOption) {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY, PropertyOptionParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY, PropertyOptionParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -553,10 +553,10 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
-	public TextLiteral getAttributeName() {
+	public TextLiteralParam getAttributeName() {
 		if (attributeName != null && attributeName.eIsProxy()) {
 			InternalEObject oldAttributeName = (InternalEObject)attributeName;
-			attributeName = (TextLiteral)eResolveProxy(oldAttributeName);
+			attributeName = (TextLiteralParam)eResolveProxy(oldAttributeName);
 			if (attributeName != oldAttributeName) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, oldAttributeName, attributeName));
@@ -570,7 +570,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextLiteral basicGetAttributeName() {
+	public TextLiteralParam basicGetAttributeName() {
 		return attributeName;
 	}
 
@@ -579,8 +579,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetAttributeName(TextLiteral newAttributeName, NotificationChain msgs) {
-		TextLiteral oldAttributeName = attributeName;
+	public NotificationChain basicSetAttributeName(TextLiteralParam newAttributeName, NotificationChain msgs) {
+		TextLiteralParam oldAttributeName = attributeName;
 		attributeName = newAttributeName;
 		
 		try {
@@ -611,13 +611,13 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
-	public void setAttributeName(TextLiteral newAttributeName) {
+	public void setAttributeName(TextLiteralParam newAttributeName) {
 		if (newAttributeName != attributeName) {
 			NotificationChain msgs = null;
 			if (attributeName != null)
-				msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
+				msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY, TextLiteralParam.class, msgs);
 			if (newAttributeName != null)
-				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, ParametersPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
+				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY, TextLiteralParam.class, msgs);
 			msgs = basicSetAttributeName(newAttributeName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -659,12 +659,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatch()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
 				if (attributeName != null)
-					msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
-				return basicSetAttributeName((TextLiteral)otherEnd, msgs);
+					msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY, TextLiteralParam.class, msgs);
+				return basicSetAttributeName((TextLiteralParam)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
-				return basicSetOption((PropertyOption)otherEnd, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY, PropertyOptionParam.class, msgs);
+				return basicSetOption((PropertyOptionParam)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
 				if (referenceOperator2 != null)
 					msgs = ((InternalEObject)referenceOperator2).eInverseRemove(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2, ReferenceOperator.class, msgs);
@@ -774,10 +774,10 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				getMatch().addAll((Collection<? extends Match>)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				setAttributeName((TextLiteral)newValue);
+				setAttributeName((TextLiteralParam)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__OPTION:
-				setOption((PropertyOption)newValue);
+				setOption((PropertyOptionParam)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
 				setReferenceOperator2((ReferenceOperator)newValue);
@@ -809,10 +809,10 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				getMatch().clear();
 				return;
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				setAttributeName((TextLiteral)null);
+				setAttributeName((TextLiteralParam)null);
 				return;
 			case GraphstructurePackage.PROPERTY__OPTION:
-				setOption((PropertyOption)null);
+				setOption((PropertyOptionParam)null);
 				return;
 			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
 				setReferenceOperator2((ReferenceOperator)null);

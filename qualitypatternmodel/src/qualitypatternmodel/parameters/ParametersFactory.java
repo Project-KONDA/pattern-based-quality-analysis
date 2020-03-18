@@ -22,22 +22,22 @@ public interface ParametersFactory extends EFactory {
 	ParametersFactory eINSTANCE = qualitypatternmodel.parameters.impl.ParametersFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Comparison Option</em>'.
+	 * Returns a new object of class '<em>Comparison Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Comparison Option</em>'.
+	 * @return a new object of class '<em>Comparison Option Param</em>'.
 	 * @generated
 	 */
-	ComparisonOption createComparisonOption();
+	ComparisonOptionParam createComparisonOptionParam();
 
 	/**
-	 * Returns a new object of class '<em>Property Option</em>'.
+	 * Returns a new object of class '<em>Property Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property Option</em>'.
+	 * @return a new object of class '<em>Property Option Param</em>'.
 	 * @generated
 	 */
-	PropertyOption createPropertyOption();
+	PropertyOptionParam createPropertyOptionParam();
 
 	/**
 	 * Returns a new object of class '<em>Parameter List</em>'.
@@ -49,58 +49,58 @@ public interface ParametersFactory extends EFactory {
 	ParameterList createParameterList();
 
 	/**
-	 * Returns a new object of class '<em>Boolean</em>'.
+	 * Returns a new object of class '<em>Boolean Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boolean</em>'.
+	 * @return a new object of class '<em>Boolean Param</em>'.
 	 * @generated
 	 */
-	Boolean createBoolean();
+	BooleanParam createBooleanParam();
 
 	/**
-	 * Returns a new object of class '<em>Text List</em>'.
+	 * Returns a new object of class '<em>Text List Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Text List</em>'.
+	 * @return a new object of class '<em>Text List Param</em>'.
 	 * @generated
 	 */
-	TextList createTextList();
+	TextListParam createTextListParam();
 
 	/**
-	 * Returns a new object of class '<em>Text Literal</em>'.
+	 * Returns a new object of class '<em>Text Literal Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Text Literal</em>'.
+	 * @return a new object of class '<em>Text Literal Param</em>'.
 	 * @generated
 	 */
-	TextLiteral createTextLiteral();
+	TextLiteralParam createTextLiteralParam();
 
 	/**
-	 * Returns a new object of class '<em>Number</em>'.
+	 * Returns a new object of class '<em>Number Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Number</em>'.
+	 * @return a new object of class '<em>Number Param</em>'.
 	 * @generated
 	 */
-	Number createNumber();
+	NumberParam createNumberParam();
 
 	/**
-	 * Returns a new object of class '<em>Date</em>'.
+	 * Returns a new object of class '<em>Date Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Date</em>'.
+	 * @return a new object of class '<em>Date Param</em>'.
 	 * @generated
 	 */
-	Date createDate();
+	DateParam createDateParam();
 
 	/**
-	 * Returns a new object of class '<em>Time</em>'.
+	 * Returns a new object of class '<em>Time Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Time</em>'.
+	 * @return a new object of class '<em>Time Param</em>'.
 	 * @generated
 	 */
-	Time createTime();
+	TimeParam createTimeParam();
 
 	/**
 	 * Returns a new object of class '<em>Unknown Parameter Value</em>'.
@@ -112,22 +112,22 @@ public interface ParametersFactory extends EFactory {
 	UnknownParameterValue createUnknownParameterValue();
 
 	/**
-	 * Returns a new object of class '<em>Date Time</em>'.
+	 * Returns a new object of class '<em>Date Time Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Date Time</em>'.
+	 * @return a new object of class '<em>Date Time Param</em>'.
 	 * @generated
 	 */
-	DateTime createDateTime();
+	DateTimeParam createDateTimeParam();
 
 	/**
-	 * Returns a new object of class '<em>Axis Option</em>'.
+	 * Returns a new object of class '<em>Axis Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Axis Option</em>'.
+	 * @return a new object of class '<em>Axis Option Param</em>'.
 	 * @generated
 	 */
-	AxisOption createAxisOption();
+	AxisOptionParam createAxisOptionParam();
 
 	/**
 	 * Returns the package supported by this factory.

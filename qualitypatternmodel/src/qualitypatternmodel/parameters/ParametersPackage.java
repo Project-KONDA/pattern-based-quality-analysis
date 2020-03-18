@@ -268,14 +268,14 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionImpl <em>Comparison Option</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.ComparisonOptionImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getComparisonOption()
+	 * @see qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getComparisonOptionParam()
 	 * @generated
 	 */
-	int COMPARISON_OPTION = 1;
+	int COMPARISON_OPTION_PARAM = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -284,7 +284,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION__ID = PARAMETER__ID;
+	int COMPARISON_OPTION_PARAM__ID = PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -293,7 +293,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION__INTERNAL_ID = PARAMETER__INTERNAL_ID;
+	int COMPARISON_OPTION_PARAM__INTERNAL_ID = PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -302,7 +302,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION__COMPARISON1 = PARAMETER__COMPARISON1;
+	int COMPARISON_OPTION_PARAM__COMPARISON1 = PARAMETER__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -311,7 +311,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION__COMPARISON2 = PARAMETER__COMPARISON2;
+	int COMPARISON_OPTION_PARAM__COMPARISON2 = PARAMETER__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -320,7 +320,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
+	int COMPARISON_OPTION_PARAM__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -329,7 +329,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION__DESCRIPTION = PARAMETER__DESCRIPTION;
+	int COMPARISON_OPTION_PARAM__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -338,7 +338,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+	int COMPARISON_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -347,7 +347,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION__OPTIONS = PARAMETER_FEATURE_COUNT + 0;
+	int COMPARISON_OPTION_PARAM__OPTIONS = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -356,7 +356,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION__VALUE = PARAMETER_FEATURE_COUNT + 1;
+	int COMPARISON_OPTION_PARAM__VALUE = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison</b></em>' reference.
@@ -365,16 +365,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION__COMPARISON = PARAMETER_FEATURE_COUNT + 2;
+	int COMPARISON_OPTION_PARAM__COMPARISON = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Comparison Option</em>' class.
+	 * The number of structural features of the '<em>Comparison Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
+	int COMPARISON_OPTION_PARAM_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -383,7 +383,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
+	int COMPARISON_OPTION_PARAM___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -392,7 +392,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
+	int COMPARISON_OPTION_PARAM___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -401,7 +401,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
+	int COMPARISON_OPTION_PARAM___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -410,7 +410,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
+	int COMPARISON_OPTION_PARAM___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -419,7 +419,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
+	int COMPARISON_OPTION_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -428,7 +428,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___GET_CONTAINER = PARAMETER___GET_CONTAINER;
+	int COMPARISON_OPTION_PARAM___GET_CONTAINER = PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -437,7 +437,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
+	int COMPARISON_OPTION_PARAM___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -446,7 +446,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___MY_TO_STRING = PARAMETER___MY_TO_STRING;
+	int COMPARISON_OPTION_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -455,7 +455,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
+	int COMPARISON_OPTION_PARAM___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -464,7 +464,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
+	int COMPARISON_OPTION_PARAM___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -473,7 +473,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
+	int COMPARISON_OPTION_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -482,7 +482,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
+	int COMPARISON_OPTION_PARAM___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -491,26 +491,26 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int COMPARISON_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Comparison Option</em>' class.
+	 * The number of operations of the '<em>Comparison Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
+	int COMPARISON_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.PropertyOptionImpl <em>Property Option</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.PropertyOptionParamImpl <em>Property Option Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.PropertyOptionImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getPropertyOption()
+	 * @see qualitypatternmodel.parameters.impl.PropertyOptionParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getPropertyOptionParam()
 	 * @generated
 	 */
-	int PROPERTY_OPTION = 2;
+	int PROPERTY_OPTION_PARAM = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -519,7 +519,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__ID = PARAMETER__ID;
+	int PROPERTY_OPTION_PARAM__ID = PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -528,7 +528,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__INTERNAL_ID = PARAMETER__INTERNAL_ID;
+	int PROPERTY_OPTION_PARAM__INTERNAL_ID = PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -537,7 +537,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__COMPARISON1 = PARAMETER__COMPARISON1;
+	int PROPERTY_OPTION_PARAM__COMPARISON1 = PARAMETER__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -546,7 +546,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__COMPARISON2 = PARAMETER__COMPARISON2;
+	int PROPERTY_OPTION_PARAM__COMPARISON2 = PARAMETER__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -555,7 +555,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
+	int PROPERTY_OPTION_PARAM__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -564,7 +564,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__DESCRIPTION = PARAMETER__DESCRIPTION;
+	int PROPERTY_OPTION_PARAM__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -573,7 +573,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+	int PROPERTY_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -582,7 +582,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__OPTIONS = PARAMETER_FEATURE_COUNT + 0;
+	int PROPERTY_OPTION_PARAM__OPTIONS = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -591,7 +591,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__VALUE = PARAMETER_FEATURE_COUNT + 1;
+	int PROPERTY_OPTION_PARAM__VALUE = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' reference.
@@ -600,16 +600,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION__PROPERTY = PARAMETER_FEATURE_COUNT + 2;
+	int PROPERTY_OPTION_PARAM__PROPERTY = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Property Option</em>' class.
+	 * The number of structural features of the '<em>Property Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
+	int PROPERTY_OPTION_PARAM_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -618,7 +618,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
+	int PROPERTY_OPTION_PARAM___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -627,7 +627,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
+	int PROPERTY_OPTION_PARAM___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -636,7 +636,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
+	int PROPERTY_OPTION_PARAM___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -645,7 +645,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
+	int PROPERTY_OPTION_PARAM___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -654,7 +654,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
+	int PROPERTY_OPTION_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -663,7 +663,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_CONTAINER = PARAMETER___GET_CONTAINER;
+	int PROPERTY_OPTION_PARAM___GET_CONTAINER = PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -672,7 +672,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
+	int PROPERTY_OPTION_PARAM___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -681,7 +681,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___MY_TO_STRING = PARAMETER___MY_TO_STRING;
+	int PROPERTY_OPTION_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -690,7 +690,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
+	int PROPERTY_OPTION_PARAM___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -699,7 +699,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
+	int PROPERTY_OPTION_PARAM___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -708,7 +708,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
+	int PROPERTY_OPTION_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -717,7 +717,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
+	int PROPERTY_OPTION_PARAM___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -726,16 +726,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int PROPERTY_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Property Option</em>' class.
+	 * The number of operations of the '<em>Property Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
+	int PROPERTY_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ParameterListImpl <em>Parameter List</em>}' class.
@@ -1100,14 +1100,14 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.BooleanImpl <em>Boolean</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.BooleanParamImpl <em>Boolean Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.BooleanImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getBoolean()
+	 * @see qualitypatternmodel.parameters.impl.BooleanParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getBooleanParam()
 	 * @generated
 	 */
-	int BOOLEAN = 4;
+	int BOOLEAN_PARAM = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1116,7 +1116,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__ID = PARAMETER_VALUE__ID;
+	int BOOLEAN_PARAM__ID = PARAMETER_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1125,7 +1125,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
+	int BOOLEAN_PARAM__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1134,7 +1134,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
+	int BOOLEAN_PARAM__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -1143,7 +1143,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+	int BOOLEAN_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -1152,7 +1152,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
+	int BOOLEAN_PARAM__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1161,7 +1161,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
+	int BOOLEAN_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -1170,7 +1170,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int BOOLEAN_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1179,7 +1179,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
+	int BOOLEAN_PARAM__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Match</b></em>' reference.
@@ -1188,16 +1188,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN__MATCH = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int BOOLEAN_PARAM__MATCH = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Boolean</em>' class.
+	 * The number of structural features of the '<em>Boolean Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 2;
+	int BOOLEAN_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1206,7 +1206,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
+	int BOOLEAN_PARAM___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1215,7 +1215,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int BOOLEAN_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1224,7 +1224,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
+	int BOOLEAN_PARAM___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1233,7 +1233,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int BOOLEAN_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1242,7 +1242,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int BOOLEAN_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1251,7 +1251,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
+	int BOOLEAN_PARAM___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1260,7 +1260,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
+	int BOOLEAN_PARAM___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1269,7 +1269,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
+	int BOOLEAN_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1278,7 +1278,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
+	int BOOLEAN_PARAM___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1287,7 +1287,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
+	int BOOLEAN_PARAM___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1296,7 +1296,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+	int BOOLEAN_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1305,7 +1305,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
+	int BOOLEAN_PARAM___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1314,26 +1314,26 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int BOOLEAN_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Boolean</em>' class.
+	 * The number of operations of the '<em>Boolean Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int BOOLEAN_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TextImpl <em>Text</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TextParamImpl <em>Text Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.TextImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getText()
+	 * @see qualitypatternmodel.parameters.impl.TextParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTextParam()
 	 * @generated
 	 */
-	int TEXT = 5;
+	int TEXT_PARAM = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1342,7 +1342,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__ID = PARAMETER_VALUE__ID;
+	int TEXT_PARAM__ID = PARAMETER_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1351,7 +1351,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
+	int TEXT_PARAM__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1360,7 +1360,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
+	int TEXT_PARAM__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -1369,7 +1369,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+	int TEXT_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -1378,7 +1378,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
+	int TEXT_PARAM__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1387,7 +1387,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
+	int TEXT_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -1396,16 +1396,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int TEXT_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
-	 * The number of structural features of the '<em>Text</em>' class.
+	 * The number of structural features of the '<em>Text Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 0;
+	int TEXT_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1414,7 +1414,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
+	int TEXT_PARAM___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1423,7 +1423,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int TEXT_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1432,7 +1432,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
+	int TEXT_PARAM___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1441,7 +1441,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int TEXT_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1450,7 +1450,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int TEXT_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1459,7 +1459,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
+	int TEXT_PARAM___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1468,7 +1468,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
+	int TEXT_PARAM___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1477,7 +1477,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
+	int TEXT_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1486,7 +1486,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
+	int TEXT_PARAM___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1495,7 +1495,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
+	int TEXT_PARAM___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1504,7 +1504,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+	int TEXT_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1513,7 +1513,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
+	int TEXT_PARAM___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1522,26 +1522,26 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int TEXT_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Text</em>' class.
+	 * The number of operations of the '<em>Text Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int TEXT_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TextListImpl <em>Text List</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TextListParamImpl <em>Text List Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.TextListImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTextList()
+	 * @see qualitypatternmodel.parameters.impl.TextListParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTextListParam()
 	 * @generated
 	 */
-	int TEXT_LIST = 6;
+	int TEXT_LIST_PARAM = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1550,7 +1550,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST__ID = TEXT__ID;
+	int TEXT_LIST_PARAM__ID = TEXT_PARAM__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1559,7 +1559,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST__INTERNAL_ID = TEXT__INTERNAL_ID;
+	int TEXT_LIST_PARAM__INTERNAL_ID = TEXT_PARAM__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1568,7 +1568,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST__COMPARISON1 = TEXT__COMPARISON1;
+	int TEXT_LIST_PARAM__COMPARISON1 = TEXT_PARAM__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -1577,7 +1577,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST__COMPARISON2 = TEXT__COMPARISON2;
+	int TEXT_LIST_PARAM__COMPARISON2 = TEXT_PARAM__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -1586,7 +1586,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST__PARAMETER_LIST = TEXT__PARAMETER_LIST;
+	int TEXT_LIST_PARAM__PARAMETER_LIST = TEXT_PARAM__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1595,7 +1595,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST__DESCRIPTION = TEXT__DESCRIPTION;
+	int TEXT_LIST_PARAM__DESCRIPTION = TEXT_PARAM__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -1604,7 +1604,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST__IS_PREDEFINED = TEXT__IS_PREDEFINED;
+	int TEXT_LIST_PARAM__IS_PREDEFINED = TEXT_PARAM__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' attribute list.
@@ -1613,16 +1613,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST__VALUES = TEXT_FEATURE_COUNT + 0;
+	int TEXT_LIST_PARAM__VALUES = TEXT_PARAM_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Text List</em>' class.
+	 * The number of structural features of the '<em>Text List Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_FEATURE_COUNT = TEXT_FEATURE_COUNT + 1;
+	int TEXT_LIST_PARAM_FEATURE_COUNT = TEXT_PARAM_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1631,7 +1631,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___TO_XQUERY__LOCATION = TEXT___TO_XQUERY__LOCATION;
+	int TEXT_LIST_PARAM___TO_XQUERY__LOCATION = TEXT_PARAM___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1640,7 +1640,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___GET_ALL_INPUTS = TEXT___GET_ALL_INPUTS;
+	int TEXT_LIST_PARAM___GET_ALL_INPUTS = TEXT_PARAM___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1649,7 +1649,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___PREPARE_TRANSLATION = TEXT___PREPARE_TRANSLATION;
+	int TEXT_LIST_PARAM___PREPARE_TRANSLATION = TEXT_PARAM___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1658,7 +1658,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___IS_VALID__BOOLEAN = TEXT___IS_VALID__BOOLEAN;
+	int TEXT_LIST_PARAM___IS_VALID__BOOLEAN = TEXT_PARAM___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1667,7 +1667,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___IS_VALID_LOCAL__BOOLEAN = TEXT___IS_VALID_LOCAL__BOOLEAN;
+	int TEXT_LIST_PARAM___IS_VALID_LOCAL__BOOLEAN = TEXT_PARAM___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1676,7 +1676,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___GET_CONTAINER = TEXT___GET_CONTAINER;
+	int TEXT_LIST_PARAM___GET_CONTAINER = TEXT_PARAM___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1685,7 +1685,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___GET_ANCESTOR__CLASS = TEXT___GET_ANCESTOR__CLASS;
+	int TEXT_LIST_PARAM___GET_ANCESTOR__CLASS = TEXT_PARAM___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1694,7 +1694,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___MY_TO_STRING = TEXT___MY_TO_STRING;
+	int TEXT_LIST_PARAM___MY_TO_STRING = TEXT_PARAM___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1703,7 +1703,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___GET_RETURN_TYPE = TEXT___GET_RETURN_TYPE;
+	int TEXT_LIST_PARAM___GET_RETURN_TYPE = TEXT_PARAM___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1712,7 +1712,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___IS_TRANSLATABLE = TEXT___IS_TRANSLATABLE;
+	int TEXT_LIST_PARAM___IS_TRANSLATABLE = TEXT_PARAM___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1721,7 +1721,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___GET_ALL_ARGUMENT_ELEMENTS = TEXT___GET_ALL_ARGUMENT_ELEMENTS;
+	int TEXT_LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS = TEXT_PARAM___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1730,7 +1730,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___INPUT_IS_VALID = TEXT___INPUT_IS_VALID;
+	int TEXT_LIST_PARAM___INPUT_IS_VALID = TEXT_PARAM___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1739,7 +1739,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = TEXT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int TEXT_LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = TEXT_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get List Declaration</em>' operation.
@@ -1748,7 +1748,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___GET_LIST_DECLARATION = TEXT_OPERATION_COUNT + 0;
+	int TEXT_LIST_PARAM___GET_LIST_DECLARATION = TEXT_PARAM_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get List Var</em>' operation.
@@ -1757,26 +1757,26 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST___GET_LIST_VAR = TEXT_OPERATION_COUNT + 1;
+	int TEXT_LIST_PARAM___GET_LIST_VAR = TEXT_PARAM_OPERATION_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Text List</em>' class.
+	 * The number of operations of the '<em>Text List Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_OPERATION_COUNT = TEXT_OPERATION_COUNT + 2;
+	int TEXT_LIST_PARAM_OPERATION_COUNT = TEXT_PARAM_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TextLiteralImpl <em>Text Literal</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl <em>Text Literal Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.TextLiteralImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTextLiteral()
+	 * @see qualitypatternmodel.parameters.impl.TextLiteralParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTextLiteralParam()
 	 * @generated
 	 */
-	int TEXT_LITERAL = 7;
+	int TEXT_LITERAL_PARAM = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1785,7 +1785,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__ID = TEXT__ID;
+	int TEXT_LITERAL_PARAM__ID = TEXT_PARAM__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1794,7 +1794,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__INTERNAL_ID = TEXT__INTERNAL_ID;
+	int TEXT_LITERAL_PARAM__INTERNAL_ID = TEXT_PARAM__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1803,7 +1803,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__COMPARISON1 = TEXT__COMPARISON1;
+	int TEXT_LITERAL_PARAM__COMPARISON1 = TEXT_PARAM__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -1812,7 +1812,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__COMPARISON2 = TEXT__COMPARISON2;
+	int TEXT_LITERAL_PARAM__COMPARISON2 = TEXT_PARAM__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -1821,7 +1821,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__PARAMETER_LIST = TEXT__PARAMETER_LIST;
+	int TEXT_LITERAL_PARAM__PARAMETER_LIST = TEXT_PARAM__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1830,7 +1830,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__DESCRIPTION = TEXT__DESCRIPTION;
+	int TEXT_LITERAL_PARAM__DESCRIPTION = TEXT_PARAM__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -1839,7 +1839,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__IS_PREDEFINED = TEXT__IS_PREDEFINED;
+	int TEXT_LITERAL_PARAM__IS_PREDEFINED = TEXT_PARAM__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1848,7 +1848,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__VALUE = TEXT_FEATURE_COUNT + 0;
+	int TEXT_LITERAL_PARAM__VALUE = TEXT_PARAM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Match</b></em>' reference.
@@ -1857,7 +1857,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__MATCH = TEXT_FEATURE_COUNT + 1;
+	int TEXT_LITERAL_PARAM__MATCH = TEXT_PARAM_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' reference.
@@ -1866,16 +1866,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL__PROPERTY = TEXT_FEATURE_COUNT + 2;
+	int TEXT_LITERAL_PARAM__PROPERTY = TEXT_PARAM_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Text Literal</em>' class.
+	 * The number of structural features of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_FEATURE_COUNT = TEXT_FEATURE_COUNT + 3;
+	int TEXT_LITERAL_PARAM_FEATURE_COUNT = TEXT_PARAM_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1884,7 +1884,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___TO_XQUERY__LOCATION = TEXT___TO_XQUERY__LOCATION;
+	int TEXT_LITERAL_PARAM___TO_XQUERY__LOCATION = TEXT_PARAM___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1893,7 +1893,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___GET_ALL_INPUTS = TEXT___GET_ALL_INPUTS;
+	int TEXT_LITERAL_PARAM___GET_ALL_INPUTS = TEXT_PARAM___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1902,7 +1902,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___PREPARE_TRANSLATION = TEXT___PREPARE_TRANSLATION;
+	int TEXT_LITERAL_PARAM___PREPARE_TRANSLATION = TEXT_PARAM___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1911,7 +1911,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___IS_VALID__BOOLEAN = TEXT___IS_VALID__BOOLEAN;
+	int TEXT_LITERAL_PARAM___IS_VALID__BOOLEAN = TEXT_PARAM___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1920,7 +1920,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___IS_VALID_LOCAL__BOOLEAN = TEXT___IS_VALID_LOCAL__BOOLEAN;
+	int TEXT_LITERAL_PARAM___IS_VALID_LOCAL__BOOLEAN = TEXT_PARAM___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1929,7 +1929,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___GET_CONTAINER = TEXT___GET_CONTAINER;
+	int TEXT_LITERAL_PARAM___GET_CONTAINER = TEXT_PARAM___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1938,7 +1938,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___GET_ANCESTOR__CLASS = TEXT___GET_ANCESTOR__CLASS;
+	int TEXT_LITERAL_PARAM___GET_ANCESTOR__CLASS = TEXT_PARAM___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1947,7 +1947,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___MY_TO_STRING = TEXT___MY_TO_STRING;
+	int TEXT_LITERAL_PARAM___MY_TO_STRING = TEXT_PARAM___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1956,7 +1956,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___GET_RETURN_TYPE = TEXT___GET_RETURN_TYPE;
+	int TEXT_LITERAL_PARAM___GET_RETURN_TYPE = TEXT_PARAM___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1965,7 +1965,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___IS_TRANSLATABLE = TEXT___IS_TRANSLATABLE;
+	int TEXT_LITERAL_PARAM___IS_TRANSLATABLE = TEXT_PARAM___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1974,7 +1974,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___GET_ALL_ARGUMENT_ELEMENTS = TEXT___GET_ALL_ARGUMENT_ELEMENTS;
+	int TEXT_LITERAL_PARAM___GET_ALL_ARGUMENT_ELEMENTS = TEXT_PARAM___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1983,7 +1983,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___INPUT_IS_VALID = TEXT___INPUT_IS_VALID;
+	int TEXT_LITERAL_PARAM___INPUT_IS_VALID = TEXT_PARAM___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1992,26 +1992,26 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL___VALIDATE__DIAGNOSTICCHAIN_MAP = TEXT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int TEXT_LITERAL_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = TEXT_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Text Literal</em>' class.
+	 * The number of operations of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_OPERATION_COUNT = TEXT_OPERATION_COUNT + 0;
+	int TEXT_LITERAL_PARAM_OPERATION_COUNT = TEXT_PARAM_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.NumberImpl <em>Number</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.NumberImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getNumber()
+	 * @see qualitypatternmodel.parameters.impl.NumberParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getNumberParam()
 	 * @generated
 	 */
-	int NUMBER = 8;
+	int NUMBER_PARAM = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2020,7 +2020,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__ID = PARAMETER_VALUE__ID;
+	int NUMBER_PARAM__ID = PARAMETER_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2029,7 +2029,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
+	int NUMBER_PARAM__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2038,7 +2038,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
+	int NUMBER_PARAM__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -2047,7 +2047,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+	int NUMBER_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -2056,7 +2056,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
+	int NUMBER_PARAM__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2065,7 +2065,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
+	int NUMBER_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -2074,7 +2074,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int NUMBER_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2083,16 +2083,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
+	int NUMBER_PARAM__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Number</em>' class.
+	 * The number of structural features of the '<em>Number Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int NUMBER_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2101,7 +2101,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
+	int NUMBER_PARAM___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2110,7 +2110,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int NUMBER_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2119,7 +2119,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
+	int NUMBER_PARAM___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2128,7 +2128,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int NUMBER_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2137,7 +2137,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int NUMBER_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2146,7 +2146,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
+	int NUMBER_PARAM___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2155,7 +2155,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
+	int NUMBER_PARAM___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2164,7 +2164,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
+	int NUMBER_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2173,7 +2173,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
+	int NUMBER_PARAM___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -2182,7 +2182,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
+	int NUMBER_PARAM___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -2191,7 +2191,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+	int NUMBER_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2200,7 +2200,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
+	int NUMBER_PARAM___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2209,26 +2209,26 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int NUMBER_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Number</em>' class.
+	 * The number of operations of the '<em>Number Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int NUMBER_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.DateImpl <em>Date</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.DateParamImpl <em>Date Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.DateImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getDate()
+	 * @see qualitypatternmodel.parameters.impl.DateParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getDateParam()
 	 * @generated
 	 */
-	int DATE = 10;
+	int DATE_PARAM = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2237,7 +2237,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__ID = PARAMETER_VALUE__ID;
+	int DATE_PARAM__ID = PARAMETER_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2246,7 +2246,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
+	int DATE_PARAM__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2255,7 +2255,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
+	int DATE_PARAM__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -2264,7 +2264,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+	int DATE_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -2273,7 +2273,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
+	int DATE_PARAM__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2282,7 +2282,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
+	int DATE_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -2291,7 +2291,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int DATE_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2300,16 +2300,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
+	int DATE_PARAM__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Date</em>' class.
+	 * The number of structural features of the '<em>Date Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int DATE_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2318,7 +2318,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
+	int DATE_PARAM___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2327,7 +2327,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int DATE_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2336,7 +2336,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
+	int DATE_PARAM___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2345,7 +2345,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int DATE_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2354,7 +2354,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int DATE_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2363,7 +2363,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
+	int DATE_PARAM___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2372,7 +2372,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
+	int DATE_PARAM___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2381,7 +2381,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
+	int DATE_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2390,7 +2390,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
+	int DATE_PARAM___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -2399,7 +2399,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
+	int DATE_PARAM___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -2408,7 +2408,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+	int DATE_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2417,7 +2417,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
+	int DATE_PARAM___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2426,26 +2426,26 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int DATE_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Date</em>' class.
+	 * The number of operations of the '<em>Date Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int DATE_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TimeImpl <em>Time</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TimeParamImpl <em>Time Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.TimeImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTime()
+	 * @see qualitypatternmodel.parameters.impl.TimeParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTimeParam()
 	 * @generated
 	 */
-	int TIME = 11;
+	int TIME_PARAM = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2454,7 +2454,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__ID = PARAMETER_VALUE__ID;
+	int TIME_PARAM__ID = PARAMETER_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2463,7 +2463,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
+	int TIME_PARAM__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2472,7 +2472,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
+	int TIME_PARAM__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -2481,7 +2481,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+	int TIME_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -2490,7 +2490,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
+	int TIME_PARAM__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2499,7 +2499,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
+	int TIME_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -2508,7 +2508,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int TIME_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2517,16 +2517,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
+	int TIME_PARAM__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Time</em>' class.
+	 * The number of structural features of the '<em>Time Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int TIME_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2535,7 +2535,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
+	int TIME_PARAM___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2544,7 +2544,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int TIME_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2553,7 +2553,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
+	int TIME_PARAM___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2562,7 +2562,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int TIME_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2571,7 +2571,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int TIME_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2580,7 +2580,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
+	int TIME_PARAM___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2589,7 +2589,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
+	int TIME_PARAM___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2598,7 +2598,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
+	int TIME_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2607,7 +2607,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
+	int TIME_PARAM___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -2616,7 +2616,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
+	int TIME_PARAM___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -2625,7 +2625,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+	int TIME_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2634,7 +2634,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
+	int TIME_PARAM___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2643,16 +2643,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int TIME_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Time</em>' class.
+	 * The number of operations of the '<em>Time Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int TIME_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.UnknownParameterValueImpl <em>Unknown Parameter Value</em>}' class.
@@ -2872,14 +2872,14 @@ public interface ParametersPackage extends EPackage {
 	int UNKNOWN_PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.DateTimeImpl <em>Date Time</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.DateTimeParamImpl <em>Date Time Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.DateTimeImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getDateTime()
+	 * @see qualitypatternmodel.parameters.impl.DateTimeParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getDateTimeParam()
 	 * @generated
 	 */
-	int DATE_TIME = 13;
+	int DATE_TIME_PARAM = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2888,7 +2888,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME__ID = PARAMETER_VALUE__ID;
+	int DATE_TIME_PARAM__ID = PARAMETER_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2897,7 +2897,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
+	int DATE_TIME_PARAM__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2906,7 +2906,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
+	int DATE_TIME_PARAM__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -2915,7 +2915,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+	int DATE_TIME_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -2924,7 +2924,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
+	int DATE_TIME_PARAM__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2933,7 +2933,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
+	int DATE_TIME_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -2942,7 +2942,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int DATE_TIME_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2951,16 +2951,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
+	int DATE_TIME_PARAM__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Date Time</em>' class.
+	 * The number of structural features of the '<em>Date Time Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int DATE_TIME_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2969,7 +2969,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
+	int DATE_TIME_PARAM___TO_XQUERY__LOCATION = PARAMETER_VALUE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2978,7 +2978,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int DATE_TIME_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2987,7 +2987,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
+	int DATE_TIME_PARAM___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2996,7 +2996,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int DATE_TIME_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3005,7 +3005,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int DATE_TIME_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3014,7 +3014,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
+	int DATE_TIME_PARAM___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -3023,7 +3023,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
+	int DATE_TIME_PARAM___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -3032,7 +3032,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
+	int DATE_TIME_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3041,7 +3041,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
+	int DATE_TIME_PARAM___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -3050,7 +3050,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
+	int DATE_TIME_PARAM___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -3059,7 +3059,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+	int DATE_TIME_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3068,7 +3068,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
+	int DATE_TIME_PARAM___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3077,26 +3077,26 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int DATE_TIME_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Date Time</em>' class.
+	 * The number of operations of the '<em>Date Time Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int DATE_TIME_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.AxisOptionImpl <em>Axis Option</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.AxisOptionParamImpl <em>Axis Option Param</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.AxisOptionImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getAxisOption()
+	 * @see qualitypatternmodel.parameters.impl.AxisOptionParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getAxisOptionParam()
 	 * @generated
 	 */
-	int AXIS_OPTION = 14;
+	int AXIS_OPTION_PARAM = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3105,7 +3105,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__ID = PARAMETER__ID;
+	int AXIS_OPTION_PARAM__ID = PARAMETER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -3114,7 +3114,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__INTERNAL_ID = PARAMETER__INTERNAL_ID;
+	int AXIS_OPTION_PARAM__INTERNAL_ID = PARAMETER__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -3123,7 +3123,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__COMPARISON1 = PARAMETER__COMPARISON1;
+	int AXIS_OPTION_PARAM__COMPARISON1 = PARAMETER__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -3132,7 +3132,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__COMPARISON2 = PARAMETER__COMPARISON2;
+	int AXIS_OPTION_PARAM__COMPARISON2 = PARAMETER__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -3141,7 +3141,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
+	int AXIS_OPTION_PARAM__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3150,7 +3150,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__DESCRIPTION = PARAMETER__DESCRIPTION;
+	int AXIS_OPTION_PARAM__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -3159,7 +3159,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+	int AXIS_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -3168,7 +3168,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__OPTIONS = PARAMETER_FEATURE_COUNT + 0;
+	int AXIS_OPTION_PARAM__OPTIONS = PARAMETER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3177,7 +3177,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__VALUE = PARAMETER_FEATURE_COUNT + 1;
+	int AXIS_OPTION_PARAM__VALUE = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Relation</b></em>' reference.
@@ -3186,16 +3186,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION__RELATION = PARAMETER_FEATURE_COUNT + 2;
+	int AXIS_OPTION_PARAM__RELATION = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Axis Option</em>' class.
+	 * The number of structural features of the '<em>Axis Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
+	int AXIS_OPTION_PARAM_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -3204,7 +3204,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
+	int AXIS_OPTION_PARAM___TO_XQUERY__LOCATION = PARAMETER___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3213,7 +3213,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
+	int AXIS_OPTION_PARAM___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3222,7 +3222,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
+	int AXIS_OPTION_PARAM___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3231,7 +3231,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
+	int AXIS_OPTION_PARAM___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3240,7 +3240,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
+	int AXIS_OPTION_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3249,7 +3249,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___GET_CONTAINER = PARAMETER___GET_CONTAINER;
+	int AXIS_OPTION_PARAM___GET_CONTAINER = PARAMETER___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -3258,7 +3258,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
+	int AXIS_OPTION_PARAM___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -3267,7 +3267,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___MY_TO_STRING = PARAMETER___MY_TO_STRING;
+	int AXIS_OPTION_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3276,7 +3276,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
+	int AXIS_OPTION_PARAM___GET_RETURN_TYPE = PARAMETER___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -3285,7 +3285,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
+	int AXIS_OPTION_PARAM___IS_TRANSLATABLE = PARAMETER___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -3294,7 +3294,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
+	int AXIS_OPTION_PARAM___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3303,7 +3303,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
+	int AXIS_OPTION_PARAM___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3312,16 +3312,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int AXIS_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Axis Option</em>' class.
+	 * The number of operations of the '<em>Axis Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
+	int AXIS_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.Parameter <em>Parameter</em>}'.
@@ -3387,90 +3387,90 @@ public interface ParametersPackage extends EPackage {
 	EOperation getParameter__Validate__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ComparisonOption <em>Comparison Option</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ComparisonOptionParam <em>Comparison Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Comparison Option</em>'.
-	 * @see qualitypatternmodel.parameters.ComparisonOption
+	 * @return the meta object for class '<em>Comparison Option Param</em>'.
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam
 	 * @generated
 	 */
-	EClass getComparisonOption();
+	EClass getComparisonOptionParam();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.ComparisonOption#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Options</em>'.
-	 * @see qualitypatternmodel.parameters.ComparisonOption#getOptions()
-	 * @see #getComparisonOption()
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getOptions()
+	 * @see #getComparisonOptionParam()
 	 * @generated
 	 */
-	EAttribute getComparisonOption_Options();
+	EAttribute getComparisonOptionParam_Options();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.ComparisonOption#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.parameters.ComparisonOption#getValue()
-	 * @see #getComparisonOption()
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getValue()
+	 * @see #getComparisonOptionParam()
 	 * @generated
 	 */
-	EAttribute getComparisonOption_Value();
+	EAttribute getComparisonOptionParam_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.ComparisonOption#getComparison <em>Comparison</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getComparison <em>Comparison</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Comparison</em>'.
-	 * @see qualitypatternmodel.parameters.ComparisonOption#getComparison()
-	 * @see #getComparisonOption()
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getComparison()
+	 * @see #getComparisonOptionParam()
 	 * @generated
 	 */
-	EReference getComparisonOption_Comparison();
+	EReference getComparisonOptionParam_Comparison();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.PropertyOption <em>Property Option</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.PropertyOptionParam <em>Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Property Option</em>'.
-	 * @see qualitypatternmodel.parameters.PropertyOption
+	 * @return the meta object for class '<em>Property Option Param</em>'.
+	 * @see qualitypatternmodel.parameters.PropertyOptionParam
 	 * @generated
 	 */
-	EClass getPropertyOption();
+	EClass getPropertyOptionParam();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.PropertyOption#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.PropertyOptionParam#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Options</em>'.
-	 * @see qualitypatternmodel.parameters.PropertyOption#getOptions()
-	 * @see #getPropertyOption()
+	 * @see qualitypatternmodel.parameters.PropertyOptionParam#getOptions()
+	 * @see #getPropertyOptionParam()
 	 * @generated
 	 */
-	EAttribute getPropertyOption_Options();
+	EAttribute getPropertyOptionParam_Options();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.PropertyOption#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.PropertyOptionParam#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.parameters.PropertyOption#getValue()
-	 * @see #getPropertyOption()
+	 * @see qualitypatternmodel.parameters.PropertyOptionParam#getValue()
+	 * @see #getPropertyOptionParam()
 	 * @generated
 	 */
-	EAttribute getPropertyOption_Value();
+	EAttribute getPropertyOptionParam_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.PropertyOption#getProperty <em>Property</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.PropertyOptionParam#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Property</em>'.
-	 * @see qualitypatternmodel.parameters.PropertyOption#getProperty()
-	 * @see #getPropertyOption()
+	 * @see qualitypatternmodel.parameters.PropertyOptionParam#getProperty()
+	 * @see #getPropertyOptionParam()
 	 * @generated
 	 */
-	EReference getPropertyOption_Property();
+	EReference getPropertyOptionParam_Property();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ParameterList <em>Parameter List</em>}'.
@@ -3515,151 +3515,151 @@ public interface ParametersPackage extends EPackage {
 	EOperation getParameterList__Add__Parameter();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.Boolean <em>Boolean</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.BooleanParam <em>Boolean Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Boolean</em>'.
-	 * @see qualitypatternmodel.parameters.Boolean
+	 * @return the meta object for class '<em>Boolean Param</em>'.
+	 * @see qualitypatternmodel.parameters.BooleanParam
 	 * @generated
 	 */
-	EClass getBoolean();
+	EClass getBooleanParam();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.Boolean#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.BooleanParam#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.parameters.Boolean#getValue()
-	 * @see #getBoolean()
+	 * @see qualitypatternmodel.parameters.BooleanParam#getValue()
+	 * @see #getBooleanParam()
 	 * @generated
 	 */
-	EAttribute getBoolean_Value();
+	EAttribute getBooleanParam_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.Boolean#getMatch <em>Match</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.BooleanParam#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Match</em>'.
-	 * @see qualitypatternmodel.parameters.Boolean#getMatch()
-	 * @see #getBoolean()
+	 * @see qualitypatternmodel.parameters.BooleanParam#getMatch()
+	 * @see #getBooleanParam()
 	 * @generated
 	 */
-	EReference getBoolean_Match();
+	EReference getBooleanParam_Match();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.Text <em>Text</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TextParam <em>Text Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Text</em>'.
-	 * @see qualitypatternmodel.parameters.Text
+	 * @return the meta object for class '<em>Text Param</em>'.
+	 * @see qualitypatternmodel.parameters.TextParam
 	 * @generated
 	 */
-	EClass getText();
+	EClass getTextParam();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TextList <em>Text List</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TextListParam <em>Text List Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Text List</em>'.
-	 * @see qualitypatternmodel.parameters.TextList
+	 * @return the meta object for class '<em>Text List Param</em>'.
+	 * @see qualitypatternmodel.parameters.TextListParam
 	 * @generated
 	 */
-	EClass getTextList();
+	EClass getTextListParam();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.TextList#getValues <em>Values</em>}'.
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.TextListParam#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Values</em>'.
-	 * @see qualitypatternmodel.parameters.TextList#getValues()
-	 * @see #getTextList()
+	 * @see qualitypatternmodel.parameters.TextListParam#getValues()
+	 * @see #getTextListParam()
 	 * @generated
 	 */
-	EAttribute getTextList_Values();
+	EAttribute getTextListParam_Values();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextList#getListDeclaration() <em>Get List Declaration</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextListParam#getListDeclaration() <em>Get List Declaration</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get List Declaration</em>' operation.
-	 * @see qualitypatternmodel.parameters.TextList#getListDeclaration()
+	 * @see qualitypatternmodel.parameters.TextListParam#getListDeclaration()
 	 * @generated
 	 */
-	EOperation getTextList__GetListDeclaration();
+	EOperation getTextListParam__GetListDeclaration();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextList#getListVar() <em>Get List Var</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextListParam#getListVar() <em>Get List Var</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get List Var</em>' operation.
-	 * @see qualitypatternmodel.parameters.TextList#getListVar()
+	 * @see qualitypatternmodel.parameters.TextListParam#getListVar()
 	 * @generated
 	 */
-	EOperation getTextList__GetListVar();
+	EOperation getTextListParam__GetListVar();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TextLiteral <em>Text Literal</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TextLiteralParam <em>Text Literal Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Text Literal</em>'.
-	 * @see qualitypatternmodel.parameters.TextLiteral
+	 * @return the meta object for class '<em>Text Literal Param</em>'.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam
 	 * @generated
 	 */
-	EClass getTextLiteral();
+	EClass getTextLiteralParam();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.TextLiteral#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.TextLiteralParam#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.parameters.TextLiteral#getValue()
-	 * @see #getTextLiteral()
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getValue()
+	 * @see #getTextLiteralParam()
 	 * @generated
 	 */
-	EAttribute getTextLiteral_Value();
+	EAttribute getTextLiteralParam_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.TextLiteral#getMatch <em>Match</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Match</em>'.
-	 * @see qualitypatternmodel.parameters.TextLiteral#getMatch()
-	 * @see #getTextLiteral()
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getMatch()
+	 * @see #getTextLiteralParam()
 	 * @generated
 	 */
-	EReference getTextLiteral_Match();
+	EReference getTextLiteralParam_Match();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.TextLiteral#getProperty <em>Property</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Property</em>'.
-	 * @see qualitypatternmodel.parameters.TextLiteral#getProperty()
-	 * @see #getTextLiteral()
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperty()
+	 * @see #getTextLiteralParam()
 	 * @generated
 	 */
-	EReference getTextLiteral_Property();
+	EReference getTextLiteralParam_Property();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.Number <em>Number</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.NumberParam <em>Number Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Number</em>'.
-	 * @see qualitypatternmodel.parameters.Number
+	 * @return the meta object for class '<em>Number Param</em>'.
+	 * @see qualitypatternmodel.parameters.NumberParam
 	 * @generated
 	 */
-	EClass getNumber();
+	EClass getNumberParam();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.Number#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.NumberParam#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.parameters.Number#getValue()
-	 * @see #getNumber()
+	 * @see qualitypatternmodel.parameters.NumberParam#getValue()
+	 * @see #getNumberParam()
 	 * @generated
 	 */
-	EAttribute getNumber_Value();
+	EAttribute getNumberParam_Value();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ParameterValue <em>Parameter Value</em>}'.
@@ -3672,46 +3672,46 @@ public interface ParametersPackage extends EPackage {
 	EClass getParameterValue();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.Date <em>Date</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.DateParam <em>Date Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Date</em>'.
-	 * @see qualitypatternmodel.parameters.Date
+	 * @return the meta object for class '<em>Date Param</em>'.
+	 * @see qualitypatternmodel.parameters.DateParam
 	 * @generated
 	 */
-	EClass getDate();
+	EClass getDateParam();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.Date#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.DateParam#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.parameters.Date#getValue()
-	 * @see #getDate()
+	 * @see qualitypatternmodel.parameters.DateParam#getValue()
+	 * @see #getDateParam()
 	 * @generated
 	 */
-	EAttribute getDate_Value();
+	EAttribute getDateParam_Value();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.Time <em>Time</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TimeParam <em>Time Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Time</em>'.
-	 * @see qualitypatternmodel.parameters.Time
+	 * @return the meta object for class '<em>Time Param</em>'.
+	 * @see qualitypatternmodel.parameters.TimeParam
 	 * @generated
 	 */
-	EClass getTime();
+	EClass getTimeParam();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.Time#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.TimeParam#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.parameters.Time#getValue()
-	 * @see #getTime()
+	 * @see qualitypatternmodel.parameters.TimeParam#getValue()
+	 * @see #getTimeParam()
 	 * @generated
 	 */
-	EAttribute getTime_Value();
+	EAttribute getTimeParam_Value();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.UnknownParameterValue <em>Unknown Parameter Value</em>}'.
@@ -3734,68 +3734,68 @@ public interface ParametersPackage extends EPackage {
 	EOperation getUnknownParameterValue__Concretize__ParameterValue();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.DateTime <em>Date Time</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.DateTimeParam <em>Date Time Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Date Time</em>'.
-	 * @see qualitypatternmodel.parameters.DateTime
+	 * @return the meta object for class '<em>Date Time Param</em>'.
+	 * @see qualitypatternmodel.parameters.DateTimeParam
 	 * @generated
 	 */
-	EClass getDateTime();
+	EClass getDateTimeParam();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.DateTime#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.DateTimeParam#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.parameters.DateTime#getValue()
-	 * @see #getDateTime()
+	 * @see qualitypatternmodel.parameters.DateTimeParam#getValue()
+	 * @see #getDateTimeParam()
 	 * @generated
 	 */
-	EAttribute getDateTime_Value();
+	EAttribute getDateTimeParam_Value();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.AxisOption <em>Axis Option</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.AxisOptionParam <em>Axis Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Axis Option</em>'.
-	 * @see qualitypatternmodel.parameters.AxisOption
+	 * @return the meta object for class '<em>Axis Option Param</em>'.
+	 * @see qualitypatternmodel.parameters.AxisOptionParam
 	 * @generated
 	 */
-	EClass getAxisOption();
+	EClass getAxisOptionParam();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.AxisOption#getOptions <em>Options</em>}'.
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.AxisOptionParam#getOptions <em>Options</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Options</em>'.
-	 * @see qualitypatternmodel.parameters.AxisOption#getOptions()
-	 * @see #getAxisOption()
+	 * @see qualitypatternmodel.parameters.AxisOptionParam#getOptions()
+	 * @see #getAxisOptionParam()
 	 * @generated
 	 */
-	EAttribute getAxisOption_Options();
+	EAttribute getAxisOptionParam_Options();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.AxisOption#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.AxisOptionParam#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.parameters.AxisOption#getValue()
-	 * @see #getAxisOption()
+	 * @see qualitypatternmodel.parameters.AxisOptionParam#getValue()
+	 * @see #getAxisOptionParam()
 	 * @generated
 	 */
-	EAttribute getAxisOption_Value();
+	EAttribute getAxisOptionParam_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.AxisOption#getRelation <em>Relation</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.AxisOptionParam#getRelation <em>Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Relation</em>'.
-	 * @see qualitypatternmodel.parameters.AxisOption#getRelation()
-	 * @see #getAxisOption()
+	 * @see qualitypatternmodel.parameters.AxisOptionParam#getRelation()
+	 * @see #getAxisOptionParam()
 	 * @generated
 	 */
-	EReference getAxisOption_Relation();
+	EReference getAxisOptionParam_Relation();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3871,14 +3871,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getParameter__Validate__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionImpl <em>Comparison Option</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.ComparisonOptionImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getComparisonOption()
+		 * @see qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getComparisonOptionParam()
 		 * @generated
 		 */
-		EClass COMPARISON_OPTION = eINSTANCE.getComparisonOption();
+		EClass COMPARISON_OPTION_PARAM = eINSTANCE.getComparisonOptionParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
@@ -3886,7 +3886,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMPARISON_OPTION__OPTIONS = eINSTANCE.getComparisonOption_Options();
+		EAttribute COMPARISON_OPTION_PARAM__OPTIONS = eINSTANCE.getComparisonOptionParam_Options();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -3894,7 +3894,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMPARISON_OPTION__VALUE = eINSTANCE.getComparisonOption_Value();
+		EAttribute COMPARISON_OPTION_PARAM__VALUE = eINSTANCE.getComparisonOptionParam_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Comparison</b></em>' reference feature.
@@ -3902,17 +3902,17 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPARISON_OPTION__COMPARISON = eINSTANCE.getComparisonOption_Comparison();
+		EReference COMPARISON_OPTION_PARAM__COMPARISON = eINSTANCE.getComparisonOptionParam_Comparison();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.PropertyOptionImpl <em>Property Option</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.PropertyOptionParamImpl <em>Property Option Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.PropertyOptionImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getPropertyOption()
+		 * @see qualitypatternmodel.parameters.impl.PropertyOptionParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getPropertyOptionParam()
 		 * @generated
 		 */
-		EClass PROPERTY_OPTION = eINSTANCE.getPropertyOption();
+		EClass PROPERTY_OPTION_PARAM = eINSTANCE.getPropertyOptionParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
@@ -3920,7 +3920,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROPERTY_OPTION__OPTIONS = eINSTANCE.getPropertyOption_Options();
+		EAttribute PROPERTY_OPTION_PARAM__OPTIONS = eINSTANCE.getPropertyOptionParam_Options();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -3928,7 +3928,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PROPERTY_OPTION__VALUE = eINSTANCE.getPropertyOption_Value();
+		EAttribute PROPERTY_OPTION_PARAM__VALUE = eINSTANCE.getPropertyOptionParam_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
@@ -3936,7 +3936,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROPERTY_OPTION__PROPERTY = eINSTANCE.getPropertyOption_Property();
+		EReference PROPERTY_OPTION_PARAM__PROPERTY = eINSTANCE.getPropertyOptionParam_Property();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ParameterListImpl <em>Parameter List</em>}' class.
@@ -3973,14 +3973,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation PARAMETER_LIST___ADD__PARAMETER = eINSTANCE.getParameterList__Add__Parameter();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.BooleanImpl <em>Boolean</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.BooleanParamImpl <em>Boolean Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.BooleanImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getBoolean()
+		 * @see qualitypatternmodel.parameters.impl.BooleanParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getBooleanParam()
 		 * @generated
 		 */
-		EClass BOOLEAN = eINSTANCE.getBoolean();
+		EClass BOOLEAN_PARAM = eINSTANCE.getBooleanParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -3988,7 +3988,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BOOLEAN__VALUE = eINSTANCE.getBoolean_Value();
+		EAttribute BOOLEAN_PARAM__VALUE = eINSTANCE.getBooleanParam_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference feature.
@@ -3996,27 +3996,27 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BOOLEAN__MATCH = eINSTANCE.getBoolean_Match();
+		EReference BOOLEAN_PARAM__MATCH = eINSTANCE.getBooleanParam_Match();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TextImpl <em>Text</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TextParamImpl <em>Text Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.TextImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getText()
+		 * @see qualitypatternmodel.parameters.impl.TextParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTextParam()
 		 * @generated
 		 */
-		EClass TEXT = eINSTANCE.getText();
+		EClass TEXT_PARAM = eINSTANCE.getTextParam();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TextListImpl <em>Text List</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TextListParamImpl <em>Text List Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.TextListImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTextList()
+		 * @see qualitypatternmodel.parameters.impl.TextListParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTextListParam()
 		 * @generated
 		 */
-		EClass TEXT_LIST = eINSTANCE.getTextList();
+		EClass TEXT_LIST_PARAM = eINSTANCE.getTextListParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
@@ -4024,7 +4024,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TEXT_LIST__VALUES = eINSTANCE.getTextList_Values();
+		EAttribute TEXT_LIST_PARAM__VALUES = eINSTANCE.getTextListParam_Values();
 
 		/**
 		 * The meta object literal for the '<em><b>Get List Declaration</b></em>' operation.
@@ -4032,7 +4032,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TEXT_LIST___GET_LIST_DECLARATION = eINSTANCE.getTextList__GetListDeclaration();
+		EOperation TEXT_LIST_PARAM___GET_LIST_DECLARATION = eINSTANCE.getTextListParam__GetListDeclaration();
 
 		/**
 		 * The meta object literal for the '<em><b>Get List Var</b></em>' operation.
@@ -4040,17 +4040,17 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TEXT_LIST___GET_LIST_VAR = eINSTANCE.getTextList__GetListVar();
+		EOperation TEXT_LIST_PARAM___GET_LIST_VAR = eINSTANCE.getTextListParam__GetListVar();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TextLiteralImpl <em>Text Literal</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl <em>Text Literal Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.TextLiteralImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTextLiteral()
+		 * @see qualitypatternmodel.parameters.impl.TextLiteralParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTextLiteralParam()
 		 * @generated
 		 */
-		EClass TEXT_LITERAL = eINSTANCE.getTextLiteral();
+		EClass TEXT_LITERAL_PARAM = eINSTANCE.getTextLiteralParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -4058,7 +4058,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TEXT_LITERAL__VALUE = eINSTANCE.getTextLiteral_Value();
+		EAttribute TEXT_LITERAL_PARAM__VALUE = eINSTANCE.getTextLiteralParam_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference feature.
@@ -4066,7 +4066,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEXT_LITERAL__MATCH = eINSTANCE.getTextLiteral_Match();
+		EReference TEXT_LITERAL_PARAM__MATCH = eINSTANCE.getTextLiteralParam_Match();
 
 		/**
 		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
@@ -4074,17 +4074,17 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEXT_LITERAL__PROPERTY = eINSTANCE.getTextLiteral_Property();
+		EReference TEXT_LITERAL_PARAM__PROPERTY = eINSTANCE.getTextLiteralParam_Property();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.NumberImpl <em>Number</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.NumberImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getNumber()
+		 * @see qualitypatternmodel.parameters.impl.NumberParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getNumberParam()
 		 * @generated
 		 */
-		EClass NUMBER = eINSTANCE.getNumber();
+		EClass NUMBER_PARAM = eINSTANCE.getNumberParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -4092,7 +4092,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NUMBER__VALUE = eINSTANCE.getNumber_Value();
+		EAttribute NUMBER_PARAM__VALUE = eINSTANCE.getNumberParam_Value();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
@@ -4105,14 +4105,14 @@ public interface ParametersPackage extends EPackage {
 		EClass PARAMETER_VALUE = eINSTANCE.getParameterValue();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.DateImpl <em>Date</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.DateParamImpl <em>Date Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.DateImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getDate()
+		 * @see qualitypatternmodel.parameters.impl.DateParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getDateParam()
 		 * @generated
 		 */
-		EClass DATE = eINSTANCE.getDate();
+		EClass DATE_PARAM = eINSTANCE.getDateParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -4120,17 +4120,17 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DATE__VALUE = eINSTANCE.getDate_Value();
+		EAttribute DATE_PARAM__VALUE = eINSTANCE.getDateParam_Value();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TimeImpl <em>Time</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TimeParamImpl <em>Time Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.TimeImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTime()
+		 * @see qualitypatternmodel.parameters.impl.TimeParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTimeParam()
 		 * @generated
 		 */
-		EClass TIME = eINSTANCE.getTime();
+		EClass TIME_PARAM = eINSTANCE.getTimeParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -4138,7 +4138,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TIME__VALUE = eINSTANCE.getTime_Value();
+		EAttribute TIME_PARAM__VALUE = eINSTANCE.getTimeParam_Value();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.UnknownParameterValueImpl <em>Unknown Parameter Value</em>}' class.
@@ -4159,14 +4159,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE = eINSTANCE.getUnknownParameterValue__Concretize__ParameterValue();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.DateTimeImpl <em>Date Time</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.DateTimeParamImpl <em>Date Time Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.DateTimeImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getDateTime()
+		 * @see qualitypatternmodel.parameters.impl.DateTimeParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getDateTimeParam()
 		 * @generated
 		 */
-		EClass DATE_TIME = eINSTANCE.getDateTime();
+		EClass DATE_TIME_PARAM = eINSTANCE.getDateTimeParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -4174,17 +4174,17 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DATE_TIME__VALUE = eINSTANCE.getDateTime_Value();
+		EAttribute DATE_TIME_PARAM__VALUE = eINSTANCE.getDateTimeParam_Value();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.AxisOptionImpl <em>Axis Option</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.AxisOptionParamImpl <em>Axis Option Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.AxisOptionImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getAxisOption()
+		 * @see qualitypatternmodel.parameters.impl.AxisOptionParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getAxisOptionParam()
 		 * @generated
 		 */
-		EClass AXIS_OPTION = eINSTANCE.getAxisOption();
+		EClass AXIS_OPTION_PARAM = eINSTANCE.getAxisOptionParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
@@ -4192,7 +4192,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute AXIS_OPTION__OPTIONS = eINSTANCE.getAxisOption_Options();
+		EAttribute AXIS_OPTION_PARAM__OPTIONS = eINSTANCE.getAxisOptionParam_Options();
 
 		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -4200,7 +4200,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute AXIS_OPTION__VALUE = eINSTANCE.getAxisOption_Value();
+		EAttribute AXIS_OPTION_PARAM__VALUE = eINSTANCE.getAxisOptionParam_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Relation</b></em>' reference feature.
@@ -4208,7 +4208,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference AXIS_OPTION__RELATION = eINSTANCE.getAxisOption_Relation();
+		EReference AXIS_OPTION_PARAM__RELATION = eINSTANCE.getAxisOptionParam_Relation();
 
 	}
 

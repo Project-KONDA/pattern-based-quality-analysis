@@ -9,19 +9,20 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import qualitypatternmodel.parameters.AxisOption;
-import qualitypatternmodel.parameters.ComparisonOption;
-import qualitypatternmodel.parameters.Date;
-import qualitypatternmodel.parameters.DateTime;
+import qualitypatternmodel.parameters.*;
+import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.DateParam;
+import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
-import qualitypatternmodel.parameters.PropertyOption;
-import qualitypatternmodel.parameters.Text;
-import qualitypatternmodel.parameters.TextList;
-import qualitypatternmodel.parameters.TextLiteral;
-import qualitypatternmodel.parameters.Time;
+import qualitypatternmodel.parameters.PropertyOptionParam;
+import qualitypatternmodel.parameters.TextParam;
+import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -86,60 +87,60 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createParameterAdapter();
 			}
 			@Override
-			public Adapter caseComparisonOption(ComparisonOption object) {
-				return createComparisonOptionAdapter();
+			public Adapter caseComparisonOptionParam(ComparisonOptionParam object) {
+				return createComparisonOptionParamAdapter();
 			}
 			@Override
-			public Adapter casePropertyOption(PropertyOption object) {
-				return createPropertyOptionAdapter();
+			public Adapter casePropertyOptionParam(PropertyOptionParam object) {
+				return createPropertyOptionParamAdapter();
 			}
 			@Override
 			public Adapter caseParameterList(ParameterList object) {
 				return createParameterListAdapter();
 			}
 			@Override
-			public Adapter caseBoolean(qualitypatternmodel.parameters.Boolean object) {
-				return createBooleanAdapter();
+			public Adapter caseBooleanParam(BooleanParam object) {
+				return createBooleanParamAdapter();
 			}
 			@Override
-			public Adapter caseText(Text object) {
-				return createTextAdapter();
+			public Adapter caseTextParam(TextParam object) {
+				return createTextParamAdapter();
 			}
 			@Override
-			public Adapter caseTextList(TextList object) {
-				return createTextListAdapter();
+			public Adapter caseTextListParam(TextListParam object) {
+				return createTextListParamAdapter();
 			}
 			@Override
-			public Adapter caseTextLiteral(TextLiteral object) {
-				return createTextLiteralAdapter();
+			public Adapter caseTextLiteralParam(TextLiteralParam object) {
+				return createTextLiteralParamAdapter();
 			}
 			@Override
-			public Adapter caseNumber(qualitypatternmodel.parameters.Number object) {
-				return createNumberAdapter();
+			public Adapter caseNumberParam(NumberParam object) {
+				return createNumberParamAdapter();
 			}
 			@Override
 			public Adapter caseParameterValue(ParameterValue object) {
 				return createParameterValueAdapter();
 			}
 			@Override
-			public Adapter caseDate(Date object) {
-				return createDateAdapter();
+			public Adapter caseDateParam(DateParam object) {
+				return createDateParamAdapter();
 			}
 			@Override
-			public Adapter caseTime(Time object) {
-				return createTimeAdapter();
+			public Adapter caseTimeParam(TimeParam object) {
+				return createTimeParamAdapter();
 			}
 			@Override
 			public Adapter caseUnknownParameterValue(UnknownParameterValue object) {
 				return createUnknownParameterValueAdapter();
 			}
 			@Override
-			public Adapter caseDateTime(DateTime object) {
-				return createDateTimeAdapter();
+			public Adapter caseDateTimeParam(DateTimeParam object) {
+				return createDateTimeParamAdapter();
 			}
 			@Override
-			public Adapter caseAxisOption(AxisOption object) {
-				return createAxisOptionAdapter();
+			public Adapter caseAxisOptionParam(AxisOptionParam object) {
+				return createAxisOptionParamAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -184,30 +185,30 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.ComparisonOption <em>Comparison Option</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.ComparisonOptionParam <em>Comparison Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.ComparisonOption
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam
 	 * @generated
 	 */
-	public Adapter createComparisonOptionAdapter() {
+	public Adapter createComparisonOptionParamAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.PropertyOption <em>Property Option</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.PropertyOptionParam <em>Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.PropertyOption
+	 * @see qualitypatternmodel.parameters.PropertyOptionParam
 	 * @generated
 	 */
-	public Adapter createPropertyOptionAdapter() {
+	public Adapter createPropertyOptionParamAdapter() {
 		return null;
 	}
 
@@ -226,72 +227,72 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.Boolean <em>Boolean</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.BooleanParam <em>Boolean Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.Boolean
+	 * @see qualitypatternmodel.parameters.BooleanParam
 	 * @generated
 	 */
-	public Adapter createBooleanAdapter() {
+	public Adapter createBooleanParamAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.Text <em>Text</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.TextParam <em>Text Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.Text
+	 * @see qualitypatternmodel.parameters.TextParam
 	 * @generated
 	 */
-	public Adapter createTextAdapter() {
+	public Adapter createTextParamAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.TextList <em>Text List</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.TextListParam <em>Text List Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.TextList
+	 * @see qualitypatternmodel.parameters.TextListParam
 	 * @generated
 	 */
-	public Adapter createTextListAdapter() {
+	public Adapter createTextListParamAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.TextLiteral <em>Text Literal</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.TextLiteralParam <em>Text Literal Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.TextLiteral
+	 * @see qualitypatternmodel.parameters.TextLiteralParam
 	 * @generated
 	 */
-	public Adapter createTextLiteralAdapter() {
+	public Adapter createTextLiteralParamAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.Number <em>Number</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.NumberParam <em>Number Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.Number
+	 * @see qualitypatternmodel.parameters.NumberParam
 	 * @generated
 	 */
-	public Adapter createNumberAdapter() {
+	public Adapter createNumberParamAdapter() {
 		return null;
 	}
 
@@ -310,30 +311,30 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.Date <em>Date</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.DateParam <em>Date Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.Date
+	 * @see qualitypatternmodel.parameters.DateParam
 	 * @generated
 	 */
-	public Adapter createDateAdapter() {
+	public Adapter createDateParamAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.Time <em>Time</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.TimeParam <em>Time Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.Time
+	 * @see qualitypatternmodel.parameters.TimeParam
 	 * @generated
 	 */
-	public Adapter createTimeAdapter() {
+	public Adapter createTimeParamAdapter() {
 		return null;
 	}
 
@@ -352,30 +353,30 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.DateTime <em>Date Time</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.DateTimeParam <em>Date Time Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.DateTime
+	 * @see qualitypatternmodel.parameters.DateTimeParam
 	 * @generated
 	 */
-	public Adapter createDateTimeAdapter() {
+	public Adapter createDateTimeParamAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.AxisOption <em>Axis Option</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.AxisOptionParam <em>Axis Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.AxisOption
+	 * @see qualitypatternmodel.parameters.AxisOptionParam
 	 * @generated
 	 */
-	public Adapter createAxisOptionAdapter() {
+	public Adapter createAxisOptionParamAdapter() {
 		return null;
 	}
 
