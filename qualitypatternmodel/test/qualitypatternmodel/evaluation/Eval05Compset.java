@@ -22,12 +22,7 @@ public class Eval05Compset {
 		Test00.test(patterns);
 		
 	}
-	public static Pattern getCompsetAbstract() {
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
-		FunctionsPackage.eINSTANCE.eClass();
-		FunctionsFactory functionsFactory = FunctionsFactory.eINSTANCE;		
+	public static Pattern getCompsetAbstract() {	
 		
 		Pattern pattern = Test06NotElement.getPatternExistsNotExists();
 		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
@@ -40,7 +35,6 @@ public class Eval05Compset {
 		nextToReturnElementInGraph1.addPrimitiveComparison(); 	
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotElement) ((QuantifiedCondition) pattern.getCondition()).getCondition()).getCondition()).getGraph();
-		SingleElement rootElementInGraph2 = graph2.getRootElement();
 
 		SingleElement returnElementInGraph2 = graph2.getReturnElements().get(0);
 		SingleElement nextToReturnElementInGraph2 = returnElementInGraph2.getNextSingle().get(0);	

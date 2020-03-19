@@ -6,6 +6,7 @@ import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsFactory;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.SetElement;
@@ -40,7 +41,8 @@ public class Eval04Card {
 		
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
-		SingleElement returnElementInGraph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph().getReturnElements().get(0);				
+		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
+		SingleElement returnElementInGraph1 = graph1.getReturnElements().get(0);				
 		SingleElement nextToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);		
 		nextToReturnElementInGraph1.addPrimitiveComparison(); 	
 		
@@ -54,8 +56,11 @@ public class Eval04Card {
 		setElement2InGraph1.addPrimitiveComparison();
 		
 		Comparison comparison = functionsFactory.createComparison();
+		graph1.getOperatorList().add(comparison);
 		
 		UnknownParameterValue unknownParameterValue = parametersFactory.createUnknownParameterValue();
+		pattern.getParameterList().add(unknownParameterValue);
+		
 		comparison.setArgument1(unknownParameterValue);
 		
 		Count count = functionsFactory.createCount();
