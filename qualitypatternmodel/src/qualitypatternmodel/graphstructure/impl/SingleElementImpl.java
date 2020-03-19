@@ -144,11 +144,12 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public String toXQueryNoCount(Location location) throws InvalidityException {
 		translated = true;
-		String xPathExpression = translatePathFromPrevious();
+		
 		String xPredicates = translatePredicatesViaBrackets(location);
 
 		String result = "";
 		if (location == Location.RETURN) {
+			String xPathExpression = translatePathFromPrevious();
 			result = FOR + getXQueryVariable() + IN + xPathExpression + xPredicates;
 		} else {
 			if (location == Location.EXISTS) {
@@ -160,6 +161,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			}
 			result += getXQueryVariable();
 			if (mappingFrom == null) {
+				String xPathExpression = translatePathFromPrevious();
 				result += IN + xPathExpression + xPredicates + SATISFIES;
 			} else if (!getPredicates().isEmpty()) {
 				result += IN + getXQueryVariable() + xPredicates + SATISFIES;
@@ -284,20 +286,28 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			if (!mappingExistsAlready) {
 				SingleElement newElementInNextGraph = new SingleElementImpl();
 				mapping.getTo().getNextSingle().add(newElementInNextGraph);
+//				System.out.println("--- 1 ---");
+//				System.out.println(newElementInNextGraph.getRelationFromPrevious().getOption().getParameterList());
 				if (nextElement.getGraph() != null) {
 					Graph nextGraph = mapping.getMorphism().getTo();
 					nextGraph.getReturnElements().add(newElementInNextGraph);
 				}
+//				System.out.println("--- 2 ---");
+//				System.out.println(newElementInNextGraph.getRelationFromPrevious().getOption().getParameterList());
 				SingleElementMapping newNextElementMapping = new SingleElementMappingImpl();
 				mapping.getMorphism().getMappings().add(newNextElementMapping);
 				newNextElementMapping.setFrom(nextElement);
 				newNextElementMapping.setTo(newElementInNextGraph);
+//				System.out.println("--- 3 ---");
+//				System.out.println(newElementInNextGraph.getRelationFromPrevious().getOption().getParameterList());
 				if (nextElement.getRelationFromPrevious() != null) {
 					RelationMapping newRelationMapping = new RelationMappingImpl();
 					mapping.getMorphism().getMappings().add(newRelationMapping);
 					newRelationMapping.setFrom(nextElement.getRelationFromPrevious());
 					newRelationMapping.setTo(newElementInNextGraph.getRelationFromPrevious());
 				}
+//				System.out.println("--- 4 ---");
+//				System.out.println(newElementInNextGraph.getRelationFromPrevious().getOption().getParameterList());
 			}
 			nextElement.copyNextElementsToNextGraphs();
 		}
