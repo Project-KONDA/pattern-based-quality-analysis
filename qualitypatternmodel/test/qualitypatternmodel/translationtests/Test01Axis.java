@@ -3,6 +3,8 @@ package qualitypatternmodel.translationtests;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
@@ -31,13 +33,14 @@ public class Test01Axis {
 	}
 
 	public static Pattern getBasePatternAxis(Axis axis) {
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+//		ParametersPackage.eINSTANCE.eClass();
+//		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		Pattern pattern = Test00.getBasePattern();
-		AxisOptionParam axisOption = parametersFactory.createAxisOptionParam();		
-		pattern.getGraph().getRootElement().getNextSingle().get(0).getRelationFromPrevious().setOption(axisOption);
-		axisOption.getOptions().add(axis);
+//		AxisOptionParam axisOption = parametersFactory.createAxisOptionParam();		
+		AxisOptionParam axisOption = pattern.getGraph().getRootElement().getNextSingle().get(0).getRelationFromPrevious().getOption();
+		EList<Axis> axisOptions = axisOption.getOptions();
+		if(!axisOptions.contains(axis)) axisOptions.add(axis);
 		axisOption.setValue(axis);
 		return pattern;
 	}
