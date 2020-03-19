@@ -85,7 +85,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	 * 
 	 * @generated NOT
 	 */
-	protected AxisOptionParamImpl() {
+	public AxisOptionParamImpl() {
 		super();
 		getOptions().add(Axis.CHILD);
 		getOptions().add(Axis.DESCENDANT);
