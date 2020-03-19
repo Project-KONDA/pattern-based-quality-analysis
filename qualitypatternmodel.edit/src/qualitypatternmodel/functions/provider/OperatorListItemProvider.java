@@ -102,9 +102,9 @@ public class OperatorListItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		OperatorList operatorList = (OperatorList) object;
+//		OperatorList operatorList = (OperatorList) object;
 		return getString("_UI_OperatorList_type");
-		// + " " + operatorList.getRefNo();		
+//		 + " " + operatorList.getRefNo();		
 	}
 
 

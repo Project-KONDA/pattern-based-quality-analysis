@@ -16,8 +16,8 @@ public class ProgrammaticalCreation {
 	public static void main(String[] args) {
 		PatternstructurePackage.eINSTANCE.eClass();		
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructurePackage.eINSTANCE.eClass();
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		Pattern pattern = factory.createPattern();
 		QuantifiedCondition condition = factory.createQuantifiedCondition();

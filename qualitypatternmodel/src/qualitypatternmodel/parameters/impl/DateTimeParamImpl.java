@@ -2,15 +2,12 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import static qualitypatternmodel.utilityclasses.Constants.REGEX_DATE_TIME;
 import static qualitypatternmodel.utilityclasses.Constants.REGEX_POSITIVE_NEGATIVE;
 import static qualitypatternmodel.utilityclasses.Constants.REGEX_TIME_HOURS_MINUTES;
-import static qualitypatternmodel.utilityclasses.Constants.REGEX_TIME_HOURS_MINUTES_SECONDS;
-import static qualitypatternmodel.utilityclasses.Constants.REGEX_DATE_TIME;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;

@@ -100,7 +100,7 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		ParameterList parameterList = (ParameterList) object;
+//		ParameterList parameterList = (ParameterList) object;
 		return getString("_UI_VariableList_type");
 //		+ " " + variableList.getRefNo();
 	}

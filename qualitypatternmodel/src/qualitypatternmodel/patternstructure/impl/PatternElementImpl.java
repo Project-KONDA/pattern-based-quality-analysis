@@ -119,7 +119,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * 
 	 * @generated NOT
 	 */
-	public boolean validate(DiagnosticChain chain, Map context) {
+	public boolean validate(DiagnosticChain chain, Map<Object, Object> context) {
 		try {
 			isValidLocal(false);
 		} catch (Exception e) {
@@ -175,7 +175,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	@Override
-	public PatternElement getAncestor(Class cls) throws MissingPatternContainerException {
+	public PatternElement getAncestor(Class<?> cls) throws MissingPatternContainerException {
 		if (cls.isInstance(this))
 			return this;
 		else
@@ -251,7 +251,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				// TODO Auto-generated catch block
 //				e.printStackTrace();
 			}
-
 		}
 		return internalId;
 	}
@@ -377,7 +376,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				}
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS:
 				try {
-					return getAncestor((Class)arguments.get(0));
+					return getAncestor((Class<?>)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

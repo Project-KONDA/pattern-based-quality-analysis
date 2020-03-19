@@ -126,7 +126,7 @@ public class PatternstructureValidator extends EObjectValidator {
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
 				return validateInvalidityExceptionWrapper((InvalidityException)value, diagnostics, context);
 			case PatternstructurePackage.CLASS_WRAPPER:
-				return validateClassWrapper((Class)value, diagnostics, context);
+				return validateClassWrapper((Class<?>)value, diagnostics, context);
 			case PatternstructurePackage.MISSING_PATTERN_CONTAINER_EXCEPTION:
 				return validateMissingPatternContainerException((MissingPatternContainerException)value, diagnostics, context);
 			default:
@@ -574,7 +574,7 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateClassWrapper(Class classWrapper, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	public boolean validateClassWrapper(Class<?> classWrapper, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
