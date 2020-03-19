@@ -76,14 +76,14 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	@Override
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (getPattern() == null)
-			throw new InvalidityException("VariableList not in Pattern" + " (" + getInternalId() + ")");
+			throw new InvalidityException("ParameterList not in Pattern" + " (" + getInternalId() + ")");
 
 		EList<Parameter> patternVars = getPattern().getAllInputs();
 		if (patternVars == null)
 			throw new InvalidityException("invalid Operators of Graph" + " (" + getInternalId() + ")");
 
 		if (!(patternVars.containsAll(getParameters()) && getParameters().containsAll(patternVars))) {
-			String msg = "variables from VariableList not equal to amount of variables used in Graph" + " ("
+			String msg = "parameters from ParameterList not equal to parameters used in Graph" + " ("
 					+ getInternalId() + ")" + ": \n";
 			for (Parameter var : patternVars) {
 				msg += "[" + var.myToString() + "]";
@@ -333,7 +333,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	@Override
 	public String myToString() {
 		if (getParameters().size() > 0) {
-			String res = "\nVariableList " + getInternalId();
+			String res = "\nParameterList " + getInternalId();
 			for (Parameter parameter : getParameters()) {
 				res += "\n- " + parameter.myToString();
 			}
@@ -342,4 +342,4 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 		return "";
 	}
 
-} // VariableListImpl
+} // ParameterListImpl

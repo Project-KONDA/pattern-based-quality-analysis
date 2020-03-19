@@ -20,6 +20,7 @@ import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -374,14 +375,13 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	
 	@Override
 	public void generateDescription() {
-		String res = "Angabe des Vergleichsoperators ";
+		String res = "Angabe des Vergleichsoperators";
 		try {
-
-			EList<Comparison> argument1 = getComparison1();
-			EList<Comparison> argument2 = getComparison2();
-			
-			
-			res += "zum Vergleich von " + argument1 + " und " + argument2;
+			Comparable arg1 = getComparison().getArgument1();
+			Comparable arg2 = getComparison().getArgument2();
+			String argument1 = arg1.getClass().getCanonicalName() + " " + arg1.getInternalId();
+			String argument2 = arg2.getClass().getCanonicalName() + " " + arg1.getInternalId();
+			res += " zum Vergleich von " + argument1 + " und " + argument2;
 		} catch (Exception e) {}
 		setDescription(res);
 	}
