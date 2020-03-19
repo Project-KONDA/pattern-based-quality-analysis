@@ -343,8 +343,9 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 	public NotificationChain basicSetPreviousSet(SetElement newPreviousSet, NotificationChain msgs) {
 		// TODO: clear comparison1/2 recursively
 		resetCountOperatorRecursively();
-		clearMatchRecursively();
+		clearMatchRecursively();		
 		msgs = eBasicSetContainer((InternalEObject)newPreviousSet, GraphstructurePackage.SET_ELEMENT__PREVIOUS_SET, msgs);
+		setRelationFromPrevious(new RelationImpl());
 		return msgs;
 	}
 
@@ -390,6 +391,7 @@ public class SetElementImpl extends ElementImpl implements SetElement {
 		resetCountOperatorRecursively();
 		clearMatchRecursively();
 		msgs = eBasicSetContainer((InternalEObject)newPreviousSingle, GraphstructurePackage.SET_ELEMENT__PREVIOUS_SINGLE, msgs);
+		setRelationFromPrevious(new RelationImpl());
 		return msgs;
 	}
 	

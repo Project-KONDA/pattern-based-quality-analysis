@@ -647,9 +647,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		}
 		if (getMappingFrom() != null) {
 			removeElementFromPreviousGraphs();
-		}
-
+		}		
 		msgs = eBasicSetContainer((InternalEObject) newPrevious, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, msgs);
+		setRelationFromPrevious(new RelationImpl());
 		return msgs;
 	}
 

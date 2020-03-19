@@ -205,7 +205,7 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	 */
 	protected ElementImpl() {
 		super();
-		setRelationFromPrevious(new RelationImpl());
+		
 	}
 
 	@Override
@@ -260,6 +260,9 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	 */
 	public EList<Parameter> getAllInputs() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
+		if(getRelationFromPrevious() != null) {
+			res.addAll(getRelationFromPrevious().getAllInputs());
+		}
 		for (Element element : getNextElements()) {
 			res.addAll(element.getAllInputs());
 		}
