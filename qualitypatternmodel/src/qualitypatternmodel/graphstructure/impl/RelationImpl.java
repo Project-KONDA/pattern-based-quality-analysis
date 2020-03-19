@@ -18,17 +18,23 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.impl.AxisOptionParamImpl;
+import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.patternstructure.impl.PatternImpl;
 import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
 
 /**
@@ -285,25 +291,40 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void createInputs() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		try {
+			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
+
+			if (getOption() == null) {
+				AxisOptionParam axisOptionParam = new AxisOptionParamImpl();
+				pattern.getParameterList().add(axisOptionParam);
+				setOption(axisOptionParam);
+			} else {
+				pattern.getParameterList().add(getOption());
+			}
+		} catch (MissingPatternContainerException e) {
+			// since this comparison is not contained in a pattern, do nothing
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void removeInputsFromVariableList() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		try {
+			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
+			pattern.getParameterList().getParameters().remove(getOption());
+		} catch (MissingPatternContainerException e) {
+			// since this comparison is not contained in a pattern, do nothing
+			e.printStackTrace();
+		}
 	}
 
 	@Override
