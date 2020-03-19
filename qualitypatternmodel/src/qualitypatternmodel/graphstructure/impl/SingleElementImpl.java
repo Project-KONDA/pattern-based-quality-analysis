@@ -190,11 +190,12 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	@Override
 	public String toXQueryCount(Location location) throws InvalidityException {
 		translated = true;
-		String xPathExpression = translatePathFromPrevious();
+		
 		String xPredicates = translatePredicatesViaAnd(location);
 
 		String result = "";
 		if (location == Location.RETURN) {
+			String xPathExpression = translatePathFromPrevious();
 			result = FOR + getXQueryVariable() + IN + xPathExpression;
 		} else {
 			if (location == Location.EXISTS) {
@@ -206,6 +207,7 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			}
 			result += getXQueryVariable();
 			if (mappingFrom == null) {
+				String xPathExpression = translatePathFromPrevious();
 				result += IN + xPathExpression + SATISFIES;
 			} else if (!getPredicates().isEmpty()) {
 				result += IN + getXQueryVariable() + SATISFIES;
@@ -645,6 +647,8 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 		if (getRelationFromPrevious() != null) {
 			getRelationFromPrevious().removeRelationFromPreviousGraphs();
 			getRelationFromPrevious().removeMappingsToNext();
+			getRelationFromPrevious().removeInputsFromVariableList();
+			setRelationFromPrevious(null);
 		}
 		removeMappingsToNext();
 		if (newPrevious != null) {
@@ -659,7 +663,9 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			removeElementFromPreviousGraphs();
 		}		
 		msgs = eBasicSetContainer((InternalEObject) newPrevious, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, msgs);
-		setRelationFromPrevious(new RelationImpl());
+		if(newPrevious != null) {
+			setRelationFromPrevious(new RelationImpl());
+		}
 		return msgs;
 	}
 
