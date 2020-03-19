@@ -18,17 +18,18 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Axis;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.AxisOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Axis Option</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Axis
+ * Option</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -43,8 +44,7 @@ import qualitypatternmodel.patternstructure.Location;
 public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionParam {
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getOptions()
 	 * @generated
 	 * @ordered
@@ -52,9 +52,9 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	protected EList<Axis> options;
 
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -62,9 +62,9 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	protected static final Axis VALUE_EDEFAULT = Axis.CHILD;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -73,8 +73,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 
 	/**
 	 * The cached value of the '{@link #getRelation() <em>Relation</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRelation()
 	 * @generated
 	 * @ordered
@@ -82,46 +81,54 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	protected Relation relation;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
 	 */
 	protected AxisOptionParamImpl() {
 		super();
+		getOptions().add(Axis.CHILD);
+		getOptions().add(Axis.DESCENDANT);
+//		getOptions().add(Axis.PARENT);
+//		getOptions().add(Axis.ANCESTOR);
 	}
-	
+
+	@Override
+	public ReturnType getReturnType() {
+		return ReturnType.UNSPECIFIED;
+	}
+
 	@Override
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		if (getOptions() == null) 
+		if (getOptions() == null)
 			throw new InvalidityException("options null");
-		if (getOptions().size() < 1) 
+		if (getOptions().size() < 1)
 			throw new InvalidityException("not enough options");
 		super.isValidLocal(isDefinedPattern);
 	}
-	
+
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		return "/" + value.getLiteral() + "::*";
 	}
-	
+
 	@Override
 	public boolean inputIsValid() {
 		return getValue() != null && options.contains(getValue());
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
 		return ParametersPackage.Literals.AXIS_OPTION_PARAM;
 	}
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetVariableList(ParameterList newVariableList, NotificationChain msgs) {
@@ -130,8 +137,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -143,8 +149,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -153,8 +158,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -166,8 +170,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -184,8 +187,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Relation basicGetRelation() {
@@ -193,8 +195,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetRelation(Relation newRelation, NotificationChain msgs) {
@@ -208,8 +209,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -228,8 +228,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -244,8 +243,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -258,8 +256,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -277,8 +274,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -300,8 +296,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -321,8 +316,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -339,8 +333,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -355,10 +348,21 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 		result.append(')');
 		return result.toString();
 	}
-	
-	@Override 
+
+	@Override
 	public String myToString() {
 		return "axis " + getInternalId() + " " + getValue();
 	}
 
-} //AxisOptionImpl
+	@Override
+	public void generateDescription() {
+		String res = "Beziehung: XPath-Achse";
+		try {			
+			Element to = getRelation().getRelationTo();
+			Element from = to.getPreviousElement();
+			res += " zur Navigation von " + from.getName() + " zu " + to.getName();			
+		} catch (Exception e) {}
+		setDescription(res);
+	}
+
+} // AxisOptionImpl

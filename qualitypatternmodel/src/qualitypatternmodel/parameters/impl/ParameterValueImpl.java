@@ -2,11 +2,8 @@
  */
 package qualitypatternmodel.parameters.impl;
 
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterValue;
 
@@ -47,15 +44,6 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		return true;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {
-		return new BasicEList<ListOfElements>();
-	}
 
 	@Override
 	public boolean inputIsValid() {

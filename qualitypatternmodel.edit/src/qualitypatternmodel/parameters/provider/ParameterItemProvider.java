@@ -53,6 +53,7 @@ public class ParameterItemProvider extends PatternElementItemProvider {
 			addComparison2PropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addIsPredefinedPropertyDescriptor(object);
+			addDescribedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -146,6 +147,28 @@ public class ParameterItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Described feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescribedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_described_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_described_feature", "_UI_Parameter_type"),
+				 ParametersPackage.Literals.PARAMETER__DESCRIBED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -172,6 +195,7 @@ public class ParameterItemProvider extends PatternElementItemProvider {
 		switch (notification.getFeatureID(Parameter.class)) {
 			case ParametersPackage.PARAMETER__DESCRIPTION:
 			case ParametersPackage.PARAMETER__IS_PREDEFINED:
+			case ParametersPackage.PARAMETER__DESCRIBED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

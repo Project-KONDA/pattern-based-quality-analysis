@@ -94,5 +94,12 @@ public class UnknownParameterValueImpl extends ParameterImpl implements UnknownP
 	public String myToString() {
 		return "unknown" + " (" + getInternalId() + ")";
 	}
+	
+	@Override
+	public void generateDescription() {
+		String res = "Eingabe eines unspezifizierten Datentypes";
+		try {} catch (Exception e) {}
+		setDescription(res);
+	}
 
 } //UnknownInputValueImpl

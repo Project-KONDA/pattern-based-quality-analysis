@@ -187,5 +187,12 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	public String myToString() {
 		return "numb " + getInternalId() + " " + getValue();
 	}
+	
+	@Override
+	public void generateDescription() {
+		String res = "Eingabe der Nummer";
+		try {} catch (Exception e) {}
+		setDescription(res);
+	}
 
 } //NumberImpl

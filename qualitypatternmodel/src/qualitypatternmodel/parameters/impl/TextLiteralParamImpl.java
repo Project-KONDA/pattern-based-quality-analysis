@@ -411,5 +411,12 @@ public class TextLiteralParamImpl extends TextParamImpl implements TextLiteralPa
 		
 		return "text " + getInternalId() + " '" + getValue() + "'";
 	}
+	
+	@Override
+	public void generateDescription() {
+		String res = "Eingabe einer Liste von Strings";
+		try {} catch (Exception e) {}
+		setDescription(res);
+	}
 
 } //TextLiteralImpl

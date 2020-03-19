@@ -320,5 +320,12 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	public String myToString() {
 		return "bool " + getInternalId() + " " + getValue();
 	}
+	
+	@Override
+	public void generateDescription() {
+		String res = "Eingabe des boolschen Wertes";
+		try {} catch (Exception e) {}
+		setDescription(res);
+	}
 
 } //BooleanImpl

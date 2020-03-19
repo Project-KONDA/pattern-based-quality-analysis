@@ -19,6 +19,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -93,6 +94,11 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 //		getOptions().add(ComparisonOperator.GREATEROREQUAL);
 //		getOptions().add(ComparisonOperator.LESSOREQUAL);
 		getOptions().add(ComparisonOperator.NOTEQUAL);
+	}
+
+	@Override
+	public ReturnType getReturnType() {
+		return ReturnType.UNSPECIFIED;
 	}
 	
 	@Override
@@ -364,6 +370,20 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	@Override 
 	public String myToString() {
 		return "comp " + getInternalId() + " " + getValue();
+	}
+	
+	@Override
+	public void generateDescription() {
+		String res = "Angabe des Vergleichsoperators ";
+		try {
+
+			EList<Comparison> argument1 = getComparison1();
+			EList<Comparison> argument2 = getComparison2();
+			
+			
+			res += "zum Vergleich von " + argument1 + " und " + argument2;
+		} catch (Exception e) {}
+		setDescription(res);
 	}
 
 } //CompOptionImpl

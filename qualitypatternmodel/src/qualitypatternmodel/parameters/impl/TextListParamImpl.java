@@ -213,5 +213,12 @@ public class TextListParamImpl extends TextParamImpl implements TextListParam {
 		}
 		return res + "]";
 	}
+	
+	@Override
+	public void generateDescription() {
+		String res = "Textfeld";
+		try {} catch (Exception e) {}
+		setDescription(res);
+	}
 
 } // TextListImpl

@@ -133,13 +133,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER__IS_PREDEFINED = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__DESCRIBED = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int PARAMETER_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -259,13 +268,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___GENERATE_DESCRIPTION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
+	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.
@@ -339,6 +357,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM__DESCRIBED = PARAMETER__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -494,6 +521,15 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
 	 * The number of operations of the '<em>Comparison Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -574,6 +610,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM__DESCRIBED = PARAMETER__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -727,6 +772,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
 
 	/**
 	 * The number of operations of the '<em>Property Option Param</em>' class.
@@ -965,6 +1019,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__DESCRIBED = PARAMETER__DESCRIBED;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1091,6 +1154,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
 	 * The number of operations of the '<em>Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1171,6 +1243,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1317,6 +1398,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
 	 * The number of operations of the '<em>Boolean Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1397,6 +1487,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
 
 	/**
 	 * The number of structural features of the '<em>Text Param</em>' class.
@@ -1525,6 +1624,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
 	 * The number of operations of the '<em>Text Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1605,6 +1713,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM__IS_PREDEFINED = TEXT_PARAM__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM__DESCRIBED = TEXT_PARAM__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' attribute list.
@@ -1742,6 +1859,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = TEXT_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GENERATE_DESCRIPTION = TEXT_PARAM___GENERATE_DESCRIPTION;
+
+	/**
 	 * The operation id for the '<em>Get List Declaration</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1840,6 +1966,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LITERAL_PARAM__IS_PREDEFINED = TEXT_PARAM__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM__DESCRIBED = TEXT_PARAM__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1995,6 +2130,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = TEXT_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GENERATE_DESCRIPTION = TEXT_PARAM___GENERATE_DESCRIPTION;
+
+	/**
 	 * The number of operations of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2075,6 +2219,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2212,6 +2365,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
 	 * The number of operations of the '<em>Number Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2292,6 +2454,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2429,6 +2600,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
 	 * The number of operations of the '<em>Date Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2509,6 +2689,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIME_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2646,6 +2835,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
 	 * The number of operations of the '<em>Time Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2726,6 +2924,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNKNOWN_PARAMETER_VALUE__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_PARAMETER_VALUE__DESCRIBED = PARAMETER__DESCRIBED;
 
 	/**
 	 * The number of structural features of the '<em>Unknown Parameter Value</em>' class.
@@ -2854,6 +3061,15 @@ public interface ParametersPackage extends EPackage {
 	int UNKNOWN_PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_PARAMETER_VALUE___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
 	 * The operation id for the '<em>Concretize</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2943,6 +3159,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3080,6 +3305,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
 	 * The number of operations of the '<em>Date Time Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3160,6 +3394,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int AXIS_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Described</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION_PARAM__DESCRIBED = PARAMETER__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -3315,6 +3558,15 @@ public interface ParametersPackage extends EPackage {
 	int AXIS_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_OPTION_PARAM___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
 	 * The number of operations of the '<em>Axis Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3367,6 +3619,17 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getParameter_IsPredefined();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.Parameter#isDescribed <em>Described</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Described</em>'.
+	 * @see qualitypatternmodel.parameters.Parameter#isDescribed()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Described();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3385,6 +3648,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameter__Validate__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Description</em>' operation.
+	 * @see qualitypatternmodel.parameters.Parameter#generateDescription()
+	 * @generated
+	 */
+	EOperation getParameter__GenerateDescription();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ComparisonOptionParam <em>Comparison Option Param</em>}'.
@@ -3855,6 +4128,14 @@ public interface ParametersPackage extends EPackage {
 		EAttribute PARAMETER__IS_PREDEFINED = eINSTANCE.getParameter_IsPredefined();
 
 		/**
+		 * The meta object literal for the '<em><b>Described</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER__DESCRIBED = eINSTANCE.getParameter_Described();
+
+		/**
 		 * The meta object literal for the '<em><b>Input Is Valid</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3869,6 +4150,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getParameter__Validate__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Description</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER___GENERATE_DESCRIPTION = eINSTANCE.getParameter__GenerateDescription();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.

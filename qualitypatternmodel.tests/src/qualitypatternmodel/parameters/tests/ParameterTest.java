@@ -13,6 +13,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
@@ -51,6 +52,19 @@ public abstract class ParameterTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testInputIsValid() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.Parameter#generateDescription()
+	 * @generated
+	 */
+	public void testGenerateDescription() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

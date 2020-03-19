@@ -194,4 +194,12 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 		return "dati " + getInternalId() + " " + getValue();
 	}
 
+	
+	@Override
+	public void generateDescription() {
+		String res = "Eingabe des Datums mit Zeitangabe";
+		try {} catch (Exception e) {}
+		setDescription(res);
+	}
+
 } //DateTimeImpl

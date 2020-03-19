@@ -40,6 +40,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#isIsPredefined <em>Is Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#isDescribed <em>Described</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,6 +100,24 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @ordered
 	 */
 	protected boolean isPredefined = IS_PREDEFINED_EDEFAULT;
+	/**
+	 * The default value of the '{@link #isDescribed() <em>Described</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDescribed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DESCRIBED_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isDescribed() <em>Described</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDescribed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean described = DESCRIBED_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -204,21 +223,24 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getDescription() {
+		if (!isDescribed()) 
+			generateDescription();
 		return description;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
+		setDescribed(true);
 		description = newDescription;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER__DESCRIPTION, oldDescription, description));
@@ -247,6 +269,29 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER__IS_PREDEFINED, oldIsPredefined, isPredefined));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isDescribed() {
+		return described;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDescribed(boolean newDescribed) {
+		boolean oldDescribed = described;
+		described = newDescribed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER__DESCRIBED, oldDescribed, described));
+	}
+
 	@Override	
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		if (getParameterList() == null)
@@ -264,37 +309,37 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public ReturnType getReturnType() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	public abstract void generateDescription();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
+	 */
+	@Override
+	public abstract ReturnType getReturnType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return true;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return new BasicEList<ListOfElements>();
 	}
 
 	/**
@@ -365,6 +410,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return getDescription();
 			case ParametersPackage.PARAMETER__IS_PREDEFINED:
 				return isIsPredefined();
+			case ParametersPackage.PARAMETER__DESCRIBED:
+				return isDescribed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -394,6 +441,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__IS_PREDEFINED:
 				setIsPredefined((Boolean)newValue);
 				return;
+			case ParametersPackage.PARAMETER__DESCRIBED:
+				setDescribed((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -420,6 +470,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__IS_PREDEFINED:
 				setIsPredefined(IS_PREDEFINED_EDEFAULT);
 				return;
+			case ParametersPackage.PARAMETER__DESCRIBED:
+				setDescribed(DESCRIBED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -441,6 +494,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case ParametersPackage.PARAMETER__IS_PREDEFINED:
 				return isPredefined != IS_PREDEFINED_EDEFAULT;
+			case ParametersPackage.PARAMETER__DESCRIBED:
+				return described != DESCRIBED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -507,6 +562,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		switch (operationID) {
 			case ParametersPackage.PARAMETER___INPUT_IS_VALID:
 				return inputIsValid();
+			case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION:
+				generateDescription();
+				return null;
 			case ParametersPackage.PARAMETER___GET_RETURN_TYPE:
 				return getReturnType();
 			case ParametersPackage.PARAMETER___IS_TRANSLATABLE:
@@ -541,6 +599,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		result.append(description);
 		result.append(", isPredefined: ");
 		result.append(isPredefined);
+		result.append(", described: ");
+		result.append(described);
 		result.append(')');
 		return result.toString();
 	}

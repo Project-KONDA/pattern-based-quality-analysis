@@ -17,9 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.PropertyOptionParam;
@@ -93,6 +95,11 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 		getOptions().add(PropertyLocation.ATTRIBUTE);
 	}
 
+	@Override
+	public ReturnType getReturnType() {
+		return ReturnType.UNSPECIFIED;
+	}
+	
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
 		return getValue().getLiteral();
@@ -362,6 +369,19 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	@Override 
 	public String myToString() {
 		return "prop " + getInternalId() + " " + getValue();
+	}
+
+	@Override
+	public void generateDescription() {
+		String res = "Angabe des Eigenschaft-Types";
+		try {
+			Element e = getProperty().getElement();
+			res += " von " + e.getName();
+			
+			
+			
+		} catch (Exception e) {}
+		setDescription(res);
 	}
 
 } //PropertyOptionImpl

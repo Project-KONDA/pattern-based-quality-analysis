@@ -187,5 +187,12 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 		return "time " + getInternalId() + " " + getValue();
 	}
 	
+	@Override
+	public void generateDescription() {
+		String res = "Eingabe der Zeitangabe";
+		try {} catch (Exception e) {}
+		setDescription(res);
+	}
+	
 
 } //TimeImpl
