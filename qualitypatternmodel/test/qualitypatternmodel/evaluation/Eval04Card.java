@@ -28,7 +28,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval04Card {
 	public static void main(String[] args) {
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getCardMIDAS());
+		patterns.add(getCardMidas());
 		Test00.test(patterns);		
 	}
 	
@@ -80,7 +80,7 @@ public class Eval04Card {
 		return pattern;
 	}
 	
-	public static Pattern getCardMIDAS() {
+	public static Pattern getCardMidas() {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -89,7 +89,6 @@ public class Eval04Card {
 		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);			
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
-		pattern.getParameterList().add(concreteInputValue);
 		concreteInputValue.setValue("obj");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
@@ -101,7 +100,6 @@ public class Eval04Card {
 		nextToReturnElementInGraph1.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT_OR_SELF);
 		Comparison comparisonNextToReturnElementInGraph1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
-		pattern.getParameterList().add(concreteInputValue2);
 		concreteInputValue2.setValue("h1:Block");
 		((UnknownParameterValue) comparisonNextToReturnElementInGraph1.getArguments().get(1)).concretize(concreteInputValue2);
 		nextToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
@@ -110,14 +108,12 @@ public class Eval04Card {
 		comparisonCount.getOption().getOptions().add(ComparisonOperator.GREATER);
 		comparisonCount.getOption().setValue(ComparisonOperator.GREATER);
 		NumberParam concreteInputValue3 = parametersFactory.createNumberParam();
-		pattern.getParameterList().add(concreteInputValue3);
 		concreteInputValue3.setValue(1.0);
 		((UnknownParameterValue) comparisonCount.getArguments().get(0)).concretize(concreteInputValue3);	
 		
 		SetElement setElement1InGraph1 = nextToReturnElementInGraph1.getNextSet().get(0);			
 		Comparison comparison1Set1 = (Comparison) setElement1InGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
-		pattern.getParameterList().add(concreteInputValue4);
 		concreteInputValue4.setValue("ob30");
 		((UnknownParameterValue) comparison1Set1.getArguments().get(1)).concretize(concreteInputValue4);
 		setElement1InGraph1.getProperties().get(0).getAttributeName().setValue("Type");
@@ -125,7 +121,6 @@ public class Eval04Card {
 				
 		Comparison comparison2Set1 = (Comparison) setElement1InGraph1.getPredicates().get(1);
 		TextLiteralParam concreteInputValue5 = parametersFactory.createTextLiteralParam();
-		pattern.getParameterList().add(concreteInputValue5);
 		concreteInputValue5.setValue("Herstellung");
 		((UnknownParameterValue) comparison2Set1.getArguments().get(1)).concretize(concreteInputValue5);
 		setElement1InGraph1.getProperties().get(1).getAttributeName().setValue("Value");
@@ -134,7 +129,6 @@ public class Eval04Card {
 		SetElement setElement2InGraph1 = setElement1InGraph1.getNext().get(0);	
 		Comparison comparison1Set2 = (Comparison) setElement2InGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue6 = parametersFactory.createTextLiteralParam();
-		pattern.getParameterList().add(concreteInputValue6);
 		concreteInputValue6.setValue("ob30rl");
 		((UnknownParameterValue) comparison1Set2.getArguments().get(1)).concretize(concreteInputValue6);
 		setElement2InGraph1.getProperties().get(0).getAttributeName().setValue("Type");
