@@ -115,7 +115,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		if (getOption() != null) {
 			res.add(option);
-		} else {
+		} else if(getMappingFrom() == null){
 			throw new InvalidityException("option null" + " (" + getInternalId() + ")");
 		}
 		return res;
@@ -169,11 +169,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetMappingFrom(RelationMapping newMappingFrom, NotificationChain msgs) {
 		RelationMapping oldMappingFrom = mappingFrom;
 		mappingFrom = newMappingFrom;
+		if(newMappingFrom != null) {
+			removeInputsFromVariableList();
+			setOption(null);
+		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__MAPPING_FROM, oldMappingFrom, newMappingFrom);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -261,7 +265,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			copyToNewNextGraphs(newRelationTo);
 		}		
 		msgs = eBasicSetContainer((InternalEObject)newRelationTo, GraphstructurePackage.RELATION__RELATION_TO, msgs);
-		if(newRelationTo != null) {
+		if(newRelationTo != null && getMappingFrom() == null) {
 			createInputs();
 		}
 		return msgs;
