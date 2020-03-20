@@ -39,6 +39,8 @@ public class PatternstructureTests extends TestSuite {
 		suite.addTestSuite(TrueElementTest.class);
 		suite.addTestSuite(PatternTest.class);
 		suite.addTestSuite(NotElementTest.class);
+		suite.addTestSuite(CountComparisonTest.class);
+		suite.addTestSuite(CountPatternTest.class);
 		return suite;
 	}
 

@@ -77,6 +77,7 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				QuantifiedCondition quantifiedCondition = (QuantifiedCondition)theEObject;
 				T result = caseQuantifiedCondition(quantifiedCondition);
 				if (result == null) result = caseCondition(quantifiedCondition);
+				if (result == null) result = caseGraphContainer(quantifiedCondition);
 				if (result == null) result = casePatternElement(quantifiedCondition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -144,6 +145,36 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				T result = caseNotElement(notElement);
 				if (result == null) result = caseCondition(notElement);
 				if (result == null) result = casePatternElement(notElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PatternstructurePackage.COUNT_COMPARISON: {
+				CountComparison countComparison = (CountComparison)theEObject;
+				T result = caseCountComparison(countComparison);
+				if (result == null) result = caseCondition(countComparison);
+				if (result == null) result = casePatternElement(countComparison);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PatternstructurePackage.COUNT_PATTERN: {
+				CountPattern countPattern = (CountPattern)theEObject;
+				T result = caseCountPattern(countPattern);
+				if (result == null) result = caseCountComparisonArgument(countPattern);
+				if (result == null) result = caseGraphContainer(countPattern);
+				if (result == null) result = casePatternElement(countPattern);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PatternstructurePackage.COUNT_COMPARISON_ARGUMENT: {
+				CountComparisonArgument countComparisonArgument = (CountComparisonArgument)theEObject;
+				T result = caseCountComparisonArgument(countComparisonArgument);
+				if (result == null) result = casePatternElement(countComparisonArgument);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PatternstructurePackage.GRAPH_CONTAINER: {
+				GraphContainer graphContainer = (GraphContainer)theEObject;
+				T result = caseGraphContainer(graphContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -313,6 +344,66 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNotElement(NotElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Count Comparison</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Count Comparison</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountComparison(CountComparison object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Count Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Count Pattern</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountPattern(CountPattern object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Count Comparison Argument</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Count Comparison Argument</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountComparisonArgument(CountComparisonArgument object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Graph Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Graph Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGraphContainer(GraphContainer object) {
 		return null;
 	}
 

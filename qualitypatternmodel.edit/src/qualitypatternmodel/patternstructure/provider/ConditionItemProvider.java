@@ -85,9 +85,9 @@ public class ConditionItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Condition_getNextQuantifiedConditions_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Condition_getNextQuantifiedConditions_feature", "_UI_Condition_type"),
 				 PatternstructurePackage.Literals.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS,
-				 true,
 				 false,
-				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

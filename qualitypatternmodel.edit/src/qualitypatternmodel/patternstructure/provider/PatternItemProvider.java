@@ -70,7 +70,7 @@ public class PatternItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Pattern_checkMorphismOfNextGraph_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Pattern_checkMorphismOfNextGraph_feature", "_UI_Pattern_type"),
 				 PatternstructurePackage.Literals.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
@@ -248,6 +248,11 @@ public class PatternItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(PatternstructurePackage.Literals.PATTERN__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createNotElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.PATTERN__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createCountComparison()));
 	}
 
 }

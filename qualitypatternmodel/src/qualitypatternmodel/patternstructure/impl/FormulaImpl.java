@@ -18,6 +18,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.GraphContainer;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -160,6 +161,14 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		if (condition == null || condition2 == null) {
 			throw new InvalidityException("arguments invalid" + " (" + getInternalId() + ")");
 		}
+	}
+	
+	@Override
+	public EList<GraphContainer> getNextQuantifiedConditions() {
+		EList<GraphContainer> result = new BasicEList<GraphContainer>();
+		result.addAll(getCondition().getGetNextQuantifiedConditions());
+		result.addAll(getCondition2().getGetNextQuantifiedConditions());
+		return result;
 	}
 
 	@Override

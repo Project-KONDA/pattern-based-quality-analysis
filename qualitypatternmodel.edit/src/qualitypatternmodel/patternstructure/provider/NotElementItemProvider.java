@@ -158,6 +158,11 @@ public class NotElementItemProvider extends ConditionItemProvider {
 			(createChildParameter
 				(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createNotElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createCountComparison()));
 	}
 
 }

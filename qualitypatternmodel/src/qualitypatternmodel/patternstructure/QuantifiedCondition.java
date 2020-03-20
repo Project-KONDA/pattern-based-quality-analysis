@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Graph;
 
@@ -16,18 +17,17 @@ import qualitypatternmodel.graphstructure.Graph;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getQuantifier <em>Quantifier</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCondition <em>Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getMorphism <em>Morphism</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCountComparison <em>Count Comparison</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='morphismValid'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot morphismValid='self.checkMorphismOfNextGraph'"
+ * @model
  * @generated
  */
-public interface QuantifiedCondition extends Condition {
+public interface QuantifiedCondition extends Condition, GraphContainer {
 	/**
 	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition <em>Quantifiedcondition</em>}'.
@@ -99,12 +99,44 @@ public interface QuantifiedCondition extends Condition {
 	void setMorphism(Morphism value);
 
 	/**
+	 * Returns the value of the '<em><b>Count Comparison</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountComparison#getQuantifiedConditionCount <em>Quantified Condition Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Count Comparison</em>' containment reference.
+	 * @see #setCountComparison(CountComparison)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_CountComparison()
+	 * @see qualitypatternmodel.patternstructure.CountComparison#getQuantifiedConditionCount
+	 * @model opposite="quantifiedConditionCount" containment="true"
+	 * @generated
+	 */
+	CountComparison getCountComparison();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCountComparison <em>Count Comparison</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Count Comparison</em>' containment reference.
+	 * @see #getCountComparison()
+	 * @generated
+	 */
+	void setCountComparison(CountComparison value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
 	 */
 	void copyPreviousGraph() throws MissingPatternContainerException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void checkMorphismOfNextGraph() throws InvalidityException;
 
 	/**
 	 * Returns the value of the '<em><b>Quantifier</b></em>' attribute.
@@ -130,17 +162,5 @@ public interface QuantifiedCondition extends Condition {
 	 * @generated
 	 */
 	void setQuantifier(Quantifier value);
-
-	/**
-	 * Returns the value of the '<em><b>Check Morphism Of Next Graph</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Check Morphism Of Next Graph</em>' attribute.
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_CheckMorphismOfNextGraph()
-	 * @model required="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\t\n\t\t\t\tif self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to\n\t\t\t\telse self.condition.getNextQuantifiedConditions-&gt;forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif'"
-	 * @generated
-	 */
-	boolean isCheckMorphismOfNextGraph();
 
 } // QuantifiedCondition

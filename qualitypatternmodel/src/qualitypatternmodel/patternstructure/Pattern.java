@@ -25,6 +25,7 @@ import qualitypatternmodel.parameters.ParameterList;
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCountPattern <em>Count Pattern</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern()
@@ -151,13 +152,37 @@ public interface Pattern extends PatternElement {
 	void setName(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Count Pattern</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountPattern#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Count Pattern</em>' container reference.
+	 * @see #setCountPattern(CountPattern)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_CountPattern()
+	 * @see qualitypatternmodel.patternstructure.CountPattern#getPattern
+	 * @model opposite="pattern" transient="false"
+	 * @generated
+	 */
+	CountPattern getCountPattern();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getCountPattern <em>Count Pattern</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Count Pattern</em>' container reference.
+	 * @see #getCountPattern()
+	 * @generated
+	 */
+	void setCountPattern(CountPattern value);
+
+	/**
 	 * Returns the value of the '<em><b>Check Morphism Of Next Graph</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Check Morphism Of Next Graph</em>' attribute.
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_CheckMorphismOfNextGraph()
 	 * @model required="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\t\n\t\t\t\t\t\t\t\tif self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to\n\t\t\t\t\t\t\t\telse self.condition.getNextQuantifiedConditions-&gt;forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\t\n\t\t\t\tif self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to\n\t\t\t\telse self.condition.getNextQuantifiedConditions-&gt;forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif'"
 	 * @generated
 	 */
 	boolean isCheckMorphismOfNextGraph();
@@ -188,5 +213,13 @@ public interface Pattern extends PatternElement {
 	 * @generated
 	 */
 	int getNewRefNo() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void checkMorphismOfNextGraph() throws InvalidityException;
 
 } // Pattern

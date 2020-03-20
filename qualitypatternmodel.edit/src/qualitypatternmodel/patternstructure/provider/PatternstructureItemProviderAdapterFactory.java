@@ -256,6 +256,52 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.CountComparison} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CountComparisonItemProvider countComparisonItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.CountComparison}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCountComparisonAdapter() {
+		if (countComparisonItemProvider == null) {
+			countComparisonItemProvider = new CountComparisonItemProvider(this);
+		}
+
+		return countComparisonItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.CountPattern} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CountPatternItemProvider countPatternItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.CountPattern}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCountPatternAdapter() {
+		if (countPatternItemProvider == null) {
+			countPatternItemProvider = new CountPatternItemProvider(this);
+		}
+
+		return countPatternItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -368,6 +414,8 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		if (trueElementItemProvider != null) trueElementItemProvider.dispose();
 		if (patternItemProvider != null) patternItemProvider.dispose();
 		if (notElementItemProvider != null) notElementItemProvider.dispose();
+		if (countComparisonItemProvider != null) countComparisonItemProvider.dispose();
+		if (countPatternItemProvider != null) countPatternItemProvider.dispose();
 	}
 
 }

@@ -67,6 +67,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 			case PatternstructurePackage.TRUE_ELEMENT: return createTrueElement();
 			case PatternstructurePackage.PATTERN: return createPattern();
 			case PatternstructurePackage.NOT_ELEMENT: return createNotElement();
+			case PatternstructurePackage.COUNT_COMPARISON: return createCountComparison();
+			case PatternstructurePackage.COUNT_PATTERN: return createCountPattern();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -215,6 +217,28 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public CountComparison createCountComparison() {
+		CountComparisonImpl countComparison = new CountComparisonImpl();
+		return countComparison;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CountPattern createCountPattern() {
+		CountPatternImpl countPattern = new CountPatternImpl();
+		return countPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LogicalOperator createLogicalOperatorFromString(EDataType eDataType, String initialValue) {
 		LogicalOperator result = LogicalOperator.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -293,8 +317,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Class<?> createClassWrapperFromString(EDataType eDataType, String initialValue) {
-		return (Class<?>)super.createFromString(eDataType, initialValue);
+	public Class createClassWrapperFromString(EDataType eDataType, String initialValue) {
+		return (Class)super.createFromString(eDataType, initialValue);
 	}
 
 	/**

@@ -24,8 +24,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllElements <em>Get All Elements</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllRelations <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getName <em>Name</em>}</li>
@@ -153,34 +151,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	EList<Property> getProperties();
-
-	/**
-	 * Returns the value of the '<em><b>Get All Elements</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Get All Elements</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_GetAllElements()
-	 * @model changeable="false" volatile="true" derived="true" ordered="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t self.getNextElements()-&gt;collect(e: Element | e.getAllElements)-&gt;asSet()-&gt;including(self)'"
-	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
-	 * @generated
-	 */
-	EList<Element> getGetAllElements();
-
-	/**
-	 * Returns the value of the '<em><b>Get All Relations</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Relation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Get All Relations</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_GetAllRelations()
-	 * @model changeable="false" volatile="true" derived="true" ordered="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t self.getNextElements()-&gt;collect(e: Element | e.getAllRelations)-&gt;asSet()-&gt;including(self.relationFromPrevious)'"
-	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
-	 * @generated
-	 */
-	EList<Relation> getGetAllRelations();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -383,5 +353,21 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, Parameter input);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Element> getAllElements();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Relation> getAllRelations();
 
 } // Element

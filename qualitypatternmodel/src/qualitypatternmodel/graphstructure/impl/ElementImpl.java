@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -66,8 +65,6 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperties <em>Properties</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllElements <em>Get All Elements</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGetAllRelations <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getName <em>Name</em>}</li>
@@ -130,26 +127,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 	 * @ordered
 	 */
 	protected EList<Property> properties;
-
-	/**
-	 * The cached setting delegate for the '{@link #getGetAllElements() <em>Get All Elements</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getGetAllElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_ELEMENTS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.ELEMENT__GET_ALL_ELEMENTS).getSettingDelegate();
-
-	/**
-	 * The cached setting delegate for the '{@link #getGetAllRelations() <em>Get All
-	 * Relations</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @see #getGetAllRelations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_RELATIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.ELEMENT__GET_ALL_RELATIONS).getSettingDelegate();
 
 	/**
 	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' reference list.
@@ -519,26 +496,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<Element> getGetAllElements() {
-		return (EList<Element>)GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<Relation> getGetAllRelations() {
-		return (EList<Relation>)GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @throws InvalidityException
 	 */
@@ -675,6 +632,38 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Element> getAllElements() {
+		EList<Element> result = new BasicEList<Element>();
+		for(Element next : getNextElements()) {
+			result.addAll(next.getAllElements());
+		}
+		result.add(this);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Relation> getAllRelations() {
+		EList<Relation> result = new BasicEList<Relation>();
+		for(Element next : getNextElements()) {
+			result.addAll(next.getAllRelations());
+		}
+		if(getRelationFromPrevious() != null) {
+			result.add(getRelationFromPrevious());
+		}
+		return result;
 	}
 
 	/**
@@ -830,10 +819,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return isTranslated();
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return getProperties();
-			case GraphstructurePackage.ELEMENT__GET_ALL_ELEMENTS:
-				return getGetAllElements();
-			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
-				return getGetAllRelations();
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				return getPredicates();
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
@@ -936,10 +921,6 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 				return translated != TRANSLATED_EDEFAULT;
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return properties != null && !properties.isEmpty();
-			case GraphstructurePackage.ELEMENT__GET_ALL_ELEMENTS:
-				return GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
-			case GraphstructurePackage.ELEMENT__GET_ALL_RELATIONS:
-				return GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case GraphstructurePackage.ELEMENT__PREDICATES:
 				return predicates != null && !predicates.isEmpty();
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
@@ -1051,6 +1032,10 @@ public abstract class ElementImpl extends PatternElementImpl implements Element 
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER:
 				addPrimitiveComparison((PropertyLocation)arguments.get(0), (String)arguments.get(1), (ComparisonOperator)arguments.get(2), (Parameter)arguments.get(3));
 				return null;
+			case GraphstructurePackage.ELEMENT___GET_ALL_ELEMENTS:
+				return getAllElements();
+			case GraphstructurePackage.ELEMENT___GET_ALL_RELATIONS:
+				return getAllRelations();
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.ELEMENT___IS_TRANSLATABLE:

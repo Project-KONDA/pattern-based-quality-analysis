@@ -149,8 +149,16 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 		String result = "";
 		if (location == Location.RETURN) {
-			String xPathExpression = translatePathFromPrevious();
-			result = FOR + getXQueryVariable() + IN + xPathExpression + xPredicates;
+			result = FOR + getXQueryVariable() + IN; 			
+			if (mappingFrom == null) {
+				String xPathExpression = translatePathFromPrevious();
+				result += xPathExpression + xPredicates;
+			} else if (!getPredicates().isEmpty()) {
+				result += getXQueryVariable() + xPredicates;
+			} else {
+				result = "";
+			}
+			
 		} else {
 			if (location == Location.EXISTS) {
 				result += SOME;
@@ -159,12 +167,12 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 			} else {
 				throw new InvalidityException("invalid location");
 			}
-			result += getXQueryVariable();
+			result += getXQueryVariable() + IN;
 			if (mappingFrom == null) {
 				String xPathExpression = translatePathFromPrevious();
-				result += IN + xPathExpression + xPredicates + SATISFIES;
+				result += xPathExpression + xPredicates + SATISFIES;
 			} else if (!getPredicates().isEmpty()) {
-				result += IN + getXQueryVariable() + xPredicates + SATISFIES;
+				result += getXQueryVariable() + xPredicates + SATISFIES;
 			} else {
 				result = "";
 			}
@@ -400,10 +408,19 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 	}
 
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		if (getGraphDepth() == 0 && mappingFrom != null) // depth=0 => ReturnGraph
-			throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + mappingFrom + " "
-					+ mappingFrom.getId() + " - (" + mappingTo + ")");
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {		
+			
+		try {
+			Pattern pattern;
+			pattern = (Pattern) getAncestor(Pattern.class);
+			if (getGraphDepth() == 0 && mappingFrom != null && pattern.getCountPattern() == null) // depth=0 => ReturnGraph
+				throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + mappingFrom + " "
+						+ mappingFrom.getId() + " - (" + mappingTo + ")");
+		} catch (MissingPatternContainerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		if (!eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT)
 				&& !eIsSet(GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS))
 			throw new InvalidityException("previousElement null at SingleElement " + getId());
@@ -826,20 +843,22 @@ public class SingleElementImpl extends ElementImpl implements SingleElement {
 
 	private void setGraphForCorrespondingElements(Graph newGraph) {
 		for (SingleElementMapping mapping : getMappingTo()) {
-			SingleElement element = mapping.getTo();
-			if (newGraph == null && element.getGraph() != null) {
-				element.setGraph(null);
-			}
-			if (newGraph != null && element.getGraph() == null) {
-				try {
-					element.setGraph((Graph) element.getAncestor(GraphImpl.class));
-				} catch (MissingPatternContainerException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+			if(mapping.getMorphism().getCountPattern() == null) {
+				SingleElement element = mapping.getTo();
+				if (newGraph == null && element.getGraph() != null) {
+					element.setGraph(null);
 				}
-			}
+				if (newGraph != null && element.getGraph() == null) {
+					try {
+						element.setGraph((Graph) element.getAncestor(GraphImpl.class));
+					} catch (MissingPatternContainerException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}			
 		}
-		if (getMappingFrom() != null) {
+		if (getMappingFrom() != null && getMappingFrom().getMorphism().getCountPattern() == null) {
 			SingleElement element = getMappingFrom().getFrom();
 			if (newGraph == null && element.getGraph() != null) {
 				element.setGraph(null);

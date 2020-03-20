@@ -14,17 +14,12 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * A test case for the model object '<em><b>Graph</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are tested:
- * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGetAllElements() <em>Get All Elements</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGetAllRelations() <em>Get All Relations</em>}</li>
- * </ul>
- * </p>
- * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph) <em>Copy Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllElements() <em>Get All Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllRelations() <em>Get All Relations</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -84,32 +79,6 @@ public class GraphTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getGetAllElements() <em>Get All Elements</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Graph#getGetAllElements()
-	 * @generated
-	 */
-	public void testGetGetAllElements() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getGetAllRelations() <em>Get All Relations</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Graph#getGetAllRelations()
-	 * @generated
-	 */
-	public void testGetGetAllRelations() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,6 +99,32 @@ public class GraphTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testCopyGraph__Graph() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getAllElements() <em>Get All Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Graph#getAllElements()
+	 * @generated
+	 */
+	public void testGetAllElements() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getAllRelations() <em>Get All Relations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Graph#getAllRelations()
+	 * @generated
+	 */
+	public void testGetAllRelations() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
