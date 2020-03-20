@@ -69,10 +69,10 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 			throw new InvalidityException("RelationMapping " + getInternalId() + ": from-element null");
 		if (to == null)
 			throw new InvalidityException("RelationMapping " + getInternalId() + ": to null");
-		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
-			throw new InvalidityException("RelationMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
-					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
-		}
+//		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
+//			throw new InvalidityException("RelationMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
+//					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
+//		}
 	}
 
 	/**

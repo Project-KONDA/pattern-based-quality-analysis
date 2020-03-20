@@ -94,6 +94,24 @@ public interface PatternstructureFactory extends EFactory {
 	NotElement createNotElement();
 
 	/**
+	 * Returns a new object of class '<em>Count Comparison</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Count Comparison</em>'.
+	 * @generated
+	 */
+	CountComparison createCountComparison();
+
+	/**
+	 * Returns a new object of class '<em>Count Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Count Pattern</em>'.
+	 * @generated
+	 */
+	CountPattern createCountPattern();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

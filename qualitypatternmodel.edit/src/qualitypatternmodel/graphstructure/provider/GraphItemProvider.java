@@ -172,50 +172,6 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Get All Elements feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGetAllElementsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Graph_getAllElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_getAllElements_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__GET_ALL_ELEMENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Get All Relations feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGetAllRelationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Graph_getAllRelations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_getAllRelations_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__GET_ALL_RELATIONS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.

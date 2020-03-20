@@ -45,6 +45,7 @@ public class NumberParamItemProvider extends ParameterValueItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addValuePropertyDescriptor(object);
+			addCountComparisonPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,6 +68,28 @@ public class NumberParamItemProvider extends ParameterValueItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Count Comparison feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCountComparisonPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NumberParam_countComparison_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NumberParam_countComparison_feature", "_UI_NumberParam_type"),
+				 ParametersPackage.Literals.NUMBER_PARAM__COUNT_COMPARISON,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

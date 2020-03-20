@@ -376,7 +376,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				}
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_ANCESTOR__CLASS:
 				try {
-					return getAncestor((Class<?>)arguments.get(0));
+					return getAncestor((Class)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

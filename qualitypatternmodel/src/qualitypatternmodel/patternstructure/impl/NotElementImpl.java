@@ -16,6 +16,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.patternstructure.GraphContainer;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NotElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -69,6 +70,13 @@ public class NotElementImpl extends ConditionImpl implements NotElement {
 		if (condition == null)
 			throw new InvalidityException("condition null (" + getInternalId() + ")");
 	}
+	
+	@Override
+	public EList<GraphContainer> getNextQuantifiedConditions() {
+		EList<GraphContainer> result = new BasicEList<GraphContainer>();
+		result.addAll(getCondition().getGetNextQuantifiedConditions());
+		return result;
+	}	
 	
 	@Override
 	public void prepareTranslation() {

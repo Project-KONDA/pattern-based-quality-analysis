@@ -70,7 +70,6 @@ public class TextParamItemProvider extends ParameterValueItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

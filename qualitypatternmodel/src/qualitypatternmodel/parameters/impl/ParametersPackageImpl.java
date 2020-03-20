@@ -303,7 +303,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameter__Validate__DiagnosticChain_Map() {
-		return parameterEClass.getEOperations().get(1);
+		return parameterEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -313,7 +313,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameter__GenerateDescription() {
-		return parameterEClass.getEOperations().get(2);
+		return parameterEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -582,6 +582,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EReference getNumberParam_CountComparison() {
+		return (EReference)numberParamEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getParameterValue() {
 		return parameterValueEClass;
 	}
@@ -741,8 +751,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(parameterEClass, PARAMETER__IS_PREDEFINED);
 		createEAttribute(parameterEClass, PARAMETER__DESCRIBED);
 		createEOperation(parameterEClass, PARAMETER___INPUT_IS_VALID);
-		createEOperation(parameterEClass, PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP);
 		createEOperation(parameterEClass, PARAMETER___GENERATE_DESCRIPTION);
+		createEOperation(parameterEClass, PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
 		comparisonOptionParamEClass = createEClass(COMPARISON_OPTION_PARAM);
 		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__OPTIONS);
@@ -777,6 +787,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		numberParamEClass = createEClass(NUMBER_PARAM);
 		createEAttribute(numberParamEClass, NUMBER_PARAM__VALUE);
+		createEReference(numberParamEClass, NUMBER_PARAM__COUNT_COMPARISON);
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
 
@@ -841,6 +852,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		textListParamEClass.getESuperTypes().add(this.getTextParam());
 		textLiteralParamEClass.getESuperTypes().add(this.getTextParam());
 		numberParamEClass.getESuperTypes().add(this.getParameterValue());
+		numberParamEClass.getESuperTypes().add(thePatternstructurePackage.getCountComparisonArgument());
 		parameterValueEClass.getESuperTypes().add(this.getParameter());
 		dateParamEClass.getESuperTypes().add(this.getParameterValue());
 		timeParamEClass.getESuperTypes().add(this.getParameterValue());
@@ -857,6 +869,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEOperation(getParameter__InputIsValid(), ecorePackage.getEBoolean(), "inputIsValid", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getParameter__GenerateDescription(), null, "generateDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		EOperation op = initEOperation(getParameter__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
@@ -865,8 +879,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getParameter__GenerateDescription(), null, "generateDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(comparisonOptionParamEClass, ComparisonOptionParam.class, "ComparisonOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComparisonOptionParam_Options(), theFunctionsPackage.getComparisonOperator(), "options", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -905,6 +917,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEClass(numberParamEClass, NumberParam.class, "NumberParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberParam_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNumberParam_CountComparison(), thePatternstructurePackage.getCountComparison(), thePatternstructurePackage.getCountComparison_NumberParam(), "countComparison", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

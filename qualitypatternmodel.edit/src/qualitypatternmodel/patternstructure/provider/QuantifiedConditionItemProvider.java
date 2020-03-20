@@ -78,28 +78,6 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Check Morphism Of Next Graph feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCheckMorphismOfNextGraphPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_QuantifiedCondition_checkMorphismOfNextGraph_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_QuantifiedCondition_checkMorphismOfNextGraph_feature", "_UI_QuantifiedCondition_type"),
-				 PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -114,6 +92,7 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__GRAPH);
 			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION);
 			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__MORPHISM);
+			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__COUNT_COMPARISON);
 		}
 		return childrenFeatures;
 	}
@@ -168,12 +147,12 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 
 		switch (notification.getFeatureID(QuantifiedCondition.class)) {
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
-			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
 			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
 			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+			case PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_COMPARISON:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -218,8 +197,41 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createCountComparison()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__MORPHISM,
 				 PatternstructureFactory.eINSTANCE.createMorphism()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__COUNT_COMPARISON,
+				 PatternstructureFactory.eINSTANCE.createCountComparison()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION ||
+			childFeature == PatternstructurePackage.Literals.QUANTIFIED_CONDITION__COUNT_COMPARISON;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

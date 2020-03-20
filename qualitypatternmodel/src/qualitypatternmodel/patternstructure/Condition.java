@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -185,4 +186,12 @@ public interface Condition extends PatternElement {
 	 * @generated
 	 */
 	void setNot(NotElement value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	EList<GraphContainer> getNextQuantifiedConditions() throws InvalidityException;
 } // Condition

@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -50,8 +49,6 @@ import qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGraphDepth <em>Graph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#isReturnGraph <em>Return Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGetAllElements <em>Get All Elements</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGetAllRelations <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElements <em>Return Elements</em>}</li>
@@ -115,26 +112,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @ordered
 	 */
 	protected boolean returnGraph = RETURN_GRAPH_EDEFAULT;
-
-	/**
-	 * The cached setting delegate for the '{@link #getGetAllElements() <em>Get All Elements</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getGetAllElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_ELEMENTS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.GRAPH__GET_ALL_ELEMENTS).getSettingDelegate();
-
-	/**
-	 * The cached setting delegate for the '{@link #getGetAllRelations() <em>Get All
-	 * Relations</em>}' reference list. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @see #getGetAllRelations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature.Internal.SettingDelegate GET_ALL_RELATIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)GraphstructurePackage.Literals.GRAPH__GET_ALL_RELATIONS).getSettingDelegate();
 
 	/**
 	 * The cached value of the '{@link #getReturnElements() <em>Return Elements</em>}' reference list.
@@ -238,10 +215,35 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		SingleElement newRootElement = new SingleElementImpl();
 		newRootElement.setRoot(graph);
 		SingleElementMapping newMapping = new SingleElementMappingImpl();
-		graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
+		if(graph.getQuantifiedCondition() != null) {
+			graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
+		} else {
+			graph.getPattern().getCountPattern().getMorphism().getMappings().add(newMapping);
+		}
+		
 		newMapping.setFrom(rootElement);
 		newMapping.setTo(newRootElement);
 		rootElement.copyNextElementsToNextGraphs();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Element> getAllElements() {
+		return getRootElement().getAllElements();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Relation> getAllRelations() {
+		return getRootElement().getAllRelations();
 	}
 
 	private void addRootMapping(Graph graph) {
@@ -562,26 +564,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<Element> getGetAllElements() {
-		return (EList<Element>)GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<Relation> getGetAllRelations() {
-		return (EList<Relation>)GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public QuantifiedCondition getQuantifiedCondition() {
 		if (eContainerFeatureID() != GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION) return null;
@@ -714,10 +696,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getGraphDepth();
 			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
 				return isReturnGraph();
-			case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
-				return getGetAllElements();
-			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
-				return getGetAllRelations();
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				return getQuantifiedCondition();
 			case GraphstructurePackage.GRAPH__PATTERN:
@@ -827,10 +805,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return graphDepth != GRAPH_DEPTH_EDEFAULT;
 			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
 				return returnGraph != RETURN_GRAPH_EDEFAULT;
-			case GraphstructurePackage.GRAPH__GET_ALL_ELEMENTS:
-				return GET_ALL_ELEMENTS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
-			case GraphstructurePackage.GRAPH__GET_ALL_RELATIONS:
-				return GET_ALL_RELATIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				return getQuantifiedCondition() != null;
 			case GraphstructurePackage.GRAPH__PATTERN:
@@ -867,6 +841,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.GRAPH___GET_ALL_ELEMENTS:
+				return getAllElements();
+			case GraphstructurePackage.GRAPH___GET_ALL_RELATIONS:
+				return getAllRelations();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -10,13 +10,6 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * A test case for the model object '<em><b>Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are tested:
- * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllElements() <em>Get All Elements</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getGetAllRelations() <em>Get All Relations</em>}</li>
- * </ul>
- * </p>
- * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getNextElements() <em>Get Next Elements</em>}</li>
@@ -41,6 +34,8 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch() <em>Add Primitive Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllElements() <em>Get All Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllRelations() <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
@@ -69,32 +64,6 @@ public abstract class ElementTest extends PatternElementTest {
 	@Override
 	protected Element getFixture() {
 		return (Element)fixture;
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getGetAllElements() <em>Get All Elements</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#getGetAllElements()
-	 * @generated
-	 */
-	public void testGetGetAllElements() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getGetAllRelations() <em>Get All Relations</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#getGetAllRelations()
-	 * @generated
-	 */
-	public void testGetGetAllRelations() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**
@@ -378,6 +347,32 @@ public abstract class ElementTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getAllElements() <em>Get All Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Element#getAllElements()
+	 * @generated
+	 */
+	public void testGetAllElements() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getAllRelations() <em>Get All Relations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Element#getAllRelations()
+	 * @generated
+	 */
+	public void testGetAllRelations() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
