@@ -26,8 +26,8 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getRoot <em>Root</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getNextSingle <em>Next Single</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getNextElements <em>Next Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getPreviousElement <em>Previous Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}</li>
@@ -105,42 +105,42 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	void setRoot(Graph value);
 
 	/**
-	 * Returns the value of the '<em><b>Next Single</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Next Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getPrevious <em>Previous</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getPreviousElement <em>Previous Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next Single</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_NextSingle()
-	 * @see qualitypatternmodel.graphstructure.Element#getPrevious
-	 * @model opposite="previous" containment="true"
+	 * @return the value of the '<em>Next Elements</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_NextElements()
+	 * @see qualitypatternmodel.graphstructure.Element#getPreviousElement
+	 * @model opposite="previousElement" containment="true"
 	 * @generated
 	 */
-	EList<Element> getNextSingle();
+	EList<Element> getNextElements();
 
 	/**
-	 * Returns the value of the '<em><b>Previous</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getNextSingle <em>Next Single</em>}'.
+	 * Returns the value of the '<em><b>Previous Element</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getNextElements <em>Next Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Previous</em>' container reference.
-	 * @see #setPrevious(Element)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Previous()
-	 * @see qualitypatternmodel.graphstructure.Element#getNextSingle
-	 * @model opposite="nextSingle" transient="false"
+	 * @return the value of the '<em>Previous Element</em>' container reference.
+	 * @see #setPreviousElement(Element)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_PreviousElement()
+	 * @see qualitypatternmodel.graphstructure.Element#getNextElements
+	 * @model opposite="nextElements" transient="false"
 	 * @generated
 	 */
-	Element getPrevious();
+	Element getPreviousElement();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getPrevious <em>Previous</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getPreviousElement <em>Previous Element</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Previous</em>' container reference.
-	 * @see #getPrevious()
+	 * @param value the new value of the '<em>Previous Element</em>' container reference.
+	 * @see #getPreviousElement()
 	 * @generated
 	 */
-	void setPrevious(Element value);
+	void setPreviousElement(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' reference.

@@ -43,8 +43,8 @@ public class Test06NotElement {
 
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;		
-		Element last = qc.getGraph().getRootElement().getNextSingle().get(0);
-		last.getNextSingle().add(graphFactory.createElement());
+		Element last = qc.getGraph().getRootElement().getNextElements().get(0);
+		last.getNextElements().add(graphFactory.createElement());
 		
 		return pattern;
 	}
@@ -70,14 +70,14 @@ public class Test06NotElement {
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
 
 //		SingleElement root = qc1.getGraph().getRootElement();
-//		root.getNextSingle().get(0).getNextSingle().add(graphFactory.createSingleElement());
+//		root.getNextElements().get(0).getNextElements().add(graphFactory.createSingleElement());
 				
 		qc1.setCondition(n);
 		n.setCondition(qc2);
 		qc2.setCondition(t);
 	
 		Element root2 = qc2.getGraph().getRootElement();
-		root2.getNextSingle().get(0).getNextSingle().get(0).getNextSingle().add(graphFactory.createElement());
+		root2.getNextElements().get(0).getNextElements().get(0).getNextElements().add(graphFactory.createElement());
 		
 		return pattern; 
 	}

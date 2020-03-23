@@ -43,13 +43,13 @@ public class Eval01Comp {
 		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);	
 		
-		Element next1 = returnElementInGraph1.getNextSingle().get(0);	
+		Element next1 = returnElementInGraph1.getNextElements().get(0);	
 		next1.addPrimitiveComparison();
 		Property property1 = graphFactory.createProperty();
 		property1.setElement(next1);
 		
 		Element next2 = graphFactory.createElement();
-		returnElementInGraph1.getNextSingle().add(next2);
+		returnElementInGraph1.getNextElements().add(next2);
 		next2.addPrimitiveComparison();
 		Property property2 = graphFactory.createProperty();
 		property2.setElement(next2);
@@ -78,8 +78,8 @@ public class Eval01Comp {
 		
 		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);
-		Element next1ToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);	
-		Element next2ToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(1);	
+		Element next1ToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(0);	
+		Element next2ToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(1);	
 
 		Comparison comparison1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();

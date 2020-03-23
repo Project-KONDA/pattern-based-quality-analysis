@@ -767,22 +767,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__ROOT = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Next Single</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Next Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__NEXT_SINGLE = COMPARABLE_FEATURE_COUNT + 3;
+	int ELEMENT__NEXT_ELEMENTS = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Previous</b></em>' container reference.
+	 * The feature id for the '<em><b>Previous Element</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PREVIOUS = COMPARABLE_FEATURE_COUNT + 4;
+	int ELEMENT__PREVIOUS_ELEMENT = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' reference.
@@ -1774,26 +1774,26 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getElement_Root();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Element#getNextSingle <em>Next Single</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Element#getNextElements <em>Next Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Next Single</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getNextSingle()
+	 * @return the meta object for the containment reference list '<em>Next Elements</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#getNextElements()
 	 * @see #getElement()
 	 * @generated
 	 */
-	EReference getElement_NextSingle();
+	EReference getElement_NextElements();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Element#getPrevious <em>Previous</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Element#getPreviousElement <em>Previous Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Previous</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getPrevious()
+	 * @return the meta object for the container reference '<em>Previous Element</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#getPreviousElement()
 	 * @see #getElement()
 	 * @generated
 	 */
-	EReference getElement_Previous();
+	EReference getElement_PreviousElement();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}'.
@@ -2646,20 +2646,20 @@ public interface GraphstructurePackage extends EPackage {
 		EReference ELEMENT__ROOT = eINSTANCE.getElement_Root();
 
 		/**
-		 * The meta object literal for the '<em><b>Next Single</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Next Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT__NEXT_SINGLE = eINSTANCE.getElement_NextSingle();
+		EReference ELEMENT__NEXT_ELEMENTS = eINSTANCE.getElement_NextElements();
 
 		/**
-		 * The meta object literal for the '<em><b>Previous</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Previous Element</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT__PREVIOUS = eINSTANCE.getElement_Previous();
+		EReference ELEMENT__PREVIOUS_ELEMENT = eINSTANCE.getElement_PreviousElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Graph</b></em>' reference feature.

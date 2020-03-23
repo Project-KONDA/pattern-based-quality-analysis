@@ -31,13 +31,13 @@ public class Eval05Compset {
 		
 		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);				
-		Element nextToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);					
+		Element nextToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(0);					
 		nextToReturnElementInGraph1.addPrimitiveComparison(); 	
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotElement) ((QuantifiedCondition) pattern.getCondition()).getCondition()).getCondition()).getGraph();
 
 		Element returnElementInGraph2 = graph2.getReturnElements().get(0);
-		Element nextToReturnElementInGraph2 = returnElementInGraph2.getNextSingle().get(0);	
+		Element nextToReturnElementInGraph2 = returnElementInGraph2.getNextElements().get(0);	
 		nextToReturnElementInGraph2.addPrimitiveComparison();	
 		
 		return pattern;

@@ -433,7 +433,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getElement_NextSingle() {
+	public EReference getElement_NextElements() {
 		return (EReference)elementEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -443,7 +443,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getElement_Previous() {
+	public EReference getElement_PreviousElement() {
 		return (EReference)elementEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1112,8 +1112,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(elementEClass, ELEMENT__MAPPING_TO);
 		createEReference(elementEClass, ELEMENT__MAPPING_FROM);
 		createEReference(elementEClass, ELEMENT__ROOT);
-		createEReference(elementEClass, ELEMENT__NEXT_SINGLE);
-		createEReference(elementEClass, ELEMENT__PREVIOUS);
+		createEReference(elementEClass, ELEMENT__NEXT_ELEMENTS);
+		createEReference(elementEClass, ELEMENT__PREVIOUS_ELEMENT);
 		createEReference(elementEClass, ELEMENT__GRAPH);
 		createEAttribute(elementEClass, ELEMENT__NAME);
 		createEAttribute(elementEClass, ELEMENT__TRANSLATED);
@@ -1261,8 +1261,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEReference(getElement_MappingTo(), thePatternstructurePackage.getSingleElementMapping(), thePatternstructurePackage.getSingleElementMapping_From(), "mappingTo", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_MappingFrom(), thePatternstructurePackage.getSingleElementMapping(), thePatternstructurePackage.getSingleElementMapping_To(), "mappingFrom", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Root(), this.getGraph(), this.getGraph_RootElement(), "root", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_NextSingle(), this.getElement(), this.getElement_Previous(), "nextSingle", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Previous(), this.getElement(), this.getElement_NextSingle(), "previous", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_NextElements(), this.getElement(), this.getElement_PreviousElement(), "nextElements", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElement_PreviousElement(), this.getElement(), this.getElement_NextElements(), "previousElement", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElement_Graph(), this.getGraph(), this.getGraph_ReturnElements(), "graph", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElement_Translated(), ecorePackage.getEBoolean(), "translated", null, 1, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

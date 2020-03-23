@@ -36,7 +36,7 @@ public class Test03Quantor {
 				
 		// EXISTS additional graph structure
 		Element se2 = graphFactory.createElement();
-		cond.getGraph().getReturnElements().get(0).getNextSingle().add(se2);		
+		cond.getGraph().getReturnElements().get(0).getNextElements().add(se2);		
 		
 		return pattern;
 	}
@@ -54,7 +54,7 @@ public class Test03Quantor {
 //		VariableList varlist = pattern.getVariableList();
 		Graph graph2 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
 //		OperatorList oplist = graph2.getOperatorList();
-		Element last = graph2.getRootElement().getNextSingle().get(0).getNextSingle().get(0);
+		Element last = graph2.getRootElement().getNextElements().get(0).getNextElements().get(0);
 		last.addPrimitiveComparison("myvalue");
 //		Comparison comp = functionFactory.createComparison();
 //		oplist.add(comp);

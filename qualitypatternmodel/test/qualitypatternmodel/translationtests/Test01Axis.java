@@ -38,7 +38,7 @@ public class Test01Axis {
 		
 		Pattern pattern = Test00.getBasePattern();
 //		AxisOptionParam axisOption = parametersFactory.createAxisOptionParam();		
-		AxisOptionParam axisOption = pattern.getGraph().getRootElement().getNextSingle().get(0).getRelationFromPrevious().getOption();
+		AxisOptionParam axisOption = pattern.getGraph().getRootElement().getNextElements().get(0).getRelationFromPrevious().getOption();
 		EList<Axis> axisOptions = axisOption.getOptions();
 		if(!axisOptions.contains(axis)) axisOptions.add(axis);
 		axisOption.setValue(axis);

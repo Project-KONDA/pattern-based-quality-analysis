@@ -28,7 +28,7 @@ public class Test02Return {
 		
 		Element root = pattern.getGraph().getRootElement();
 		Element return2 = graphFactory.createElement();
-		root.getNextSingle().add(return2);
+		root.getNextElements().add(return2);
 		return_graph.getReturnElements().add(return2);
 				
 		return pattern;
@@ -41,7 +41,7 @@ public class Test02Return {
 		Pattern pattern = Test00.getBasePattern();
 		
 		Element return2 = graphFactory.createElement();
-		pattern.getGraph().getReturnElements().get(0).getNextSingle().add(return2);
+		pattern.getGraph().getReturnElements().get(0).getNextElements().add(return2);
 		pattern.getGraph().getReturnElements().add(return2);
 		
 		return pattern;
@@ -56,7 +56,7 @@ public class Test02Return {
 		
 		Element return2 = graphFactory.createElement();
 		EList<Element> return_elements = return_graph.getReturnElements();
-		return_elements.get(0).getNextSingle().add(return2);
+		return_elements.get(0).getNextElements().add(return2);
 		return_elements.remove(0);
 		return_elements.add(return2);
 		

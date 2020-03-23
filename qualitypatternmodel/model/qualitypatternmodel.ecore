@@ -297,10 +297,10 @@
           eOpposite="#//patternstructure/SingleElementMapping/to"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//graphstructure/Graph"
           eOpposite="#//graphstructure/Graph/rootElement"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="nextSingle" upperBound="-1"
-          eType="#//graphstructure/Element" containment="true" eOpposite="#//graphstructure/Element/previous"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//graphstructure/Element"
-          eOpposite="#//graphstructure/Element/nextSingle"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nextElements" upperBound="-1"
+          eType="#//graphstructure/Element" containment="true" eOpposite="#//graphstructure/Element/previousElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="previousElement" eType="#//graphstructure/Element"
+          eOpposite="#//graphstructure/Element/nextElements"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="#//graphstructure/Graph"
           eOpposite="#//graphstructure/Graph/returnElements"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

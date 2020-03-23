@@ -1794,7 +1794,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5kMv1T2xEeq9gIWC7i9f8Q" x="13"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_5kMv1j2xEeq9gIWC7i9f8Q" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5kMv1z2xEeq9gIWC7i9f8Q" x="4" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5kMv1z2xEeq9gIWC7i9f8Q" x="28" y="16"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_5kNW4D2xEeq9gIWC7i9f8Q" type="6003">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5kNW4T2xEeq9gIWC7i9f8Q" x="-4" y="-10"/>
@@ -5357,10 +5357,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_5fufgz2xEeq9gIWC7i9f8Q" sourceNode="_UQET8B2REeqrGqxc7qjo8A" targetNode="_UQET8B2REeqrGqxc7qjo8A" beginLabel="[0..1] previous" endLabel="[0..*] nextSingle">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/nextSingle"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/nextSingle"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/previous"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_5fufgz2xEeq9gIWC7i9f8Q" sourceNode="_UQET8B2REeqrGqxc7qjo8A" targetNode="_UQET8B2REeqrGqxc7qjo8A" beginLabel="[0..1] previousElement" endLabel="[0..*] nextElements">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/nextElements"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/nextElements"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/previousElement"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_-RiosD2xEeq9gIWC7i9f8Q" description="_3LcIvD2xEeq9gIWC7i9f8Q" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_-RiosT2xEeq9gIWC7i9f8Q" showIcon="false"/>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_-Riosj2xEeq9gIWC7i9f8Q" showIcon="false"/>
@@ -10791,9 +10791,9 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_H105dmg1EeqqIutgaIr-iw" sourceNode="_H10SKmg1EeqqIutgaIr-iw" targetNode="_H10SKmg1EeqqIutgaIr-iw" beginLabel="[0..1] previous" endLabel="[0..*] nextSingle">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/nextSingle"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/nextSingle"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/previous"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/nextElements"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/nextElements"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Element/previousElement"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_H105d2g1EeqqIutgaIr-iw" description="_H1_RPGg1EeqqIutgaIr-iw" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_H105eGg1EeqqIutgaIr-iw" labelSize="12" showIcon="false">
           <customFeatures>labelSize</customFeatures>

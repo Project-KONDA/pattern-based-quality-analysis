@@ -50,8 +50,8 @@ public class Test07Formula {
 		form.setCondition2(qc2);
 		qc2.setCondition(te2);
 
-		qc1.getGraph().getReturnElements().get(0).getNextSingle().add(graphFactory.createElement());
-		qc2.getGraph().getReturnElements().get(0).getNextSingle().add(graphFactory.createElement());
+		qc1.getGraph().getReturnElements().get(0).getNextElements().add(graphFactory.createElement());
+		qc2.getGraph().getReturnElements().get(0).getNextElements().add(graphFactory.createElement());
 		
 		return pattern;
 	}

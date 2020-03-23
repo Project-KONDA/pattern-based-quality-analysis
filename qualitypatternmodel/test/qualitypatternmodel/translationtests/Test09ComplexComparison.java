@@ -82,8 +82,8 @@ public class Test09ComplexComparison {
 		Element se1 = graphFactory.createElement();
 		Element se2 = graphFactory.createElement();
 
-		ret.getNextSingle().add(se1);
-		ret.getNextSingle().add(se2);
+		ret.getNextElements().add(se1);
+		ret.getNextElements().add(se2);
 		
 		Property p1 = graphFactory.createProperty();
 		Property p2 = graphFactory.createProperty();
@@ -115,8 +115,8 @@ public class Test09ComplexComparison {
 		Element se1 = graphFactory.createElement();
 		Element se2 = graphFactory.createElement();
 
-		ret.getNextSingle().add(se1);
-		ret.getNextSingle().add(se2);
+		ret.getNextElements().add(se1);
+		ret.getNextElements().add(se2);
 		
 		Comparison comp = functionFactory.createComparison();
 		
@@ -168,7 +168,7 @@ public class Test09ComplexComparison {
 //		SingleElement se = graph.getReturnElements().get(0);
 //		
 //		comp.setArgument1(se.getNextSet().get(0));
-//		comp.setArgument2(se.getNextSingle().get(0));
+//		comp.setArgument2(se.getNextElements().get(0));
 //		
 //		return pattern;
 //	}
@@ -185,7 +185,7 @@ public class Test09ComplexComparison {
 //
 //		OperatorList oplist = ((QuantifiedCondition)pattern.getCondition()).getGraph().getOperatorList();
 //		SingleElement ret = ((QuantifiedCondition)pattern.getCondition()).getGraph().getReturnElements().get(0);
-//		ret.getNextSingle().remove(0);
+//		ret.getNextElements().remove(0);
 //
 //		SetElement se1 = graphFactory.createSetElement();
 //		ret.getNextSet().add(se1);

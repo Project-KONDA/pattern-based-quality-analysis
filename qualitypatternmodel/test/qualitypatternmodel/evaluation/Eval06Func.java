@@ -41,15 +41,15 @@ public class Eval06Func {
 		
 		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);				
-		Element fieldAReturn = returnElementInGraph1.getNextSingle().get(0);	
+		Element fieldAReturn = returnElementInGraph1.getNextElements().get(0);	
 		Element fieldBReturn = graphFactory.createElement();
-		returnElementInGraph1.getNextSingle().add(fieldBReturn);
+		returnElementInGraph1.getNextElements().add(fieldBReturn);
 		Element otherRecord = graphFactory.createElement();
-		graph1.getRootElement().getNextSingle().add(otherRecord);
+		graph1.getRootElement().getNextElements().add(otherRecord);
 		Element fieldAOtherRecord = graphFactory.createElement();
-		otherRecord.getNextSingle().add(fieldAOtherRecord);
+		otherRecord.getNextElements().add(fieldAOtherRecord);
 		Element fieldBOtherRecord = graphFactory.createElement();
-		otherRecord.getNextSingle().add(fieldBOtherRecord);
+		otherRecord.getNextElements().add(fieldBOtherRecord);
 		
 		fieldAReturn.addPrimitiveComparison(); 	
 		fieldBReturn.addPrimitiveComparison(); 

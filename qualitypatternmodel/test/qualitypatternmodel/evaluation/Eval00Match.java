@@ -32,7 +32,7 @@ public class Eval00Match {
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
 		Element returnElementInGraph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph().getReturnElements().get(0);				
-		Element element2 = returnElementInGraph1.getNextSingle().get(0);	
+		Element element2 = returnElementInGraph1.getNextElements().get(0);	
 		
 		element2.addPrimitiveComparison(); 		
 		element2.addPrimitiveMatch();
@@ -55,7 +55,7 @@ public class Eval00Match {
 		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		
 		Element returnElementInGraph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph().getReturnElements().get(0);				
-		Element element2 = returnElementInGraph1.getNextSingle().get(0);
+		Element element2 = returnElementInGraph1.getNextElements().get(0);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("3162");

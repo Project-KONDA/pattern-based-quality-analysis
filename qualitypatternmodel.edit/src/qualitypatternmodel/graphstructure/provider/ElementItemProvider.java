@@ -270,7 +270,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__NEXT_SINGLE);
+			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__NEXT_ELEMENTS);
 			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__RELATION_FROM_PREVIOUS);
 			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__PROPERTIES);
 		}
@@ -337,7 +337,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case GraphstructurePackage.ELEMENT__NEXT_SINGLE:
+			case GraphstructurePackage.ELEMENT__NEXT_ELEMENTS:
 			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -359,7 +359,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.ELEMENT__NEXT_SINGLE,
+				(GraphstructurePackage.Literals.ELEMENT__NEXT_ELEMENTS,
 				 GraphstructureFactory.eINSTANCE.createElement()));
 
 		newChildDescriptors.add

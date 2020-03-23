@@ -59,12 +59,12 @@ public class Eval02Mandstruc {
 		
 		Graph graph1 = quantifiedCondition1.getGraph();
 		Element element1 = graphFactory.createElement();
-		graph1.getReturnElements().get(0).getNextSingle().add(element1);
+		graph1.getReturnElements().get(0).getNextElements().add(element1);
 		element1.addPrimitiveComparison();
 		
 		Graph graph2 = quantifiedCondition2.getGraph();
 		Element element2 = graphFactory.createElement();
-		graph2.getReturnElements().get(0).getNextSingle().add(element2);
+		graph2.getReturnElements().get(0).getNextElements().add(element2);
 		element2.addPrimitiveComparison();		
 		
 		return pattern;

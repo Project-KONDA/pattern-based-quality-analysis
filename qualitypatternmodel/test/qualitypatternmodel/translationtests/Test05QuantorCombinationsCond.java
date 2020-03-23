@@ -40,7 +40,7 @@ public class Test05QuantorCombinationsCond {
 //		OperatorList oplist = graph.getOperatorList();
 		
 		// Property
-		Element se = graph.getRootElement().getNextSingle().get(0).getNextSingle().get(0).getNextSingle().get(0);
+		Element se = graph.getRootElement().getNextElements().get(0).getNextElements().get(0).getNextElements().get(0);
 		se.addPrimitiveComparison("abc");
 		se.getProperties().get(0).getAttributeName().setValue("def"); // not needed, only for better visibility in textual representation
 //		Property prop = graphFactory.createProperty();

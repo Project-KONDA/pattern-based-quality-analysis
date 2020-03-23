@@ -135,7 +135,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 			ElementImpl rootElement = new ElementImpl();
 			getGraph().setRootElement(rootElement);
 			ElementImpl returnElement = new ElementImpl();
-			returnElement.setPrevious(getGraph().getRootElement());
+			returnElement.setPreviousElement(getGraph().getRootElement());
 			getGraph().getReturnElements().add(returnElement);
 			rootElement.setName("Root");
 			returnElement.setName("Return");

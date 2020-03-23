@@ -37,23 +37,23 @@ public class Eval03Refint {
 		
 		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);				
-		Element nextToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);					
+		Element nextToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(0);					
 		nextToReturnElementInGraph1.addPrimitiveComparison(); 	
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotElement) ((QuantifiedCondition) pattern.getCondition()).getCondition()).getCondition()).getGraph();
 		Element rootElementInGraph2 = graph2.getRootElement();
 
 		Element returnElementInGraph2 = graph2.getReturnElements().get(0);
-		Element nextToReturnElementInGraph2 = returnElementInGraph2.getNextSingle().get(0);	
+		Element nextToReturnElementInGraph2 = returnElementInGraph2.getNextElements().get(0);	
 		Property propertyNextToReturnElementInGraph2 = graphFactory.createProperty();
 		propertyNextToReturnElementInGraph2.setElement(nextToReturnElementInGraph2);
 		
 		Element otherRecordInGraph2 = graphFactory.createElement();
-		rootElementInGraph2.getNextSingle().add(otherRecordInGraph2);
+		rootElementInGraph2.getNextElements().add(otherRecordInGraph2);
 		otherRecordInGraph2.addPrimitiveComparison();
 		
 		Element nextToOtherRecordInGraph2 = graphFactory.createElement();
-		otherRecordInGraph2.getNextSingle().add(nextToOtherRecordInGraph2);
+		otherRecordInGraph2.getNextElements().add(nextToOtherRecordInGraph2);
 		nextToOtherRecordInGraph2.addPrimitiveComparison();
 		Property propertyNextToOtherRecordInGraph2 = graphFactory.createProperty();
 		propertyNextToOtherRecordInGraph2.setElement(nextToOtherRecordInGraph2);
