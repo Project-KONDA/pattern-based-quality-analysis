@@ -141,26 +141,26 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.SingleElementMapping} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.ElementMapping} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SingleElementMappingItemProvider singleElementMappingItemProvider;
+	protected ElementMappingItemProvider elementMappingItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.SingleElementMapping}.
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.ElementMapping}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSingleElementMappingAdapter() {
-		if (singleElementMappingItemProvider == null) {
-			singleElementMappingItemProvider = new SingleElementMappingItemProvider(this);
+	public Adapter createElementMappingAdapter() {
+		if (elementMappingItemProvider == null) {
+			elementMappingItemProvider = new ElementMappingItemProvider(this);
 		}
 
-		return singleElementMappingItemProvider;
+		return elementMappingItemProvider;
 	}
 
 	/**
@@ -409,7 +409,7 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		if (relationMappingItemProvider != null) relationMappingItemProvider.dispose();
 		if (quantifiedConditionItemProvider != null) quantifiedConditionItemProvider.dispose();
 		if (morphismItemProvider != null) morphismItemProvider.dispose();
-		if (singleElementMappingItemProvider != null) singleElementMappingItemProvider.dispose();
+		if (elementMappingItemProvider != null) elementMappingItemProvider.dispose();
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
 		if (trueElementItemProvider != null) trueElementItemProvider.dispose();
 		if (patternItemProvider != null) patternItemProvider.dispose();

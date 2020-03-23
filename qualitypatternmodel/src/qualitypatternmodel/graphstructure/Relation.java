@@ -19,7 +19,7 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOption <em>Option</em>}</li>
  * </ul>
  *
@@ -115,28 +115,28 @@ public interface Relation extends PatternElement {
 	void removeInputsFromVariableList();
 
 	/**
-	 * Returns the value of the '<em><b>Relation To</b></em>' container reference.
+	 * Returns the value of the '<em><b>Element</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relation To</em>' container reference.
-	 * @see #setRelationTo(Element)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_RelationTo()
+	 * @return the value of the '<em>Element</em>' container reference.
+	 * @see #setElement(Element)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Element()
 	 * @see qualitypatternmodel.graphstructure.Element#getRelationFromPrevious
 	 * @model opposite="relationFromPrevious" required="true" transient="false"
 	 * @generated
 	 */
-	Element getRelationTo();
+	Element getElement();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getElement <em>Element</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relation To</em>' container reference.
-	 * @see #getRelationTo()
+	 * @param value the new value of the '<em>Element</em>' container reference.
+	 * @see #getElement()
 	 * @generated
 	 */
-	void setRelationTo(Element value);
+	void setElement(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.

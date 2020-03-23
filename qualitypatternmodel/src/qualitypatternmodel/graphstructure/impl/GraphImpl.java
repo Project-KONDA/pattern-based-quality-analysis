@@ -33,9 +33,9 @@ import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.SingleElementMapping;
+import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl;
+import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -213,7 +213,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 //		}	
 		Element newRootElement = new ElementImpl();
 		newRootElement.setRoot(graph);
-		SingleElementMapping newMapping = new SingleElementMappingImpl();
+		ElementMapping newMapping = new ElementMappingImpl();
 		if(graph.getQuantifiedCondition() != null) {
 			graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
 		} else {
@@ -246,7 +246,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	private void addRootMapping(Graph graph) {
-		SingleElementMappingImpl mapping = new SingleElementMappingImpl();
+		ElementMappingImpl mapping = new ElementMappingImpl();
 		graph.getQuantifiedCondition().getMorphism().getMappings()
 				.add(mapping);
 		mapping.setFrom(rootElement);
@@ -255,11 +255,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	private boolean updateRootMapping(Graph graph) {
 		for (Mapping mapping : graph.getQuantifiedCondition().getMorphism().getMappings()) {
-			if (mapping instanceof SingleElementMapping) {
-				SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
-				if (singleElementMapping.getTo().equals(graph.getRootElement())) {
-					singleElementMapping.getFrom().getMappingTo().remove(singleElementMapping);
-					singleElementMapping.setFrom(rootElement);
+			if (mapping instanceof ElementMapping) {
+				ElementMapping elementMapping = (ElementMapping) mapping;
+				if (elementMapping.getTo().equals(graph.getRootElement())) {
+					elementMapping.getFrom().getMappingTo().remove(elementMapping);
+					elementMapping.setFrom(rootElement);
 					return true;
 				}
 			}

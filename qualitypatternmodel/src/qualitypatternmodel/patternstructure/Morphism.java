@@ -122,7 +122,7 @@ public interface Morphism extends PatternElement {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void checkSingleElementMappings() throws InvalidityException;
+	void checkElementMappings() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,7 +146,7 @@ public interface Morphism extends PatternElement {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void checkSingleElementMappingsUniqueness() throws InvalidityException;
+	void checkElementMappingsUniqueness() throws InvalidityException;
 
 	/**
 	 * Returns the value of the '<em><b>Morph Depth</b></em>' attribute.

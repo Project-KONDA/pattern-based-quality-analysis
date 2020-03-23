@@ -12,22 +12,22 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.SingleElementMapping;
+import qualitypatternmodel.patternstructure.ElementMapping;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.SingleElementMapping} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.ElementMapping} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SingleElementMappingItemProvider extends MappingItemProvider {
+public class ElementMappingItemProvider extends MappingItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SingleElementMappingItemProvider(AdapterFactory adapterFactory) {
+	public ElementMappingItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -59,9 +59,9 @@ public class SingleElementMappingItemProvider extends MappingItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SingleElementMapping_from_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElementMapping_from_feature", "_UI_SingleElementMapping_type"),
-				 PatternstructurePackage.Literals.SINGLE_ELEMENT_MAPPING__FROM,
+				 getString("_UI_ElementMapping_from_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementMapping_from_feature", "_UI_ElementMapping_type"),
+				 PatternstructurePackage.Literals.ELEMENT_MAPPING__FROM,
 				 true,
 				 false,
 				 true,
@@ -81,9 +81,9 @@ public class SingleElementMappingItemProvider extends MappingItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SingleElementMapping_to_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElementMapping_to_feature", "_UI_SingleElementMapping_type"),
-				 PatternstructurePackage.Literals.SINGLE_ELEMENT_MAPPING__TO,
+				 getString("_UI_ElementMapping_to_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementMapping_to_feature", "_UI_ElementMapping_type"),
+				 PatternstructurePackage.Literals.ELEMENT_MAPPING__TO,
 				 true,
 				 false,
 				 true,
@@ -93,14 +93,14 @@ public class SingleElementMappingItemProvider extends MappingItemProvider {
 	}
 
 	/**
-	 * This returns SingleElementMapping.gif.
+	 * This returns ElementMapping.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SingleElementMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ElementMapping"));
 	}
 
 	/**
@@ -111,8 +111,8 @@ public class SingleElementMappingItemProvider extends MappingItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		SingleElementMapping singleElementMapping = (SingleElementMapping) object;
-		String text = getString("_UI_SingleElementMapping_type") + " " + singleElementMapping.getInternalId();		
+		ElementMapping elementMapping = (ElementMapping) object;
+		String text = getString("_UI_SingleElementMapping_type") + " " + elementMapping.getInternalId();		
 //		if(singleElementMapping.getFrom() != null) {
 //			text += " from " + getString("_UI_SingleElement_type") + " " + singleElementMapping.getFrom().getRefNo();
 //		}

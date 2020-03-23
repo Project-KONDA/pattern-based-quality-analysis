@@ -107,13 +107,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__MAPPING_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Relation To</b></em>' container reference.
+	 * The feature id for the '<em><b>Element</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__RELATION_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int RELATION__ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Option</b></em>' reference.
@@ -1542,6 +1542,17 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getRelation_MappingTo();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Relation#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Element</em>'.
+	 * @see qualitypatternmodel.graphstructure.Relation#getElement()
+	 * @see #getRelation()
+	 * @generated
+	 */
+	EReference getRelation_Element();
+
+	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1551,17 +1562,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRelation_MappingFrom();
-
-	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Relation To</em>'.
-	 * @see qualitypatternmodel.graphstructure.Relation#getRelationTo()
-	 * @see #getRelation()
-	 * @generated
-	 */
-	EReference getRelation_RelationTo();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getOption <em>Option</em>}'.
@@ -2466,20 +2466,20 @@ public interface GraphstructurePackage extends EPackage {
 		EReference RELATION__MAPPING_TO = eINSTANCE.getRelation_MappingTo();
 
 		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION__ELEMENT = eINSTANCE.getRelation_Element();
+
+		/**
 		 * The meta object literal for the '<em><b>Mapping From</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference RELATION__MAPPING_FROM = eINSTANCE.getRelation_MappingFrom();
-
-		/**
-		 * The meta object literal for the '<em><b>Relation To</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RELATION__RELATION_TO = eINSTANCE.getRelation_RelationTo();
 
 		/**
 		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.

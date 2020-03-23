@@ -226,7 +226,7 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.MORPHISM__MAPPINGS,
-				 PatternstructureFactory.eINSTANCE.createSingleElementMapping()));
+				 PatternstructureFactory.eINSTANCE.createElementMapping()));
 	}
 
 }

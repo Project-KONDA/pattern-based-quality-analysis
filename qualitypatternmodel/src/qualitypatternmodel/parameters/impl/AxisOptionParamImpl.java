@@ -358,7 +358,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	public void generateDescription() {
 		String res = "Beziehung: XPath-Achse";
 		try {			
-			Element to = getRelation().getRelationTo();
+			Element to = getRelation().getElement();
 			Element from = to.getPreviousElement();
 			res += " zur Navigation von " + from.getName() + " zu " + to.getName();			
 		} catch (Exception e) {}

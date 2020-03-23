@@ -42,7 +42,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.RelationMapping;
-import qualitypatternmodel.patternstructure.SingleElementMapping;
+import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
 
@@ -86,7 +86,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass singleElementMappingEClass = null;
+	private EClass elementMappingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -531,7 +531,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getMorphism__CheckSingleElementMappings() {
+	public EOperation getMorphism__CheckElementMappings() {
 		return morphismEClass.getEOperations().get(0);
 	}
 
@@ -561,8 +561,38 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getMorphism__CheckSingleElementMappingsUniqueness() {
+	public EOperation getMorphism__CheckElementMappingsUniqueness() {
 		return morphismEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getElementMapping() {
+		return elementMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getElementMapping_From() {
+		return (EReference)elementMappingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getElementMapping_To() {
+		return (EReference)elementMappingEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -573,36 +603,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EAttribute getMorphism_MorphDepth() {
 		return (EAttribute)morphismEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getSingleElementMapping() {
-		return singleElementMappingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSingleElementMapping_From() {
-		return (EReference)singleElementMappingEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getSingleElementMapping_To() {
-		return (EReference)singleElementMappingEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1222,14 +1222,14 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(morphismEClass, MORPHISM__FROM);
 		createEReference(morphismEClass, MORPHISM__TO);
 		createEReference(morphismEClass, MORPHISM__COUNT_PATTERN);
-		createEOperation(morphismEClass, MORPHISM___CHECK_SINGLE_ELEMENT_MAPPINGS);
+		createEOperation(morphismEClass, MORPHISM___CHECK_ELEMENT_MAPPINGS);
 		createEOperation(morphismEClass, MORPHISM___CHECK_RELATION_MAPPINGS);
 		createEOperation(morphismEClass, MORPHISM___CHECK_RELATION_MAPPINGS_UNIQUENESS);
-		createEOperation(morphismEClass, MORPHISM___CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS);
+		createEOperation(morphismEClass, MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS);
 
-		singleElementMappingEClass = createEClass(SINGLE_ELEMENT_MAPPING);
-		createEReference(singleElementMappingEClass, SINGLE_ELEMENT_MAPPING__FROM);
-		createEReference(singleElementMappingEClass, SINGLE_ELEMENT_MAPPING__TO);
+		elementMappingEClass = createEClass(ELEMENT_MAPPING);
+		createEReference(elementMappingEClass, ELEMENT_MAPPING__FROM);
+		createEReference(elementMappingEClass, ELEMENT_MAPPING__TO);
 
 		mappingEClass = createEClass(MAPPING);
 		createEAttribute(mappingEClass, MAPPING__MAPPING_DEPTH);
@@ -1340,7 +1340,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		quantifiedConditionEClass.getESuperTypes().add(this.getGraphContainer());
 		conditionEClass.getESuperTypes().add(this.getPatternElement());
 		morphismEClass.getESuperTypes().add(this.getPatternElement());
-		singleElementMappingEClass.getESuperTypes().add(this.getMapping());
+		elementMappingEClass.getESuperTypes().add(this.getMapping());
 		mappingEClass.getESuperTypes().add(this.getPatternElement());
 		formulaEClass.getESuperTypes().add(this.getCondition());
 		trueElementEClass.getESuperTypes().add(this.getCondition());
@@ -1388,7 +1388,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getMorphism_To(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_MorphismFrom(), "to", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_CountPattern(), this.getCountPattern(), this.getCountPattern_Morphism(), "countPattern", null, 0, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getMorphism__CheckSingleElementMappings(), null, "checkSingleElementMappings", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getMorphism__CheckElementMappings(), null, "checkElementMappings", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getMorphism__CheckRelationMappings(), null, "checkRelationMappings", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1397,12 +1397,12 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		op = initEOperation(getMorphism__CheckRelationMappingsUniqueness(), null, "checkRelationMappingsUniqueness", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getMorphism__CheckSingleElementMappingsUniqueness(), null, "checkSingleElementMappingsUniqueness", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getMorphism__CheckElementMappingsUniqueness(), null, "checkElementMappingsUniqueness", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
-		initEClass(singleElementMappingEClass, SingleElementMapping.class, "SingleElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSingleElementMapping_From(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_MappingTo(), "from", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSingleElementMapping_To(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_MappingFrom(), "to", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(elementMappingEClass, ElementMapping.class, "ElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getElementMapping_From(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_MappingTo(), "from", null, 1, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementMapping_To(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_MappingFrom(), "to", null, 1, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mappingEClass, Mapping.class, "Mapping", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMapping_MappingDepth(), ecorePackage.getEInt(), "mappingDepth", "-1", 1, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

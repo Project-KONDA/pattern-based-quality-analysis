@@ -96,11 +96,11 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING: {
-				SingleElementMapping singleElementMapping = (SingleElementMapping)theEObject;
-				T result = caseSingleElementMapping(singleElementMapping);
-				if (result == null) result = caseMapping(singleElementMapping);
-				if (result == null) result = casePatternElement(singleElementMapping);
+			case PatternstructurePackage.ELEMENT_MAPPING: {
+				ElementMapping elementMapping = (ElementMapping)theEObject;
+				T result = caseElementMapping(elementMapping);
+				if (result == null) result = caseMapping(elementMapping);
+				if (result == null) result = casePatternElement(elementMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -243,17 +243,17 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Single Element Mapping</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Element Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Single Element Mapping</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Element Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSingleElementMapping(SingleElementMapping object) {
+	public T caseElementMapping(ElementMapping object) {
 		return null;
 	}
 

@@ -14,10 +14,10 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkSingleElementMappings() <em>Check Single Element Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappings() <em>Check Element Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappings() <em>Check Relation Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkSingleElementMappingsUniqueness() <em>Check Single Element Mappings Uniqueness</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -77,13 +77,13 @@ public class MorphismTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#checkSingleElementMappings() <em>Check Single Element Mappings</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappings() <em>Check Element Mappings</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Morphism#checkSingleElementMappings()
+	 * @see qualitypatternmodel.patternstructure.Morphism#checkElementMappings()
 	 * @generated
 	 */
-	public void testCheckSingleElementMappings() {
+	public void testCheckElementMappings() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -116,13 +116,13 @@ public class MorphismTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#checkSingleElementMappingsUniqueness() <em>Check Single Element Mappings Uniqueness</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Morphism#checkSingleElementMappingsUniqueness()
+	 * @see qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness()
 	 * @generated
 	 */
-	public void testCheckSingleElementMappingsUniqueness() {
+	public void testCheckElementMappingsUniqueness() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

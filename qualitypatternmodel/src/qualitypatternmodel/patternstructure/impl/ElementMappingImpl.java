@@ -15,7 +15,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.SingleElementMapping;
+import qualitypatternmodel.patternstructure.ElementMapping;
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Single
  * Element Mapping</b></em>'. <!-- end-user-doc -->
@@ -23,13 +23,13 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl#getFrom <em>From</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl#getTo <em>To</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl#getFrom <em>From</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl#getTo <em>To</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SingleElementMappingImpl extends MappingImpl implements SingleElementMapping {
+public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	/**
 	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -54,7 +54,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public SingleElementMappingImpl() {
+	public ElementMappingImpl() {
 		super();
 	}
 
@@ -75,7 +75,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return PatternstructurePackage.Literals.SINGLE_ELEMENT_MAPPING;
+		return PatternstructurePackage.Literals.ELEMENT_MAPPING;
 	}
 	
 	@Override
@@ -96,7 +96,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 			from = (Element)eResolveProxy(oldFrom);
 			if (from != oldFrom) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM, oldFrom, from));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.ELEMENT_MAPPING__FROM, oldFrom, from));
 			}
 		}
 		return from;
@@ -121,7 +121,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 			newFrom.setName(getTo().getName());
 		}
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM, oldFrom, newFrom);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__FROM, oldFrom, newFrom);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -143,7 +143,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM, newFrom, newFrom));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__FROM, newFrom, newFrom));
 	}
 
 	/**
@@ -157,7 +157,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 			to = (Element)eResolveProxy(oldTo);
 			if (to != oldTo) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, oldTo, to));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.ELEMENT_MAPPING__TO, oldTo, to));
 			}
 		}
 		return to;
@@ -182,7 +182,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 			newTo.setName(getFrom().getName());
 		}
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, oldTo, newTo);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__TO, oldTo, newTo);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -204,7 +204,7 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, newTo, newTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__TO, newTo, newTo));
 	}
 
 	/**
@@ -214,11 +214,11 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM:
+			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
 				if (from != null)
 					msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.ELEMENT__MAPPING_TO, Element.class, msgs);
 				return basicSetFrom((Element)otherEnd, msgs);
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO:
+			case PatternstructurePackage.ELEMENT_MAPPING__TO:
 				if (to != null)
 					msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.ELEMENT__MAPPING_FROM, Element.class, msgs);
 				return basicSetTo((Element)otherEnd, msgs);
@@ -233,9 +233,9 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM:
+			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
 				return basicSetFrom(null, msgs);
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO:
+			case PatternstructurePackage.ELEMENT_MAPPING__TO:
 				return basicSetTo(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -248,10 +248,10 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM:
+			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
 				if (resolve) return getFrom();
 				return basicGetFrom();
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO:
+			case PatternstructurePackage.ELEMENT_MAPPING__TO:
 				if (resolve) return getTo();
 				return basicGetTo();
 		}
@@ -265,10 +265,10 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM:
+			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
 				setFrom((Element)newValue);
 				return;
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO:
+			case PatternstructurePackage.ELEMENT_MAPPING__TO:
 				setTo((Element)newValue);
 				return;
 		}
@@ -282,10 +282,10 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM:
+			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
 				setFrom((Element)null);
 				return;
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO:
+			case PatternstructurePackage.ELEMENT_MAPPING__TO:
 				setTo((Element)null);
 				return;
 		}
@@ -299,9 +299,9 @@ public class SingleElementMappingImpl extends MappingImpl implements SingleEleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM:
+			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
 				return from != null;
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO:
+			case PatternstructurePackage.ELEMENT_MAPPING__TO:
 				return to != null;
 		}
 		return super.eIsSet(featureID);

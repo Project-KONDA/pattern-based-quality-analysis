@@ -195,7 +195,7 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/mappingFrom"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/mappingTo"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/relationTo"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/element"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/option"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/getGraphDepth"/>
@@ -383,16 +383,16 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Morphism/to"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Morphism/countPattern"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkSingleElementMappings"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkElementMappings"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappings"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappingsUniqueness"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkSingleElementMappingsUniqueness"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkElementMappingsUniqueness"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/SingleElementMapping">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/ElementMapping">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/SingleElementMapping/from"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/ElementMapping/from"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/SingleElementMapping/to"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/ElementMapping/to"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/Mapping">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Mapping/mappingDepth"/>

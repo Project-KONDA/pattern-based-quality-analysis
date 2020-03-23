@@ -1119,13 +1119,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Check Single Element Mappings</em>' operation.
+	 * The operation id for the '<em>Check Element Mappings</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___CHECK_SINGLE_ELEMENT_MAPPINGS = PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int MORPHISM___CHECK_ELEMENT_MAPPINGS = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Check Relation Mappings</em>' operation.
@@ -1146,13 +1146,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___CHECK_RELATION_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Check Single Element Mappings Uniqueness</em>' operation.
+	 * The operation id for the '<em>Check Element Mappings Uniqueness</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
@@ -1164,14 +1164,14 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl <em>Single Element Mapping</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl <em>Element Mapping</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getSingleElementMapping()
+	 * @see qualitypatternmodel.patternstructure.impl.ElementMappingImpl
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getElementMapping()
 	 * @generated
 	 */
-	int SINGLE_ELEMENT_MAPPING = 4;
+	int ELEMENT_MAPPING = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1180,7 +1180,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING__ID = MAPPING__ID;
+	int ELEMENT_MAPPING__ID = MAPPING__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1189,7 +1189,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING__INTERNAL_ID = MAPPING__INTERNAL_ID;
+	int ELEMENT_MAPPING__INTERNAL_ID = MAPPING__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
@@ -1198,7 +1198,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING__MAPPING_DEPTH = MAPPING__MAPPING_DEPTH;
+	int ELEMENT_MAPPING__MAPPING_DEPTH = MAPPING__MAPPING_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
@@ -1207,7 +1207,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING__MORPHISM = MAPPING__MORPHISM;
+	int ELEMENT_MAPPING__MORPHISM = MAPPING__MORPHISM;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference.
@@ -1216,7 +1216,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING__FROM = MAPPING_FEATURE_COUNT + 0;
+	int ELEMENT_MAPPING__FROM = MAPPING_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' reference.
@@ -1225,16 +1225,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING__TO = MAPPING_FEATURE_COUNT + 1;
+	int ELEMENT_MAPPING__TO = MAPPING_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Single Element Mapping</em>' class.
+	 * The number of structural features of the '<em>Element Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
+	int ELEMENT_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1243,7 +1243,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___TO_XQUERY__LOCATION = MAPPING___TO_XQUERY__LOCATION;
+	int ELEMENT_MAPPING___TO_XQUERY__LOCATION = MAPPING___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1252,7 +1252,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___GET_ALL_INPUTS = MAPPING___GET_ALL_INPUTS;
+	int ELEMENT_MAPPING___GET_ALL_INPUTS = MAPPING___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1261,7 +1261,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___PREPARE_TRANSLATION = MAPPING___PREPARE_TRANSLATION;
+	int ELEMENT_MAPPING___PREPARE_TRANSLATION = MAPPING___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1270,7 +1270,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
+	int ELEMENT_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1279,7 +1279,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___IS_VALID_LOCAL__BOOLEAN = MAPPING___IS_VALID_LOCAL__BOOLEAN;
+	int ELEMENT_MAPPING___IS_VALID_LOCAL__BOOLEAN = MAPPING___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1288,7 +1288,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___GET_CONTAINER = MAPPING___GET_CONTAINER;
+	int ELEMENT_MAPPING___GET_CONTAINER = MAPPING___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1297,7 +1297,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___GET_ANCESTOR__CLASS = MAPPING___GET_ANCESTOR__CLASS;
+	int ELEMENT_MAPPING___GET_ANCESTOR__CLASS = MAPPING___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1306,7 +1306,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___MY_TO_STRING = MAPPING___MY_TO_STRING;
+	int ELEMENT_MAPPING___MY_TO_STRING = MAPPING___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1315,16 +1315,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int ELEMENT_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Single Element Mapping</em>' class.
+	 * The number of operations of the '<em>Element Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT_MAPPING_OPERATION_COUNT = MAPPING_OPERATION_COUNT + 0;
+	int ELEMENT_MAPPING_OPERATION_COUNT = MAPPING_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.FormulaImpl <em>Formula</em>}' class.
@@ -3065,14 +3065,14 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getMorphism_CountPattern();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#checkSingleElementMappings() <em>Check Single Element Mappings</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappings() <em>Check Element Mappings</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Check Single Element Mappings</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Morphism#checkSingleElementMappings()
+	 * @return the meta object for the '<em>Check Element Mappings</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.Morphism#checkElementMappings()
 	 * @generated
 	 */
-	EOperation getMorphism__CheckSingleElementMappings();
+	EOperation getMorphism__CheckElementMappings();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappings() <em>Check Relation Mappings</em>}' operation.
@@ -3095,14 +3095,46 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getMorphism__CheckRelationMappingsUniqueness();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#checkSingleElementMappingsUniqueness() <em>Check Single Element Mappings Uniqueness</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Check Single Element Mappings Uniqueness</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Morphism#checkSingleElementMappingsUniqueness()
+	 * @return the meta object for the '<em>Check Element Mappings Uniqueness</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness()
 	 * @generated
 	 */
-	EOperation getMorphism__CheckSingleElementMappingsUniqueness();
+	EOperation getMorphism__CheckElementMappingsUniqueness();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.ElementMapping <em>Element Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Element Mapping</em>'.
+	 * @see qualitypatternmodel.patternstructure.ElementMapping
+	 * @generated
+	 */
+	EClass getElementMapping();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.ElementMapping#getFrom <em>From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>From</em>'.
+	 * @see qualitypatternmodel.patternstructure.ElementMapping#getFrom()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EReference getElementMapping_From();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.ElementMapping#getTo <em>To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>To</em>'.
+	 * @see qualitypatternmodel.patternstructure.ElementMapping#getTo()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EReference getElementMapping_To();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}'.
@@ -3114,38 +3146,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMorphism_MorphDepth();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.SingleElementMapping <em>Single Element Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Single Element Mapping</em>'.
-	 * @see qualitypatternmodel.patternstructure.SingleElementMapping
-	 * @generated
-	 */
-	EClass getSingleElementMapping();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getFrom <em>From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From</em>'.
-	 * @see qualitypatternmodel.patternstructure.SingleElementMapping#getFrom()
-	 * @see #getSingleElementMapping()
-	 * @generated
-	 */
-	EReference getSingleElementMapping_From();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getTo <em>To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To</em>'.
-	 * @see qualitypatternmodel.patternstructure.SingleElementMapping#getTo()
-	 * @see #getSingleElementMapping()
-	 * @generated
-	 */
-	EReference getSingleElementMapping_To();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Mapping <em>Mapping</em>}'.
@@ -3957,12 +3957,12 @@ public interface PatternstructurePackage extends EPackage {
 		EReference MORPHISM__COUNT_PATTERN = eINSTANCE.getMorphism_CountPattern();
 
 		/**
-		 * The meta object literal for the '<em><b>Check Single Element Mappings</b></em>' operation.
+		 * The meta object literal for the '<em><b>Check Element Mappings</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation MORPHISM___CHECK_SINGLE_ELEMENT_MAPPINGS = eINSTANCE.getMorphism__CheckSingleElementMappings();
+		EOperation MORPHISM___CHECK_ELEMENT_MAPPINGS = eINSTANCE.getMorphism__CheckElementMappings();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Relation Mappings</b></em>' operation.
@@ -3981,12 +3981,38 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation MORPHISM___CHECK_RELATION_MAPPINGS_UNIQUENESS = eINSTANCE.getMorphism__CheckRelationMappingsUniqueness();
 
 		/**
-		 * The meta object literal for the '<em><b>Check Single Element Mappings Uniqueness</b></em>' operation.
+		 * The meta object literal for the '<em><b>Check Element Mappings Uniqueness</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation MORPHISM___CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS = eINSTANCE.getMorphism__CheckSingleElementMappingsUniqueness();
+		EOperation MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS = eINSTANCE.getMorphism__CheckElementMappingsUniqueness();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl <em>Element Mapping</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.patternstructure.impl.ElementMappingImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getElementMapping()
+		 * @generated
+		 */
+		EClass ELEMENT_MAPPING = eINSTANCE.getElementMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_MAPPING__FROM = eINSTANCE.getElementMapping_From();
+
+		/**
+		 * The meta object literal for the '<em><b>To</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT_MAPPING__TO = eINSTANCE.getElementMapping_To();
 
 		/**
 		 * The meta object literal for the '<em><b>Morph Depth</b></em>' attribute feature.
@@ -3995,32 +4021,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MORPHISM__MORPH_DEPTH = eINSTANCE.getMorphism_MorphDepth();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl <em>Single Element Mapping</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getSingleElementMapping()
-		 * @generated
-		 */
-		EClass SINGLE_ELEMENT_MAPPING = eINSTANCE.getSingleElementMapping();
-
-		/**
-		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SINGLE_ELEMENT_MAPPING__FROM = eINSTANCE.getSingleElementMapping_From();
-
-		/**
-		 * The meta object literal for the '<em><b>To</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SINGLE_ELEMENT_MAPPING__TO = eINSTANCE.getSingleElementMapping_To();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.

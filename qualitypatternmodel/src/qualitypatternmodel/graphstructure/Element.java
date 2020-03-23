@@ -11,7 +11,7 @@ import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.SingleElementMapping;
+import qualitypatternmodel.patternstructure.ElementMapping;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,17 +44,17 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
 public interface Element extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Mapping From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getTo <em>To</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.ElementMapping#getTo <em>To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mapping From</em>' reference.
-	 * @see #setMappingFrom(SingleElementMapping)
+	 * @see #setMappingFrom(ElementMapping)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_MappingFrom()
-	 * @see qualitypatternmodel.patternstructure.SingleElementMapping#getTo
+	 * @see qualitypatternmodel.patternstructure.ElementMapping#getTo
 	 * @model opposite="to"
 	 * @generated
 	 */
-	SingleElementMapping getMappingFrom();
+	ElementMapping getMappingFrom();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getMappingFrom <em>Mapping From</em>}' reference.
@@ -64,21 +64,21 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @see #getMappingFrom()
 	 * @generated
 	 */
-	void setMappingFrom(SingleElementMapping value);
+	void setMappingFrom(ElementMapping value);
 
 	/**
 	 * Returns the value of the '<em><b>Mapping To</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.patternstructure.SingleElementMapping}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getFrom <em>From</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.patternstructure.ElementMapping}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.ElementMapping#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mapping To</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_MappingTo()
-	 * @see qualitypatternmodel.patternstructure.SingleElementMapping#getFrom
+	 * @see qualitypatternmodel.patternstructure.ElementMapping#getFrom
 	 * @model opposite="from"
 	 * @generated
 	 */
-	EList<SingleElementMapping> getMappingTo();
+	EList<ElementMapping> getMappingTo();
 
 	/**
 	 * Returns the value of the '<em><b>Root</b></em>' container reference.
@@ -234,14 +234,14 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * Returns the value of the '<em><b>Relation From Previous</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getElement <em>Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Relation From Previous</em>' containment reference.
 	 * @see #setRelationFromPrevious(Relation)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_RelationFromPrevious()
-	 * @see qualitypatternmodel.graphstructure.Relation#getRelationTo
-	 * @model opposite="relationTo" containment="true"
+	 * @see qualitypatternmodel.graphstructure.Relation#getElement
+	 * @model opposite="element" containment="true"
 	 * @generated
 	 */
 	Relation getRelationFromPrevious();

@@ -9,7 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Element;
 
-import qualitypatternmodel.patternstructure.SingleElementMapping;
+import qualitypatternmodel.patternstructure.ElementMapping;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.Element}.
@@ -20,10 +20,10 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
 public interface ElementValidator {
 	boolean validate();
 
-	boolean validateMappingTo(EList<SingleElementMapping> value);
+	boolean validateMappingTo(EList<ElementMapping> value);
 
-	boolean validateMappingTo(SingleElementMapping value);
-	boolean validateMappingFrom(SingleElementMapping value);
+	boolean validateMappingTo(ElementMapping value);
+	boolean validateMappingFrom(ElementMapping value);
 	boolean validatePrevious(Element value);
 	boolean validateNextSet(EList<Element> value);
 

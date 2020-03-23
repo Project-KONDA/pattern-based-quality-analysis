@@ -33,7 +33,7 @@ import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
-import qualitypatternmodel.patternstructure.SingleElementMapping;
+import qualitypatternmodel.patternstructure.ElementMapping;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -128,19 +128,19 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			if (mapping == null)
 				throw new InvalidityException("Morphism " + getInternalId() + ": mapping invalid (" + mapping + ")");
 		
-		checkSingleElementMappings();
+		checkElementMappings();
 		checkRelationMappings();
-		checkSingleElementMappingsUniqueness();
+		checkElementMappingsUniqueness();
 		checkRelationMappingsUniqueness();
 	}
 	
 	public void removeDanglingMappingReference() {
 		if(this != null) {
 			for(Mapping mapping : getMappings()) {			
-				if(mapping instanceof SingleElementMapping) {
-					SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
-					singleElementMapping.getFrom().getMappingTo().remove(singleElementMapping);
-					singleElementMapping.getTo().setMappingFrom(null);
+				if(mapping instanceof ElementMapping) {
+					ElementMapping elementMapping = (ElementMapping) mapping;
+					elementMapping.getFrom().getMappingTo().remove(elementMapping);
+					elementMapping.getTo().setMappingFrom(null);
 				} else if (mapping instanceof RelationMapping) {
 					RelationMapping relationMapping = (RelationMapping) mapping;
 					relationMapping.getFrom().getMappingTo().remove(relationMapping);
@@ -366,14 +366,14 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated NOT
 	 */
 	@Override
-	public void checkSingleElementMappings() throws InvalidityException {
+	public void checkElementMappings() throws InvalidityException {
 		for(Mapping mapping : getMappings()) {
-			if(mapping instanceof SingleElementMapping) {
-				SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
-				if(!getFrom().getAllElements().contains(singleElementMapping.getFrom())) {
+			if(mapping instanceof ElementMapping) {
+				ElementMapping elementMapping = (ElementMapping) mapping;
+				if(!getFrom().getAllElements().contains(elementMapping.getFrom())) {
 					throw new InvalidityException("wrong SingleElementMapping from");
 				}
-				if(!getTo().getAllElements().contains(singleElementMapping.getTo())) {
+				if(!getTo().getAllElements().contains(elementMapping.getTo())) {
 					throw new InvalidityException("wrong SingleElementMapping to");
 				}
 			}
@@ -408,12 +408,12 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated NOT
 	 */
 	@Override
-	public void checkSingleElementMappingsUniqueness() throws InvalidityException {
+	public void checkElementMappingsUniqueness() throws InvalidityException {
 		List<Element> elements = new ArrayList<Element>();
 		for(Mapping mapping : getMappings()) {
-			if(mapping instanceof SingleElementMapping) {
-				SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
-				elements.add(singleElementMapping.getFrom());
+			if(mapping instanceof ElementMapping) {
+				ElementMapping elementMapping = (ElementMapping) mapping;
+				elements.add(elementMapping.getFrom());
 			}
 		}
 		Set<Element> set = new HashSet<Element>(elements);
@@ -607,9 +607,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.MORPHISM___CHECK_SINGLE_ELEMENT_MAPPINGS:
+			case PatternstructurePackage.MORPHISM___CHECK_ELEMENT_MAPPINGS:
 				try {
-					checkSingleElementMappings();
+					checkElementMappings();
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -631,9 +631,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.MORPHISM___CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS:
+			case PatternstructurePackage.MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS:
 				try {
-					checkSingleElementMappingsUniqueness();
+					checkElementMappingsUniqueness();
 					return null;
 				}
 				catch (Throwable throwable) {

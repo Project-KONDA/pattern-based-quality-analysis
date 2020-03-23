@@ -62,7 +62,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 			case PatternstructurePackage.RELATION_MAPPING: return createRelationMapping();
 			case PatternstructurePackage.QUANTIFIED_CONDITION: return createQuantifiedCondition();
 			case PatternstructurePackage.MORPHISM: return createMorphism();
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING: return createSingleElementMapping();
+			case PatternstructurePackage.ELEMENT_MAPPING: return createElementMapping();
 			case PatternstructurePackage.FORMULA: return createFormula();
 			case PatternstructurePackage.TRUE_ELEMENT: return createTrueElement();
 			case PatternstructurePackage.PATTERN: return createPattern();
@@ -163,9 +163,9 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public SingleElementMapping createSingleElementMapping() {
-		SingleElementMappingImpl singleElementMapping = new SingleElementMappingImpl();
-		return singleElementMapping;
+	public ElementMapping createElementMapping() {
+		ElementMappingImpl elementMapping = new ElementMappingImpl();
+		return elementMapping;
 	}
 
 	/**

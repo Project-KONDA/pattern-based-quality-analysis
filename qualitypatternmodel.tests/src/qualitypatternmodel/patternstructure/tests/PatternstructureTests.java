@@ -34,7 +34,7 @@ public class PatternstructureTests extends TestSuite {
 		suite.addTestSuite(RelationMappingTest.class);
 		suite.addTestSuite(QuantifiedConditionTest.class);
 		suite.addTestSuite(MorphismTest.class);
-		suite.addTestSuite(SingleElementMappingTest.class);
+		suite.addTestSuite(ElementMappingTest.class);
 		suite.addTestSuite(FormulaTest.class);
 		suite.addTestSuite(TrueElementTest.class);
 		suite.addTestSuite(PatternTest.class);
