@@ -143,6 +143,26 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/setTypeAccordingToArgument/newArgument"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/setTypeAccordingToArgument/otherArgument"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Comparison/adaptOperatorElementAssociation">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/adaptOperatorElementAssociation/newArgument"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/adaptOperatorElementAssociation/oldArgument"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Comparison/moveElementsFromRootOperatorToOldArgument">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/moveElementsFromRootOperatorToOldArgument/oldArgument"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/moveElementsFromRootOperatorToOldArgument/rootOperator"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Comparison/removeOldArgumentElementsFromRootOperator">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/removeOldArgumentElementsFromRootOperator/oldArgument"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/removeOldArgumentElementsFromRootOperator/rootOperator"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Comparison/moveElementsFromNewArgumentToRootOperator">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/moveElementsFromNewArgumentToRootOperator/newArgument"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/moveElementsFromNewArgumentToRootOperator/rootBooleanOperators"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//functions/Comparison/addNewArgumentElementsToRootOperator">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/addNewArgumentElementsToRootOperator/newArgument"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//functions/Comparison/addNewArgumentElementsToRootOperator/rootBooleanOperators"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//functions/OperatorList">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//functions/OperatorList/graph"/>
@@ -189,7 +209,6 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/NUMBER"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/DATETIME"/>
       </genEnums>
-      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//graphstructure/ListOfElements"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Relation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/mappingFrom"/>
@@ -253,7 +272,7 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/isRootElement"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/removeMappingsToNext"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElements"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearMatchRecursively"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getAllRelations"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearPredicatesRecursively"/>

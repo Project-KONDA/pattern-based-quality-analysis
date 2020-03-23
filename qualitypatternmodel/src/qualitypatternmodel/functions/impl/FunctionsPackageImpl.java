@@ -472,6 +472,56 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getComparison__AdaptOperatorElementAssociation__Comparable_Comparable() {
+		return comparisonEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComparison__MoveElementsFromRootOperatorToOldArgument__Comparable_BooleanOperator() {
+		return comparisonEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComparison__RemoveOldArgumentElementsFromRootOperator__Comparable_BooleanOperator() {
+		return comparisonEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComparison__MoveElementsFromNewArgumentToRootOperator__Comparable_EList() {
+		return comparisonEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComparison__AddNewArgumentElementsToRootOperator__Comparable_EList() {
+		return comparisonEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOperatorList() {
 		return operatorListEClass;
 	}
@@ -627,6 +677,11 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEAttribute(comparisonEClass, COMPARISON__TYPE);
 		createEReference(comparisonEClass, COMPARISON__OPTION);
 		createEOperation(comparisonEClass, COMPARISON___SET_TYPE_ACCORDING_TO_ARGUMENT__COMPARABLE_COMPARABLE);
+		createEOperation(comparisonEClass, COMPARISON___ADAPT_OPERATOR_ELEMENT_ASSOCIATION__COMPARABLE_COMPARABLE);
+		createEOperation(comparisonEClass, COMPARISON___MOVE_ELEMENTS_FROM_ROOT_OPERATOR_TO_OLD_ARGUMENT__COMPARABLE_BOOLEANOPERATOR);
+		createEOperation(comparisonEClass, COMPARISON___REMOVE_OLD_ARGUMENT_ELEMENTS_FROM_ROOT_OPERATOR__COMPARABLE_BOOLEANOPERATOR);
+		createEOperation(comparisonEClass, COMPARISON___MOVE_ELEMENTS_FROM_NEW_ARGUMENT_TO_ROOT_OPERATOR__COMPARABLE_ELIST);
+		createEOperation(comparisonEClass, COMPARISON___ADD_NEW_ARGUMENT_ELEMENTS_TO_ROOT_OPERATOR__COMPARABLE_ELIST);
 
 		operatorListEClass = createEClass(OPERATOR_LIST);
 		createEReference(operatorListEClass, OPERATOR_LIST__GRAPH);
@@ -748,6 +803,26 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		op = initEOperation(getComparison__SetTypeAccordingToArgument__Comparable_Comparable(), null, "setTypeAccordingToArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theGraphstructurePackage.getComparable(), "newArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theGraphstructurePackage.getComparable(), "otherArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getComparison__AdaptOperatorElementAssociation__Comparable_Comparable(), null, "adaptOperatorElementAssociation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getComparable(), "newArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getComparable(), "oldArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getComparison__MoveElementsFromRootOperatorToOldArgument__Comparable_BooleanOperator(), null, "moveElementsFromRootOperatorToOldArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getComparable(), "oldArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBooleanOperator(), "rootOperator", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getComparison__RemoveOldArgumentElementsFromRootOperator__Comparable_BooleanOperator(), null, "removeOldArgumentElementsFromRootOperator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getComparable(), "oldArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBooleanOperator(), "rootOperator", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getComparison__MoveElementsFromNewArgumentToRootOperator__Comparable_EList(), null, "moveElementsFromNewArgumentToRootOperator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getComparable(), "newArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBooleanOperator(), "rootBooleanOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getComparison__AddNewArgumentElementsToRootOperator__Comparable_EList(), null, "addNewArgumentElementsToRootOperator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getComparable(), "newArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getBooleanOperator(), "rootBooleanOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(operatorListEClass, OperatorList.class, "OperatorList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperatorList_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_OperatorList(), "graph", null, 1, 1, OperatorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

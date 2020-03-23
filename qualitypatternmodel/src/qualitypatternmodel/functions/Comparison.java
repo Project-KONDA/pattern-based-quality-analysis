@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.functions;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 
@@ -74,6 +75,54 @@ public interface Comparison extends BooleanOperator {
 	void setOption(ComparisonOptionParam value);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable newArgument, qualitypatternmodel.graphstructure.Comparable otherArgument);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void adaptOperatorElementAssociation(qualitypatternmodel.graphstructure.Comparable newArgument, qualitypatternmodel.graphstructure.Comparable oldArgument);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void moveElementsFromRootOperatorToOldArgument(qualitypatternmodel.graphstructure.Comparable oldArgument, BooleanOperator rootOperator);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeOldArgumentElementsFromRootOperator(qualitypatternmodel.graphstructure.Comparable oldArgument, BooleanOperator rootOperator);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model rootBooleanOperatorsMany="true"
+	 * @generated
+	 */
+	void moveElementsFromNewArgumentToRootOperator(qualitypatternmodel.graphstructure.Comparable newArgument, EList<BooleanOperator> rootBooleanOperators);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model rootBooleanOperatorsMany="true"
+	 * @generated
+	 */
+	void addNewArgumentElementsToRootOperator(qualitypatternmodel.graphstructure.Comparable newArgument, EList<BooleanOperator> rootBooleanOperators);
+
+	/**
 	 * Returns the value of the '<em><b>Argument2</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Comparable#getComparison2 <em>Comparison2</em>}'.
 	 * <!-- begin-user-doc -->
@@ -121,13 +170,5 @@ public interface Comparison extends BooleanOperator {
 	 * @generated
 	 */
 	void setType(ReturnType value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable newArgument, qualitypatternmodel.graphstructure.Comparable otherArgument);
 
 } // Comparison

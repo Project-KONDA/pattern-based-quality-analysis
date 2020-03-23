@@ -22,7 +22,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyNextElementsToPreviousGraphs(boolean) <em>Copy Next Elements To Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isRootElement() <em>Is Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElements() <em>Remove From Return Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElementsRecursively() <em>Remove From Return Elements Recursively</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearMatchRecursively() <em>Clear Match Recursively</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllRelations() <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}</li>
@@ -195,13 +195,13 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElements() <em>Remove From Return Elements</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElementsRecursively() <em>Remove From Return Elements Recursively</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#removeFromReturnElements()
+	 * @see qualitypatternmodel.graphstructure.Element#removeFromReturnElementsRecursively()
 	 * @generated
 	 */
-	public void testRemoveFromReturnElements() {
+	public void testRemoveFromReturnElementsRecursively() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

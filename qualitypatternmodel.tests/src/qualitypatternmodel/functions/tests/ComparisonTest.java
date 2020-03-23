@@ -15,6 +15,11 @@ import qualitypatternmodel.functions.FunctionsFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.Comparison#setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable) <em>Set Type According To Argument</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.Comparison#adaptOperatorElementAssociation(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable) <em>Adapt Operator Element Association</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.Comparison#moveElementsFromRootOperatorToOldArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.functions.BooleanOperator) <em>Move Elements From Root Operator To Old Argument</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.Comparison#removeOldArgumentElementsFromRootOperator(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.functions.BooleanOperator) <em>Remove Old Argument Elements From Root Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.Comparison#moveElementsFromNewArgumentToRootOperator(qualitypatternmodel.graphstructure.Comparable, org.eclipse.emf.common.util.EList) <em>Move Elements From New Argument To Root Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.Comparison#addNewArgumentElementsToRootOperator(qualitypatternmodel.graphstructure.Comparable, org.eclipse.emf.common.util.EList) <em>Add New Argument Elements To Root Operator</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -81,6 +86,71 @@ public class ComparisonTest extends BooleanOperatorTest {
 	 * @generated
 	 */
 	public void testSetTypeAccordingToArgument__Comparable_Comparable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.Comparison#adaptOperatorElementAssociation(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable) <em>Adapt Operator Element Association</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.Comparison#adaptOperatorElementAssociation(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable)
+	 * @generated
+	 */
+	public void testAdaptOperatorElementAssociation__Comparable_Comparable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.Comparison#moveElementsFromRootOperatorToOldArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.functions.BooleanOperator) <em>Move Elements From Root Operator To Old Argument</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.Comparison#moveElementsFromRootOperatorToOldArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.functions.BooleanOperator)
+	 * @generated
+	 */
+	public void testMoveElementsFromRootOperatorToOldArgument__Comparable_BooleanOperator() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.Comparison#removeOldArgumentElementsFromRootOperator(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.functions.BooleanOperator) <em>Remove Old Argument Elements From Root Operator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.Comparison#removeOldArgumentElementsFromRootOperator(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.functions.BooleanOperator)
+	 * @generated
+	 */
+	public void testRemoveOldArgumentElementsFromRootOperator__Comparable_BooleanOperator() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.Comparison#moveElementsFromNewArgumentToRootOperator(qualitypatternmodel.graphstructure.Comparable, org.eclipse.emf.common.util.EList) <em>Move Elements From New Argument To Root Operator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.Comparison#moveElementsFromNewArgumentToRootOperator(qualitypatternmodel.graphstructure.Comparable, org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	public void testMoveElementsFromNewArgumentToRootOperator__Comparable_EList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.Comparison#addNewArgumentElementsToRootOperator(qualitypatternmodel.graphstructure.Comparable, org.eclipse.emf.common.util.EList) <em>Add New Argument Elements To Root Operator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.Comparison#addNewArgumentElementsToRootOperator(qualitypatternmodel.graphstructure.Comparable, org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	public void testAddNewArgumentElementsToRootOperator__Comparable_EList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

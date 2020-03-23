@@ -24,7 +24,6 @@ import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.Element;
@@ -410,9 +409,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 		}
 
-	}
+	}	
 
-	private void adaptOperatorElementAssociation(Comparable newArgument, Comparable oldArgument) {
+	public void adaptOperatorElementAssociation(qualitypatternmodel.graphstructure.Comparable newArgument, qualitypatternmodel.graphstructure.Comparable oldArgument) {
 		EList<BooleanOperator> rootOperators = getRootBooleanOperators();
 
 		addNewArgumentElementsToRootOperator(newArgument, rootOperators);
@@ -429,7 +428,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
-	private void moveElementsFromRootOperatorToOldArgument(Comparable oldArgument, BooleanOperator rootOperator) {
+	public void moveElementsFromRootOperatorToOldArgument(qualitypatternmodel.graphstructure.Comparable oldArgument, BooleanOperator rootOperator) {
 		BooleanOperator oldArgumentOperator = (BooleanOperator) oldArgument;
 		EList<Element> rootOperatorElements = new BasicEList<Element>();
 		rootOperatorElements.addAll(rootOperator.getElements()); // rootOperator.getElements() is already empty at this point in
@@ -446,7 +445,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
-	private void removeOldArgumentElementsFromRootOperator(Comparable oldArgument, BooleanOperator rootOperator) {
+	public void removeOldArgumentElementsFromRootOperator(qualitypatternmodel.graphstructure.Comparable oldArgument, BooleanOperator rootOperator) {
 		if (oldArgument != null && oldArgument instanceof Property && ((Property) oldArgument).getElement() != null) {
 			rootOperator.removeElement(((Property) oldArgument).getElement());
 		}
@@ -455,7 +454,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
-	private void moveElementsFromNewArgumentToRootOperator(Comparable newArgument,
+	public void moveElementsFromNewArgumentToRootOperator(qualitypatternmodel.graphstructure.Comparable newArgument,
 			EList<BooleanOperator> rootBooleanOperators) {
 		BooleanOperator argumentOperator = (BooleanOperator) newArgument;
 		EList<Element> argumentOperatorElements = new BasicEList<Element>();
@@ -468,7 +467,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
-	private void addNewArgumentElementsToRootOperator(Comparable newArgument,
+	public void addNewArgumentElementsToRootOperator(qualitypatternmodel.graphstructure.Comparable newArgument,
 			EList<BooleanOperator> rootBooleanOperators) {
 		if (newArgument instanceof Element) {
 			for (BooleanOperator boolOp : rootBooleanOperators) {
@@ -819,10 +818,26 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case FunctionsPackage.COMPARISON___SET_TYPE_ACCORDING_TO_ARGUMENT__COMPARABLE_COMPARABLE:
 				setTypeAccordingToArgument((qualitypatternmodel.graphstructure.Comparable)arguments.get(0), (qualitypatternmodel.graphstructure.Comparable)arguments.get(1));
+				return null;
+			case FunctionsPackage.COMPARISON___ADAPT_OPERATOR_ELEMENT_ASSOCIATION__COMPARABLE_COMPARABLE:
+				adaptOperatorElementAssociation((qualitypatternmodel.graphstructure.Comparable)arguments.get(0), (qualitypatternmodel.graphstructure.Comparable)arguments.get(1));
+				return null;
+			case FunctionsPackage.COMPARISON___MOVE_ELEMENTS_FROM_ROOT_OPERATOR_TO_OLD_ARGUMENT__COMPARABLE_BOOLEANOPERATOR:
+				moveElementsFromRootOperatorToOldArgument((qualitypatternmodel.graphstructure.Comparable)arguments.get(0), (BooleanOperator)arguments.get(1));
+				return null;
+			case FunctionsPackage.COMPARISON___REMOVE_OLD_ARGUMENT_ELEMENTS_FROM_ROOT_OPERATOR__COMPARABLE_BOOLEANOPERATOR:
+				removeOldArgumentElementsFromRootOperator((qualitypatternmodel.graphstructure.Comparable)arguments.get(0), (BooleanOperator)arguments.get(1));
+				return null;
+			case FunctionsPackage.COMPARISON___MOVE_ELEMENTS_FROM_NEW_ARGUMENT_TO_ROOT_OPERATOR__COMPARABLE_ELIST:
+				moveElementsFromNewArgumentToRootOperator((qualitypatternmodel.graphstructure.Comparable)arguments.get(0), (EList<BooleanOperator>)arguments.get(1));
+				return null;
+			case FunctionsPackage.COMPARISON___ADD_NEW_ARGUMENT_ELEMENTS_TO_ROOT_OPERATOR__COMPARABLE_ELIST:
+				addNewArgumentElementsToRootOperator((qualitypatternmodel.graphstructure.Comparable)arguments.get(0), (EList<BooleanOperator>)arguments.get(1));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

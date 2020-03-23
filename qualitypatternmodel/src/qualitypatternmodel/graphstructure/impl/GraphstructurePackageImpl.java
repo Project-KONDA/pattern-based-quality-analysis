@@ -4,7 +4,6 @@ package qualitypatternmodel.graphstructure.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
@@ -19,7 +18,6 @@ import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
@@ -94,13 +92,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	private EEnum returnTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType listOfElementsEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -593,7 +584,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getElement__RemoveFromReturnElements() {
+	public EOperation getElement__RemoveFromReturnElementsRecursively() {
 		return elementEClass.getEOperations().get(7);
 	}
 
@@ -1033,16 +1024,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EDataType getListOfElements() {
-		return listOfElementsEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public GraphstructureFactory getGraphstructureFactory() {
 		return (GraphstructureFactory)getEFactoryInstance();
 	}
@@ -1108,7 +1089,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(elementEClass, ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN);
 		createEOperation(elementEClass, ELEMENT___IS_ROOT_ELEMENT);
 		createEOperation(elementEClass, ELEMENT___REMOVE_MAPPINGS_TO_NEXT);
-		createEOperation(elementEClass, ELEMENT___REMOVE_FROM_RETURN_ELEMENTS);
+		createEOperation(elementEClass, ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY);
 		createEOperation(elementEClass, ELEMENT___CLEAR_MATCH_RECURSIVELY);
 		createEOperation(elementEClass, ELEMENT___GET_ALL_RELATIONS);
 		createEOperation(elementEClass, ELEMENT___CLEAR_PREDICATES_RECURSIVELY);
@@ -1156,9 +1137,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		propertyLocationEEnum = createEEnum(PROPERTY_LOCATION);
 		axisEEnum = createEEnum(AXIS);
 		returnTypeEEnum = createEEnum(RETURN_TYPE);
-
-		// Create data types
-		listOfElementsEDataType = createEDataType(LIST_OF_ELEMENTS);
 	}
 
 	/**
@@ -1269,7 +1247,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getElement__RemoveMappingsToNext(), null, "removeMappingsToNext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getElement__RemoveFromReturnElements(), null, "removeFromReturnElements", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getElement__RemoveFromReturnElementsRecursively(), null, "removeFromReturnElementsRecursively", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getElement__ClearMatchRecursively(), null, "clearMatchRecursively", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1394,9 +1372,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEEnumLiteral(returnTypeEEnum, ReturnType.TIME);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.NUMBER);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.DATETIME);
-
-		// Initialize data types
-		initEDataType(listOfElementsEDataType, ListOfElements.class, "ListOfElements", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

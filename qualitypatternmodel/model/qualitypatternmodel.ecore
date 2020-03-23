@@ -157,6 +157,26 @@
         <eParameters name="newArgument" eType="#//graphstructure/Comparable"/>
         <eParameters name="otherArgument" eType="#//graphstructure/Comparable"/>
       </eOperations>
+      <eOperations name="adaptOperatorElementAssociation">
+        <eParameters name="newArgument" eType="#//graphstructure/Comparable"/>
+        <eParameters name="oldArgument" eType="#//graphstructure/Comparable"/>
+      </eOperations>
+      <eOperations name="moveElementsFromRootOperatorToOldArgument">
+        <eParameters name="oldArgument" eType="#//graphstructure/Comparable"/>
+        <eParameters name="rootOperator" eType="#//functions/BooleanOperator"/>
+      </eOperations>
+      <eOperations name="removeOldArgumentElementsFromRootOperator">
+        <eParameters name="oldArgument" eType="#//graphstructure/Comparable"/>
+        <eParameters name="rootOperator" eType="#//functions/BooleanOperator"/>
+      </eOperations>
+      <eOperations name="moveElementsFromNewArgumentToRootOperator">
+        <eParameters name="newArgument" eType="#//graphstructure/Comparable"/>
+        <eParameters name="rootBooleanOperators" upperBound="-1" eType="#//functions/BooleanOperator"/>
+      </eOperations>
+      <eOperations name="addNewArgumentElementsToRootOperator">
+        <eParameters name="newArgument" eType="#//graphstructure/Comparable"/>
+        <eParameters name="rootBooleanOperators" upperBound="-1" eType="#//functions/BooleanOperator"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
           eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
@@ -243,7 +263,7 @@
       </eOperations>
       <eOperations name="isRootElement" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="removeMappingsToNext"/>
-      <eOperations name="removeFromReturnElements"/>
+      <eOperations name="removeFromReturnElementsRecursively"/>
       <eOperations name="clearMatchRecursively"/>
       <eOperations name="getAllRelations" upperBound="-1" eType="#//graphstructure/Relation"/>
       <eOperations name="clearPredicatesRecursively"/>
@@ -340,7 +360,6 @@
       <eLiterals name="TAG" value="1" literal="TAG"/>
       <eLiterals name="ATTRIBUTE" value="2" literal="ATTRIBUTE"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="ListOfElements" instanceClassName="qualitypatternmodel.graphstructure.ListOfElements"/>
     <eClassifiers xsi:type="ecore:EClass" name="Comparable" abstract="true" interface="true"
         eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>

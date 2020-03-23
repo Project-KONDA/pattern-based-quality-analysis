@@ -34,7 +34,6 @@ import qualitypatternmodel.functions.impl.ComparisonImpl;
 import qualitypatternmodel.functions.impl.MatchImpl;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
@@ -827,7 +826,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		clearComparisonRecursively();
 		clearPropertyRecursively();
 		clearMatchRecursively();
-		removeFromReturnElements();
+		removeFromReturnElementsRecursively();
 		clearPredicatesRecursively();
 		if (getRelationFromPrevious() != null) {
 			getRelationFromPrevious().removeRelationFromPreviousGraphs();
@@ -854,10 +853,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		return msgs;
 	}
 
-	public void removeFromReturnElements() {
+	public void removeFromReturnElementsRecursively() {
 		setGraph(null);
 		for (Element child : getNextElements()) {
-			child.removeFromReturnElements();
+			child.removeFromReturnElementsRecursively();
 		}
 	}
 
@@ -1520,8 +1519,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___REMOVE_MAPPINGS_TO_NEXT:
 				removeMappingsToNext();
 				return null;
-			case GraphstructurePackage.ELEMENT___REMOVE_FROM_RETURN_ELEMENTS:
-				removeFromReturnElements();
+			case GraphstructurePackage.ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY:
+				removeFromReturnElementsRecursively();
 				return null;
 			case GraphstructurePackage.ELEMENT___CLEAR_MATCH_RECURSIVELY:
 				clearMatchRecursively();

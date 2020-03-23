@@ -4,7 +4,6 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -1028,13 +1027,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___REMOVE_MAPPINGS_TO_NEXT = COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Remove From Return Elements</em>' operation.
+	 * The operation id for the '<em>Remove From Return Elements Recursively</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___REMOVE_FROM_RETURN_ELEMENTS = COMPARABLE_OPERATION_COUNT + 7;
+	int ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
@@ -1492,17 +1491,6 @@ public interface GraphstructurePackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '<em>List Of Elements</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.ListOfElements
-	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getListOfElements()
-	 * @generated
-	 */
-	int LIST_OF_ELEMENTS = 8;
-
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Relation <em>Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1925,14 +1913,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__RemoveMappingsToNext();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElements() <em>Remove From Return Elements</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElementsRecursively() <em>Remove From Return Elements Recursively</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove From Return Elements</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#removeFromReturnElements()
+	 * @return the meta object for the '<em>Remove From Return Elements Recursively</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#removeFromReturnElementsRecursively()
 	 * @generated
 	 */
-	EOperation getElement__RemoveFromReturnElements();
+	EOperation getElement__RemoveFromReturnElementsRecursively();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#clearMatchRecursively() <em>Clear Match Recursively</em>}' operation.
@@ -2376,17 +2364,6 @@ public interface GraphstructurePackage extends EPackage {
 	EEnum getReturnType();
 
 	/**
-	 * Returns the meta object for data type '{@link qualitypatternmodel.graphstructure.ListOfElements <em>List Of Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>List Of Elements</em>'.
-	 * @see qualitypatternmodel.graphstructure.ListOfElements
-	 * @model instanceClass="qualitypatternmodel.graphstructure.ListOfElements"
-	 * @generated
-	 */
-	EDataType getListOfElements();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2736,12 +2713,12 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation ELEMENT___REMOVE_MAPPINGS_TO_NEXT = eINSTANCE.getElement__RemoveMappingsToNext();
 
 		/**
-		 * The meta object literal for the '<em><b>Remove From Return Elements</b></em>' operation.
+		 * The meta object literal for the '<em><b>Remove From Return Elements Recursively</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ELEMENT___REMOVE_FROM_RETURN_ELEMENTS = eINSTANCE.getElement__RemoveFromReturnElements();
+		EOperation ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY = eINSTANCE.getElement__RemoveFromReturnElementsRecursively();
 
 		/**
 		 * The meta object literal for the '<em><b>Clear Match Recursively</b></em>' operation.
@@ -3096,16 +3073,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum RETURN_TYPE = eINSTANCE.getReturnType();
-
-		/**
-		 * The meta object literal for the '<em>List Of Elements</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.graphstructure.ListOfElements
-		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getListOfElements()
-		 * @generated
-		 */
-		EDataType LIST_OF_ELEMENTS = eINSTANCE.getListOfElements();
 
 	}
 
