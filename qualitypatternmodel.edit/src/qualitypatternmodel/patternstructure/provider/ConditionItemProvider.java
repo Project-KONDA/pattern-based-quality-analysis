@@ -72,28 +72,6 @@ public class ConditionItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Get Next Quantified Conditions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGetNextQuantifiedConditionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Condition_getNextQuantifiedConditions_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Condition_getNextQuantifiedConditions_feature", "_UI_Condition_type"),
-				 PatternstructurePackage.Literals.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -9,7 +9,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -41,7 +40,6 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getParameterList <em>Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getElementCounter <em>Element Counter</em>}</li>
@@ -60,16 +58,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * @ordered
 	 */
 	protected ParameterList parameterList;
-
-	/**
-	 * The cached setting delegate for the '{@link #isCheckMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCheckMorphismOfNextGraph()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature.Internal.SettingDelegate CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH).getSettingDelegate();
 
 	/**
 	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' containment reference.
@@ -500,15 +488,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	 * @generated
 	 */
 	@Override
-	public boolean isCheckMorphismOfNextGraph() {
-		return (Boolean)CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN__PARAMETER_LIST:
@@ -573,8 +552,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN__PARAMETER_LIST:
 				return getParameterList();
-			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
-				return isCheckMorphismOfNextGraph();
 			case PatternstructurePackage.PATTERN__GRAPH:
 				return getGraph();
 			case PatternstructurePackage.PATTERN__CONDITION:
@@ -656,8 +633,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN__PARAMETER_LIST:
 				return parameterList != null;
-			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
-				return CHECK_MORPHISM_OF_NEXT_GRAPH__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case PatternstructurePackage.PATTERN__GRAPH:
 				return graph != null;
 			case PatternstructurePackage.PATTERN__CONDITION:

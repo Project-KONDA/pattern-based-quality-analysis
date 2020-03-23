@@ -110,7 +110,8 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT_PATTERN);
+			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT_PATTERN1);
+			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT_PATTERN2);
 		}
 		return childrenFeatures;
 	}
@@ -169,7 +170,8 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 			case PatternstructurePackage.COUNT_COMPARISON__OPERATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case PatternstructurePackage.COUNT_COMPARISON__COUNT_PATTERN:
+			case PatternstructurePackage.COUNT_COMPARISON__COUNT_PATTERN1:
+			case PatternstructurePackage.COUNT_COMPARISON__COUNT_PATTERN2:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -189,8 +191,36 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT_PATTERN,
+				(PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT_PATTERN1,
 				 PatternstructureFactory.eINSTANCE.createCountPattern()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT_PATTERN2,
+				 PatternstructureFactory.eINSTANCE.createCountPattern()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT_PATTERN1 ||
+			childFeature == PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT_PATTERN2;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

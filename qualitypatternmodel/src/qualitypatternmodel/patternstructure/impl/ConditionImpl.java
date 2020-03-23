@@ -7,8 +7,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -30,7 +28,6 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getCondDepth <em>Cond Depth</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getGetNextQuantifiedConditions <em>Get Next Quantified Conditions</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getFormula1 <em>Formula1</em>}</li>
@@ -59,16 +56,6 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * @ordered
 	 */
 	protected int condDepth = COND_DEPTH_EDEFAULT;
-
-	/**
-	 * The cached setting delegate for the '{@link #getGetNextQuantifiedConditions() <em>Get Next Quantified Conditions</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGetNextQuantifiedConditions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature.Internal.SettingDelegate GET_NEXT_QUANTIFIED_CONDITIONS__ESETTING_DELEGATE = ((EStructuralFeature.Internal)PatternstructurePackage.Literals.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS).getSettingDelegate();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,17 +97,6 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		condDepth = newCondDepth;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.CONDITION__COND_DEPTH, oldCondDepth, condDepth));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<QuantifiedCondition> getGetNextQuantifiedConditions() {
-		return (EList<QuantifiedCondition>)GET_NEXT_QUANTIFIED_CONDITIONS__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
 
 	/**
@@ -436,8 +412,6 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		switch (featureID) {
 			case PatternstructurePackage.CONDITION__COND_DEPTH:
 				return getCondDepth();
-			case PatternstructurePackage.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS:
-				return getGetNextQuantifiedConditions();
 			case PatternstructurePackage.CONDITION__PATTERN:
 				return getPattern();
 			case PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION:
@@ -523,8 +497,6 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 		switch (featureID) {
 			case PatternstructurePackage.CONDITION__COND_DEPTH:
 				return condDepth != COND_DEPTH_EDEFAULT;
-			case PatternstructurePackage.CONDITION__GET_NEXT_QUANTIFIED_CONDITIONS:
-				return GET_NEXT_QUANTIFIED_CONDITIONS__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case PatternstructurePackage.CONDITION__PATTERN:
 				return getPattern() != null;
 			case PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION:

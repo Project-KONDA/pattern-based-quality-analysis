@@ -9,12 +9,6 @@ import qualitypatternmodel.patternstructure.Condition;
  * A test case for the model object '<em><b>Condition</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are tested:
- * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Condition#getGetNextQuantifiedConditions() <em>Get Next Quantified Conditions</em>}</li>
- * </ul>
- * </p>
- * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getNextQuantifiedConditions() <em>Get Next Quantified Conditions</em>}</li>
@@ -43,19 +37,6 @@ public abstract class ConditionTest extends PatternElementTest {
 	@Override
 	protected Condition getFixture() {
 		return (Condition)fixture;
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Condition#getGetNextQuantifiedConditions() <em>Get Next Quantified Conditions</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Condition#getGetNextQuantifiedConditions()
-	 * @generated
-	 */
-	public void testGetGetNextQuantifiedConditions() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**

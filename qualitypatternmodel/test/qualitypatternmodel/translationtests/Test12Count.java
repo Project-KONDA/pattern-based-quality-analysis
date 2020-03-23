@@ -18,15 +18,22 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.Quantifier;
 
-public class TestCount {
+public class Test12Count {
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
 		patterns.add(getPatternCountAsPatternCondition());	
-		patterns.add(getPatternCountAsQuantifiedConditionCondition());	
-		patterns.add(getPatternCountInQuantifiedCondition());
+		patterns.add(getPatternCountAsQuantifiedConditionExistsCondition());	
+		patterns.add(getPatternCountAsQuantifiedConditionForallCondition());	
+		patterns.add(getPatternCountInQuantifiedConditionExists());
+		patterns.add(getPatternCountInQuantifiedConditionForall());
+		patterns.add(getPatternCountInQuantifiedConditionExistsNested());
+		patterns.add(getPatternCountInQuantifiedConditionForallNested());
+		patterns.add(getPatternCountInQuantifiedConditionExistsIntermediateElementNested());
+		patterns.add(getPatternCountInQuantifiedConditionExistsIntermediateAndFollowingElementNested());
 		Test00.test(patterns);
 	}
 
@@ -48,7 +55,7 @@ public class TestCount {
 		CountPattern countPattern = factory.createCountPattern();
 
 		NumberParam numberParam = parametersFactory.createNumberParam();
-		countComparison.getCountPattern().add(countPattern);
+		countComparison.setCountPattern1(countPattern);
 		countComparison.setNumberParam(numberParam);
 		
 		SingleElement returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
@@ -64,7 +71,7 @@ public class TestCount {
 		return pattern;
 	}
 	
-	public static Pattern getPatternCountAsQuantifiedConditionCondition() {
+	public static Pattern getPatternCountAsQuantifiedConditionExistsCondition() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -83,7 +90,7 @@ public class TestCount {
 		CountPattern countPattern = factory.createCountPattern();
 
 		NumberParam numberParam = parametersFactory.createNumberParam();
-		countComparison.getCountPattern().add(countPattern);
+		countComparison.setCountPattern1(countPattern);
 		countComparison.setNumberParam(numberParam);
 		
 		SingleElement returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
@@ -100,7 +107,14 @@ public class TestCount {
 		return pattern;
 	}
 	
-	public static Pattern getPatternCountInQuantifiedCondition() {
+	public static Pattern getPatternCountAsQuantifiedConditionForallCondition() {
+		Pattern pattern = getPatternCountAsQuantifiedConditionExistsCondition();
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
+		quantifiedCondition.setQuantifier(Quantifier.FORALL);
+		return pattern;		
+	}
+	
+	public static Pattern getPatternCountInQuantifiedConditionExists() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -119,7 +133,7 @@ public class TestCount {
 		CountPattern countPattern = factory.createCountPattern();
 
 		NumberParam numberParam = parametersFactory.createNumberParam();
-		countComparison.getCountPattern().add(countPattern);
+		countComparison.setCountPattern1(countPattern);
 		countComparison.setNumberParam(numberParam);
 		
 		SingleElement returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
@@ -132,6 +146,94 @@ public class TestCount {
 		
 		Condition truecondition = factory.createTrueElement();
 		countPattern.getPattern().setCondition(truecondition);
+		
+		return pattern;
+	}
+	
+	public static Pattern getPatternCountInQuantifiedConditionForall() {
+		Pattern pattern = getPatternCountInQuantifiedConditionExists();
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
+		quantifiedCondition.setQuantifier(Quantifier.FORALL);
+		return pattern;
+	}
+	
+	public static Pattern getPatternCountInQuantifiedConditionExistsNested() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
+		
+		Pattern pattern = getPatternCountInQuantifiedConditionExists();
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
+		
+		QuantifiedCondition quantifiedCondition2 = factory.createQuantifiedCondition();
+		quantifiedCondition.setCondition(quantifiedCondition2);
+		
+		SingleElement singleElement2InGraph2 = graphstructureFactory.createSingleElement();
+		singleElement2InGraph2.setPrevious(quantifiedCondition2.getGraph().getReturnElements().get(0).getNextSingle().get(0));
+		
+		
+		Condition truecondition = factory.createTrueElement();
+		quantifiedCondition2.setCondition(truecondition);
+		
+		return pattern;
+	}
+	
+	public static Pattern getPatternCountInQuantifiedConditionForallNested() {
+		Pattern pattern = getPatternCountInQuantifiedConditionExistsNested();
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
+		quantifiedCondition.setQuantifier(Quantifier.FORALL);
+		return pattern;		
+	}
+	
+	public static Pattern getPatternCountInQuantifiedConditionExistsIntermediateElementNested() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
+		
+		Pattern pattern = getPatternCountInQuantifiedConditionExistsNested();
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
+		
+		try {
+			Pattern countPattern = ((CountPattern) quantifiedCondition.getCountComparison().getArgument1()).getPattern();
+			SingleElement element1 = countPattern.getGraph().getReturnElements().get(0);
+			SingleElement element2 = graphstructureFactory.createSingleElement();
+			element2.setPrevious(element1);
+			countPattern.getGraph().getReturnElements().remove(element1);
+			countPattern.getGraph().getReturnElements().add(element2);
+			
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return pattern;
+	}
+	
+	public static Pattern getPatternCountInQuantifiedConditionExistsIntermediateAndFollowingElementNested() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
+		
+		Pattern pattern = getPatternCountInQuantifiedConditionExistsIntermediateElementNested();
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
+		
+		try {
+			Pattern countPattern = ((CountPattern) quantifiedCondition.getCountComparison().getArgument1()).getPattern();
+			SingleElement element2 = countPattern.getGraph().getReturnElements().get(0);
+			SingleElement element3 = graphstructureFactory.createSingleElement();
+			element3.setPrevious(element2);
+			
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 		
 		return pattern;
 	}

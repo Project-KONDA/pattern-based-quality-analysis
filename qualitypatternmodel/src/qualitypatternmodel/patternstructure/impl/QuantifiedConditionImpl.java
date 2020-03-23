@@ -128,7 +128,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		} else {
 			throw new InvalidityException("invalid quantifier");
 		}
-		result = addMissingBrackets(result);
+//		result = addMissingBrackets(result);
 		if(getCountComparison() != null) {
 			if (quantifier == Quantifier.EXISTS) {
 				result += getCountComparison().toXQuery(location) + AND;
@@ -136,7 +136,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				result += NOT + "(" + getCountComparison().toXQuery(location) + ")" + OR;
 			}
 		}
-		result += condition.toXQuery(location);
+		result += "(" + condition.toXQuery(location) + ")";
 		return result;
 
 	}

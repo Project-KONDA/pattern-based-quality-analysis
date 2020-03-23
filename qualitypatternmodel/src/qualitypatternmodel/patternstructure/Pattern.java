@@ -20,7 +20,6 @@ import qualitypatternmodel.parameters.ParameterList;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getParameterList <em>Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getElementCounter <em>Element Counter</em>}</li>
@@ -29,8 +28,7 @@ import qualitypatternmodel.parameters.ParameterList;
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='morphismValid'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot morphismValid='self.checkMorphismOfNextGraph'"
+ * @model
  * @generated
  */
 public interface Pattern extends PatternElement {
@@ -174,18 +172,6 @@ public interface Pattern extends PatternElement {
 	 * @generated
 	 */
 	void setCountPattern(CountPattern value);
-
-	/**
-	 * Returns the value of the '<em><b>Check Morphism Of Next Graph</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Check Morphism Of Next Graph</em>' attribute.
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_CheckMorphismOfNextGraph()
-	 * @model required="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\t\n\t\t\t\tif self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to\n\t\t\t\telse self.condition.getNextQuantifiedConditions-&gt;forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif'"
-	 * @generated
-	 */
-	boolean isCheckMorphismOfNextGraph();
 
 	/**
 	 * <!-- begin-user-doc -->

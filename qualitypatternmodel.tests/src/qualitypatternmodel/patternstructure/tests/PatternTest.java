@@ -12,12 +12,6 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * A test case for the model object '<em><b>Pattern</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are tested:
- * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#isCheckMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}</li>
- * </ul>
- * </p>
- * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#toXQuery() <em>To XQuery</em>}</li>
@@ -79,19 +73,6 @@ public class PatternTest extends PatternElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Pattern#isCheckMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' feature getter.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Pattern#isCheckMorphismOfNextGraph()
-	 * @generated
-	 */
-	public void testIsCheckMorphismOfNextGraph() {
-		// TODO: implement this feature getter test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**
