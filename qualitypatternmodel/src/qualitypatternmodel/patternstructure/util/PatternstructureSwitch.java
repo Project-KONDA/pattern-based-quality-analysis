@@ -156,12 +156,12 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.COUNT_PATTERN: {
-				CountPattern countPattern = (CountPattern)theEObject;
-				T result = caseCountPattern(countPattern);
-				if (result == null) result = caseCountComparisonArgument(countPattern);
-				if (result == null) result = caseGraphContainer(countPattern);
-				if (result == null) result = casePatternElement(countPattern);
+			case PatternstructurePackage.COUNT: {
+				Count count = (Count)theEObject;
+				T result = caseCount(count);
+				if (result == null) result = caseCountComparisonArgument(count);
+				if (result == null) result = caseGraphContainer(count);
+				if (result == null) result = casePatternElement(count);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -363,17 +363,17 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Count Pattern</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Count</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Count Pattern</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Count</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCountPattern(CountPattern object) {
+	public T caseCount(Count object) {
 		return null;
 	}
 

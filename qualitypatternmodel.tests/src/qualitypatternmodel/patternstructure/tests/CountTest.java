@@ -4,7 +4,7 @@ package qualitypatternmodel.patternstructure.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 /**
@@ -19,7 +19,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * </p>
  * @generated
  */
-public class CountPatternTest extends PatternElementTest {
+public class CountTest extends PatternElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -27,28 +27,28 @@ public class CountPatternTest extends PatternElementTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(CountPatternTest.class);
+		TestRunner.run(CountTest.class);
 	}
 
 	/**
-	 * Constructs a new Count Pattern test case with the given name.
+	 * Constructs a new Count test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CountPatternTest(String name) {
+	public CountTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Count Pattern test case.
+	 * Returns the fixture for this Count test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected CountPattern getFixture() {
-		return (CountPattern)fixture;
+	protected Count getFixture() {
+		return (Count)fixture;
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class CountPatternTest extends PatternElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PatternstructureFactory.eINSTANCE.createCountPattern());
+		setFixture(PatternstructureFactory.eINSTANCE.createCount());
 	}
 
 	/**

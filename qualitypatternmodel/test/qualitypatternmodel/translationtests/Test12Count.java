@@ -13,7 +13,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountComparison;
-import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -52,21 +52,21 @@ public class Test12Count {
 		CountComparison countComparison = factory.createCountComparison();
 		pattern.setCondition(countComparison);		
 		
-		CountPattern countPattern = factory.createCountPattern();
+		Count count = factory.createCount();
 
 		NumberParam numberParam = parametersFactory.createNumberParam();
-		countComparison.setCountPattern1(countPattern);
+		countComparison.setCount1(count);
 		countComparison.setNumberParam(numberParam);
 		
-		Element returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
+		Element returnInCPattern = count.getGraph().getReturnElements().get(0);
 		Element nextToReturnInCPattern = graphstructureFactory.createElement();
 		nextToReturnInCPattern.setPreviousElement(returnInCPattern);
 		
-		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(nextToReturnInCPattern);
+		count.getGraph().getReturnElements().clear();
+		count.getGraph().getReturnElements().add(nextToReturnInCPattern);
 		
 		Condition truecondition = factory.createTrueElement();
-		countPattern.getPattern().setCondition(truecondition);
+		count.getPattern().setCondition(truecondition);
 		
 		return pattern;
 	}
@@ -87,22 +87,22 @@ public class Test12Count {
 		CountComparison countComparison = factory.createCountComparison();
 		quantifiedCondition.setCondition(countComparison);		
 		
-		CountPattern countPattern = factory.createCountPattern();
+		Count count = factory.createCount();
 
 		NumberParam numberParam = parametersFactory.createNumberParam();
-		countComparison.setCountPattern1(countPattern);
+		countComparison.setCount1(count);
 		countComparison.setNumberParam(numberParam);
 		
-		Element returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
+		Element returnInCPattern = count.getGraph().getReturnElements().get(0);
 		Element element2InCPattern = returnInCPattern.getNextElements().get(0);
 		Element nextToElement2InCPattern = graphstructureFactory.createElement();
 		nextToElement2InCPattern.setPreviousElement(element2InCPattern);
 		
-		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(nextToElement2InCPattern);
+		count.getGraph().getReturnElements().clear();
+		count.getGraph().getReturnElements().add(nextToElement2InCPattern);
 		
 		Condition truecondition = factory.createTrueElement();
-		countPattern.getPattern().setCondition(truecondition);
+		count.getPattern().setCondition(truecondition);
 		
 		return pattern;
 	}
@@ -130,22 +130,22 @@ public class Test12Count {
 		CountComparison countComparison = factory.createCountComparison();
 		quantifiedCondition.setCountComparison(countComparison);	
 		
-		CountPattern countPattern = factory.createCountPattern();
+		Count count = factory.createCount();
 
 		NumberParam numberParam = parametersFactory.createNumberParam();
-		countComparison.setCountPattern1(countPattern);
+		countComparison.setCount1(count);
 		countComparison.setNumberParam(numberParam);
 		
-		Element returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
+		Element returnInCPattern = count.getGraph().getReturnElements().get(0);
 		Element element2InCPattern = returnInCPattern.getNextElements().get(0);
 		Element nextToElement2InCPattern = graphstructureFactory.createElement();
 		nextToElement2InCPattern.setPreviousElement(element2InCPattern);
 		
-		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(nextToElement2InCPattern);
+		count.getGraph().getReturnElements().clear();
+		count.getGraph().getReturnElements().add(nextToElement2InCPattern);
 		
 		Condition truecondition = factory.createTrueElement();
-		countPattern.getPattern().setCondition(truecondition);
+		count.getPattern().setCondition(truecondition);
 		
 		return pattern;
 	}
@@ -198,7 +198,7 @@ public class Test12Count {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
 		
 		try {
-			Pattern countPattern = ((CountPattern) quantifiedCondition.getCountComparison().getArgument1()).getPattern();
+			Pattern countPattern = ((Count) quantifiedCondition.getCountComparison().getArgument1()).getPattern();
 			Element element1 = countPattern.getGraph().getReturnElements().get(0);
 			Element element2 = graphstructureFactory.createElement();
 			element2.setPreviousElement(element1);
@@ -225,7 +225,7 @@ public class Test12Count {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
 		
 		try {
-			Pattern countPattern = ((CountPattern) quantifiedCondition.getCountComparison().getArgument1()).getPattern();
+			Pattern countPattern = ((Count) quantifiedCondition.getCountComparison().getArgument1()).getPattern();
 			Element element2 = countPattern.getGraph().getReturnElements().get(0);
 			Element element3 = graphstructureFactory.createElement();
 			element3.setPreviousElement(element2);

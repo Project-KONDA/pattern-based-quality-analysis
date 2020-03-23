@@ -103,13 +103,13 @@ public interface PatternstructureFactory extends EFactory {
 	CountComparison createCountComparison();
 
 	/**
-	 * Returns a new object of class '<em>Count Pattern</em>'.
+	 * Returns a new object of class '<em>Count</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Count Pattern</em>'.
+	 * @return a new object of class '<em>Count</em>'.
 	 * @generated
 	 */
-	CountPattern createCountPattern();
+	Count createCount();
 
 	/**
 	 * Returns the package supported by this factory.

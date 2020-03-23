@@ -27,7 +27,7 @@ import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountComparison;
 import qualitypatternmodel.patternstructure.CountComparisonArgument;
-import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.GraphContainer;
 import qualitypatternmodel.patternstructure.Location;
@@ -142,7 +142,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass countPatternEClass = null;
+	private EClass countEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -521,7 +521,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getMorphism_CountPattern() {
+	public EReference getMorphism_Count() {
 		return (EReference)morphismEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -741,7 +741,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getPattern_CountPattern() {
+	public EReference getPattern_Count() {
 		return (EReference)patternEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -761,7 +761,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPattern__IsValid__boolean() {
+	public EOperation getPattern__ToXQuery() {
 		return patternEClass.getEOperations().get(0);
 	}
 
@@ -771,7 +771,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPattern__ToXQuery() {
+	public EOperation getPattern__GetNewRefNo() {
 		return patternEClass.getEOperations().get(1);
 	}
 
@@ -781,18 +781,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPattern__GetNewRefNo() {
-		return patternEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getPattern__CheckMorphismOfNextGraph() {
-		return patternEClass.getEOperations().get(3);
+		return patternEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -901,7 +891,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getCountComparison_CountPattern1() {
+	public EReference getCountComparison_Count1() {
 		return (EReference)countComparisonEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -941,7 +931,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getCountComparison_CountPattern2() {
+	public EReference getCountComparison_Count2() {
 		return (EReference)countComparisonEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -971,8 +961,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EClass getCountPattern() {
-		return countPatternEClass;
+	public EClass getCount() {
+		return countEClass;
 	}
 
 	/**
@@ -981,8 +971,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getCountPattern_CountComparison1() {
-		return (EReference)countPatternEClass.getEStructuralFeatures().get(0);
+	public EReference getCount_CountComparison1() {
+		return (EReference)countEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -991,8 +981,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getCountPattern_Pattern() {
-		return (EReference)countPatternEClass.getEStructuralFeatures().get(1);
+	public EReference getCount_Pattern() {
+		return (EReference)countEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1001,8 +991,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getCountPattern_Morphism() {
-		return (EReference)countPatternEClass.getEStructuralFeatures().get(2);
+	public EReference getCount_Morphism() {
+		return (EReference)countEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1011,8 +1001,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getCountPattern_CountComparison2() {
-		return (EReference)countPatternEClass.getEStructuralFeatures().get(3);
+	public EReference getCount_CountComparison2() {
+		return (EReference)countEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1221,7 +1211,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(morphismEClass, MORPHISM__MAPPINGS);
 		createEReference(morphismEClass, MORPHISM__FROM);
 		createEReference(morphismEClass, MORPHISM__TO);
-		createEReference(morphismEClass, MORPHISM__COUNT_PATTERN);
+		createEReference(morphismEClass, MORPHISM__COUNT);
 		createEOperation(morphismEClass, MORPHISM___CHECK_ELEMENT_MAPPINGS);
 		createEOperation(morphismEClass, MORPHISM___CHECK_RELATION_MAPPINGS);
 		createEOperation(morphismEClass, MORPHISM___CHECK_RELATION_MAPPINGS_UNIQUENESS);
@@ -1248,8 +1238,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(patternEClass, PATTERN__CONDITION);
 		createEAttribute(patternEClass, PATTERN__ELEMENT_COUNTER);
 		createEAttribute(patternEClass, PATTERN__NAME);
-		createEReference(patternEClass, PATTERN__COUNT_PATTERN);
-		createEOperation(patternEClass, PATTERN___IS_VALID__BOOLEAN);
+		createEReference(patternEClass, PATTERN__COUNT);
 		createEOperation(patternEClass, PATTERN___TO_XQUERY);
 		createEOperation(patternEClass, PATTERN___GET_NEW_REF_NO);
 		createEOperation(patternEClass, PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH);
@@ -1271,19 +1260,19 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(notElementEClass, NOT_ELEMENT__CONDITION);
 
 		countComparisonEClass = createEClass(COUNT_COMPARISON);
-		createEReference(countComparisonEClass, COUNT_COMPARISON__COUNT_PATTERN1);
+		createEReference(countComparisonEClass, COUNT_COMPARISON__COUNT1);
 		createEReference(countComparisonEClass, COUNT_COMPARISON__NUMBER_PARAM);
 		createEReference(countComparisonEClass, COUNT_COMPARISON__QUANTIFIED_CONDITION_COUNT);
 		createEAttribute(countComparisonEClass, COUNT_COMPARISON__OPERATOR);
-		createEReference(countComparisonEClass, COUNT_COMPARISON__COUNT_PATTERN2);
+		createEReference(countComparisonEClass, COUNT_COMPARISON__COUNT2);
 		createEOperation(countComparisonEClass, COUNT_COMPARISON___GET_ARGUMENT1);
 		createEOperation(countComparisonEClass, COUNT_COMPARISON___GET_ARGUMENT2);
 
-		countPatternEClass = createEClass(COUNT_PATTERN);
-		createEReference(countPatternEClass, COUNT_PATTERN__COUNT_COMPARISON1);
-		createEReference(countPatternEClass, COUNT_PATTERN__PATTERN);
-		createEReference(countPatternEClass, COUNT_PATTERN__MORPHISM);
-		createEReference(countPatternEClass, COUNT_PATTERN__COUNT_COMPARISON2);
+		countEClass = createEClass(COUNT);
+		createEReference(countEClass, COUNT__COUNT_COMPARISON1);
+		createEReference(countEClass, COUNT__PATTERN);
+		createEReference(countEClass, COUNT__MORPHISM);
+		createEReference(countEClass, COUNT__COUNT_COMPARISON2);
 
 		countComparisonArgumentEClass = createEClass(COUNT_COMPARISON_ARGUMENT);
 
@@ -1347,9 +1336,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		patternEClass.getESuperTypes().add(this.getPatternElement());
 		notElementEClass.getESuperTypes().add(this.getCondition());
 		countComparisonEClass.getESuperTypes().add(this.getCondition());
-		countPatternEClass.getESuperTypes().add(this.getPatternElement());
-		countPatternEClass.getESuperTypes().add(this.getCountComparisonArgument());
-		countPatternEClass.getESuperTypes().add(this.getGraphContainer());
+		countEClass.getESuperTypes().add(this.getPatternElement());
+		countEClass.getESuperTypes().add(this.getCountComparisonArgument());
+		countEClass.getESuperTypes().add(this.getGraphContainer());
 		countComparisonArgumentEClass.getESuperTypes().add(this.getPatternElement());
 
 		// Initialize classes, features, and operations; add parameters
@@ -1386,7 +1375,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getMorphism_Mappings(), this.getMapping(), this.getMapping_Morphism(), "mappings", null, 0, -1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_From(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_MorphismTo(), "from", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMorphism_To(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_MorphismFrom(), "to", null, 1, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMorphism_CountPattern(), this.getCountPattern(), this.getCountPattern_Morphism(), "countPattern", null, 0, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMorphism_Count(), this.getCount(), this.getCount_Morphism(), "count", null, 0, 1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getMorphism__CheckElementMappings(), null, "checkElementMappings", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
@@ -1421,12 +1410,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getPattern_Condition(), this.getCondition(), this.getCondition_Pattern(), "condition", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPattern_ElementCounter(), ecorePackage.getEInt(), "elementCounter", "0", 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPattern_Name(), ecorePackage.getEString(), "name", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPattern_CountPattern(), this.getCountPattern(), this.getCountPattern_Pattern(), "countPattern", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getPattern__IsValid__boolean(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getInvalidityExceptionWrapper());
-		addEException(op, theFunctionsPackage.getOperatorCycleExceptionWrapper());
+		initEReference(getPattern_Count(), this.getCount(), this.getCount_Pattern(), "count", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPattern__ToXQuery(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
@@ -1481,11 +1465,11 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getNotElement_Condition(), this.getCondition(), this.getCondition_Not(), "condition", null, 1, 1, NotElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(countComparisonEClass, CountComparison.class, "CountComparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCountComparison_CountPattern1(), this.getCountPattern(), this.getCountPattern_CountComparison1(), "countPattern1", null, 1, 1, CountComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountComparison_Count1(), this.getCount(), this.getCount_CountComparison1(), "count1", null, 1, 1, CountComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCountComparison_NumberParam(), theParametersPackage.getNumberParam(), theParametersPackage.getNumberParam_CountComparison(), "numberParam", null, 0, 1, CountComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCountComparison_QuantifiedConditionCount(), this.getQuantifiedCondition(), this.getQuantifiedCondition_CountComparison(), "quantifiedConditionCount", null, 0, 1, CountComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCountComparison_Operator(), theFunctionsPackage.getComparisonOperator(), "operator", null, 1, 1, CountComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCountComparison_CountPattern2(), this.getCountPattern(), this.getCountPattern_CountComparison2(), "countPattern2", null, 0, 1, CountComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountComparison_Count2(), this.getCount(), this.getCount_CountComparison2(), "count2", null, 0, 1, CountComparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getCountComparison__GetArgument1(), this.getCountComparisonArgument(), "getArgument1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
@@ -1493,11 +1477,11 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		op = initEOperation(getCountComparison__GetArgument2(), this.getCountComparisonArgument(), "getArgument2", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
-		initEClass(countPatternEClass, CountPattern.class, "CountPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCountPattern_CountComparison1(), this.getCountComparison(), this.getCountComparison_CountPattern1(), "countComparison1", null, 0, 1, CountPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCountPattern_Pattern(), this.getPattern(), this.getPattern_CountPattern(), "pattern", null, 1, 1, CountPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCountPattern_Morphism(), this.getMorphism(), this.getMorphism_CountPattern(), "morphism", null, 1, 1, CountPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCountPattern_CountComparison2(), this.getCountComparison(), this.getCountComparison_CountPattern2(), "countComparison2", null, 0, 1, CountPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(countEClass, Count.class, "Count", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCount_CountComparison1(), this.getCountComparison(), this.getCountComparison_Count1(), "countComparison1", null, 0, 1, Count.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCount_Pattern(), this.getPattern(), this.getPattern_Count(), "pattern", null, 1, 1, Count.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCount_Morphism(), this.getMorphism(), this.getMorphism_Count(), "morphism", null, 1, 1, Count.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCount_CountComparison2(), this.getCountComparison(), this.getCountComparison_Count2(), "countComparison2", null, 0, 1, Count.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(countComparisonArgumentEClass, CountComparisonArgument.class, "CountComparisonArgument", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

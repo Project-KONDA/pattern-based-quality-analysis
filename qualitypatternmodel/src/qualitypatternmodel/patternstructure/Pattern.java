@@ -3,8 +3,6 @@
 package qualitypatternmodel.patternstructure;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.parameters.ParameterList;
 
@@ -24,7 +22,7 @@ import qualitypatternmodel.parameters.ParameterList;
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getName <em>Name</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCountPattern <em>Count Pattern</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCount <em>Count</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern()
@@ -150,36 +148,28 @@ public interface Pattern extends PatternElement {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Count Pattern</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountPattern#getPattern <em>Pattern</em>}'.
+	 * Returns the value of the '<em><b>Count</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Count#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count Pattern</em>' container reference.
-	 * @see #setCountPattern(CountPattern)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_CountPattern()
-	 * @see qualitypatternmodel.patternstructure.CountPattern#getPattern
+	 * @return the value of the '<em>Count</em>' container reference.
+	 * @see #setCount(Count)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_Count()
+	 * @see qualitypatternmodel.patternstructure.Count#getPattern
 	 * @model opposite="pattern" transient="false"
 	 * @generated
 	 */
-	CountPattern getCountPattern();
+	Count getCount();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getCountPattern <em>Count Pattern</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getCount <em>Count</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count Pattern</em>' container reference.
-	 * @see #getCountPattern()
+	 * @param value the new value of the '<em>Count</em>' container reference.
+	 * @see #getCount()
 	 * @generated
 	 */
-	void setCountPattern(CountPattern value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
-	 * @generated
-	 */
-	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+	void setCount(Count value);
 
 	/**
 	 * <!-- begin-user-doc -->

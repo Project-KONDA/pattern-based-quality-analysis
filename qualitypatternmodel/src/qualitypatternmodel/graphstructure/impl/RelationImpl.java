@@ -93,7 +93,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		try {
 			Pattern pattern;
 			pattern = (Pattern) getAncestor(Pattern.class);
-			if (getGraphDepth() == 0 && mappingFrom != null && pattern.getCountPattern() == null) // depth=0 => ReturnGraph
+			if (getGraphDepth() == 0 && mappingFrom != null && pattern.getCount() == null) // depth=0 => ReturnGraph
 				throw new InvalidityException("invalid RelationMapping to returnGraph: " + mappingFrom + " "
 						+ mappingFrom.getId() + " - (" + mappingTo + ")");
 		} catch (MissingPatternContainerException e) {

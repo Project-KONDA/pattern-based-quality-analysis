@@ -15,11 +15,11 @@ import qualitypatternmodel.parameters.NumberParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.CountComparison#getCountPattern1 <em>Count Pattern1</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CountComparison#getCount1 <em>Count1</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountComparison#getNumberParam <em>Number Param</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountComparison#getQuantifiedConditionCount <em>Quantified Condition Count</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountComparison#getOperator <em>Operator</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CountComparison#getCountPattern2 <em>Count Pattern2</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CountComparison#getCount2 <em>Count2</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountComparison()
@@ -28,28 +28,28 @@ import qualitypatternmodel.parameters.NumberParam;
  */
 public interface CountComparison extends Condition {
 	/**
-	 * Returns the value of the '<em><b>Count Pattern1</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountPattern#getCountComparison1 <em>Count Comparison1</em>}'.
+	 * Returns the value of the '<em><b>Count1</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Count#getCountComparison1 <em>Count Comparison1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count Pattern1</em>' containment reference.
-	 * @see #setCountPattern1(CountPattern)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountComparison_CountPattern1()
-	 * @see qualitypatternmodel.patternstructure.CountPattern#getCountComparison1
+	 * @return the value of the '<em>Count1</em>' containment reference.
+	 * @see #setCount1(Count)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountComparison_Count1()
+	 * @see qualitypatternmodel.patternstructure.Count#getCountComparison1
 	 * @model opposite="countComparison1" containment="true" required="true"
 	 * @generated
 	 */
-	CountPattern getCountPattern1();
+	Count getCount1();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountComparison#getCountPattern1 <em>Count Pattern1</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountComparison#getCount1 <em>Count1</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count Pattern1</em>' containment reference.
-	 * @see #getCountPattern1()
+	 * @param value the new value of the '<em>Count1</em>' containment reference.
+	 * @see #getCount1()
 	 * @generated
 	 */
-	void setCountPattern1(CountPattern value);
+	void setCount1(Count value);
 
 	/**
 	 * Returns the value of the '<em><b>Number Param</b></em>' reference.
@@ -125,28 +125,28 @@ public interface CountComparison extends Condition {
 	void setOperator(ComparisonOperator value);
 
 	/**
-	 * Returns the value of the '<em><b>Count Pattern2</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountPattern#getCountComparison2 <em>Count Comparison2</em>}'.
+	 * Returns the value of the '<em><b>Count2</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Count#getCountComparison2 <em>Count Comparison2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count Pattern2</em>' containment reference.
-	 * @see #setCountPattern2(CountPattern)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountComparison_CountPattern2()
-	 * @see qualitypatternmodel.patternstructure.CountPattern#getCountComparison2
+	 * @return the value of the '<em>Count2</em>' containment reference.
+	 * @see #setCount2(Count)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountComparison_Count2()
+	 * @see qualitypatternmodel.patternstructure.Count#getCountComparison2
 	 * @model opposite="countComparison2" containment="true"
 	 * @generated
 	 */
-	CountPattern getCountPattern2();
+	Count getCount2();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountComparison#getCountPattern2 <em>Count Pattern2</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountComparison#getCount2 <em>Count2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count Pattern2</em>' containment reference.
-	 * @see #getCountPattern2()
+	 * @param value the new value of the '<em>Count2</em>' containment reference.
+	 * @see #getCount2()
 	 * @generated
 	 */
-	void setCountPattern2(CountPattern value);
+	void setCount2(Count value);
 
 	/**
 	 * <!-- begin-user-doc -->

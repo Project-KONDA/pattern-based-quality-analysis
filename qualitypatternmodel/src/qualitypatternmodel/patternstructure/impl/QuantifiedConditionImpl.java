@@ -26,7 +26,7 @@ import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountComparison;
-import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.GraphContainer;
 import qualitypatternmodel.patternstructure.Location;
@@ -558,10 +558,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public void checkMorphismOfNextGraph() throws InvalidityException  {
 		EList<GraphContainer> nextGraphContainers = getCondition().getNextQuantifiedConditions();
 		if(getCountComparison() != null) {
-			if(getCountComparison().getArgument1() instanceof CountPattern) {
+			if(getCountComparison().getArgument1() instanceof Count) {
 				nextGraphContainers.add((GraphContainer) getCountComparison().getArgument1());
 			}
-			if(getCountComparison().getArgument2() instanceof CountPattern) {
+			if(getCountComparison().getArgument2() instanceof Count) {
 				nextGraphContainers.add((GraphContainer) getCountComparison().getArgument2());
 			}
 		}

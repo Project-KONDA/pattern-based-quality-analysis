@@ -238,7 +238,8 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Property/referenceOperator2"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Property/referenceOperator"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/createInputs"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/createInputs"
+            suppressedVisibility="false"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/removeInputsFromVariableList"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Element">
@@ -395,7 +396,7 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Morphism/from"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Morphism/to"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Morphism/countPattern"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Morphism/count"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkElementMappings"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappings"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappingsUniqueness"/>
@@ -423,10 +424,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Pattern/condition"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Pattern/elementCounter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Pattern/name"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Pattern/countPattern"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Pattern/isValid">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/Pattern/isValid/isDefinedPattern"/>
-        </genOperations>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Pattern/count"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Pattern/toXQuery"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Pattern/getNewRefNo"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Pattern/checkMorphismOfNextGraph"/>
@@ -459,20 +457,20 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NotElement/condition"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/CountComparison">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountComparison/countPattern1"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountComparison/count1"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountComparison/numberParam"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountComparison/quantifiedConditionCount"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CountComparison/operator"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountComparison/countPattern2"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountComparison/count2"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CountComparison/getArgument1"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CountComparison/getArgument2"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/CountPattern">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountPattern/countComparison1"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountPattern/pattern"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountPattern/morphism"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountPattern/countComparison2"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/Count">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Count/countComparison1"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Count/pattern"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Count/morphism"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Count/countComparison2"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/CountComparisonArgument"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/GraphContainer">

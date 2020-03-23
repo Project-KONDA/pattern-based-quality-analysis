@@ -115,8 +115,8 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 				return createCountComparisonAdapter();
 			}
 			@Override
-			public Adapter caseCountPattern(CountPattern object) {
-				return createCountPatternAdapter();
+			public Adapter caseCount(Count object) {
+				return createCountAdapter();
 			}
 			@Override
 			public Adapter caseCountComparisonArgument(CountComparisonArgument object) {
@@ -315,16 +315,16 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.CountPattern <em>Count Pattern</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.Count <em>Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.CountPattern
+	 * @see qualitypatternmodel.patternstructure.Count
 	 * @generated
 	 */
-	public Adapter createCountPatternAdapter() {
+	public Adapter createCountAdapter() {
 		return null;
 	}
 

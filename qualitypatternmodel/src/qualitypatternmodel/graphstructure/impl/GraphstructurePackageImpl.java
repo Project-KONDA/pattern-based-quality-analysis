@@ -354,8 +354,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getProperty_Match() {
-		return (EReference)propertyEClass.getEStructuralFeatures().get(1);
+	public EOperation getProperty__CreateInputs() {
+		return propertyEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -364,8 +364,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getProperty__CreateInputs() {
-		return propertyEClass.getEOperations().get(0);
+	public EReference getProperty_Match() {
+		return (EReference)propertyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**

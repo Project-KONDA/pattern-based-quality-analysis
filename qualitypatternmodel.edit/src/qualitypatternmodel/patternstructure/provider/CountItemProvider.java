@@ -11,17 +11,17 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.CountPattern} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.Count} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CountPatternItemProvider 
+public class CountItemProvider 
 	extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -29,7 +29,7 @@ public class CountPatternItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CountPatternItemProvider(AdapterFactory adapterFactory) {
+	public CountItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,8 +60,8 @@ public class CountPatternItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_PATTERN__PATTERN);
-			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_PATTERN__MORPHISM);
+			childrenFeatures.add(PatternstructurePackage.Literals.COUNT__PATTERN);
+			childrenFeatures.add(PatternstructurePackage.Literals.COUNT__MORPHISM);
 		}
 		return childrenFeatures;
 	}
@@ -80,14 +80,14 @@ public class CountPatternItemProvider
 	}
 
 	/**
-	 * This returns CountPattern.gif.
+	 * This returns Count.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CountPattern"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Count"));
 	}
 
 	/**
@@ -98,10 +98,10 @@ public class CountPatternItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CountPattern)object).getId();
+		String label = ((Count)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CountPattern_type") :
-			getString("_UI_CountPattern_type") + " " + label;
+			getString("_UI_Count_type") :
+			getString("_UI_Count_type") + " " + label;
 	}
 
 
@@ -116,9 +116,9 @@ public class CountPatternItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CountPattern.class)) {
-			case PatternstructurePackage.COUNT_PATTERN__PATTERN:
-			case PatternstructurePackage.COUNT_PATTERN__MORPHISM:
+		switch (notification.getFeatureID(Count.class)) {
+			case PatternstructurePackage.COUNT__PATTERN:
+			case PatternstructurePackage.COUNT__MORPHISM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,12 +138,12 @@ public class CountPatternItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.COUNT_PATTERN__PATTERN,
+				(PatternstructurePackage.Literals.COUNT__PATTERN,
 				 PatternstructureFactory.eINSTANCE.createPattern()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.COUNT_PATTERN__MORPHISM,
+				(PatternstructurePackage.Literals.COUNT__MORPHISM,
 				 PatternstructureFactory.eINSTANCE.createMorphism()));
 	}
 

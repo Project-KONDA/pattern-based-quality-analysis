@@ -68,7 +68,7 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 			case PatternstructurePackage.PATTERN: return createPattern();
 			case PatternstructurePackage.NOT_ELEMENT: return createNotElement();
 			case PatternstructurePackage.COUNT_COMPARISON: return createCountComparison();
-			case PatternstructurePackage.COUNT_PATTERN: return createCountPattern();
+			case PatternstructurePackage.COUNT: return createCount();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -229,9 +229,9 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public CountPattern createCountPattern() {
-		CountPatternImpl countPattern = new CountPatternImpl();
-		return countPattern;
+	public Count createCount() {
+		CountImpl count = new CountImpl();
+		return count;
 	}
 
 	/**

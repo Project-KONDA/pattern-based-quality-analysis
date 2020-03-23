@@ -506,7 +506,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		try {
 			Pattern pattern;
 			pattern = (Pattern) getAncestor(Pattern.class);
-			if (getGraphDepth() == 0 && mappingFrom != null && pattern.getCountPattern() == null) // depth=0 => ReturnGraph
+			if (getGraphDepth() == 0 && mappingFrom != null && pattern.getCount() == null) // depth=0 => ReturnGraph
 				throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + mappingFrom + " "
 						+ mappingFrom.getId() + " - (" + mappingTo + ")");
 		} catch (MissingPatternContainerException e) {
@@ -1102,7 +1102,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	private void setGraphForCorrespondingElements(Graph newGraph) {
 		for (ElementMapping mapping : getMappingTo()) {
-			if(mapping.getMorphism().getCountPattern() == null) {
+			if(mapping.getMorphism().getCount() == null) {
 				Element element = mapping.getTo();
 				if (newGraph == null && element.getGraph() != null) {
 					element.setGraph(null);
@@ -1117,7 +1117,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				}
 			}			
 		}
-		if (getMappingFrom() != null && getMappingFrom().getMorphism().getCountPattern() == null) {
+		if (getMappingFrom() != null && getMappingFrom().getMorphism().getCount() == null) {
 			Element element = getMappingFrom().getFrom();
 			if (newGraph == null && element.getGraph() != null) {
 				element.setGraph(null);

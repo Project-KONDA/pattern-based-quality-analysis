@@ -1020,13 +1020,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM__TO = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Count Pattern</b></em>' container reference.
+	 * The feature id for the '<em><b>Count</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__COUNT_PATTERN = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int MORPHISM__COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Morphism</em>' class.
@@ -1807,13 +1807,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__NAME = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Count Pattern</b></em>' container reference.
+	 * The feature id for the '<em><b>Count</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__COUNT_PATTERN = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int PATTERN__COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Pattern</em>' class.
@@ -1850,6 +1850,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1897,22 +1906,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___IS_VALID__BOOLEAN = PATTERN_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___TO_XQUERY = PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int PATTERN___TO_XQUERY = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get New Ref No</em>' operation.
@@ -1921,7 +1921,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___GET_NEW_REF_NO = PATTERN_ELEMENT_OPERATION_COUNT + 2;
+	int PATTERN___GET_NEW_REF_NO = PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -1930,7 +1930,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Pattern</em>' class.
@@ -1939,7 +1939,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotElementImpl <em>Not Element</em>}' class.
@@ -2223,13 +2223,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_COMPARISON__NOT = CONDITION__NOT;
 
 	/**
-	 * The feature id for the '<em><b>Count Pattern1</b></em>' containment reference.
+	 * The feature id for the '<em><b>Count1</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__COUNT_PATTERN1 = CONDITION_FEATURE_COUNT + 0;
+	int COUNT_COMPARISON__COUNT1 = CONDITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Number Param</b></em>' reference.
@@ -2259,13 +2259,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_COMPARISON__OPERATOR = CONDITION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Count Pattern2</b></em>' containment reference.
+	 * The feature id for the '<em><b>Count2</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__COUNT_PATTERN2 = CONDITION_FEATURE_COUNT + 4;
+	int COUNT_COMPARISON__COUNT2 = CONDITION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Count Comparison</em>' class.
@@ -2394,14 +2394,14 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_COMPARISON_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl <em>Count Pattern</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CountImpl <em>Count</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.impl.CountPatternImpl
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountPattern()
+	 * @see qualitypatternmodel.patternstructure.impl.CountImpl
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCount()
 	 * @generated
 	 */
-	int COUNT_PATTERN = 12;
+	int COUNT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2410,7 +2410,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN__ID = PATTERN_ELEMENT__ID;
+	int COUNT__ID = PATTERN_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2419,7 +2419,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
+	int COUNT__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Count Comparison1</b></em>' container reference.
@@ -2428,7 +2428,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN__COUNT_COMPARISON1 = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int COUNT__COUNT_COMPARISON1 = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' containment reference.
@@ -2437,7 +2437,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN__PATTERN = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int COUNT__PATTERN = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Morphism</b></em>' containment reference.
@@ -2446,7 +2446,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN__MORPHISM = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int COUNT__MORPHISM = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Count Comparison2</b></em>' container reference.
@@ -2455,16 +2455,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN__COUNT_COMPARISON2 = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int COUNT__COUNT_COMPARISON2 = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Count Pattern</em>' class.
+	 * The number of structural features of the '<em>Count</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int COUNT_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -2473,7 +2473,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int COUNT___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2482,7 +2482,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int COUNT___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2491,7 +2491,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
+	int COUNT___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2500,7 +2500,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int COUNT___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2509,7 +2509,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int COUNT___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2518,7 +2518,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+	int COUNT___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2527,7 +2527,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int COUNT___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2536,7 +2536,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
+	int COUNT___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2545,7 +2545,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int COUNT___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -2554,7 +2554,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GET_GRAPH = PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int COUNT___GET_GRAPH = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Morphism</em>' operation.
@@ -2563,16 +2563,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GET_MORPHISM = PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int COUNT___GET_MORPHISM = PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Count Pattern</em>' class.
+	 * The number of operations of the '<em>Count</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 2;
+	int COUNT_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.CountComparisonArgument <em>Count Comparison Argument</em>}' class.
@@ -3054,15 +3054,15 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getMorphism_To();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Morphism#getCountPattern <em>Count Pattern</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Morphism#getCount <em>Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Count Pattern</em>'.
-	 * @see qualitypatternmodel.patternstructure.Morphism#getCountPattern()
+	 * @return the meta object for the container reference '<em>Count</em>'.
+	 * @see qualitypatternmodel.patternstructure.Morphism#getCount()
 	 * @see #getMorphism()
 	 * @generated
 	 */
-	EReference getMorphism_CountPattern();
+	EReference getMorphism_Count();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappings() <em>Check Element Mappings</em>}' operation.
@@ -3287,15 +3287,15 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getPattern_Name();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Pattern#getCountPattern <em>Count Pattern</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Pattern#getCount <em>Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Count Pattern</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getCountPattern()
+	 * @return the meta object for the container reference '<em>Count</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getCount()
 	 * @see #getPattern()
 	 * @generated
 	 */
-	EReference getPattern_CountPattern();
+	EReference getPattern_Count();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}'.
@@ -3307,16 +3307,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPattern_Graph();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#isValid(boolean) <em>Is Valid</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Pattern#isValid(boolean)
-	 * @generated
-	 */
-	EOperation getPattern__IsValid__boolean();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#toXQuery() <em>To XQuery</em>}' operation.
@@ -3452,15 +3442,15 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getCountComparison();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountComparison#getCountPattern1 <em>Count Pattern1</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountComparison#getCount1 <em>Count1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Count Pattern1</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getCountPattern1()
+	 * @return the meta object for the containment reference '<em>Count1</em>'.
+	 * @see qualitypatternmodel.patternstructure.CountComparison#getCount1()
 	 * @see #getCountComparison()
 	 * @generated
 	 */
-	EReference getCountComparison_CountPattern1();
+	EReference getCountComparison_Count1();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CountComparison#getNumberParam <em>Number Param</em>}'.
@@ -3496,15 +3486,15 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCountComparison_Operator();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountComparison#getCountPattern2 <em>Count Pattern2</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountComparison#getCount2 <em>Count2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Count Pattern2</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getCountPattern2()
+	 * @return the meta object for the containment reference '<em>Count2</em>'.
+	 * @see qualitypatternmodel.patternstructure.CountComparison#getCount2()
 	 * @see #getCountComparison()
 	 * @generated
 	 */
-	EReference getCountComparison_CountPattern2();
+	EReference getCountComparison_Count2();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CountComparison#getArgument1() <em>Get Argument1</em>}' operation.
@@ -3527,58 +3517,58 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCountComparison__GetArgument2();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CountPattern <em>Count Pattern</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Count <em>Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Count Pattern</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountPattern
+	 * @return the meta object for class '<em>Count</em>'.
+	 * @see qualitypatternmodel.patternstructure.Count
 	 * @generated
 	 */
-	EClass getCountPattern();
+	EClass getCount();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.CountPattern#getCountComparison1 <em>Count Comparison1</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Count#getCountComparison1 <em>Count Comparison1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Count Comparison1</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountPattern#getCountComparison1()
-	 * @see #getCountPattern()
+	 * @see qualitypatternmodel.patternstructure.Count#getCountComparison1()
+	 * @see #getCount()
 	 * @generated
 	 */
-	EReference getCountPattern_CountComparison1();
+	EReference getCount_CountComparison1();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountPattern#getPattern <em>Pattern</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Count#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Pattern</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountPattern#getPattern()
-	 * @see #getCountPattern()
+	 * @see qualitypatternmodel.patternstructure.Count#getPattern()
+	 * @see #getCount()
 	 * @generated
 	 */
-	EReference getCountPattern_Pattern();
+	EReference getCount_Pattern();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountPattern#getMorphism <em>Morphism</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Count#getMorphism <em>Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Morphism</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountPattern#getMorphism()
-	 * @see #getCountPattern()
+	 * @see qualitypatternmodel.patternstructure.Count#getMorphism()
+	 * @see #getCount()
 	 * @generated
 	 */
-	EReference getCountPattern_Morphism();
+	EReference getCount_Morphism();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.CountPattern#getCountComparison2 <em>Count Comparison2</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Count#getCountComparison2 <em>Count Comparison2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Count Comparison2</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountPattern#getCountComparison2()
-	 * @see #getCountPattern()
+	 * @see qualitypatternmodel.patternstructure.Count#getCountComparison2()
+	 * @see #getCount()
 	 * @generated
 	 */
-	EReference getCountPattern_CountComparison2();
+	EReference getCount_CountComparison2();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CountComparisonArgument <em>Count Comparison Argument</em>}'.
@@ -3949,12 +3939,12 @@ public interface PatternstructurePackage extends EPackage {
 		EReference MORPHISM__TO = eINSTANCE.getMorphism_To();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Pattern</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Count</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MORPHISM__COUNT_PATTERN = eINSTANCE.getMorphism_CountPattern();
+		EReference MORPHISM__COUNT = eINSTANCE.getMorphism_Count();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Element Mappings</b></em>' operation.
@@ -4135,12 +4125,12 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute PATTERN__NAME = eINSTANCE.getPattern_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Pattern</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Count</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PATTERN__COUNT_PATTERN = eINSTANCE.getPattern_CountPattern();
+		EReference PATTERN__COUNT = eINSTANCE.getPattern_Count();
 
 		/**
 		 * The meta object literal for the '<em><b>Graph</b></em>' containment reference feature.
@@ -4149,14 +4139,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PATTERN__GRAPH = eINSTANCE.getPattern_Graph();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN___IS_VALID__BOOLEAN = eINSTANCE.getPattern__IsValid__boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>To XQuery</b></em>' operation.
@@ -4269,12 +4251,12 @@ public interface PatternstructurePackage extends EPackage {
 		EClass COUNT_COMPARISON = eINSTANCE.getCountComparison();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Pattern1</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Count1</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_COMPARISON__COUNT_PATTERN1 = eINSTANCE.getCountComparison_CountPattern1();
+		EReference COUNT_COMPARISON__COUNT1 = eINSTANCE.getCountComparison_Count1();
 
 		/**
 		 * The meta object literal for the '<em><b>Number Param</b></em>' reference feature.
@@ -4301,12 +4283,12 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute COUNT_COMPARISON__OPERATOR = eINSTANCE.getCountComparison_Operator();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Pattern2</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Count2</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_COMPARISON__COUNT_PATTERN2 = eINSTANCE.getCountComparison_CountPattern2();
+		EReference COUNT_COMPARISON__COUNT2 = eINSTANCE.getCountComparison_Count2();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Argument1</b></em>' operation.
@@ -4325,14 +4307,14 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation COUNT_COMPARISON___GET_ARGUMENT2 = eINSTANCE.getCountComparison__GetArgument2();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl <em>Count Pattern</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.CountImpl <em>Count</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.CountPatternImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountPattern()
+		 * @see qualitypatternmodel.patternstructure.impl.CountImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCount()
 		 * @generated
 		 */
-		EClass COUNT_PATTERN = eINSTANCE.getCountPattern();
+		EClass COUNT = eINSTANCE.getCount();
 
 		/**
 		 * The meta object literal for the '<em><b>Count Comparison1</b></em>' container reference feature.
@@ -4340,7 +4322,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_PATTERN__COUNT_COMPARISON1 = eINSTANCE.getCountPattern_CountComparison1();
+		EReference COUNT__COUNT_COMPARISON1 = eINSTANCE.getCount_CountComparison1();
 
 		/**
 		 * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.
@@ -4348,7 +4330,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_PATTERN__PATTERN = eINSTANCE.getCountPattern_Pattern();
+		EReference COUNT__PATTERN = eINSTANCE.getCount_Pattern();
 
 		/**
 		 * The meta object literal for the '<em><b>Morphism</b></em>' containment reference feature.
@@ -4356,7 +4338,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_PATTERN__MORPHISM = eINSTANCE.getCountPattern_Morphism();
+		EReference COUNT__MORPHISM = eINSTANCE.getCount_Morphism();
 
 		/**
 		 * The meta object literal for the '<em><b>Count Comparison2</b></em>' container reference feature.
@@ -4364,7 +4346,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_PATTERN__COUNT_COMPARISON2 = eINSTANCE.getCountPattern_CountComparison2();
+		EReference COUNT__COUNT_COMPARISON2 = eINSTANCE.getCount_CountComparison2();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.CountComparisonArgument <em>Count Comparison Argument</em>}' class.

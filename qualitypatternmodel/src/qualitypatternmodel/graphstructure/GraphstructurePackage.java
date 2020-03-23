@@ -1670,6 +1670,16 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getProperty_ReferenceOperator();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#createInputs() <em>Create Inputs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Inputs</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#createInputs()
+	 * @generated
+	 */
+	EOperation getProperty__CreateInputs();
+
+	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1679,16 +1689,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProperty_Match();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#createInputs() <em>Create Inputs</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Inputs</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#createInputs()
-	 * @generated
-	 */
-	EOperation getProperty__CreateInputs();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}' operation.
@@ -2527,20 +2527,20 @@ public interface GraphstructurePackage extends EPackage {
 		EReference PROPERTY__REFERENCE_OPERATOR = eINSTANCE.getProperty_ReferenceOperator();
 
 		/**
-		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__MATCH = eINSTANCE.getProperty_Match();
-
-		/**
 		 * The meta object literal for the '<em><b>Create Inputs</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation PROPERTY___CREATE_INPUTS = eINSTANCE.getProperty__CreateInputs();
+
+		/**
+		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__MATCH = eINSTANCE.getProperty_Match();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Inputs From Variable List</b></em>' operation.

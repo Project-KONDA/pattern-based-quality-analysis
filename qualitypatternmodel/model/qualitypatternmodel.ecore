@@ -454,8 +454,8 @@
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/morphismTo"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/Graph"
           eOpposite="#//graphstructure/Graph/morphismFrom"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countPattern" eType="#//patternstructure/CountPattern"
-          eOpposite="#//patternstructure/CountPattern/morphism"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//patternstructure/Count"
+          eOpposite="#//patternstructure/Count/morphism"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ElementMapping" eSuperTypes="#//patternstructure/Mapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
@@ -490,9 +490,6 @@
       <eLiterals name="FORALL" value="1" literal="FORALL"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Pattern" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//functions/OperatorCycleExceptionWrapper">
-        <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      </eOperations>
       <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getNewRefNo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -506,8 +503,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementCounter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countPattern" eType="#//patternstructure/CountPattern"
-          eOpposite="#//patternstructure/CountPattern/pattern"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//patternstructure/Count"
+          eOpposite="#//patternstructure/Count/pattern"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
       <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -562,26 +559,26 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getArgument2" eType="#//patternstructure/CountComparisonArgument"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countPattern1" lowerBound="1"
-          eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/countComparison1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="count1" lowerBound="1"
+          eType="#//patternstructure/Count" containment="true" eOpposite="#//patternstructure/Count/countComparison1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="numberParam" eType="#//parameters/NumberParam"
           eOpposite="#//parameters/NumberParam/countComparison"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedConditionCount"
           eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/countComparison"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
           eType="#//functions/ComparisonOperator"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countPattern2" eType="#//patternstructure/CountPattern"
-          containment="true" eOpposite="#//patternstructure/CountPattern/countComparison2"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="count2" eType="#//patternstructure/Count"
+          containment="true" eOpposite="#//patternstructure/Count/countComparison2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CountPattern" eSuperTypes="#//patternstructure/PatternElement #//patternstructure/CountComparisonArgument #//patternstructure/GraphContainer">
+    <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//patternstructure/PatternElement #//patternstructure/CountComparisonArgument #//patternstructure/GraphContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="countComparison1" eType="#//patternstructure/CountComparison"
-          eOpposite="#//patternstructure/CountComparison/countPattern1"/>
+          eOpposite="#//patternstructure/CountComparison/count1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
-          eType="#//patternstructure/Pattern" containment="true" eOpposite="#//patternstructure/Pattern/countPattern"/>
+          eType="#//patternstructure/Pattern" containment="true" eOpposite="#//patternstructure/Pattern/count"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"
-          eType="#//patternstructure/Morphism" containment="true" eOpposite="#//patternstructure/Morphism/countPattern"/>
+          eType="#//patternstructure/Morphism" containment="true" eOpposite="#//patternstructure/Morphism/count"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="countComparison2" eType="#//patternstructure/CountComparison"
-          eOpposite="#//patternstructure/CountComparison/countPattern2"/>
+          eOpposite="#//patternstructure/CountComparison/count2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CountComparisonArgument" abstract="true"
         interface="true" eSuperTypes="#//patternstructure/PatternElement"/>
