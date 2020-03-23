@@ -175,21 +175,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
 		}
 
-//		if(argument1.getReturnType() == ReturnType.ELEMENT && argument2.getReturnType() != ReturnType.ELEMENT)
-//			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");	
-//		if(argument1.getReturnType() != ReturnType.ELEMENT && argument2.getReturnType() == ReturnType.ELEMENT)
-//			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");	
-
 		if (isDefinedPattern && type == ReturnType.UNSPECIFIED) {
 			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")");
 		}
-
-//		if(argument1 instanceof SetElement || argument1 instanceof OtherOperators || argument1 instanceof BooleanOperator) {
-//			throw new InvalidityException("invalid argument1 type" + " (" + getInternalId() + ")");
-//		}
-//		if(argument2 instanceof SetElement || argument2 instanceof OtherOperators || argument2 instanceof BooleanOperator) {
-//			throw new InvalidityException("invalid argument2 type" + " (" + getInternalId() + ")");
-//		}
 
 		if (argument1 instanceof Element && argument2 instanceof Element) {
 			if (option.getValue() != ComparisonOperator.EQUAL && option.getValue() != ComparisonOperator.NOTEQUAL) {
@@ -198,39 +186,21 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 		}
 
-		// ensure "predicate owner must be argument" constraint:
+
+		
 
 		if (getComparison1().isEmpty() && getComparison2().isEmpty()) {
 			// this is root operator
-			// TODO: adapt
-			EList<ListOfElements> arguments = getAllArgumentElements();
-
-			EList<Element> argumentsFlattened = new BasicEList<Element>();
-			arguments.forEach(argumentsFlattened::addAll);
-
-			boolean ownersInArguments = argumentsFlattened.containsAll(elements);
-
-			if (!ownersInArguments) {
+			// ensure "predicate owner must be argument" constraint:
+			EList<Element> arguments = getAllArgumentElements();
+			if (!arguments.containsAll(elements)) {
+				throw new InvalidityException("invalid predicate owner" + " (" + getInternalId() + ")");
+			}
+			if (!elements.containsAll(arguments)) {
 				throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")");
 			}
-
-			boolean argumentsInElements = true;
-			for (ListOfElements listOfElements : arguments) {
-				boolean isElement = false;
-				for (Element argument : listOfElements) {
-					for (Element owner : elements) {
-						if (argument.equals(owner)) {
-							if (isElement) {
-								throw new InvalidityException(
-										"too many predicate owners" + " (" + getInternalId() + ")");
-							}
-							isElement = true;
-						}
-					}
-				}
-				argumentsInElements &= isElement;
-			}
-			if (!argumentsInElements) {
+		} else {
+			if(!elements.isEmpty()) {
 				throw new InvalidityException("invalid predicate owner" + " (" + getInternalId() + ")");
 			}
 		}
@@ -293,8 +263,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * 
 	 */
 	@Override
-	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {
-		EList<ListOfElements> arguments = argument1.getAllArgumentElements();
+	public EList<Element> getAllArgumentElements() throws InvalidityException {
+		EList<Element> arguments = argument1.getAllArgumentElements();
 		arguments.addAll(argument2.getAllArgumentElements());
 		return arguments;
 	}
@@ -477,33 +447,29 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
-	private void moveElementsFromRootOperatorToOldArgument(Comparable oldArgument, BooleanOperator booleanOperator) {
-		BooleanOperator argumentOperator = (BooleanOperator) oldArgument;
-		EList<Element> boolOpElements = new BasicEList<Element>();
-		boolOpElements.addAll(booleanOperator.getElements()); // boolOp.getElements() is already empty at this point in
+	private void moveElementsFromRootOperatorToOldArgument(Comparable oldArgument, BooleanOperator rootOperator) {
+		BooleanOperator oldArgumentOperator = (BooleanOperator) oldArgument;
+		EList<Element> rootOperatorElements = new BasicEList<Element>();
+		rootOperatorElements.addAll(rootOperator.getElements()); // rootOperator.getElements() is already empty at this point in
 																// case THIS gets DELETED!
-		for (Element element : boolOpElements) {
-			try {
-				EList<ListOfElements> argumentElements = argumentOperator.getAllArgumentElements();
-				for (ListOfElements listOfElements : argumentElements) {
-					if (listOfElements.size() == 1 && listOfElements.contains(element)) {
-						argumentOperator.addElement(element);
-						booleanOperator.removeElement(element);
-					}
-				}
-			} catch (InvalidityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			EList<Element> argumentElements = oldArgumentOperator.getAllArgumentElements();
+			for (Element argumentElement : argumentElements) {
+					oldArgumentOperator.addElement(argumentElement);
+					rootOperator.removeElement(argumentElement);
 			}
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
-	private void removeOldArgumentElementsFromRootOperator(Comparable oldArgument, BooleanOperator booleanOperator) {
+	private void removeOldArgumentElementsFromRootOperator(Comparable oldArgument, BooleanOperator rootOperator) {
 		if (oldArgument != null && oldArgument instanceof Property && ((Property) oldArgument).getElement() != null) {
-			booleanOperator.removeElement(((Property) oldArgument).getElement());
+			rootOperator.removeElement(((Property) oldArgument).getElement());
 		}
 		if (oldArgument != null && oldArgument instanceof Element) {
-			booleanOperator.removeElement((Element) oldArgument);
+			rootOperator.removeElement((Element) oldArgument);
 		}
 	}
 

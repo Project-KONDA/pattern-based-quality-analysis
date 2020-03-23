@@ -506,8 +506,8 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	 * 
 	 */
 	@Override
-	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {				
-		EList<ListOfElements> arguments = getProperty().getAllArgumentElements();
+	public EList<Element> getAllArgumentElements() throws InvalidityException {				
+		EList<Element> arguments = getProperty().getAllArgumentElements();
 		arguments.addAll(getProperty2().getAllArgumentElements());
 		return arguments;
 	}

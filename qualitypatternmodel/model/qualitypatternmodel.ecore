@@ -241,21 +241,13 @@
       <eOperations name="copyNextElementsToPreviousGraphs">
         <eParameters name="recursive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
-      <eOperations name="toXQueryNoCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
       <eOperations name="isRootElement" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="removeMappingsToNext"/>
       <eOperations name="removeFromReturnElements"/>
       <eOperations name="clearMatchRecursively"/>
       <eOperations name="getAllRelations" upperBound="-1" eType="#//graphstructure/Relation"/>
-      <eOperations name="translatePredicatesViaAnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
       <eOperations name="clearPredicatesRecursively"/>
-      <eOperations name="translatePredicatesViaBrackets" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+      <eOperations name="translatePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>
@@ -354,7 +346,7 @@
       <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getAllArgumentElements" upperBound="-1" eType="#//graphstructure/ListOfElements"
+      <eOperations name="getAllArgumentElements" upperBound="-1" eType="#//graphstructure/Element"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -325,8 +326,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {
-		return new BasicEList<ListOfElements>();
+	public EList<Element> getAllArgumentElements() throws InvalidityException {
+		return new BasicEList<Element>();
 	}
 
 	/**

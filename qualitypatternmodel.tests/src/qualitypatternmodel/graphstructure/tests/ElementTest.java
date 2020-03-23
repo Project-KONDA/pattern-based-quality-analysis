@@ -20,15 +20,13 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#removeElementFromPreviousGraphs() <em>Remove Element From Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyNextElementToPreviousGraphs(qualitypatternmodel.graphstructure.Element, boolean) <em>Copy Next Element To Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyNextElementsToPreviousGraphs(boolean) <em>Copy Next Elements To Previous Graphs</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#toXQueryNoCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery No Count</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isRootElement() <em>Is Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElements() <em>Remove From Return Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearMatchRecursively() <em>Clear Match Recursively</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllRelations() <em>Get All Relations</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#translatePredicatesViaAnd(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates Via And</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#translatePredicatesViaBrackets(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates Via Brackets</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllElements() <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getOriginalID() <em>Get Original ID</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}</li>
@@ -171,19 +169,6 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#toXQueryNoCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery No Count</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#toXQueryNoCount(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	public void testToXQueryNoCount__Location() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#isRootElement() <em>Is Root Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,19 +234,6 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#translatePredicatesViaAnd(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates Via And</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#translatePredicatesViaAnd(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	public void testTranslatePredicatesViaAnd__Location() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -275,13 +247,13 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#translatePredicatesViaBrackets(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates Via Brackets</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#translatePredicatesViaBrackets(qualitypatternmodel.patternstructure.Location)
+	 * @see qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
-	public void testTranslatePredicatesViaBrackets__Location() {
+	public void testTranslatePredicates__Location() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

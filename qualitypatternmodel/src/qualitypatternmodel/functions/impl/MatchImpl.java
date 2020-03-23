@@ -19,6 +19,7 @@ import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.parameters.BooleanParam;
@@ -140,7 +141,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * 
 	 */
 	@Override
-	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {		
+	public EList<Element> getAllArgumentElements() throws InvalidityException {		
 		return property.getAllArgumentElements();
 	}
 	

@@ -251,20 +251,14 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementsToPreviousGraphs">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementsToPreviousGraphs/recursive"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/toXQueryNoCount">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/toXQueryNoCount/location"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/isRootElement"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/removeMappingsToNext"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElements"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearMatchRecursively"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getAllRelations"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaAnd">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaAnd/location"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearPredicatesRecursively"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaBrackets">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicatesViaBrackets/location"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicates">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/translatePredicates/location"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getAllElements"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getOriginalID"/>

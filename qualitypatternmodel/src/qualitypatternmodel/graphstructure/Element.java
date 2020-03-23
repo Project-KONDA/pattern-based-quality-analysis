@@ -339,19 +339,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
- 	 * Returns the query representing this <code>SingleElement</code>.
-	 * The predicates are inserted as XPath predicates at the end of the path expression.
-	 * Is called in case this <code>SingleElement</code> does not have a count predicate.
-	 * @param location the <code>Location</code> of the <code>Element</code> this in the pattern
-	 * @return the query representing this <code>SingleElement</code>
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String toXQueryNoCount(Location location) throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
 	 * @generated
@@ -393,14 +380,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String translatePredicatesViaAnd(Location location) throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -412,7 +391,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String translatePredicatesViaBrackets(Location location) throws InvalidityException;
+	String translatePredicates(Location location) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

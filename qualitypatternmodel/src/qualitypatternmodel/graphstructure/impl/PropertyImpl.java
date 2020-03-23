@@ -203,7 +203,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * 
 	 */
 	@Override
-	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {		
+	public EList<Element> getAllArgumentElements() throws InvalidityException {		
 		return getElement().getAllArgumentElements();
 	}
 

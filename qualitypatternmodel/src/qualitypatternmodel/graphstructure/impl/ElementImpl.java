@@ -238,59 +238,48 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	@Override
 	public String toXQuery(Location location) throws InvalidityException {
-		if (isRootElement()) {
-			String result = "";
-			for (Element nextElement : getNextElements()) {
-				result += nextElement.toXQuery(location);
-			}
-			return result;
-		} else {			
-			return toXQueryNoCount(location);			
-		}
-	}
-
-	@Override
-	public String toXQueryNoCount(Location location) throws InvalidityException {
+		String query = "";
 		translated = true;
 		
-		String xPredicates = translatePredicatesViaBrackets(location);
-
-		String result = "";
-		if (location == Location.RETURN) {
-			result = FOR + getXQueryVariable() + IN; 			
-			if (mappingFrom == null) {
-				String xPathExpression = translatePathFromPrevious();
-				result += xPathExpression + xPredicates;
-			} else if (!getPredicates().isEmpty()) {
-				result += getXQueryVariable() + xPredicates;
+		if(!isRootElement()) {
+			String xPredicates = translatePredicates(location);
+			if (location == Location.RETURN) {
+				query = FOR + getXQueryVariable() + IN; 			
+				if (mappingFrom == null) {
+					String xPathExpression = translatePathFromPrevious();
+					query += xPathExpression + xPredicates;
+				} else if (!getPredicates().isEmpty()) {
+					query += getXQueryVariable() + xPredicates;
+				} else {
+					query = "";
+				}
+				
 			} else {
-				result = "";
-			}
-			
-		} else {
-			if (location == Location.EXISTS) {
-				result += SOME;
-			} else if (location == Location.FORALL) {
-				result += EVERY;
-			} else {
-				throw new InvalidityException("invalid location");
-			}
-			result += getXQueryVariable() + IN;
-			if (mappingFrom == null) {
-				String xPathExpression = translatePathFromPrevious();
-				result += xPathExpression + xPredicates + SATISFIES;
-			} else if (!getPredicates().isEmpty()) {
-				result += getXQueryVariable() + xPredicates + SATISFIES;
-			} else {
-				result = "";
+				if (location == Location.EXISTS) {
+					query += SOME;
+				} else if (location == Location.FORALL) {
+					query += EVERY;
+				} else {
+					throw new InvalidityException("invalid location");
+				}
+				query += getXQueryVariable() + IN;
+				if (mappingFrom == null) {
+					String xPathExpression = translatePathFromPrevious();
+					query += xPathExpression + xPredicates + SATISFIES;
+				} else if (!getPredicates().isEmpty()) {
+					query += getXQueryVariable() + xPredicates + SATISFIES;
+				} else {
+					query = "";
+				}
 			}
 		}
 
 		for (Element nextElement : getNextElements()) {
-			result += nextElement.toXQuery(location);
+			query += nextElement.toXQuery(location);
 		}
 
-		return result;
+		return query;			
+		
 	}
 
 	/**
@@ -492,21 +481,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		}
 	}
 
-//	/**
-//	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-//	 * 
-//	 * @generated NOT
-//	 */
-//	@Override
-//	public boolean hasCountPredicate() {
-//		for (BooleanOperator operator : getPredicates()) {
-//			if (operator.hasCountPredicate()) {
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
-
 	@Override
 	public void isValid(boolean isDefinedPattern)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -518,9 +492,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		if (!eIsSet(GraphstructurePackage.ELEMENT__ROOT))
 			relationFromPrevious.isValid(isDefinedPattern);
 		
-		if(getPreviousElement() == null && getGraph() == null) {
-			throw new InvalidityException("missing previous element or root graph");
-		}
 		if(getPreviousElement() != null) {
 			for(ElementMapping mapping : getMappingTo()) {
 				if(!mapping.getTo().getPreviousElement().getMappingFrom().equals(getPreviousElement())) {
@@ -556,6 +527,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		if (isRootElement() && getRelationFromPrevious() != null)
 			throw new InvalidityException("relation specified for root element");
 
+		if(getPreviousElement() == null && getGraph() == null) {
+			throw new InvalidityException("missing previous element or root graph");
+		}
+		if(isRootElement() && !getPredicates().isEmpty()) {
+			throw new InvalidityException("root has predicate");
+		}
+		
 		for (Element next : getNextElements()) {
 			if (next == null)
 				throw new InvalidityException("nextElement null (" + next + ")");
@@ -606,11 +584,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * 
 	 */
 	@Override
-	public EList<ListOfElements> getAllArgumentElements() {
-		EList<ListOfElements> list = new BasicEList<ListOfElements>();
-		ListOfElements listOfElements = new ListOfElements();
-		listOfElements.add(this);
-		list.add(listOfElements);
+	public EList<Element> getAllArgumentElements() {
+		EList<Element> list = new BasicEList<Element>();
+		list.add(this);
 		return list;
 	}
 
@@ -1539,13 +1515,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN:
 				copyNextElementsToPreviousGraphs((Boolean)arguments.get(0));
 				return null;
-			case GraphstructurePackage.ELEMENT___TO_XQUERY_NO_COUNT__LOCATION:
-				try {
-					return toXQueryNoCount((Location)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case GraphstructurePackage.ELEMENT___IS_ROOT_ELEMENT:
 				return isRootElement();
 			case GraphstructurePackage.ELEMENT___REMOVE_MAPPINGS_TO_NEXT:
@@ -1559,19 +1528,12 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				return null;
 			case GraphstructurePackage.ELEMENT___GET_ALL_RELATIONS:
 				return getAllRelations();
-			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION:
-				try {
-					return translatePredicatesViaAnd((Location)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case GraphstructurePackage.ELEMENT___CLEAR_PREDICATES_RECURSIVELY:
 				clearPredicatesRecursively();
 				return null;
-			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION:
+			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES__LOCATION:
 				try {
-					return translatePredicatesViaBrackets((Location)arguments.get(0));
+					return translatePredicates((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -1713,7 +1675,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		}
 
 	@Override
-	public String translatePredicatesViaBrackets(Location location) throws InvalidityException {
+	public String translatePredicates(Location location) throws InvalidityException {
 		String xPredicates = "";
 		predicatesAreBeingTranslated = true;
 		for (BooleanOperator predicate : predicates) {
@@ -1724,23 +1686,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
 	}
-
-	@Override
-	public String translatePredicatesViaAnd(Location location) throws InvalidityException {
-		String xPredicates = "";
-		int counter = 0;
-		for (BooleanOperator predicate : predicates) {
-			if (predicate.isTranslatable()) {
-				xPredicates += predicate.toXQuery(location);
-				if (counter != predicates.size() - 1 && predicates.get(counter + 1).isTranslatable()) {
-					xPredicates += AND;
-				}
-				counter++;
-			}
-		}
-		return xPredicates;
-	}
-
+	
 	@Override
 	public void prepareTranslation() {
 		translated = false;

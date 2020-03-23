@@ -83,9 +83,9 @@ public interface Comparable extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="qualitypatternmodel.graphstructure.ListOfElements" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<ListOfElements> getAllArgumentElements() throws InvalidityException;
+	EList<Element> getAllArgumentElements() throws InvalidityException;
 
 } // GraphElement

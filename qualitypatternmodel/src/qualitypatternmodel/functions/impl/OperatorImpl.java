@@ -23,8 +23,8 @@ import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Comparable;
-import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -181,7 +181,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 * @generated
 	 */
 	@Override
-	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {
+	public EList<Element> getAllArgumentElements() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
