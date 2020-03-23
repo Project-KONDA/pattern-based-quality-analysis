@@ -133,13 +133,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int RELATION___GENERATE_QUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -332,13 +332,13 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPARABLE_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARABLE___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int COMPARABLE___GENERATE_QUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -558,13 +558,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___TO_XQUERY__LOCATION = COMPARABLE___TO_XQUERY__LOCATION;
+	int PROPERTY___GENERATE_QUERY__LOCATION = COMPARABLE___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -856,13 +856,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 12;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___TO_XQUERY__LOCATION = COMPARABLE___TO_XQUERY__LOCATION;
+	int ELEMENT___GENERATE_QUERY__LOCATION = COMPARABLE___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1271,22 +1271,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__GRAPH_DEPTH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Return Graph</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH__RETURN_GRAPH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Quantified Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__QUANTIFIED_CONDITION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int GRAPH__QUANTIFIED_CONDITION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -1295,7 +1286,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__PATTERN = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int GRAPH__PATTERN = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Return Elements</b></em>' reference list.
@@ -1304,7 +1295,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__RETURN_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
+	int GRAPH__RETURN_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Morphism To</b></em>' reference list.
@@ -1313,7 +1304,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__MORPHISM_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
+	int GRAPH__MORPHISM_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Morphism From</b></em>' reference.
@@ -1322,7 +1313,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__MORPHISM_FROM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 8;
+	int GRAPH__MORPHISM_FROM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
@@ -1331,16 +1322,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 9;
+	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___TO_XQUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int GRAPH___GENERATE_QUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1451,13 +1442,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___GET_ALL_RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Is Return Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___IS_RETURN_GRAPH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.
@@ -2189,17 +2189,6 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getGraph_GraphDepth();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph <em>Return Graph</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Return Graph</em>'.
-	 * @see qualitypatternmodel.graphstructure.Graph#isReturnGraph()
-	 * @see #getGraph()
-	 * @generated
-	 */
-	EAttribute getGraph_ReturnGraph();
-
-	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2260,6 +2249,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGraph__GetAllRelations();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph() <em>Is Return Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Return Graph</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Graph#isReturnGraph()
+	 * @generated
+	 */
+	EOperation getGraph__IsReturnGraph();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}'.
@@ -2931,14 +2930,6 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute GRAPH__GRAPH_DEPTH = eINSTANCE.getGraph_GraphDepth();
 
 		/**
-		 * The meta object literal for the '<em><b>Return Graph</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GRAPH__RETURN_GRAPH = eINSTANCE.getGraph_ReturnGraph();
-
-		/**
 		 * The meta object literal for the '<em><b>Quantified Condition</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2985,6 +2976,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRAPH___GET_ALL_RELATIONS = eINSTANCE.getGraph__GetAllRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Return Graph</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___IS_RETURN_GRAPH = eINSTANCE.getGraph__IsReturnGraph();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.

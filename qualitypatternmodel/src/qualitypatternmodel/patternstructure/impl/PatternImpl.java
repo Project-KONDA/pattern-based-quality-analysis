@@ -165,14 +165,14 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
-		String res = getParameterList().toXQuery(location);
+	public String generateQuery(Location location) throws InvalidityException {
+		String res = getParameterList().generateQuery(location);
 
 		if (graph.getReturnElements() == null || graph.getReturnElements().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
-		res += graph.toXQuery(Location.RETURN);
-		res += WHERE + condition.toXQuery(Location.OUTSIDE); // TODO: schachteln!
+		res += graph.generateQuery(Location.RETURN);
+		res += WHERE + condition.generateQuery(Location.OUTSIDE); // TODO: schachteln!
 
 		res += RETURN + "(";
 		EList<Element> returnElements = graph.getReturnElements();
@@ -184,8 +184,8 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		return res + ")";
 	}
 
-	public String toXQuery() throws InvalidityException {
-		return toXQuery(Location.OUTSIDE);
+	public String generateQuery() throws InvalidityException {
+		return generateQuery(Location.OUTSIDE);
 	}
 
 	/**
@@ -296,11 +296,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__PARAMETER_LIST, newParameterList, newParameterList));
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Graph getGraph() {
 		return graph;
 	}
@@ -317,7 +312,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		Graph oldGraph = graph;
 		graph = newGraph;
 		if (graph != null) {
-			graph.setReturnGraph(true);
 			graph.setGraphDepth(0);
 		}
 		if (eNotificationRequired()) {
@@ -331,11 +325,6 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		return msgs;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public void setGraph(Graph newGraph) {
 		if (newGraph != graph) {
 			NotificationChain msgs = null;
@@ -654,9 +643,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.PATTERN___TO_XQUERY:
+			case PatternstructurePackage.PATTERN___GENERATE_QUERY:
 				try {
-					return toXQuery();
+					return generateQuery();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

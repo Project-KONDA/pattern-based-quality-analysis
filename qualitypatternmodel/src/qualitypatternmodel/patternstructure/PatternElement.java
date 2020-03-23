@@ -83,7 +83,7 @@ public interface PatternElement extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String toXQuery(Location location) throws InvalidityException;
+	String generateQuery(Location location) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,14 +111,6 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	String myToString();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,5 +154,13 @@ public interface PatternElement extends EObject {
 	 * <!-- end-user-doc -->
 	 */
 	PatternElement getAncestor(Class<?> cls) throws MissingPatternContainerException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String myToString();
 
 } // PatternElement

@@ -142,7 +142,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
           eType="#//functions/OperatorList" eOpposite="#//functions/OperatorList/operators"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="OtherOperator" abstract="true" eSuperTypes="#//functions/Operator"/>
     <eClassifiers xsi:type="ecore:EClass" name="NumberOperator" abstract="true" eSuperTypes="#//functions/Operator"/>
     <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//functions/BooleanOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
@@ -335,15 +334,13 @@
       </eOperations>
       <eOperations name="getAllElements" upperBound="-1" eType="#//graphstructure/Element"/>
       <eOperations name="getAllRelations" upperBound="-1" eType="#//graphstructure/Relation"/>
+      <eOperations name="isReturnGraph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rootElement" lowerBound="1"
           eType="#//graphstructure/Element" containment="true" eOpposite="#//graphstructure/Element/root"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
           eType="#//functions/OperatorList" containment="true" eOpposite="#//functions/OperatorList/graph"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnGraph" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          defaultValueLiteral="false"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedCondition"
           eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//patternstructure/Pattern"
@@ -490,7 +487,7 @@
       <eLiterals name="FORALL" value="1" literal="FORALL"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Pattern" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+      <eOperations name="generateQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getNewRefNo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eOperations name="checkMorphismOfNextGraph" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
@@ -507,7 +504,7 @@
           eOpposite="#//patternstructure/Count/pattern"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
-      <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+      <eOperations name="generateQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>

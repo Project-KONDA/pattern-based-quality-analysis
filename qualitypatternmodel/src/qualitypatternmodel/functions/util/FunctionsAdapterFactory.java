@@ -77,10 +77,6 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 				return createOperatorAdapter();
 			}
 			@Override
-			public Adapter caseOtherOperator(OtherOperator object) {
-				return createOtherOperatorAdapter();
-			}
-			@Override
 			public Adapter caseNumberOperator(NumberOperator object) {
 				return createNumberOperatorAdapter();
 			}
@@ -153,20 +149,6 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOperatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.functions.OtherOperator <em>Other Operator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.functions.OtherOperator
-	 * @generated
-	 */
-	public Adapter createOtherOperatorAdapter() {
 		return null;
 	}
 

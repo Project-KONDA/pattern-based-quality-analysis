@@ -27,7 +27,7 @@ public class Test00 {
 				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(pattern.myToString());
 				System.out.print("\n___TRANSLATION___");
-				System.out.println(pattern.toXQuery());
+				System.out.println(pattern.generateQuery());
 			} catch (Exception e) {
 				e.printStackTrace();
 				try {

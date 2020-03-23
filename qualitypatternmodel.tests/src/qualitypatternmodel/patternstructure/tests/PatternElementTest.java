@@ -13,7 +13,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location) <em>To XQuery</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#generateQuery(qualitypatternmodel.patternstructure.Location) <em>Generate Query</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAllInputs() <em>Get All Inputs</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}</li>
@@ -67,13 +67,13 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location) <em>To XQuery</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#generateQuery(qualitypatternmodel.patternstructure.Location) <em>Generate Query</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateQuery(qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
-	public void testToXQuery__Location() {
+	public void testGenerateQuery__Location() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -119,19 +119,6 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#myToString()
-	 * @generated
-	 */
-	public void testMyToString() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,6 +139,19 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetAncestor__Class() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#myToString()
+	 * @generated
+	 */
+	public void testMyToString() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

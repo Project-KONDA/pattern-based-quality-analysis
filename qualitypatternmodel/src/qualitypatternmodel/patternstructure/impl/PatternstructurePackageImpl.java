@@ -751,8 +751,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getPattern_Graph() {
-		return (EReference)patternEClass.getEStructuralFeatures().get(1);
+	public EOperation getPattern__GenerateQuery() {
+		return patternEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -761,8 +761,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPattern__ToXQuery() {
-		return patternEClass.getEOperations().get(0);
+	public EReference getPattern_Graph() {
+		return (EReference)patternEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -821,7 +821,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__ToXQuery__Location() {
+	public EOperation getPatternElement__GenerateQuery__Location() {
 		return patternElementEClass.getEOperations().get(0);
 	}
 
@@ -1051,16 +1051,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__MyToString() {
-		return patternElementEClass.getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getPatternElement__GetContainer() {
 		return patternElementEClass.getEOperations().get(5);
 	}
@@ -1073,6 +1063,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EOperation getPatternElement__GetAncestor__Class() {
 		return patternElementEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__MyToString() {
+		return patternElementEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -1239,14 +1239,14 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(patternEClass, PATTERN__ELEMENT_COUNTER);
 		createEAttribute(patternEClass, PATTERN__NAME);
 		createEReference(patternEClass, PATTERN__COUNT);
-		createEOperation(patternEClass, PATTERN___TO_XQUERY);
+		createEOperation(patternEClass, PATTERN___GENERATE_QUERY);
 		createEOperation(patternEClass, PATTERN___GET_NEW_REF_NO);
 		createEOperation(patternEClass, PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__INTERNAL_ID);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___TO_XQUERY__LOCATION);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GENERATE_QUERY__LOCATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_INPUTS);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___PREPARE_TRANSLATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN);
@@ -1412,7 +1412,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getPattern_Name(), ecorePackage.getEString(), "name", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_Count(), this.getCount(), this.getCount_Pattern(), "count", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getPattern__ToXQuery(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPattern__GenerateQuery(), ecorePackage.getEString(), "generateQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEOperation(getPattern__GetNewRefNo(), ecorePackage.getEInt(), "getNewRefNo", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1424,7 +1424,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getPatternElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPatternElement_InternalId(), ecorePackage.getEInt(), "internalId", "-1", 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getPatternElement__ToXQuery__Location(), ecorePackage.getEString(), "toXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__GenerateQuery__Location(), ecorePackage.getEString(), "generateQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 

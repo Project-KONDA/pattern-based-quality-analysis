@@ -46,7 +46,7 @@ public class TextListParamImpl extends TextParamImpl implements TextListParam {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		return getListVar();
 	}
 	

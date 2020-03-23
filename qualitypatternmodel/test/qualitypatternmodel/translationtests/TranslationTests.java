@@ -66,7 +66,7 @@ public class TranslationTests {
 		
 		try {
 			testPair.getPattern().isValid(true);
-			String result = applyQuery(testPair.getPattern().toXQuery());
+			String result = applyQuery(testPair.getPattern().generateQuery());
 			String expectedResult = applyQuery(testPair.getManualQuery());
 			boolean isCorrect = compareResults(result, expectedResult);	
 			if(isCorrect) {

@@ -22,7 +22,6 @@ import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.NumberOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
-import qualitypatternmodel.functions.OtherOperator;
 import qualitypatternmodel.functions.ReferenceOperator;
 import qualitypatternmodel.functions.util.FunctionsValidator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -54,13 +53,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	private EClass operatorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass otherOperatorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -344,16 +336,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	@Override
 	public EOperation getOperator__GetArguments() {
 		return operatorEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getOtherOperator() {
-		return otherOperatorEClass;
 	}
 
 	/**
@@ -662,8 +644,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEOperation(operatorEClass, OPERATOR___GET_ARGUMENTS);
 		createEOperation(operatorEClass, OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
 
-		otherOperatorEClass = createEClass(OTHER_OPERATOR);
-
 		numberOperatorEClass = createEClass(NUMBER_OPERATOR);
 
 		matchEClass = createEClass(MATCH);
@@ -736,7 +716,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		booleanOperatorEClass.getESuperTypes().add(this.getOperator());
 		operatorEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
 		operatorEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
-		otherOperatorEClass.getESuperTypes().add(this.getOperator());
 		numberOperatorEClass.getESuperTypes().add(this.getOperator());
 		matchEClass.getESuperTypes().add(this.getBooleanOperator());
 		comparisonEClass.getESuperTypes().add(this.getBooleanOperator());
@@ -784,8 +763,6 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(otherOperatorEClass, OtherOperator.class, "OtherOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(numberOperatorEClass, NumberOperator.class, "NumberOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

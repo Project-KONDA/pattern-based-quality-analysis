@@ -41,7 +41,7 @@ public class ValidityTest {
 			e.printStackTrace();
 		}
 		try {
-			System.out.println(pattern.toXQuery());
+			System.out.println(pattern.generateQuery());
 		} catch (InvalidityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

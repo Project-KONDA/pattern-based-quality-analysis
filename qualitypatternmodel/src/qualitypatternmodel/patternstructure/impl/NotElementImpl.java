@@ -52,9 +52,9 @@ public class NotElementImpl extends ConditionImpl implements NotElement {
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		if (condition != null) {
-			return "not(" + condition.toXQuery(location) + ")";
+			return "not(" + condition.generateQuery(location) + ")";
 		} else {
 			throw new InvalidityException("invalid condition");
 		}

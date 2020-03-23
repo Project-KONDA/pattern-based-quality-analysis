@@ -76,7 +76,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		if(getValue() != null) {
 			return getValue() + "()";
 		} else {

@@ -142,18 +142,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String myToString() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @throws MissingPatternContainerException 
 	 * @throws Exception 
@@ -180,6 +168,18 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			return this;
 		else
 			return getContainer().getAncestor(cls);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String myToString() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -258,7 +258,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -334,9 +334,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION:
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION:
 				try {
-					return toXQuery((Location)arguments.get(0));
+					return generateQuery((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

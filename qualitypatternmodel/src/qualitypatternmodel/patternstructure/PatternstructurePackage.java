@@ -97,13 +97,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT_FEATURE_COUNT = 2;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___TO_XQUERY__LOCATION = 0;
+	int PATTERN_ELEMENT___GENERATE_QUERY__LOCATION = 0;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -242,13 +242,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int MAPPING___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -405,13 +405,13 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING___TO_XQUERY__LOCATION = MAPPING___TO_XQUERY__LOCATION;
+	int RELATION_MAPPING___GENERATE_QUERY__LOCATION = MAPPING___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -586,13 +586,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int CONDITION___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -821,13 +821,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
+	int QUANTIFIED_CONDITION___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1038,13 +1038,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int MORPHISM___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1237,13 +1237,13 @@ public interface PatternstructurePackage extends EPackage {
 	int ELEMENT_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___TO_XQUERY__LOCATION = MAPPING___TO_XQUERY__LOCATION;
+	int ELEMENT_MAPPING___GENERATE_QUERY__LOCATION = MAPPING___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1445,13 +1445,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
+	int FORMULA___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1635,13 +1635,13 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
+	int TRUE_ELEMENT___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1825,13 +1825,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int PATTERN___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1906,13 +1906,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___TO_XQUERY = PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int PATTERN___GENERATE_QUERY = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get New Ref No</em>' operation.
@@ -2042,13 +2042,13 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_ELEMENT_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
+	int NOT_ELEMENT___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2277,13 +2277,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_COMPARISON_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___TO_XQUERY__LOCATION = CONDITION___TO_XQUERY__LOCATION;
+	int COUNT_COMPARISON___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2467,13 +2467,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int COUNT___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2612,13 +2612,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_COMPARISON_ARGUMENT_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
+	 * The operation id for the '<em>Generate Query</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT___TO_XQUERY__LOCATION = PATTERN_ELEMENT___TO_XQUERY__LOCATION;
+	int COUNT_COMPARISON_ARGUMENT___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3298,6 +3298,16 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getPattern_Count();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#generateQuery() <em>Generate Query</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Query</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.Pattern#generateQuery()
+	 * @generated
+	 */
+	EOperation getPattern__GenerateQuery();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3307,16 +3317,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPattern_Graph();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#toXQuery() <em>To XQuery</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>To XQuery</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Pattern#toXQuery()
-	 * @generated
-	 */
-	EOperation getPattern__ToXQuery();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#getNewRefNo() <em>Get New Ref No</em>}' operation.
@@ -3371,14 +3371,14 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getPatternElement_InternalId();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location) <em>To XQuery</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateQuery(qualitypatternmodel.patternstructure.Location) <em>Generate Query</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>To XQuery</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#toXQuery(qualitypatternmodel.patternstructure.Location)
+	 * @return the meta object for the '<em>Generate Query</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateQuery(qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
-	EOperation getPatternElement__ToXQuery__Location();
+	EOperation getPatternElement__GenerateQuery__Location();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllInputs() <em>Get All Inputs</em>}' operation.
@@ -3611,16 +3611,6 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getGraphContainer__GetMorphism();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>My To String</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#myToString()
-	 * @generated
-	 */
-	EOperation getPatternElement__MyToString();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3639,6 +3629,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__GetAncestor__Class();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>My To String</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#myToString()
+	 * @generated
+	 */
+	EOperation getPatternElement__MyToString();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}' operation.
@@ -4133,20 +4133,20 @@ public interface PatternstructurePackage extends EPackage {
 		EReference PATTERN__COUNT = eINSTANCE.getPattern_Count();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Query</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN___GENERATE_QUERY = eINSTANCE.getPattern__GenerateQuery();
+
+		/**
 		 * The meta object literal for the '<em><b>Graph</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PATTERN__GRAPH = eINSTANCE.getPattern_Graph();
-
-		/**
-		 * The meta object literal for the '<em><b>To XQuery</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN___TO_XQUERY = eINSTANCE.getPattern__ToXQuery();
 
 		/**
 		 * The meta object literal for the '<em><b>Get New Ref No</b></em>' operation.
@@ -4191,12 +4191,12 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute PATTERN_ELEMENT__INTERNAL_ID = eINSTANCE.getPatternElement_InternalId();
 
 		/**
-		 * The meta object literal for the '<em><b>To XQuery</b></em>' operation.
+		 * The meta object literal for the '<em><b>Generate Query</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_ELEMENT___TO_XQUERY__LOCATION = eINSTANCE.getPatternElement__ToXQuery__Location();
+		EOperation PATTERN_ELEMENT___GENERATE_QUERY__LOCATION = eINSTANCE.getPatternElement__GenerateQuery__Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Inputs</b></em>' operation.
@@ -4385,14 +4385,6 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation GRAPH_CONTAINER___GET_MORPHISM = eINSTANCE.getGraphContainer__GetMorphism();
 
 		/**
-		 * The meta object literal for the '<em><b>My To String</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN_ELEMENT___MY_TO_STRING = eINSTANCE.getPatternElement__MyToString();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Container</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4407,6 +4399,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___GET_ANCESTOR__CLASS = eINSTANCE.getPatternElement__GetAncestor__Class();
+
+		/**
+		 * The meta object literal for the '<em><b>My To String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___MY_TO_STRING = eINSTANCE.getPatternElement__MyToString();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.

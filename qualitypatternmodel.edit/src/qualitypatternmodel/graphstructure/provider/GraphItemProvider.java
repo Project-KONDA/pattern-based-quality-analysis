@@ -54,11 +54,33 @@ public class GraphItemProvider extends PatternElementItemProvider {
 
 			addReturnElementsPropertyDescriptor(object);
 			addGraphDepthPropertyDescriptor(object);
-			addReturnGraphPropertyDescriptor(object);
+//			addReturnGraphPropertyDescriptor(object);
 //			addGetAllElementsPropertyDescriptor(object);
 //			addGetAllRelationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Graph Depth feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGraphDepthPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Graph_graphDepth_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_graphDepth_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__GRAPH_DEPTH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -123,50 +145,6 @@ public class GraphItemProvider extends PatternElementItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Graph Depth feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGraphDepthPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Graph_graphDepth_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_graphDepth_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__GRAPH_DEPTH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Return Graph feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReturnGraphPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Graph_returnGraph_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_returnGraph_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__RETURN_GRAPH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -241,7 +219,6 @@ public class GraphItemProvider extends PatternElementItemProvider {
 
 		switch (notification.getFeatureID(Graph.class)) {
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
-			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:

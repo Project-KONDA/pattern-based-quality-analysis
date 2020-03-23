@@ -236,7 +236,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		String query = "";
 		translated = true;
 		
@@ -274,7 +274,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		}
 
 		for (Element nextElement : getNextElements()) {
-			query += nextElement.toXQuery(location);
+			query += nextElement.generateQuery(location);
 		}
 
 		return query;			
@@ -1679,7 +1679,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		predicatesAreBeingTranslated = true;
 		for (BooleanOperator predicate : predicates) {
 			if (predicate.isTranslatable()) {
-				xPredicates += "[" + predicate.toXQuery(location) + "]";
+				xPredicates += "[" + predicate.generateQuery(location) + "]";
 			}
 		}
 		predicatesAreBeingTranslated = false;

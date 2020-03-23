@@ -91,7 +91,7 @@ public class TextLiteralParamImpl extends TextParamImpl implements TextLiteralPa
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		if(inputIsValid()) {
 			return "\"" + getValue() + "\"";
 		} else {

@@ -110,9 +110,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		if (option != null) {
-			return option.toXQuery(location);
+			return option.generateQuery(location);
 		} else {
 			throw new InvalidityException("option null");
 		}

@@ -30,7 +30,7 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		return "true()";
 	}
 	

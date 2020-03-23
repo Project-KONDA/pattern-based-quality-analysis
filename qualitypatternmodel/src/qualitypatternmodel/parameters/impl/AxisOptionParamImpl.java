@@ -108,7 +108,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		return "/" + value.getLiteral() + "::*";
 	}
 

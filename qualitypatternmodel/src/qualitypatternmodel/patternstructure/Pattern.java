@@ -177,7 +177,7 @@ public interface Pattern extends PatternElement {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String toXQuery() throws InvalidityException;
+	String generateQuery() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

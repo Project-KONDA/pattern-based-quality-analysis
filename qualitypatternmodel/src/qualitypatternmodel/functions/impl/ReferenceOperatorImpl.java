@@ -91,7 +91,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		if(property != null && property2 != null) {
 			String conversionStartArgument1 = type.getConversion();
 			String conversionEndArgument1 = type.getConversionEnd();
@@ -100,7 +100,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 			String conversionEndArgument2 = type.getConversionEnd();
 					
 			ComparisonOperator operator = ComparisonOperator.EQUAL;				
-			return conversionStartArgument1 + property.toXQuery(location) + conversionEndArgument1 + operator.getLiteral() + conversionStartArgument2 +  property2.toXQuery(location) + conversionEndArgument2;
+			return conversionStartArgument1 + property.generateQuery(location) + conversionEndArgument1 + operator.getLiteral() + conversionStartArgument2 +  property2.generateQuery(location) + conversionEndArgument2;
 		} else {
 			throw new InvalidityException("invalid arguments for Reference" + " (" + getInternalId() + ")");
 		}

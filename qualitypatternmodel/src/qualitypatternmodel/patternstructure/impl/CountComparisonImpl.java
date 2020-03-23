@@ -109,9 +109,9 @@ public class CountComparisonImpl extends ConditionImpl implements CountCompariso
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
-		String argument1 = getArgument1().toXQuery(location);
-		String argument2 = getArgument2().toXQuery(location);
+	public String generateQuery(Location location) throws InvalidityException {
+		String argument1 = getArgument1().generateQuery(location);
+		String argument2 = getArgument2().generateQuery(location);
 		return argument1 + getOperator().getLiteral() + argument2;
 	}
 	

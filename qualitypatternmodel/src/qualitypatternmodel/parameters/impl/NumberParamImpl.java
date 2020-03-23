@@ -73,7 +73,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		if(getValue() != null) {
 			return Double.toString(getValue());
 		} else {

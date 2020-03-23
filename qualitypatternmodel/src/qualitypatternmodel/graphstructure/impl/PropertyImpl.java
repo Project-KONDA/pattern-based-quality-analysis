@@ -154,7 +154,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {		
+	public String generateQuery(Location location) throws InvalidityException {		
 		if(option == null || option.getValue() == null) {
 			throw new InvalidityException("propertyOptions invalid");
 		}				

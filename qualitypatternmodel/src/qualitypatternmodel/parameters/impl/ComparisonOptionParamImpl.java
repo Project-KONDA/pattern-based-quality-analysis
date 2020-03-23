@@ -112,7 +112,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		return getValue().getLiteral();
 	}
 	

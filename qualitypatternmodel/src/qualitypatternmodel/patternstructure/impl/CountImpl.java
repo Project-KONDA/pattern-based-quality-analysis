@@ -74,8 +74,8 @@ public class CountImpl extends PatternElementImpl implements Count {
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
-		return "count(" + getPattern().toXQuery() + ")";
+	public String generateQuery(Location location) throws InvalidityException {
+		return "count(" + getPattern().generateQuery() + ")";
 	}
 	
 	@Override

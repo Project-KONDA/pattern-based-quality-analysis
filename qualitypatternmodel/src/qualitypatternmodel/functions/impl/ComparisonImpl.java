@@ -113,7 +113,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		if (option != null && option.getValue() != null && argument1 != null && argument2 != null) {
 			ComparisonOperator operator = option.getValue();
 			String conversionStartArgument1 = type.getConversion();
@@ -122,7 +122,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (argument1 instanceof Element) {
 				argument1Translated = ((Element) argument1).getXQueryRepresentation(location);
 			} else {
-				argument1Translated = argument1.toXQuery(location);
+				argument1Translated = argument1.generateQuery(location);
 			}
 			String conversionStartArgument2 = type.getConversion();
 			String conversionEndArgument2 = type.getConversionEnd();
@@ -130,7 +130,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (argument2 instanceof Element) {
 				argument2Translated = ((Element) argument2).getXQueryRepresentation(location);
 			} else {
-				argument2Translated = argument2.toXQuery(location);
+				argument2Translated = argument2.generateQuery(location);
 			}
 			return conversionStartArgument1 + argument1Translated + conversionEndArgument1 + operator.getLiteral()
 					+ conversionStartArgument2 + argument2Translated + conversionEndArgument2;

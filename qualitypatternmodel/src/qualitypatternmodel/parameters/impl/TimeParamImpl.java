@@ -56,7 +56,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		if(getValue() != null) {
 			return "\"" + getValue() + "\"";
 		} else {

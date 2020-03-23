@@ -25,7 +25,6 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGraphDepth <em>Graph Depth</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}</li>
@@ -162,27 +161,12 @@ public interface Graph extends PatternElement {
 	void setGraphDepth(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Return Graph</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Return Graph</em>' attribute.
-	 * @see #setReturnGraph(boolean)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_ReturnGraph()
-	 * @model default="false" required="true"
+	 * @model kind="operation"
 	 * @generated
 	 */
 	boolean isReturnGraph();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph <em>Return Graph</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Return Graph</em>' attribute.
-	 * @see #isReturnGraph()
-	 * @generated
-	 */
-	void setReturnGraph(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Quantified Condition</b></em>' container reference.

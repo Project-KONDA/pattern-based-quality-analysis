@@ -47,7 +47,6 @@ import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getRootElement <em>Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGraphDepth <em>Graph Depth</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#isReturnGraph <em>Return Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElements <em>Return Elements</em>}</li>
@@ -76,41 +75,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	protected OperatorList operatorList;
 
-	/**
-	 * The default value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getGraphDepth()
-	 * @generated
-	 * @ordered
-	 */
+	
 	protected static final int GRAPH_DEPTH_EDEFAULT = -1;
-
-	/**
-	 * The cached value of the '{@link #getGraphDepth() <em>Graph Depth</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getGraphDepth()
-	 * @generated
-	 * @ordered
-	 */
+	
 	protected int graphDepth = GRAPH_DEPTH_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isReturnGraph() <em>Return Graph</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isReturnGraph()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean RETURN_GRAPH_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isReturnGraph() <em>Return Graph</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isReturnGraph()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean returnGraph = RETURN_GRAPH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getReturnElements() <em>Return Elements</em>}' reference list.
@@ -155,8 +123,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
-		return getRootElement().toXQuery(location);
+	public String generateQuery(Location location) throws InvalidityException {
+		return getRootElement().generateQuery(location);
 	}
 
 	@Override
@@ -517,7 +485,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -526,7 +495,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -539,23 +509,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean isReturnGraph() {
-		return returnGraph;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setReturnGraph(boolean newReturnGraph) {
-		boolean oldReturnGraph = returnGraph;
-		returnGraph = newReturnGraph;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__RETURN_GRAPH, oldReturnGraph, returnGraph));
+		return getPattern() != null;
 	}
 
 	/**
@@ -692,8 +650,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getOperatorList();
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
 				return getGraphDepth();
-			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
-				return isReturnGraph();
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				return getQuantifiedCondition();
 			case GraphstructurePackage.GRAPH__PATTERN:
@@ -725,9 +681,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return;
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
 				setGraphDepth((Integer)newValue);
-				return;
-			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
-				setReturnGraph((Boolean)newValue);
 				return;
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				setQuantifiedCondition((QuantifiedCondition)newValue);
@@ -766,9 +719,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
 				setGraphDepth(GRAPH_DEPTH_EDEFAULT);
 				return;
-			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
-				setReturnGraph(RETURN_GRAPH_EDEFAULT);
-				return;
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				setQuantifiedCondition((QuantifiedCondition)null);
 				return;
@@ -801,8 +751,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return operatorList != null;
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
 				return graphDepth != GRAPH_DEPTH_EDEFAULT;
-			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
-				return returnGraph != RETURN_GRAPH_EDEFAULT;
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				return getQuantifiedCondition() != null;
 			case GraphstructurePackage.GRAPH__PATTERN:
@@ -843,12 +791,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getAllElements();
 			case GraphstructurePackage.GRAPH___GET_ALL_RELATIONS:
 				return getAllRelations();
+			case GraphstructurePackage.GRAPH___IS_RETURN_GRAPH:
+				return isReturnGraph();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -858,8 +809,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (graphDepth: ");
 		result.append(graphDepth);
-		result.append(", returnGraph: ");
-		result.append(returnGraph);
 		result.append(')');
 		return result.toString();
 	}

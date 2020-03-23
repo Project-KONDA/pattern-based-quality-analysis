@@ -118,8 +118,6 @@ public class FunctionsValidator extends EObjectValidator {
 				return validateBooleanOperator((BooleanOperator)value, diagnostics, context);
 			case FunctionsPackage.OPERATOR:
 				return validateOperator((Operator)value, diagnostics, context);
-			case FunctionsPackage.OTHER_OPERATOR:
-				return validateOtherOperator((OtherOperator)value, diagnostics, context);
 			case FunctionsPackage.NUMBER_OPERATOR:
 				return validateNumberOperator((NumberOperator)value, diagnostics, context);
 			case FunctionsPackage.MATCH:
@@ -185,25 +183,6 @@ public class FunctionsValidator extends EObjectValidator {
 	 */
 	public boolean validateOperator_validate(Operator operator, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return operator.validate(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateOtherOperator(OtherOperator otherOperator, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(otherOperator, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(otherOperator, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(otherOperator, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(otherOperator, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(otherOperator, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(otherOperator, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(otherOperator, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(otherOperator, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(otherOperator, diagnostics, context);
-		if (result || diagnostics != null) result &= validateOperator_validate(otherOperator, diagnostics, context);
-		return result;
 	}
 
 	/**

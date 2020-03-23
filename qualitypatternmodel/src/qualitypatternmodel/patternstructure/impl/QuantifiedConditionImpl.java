@@ -119,24 +119,24 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery(Location location) throws InvalidityException {
 		String result;
 		if (quantifier == Quantifier.EXISTS) {
-			result = graph.toXQuery(Location.EXISTS);
+			result = graph.generateQuery(Location.EXISTS);
 		} else if (quantifier == Quantifier.FORALL) {
-			result = graph.toXQuery(Location.FORALL);
+			result = graph.generateQuery(Location.FORALL);
 		} else {
 			throw new InvalidityException("invalid quantifier");
 		}
 //		result = addMissingBrackets(result);
 		if(getCountComparison() != null) {
 			if (quantifier == Quantifier.EXISTS) {
-				result += getCountComparison().toXQuery(location) + AND;
+				result += getCountComparison().generateQuery(location) + AND;
 			} else if (quantifier == Quantifier.FORALL) {
-				result += NOT + "(" + getCountComparison().toXQuery(location) + ")" + OR;
+				result += NOT + "(" + getCountComparison().generateQuery(location) + ")" + OR;
 			}
 		}
-		result += "(" + condition.toXQuery(location) + ")";
+		result += "(" + condition.generateQuery(location) + ")";
 		return result;
 
 	}
