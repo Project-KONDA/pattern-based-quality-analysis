@@ -569,7 +569,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@Override
 	public String getXQueryRepresentation(Location location) throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
-			return "."; // TODO: remove
+			return ".";
 		} else {
 			if (translated) {
 				return getXQueryVariable();

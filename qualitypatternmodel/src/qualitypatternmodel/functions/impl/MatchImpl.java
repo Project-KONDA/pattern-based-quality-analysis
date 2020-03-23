@@ -109,13 +109,15 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		property.isValid(isDefinedPattern);
 	}
 	
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
 		if (option == null)
 			throw new InvalidityException("options null");
 		if (regularExpression == null)
 			throw new InvalidityException("regularExpression null");
 		if (property == null)
 			throw new InvalidityException("property null");		
+		
+		super.isValidLocal(isDefinedPattern);
 	}
 	
 	/**

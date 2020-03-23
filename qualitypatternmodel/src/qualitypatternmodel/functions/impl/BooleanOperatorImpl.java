@@ -13,6 +13,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.OperatorList;
@@ -53,6 +56,24 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 */
 	protected BooleanOperatorImpl() {
 		super();
+	}
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+
+		if (getComparison1().isEmpty() && getComparison2().isEmpty()) {
+			// this is root operator
+			// ensure "each predicate owner must be argument" constraint:
+			EList<Element> arguments = getAllArgumentElements();
+			if (!arguments.containsAll(elements)) {
+				throw new InvalidityException("invalid predicate owner" + " (" + getInternalId() + ")");
+			}
+			if (!elements.containsAll(arguments)) {
+				throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")");
+			}
+		} else {
+			if(!elements.isEmpty()) {
+				throw new InvalidityException("invalid predicate owner" + " (" + getInternalId() + ")");
+			}
+		}
 	}
 	
 	@Override

@@ -185,25 +185,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 						"invalid comparison operator for arguments of type Element" + " (" + getInternalId() + ")");
 			}
 		}
-
-
-		
-
-		if (getComparison1().isEmpty() && getComparison2().isEmpty()) {
-			// this is root operator
-			// ensure "predicate owner must be argument" constraint:
-			EList<Element> arguments = getAllArgumentElements();
-			if (!arguments.containsAll(elements)) {
-				throw new InvalidityException("invalid predicate owner" + " (" + getInternalId() + ")");
-			}
-			if (!elements.containsAll(arguments)) {
-				throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")");
-			}
-		} else {
-			if(!elements.isEmpty()) {
-				throw new InvalidityException("invalid predicate owner" + " (" + getInternalId() + ")");
-			}
-		}
+		super.isValidLocal(isDefinedPattern);
 		isCycleFree();
 	}
 
