@@ -23,7 +23,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.graphstructure.Comparable;
 
@@ -133,7 +133,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 			}			
 		}		
 		
-		for(SingleElement element : getElements()) {
+		for(Element element : getElements()) {
 			if(!element.equals(getProperty().getElement()) && !element.equals(getProperty2().getElement())) {
 				throw new InvalidityException("too many predicate owners" + " (" + getInternalId() + ")" );
 			}

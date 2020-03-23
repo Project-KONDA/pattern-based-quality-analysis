@@ -76,7 +76,7 @@ public class Test08Comparison {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
 		Pattern pattern = Test00.getBasePattern();
-		SingleElement ret = pattern.getGraph().getReturnElements().get(0);
+		Element ret = pattern.getGraph().getReturnElements().get(0);
 		ret.addPrimitiveComparison(parameter);
 		return pattern;
 	}

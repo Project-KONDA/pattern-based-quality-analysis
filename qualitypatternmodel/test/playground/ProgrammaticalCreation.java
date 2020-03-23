@@ -3,7 +3,7 @@ package playground;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;

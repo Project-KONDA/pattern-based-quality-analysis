@@ -1401,8 +1401,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEClass(singleElementMappingEClass, SingleElementMapping.class, "SingleElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSingleElementMapping_From(), theGraphstructurePackage.getSingleElement(), theGraphstructurePackage.getSingleElement_MappingTo(), "from", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSingleElementMapping_To(), theGraphstructurePackage.getSingleElement(), theGraphstructurePackage.getSingleElement_MappingFrom(), "to", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleElementMapping_From(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_MappingTo(), "from", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleElementMapping_To(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_MappingFrom(), "to", null, 1, 1, SingleElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mappingEClass, Mapping.class, "Mapping", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMapping_MappingDepth(), ecorePackage.getEInt(), "mappingDepth", "-1", 1, 1, Mapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

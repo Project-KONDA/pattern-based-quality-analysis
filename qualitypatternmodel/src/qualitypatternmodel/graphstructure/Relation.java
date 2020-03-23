@@ -96,7 +96,7 @@ public interface Relation extends PatternElement {
 	 * @model
 	 * @generated
 	 */
-	void copyToNewNextGraphs(SingleElement newRelationTo);
+	void copyToNewNextGraphs(Element newRelationTo);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,17 +116,17 @@ public interface Relation extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Relation To</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getRelationFromPrevious <em>Relation From Previous</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Relation To</em>' container reference.
-	 * @see #setRelationTo(SingleElement)
+	 * @see #setRelationTo(Element)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_RelationTo()
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getRelationFromPrevious
+	 * @see qualitypatternmodel.graphstructure.Element#getRelationFromPrevious
 	 * @model opposite="relationFromPrevious" required="true" transient="false"
 	 * @generated
 	 */
-	SingleElement getRelationTo();
+	Element getRelationTo();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}' container reference.
@@ -136,7 +136,7 @@ public interface Relation extends PatternElement {
 	 * @see #getRelationTo()
 	 * @generated
 	 */
-	void setRelationTo(SingleElement value);
+	void setRelationTo(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.

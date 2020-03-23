@@ -50,7 +50,7 @@ public class Test09ComplexComparison {
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
 
 		Pattern pattern = Test00.getBasePattern();
-		SingleElement ret = pattern.getGraph().getReturnElements().get(0);
+		Element ret = pattern.getGraph().getReturnElements().get(0);
 		
 		Property p1 = graphFactory.createProperty();
 		Property p2 = graphFactory.createProperty();
@@ -77,10 +77,10 @@ public class Test09ComplexComparison {
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
 
 		Pattern pattern = Test00.getBasePattern();
-		SingleElement ret = pattern.getGraph().getReturnElements().get(0);
+		Element ret = pattern.getGraph().getReturnElements().get(0);
 
-		SingleElement se1 = graphFactory.createSingleElement();
-		SingleElement se2 = graphFactory.createSingleElement();
+		Element se1 = graphFactory.createElement();
+		Element se2 = graphFactory.createElement();
 
 		ret.getNextSingle().add(se1);
 		ret.getNextSingle().add(se2);
@@ -110,10 +110,10 @@ public class Test09ComplexComparison {
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
 
 		Pattern pattern = Test00.getBasePattern();
-		SingleElement ret = pattern.getGraph().getReturnElements().get(0);
+		Element ret = pattern.getGraph().getReturnElements().get(0);
 
-		SingleElement se1 = graphFactory.createSingleElement();
-		SingleElement se2 = graphFactory.createSingleElement();
+		Element se1 = graphFactory.createElement();
+		Element se2 = graphFactory.createElement();
 
 		ret.getNextSingle().add(se1);
 		ret.getNextSingle().add(se2);
@@ -222,7 +222,7 @@ public class Test09ComplexComparison {
 		Pattern pattern = Test00.getBasePattern();
 		ParameterList varlist = pattern.getParameterList();
 		OperatorList oplist = pattern.getGraph().getOperatorList();
-		SingleElement se = pattern.getGraph().getReturnElements().get(0);
+		Element se = pattern.getGraph().getReturnElements().get(0);
 		
 		TextLiteralParam tl = inputsFactory.createTextLiteralParam();
 		tl.setValue("a");

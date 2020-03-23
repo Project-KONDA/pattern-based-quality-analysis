@@ -20,7 +20,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.AxisOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -261,9 +261,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 */
 	@Override
-	public SingleElement getRelationTo() {
+	public Element getRelationTo() {
 		if (eContainerFeatureID() != GraphstructurePackage.RELATION__RELATION_TO) return null;
-		return (SingleElement)eInternalContainer();
+		return (Element)eInternalContainer();
 	}
 
 	/**
@@ -272,7 +272,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 */
 	@Override
-	public void setRelationTo(SingleElement newRelationTo) {
+	public void setRelationTo(Element newRelationTo) {
 		if (newRelationTo != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.RELATION__RELATION_TO && newRelationTo != null)) {
 			if (EcoreUtil.isAncestor(this, newRelationTo))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -280,7 +280,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRelationTo != null)
-				msgs = ((InternalEObject)newRelationTo).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS, SingleElement.class, msgs);
+				msgs = ((InternalEObject)newRelationTo).eInverseAdd(this, GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, Element.class, msgs);
 			msgs = basicSetRelationTo(newRelationTo, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -293,7 +293,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * 
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetRelationTo(SingleElement newRelationTo, NotificationChain msgs) {
+	public NotificationChain basicSetRelationTo(Element newRelationTo, NotificationChain msgs) {
 		removeRelationFromPreviousGraphs();
 		removeMappingsToNext();
 		if (getRelationTo() != null) {
@@ -310,11 +310,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	@Override
-	public void copyToNewNextGraphs(SingleElement newRelationTo) {
-		if (newRelationTo instanceof SingleElement) {
-			SingleElement element = (SingleElement) newRelationTo;
+	public void copyToNewNextGraphs(Element newRelationTo) {
+		if (newRelationTo instanceof Element) {
+			Element element = (Element) newRelationTo;
 			if (element.getMappingFrom() != null) {
-				SingleElement correspondingElement = element.getMappingFrom().getFrom();
+				Element correspondingElement = element.getMappingFrom().getFrom();
 				Relation newCorrespondingRelation;
 				if (correspondingElement.getRelationFromPrevious() != null) {
 					newCorrespondingRelation = correspondingElement.getRelationFromPrevious();
@@ -468,7 +468,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__RELATION_TO:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRelationTo((SingleElement)otherEnd, msgs);
+				return basicSetRelationTo((Element)otherEnd, msgs);
 			case GraphstructurePackage.RELATION__OPTION:
 				if (option != null)
 					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.AXIS_OPTION_PARAM__RELATION, AxisOptionParam.class, msgs);
@@ -505,7 +505,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case GraphstructurePackage.RELATION__RELATION_TO:
-				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS, SingleElement.class, msgs);
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, Element.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -547,7 +547,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				getMappingTo().addAll((Collection<? extends RelationMapping>)newValue);
 				return;
 			case GraphstructurePackage.RELATION__RELATION_TO:
-				setRelationTo((SingleElement)newValue);
+				setRelationTo((Element)newValue);
 				return;
 			case GraphstructurePackage.RELATION__OPTION:
 				setOption((AxisOptionParam)newValue);
@@ -570,7 +570,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				getMappingTo().clear();
 				return;
 			case GraphstructurePackage.RELATION__RELATION_TO:
-				setRelationTo((SingleElement)null);
+				setRelationTo((Element)null);
 				return;
 			case GraphstructurePackage.RELATION__OPTION:
 				setOption((AxisOptionParam)null);
@@ -618,8 +618,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT:
 				removeMappingsToNext();
 				return null;
-			case GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__SINGLEELEMENT:
-				copyToNewNextGraphs((SingleElement)arguments.get(0));
+			case GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT:
+				copyToNewNextGraphs((Element)arguments.get(0));
 				return null;
 			case GraphstructurePackage.RELATION___CREATE_INPUTS:
 				createInputs();

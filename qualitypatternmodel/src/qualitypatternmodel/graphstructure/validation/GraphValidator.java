@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -22,22 +22,22 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 public interface GraphValidator {
 	boolean validate();
 
-	boolean validateRootElements(SingleElement value);
+	boolean validateRootElements(Element value);
 
-	boolean validateRootElements(EList<SingleElement> value);
+	boolean validateRootElements(EList<Element> value);
 
-	boolean validateReturnElements(EList<SingleElement> value);
+	boolean validateReturnElements(EList<Element> value);
 	boolean validateMorphismTo(EList<Morphism> value);
 
 	boolean validateMorphismFrom(Morphism value);
 
-	boolean validateRootElement(SingleElement value);
+	boolean validateRootElement(Element value);
 	boolean validateOperatorList(OperatorList value);
 	boolean validateGraphDepth(int value);
 
 	boolean validateReturnGraph(boolean value);
 
-	boolean validateGetAllElements(EList<SingleElement> value);
+	boolean validateGetAllElements(EList<Element> value);
 
 	boolean validateGetAllRelations(EList<Relation> value);
 

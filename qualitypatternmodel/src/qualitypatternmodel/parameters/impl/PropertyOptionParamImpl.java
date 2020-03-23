@@ -21,7 +21,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.PropertyOptionParam;
@@ -375,7 +375,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	public void generateDescription() {
 		String res = "Angabe des Eigenschaft-Types";
 		try {
-			SingleElement e = getProperty().getElement();
+			Element e = getProperty().getElement();
 			res += " von " + e.getName();
 			
 			

@@ -10,9 +10,9 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
-import qualitypatternmodel.graphstructure.impl.SingleElementImpl;
+import qualitypatternmodel.graphstructure.impl.ElementImpl;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
@@ -35,20 +35,20 @@ public class Eval06Func {
 		FunctionsFactory functionsFactory = FunctionsFactory.eINSTANCE;
 		
 		Pattern pattern = Test03Quantor.getPatternExists();
-		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
+		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
 		
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
 		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
-		SingleElement returnElementInGraph1 = graph1.getReturnElements().get(0);				
-		SingleElement fieldAReturn = returnElementInGraph1.getNextSingle().get(0);	
-		SingleElement fieldBReturn = graphFactory.createSingleElement();
+		Element returnElementInGraph1 = graph1.getReturnElements().get(0);				
+		Element fieldAReturn = returnElementInGraph1.getNextSingle().get(0);	
+		Element fieldBReturn = graphFactory.createElement();
 		returnElementInGraph1.getNextSingle().add(fieldBReturn);
-		SingleElement otherRecord = graphFactory.createSingleElement();
+		Element otherRecord = graphFactory.createElement();
 		graph1.getRootElement().getNextSingle().add(otherRecord);
-		SingleElement fieldAOtherRecord = graphFactory.createSingleElement();
+		Element fieldAOtherRecord = graphFactory.createElement();
 		otherRecord.getNextSingle().add(fieldAOtherRecord);
-		SingleElement fieldBOtherRecord = graphFactory.createSingleElement();
+		Element fieldBOtherRecord = graphFactory.createElement();
 		otherRecord.getNextSingle().add(fieldBOtherRecord);
 		
 		fieldAReturn.addPrimitiveComparison(); 	

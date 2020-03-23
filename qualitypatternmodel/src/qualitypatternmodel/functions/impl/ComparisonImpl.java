@@ -27,7 +27,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -120,16 +120,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			String conversionStartArgument1 = type.getConversion();
 			String conversionEndArgument1 = type.getConversionEnd();
 			String argument1Translated = "";
-			if (argument1 instanceof SingleElement) {
-				argument1Translated = ((SingleElement) argument1).getXQueryRepresentation(location);
+			if (argument1 instanceof Element) {
+				argument1Translated = ((Element) argument1).getXQueryRepresentation(location);
 			} else {
 				argument1Translated = argument1.toXQuery(location);
 			}
 			String conversionStartArgument2 = type.getConversion();
 			String conversionEndArgument2 = type.getConversionEnd();
 			String argument2Translated = "";
-			if (argument2 instanceof SingleElement) {
-				argument2Translated = ((SingleElement) argument2).getXQueryRepresentation(location);
+			if (argument2 instanceof Element) {
+				argument2Translated = ((Element) argument2).getXQueryRepresentation(location);
 			} else {
 				argument2Translated = argument2.toXQuery(location);
 			}
@@ -191,7 +191,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 //			throw new InvalidityException("invalid argument2 type" + " (" + getInternalId() + ")");
 //		}
 
-		if (argument1 instanceof SingleElement && argument2 instanceof SingleElement) {
+		if (argument1 instanceof Element && argument2 instanceof Element) {
 			if (option.getValue() != ComparisonOperator.EQUAL && option.getValue() != ComparisonOperator.NOTEQUAL) {
 				throw new InvalidityException(
 						"invalid comparison operator for arguments of type Element" + " (" + getInternalId() + ")");
@@ -205,7 +205,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			// TODO: adapt
 			EList<ListOfElements> arguments = getAllArgumentElements();
 
-			EList<SingleElement> argumentsFlattened = new BasicEList<SingleElement>();
+			EList<Element> argumentsFlattened = new BasicEList<Element>();
 			arguments.forEach(argumentsFlattened::addAll);
 
 			boolean ownersInArguments = argumentsFlattened.containsAll(elements);
@@ -217,8 +217,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			boolean argumentsInElements = true;
 			for (ListOfElements listOfElements : arguments) {
 				boolean isElement = false;
-				for (SingleElement argument : listOfElements) {
-					for (SingleElement owner : elements) {
+				for (Element argument : listOfElements) {
+					for (Element owner : elements) {
 						if (argument.equals(owner)) {
 							if (isElement) {
 								throw new InvalidityException(
@@ -440,7 +440,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				setType(ReturnType.UNSPECIFIED);
 			}
 		} else {
-			if (newArgument instanceof SingleElement) {
+			if (newArgument instanceof Element) {
 				setType(ReturnType.ELEMENT);
 			}
 			if (newArgument instanceof BooleanOperator) {
@@ -479,10 +479,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	private void moveElementsFromRootOperatorToOldArgument(Comparable oldArgument, BooleanOperator booleanOperator) {
 		BooleanOperator argumentOperator = (BooleanOperator) oldArgument;
-		EList<SingleElement> boolOpElements = new BasicEList<SingleElement>();
+		EList<Element> boolOpElements = new BasicEList<Element>();
 		boolOpElements.addAll(booleanOperator.getElements()); // boolOp.getElements() is already empty at this point in
 																// case THIS gets DELETED!
-		for (SingleElement element : boolOpElements) {
+		for (Element element : boolOpElements) {
 			try {
 				EList<ListOfElements> argumentElements = argumentOperator.getAllArgumentElements();
 				for (ListOfElements listOfElements : argumentElements) {
@@ -502,17 +502,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		if (oldArgument != null && oldArgument instanceof Property && ((Property) oldArgument).getElement() != null) {
 			booleanOperator.removeElement(((Property) oldArgument).getElement());
 		}
-		if (oldArgument != null && oldArgument instanceof SingleElement) {
-			booleanOperator.removeElement((SingleElement) oldArgument);
+		if (oldArgument != null && oldArgument instanceof Element) {
+			booleanOperator.removeElement((Element) oldArgument);
 		}
 	}
 
 	private void moveElementsFromNewArgumentToRootOperator(Comparable newArgument,
 			EList<BooleanOperator> rootBooleanOperators) {
 		BooleanOperator argumentOperator = (BooleanOperator) newArgument;
-		EList<SingleElement> argumentOperatorElements = new BasicEList<SingleElement>();
+		EList<Element> argumentOperatorElements = new BasicEList<Element>();
 		argumentOperatorElements.addAll(argumentOperator.getElements());
-		for (SingleElement element : argumentOperatorElements) {
+		for (Element element : argumentOperatorElements) {
 			argumentOperator.removeElement(element);
 			for (BooleanOperator rootBoolenOperator : rootBooleanOperators) {
 				rootBoolenOperator.addElement(element);
@@ -522,10 +522,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	private void addNewArgumentElementsToRootOperator(Comparable newArgument,
 			EList<BooleanOperator> rootBooleanOperators) {
-		if (newArgument instanceof SingleElement) {
+		if (newArgument instanceof Element) {
 			for (BooleanOperator boolOp : rootBooleanOperators) {
 				if (newArgument != null) {
-					boolOp.addElement((SingleElement) newArgument);
+					boolOp.addElement((Element) newArgument);
 				}
 			}
 		}

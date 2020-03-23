@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PropertyLocation;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -27,12 +27,12 @@ public class Eval00Match {
 		GraphstructurePackage.eINSTANCE.eClass();
 		
 		Pattern pattern = Test03Quantor.getPatternExists();
-		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
+		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
 		
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
-		SingleElement returnElementInGraph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph().getReturnElements().get(0);				
-		SingleElement element2 = returnElementInGraph1.getNextSingle().get(0);	
+		Element returnElementInGraph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph().getReturnElements().get(0);				
+		Element element2 = returnElementInGraph1.getNextSingle().get(0);	
 		
 		element2.addPrimitiveComparison(); 		
 		element2.addPrimitiveMatch();
@@ -46,7 +46,7 @@ public class Eval00Match {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		Pattern pattern = getMatchAbstract();
-		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
+		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
@@ -54,8 +54,8 @@ public class Eval00Match {
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
 		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		
-		SingleElement returnElementInGraph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph().getReturnElements().get(0);				
-		SingleElement element2 = returnElementInGraph1.getNextSingle().get(0);
+		Element returnElementInGraph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph().getReturnElements().get(0);				
+		Element element2 = returnElementInGraph1.getNextSingle().get(0);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("3162");

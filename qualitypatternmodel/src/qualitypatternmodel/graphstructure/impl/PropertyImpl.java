@@ -28,7 +28,7 @@ import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -479,9 +479,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
-	public SingleElement getElement() {
+	public Element getElement() {
 		if (eContainerFeatureID() != GraphstructurePackage.PROPERTY__ELEMENT) return null;
-		return (SingleElement)eInternalContainer();
+		return (Element)eInternalContainer();
 	}
 
 	/**
@@ -490,7 +490,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
-	public void setElement(SingleElement newElement) {
+	public void setElement(Element newElement) {
 		if (newElement != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.PROPERTY__ELEMENT && newElement != null)) {
 			if (EcoreUtil.isAncestor(this, newElement))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -498,7 +498,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newElement != null)
-				msgs = ((InternalEObject)newElement).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__PROPERTIES, SingleElement.class, msgs);
+				msgs = ((InternalEObject)newElement).eInverseAdd(this, GraphstructurePackage.ELEMENT__PROPERTIES, Element.class, msgs);
 			msgs = basicSetElement(newElement, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -511,7 +511,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetElement(SingleElement newElement, NotificationChain msgs) {
+	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
 		getComparison1().clear();
 		getComparison2().clear();
 		reset();
@@ -654,7 +654,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetElement((SingleElement)otherEnd, msgs);
+				return basicSetElement((Element)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatch()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
@@ -714,7 +714,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case GraphstructurePackage.PROPERTY__ELEMENT:
-				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__PROPERTIES, SingleElement.class, msgs);
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.ELEMENT__PROPERTIES, Element.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -767,7 +767,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				getComparison2().addAll((Collection<? extends Comparison>)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
-				setElement((SingleElement)newValue);
+				setElement((Element)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__MATCH:
 				getMatch().clear();
@@ -803,7 +803,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				getComparison2().clear();
 				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
-				setElement((SingleElement)null);
+				setElement((Element)null);
 				return;
 			case GraphstructurePackage.PROPERTY__MATCH:
 				getMatch().clear();

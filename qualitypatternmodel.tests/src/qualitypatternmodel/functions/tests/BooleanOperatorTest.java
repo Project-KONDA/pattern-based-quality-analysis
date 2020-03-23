@@ -11,8 +11,8 @@ import qualitypatternmodel.functions.BooleanOperator;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.SingleElement) <em>Add Element</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.SingleElement) <em>Remove Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.BooleanOperator#createInputs() <em>Create Inputs</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.BooleanOperator#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.BooleanOperator#reset() <em>Reset</em>}</li>
@@ -44,26 +44,26 @@ public abstract class BooleanOperatorTest extends OperatorTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.SingleElement) <em>Add Element</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.SingleElement)
+	 * @see qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element)
 	 * @generated
 	 */
-	public void testAddElement__SingleElement() {
+	public void testAddElement__Element() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.SingleElement) <em>Remove Element</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.SingleElement)
+	 * @see qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element)
 	 * @generated
 	 */
-	public void testRemoveElement__SingleElement() {
+	public void testRemoveElement__Element() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

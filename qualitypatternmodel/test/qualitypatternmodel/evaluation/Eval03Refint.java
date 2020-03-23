@@ -9,7 +9,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.NotElement;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -31,28 +31,28 @@ public class Eval03Refint {
 		FunctionsFactory functionsFactory = FunctionsFactory.eINSTANCE;		
 		
 		Pattern pattern = Test06NotElement.getPatternExistsNotExists();
-		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
+		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
 		
 		returnElementInReturnGraph.addPrimitiveComparison();		
 		
 		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
-		SingleElement returnElementInGraph1 = graph1.getReturnElements().get(0);				
-		SingleElement nextToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);					
+		Element returnElementInGraph1 = graph1.getReturnElements().get(0);				
+		Element nextToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);					
 		nextToReturnElementInGraph1.addPrimitiveComparison(); 	
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotElement) ((QuantifiedCondition) pattern.getCondition()).getCondition()).getCondition()).getGraph();
-		SingleElement rootElementInGraph2 = graph2.getRootElement();
+		Element rootElementInGraph2 = graph2.getRootElement();
 
-		SingleElement returnElementInGraph2 = graph2.getReturnElements().get(0);
-		SingleElement nextToReturnElementInGraph2 = returnElementInGraph2.getNextSingle().get(0);	
+		Element returnElementInGraph2 = graph2.getReturnElements().get(0);
+		Element nextToReturnElementInGraph2 = returnElementInGraph2.getNextSingle().get(0);	
 		Property propertyNextToReturnElementInGraph2 = graphFactory.createProperty();
 		propertyNextToReturnElementInGraph2.setElement(nextToReturnElementInGraph2);
 		
-		SingleElement otherRecordInGraph2 = graphFactory.createSingleElement();
+		Element otherRecordInGraph2 = graphFactory.createElement();
 		rootElementInGraph2.getNextSingle().add(otherRecordInGraph2);
 		otherRecordInGraph2.addPrimitiveComparison();
 		
-		SingleElement nextToOtherRecordInGraph2 = graphFactory.createSingleElement();
+		Element nextToOtherRecordInGraph2 = graphFactory.createElement();
 		otherRecordInGraph2.getNextSingle().add(nextToOtherRecordInGraph2);
 		nextToOtherRecordInGraph2.addPrimitiveComparison();
 		Property propertyNextToOtherRecordInGraph2 = graphFactory.createProperty();

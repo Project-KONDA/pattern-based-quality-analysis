@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.patternstructure;
 
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,17 +24,17 @@ import qualitypatternmodel.graphstructure.SingleElement;
 public interface SingleElementMapping extends Mapping {
 	/**
 	 * Returns the value of the '<em><b>From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getMappingTo <em>Mapping To</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getMappingTo <em>Mapping To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>From</em>' reference.
-	 * @see #setFrom(SingleElement)
+	 * @see #setFrom(Element)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getSingleElementMapping_From()
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getMappingTo
+	 * @see qualitypatternmodel.graphstructure.Element#getMappingTo
 	 * @model opposite="mappingTo" required="true"
 	 * @generated
 	 */
-	SingleElement getFrom();
+	Element getFrom();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getFrom <em>From</em>}' reference.
@@ -44,21 +44,21 @@ public interface SingleElementMapping extends Mapping {
 	 * @see #getFrom()
 	 * @generated
 	 */
-	void setFrom(SingleElement value);
+	void setFrom(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getMappingFrom <em>Mapping From</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getMappingFrom <em>Mapping From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>To</em>' reference.
-	 * @see #setTo(SingleElement)
+	 * @see #setTo(Element)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getSingleElementMapping_To()
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getMappingFrom
+	 * @see qualitypatternmodel.graphstructure.Element#getMappingFrom
 	 * @model opposite="mappingFrom" required="true"
 	 * @generated
 	 */
-	SingleElement getTo();
+	Element getTo();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getTo <em>To</em>}' reference.
@@ -68,6 +68,6 @@ public interface SingleElementMapping extends Mapping {
 	 * @see #getTo()
 	 * @generated
 	 */
-	void setTo(SingleElement value);
+	void setTo(Element value);
 
 } // SingleElementMapping

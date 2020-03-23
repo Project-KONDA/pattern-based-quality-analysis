@@ -8,7 +8,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.NotElement;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -25,19 +25,19 @@ public class Eval05Compset {
 	public static Pattern getCompsetAbstract() {	
 		
 		Pattern pattern = Test06NotElement.getPatternExistsNotExists();
-		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
+		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
 		
 		returnElementInReturnGraph.addPrimitiveComparison();		
 		
 		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
-		SingleElement returnElementInGraph1 = graph1.getReturnElements().get(0);				
-		SingleElement nextToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);					
+		Element returnElementInGraph1 = graph1.getReturnElements().get(0);				
+		Element nextToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);					
 		nextToReturnElementInGraph1.addPrimitiveComparison(); 	
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotElement) ((QuantifiedCondition) pattern.getCondition()).getCondition()).getCondition()).getGraph();
 
-		SingleElement returnElementInGraph2 = graph2.getReturnElements().get(0);
-		SingleElement nextToReturnElementInGraph2 = returnElementInGraph2.getNextSingle().get(0);	
+		Element returnElementInGraph2 = graph2.getReturnElements().get(0);
+		Element nextToReturnElementInGraph2 = returnElementInGraph2.getNextSingle().get(0);	
 		nextToReturnElementInGraph2.addPrimitiveComparison();	
 		
 		return pattern;

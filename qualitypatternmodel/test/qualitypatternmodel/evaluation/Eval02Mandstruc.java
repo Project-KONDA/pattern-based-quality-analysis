@@ -8,7 +8,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotElement;
@@ -38,7 +38,7 @@ public class Eval02Mandstruc {
 		PatternstructureFactory patternstructureFactory = PatternstructureFactory.eINSTANCE;		
 		
 		Pattern pattern = Test03Quantor.getPatternExists();
-		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);			
+		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);			
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
 		NotElement notElement = patternstructureFactory.createNotElement();
@@ -58,12 +58,12 @@ public class Eval02Mandstruc {
 		quantifiedCondition2.setCondition(t2);
 		
 		Graph graph1 = quantifiedCondition1.getGraph();
-		SingleElement element1 = graphFactory.createSingleElement();
+		Element element1 = graphFactory.createElement();
 		graph1.getReturnElements().get(0).getNextSingle().add(element1);
 		element1.addPrimitiveComparison();
 		
 		Graph graph2 = quantifiedCondition2.getGraph();
-		SingleElement element2 = graphFactory.createSingleElement();
+		Element element2 = graphFactory.createElement();
 		graph2.getReturnElements().get(0).getNextSingle().add(element2);
 		element2.addPrimitiveComparison();		
 		

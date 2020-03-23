@@ -33,7 +33,7 @@ public class GraphstructureTests extends TestSuite {
 		TestSuite suite = new GraphstructureTests("graphstructure Tests");
 		suite.addTestSuite(RelationTest.class);
 		suite.addTestSuite(PropertyTest.class);
-		suite.addTestSuite(SingleElementTest.class);
+		suite.addTestSuite(ElementTest.class);
 		suite.addTestSuite(GraphTest.class);
 		return suite;
 	}

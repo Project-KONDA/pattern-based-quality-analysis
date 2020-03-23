@@ -21,7 +21,7 @@ import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.AxisOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -358,8 +358,8 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	public void generateDescription() {
 		String res = "Beziehung: XPath-Achse";
 		try {			
-			SingleElement to = getRelation().getRelationTo();
-			SingleElement from = to.getPrevious();
+			Element to = getRelation().getRelationTo();
+			Element from = to.getPrevious();
 			res += " zur Navigation von " + from.getName() + " zu " + to.getName();			
 		} catch (Exception e) {}
 		setDescription(res);

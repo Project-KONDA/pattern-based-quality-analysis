@@ -266,7 +266,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENT,
-				 GraphstructureFactory.eINSTANCE.createSingleElement()));
+				 GraphstructureFactory.eINSTANCE.createElement()));
 
 		newChildDescriptors.add
 			(createChildParameter

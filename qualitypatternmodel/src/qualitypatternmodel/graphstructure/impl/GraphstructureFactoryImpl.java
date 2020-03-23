@@ -19,7 +19,7 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 		switch (eClass.getClassifierID()) {
 			case GraphstructurePackage.RELATION: return createRelation();
 			case GraphstructurePackage.PROPERTY: return createProperty();
-			case GraphstructurePackage.SINGLE_ELEMENT: return createSingleElement();
+			case GraphstructurePackage.ELEMENT: return createElement();
 			case GraphstructurePackage.GRAPH: return createGraph();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -144,9 +144,9 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public SingleElement createSingleElement() {
-		SingleElementImpl singleElement = new SingleElementImpl();
-		return singleElement;
+	public Element createElement() {
+		ElementImpl element = new ElementImpl();
+		return element;
 	}
 
 	/**

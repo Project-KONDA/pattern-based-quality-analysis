@@ -23,25 +23,25 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingTo <em>Mapping To</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getMappingFrom <em>Mapping From</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNextSingle <em>Next Single</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getGraph <em>Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getName <em>Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#isTranslated <em>Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getRelationFromPrevious <em>Relation From Previous</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getProperties <em>Properties</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getPredicates <em>Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getMappingTo <em>Mapping To</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getMappingFrom <em>Mapping From</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getRoot <em>Root</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getNextSingle <em>Next Single</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement()
+ * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
  * @model
  * @generated
  */
-public interface SingleElement extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
+public interface Element extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Mapping From</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getTo <em>To</em>}'.
@@ -49,7 +49,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mapping From</em>' reference.
 	 * @see #setMappingFrom(SingleElementMapping)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_MappingFrom()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_MappingFrom()
 	 * @see qualitypatternmodel.patternstructure.SingleElementMapping#getTo
 	 * @model opposite="to"
 	 * @generated
@@ -57,7 +57,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	SingleElementMapping getMappingFrom();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getMappingFrom <em>Mapping From</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getMappingFrom <em>Mapping From</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Mapping From</em>' reference.
@@ -73,7 +73,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mapping To</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_MappingTo()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_MappingTo()
 	 * @see qualitypatternmodel.patternstructure.SingleElementMapping#getFrom
 	 * @model opposite="from"
 	 * @generated
@@ -87,7 +87,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root</em>' container reference.
 	 * @see #setRoot(Graph)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Root()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Root()
 	 * @see qualitypatternmodel.graphstructure.Graph#getRootElement
 	 * @model opposite="rootElement" transient="false"
 	 * @generated
@@ -95,7 +95,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	Graph getRoot();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getRoot <em>Root</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Root</em>' container reference.
@@ -106,41 +106,41 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 
 	/**
 	 * Returns the value of the '<em><b>Next Single</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.SingleElement}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getPrevious <em>Previous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Next Single</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_NextSingle()
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getPrevious
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_NextSingle()
+	 * @see qualitypatternmodel.graphstructure.Element#getPrevious
 	 * @model opposite="previous" containment="true"
 	 * @generated
 	 */
-	EList<SingleElement> getNextSingle();
+	EList<Element> getNextSingle();
 
 	/**
 	 * Returns the value of the '<em><b>Previous</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getNextSingle <em>Next Single</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getNextSingle <em>Next Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Previous</em>' container reference.
-	 * @see #setPrevious(SingleElement)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Previous()
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getNextSingle
+	 * @see #setPrevious(Element)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Previous()
+	 * @see qualitypatternmodel.graphstructure.Element#getNextSingle
 	 * @model opposite="nextSingle" transient="false"
 	 * @generated
 	 */
-	SingleElement getPrevious();
+	Element getPrevious();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getPrevious <em>Previous</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Previous</em>' container reference.
 	 * @see #getPrevious()
 	 * @generated
 	 */
-	void setPrevious(SingleElement value);
+	void setPrevious(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' reference.
@@ -149,7 +149,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Graph</em>' reference.
 	 * @see #setGraph(Graph)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Graph()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Graph()
 	 * @see qualitypatternmodel.graphstructure.Graph#getReturnElements
 	 * @model opposite="returnElements"
 	 * @generated
@@ -157,7 +157,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	Graph getGraph();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getGraph <em>Graph</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Graph</em>' reference.
@@ -172,14 +172,14 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Name()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -194,14 +194,14 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Translated</em>' attribute.
 	 * @see #setTranslated(boolean)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Translated()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Translated()
 	 * @model required="true"
 	 * @generated
 	 */
 	boolean isTranslated();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#isTranslated <em>Translated</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Translated</em>' attribute.
@@ -216,14 +216,14 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Predicates Are Being Translated</em>' attribute.
 	 * @see #setPredicatesAreBeingTranslated(boolean)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_PredicatesAreBeingTranslated()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_PredicatesAreBeingTranslated()
 	 * @model required="true"
 	 * @generated
 	 */
 	boolean isPredicatesAreBeingTranslated();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Predicates Are Being Translated</em>' attribute.
@@ -239,7 +239,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Relation From Previous</em>' containment reference.
 	 * @see #setRelationFromPrevious(Relation)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_RelationFromPrevious()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_RelationFromPrevious()
 	 * @see qualitypatternmodel.graphstructure.Relation#getRelationTo
 	 * @model opposite="relationTo" containment="true"
 	 * @generated
@@ -247,7 +247,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	Relation getRelationFromPrevious();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getRelationFromPrevious <em>Relation From Previous</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Relation From Previous</em>' containment reference.
@@ -263,7 +263,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Properties</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Properties()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Properties()
 	 * @see qualitypatternmodel.graphstructure.Property#getElement
 	 * @model opposite="element" containment="true"
 	 * @generated
@@ -277,7 +277,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Predicates</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Predicates()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Predicates()
 	 * @see qualitypatternmodel.functions.BooleanOperator#getElements
 	 * @model opposite="elements"
 	 * @generated
@@ -303,7 +303,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
 	 */
-	void copyNextElementToNextGraphs(SingleElement nextElement) throws MissingPatternContainerException;
+	void copyNextElementToNextGraphs(Element nextElement) throws MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -324,7 +324,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * @model recursiveRequired="true"
 	 * @generated
 	 */
-	void copyNextElementToPreviousGraphs(SingleElement nextElement, boolean recursive);
+	void copyNextElementToPreviousGraphs(Element nextElement, boolean recursive);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -420,7 +420,7 @@ public interface SingleElement extends qualitypatternmodel.graphstructure.Compar
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<SingleElement> getAllElements();
+	EList<Element> getAllElements();
 
 	/**
 	 * <!-- begin-user-doc -->

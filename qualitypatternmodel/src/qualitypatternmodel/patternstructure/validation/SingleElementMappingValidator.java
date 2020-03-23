@@ -4,7 +4,7 @@
  */
 package qualitypatternmodel.patternstructure.validation;
 
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.patternstructure.SingleElementMapping}.
@@ -15,6 +15,6 @@ import qualitypatternmodel.graphstructure.SingleElement;
 public interface SingleElementMappingValidator {
 	boolean validate();
 
-	boolean validateFrom(SingleElement value);
-	boolean validateTo(SingleElement value);
+	boolean validateFrom(Element value);
+	boolean validateTo(Element value);
 }

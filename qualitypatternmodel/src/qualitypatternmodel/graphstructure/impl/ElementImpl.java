@@ -39,7 +39,7 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
@@ -61,25 +61,25 @@ import qualitypatternmodel.patternstructure.impl.SingleElementMappingImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getComparison1 <em>Comparison1</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getComparison2 <em>Comparison2</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getMappingTo <em>Mapping To</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getMappingFrom <em>Mapping From</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getRoot <em>Root</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getNextSingle <em>Next Single</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getPrevious <em>Previous</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getGraph <em>Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getName <em>Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#isTranslated <em>Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getProperties <em>Properties</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl#getPredicates <em>Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getComparison1 <em>Comparison1</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getComparison2 <em>Comparison2</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getMappingTo <em>Mapping To</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getMappingFrom <em>Mapping From</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getRoot <em>Root</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getNextSingle <em>Next Single</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isTranslated <em>Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getRelationFromPrevious <em>Relation From Previous</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getPredicates <em>Predicates</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SingleElementImpl extends PatternElementImpl implements SingleElement {
+public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -125,7 +125,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SingleElement> nextSingle;
+	protected EList<Element> nextSingle;
 
 	/**
 	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' reference. <!--
@@ -232,7 +232,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 * 
 	 * @generated NOT
 	 */
-	public SingleElementImpl() {
+	public ElementImpl() {
 		super();
 	}
 
@@ -240,7 +240,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	public String toXQuery(Location location) throws InvalidityException {
 		if (isRootElement()) {
 			String result = "";
-			for (SingleElement nextElement : getNextSingle()) {
+			for (Element nextElement : getNextSingle()) {
 				result += nextElement.toXQuery(location);
 			}
 			return result;
@@ -286,7 +286,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			}
 		}
 
-		for (SingleElement nextElement : getNextSingle()) {
+		for (Element nextElement : getNextSingle()) {
 			result += nextElement.toXQuery(location);
 		}
 
@@ -366,7 +366,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			if (getPrevious().isRootElement()) {
 				return "/" + relationFromPrevious.getOption().getValue() + "::*";
 			} else {
-				return ((SingleElement) getPrevious()).getXQueryVariable() + "/" + relationFromPrevious.getOption().getValue() + "::*";
+				return ((Element) getPrevious()).getXQueryVariable() + "/" + relationFromPrevious.getOption().getValue() + "::*";
 			}
 		} else {
 			throw new InvalidityException("relation option null");
@@ -381,7 +381,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 */
 	@Override
 	public void copyNextElementsToNextGraphs() throws MissingPatternContainerException {
-		for (SingleElement nextSingleElement : getNextSingle()) {
+		for (Element nextSingleElement : getNextSingle()) {
 			copyNextElementToNextGraphs(nextSingleElement);
 		}
 	}
@@ -393,7 +393,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 * @generated NOT
 	 */
 	@Override
-	public void copyNextElementToNextGraphs(SingleElement nextElement) throws MissingPatternContainerException {
+	public void copyNextElementToNextGraphs(Element nextElement) throws MissingPatternContainerException {
 		for (SingleElementMapping mapping : getMappingTo()) {
 			boolean mappingExistsAlready = false;
 			for (SingleElementMapping nextElementMappingTo : nextElement.getMappingTo()) {
@@ -402,7 +402,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 				}
 			}
 			if (!mappingExistsAlready) {
-				SingleElement newElementInNextGraph = new SingleElementImpl();
+				Element newElementInNextGraph = new ElementImpl();
 				mapping.getTo().getNextSingle().add(newElementInNextGraph);
 //				System.out.println("--- 1 ---");
 //				System.out.println(newElementInNextGraph.getRelationFromPrevious().getOption().getParameterList());
@@ -437,14 +437,14 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 */
 	@Override
 	public void removeElementFromPreviousGraphs() {
-		SingleElement correspondingPreviousElement = getMappingFrom().getFrom();
+		Element correspondingPreviousElement = getMappingFrom().getFrom();
 		correspondingPreviousElement.setPrevious(null);
 		correspondingPreviousElement.setRoot(null);
 //		getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
-		EList<SingleElement> nextSingleElementsCopy = new BasicEList<SingleElement>();
+		EList<Element> nextSingleElementsCopy = new BasicEList<Element>();
 		nextSingleElementsCopy.addAll(getNextSingle());
-		for (SingleElement singleElement : nextSingleElementsCopy) {
-			singleElement.setPrevious(null);
+		for (Element element : nextSingleElementsCopy) {
+			element.setPrevious(null);
 		}
 		if (getRelationFromPrevious() != null && getRelationFromPrevious().getMappingFrom() != null) {
 			getRelationFromPrevious().getMappingFrom().getMorphism().getMappings()
@@ -458,10 +458,10 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 * @generated NOT
 	 */
 	@Override
-	public void copyNextElementToPreviousGraphs(SingleElement nextElement, boolean recursive) {
-		SingleElement newElementInPreviousGraph = new SingleElementImpl();
+	public void copyNextElementToPreviousGraphs(Element nextElement, boolean recursive) {
+		Element newElementInPreviousGraph = new ElementImpl();
 		SingleElementMapping mapping = getMappingFrom();
-		SingleElement sourceElement = mapping.getFrom();
+		Element sourceElement = mapping.getFrom();
 		sourceElement.getNextSingle().add(newElementInPreviousGraph);
 		SingleElementMapping newNextElementMapping = new SingleElementMappingImpl();
 		mapping.getMorphism().getMappings().add(newNextElementMapping);
@@ -487,7 +487,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 */
 	@Override
 	public void copyNextElementsToPreviousGraphs(boolean recursive) {
-		for (SingleElement nextSingleElement : getNextSingle()) {
+		for (Element nextSingleElement : getNextSingle()) {
 			copyNextElementToPreviousGraphs(nextSingleElement, recursive);
 		}
 	}
@@ -511,11 +511,11 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	public void isValid(boolean isDefinedPattern)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
-		for (SingleElement next : getNextSingle())
+		for (Element next : getNextSingle())
 			next.isValid(isDefinedPattern);
 		for (BooleanOperator predicate : getPredicates())
 			predicate.isValid(isDefinedPattern);
-		if (!eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT))
+		if (!eIsSet(GraphstructurePackage.ELEMENT__ROOT))
 			relationFromPrevious.isValid(isDefinedPattern);
 		
 		if(getPrevious() == null && getGraph() == null) {
@@ -544,19 +544,19 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			e.printStackTrace();
 		}
 		
-		if (!eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT)
-				&& !eIsSet(GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS))
+		if (!eIsSet(GraphstructurePackage.ELEMENT__ROOT)
+				&& !eIsSet(GraphstructurePackage.ELEMENT__PREVIOUS))
 			throw new InvalidityException("previousElement null at SingleElement " + getId());
-		if (eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT)
-				&& eIsSet(GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS))
+		if (eIsSet(GraphstructurePackage.ELEMENT__ROOT)
+				&& eIsSet(GraphstructurePackage.ELEMENT__PREVIOUS))
 			throw new InvalidityException("root has previous Element");
-		if (!eIsSet(GraphstructurePackage.SINGLE_ELEMENT__ROOT)
-				&& !eIsSet(GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS))
+		if (!eIsSet(GraphstructurePackage.ELEMENT__ROOT)
+				&& !eIsSet(GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS))
 			throw new InvalidityException("relation not specified");
 		if (isRootElement() && getRelationFromPrevious() != null)
 			throw new InvalidityException("relation specified for root element");
 
-		for (SingleElement next : getNextSingle()) {
+		for (Element next : getNextSingle()) {
 			if (next == null)
 				throw new InvalidityException("nextElement null (" + next + ")");
 			if (next.getPrevious() == null || !next.getPrevious().equals(this))
@@ -620,7 +620,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return GraphstructurePackage.Literals.SINGLE_ELEMENT;
+		return GraphstructurePackage.Literals.ELEMENT;
 	}
 
 	/**
@@ -631,7 +631,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public EList<Comparison> getComparison1() {
 		if (comparison1 == null) {
-			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.SINGLE_ELEMENT__COMPARISON1, FunctionsPackage.COMPARISON__ARGUMENT1);
+			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.ELEMENT__COMPARISON1, FunctionsPackage.COMPARISON__ARGUMENT1);
 		}
 		return comparison1;
 	}
@@ -644,7 +644,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public EList<Comparison> getComparison2() {
 		if (comparison2 == null) {
-			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.SINGLE_ELEMENT__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
+			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.ELEMENT__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
 		}
 		return comparison2;
 	}
@@ -660,7 +660,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			mappingFrom = (SingleElementMapping)eResolveProxy(oldMappingFrom);
 			if (mappingFrom != oldMappingFrom) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM, oldMappingFrom, mappingFrom));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.ELEMENT__MAPPING_FROM, oldMappingFrom, mappingFrom));
 			}
 		}
 		return mappingFrom;
@@ -682,7 +682,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 		SingleElementMapping oldMappingFrom = mappingFrom;
 		mappingFrom = newMappingFrom;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM, oldMappingFrom, newMappingFrom);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__MAPPING_FROM, oldMappingFrom, newMappingFrom);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -704,7 +704,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM, newMappingFrom, newMappingFrom));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__MAPPING_FROM, newMappingFrom, newMappingFrom));
 	}
 
 	/**
@@ -714,7 +714,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public EList<SingleElementMapping> getMappingTo() {
 		if (mappingTo == null) {
-			mappingTo = new EObjectWithInverseResolvingEList<SingleElementMapping>(SingleElementMapping.class, this, GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM);
+			mappingTo = new EObjectWithInverseResolvingEList<SingleElementMapping>(SingleElementMapping.class, this, GraphstructurePackage.ELEMENT__MAPPING_TO, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__FROM);
 		}
 		return mappingTo;
 	}
@@ -725,7 +725,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 */
 	@Override
 	public Graph getRoot() {
-		if (eContainerFeatureID() != GraphstructurePackage.SINGLE_ELEMENT__ROOT) return null;
+		if (eContainerFeatureID() != GraphstructurePackage.ELEMENT__ROOT) return null;
 		return (Graph)eInternalContainer();
 	}
 
@@ -762,7 +762,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 //			removeElementFromPreviousGraphs();
 //		}
 
-		msgs = eBasicSetContainer((InternalEObject) newRoot, GraphstructurePackage.SINGLE_ELEMENT__ROOT, msgs);
+		msgs = eBasicSetContainer((InternalEObject) newRoot, GraphstructurePackage.ELEMENT__ROOT, msgs);
 		return msgs;
 	}
 
@@ -772,7 +772,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 */
 	@Override
 	public void setRoot(Graph newRoot) {
-		if (newRoot != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.SINGLE_ELEMENT__ROOT && newRoot != null)) {
+		if (newRoot != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.ELEMENT__ROOT && newRoot != null)) {
 			if (EcoreUtil.isAncestor(this, newRoot))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -784,7 +784,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__ROOT, newRoot, newRoot));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__ROOT, newRoot, newRoot));
 	}
 
 	/**
@@ -792,9 +792,9 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 * @generated
 	 */
 	@Override
-	public EList<SingleElement> getNextSingle() {
+	public EList<Element> getNextSingle() {
 		if (nextSingle == null) {
-			nextSingle = new EObjectContainmentWithInverseEList<SingleElement>(SingleElement.class, this, GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS);
+			nextSingle = new EObjectContainmentWithInverseEList<Element>(Element.class, this, GraphstructurePackage.ELEMENT__NEXT_SINGLE, GraphstructurePackage.ELEMENT__PREVIOUS);
 		}
 		return nextSingle;
 	}
@@ -804,9 +804,9 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 * @generated
 	 */
 	@Override
-	public SingleElement getPrevious() {
-		if (eContainerFeatureID() != GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS) return null;
-		return (SingleElement)eInternalContainer();
+	public Element getPrevious() {
+		if (eContainerFeatureID() != GraphstructurePackage.ELEMENT__PREVIOUS) return null;
+		return (Element)eInternalContainer();
 	}
 
 	/**
@@ -814,7 +814,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 * 
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetPrevious(SingleElement newPrevious, NotificationChain msgs) {
+	public NotificationChain basicSetPrevious(Element newPrevious, NotificationChain msgs) {
 		clearComparisonRecursively();
 		clearPropertyRecursively();
 		clearMatchRecursively();
@@ -838,7 +838,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 		if (getMappingFrom() != null) {
 			removeElementFromPreviousGraphs();
 		}		
-		msgs = eBasicSetContainer((InternalEObject) newPrevious, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, msgs);
+		msgs = eBasicSetContainer((InternalEObject) newPrevious, GraphstructurePackage.ELEMENT__PREVIOUS, msgs);
 		if(newPrevious != null) {
 			setRelationFromPrevious(new RelationImpl());
 		}
@@ -847,7 +847,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 
 	public void removeFromReturnElements() {
 		setGraph(null);
-		for (SingleElement child : getNextSingle()) {
+		for (Element child : getNextSingle()) {
 			child.removeFromReturnElements();
 		}
 	}
@@ -913,16 +913,16 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__NAME, oldName, name));
 	
 		if (getMappingFrom() != null) {
-			SingleElement se = getMappingFrom().getFrom();
+			Element se = getMappingFrom().getFrom();
 			if (!se.getName().equals(newName))
 				se.setName(newName);
 		}
 		for (SingleElementMapping m : getMappingTo()) {
 			if (m.getTo() != null) {
-				SingleElement se = m.getTo();
+				Element se = m.getTo();
 				if (!se.getName().equals(newName)) {
 					se.setName(newName);
 				}
@@ -950,7 +950,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 		boolean oldTranslated = translated;
 		translated = newTranslated;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__TRANSLATED, oldTranslated, translated));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__TRANSLATED, oldTranslated, translated));
 	}
 
 	/**
@@ -973,7 +973,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 		boolean oldPredicatesAreBeingTranslated = predicatesAreBeingTranslated;
 		predicatesAreBeingTranslated = newPredicatesAreBeingTranslated;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED, oldPredicatesAreBeingTranslated, predicatesAreBeingTranslated));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED, oldPredicatesAreBeingTranslated, predicatesAreBeingTranslated));
 	}
 
 	/**
@@ -995,7 +995,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 		Relation oldRelationFromPrevious = relationFromPrevious;
 		relationFromPrevious = newRelationFromPrevious;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS, oldRelationFromPrevious, newRelationFromPrevious);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, oldRelationFromPrevious, newRelationFromPrevious);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -1018,7 +1018,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS, newRelationFromPrevious, newRelationFromPrevious));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, newRelationFromPrevious, newRelationFromPrevious));
 	}
 
 	/**
@@ -1029,7 +1029,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public EList<Property> getProperties() {
 		if (properties == null) {
-			properties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, GraphstructurePackage.SINGLE_ELEMENT__PROPERTIES, GraphstructurePackage.PROPERTY__ELEMENT);
+			properties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, GraphstructurePackage.ELEMENT__PROPERTIES, GraphstructurePackage.PROPERTY__ELEMENT);
 		}
 		return properties;
 	}
@@ -1042,7 +1042,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public EList<BooleanOperator> getPredicates() {
 		if (predicates == null) {
-			predicates = new EObjectWithInverseResolvingEList.ManyInverse<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.SINGLE_ELEMENT__PREDICATES, FunctionsPackage.BOOLEAN_OPERATOR__ELEMENTS);
+			predicates = new EObjectWithInverseResolvingEList.ManyInverse<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES, FunctionsPackage.BOOLEAN_OPERATOR__ELEMENTS);
 		}
 		return predicates;
 	}
@@ -1052,20 +1052,20 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 * @generated
 	 */
 	@Override
-	public void setPrevious(SingleElement newPrevious) {
-		if (newPrevious != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS && newPrevious != null)) {
+	public void setPrevious(Element newPrevious) {
+		if (newPrevious != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.ELEMENT__PREVIOUS && newPrevious != null)) {
 			if (EcoreUtil.isAncestor(this, newPrevious))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPrevious != null)
-				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE, SingleElement.class, msgs);
+				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, GraphstructurePackage.ELEMENT__NEXT_SINGLE, Element.class, msgs);
 			msgs = basicSetPrevious(newPrevious, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS, newPrevious, newPrevious));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__PREVIOUS, newPrevious, newPrevious));
 	}
 
 	/**
@@ -1079,7 +1079,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			graph = (Graph)eResolveProxy(oldGraph);
 			if (graph != oldGraph) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.SINGLE_ELEMENT__GRAPH, oldGraph, graph));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.ELEMENT__GRAPH, oldGraph, graph));
 			}
 		}
 		return graph;
@@ -1104,7 +1104,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 		setGraphForCorrespondingElements(newGraph);
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					GraphstructurePackage.SINGLE_ELEMENT__GRAPH, oldGraph, newGraph);
+					GraphstructurePackage.ELEMENT__GRAPH, oldGraph, newGraph);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -1116,7 +1116,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	private void setGraphForCorrespondingElements(Graph newGraph) {
 		for (SingleElementMapping mapping : getMappingTo()) {
 			if(mapping.getMorphism().getCountPattern() == null) {
-				SingleElement element = mapping.getTo();
+				Element element = mapping.getTo();
 				if (newGraph == null && element.getGraph() != null) {
 					element.setGraph(null);
 				}
@@ -1131,7 +1131,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			}			
 		}
 		if (getMappingFrom() != null && getMappingFrom().getMorphism().getCountPattern() == null) {
-			SingleElement element = getMappingFrom().getFrom();
+			Element element = getMappingFrom().getFrom();
 			if (newGraph == null && element.getGraph() != null) {
 				element.setGraph(null);
 			}
@@ -1162,7 +1162,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.SINGLE_ELEMENT__GRAPH, newGraph, newGraph));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__GRAPH, newGraph, newGraph));
 	}
 
 	/**
@@ -1217,37 +1217,37 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON1:
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison1()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON2:
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison2()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
+			case GraphstructurePackage.ELEMENT__MAPPING_TO:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappingTo()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
 				if (mappingFrom != null)
 					msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.SINGLE_ELEMENT_MAPPING__TO, SingleElementMapping.class, msgs);
 				return basicSetMappingFrom((SingleElementMapping)otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+			case GraphstructurePackage.ELEMENT__ROOT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetRoot((Graph)otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+			case GraphstructurePackage.ELEMENT__NEXT_SINGLE:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNextSingle()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
+			case GraphstructurePackage.ELEMENT__PREVIOUS:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetPrevious((SingleElement)otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+				return basicSetPrevious((Element)otherEnd, msgs);
+			case GraphstructurePackage.ELEMENT__GRAPH:
 				if (graph != null)
 					msgs = ((InternalEObject)graph).eInverseRemove(this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS, Graph.class, msgs);
 				return basicSetGraph((Graph)otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS:
+			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				if (relationFromPrevious != null)
-					msgs = ((InternalEObject)relationFromPrevious).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS, null, msgs);
+					msgs = ((InternalEObject)relationFromPrevious).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, null, msgs);
 				return basicSetRelationFromPrevious((Relation)otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__PROPERTIES:
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__PREDICATES:
+			case GraphstructurePackage.ELEMENT__PREDICATES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPredicates()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -1260,27 +1260,27 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON1:
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
 				return ((InternalEList<?>)getComparison1()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON2:
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
 				return ((InternalEList<?>)getComparison2()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
+			case GraphstructurePackage.ELEMENT__MAPPING_TO:
 				return ((InternalEList<?>)getMappingTo()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
 				return basicSetMappingFrom(null, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+			case GraphstructurePackage.ELEMENT__ROOT:
 				return basicSetRoot(null, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+			case GraphstructurePackage.ELEMENT__NEXT_SINGLE:
 				return ((InternalEList<?>)getNextSingle()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
+			case GraphstructurePackage.ELEMENT__PREVIOUS:
 				return basicSetPrevious(null, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+			case GraphstructurePackage.ELEMENT__GRAPH:
 				return basicSetGraph(null, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS:
+			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return basicSetRelationFromPrevious(null, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__PROPERTIES:
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__PREDICATES:
+			case GraphstructurePackage.ELEMENT__PREDICATES:
 				return ((InternalEList<?>)getPredicates()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -1293,10 +1293,10 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+			case GraphstructurePackage.ELEMENT__ROOT:
 				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.GRAPH__ROOT_ELEMENT, Graph.class, msgs);
-			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
-				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE, SingleElement.class, msgs);
+			case GraphstructurePackage.ELEMENT__PREVIOUS:
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.ELEMENT__NEXT_SINGLE, Element.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -1308,35 +1308,35 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON1:
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
 				return getComparison1();
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON2:
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
 				return getComparison2();
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
+			case GraphstructurePackage.ELEMENT__MAPPING_TO:
 				return getMappingTo();
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
 				if (resolve) return getMappingFrom();
 				return basicGetMappingFrom();
-			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+			case GraphstructurePackage.ELEMENT__ROOT:
 				return getRoot();
-			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+			case GraphstructurePackage.ELEMENT__NEXT_SINGLE:
 				return getNextSingle();
-			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
+			case GraphstructurePackage.ELEMENT__PREVIOUS:
 				return getPrevious();
-			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+			case GraphstructurePackage.ELEMENT__GRAPH:
 				if (resolve) return getGraph();
 				return basicGetGraph();
-			case GraphstructurePackage.SINGLE_ELEMENT__NAME:
+			case GraphstructurePackage.ELEMENT__NAME:
 				return getName();
-			case GraphstructurePackage.SINGLE_ELEMENT__TRANSLATED:
+			case GraphstructurePackage.ELEMENT__TRANSLATED:
 				return isTranslated();
-			case GraphstructurePackage.SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				return isPredicatesAreBeingTranslated();
-			case GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS:
+			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return getRelationFromPrevious();
-			case GraphstructurePackage.SINGLE_ELEMENT__PROPERTIES:
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return getProperties();
-			case GraphstructurePackage.SINGLE_ELEMENT__PREDICATES:
+			case GraphstructurePackage.ELEMENT__PREDICATES:
 				return getPredicates();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -1350,51 +1350,51 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON1:
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
 				getComparison1().clear();
 				getComparison1().addAll((Collection<? extends Comparison>)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON2:
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
 				getComparison2().clear();
 				getComparison2().addAll((Collection<? extends Comparison>)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
+			case GraphstructurePackage.ELEMENT__MAPPING_TO:
 				getMappingTo().clear();
 				getMappingTo().addAll((Collection<? extends SingleElementMapping>)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
 				setMappingFrom((SingleElementMapping)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+			case GraphstructurePackage.ELEMENT__ROOT:
 				setRoot((Graph)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+			case GraphstructurePackage.ELEMENT__NEXT_SINGLE:
 				getNextSingle().clear();
-				getNextSingle().addAll((Collection<? extends SingleElement>)newValue);
+				getNextSingle().addAll((Collection<? extends Element>)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
-				setPrevious((SingleElement)newValue);
+			case GraphstructurePackage.ELEMENT__PREVIOUS:
+				setPrevious((Element)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+			case GraphstructurePackage.ELEMENT__GRAPH:
 				setGraph((Graph)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__NAME:
+			case GraphstructurePackage.ELEMENT__NAME:
 				setName((String)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__TRANSLATED:
+			case GraphstructurePackage.ELEMENT__TRANSLATED:
 				setTranslated((Boolean)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated((Boolean)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS:
+			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				setRelationFromPrevious((Relation)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__PROPERTIES:
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				getProperties().clear();
 				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__PREDICATES:
+			case GraphstructurePackage.ELEMENT__PREDICATES:
 				getPredicates().clear();
 				getPredicates().addAll((Collection<? extends BooleanOperator>)newValue);
 				return;
@@ -1409,46 +1409,46 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON1:
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
 				getComparison1().clear();
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON2:
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
 				getComparison2().clear();
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
+			case GraphstructurePackage.ELEMENT__MAPPING_TO:
 				getMappingTo().clear();
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
 				setMappingFrom((SingleElementMapping)null);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+			case GraphstructurePackage.ELEMENT__ROOT:
 				setRoot((Graph)null);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+			case GraphstructurePackage.ELEMENT__NEXT_SINGLE:
 				getNextSingle().clear();
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
-				setPrevious((SingleElement)null);
+			case GraphstructurePackage.ELEMENT__PREVIOUS:
+				setPrevious((Element)null);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+			case GraphstructurePackage.ELEMENT__GRAPH:
 				setGraph((Graph)null);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__NAME:
+			case GraphstructurePackage.ELEMENT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__TRANSLATED:
+			case GraphstructurePackage.ELEMENT__TRANSLATED:
 				setTranslated(TRANSLATED_EDEFAULT);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS:
+			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				setRelationFromPrevious((Relation)null);
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__PROPERTIES:
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				getProperties().clear();
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__PREDICATES:
+			case GraphstructurePackage.ELEMENT__PREDICATES:
 				getPredicates().clear();
 				return;
 		}
@@ -1462,33 +1462,33 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON1:
+			case GraphstructurePackage.ELEMENT__COMPARISON1:
 				return comparison1 != null && !comparison1.isEmpty();
-			case GraphstructurePackage.SINGLE_ELEMENT__COMPARISON2:
+			case GraphstructurePackage.ELEMENT__COMPARISON2:
 				return comparison2 != null && !comparison2.isEmpty();
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_TO:
+			case GraphstructurePackage.ELEMENT__MAPPING_TO:
 				return mappingTo != null && !mappingTo.isEmpty();
-			case GraphstructurePackage.SINGLE_ELEMENT__MAPPING_FROM:
+			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
 				return mappingFrom != null;
-			case GraphstructurePackage.SINGLE_ELEMENT__ROOT:
+			case GraphstructurePackage.ELEMENT__ROOT:
 				return getRoot() != null;
-			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+			case GraphstructurePackage.ELEMENT__NEXT_SINGLE:
 				return nextSingle != null && !nextSingle.isEmpty();
-			case GraphstructurePackage.SINGLE_ELEMENT__PREVIOUS:
+			case GraphstructurePackage.ELEMENT__PREVIOUS:
 				return getPrevious() != null;
-			case GraphstructurePackage.SINGLE_ELEMENT__GRAPH:
+			case GraphstructurePackage.ELEMENT__GRAPH:
 				return graph != null;
-			case GraphstructurePackage.SINGLE_ELEMENT__NAME:
+			case GraphstructurePackage.ELEMENT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case GraphstructurePackage.SINGLE_ELEMENT__TRANSLATED:
+			case GraphstructurePackage.ELEMENT__TRANSLATED:
 				return translated != TRANSLATED_EDEFAULT;
-			case GraphstructurePackage.SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				return predicatesAreBeingTranslated != PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
-			case GraphstructurePackage.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS:
+			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 				return relationFromPrevious != null;
-			case GraphstructurePackage.SINGLE_ELEMENT__PROPERTIES:
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				return properties != null && !properties.isEmpty();
-			case GraphstructurePackage.SINGLE_ELEMENT__PREDICATES:
+			case GraphstructurePackage.ELEMENT__PREDICATES:
 				return predicates != null && !predicates.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -1502,7 +1502,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS:
+			case GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS:
 				try {
 					copyNextElementsToNextGraphs();
 					return null;
@@ -1510,128 +1510,128 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__SINGLEELEMENT:
+			case GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT:
 				try {
-					copyNextElementToNextGraphs((SingleElement)arguments.get(0));
+					copyNextElementToNextGraphs((Element)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS:
+			case GraphstructurePackage.ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS:
 				removeElementFromPreviousGraphs();
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN:
-				copyNextElementToPreviousGraphs((SingleElement)arguments.get(0), (Boolean)arguments.get(1));
+			case GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN:
+				copyNextElementToPreviousGraphs((Element)arguments.get(0), (Boolean)arguments.get(1));
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN:
+			case GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN:
 				copyNextElementsToPreviousGraphs((Boolean)arguments.get(0));
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___TO_XQUERY_NO_COUNT__LOCATION:
+			case GraphstructurePackage.ELEMENT___TO_XQUERY_NO_COUNT__LOCATION:
 				try {
 					return toXQueryNoCount((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___IS_ROOT_ELEMENT:
+			case GraphstructurePackage.ELEMENT___IS_ROOT_ELEMENT:
 				return isRootElement();
-			case GraphstructurePackage.SINGLE_ELEMENT___REMOVE_MAPPINGS_TO_NEXT:
+			case GraphstructurePackage.ELEMENT___REMOVE_MAPPINGS_TO_NEXT:
 				removeMappingsToNext();
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS:
+			case GraphstructurePackage.ELEMENT___REMOVE_FROM_RETURN_ELEMENTS:
 				removeFromReturnElements();
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___CLEAR_MATCH_RECURSIVELY:
+			case GraphstructurePackage.ELEMENT___CLEAR_MATCH_RECURSIVELY:
 				clearMatchRecursively();
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___GET_ALL_RELATIONS:
+			case GraphstructurePackage.ELEMENT___GET_ALL_RELATIONS:
 				return getAllRelations();
-			case GraphstructurePackage.SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION:
+			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION:
 				try {
 					return translatePredicatesViaAnd((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___CLEAR_PREDICATES_RECURSIVELY:
+			case GraphstructurePackage.ELEMENT___CLEAR_PREDICATES_RECURSIVELY:
 				clearPredicatesRecursively();
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION:
+			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION:
 				try {
 					return translatePredicatesViaBrackets((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___GET_ALL_ELEMENTS:
+			case GraphstructurePackage.ELEMENT___GET_ALL_ELEMENTS:
 				return getAllElements();
-			case GraphstructurePackage.SINGLE_ELEMENT___GET_ORIGINAL_ID:
+			case GraphstructurePackage.ELEMENT___GET_ORIGINAL_ID:
 				return getOriginalID();
-			case GraphstructurePackage.SINGLE_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION:
+			case GraphstructurePackage.ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION:
 				try {
 					return getXQueryRepresentation((Location)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH__STRING:
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_MATCH__STRING:
 				addPrimitiveMatch((String)arguments.get(0));
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING:
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING:
 				addPrimitiveComparison((String)arguments.get(0));
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___GET_XQUERY_VARIABLE:
+			case GraphstructurePackage.ELEMENT___GET_XQUERY_VARIABLE:
 				return getXQueryVariable();
-			case GraphstructurePackage.SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH:
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_MATCH:
 				addPrimitiveMatch();
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON:
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON:
 				addPrimitiveComparison();
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___GET_GRAPH_DEPTH:
+			case GraphstructurePackage.ELEMENT___GET_GRAPH_DEPTH:
 				try {
 					return getGraphDepth();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
+			case GraphstructurePackage.ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
 				try {
 					return translatePathFromPrevious();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___GET_ALL_OPERATORS:
+			case GraphstructurePackage.ELEMENT___GET_ALL_OPERATORS:
 				try {
 					return getAllOperators();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER:
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER:
 				addPrimitiveComparison((PropertyLocation)arguments.get(0), (String)arguments.get(1), (ComparisonOperator)arguments.get(2), (Parameter)arguments.get(3));
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER:
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER:
 				addPrimitiveComparison((Parameter)arguments.get(0));
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___CLEAR_COMPARISON_RECURSIVELY:
+			case GraphstructurePackage.ELEMENT___CLEAR_COMPARISON_RECURSIVELY:
 				clearComparisonRecursively();
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___CLEAR_PROPERTY_RECURSIVELY:
+			case GraphstructurePackage.ELEMENT___CLEAR_PROPERTY_RECURSIVELY:
 				clearPropertyRecursively();
 				return null;
-			case GraphstructurePackage.SINGLE_ELEMENT___GET_RETURN_TYPE:
+			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
-			case GraphstructurePackage.SINGLE_ELEMENT___IS_TRANSLATABLE:
+			case GraphstructurePackage.ELEMENT___IS_TRANSLATABLE:
 				try {
 					return isTranslatable();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.SINGLE_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS:
+			case GraphstructurePackage.ELEMENT___GET_ALL_ARGUMENT_ELEMENTS:
 				try {
 					return getAllArgumentElements();
 				}
@@ -1657,7 +1657,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			res += "\n  " + prop.myToString();
 		if (getNextSingle().size() > 0) {
 //			res += "\n[";
-			for (SingleElement e : getNextSingle()) {
+			for (Element e : getNextSingle()) {
 				res += "\n  " + e.myToString().replace("\n", "\n  ");
 			}
 //			res += "\n]";
@@ -1670,7 +1670,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 */
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
-		for (SingleElement element : getNextSingle()) {
+		for (Element element : getNextSingle()) {
 			res.addAll(element.getAllOperators());
 		}
 		for (Operator op : getPredicates()) {
@@ -1687,7 +1687,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			if(getRelationFromPrevious() != null) {
 				res.addAll(getRelationFromPrevious().getAllInputs());
 			}
-			for (SingleElement element : getNextSingle()) {
+			for (Element element : getNextSingle()) {
 				res.addAll(element.getAllInputs());
 			}
 	//		res.addAll(getRelationFromPrevious().getAllVariables());
@@ -1732,7 +1732,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public void prepareTranslation() {
 		translated = false;
-		for (SingleElement element : getNextSingle()) {
+		for (Element element : getNextSingle()) {
 			element.prepareTranslation();
 		}
 	}
@@ -1862,9 +1862,9 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	 * @generated NOT
 	 */
 	@Override
-	public EList<SingleElement> getAllElements() {
-		EList<SingleElement> result = new BasicEList<SingleElement>();
-		for(SingleElement next : getNextSingle()) {
+	public EList<Element> getAllElements() {
+		EList<Element> result = new BasicEList<Element>();
+		for(Element next : getNextSingle()) {
 			result.addAll(next.getAllElements());
 		}
 		result.add(this);
@@ -1879,7 +1879,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 	@Override
 	public EList<Relation> getAllRelations() {
 		EList<Relation> result = new BasicEList<Relation>();
-		for(SingleElement next : getNextSingle()) {
+		for(Element next : getNextSingle()) {
 			result.addAll(next.getAllRelations());
 		}
 		if(getRelationFromPrevious() != null) {
@@ -1972,7 +1972,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 			p.getComparison1().clear();
 			p.getComparison2().clear();
 		}
-		for(SingleElement child : getNextSingle()) {
+		for(Element child : getNextSingle()) {
 			child.clearComparisonRecursively();
 		}
 	}
@@ -1982,7 +1982,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 		for(Property p : getProperties()) {
 			p.getMatch().clear();
 		}
-		for(SingleElement child : getNextSingle()) {
+		for(Element child : getNextSingle()) {
 			child.clearMatchRecursively();
 		}
 		
@@ -1992,7 +1992,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 		for(Property p : getProperties()) {
 			p.reset();			
 		}
-		for(SingleElement child : getNextSingle()) {
+		for(Element child : getNextSingle()) {
 			child.clearPropertyRecursively();
 		}
 	}
@@ -2011,7 +2011,7 @@ public class SingleElementImpl extends PatternElementImpl implements SingleEleme
 
 	public void clearPredicatesRecursively() {
 		getPredicates().clear();
-		for(SingleElement child : getNextSingle()) {
+		for(Element child : getNextSingle()) {
 			child.clearPredicatesRecursively();
 		}
 	}

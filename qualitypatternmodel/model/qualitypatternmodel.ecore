@@ -110,16 +110,16 @@
   <eSubpackages name="functions" nsURI="functions" nsPrefix="functions">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//functions/Operator">
       <eOperations name="addElement">
-        <eParameters name="element" eType="#//graphstructure/SingleElement"/>
+        <eParameters name="element" eType="#//graphstructure/Element"/>
       </eOperations>
       <eOperations name="removeElement">
-        <eParameters name="element" eType="#//graphstructure/SingleElement"/>
+        <eParameters name="element" eType="#//graphstructure/Element"/>
       </eOperations>
       <eOperations name="createInputs"/>
       <eOperations name="removeInputsFromVariableList"/>
       <eOperations name="reset"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-          eType="#//graphstructure/SingleElement" eOpposite="#//graphstructure/SingleElement/predicates"/>
+          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/predicates"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
@@ -199,7 +199,7 @@
       <eOperations name="removeRelationFromPreviousGraphs"/>
       <eOperations name="removeMappingsToNext"/>
       <eOperations name="copyToNewNextGraphs">
-        <eParameters name="newRelationTo" eType="#//graphstructure/SingleElement"/>
+        <eParameters name="newRelationTo" eType="#//graphstructure/Element"/>
       </eOperations>
       <eOperations name="createInputs"/>
       <eOperations name="removeInputsFromVariableList"/>
@@ -208,7 +208,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
           eType="#//patternstructure/RelationMapping" eOpposite="#//patternstructure/RelationMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relationTo" lowerBound="1"
-          eType="#//graphstructure/SingleElement" eOpposite="#//graphstructure/SingleElement/relationFromPrevious"/>
+          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/relationFromPrevious"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/AxisOptionParam"
           eOpposite="#//parameters/AxisOptionParam/relation"/>
     </eClassifiers>
@@ -216,7 +216,7 @@
       <eOperations name="createInputs"/>
       <eOperations name="removeInputsFromVariableList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
-          eType="#//graphstructure/SingleElement" eOpposite="#//graphstructure/SingleElement/properties"/>
+          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
           eType="#//functions/Match" eOpposite="#//functions/Match/property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" lowerBound="1"
@@ -228,14 +228,14 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="referenceOperator" eType="#//functions/ReferenceOperator"
           eOpposite="#//functions/ReferenceOperator/property"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SingleElement" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
+    <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
       <eOperations name="copyNextElementsToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException"/>
       <eOperations name="copyNextElementToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException">
-        <eParameters name="nextElement" eType="#//graphstructure/SingleElement"/>
+        <eParameters name="nextElement" eType="#//graphstructure/Element"/>
       </eOperations>
       <eOperations name="removeElementFromPreviousGraphs"/>
       <eOperations name="copyNextElementToPreviousGraphs">
-        <eParameters name="nextElement" eType="#//graphstructure/SingleElement"/>
+        <eParameters name="nextElement" eType="#//graphstructure/Element"/>
         <eParameters name="recursive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
       <eOperations name="copyNextElementsToPreviousGraphs">
@@ -259,7 +259,7 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>
-      <eOperations name="getAllElements" upperBound="-1" eType="#//graphstructure/SingleElement"/>
+      <eOperations name="getAllElements" upperBound="-1" eType="#//graphstructure/Element"/>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eOperations name="getXQueryRepresentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -298,9 +298,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//graphstructure/Graph"
           eOpposite="#//graphstructure/Graph/rootElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nextSingle" upperBound="-1"
-          eType="#//graphstructure/SingleElement" containment="true" eOpposite="#//graphstructure/SingleElement/previous"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//graphstructure/SingleElement"
-          eOpposite="#//graphstructure/SingleElement/nextSingle"/>
+          eType="#//graphstructure/Element" containment="true" eOpposite="#//graphstructure/Element/previous"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//graphstructure/Element"
+          eOpposite="#//graphstructure/Element/nextSingle"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="#//graphstructure/Graph"
           eOpposite="#//graphstructure/Graph/returnElements"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -321,10 +321,10 @@
       <eOperations name="copyGraph" eExceptions="#//patternstructure/MissingPatternContainerException">
         <eParameters name="graph" eType="#//graphstructure/Graph"/>
       </eOperations>
-      <eOperations name="getAllElements" upperBound="-1" eType="#//graphstructure/SingleElement"/>
+      <eOperations name="getAllElements" upperBound="-1" eType="#//graphstructure/Element"/>
       <eOperations name="getAllRelations" upperBound="-1" eType="#//graphstructure/Relation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rootElement" lowerBound="1"
-          eType="#//graphstructure/SingleElement" containment="true" eOpposite="#//graphstructure/SingleElement/root"/>
+          eType="#//graphstructure/Element" containment="true" eOpposite="#//graphstructure/Element/root"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
           eType="#//functions/OperatorList" containment="true" eOpposite="#//functions/OperatorList/graph"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" lowerBound="1"
@@ -337,7 +337,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//patternstructure/Pattern"
           eOpposite="#//patternstructure/Pattern/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="returnElements" lowerBound="1"
-          upperBound="-1" eType="#//graphstructure/SingleElement" eOpposite="#//graphstructure/SingleElement/graph"/>
+          upperBound="-1" eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphismTo" upperBound="-1"
           eType="#//patternstructure/Morphism" eOpposite="#//patternstructure/Morphism/from"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphismFrom" eType="#//patternstructure/Morphism"
@@ -448,9 +448,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SingleElementMapping" eSuperTypes="#//patternstructure/Mapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
-          eType="#//graphstructure/SingleElement" eOpposite="#//graphstructure/SingleElement/mappingTo"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/SingleElement"
-          eOpposite="#//graphstructure/SingleElement/mappingFrom"/>
+          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/mappingTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/Element"
+          eOpposite="#//graphstructure/Element/mappingFrom"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Mapping" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappingDepth" lowerBound="1"

@@ -3,7 +3,7 @@
 package qualitypatternmodel.functions;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 
 
 /**
@@ -26,17 +26,17 @@ public interface BooleanOperator extends Operator {
 
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.SingleElement}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getPredicates <em>Predicates</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Elements</em>' reference list.
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getBooleanOperator_Elements()
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getPredicates
+	 * @see qualitypatternmodel.graphstructure.Element#getPredicates
 	 * @model opposite="predicates"
 	 * @generated
 	 */
-	EList<SingleElement> getElements();
+	EList<Element> getElements();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -44,7 +44,7 @@ public interface BooleanOperator extends Operator {
 	 * @model
 	 * @generated
 	 */
-	void addElement(SingleElement element);
+	void addElement(Element element);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -52,7 +52,7 @@ public interface BooleanOperator extends Operator {
 	 * @model
 	 * @generated
 	 */
-	void removeElement(SingleElement element);
+	void removeElement(Element element);
 
 	/**
 	 * <!-- begin-user-doc -->

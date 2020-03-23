@@ -6,7 +6,7 @@ import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.exceptions.*;
 import qualitypatternmodel.graphstructure.Axis;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 
 //import qualitypatternmodel.patternstructure.*;
 //import qualitypatternmodel.patternstructure.impl.*;
@@ -73,14 +73,14 @@ public class Test00 {
 	
 	public static Pattern getBasePatternCond(String comp) {
 		Pattern pattern = getBasePattern();
-		SingleElement se = pattern.getGraph().getReturnElements().get(0);
+		Element se = pattern.getGraph().getReturnElements().get(0);
 		se.addPrimitiveComparison(comp);
 		return pattern;
 	}
 	
 	public static Pattern getBasePatternMatch(String regex) {
 		Pattern pattern = getBasePattern();
-		SingleElement se = pattern.getGraph().getReturnElements().get(0);
+		Element se = pattern.getGraph().getReturnElements().get(0);
 		se.addPrimitiveMatch(regex);
 		return pattern;
 	}

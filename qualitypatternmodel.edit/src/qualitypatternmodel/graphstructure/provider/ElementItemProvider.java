@@ -15,24 +15,24 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.SingleElement} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.Element} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SingleElementItemProvider extends PatternElementItemProvider {
+public class ElementItemProvider extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SingleElementItemProvider(AdapterFactory adapterFactory) {
+	public ElementItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -55,8 +55,6 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 			addNamePropertyDescriptor(object);
 			addTranslatedPropertyDescriptor(object);
 			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
-			addRelationFromPreviousPropertyDescriptor(object);
-			addPropertiesPropertyDescriptor(object);
 			addPredicatesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -117,9 +115,9 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SingleElement_mappingTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_mappingTo_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__MAPPING_TO,
+				 getString("_UI_Element_mappingTo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_mappingTo_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__MAPPING_TO,
 				 true,
 				 false,
 				 true,
@@ -139,9 +137,9 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SingleElement_mappingFrom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_mappingFrom_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__MAPPING_FROM,
+				 getString("_UI_Element_mappingFrom_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_mappingFrom_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__MAPPING_FROM,
 				 true,
 				 false,
 				 true,
@@ -161,9 +159,9 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SingleElement_graph_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_graph_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__GRAPH,
+				 getString("_UI_Element_graph_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_graph_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__GRAPH,
 				 true,
 				 false,
 				 true,
@@ -183,9 +181,9 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SingleElement_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_name_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__NAME,
+				 getString("_UI_Element_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_name_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__NAME,
 				 true,
 				 false,
 				 false,
@@ -205,9 +203,9 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SingleElement_translated_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_translated_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__TRANSLATED,
+				 getString("_UI_Element_translated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_translated_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__TRANSLATED,
 				 true,
 				 false,
 				 false,
@@ -227,57 +225,13 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SingleElement_predicatesAreBeingTranslated_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_predicatesAreBeingTranslated_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED,
+				 getString("_UI_Element_predicatesAreBeingTranslated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_predicatesAreBeingTranslated_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Relation From Previous feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRelationFromPreviousPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SingleElement_relationFromPrevious_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_relationFromPrevious_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__RELATION_FROM_PREVIOUS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Properties feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPropertiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SingleElement_properties_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_properties_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__PROPERTIES,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}
@@ -293,9 +247,9 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SingleElement_predicates_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SingleElement_predicates_feature", "_UI_SingleElement_type"),
-				 GraphstructurePackage.Literals.SINGLE_ELEMENT__PREDICATES,
+				 getString("_UI_Element_predicates_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_predicates_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__PREDICATES,
 				 true,
 				 false,
 				 true,
@@ -316,7 +270,9 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.SINGLE_ELEMENT__NEXT_SINGLE);
+			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__NEXT_SINGLE);
+			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__RELATION_FROM_PREVIOUS);
+			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__PROPERTIES);
 		}
 		return childrenFeatures;
 	}
@@ -335,14 +291,14 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This returns SingleElement.gif.
+	 * This returns Element.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SingleElement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Element"));
 	}
 
 	/**
@@ -353,9 +309,9 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		SingleElement singleElement = (SingleElement) object;
+		Element element = (Element) object;
 //		System.out.println(singleElement.getId());
-		return getString("_UI_SingleElement_type") + " " + singleElement.getInternalId();
+		return getString("_UI_SingleElement_type") + " " + element.getInternalId();
 		
 //		String label = ((SingleElement)object).getId();
 //		return label == null || label.length() == 0 ?
@@ -375,13 +331,15 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SingleElement.class)) {
-			case GraphstructurePackage.SINGLE_ELEMENT__NAME:
-			case GraphstructurePackage.SINGLE_ELEMENT__TRANSLATED:
-			case GraphstructurePackage.SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+		switch (notification.getFeatureID(Element.class)) {
+			case GraphstructurePackage.ELEMENT__NAME:
+			case GraphstructurePackage.ELEMENT__TRANSLATED:
+			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case GraphstructurePackage.SINGLE_ELEMENT__NEXT_SINGLE:
+			case GraphstructurePackage.ELEMENT__NEXT_SINGLE:
+			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
+			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -401,8 +359,18 @@ public class SingleElementItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.SINGLE_ELEMENT__NEXT_SINGLE,
-				 GraphstructureFactory.eINSTANCE.createSingleElement()));
+				(GraphstructurePackage.Literals.ELEMENT__NEXT_SINGLE,
+				 GraphstructureFactory.eINSTANCE.createElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.ELEMENT__RELATION_FROM_PREVIOUS,
+				 GraphstructureFactory.eINSTANCE.createRelation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.ELEMENT__PROPERTIES,
+				 GraphstructureFactory.eINSTANCE.createProperty()));
 	}
 
 	/**

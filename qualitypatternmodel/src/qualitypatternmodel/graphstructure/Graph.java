@@ -40,17 +40,17 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 public interface Graph extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Root Element</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getRoot <em>Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Root Element</em>' containment reference.
-	 * @see #setRootElement(SingleElement)
+	 * @see #setRootElement(Element)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_RootElement()
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getRoot
+	 * @see qualitypatternmodel.graphstructure.Element#getRoot
 	 * @model opposite="root" containment="true" required="true"
 	 * @generated
 	 */
-	SingleElement getRootElement();
+	Element getRootElement();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}' containment reference.
@@ -60,21 +60,21 @@ public interface Graph extends PatternElement {
 	 * @see #getRootElement()
 	 * @generated
 	 */
-	void setRootElement(SingleElement value);
+	void setRootElement(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>Return Elements</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.SingleElement}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getGraph <em>Graph</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Return Elements</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_ReturnElements()
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getGraph
+	 * @see qualitypatternmodel.graphstructure.Element#getGraph
 	 * @model opposite="graph" required="true"
 	 * @generated
 	 */
-	EList<SingleElement> getReturnElements();
+	EList<Element> getReturnElements();
 
 	/**
 	 * Returns the value of the '<em><b>Morphism To</b></em>' reference list.
@@ -254,7 +254,7 @@ public interface Graph extends PatternElement {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<SingleElement> getAllElements();
+	EList<Element> getAllElements();
 
 	/**
 	 * <!-- begin-user-doc -->

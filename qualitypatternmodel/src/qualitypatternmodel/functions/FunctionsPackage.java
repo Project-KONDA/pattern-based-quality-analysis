@@ -521,7 +521,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___ADD_ELEMENT__SINGLEELEMENT = OPERATOR_OPERATION_COUNT + 0;
+	int BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT = OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Remove Element</em>' operation.
@@ -530,7 +530,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___REMOVE_ELEMENT__SINGLEELEMENT = OPERATOR_OPERATION_COUNT + 1;
+	int BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = OPERATOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Create Inputs</em>' operation.
@@ -1280,7 +1280,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___ADD_ELEMENT__SINGLEELEMENT = BOOLEAN_OPERATOR___ADD_ELEMENT__SINGLEELEMENT;
+	int MATCH___ADD_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT;
 
 	/**
 	 * The operation id for the '<em>Remove Element</em>' operation.
@@ -1289,7 +1289,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___REMOVE_ELEMENT__SINGLEELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__SINGLEELEMENT;
+	int MATCH___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
 	 * The operation id for the '<em>Create Inputs</em>' operation.
@@ -1596,7 +1596,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___ADD_ELEMENT__SINGLEELEMENT = BOOLEAN_OPERATOR___ADD_ELEMENT__SINGLEELEMENT;
+	int COMPARISON___ADD_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT;
 
 	/**
 	 * The operation id for the '<em>Remove Element</em>' operation.
@@ -1605,7 +1605,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___REMOVE_ELEMENT__SINGLEELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__SINGLEELEMENT;
+	int COMPARISON___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
 	 * The operation id for the '<em>Create Inputs</em>' operation.
@@ -2066,7 +2066,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_OPERATOR___ADD_ELEMENT__SINGLEELEMENT = BOOLEAN_OPERATOR___ADD_ELEMENT__SINGLEELEMENT;
+	int REFERENCE_OPERATOR___ADD_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT;
 
 	/**
 	 * The operation id for the '<em>Remove Element</em>' operation.
@@ -2075,7 +2075,7 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_OPERATOR___REMOVE_ELEMENT__SINGLEELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__SINGLEELEMENT;
+	int REFERENCE_OPERATOR___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
 	 * The operation id for the '<em>Create Inputs</em>' operation.
@@ -2156,24 +2156,24 @@ public interface FunctionsPackage extends EPackage {
 	EReference getBooleanOperator_Elements();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.SingleElement) <em>Add Element</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Element</em>' operation.
-	 * @see qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.SingleElement)
+	 * @see qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element)
 	 * @generated
 	 */
-	EOperation getBooleanOperator__AddElement__SingleElement();
+	EOperation getBooleanOperator__AddElement__Element();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.SingleElement) <em>Remove Element</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Remove Element</em>' operation.
-	 * @see qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.SingleElement)
+	 * @see qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element)
 	 * @generated
 	 */
-	EOperation getBooleanOperator__RemoveElement__SingleElement();
+	EOperation getBooleanOperator__RemoveElement__Element();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#createInputs() <em>Create Inputs</em>}' operation.
@@ -2566,7 +2566,7 @@ public interface FunctionsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOLEAN_OPERATOR___ADD_ELEMENT__SINGLEELEMENT = eINSTANCE.getBooleanOperator__AddElement__SingleElement();
+		EOperation BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT = eINSTANCE.getBooleanOperator__AddElement__Element();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Element</b></em>' operation.
@@ -2574,7 +2574,7 @@ public interface FunctionsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOLEAN_OPERATOR___REMOVE_ELEMENT__SINGLEELEMENT = eINSTANCE.getBooleanOperator__RemoveElement__SingleElement();
+		EOperation BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = eINSTANCE.getBooleanOperator__RemoveElement__Element();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Inputs</b></em>' operation.

@@ -37,7 +37,7 @@ public class Test04QuantorCombinations {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		SingleElement se3 = graphFactory.createSingleElement();
+		Element se3 = graphFactory.createElement();
 		qcond2.getGraph().getRootElement().getNextSingle().get(0).getNextSingle().get(0).getNextSingle().add(se3);
 		
 		return pattern;

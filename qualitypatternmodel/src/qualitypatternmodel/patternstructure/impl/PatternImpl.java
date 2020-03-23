@@ -18,9 +18,9 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.graphstructure.impl.SingleElementImpl;
+import qualitypatternmodel.graphstructure.impl.ElementImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -132,9 +132,9 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		setParameterList(new ParameterListImpl(this));
 		setGraph(new GraphImpl());
 		if(!emptyGraph) {
-			SingleElementImpl rootElement = new SingleElementImpl();
+			ElementImpl rootElement = new ElementImpl();
 			getGraph().setRootElement(rootElement);
-			SingleElementImpl returnElement = new SingleElementImpl();
+			ElementImpl returnElement = new ElementImpl();
 			returnElement.setPrevious(getGraph().getRootElement());
 			getGraph().getReturnElements().add(returnElement);
 			rootElement.setName("Root");
@@ -175,7 +175,7 @@ public class PatternImpl extends PatternElementImpl implements Pattern {
 		res += WHERE + condition.toXQuery(Location.OUTSIDE); // TODO: schachteln!
 
 		res += RETURN + "(";
-		EList<SingleElement> returnElements = graph.getReturnElements();
+		EList<Element> returnElements = graph.getReturnElements();
 		for (int i = 0; i < returnElements.size(); i++) {
 			if (i != 0)
 				res += ", ";

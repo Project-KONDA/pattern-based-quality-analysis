@@ -27,7 +27,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
@@ -409,14 +409,14 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 */
 	@Override
 	public void checkSingleElementMappingsUniqueness() throws InvalidityException {
-		List<SingleElement> elements = new ArrayList<SingleElement>();
+		List<Element> elements = new ArrayList<Element>();
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof SingleElementMapping) {
 				SingleElementMapping singleElementMapping = (SingleElementMapping) mapping;
 				elements.add(singleElementMapping.getFrom());
 			}
 		}
-		Set<SingleElement> set = new HashSet<SingleElement>(elements);
+		Set<Element> set = new HashSet<Element>(elements);
 		if(elements.size() != set.size()) {
 			throw new InvalidityException("mappings not unique");
 		}

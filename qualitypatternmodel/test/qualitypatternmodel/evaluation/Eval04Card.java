@@ -12,7 +12,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PropertyLocation;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;

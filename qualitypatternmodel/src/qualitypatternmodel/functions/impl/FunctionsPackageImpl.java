@@ -222,7 +222,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getBooleanOperator__AddElement__SingleElement() {
+	public EOperation getBooleanOperator__AddElement__Element() {
 		return booleanOperatorEClass.getEOperations().get(0);
 	}
 
@@ -232,7 +232,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getBooleanOperator__RemoveElement__SingleElement() {
+	public EOperation getBooleanOperator__RemoveElement__Element() {
 		return booleanOperatorEClass.getEOperations().get(1);
 	}
 
@@ -597,8 +597,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		// Create classes and their features
 		booleanOperatorEClass = createEClass(BOOLEAN_OPERATOR);
 		createEReference(booleanOperatorEClass, BOOLEAN_OPERATOR__ELEMENTS);
-		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___ADD_ELEMENT__SINGLEELEMENT);
-		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_ELEMENT__SINGLEELEMENT);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___CREATE_INPUTS);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___RESET);
@@ -690,13 +690,13 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(booleanOperatorEClass, BooleanOperator.class, "BooleanOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBooleanOperator_Elements(), theGraphstructurePackage.getSingleElement(), theGraphstructurePackage.getSingleElement_Predicates(), "elements", null, 0, -1, BooleanOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBooleanOperator_Elements(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_Predicates(), "elements", null, 0, -1, BooleanOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getBooleanOperator__AddElement__SingleElement(), null, "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theGraphstructurePackage.getSingleElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getBooleanOperator__AddElement__Element(), null, "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getBooleanOperator__RemoveElement__SingleElement(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theGraphstructurePackage.getSingleElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getBooleanOperator__RemoveElement__Element(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getBooleanOperator__CreateInputs(), null, "createInputs", 0, 1, IS_UNIQUE, IS_ORDERED);
 

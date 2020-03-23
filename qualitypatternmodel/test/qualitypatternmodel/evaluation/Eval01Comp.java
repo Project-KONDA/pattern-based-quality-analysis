@@ -12,7 +12,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -37,18 +37,18 @@ public class Eval01Comp {
 		FunctionsFactory functionsFactory = FunctionsFactory.eINSTANCE;		
 		
 		Pattern pattern = Test03Quantor.getPatternExists();
-		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);			
+		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);			
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
 		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
-		SingleElement returnElementInGraph1 = graph1.getReturnElements().get(0);	
+		Element returnElementInGraph1 = graph1.getReturnElements().get(0);	
 		
-		SingleElement next1 = returnElementInGraph1.getNextSingle().get(0);	
+		Element next1 = returnElementInGraph1.getNextSingle().get(0);	
 		next1.addPrimitiveComparison();
 		Property property1 = graphFactory.createProperty();
 		property1.setElement(next1);
 		
-		SingleElement next2 = graphFactory.createSingleElement();
+		Element next2 = graphFactory.createElement();
 		returnElementInGraph1.getNextSingle().add(next2);
 		next2.addPrimitiveComparison();
 		Property property2 = graphFactory.createProperty();
@@ -68,7 +68,7 @@ public class Eval01Comp {
 		
 		Pattern pattern = getCompAbstract();
 		
-		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
+		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
@@ -77,9 +77,9 @@ public class Eval01Comp {
 		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		
 		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
-		SingleElement returnElementInGraph1 = graph1.getReturnElements().get(0);
-		SingleElement next1ToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);	
-		SingleElement next2ToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(1);	
+		Element returnElementInGraph1 = graph1.getReturnElements().get(0);
+		Element next1ToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);	
+		Element next2ToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(1);	
 
 		Comparison comparison1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
