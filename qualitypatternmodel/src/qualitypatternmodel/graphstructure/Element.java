@@ -9,9 +9,9 @@ import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.ComparisonOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -307,15 +307,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Removes <code>SingleElement</code> objects in previous graphs which are directly or transitively connected to <code>this</code> via a <code>SingleElementMapping</code>.
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void removeElementFromPreviousGraphs();
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * Copies the contained <code>SingleElement</code> nextElement to the previous graph or recursively all previous graphs in case recursive is true.
 	 * A corresponding <code>SingleElement</code> object is created in these graphs and a <code>SingleElementMapping</code> object is added to the morphism.
 	 * @param nextElement the <code>SingleElement</code> to be copied
@@ -351,14 +342,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model
 	 * @generated
 	 */
-	void removeMappingsToNext();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void removeFromReturnElementsRecursively();
 
 	/**
@@ -384,14 +367,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	void clearPredicatesRecursively();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String translatePredicates(Location location) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -464,14 +439,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	int getGraphDepth() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String translatePathFromPrevious() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

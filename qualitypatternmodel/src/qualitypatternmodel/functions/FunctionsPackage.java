@@ -533,40 +533,13 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = OPERATOR_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Create Inputs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR___CREATE_INPUTS = OPERATOR_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST = OPERATOR_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Reset</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR___RESET = OPERATOR_OPERATION_COUNT + 4;
-
-	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 5;
+	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
@@ -1066,33 +1039,6 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
-	 * The operation id for the '<em>Create Inputs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___CREATE_INPUTS = BOOLEAN_OPERATOR___CREATE_INPUTS;
-
-	/**
-	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___REMOVE_INPUTS_FROM_VARIABLE_LIST = BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST;
-
-	/**
-	 * The operation id for the '<em>Reset</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___RESET = BOOLEAN_OPERATOR___RESET;
-
-	/**
 	 * The number of operations of the '<em>Match</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1382,94 +1328,13 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
-	 * The operation id for the '<em>Create Inputs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___CREATE_INPUTS = BOOLEAN_OPERATOR___CREATE_INPUTS;
-
-	/**
-	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___REMOVE_INPUTS_FROM_VARIABLE_LIST = BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST;
-
-	/**
-	 * The operation id for the '<em>Reset</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___RESET = BOOLEAN_OPERATOR___RESET;
-
-	/**
-	 * The operation id for the '<em>Set Type According To Argument</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___SET_TYPE_ACCORDING_TO_ARGUMENT__COMPARABLE_COMPARABLE = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Adapt Operator Element Association</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___ADAPT_OPERATOR_ELEMENT_ASSOCIATION__COMPARABLE_COMPARABLE = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Move Elements From Root Operator To Old Argument</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___MOVE_ELEMENTS_FROM_ROOT_OPERATOR_TO_OLD_ARGUMENT__COMPARABLE_BOOLEANOPERATOR = BOOLEAN_OPERATOR_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Remove Old Argument Elements From Root Operator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___REMOVE_OLD_ARGUMENT_ELEMENTS_FROM_ROOT_OPERATOR__COMPARABLE_BOOLEANOPERATOR = BOOLEAN_OPERATOR_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Move Elements From New Argument To Root Operator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___MOVE_ELEMENTS_FROM_NEW_ARGUMENT_TO_ROOT_OPERATOR__COMPARABLE_ELIST = BOOLEAN_OPERATOR_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Add New Argument Elements To Root Operator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___ADD_NEW_ARGUMENT_ELEMENTS_TO_ROOT_OPERATOR__COMPARABLE_ELIST = BOOLEAN_OPERATOR_OPERATION_COUNT + 5;
-
-	/**
 	 * The number of operations of the '<em>Comparison</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 6;
+	int COMPARISON_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.OperatorListImpl <em>Operator List</em>}' class.
@@ -1897,33 +1762,6 @@ public interface FunctionsPackage extends EPackage {
 	int REFERENCE_OPERATOR___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
-	 * The operation id for the '<em>Create Inputs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_OPERATOR___CREATE_INPUTS = BOOLEAN_OPERATOR___CREATE_INPUTS;
-
-	/**
-	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST = BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST;
-
-	/**
-	 * The operation id for the '<em>Reset</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_OPERATOR___RESET = BOOLEAN_OPERATOR___RESET;
-
-	/**
 	 * The number of operations of the '<em>Reference Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1993,36 +1831,6 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBooleanOperator__RemoveElement__Element();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#createInputs() <em>Create Inputs</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Inputs</em>' operation.
-	 * @see qualitypatternmodel.functions.BooleanOperator#createInputs()
-	 * @generated
-	 */
-	EOperation getBooleanOperator__CreateInputs();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Inputs From Variable List</em>' operation.
-	 * @see qualitypatternmodel.functions.BooleanOperator#removeInputsFromVariableList()
-	 * @generated
-	 */
-	EOperation getBooleanOperator__RemoveInputsFromVariableList();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#reset() <em>Reset</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Reset</em>' operation.
-	 * @see qualitypatternmodel.functions.BooleanOperator#reset()
-	 * @generated
-	 */
-	EOperation getBooleanOperator__Reset();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Operator <em>Operator</em>}'.
@@ -2213,66 +2021,6 @@ public interface FunctionsPackage extends EPackage {
 	EAttribute getComparison_Type();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Comparison#setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable) <em>Set Type According To Argument</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Type According To Argument</em>' operation.
-	 * @see qualitypatternmodel.functions.Comparison#setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable)
-	 * @generated
-	 */
-	EOperation getComparison__SetTypeAccordingToArgument__Comparable_Comparable();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Comparison#adaptOperatorElementAssociation(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable) <em>Adapt Operator Element Association</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Adapt Operator Element Association</em>' operation.
-	 * @see qualitypatternmodel.functions.Comparison#adaptOperatorElementAssociation(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.graphstructure.Comparable)
-	 * @generated
-	 */
-	EOperation getComparison__AdaptOperatorElementAssociation__Comparable_Comparable();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Comparison#moveElementsFromRootOperatorToOldArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.functions.BooleanOperator) <em>Move Elements From Root Operator To Old Argument</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Move Elements From Root Operator To Old Argument</em>' operation.
-	 * @see qualitypatternmodel.functions.Comparison#moveElementsFromRootOperatorToOldArgument(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.functions.BooleanOperator)
-	 * @generated
-	 */
-	EOperation getComparison__MoveElementsFromRootOperatorToOldArgument__Comparable_BooleanOperator();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Comparison#removeOldArgumentElementsFromRootOperator(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.functions.BooleanOperator) <em>Remove Old Argument Elements From Root Operator</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Old Argument Elements From Root Operator</em>' operation.
-	 * @see qualitypatternmodel.functions.Comparison#removeOldArgumentElementsFromRootOperator(qualitypatternmodel.graphstructure.Comparable, qualitypatternmodel.functions.BooleanOperator)
-	 * @generated
-	 */
-	EOperation getComparison__RemoveOldArgumentElementsFromRootOperator__Comparable_BooleanOperator();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Comparison#moveElementsFromNewArgumentToRootOperator(qualitypatternmodel.graphstructure.Comparable, org.eclipse.emf.common.util.EList) <em>Move Elements From New Argument To Root Operator</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Move Elements From New Argument To Root Operator</em>' operation.
-	 * @see qualitypatternmodel.functions.Comparison#moveElementsFromNewArgumentToRootOperator(qualitypatternmodel.graphstructure.Comparable, org.eclipse.emf.common.util.EList)
-	 * @generated
-	 */
-	EOperation getComparison__MoveElementsFromNewArgumentToRootOperator__Comparable_EList();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Comparison#addNewArgumentElementsToRootOperator(qualitypatternmodel.graphstructure.Comparable, org.eclipse.emf.common.util.EList) <em>Add New Argument Elements To Root Operator</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add New Argument Elements To Root Operator</em>' operation.
-	 * @see qualitypatternmodel.functions.Comparison#addNewArgumentElementsToRootOperator(qualitypatternmodel.graphstructure.Comparable, org.eclipse.emf.common.util.EList)
-	 * @generated
-	 */
-	EOperation getComparison__AddNewArgumentElementsToRootOperator__Comparable_EList();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.OperatorList <em>Operator List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2436,30 +2184,6 @@ public interface FunctionsPackage extends EPackage {
 		EOperation BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = eINSTANCE.getBooleanOperator__RemoveElement__Element();
 
 		/**
-		 * The meta object literal for the '<em><b>Create Inputs</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOLEAN_OPERATOR___CREATE_INPUTS = eINSTANCE.getBooleanOperator__CreateInputs();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Inputs From Variable List</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST = eINSTANCE.getBooleanOperator__RemoveInputsFromVariableList();
-
-		/**
-		 * The meta object literal for the '<em><b>Reset</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation BOOLEAN_OPERATOR___RESET = eINSTANCE.getBooleanOperator__Reset();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OperatorImpl <em>Operator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2610,54 +2334,6 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPARISON__TYPE = eINSTANCE.getComparison_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Type According To Argument</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPARISON___SET_TYPE_ACCORDING_TO_ARGUMENT__COMPARABLE_COMPARABLE = eINSTANCE.getComparison__SetTypeAccordingToArgument__Comparable_Comparable();
-
-		/**
-		 * The meta object literal for the '<em><b>Adapt Operator Element Association</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPARISON___ADAPT_OPERATOR_ELEMENT_ASSOCIATION__COMPARABLE_COMPARABLE = eINSTANCE.getComparison__AdaptOperatorElementAssociation__Comparable_Comparable();
-
-		/**
-		 * The meta object literal for the '<em><b>Move Elements From Root Operator To Old Argument</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPARISON___MOVE_ELEMENTS_FROM_ROOT_OPERATOR_TO_OLD_ARGUMENT__COMPARABLE_BOOLEANOPERATOR = eINSTANCE.getComparison__MoveElementsFromRootOperatorToOldArgument__Comparable_BooleanOperator();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Old Argument Elements From Root Operator</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPARISON___REMOVE_OLD_ARGUMENT_ELEMENTS_FROM_ROOT_OPERATOR__COMPARABLE_BOOLEANOPERATOR = eINSTANCE.getComparison__RemoveOldArgumentElementsFromRootOperator__Comparable_BooleanOperator();
-
-		/**
-		 * The meta object literal for the '<em><b>Move Elements From New Argument To Root Operator</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPARISON___MOVE_ELEMENTS_FROM_NEW_ARGUMENT_TO_ROOT_OPERATOR__COMPARABLE_ELIST = eINSTANCE.getComparison__MoveElementsFromNewArgumentToRootOperator__Comparable_EList();
-
-		/**
-		 * The meta object literal for the '<em><b>Add New Argument Elements To Root Operator</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPARISON___ADD_NEW_ARGUMENT_ELEMENTS_TO_ROOT_OPERATOR__COMPARABLE_ELIST = eINSTANCE.getComparison__AddNewArgumentElementsToRootOperator__Comparable_EList();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OperatorListImpl <em>Operator List</em>}' class.

@@ -17,16 +17,13 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyNextElementsToNextGraphs() <em>Copy Next Elements To Next Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyNextElementToNextGraphs(qualitypatternmodel.graphstructure.Element) <em>Copy Next Element To Next Graphs</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#removeElementFromPreviousGraphs() <em>Remove Element From Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyNextElementToPreviousGraphs(qualitypatternmodel.graphstructure.Element, boolean) <em>Copy Next Element To Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyNextElementsToPreviousGraphs(boolean) <em>Copy Next Elements To Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isRootElement() <em>Is Root Element</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElementsRecursively() <em>Remove From Return Elements Recursively</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearMatchRecursively() <em>Clear Match Recursively</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllRelations() <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllElements() <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getOriginalID() <em>Get Original ID</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}</li>
@@ -36,7 +33,6 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch() <em>Add Primitive Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison() <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraphDepth() <em>Get Graph Depth</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#translatePathFromPrevious() <em>Translate Path From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllOperators() <em>Get All Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}</li>
@@ -130,19 +126,6 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#removeElementFromPreviousGraphs() <em>Remove Element From Previous Graphs</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#removeElementFromPreviousGraphs()
-	 * @generated
-	 */
-	public void testRemoveElementFromPreviousGraphs() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#copyNextElementToPreviousGraphs(qualitypatternmodel.graphstructure.Element, boolean) <em>Copy Next Element To Previous Graphs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,19 +159,6 @@ public class ElementTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testIsRootElement() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#removeMappingsToNext() <em>Remove Mappings To Next</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#removeMappingsToNext()
-	 * @generated
-	 */
-	public void testRemoveMappingsToNext() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -241,19 +211,6 @@ public class ElementTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testClearPredicatesRecursively() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	public void testTranslatePredicates__Location() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -371,19 +328,6 @@ public class ElementTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetGraphDepth() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#translatePathFromPrevious() <em>Translate Path From Previous</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#translatePathFromPrevious()
-	 * @generated
-	 */
-	public void testTranslatePathFromPrevious() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

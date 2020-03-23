@@ -290,66 +290,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	public boolean isRootElement() {
 		return getRoot() != null;
 	}
-
-//	@Override
-//	public String toXQueryCount(Location location) throws InvalidityException {
-//		translated = true;
-//		
-//		String xPredicates = translatePredicatesViaAnd(location);
-//
-//		String result = "";
-//		if (location == Location.RETURN) {
-//			String xPathExpression = translatePathFromPrevious();
-//			result = FOR + getXQueryVariable() + IN + xPathExpression;
-//		} else {
-//			if (location == Location.EXISTS) {
-//				result += "(" + SOME;
-//			} else if (location == Location.FORALL) {
-//				result += "(" + EVERY;
-//			} else {
-//				throw new InvalidityException("invalid location");
-//			}
-//			result += getXQueryVariable();
-//			if (mappingFrom == null) {
-//				String xPathExpression = translatePathFromPrevious();
-//				result += IN + xPathExpression + SATISFIES;
-//			} else if (!getPredicates().isEmpty()) {
-//				result += IN + getXQueryVariable() + SATISFIES;
-//			} else {
-//				result = "";
-//			}
-//			if (!xPredicates.equals("")) {
-//				if (location == Location.EXISTS) {
-//					result += xPredicates;
-////					if(getNextElements().size() > 0) {
-//					result += AND;
-////					}
-//				} else {
-//					result += NOT + "(" + xPredicates + ")" + OR;
-//				}
-//			}
-//
-//		}
-//
-//		int counter = 0;
-//		for (Element nextElement : getNextElements()) {
-//			String nextToXQuery = nextElement.toXQuery(location);
-//			result += nextToXQuery;
-//			if (location != Location.RETURN && !nextToXQuery.equals("") && counter != getNextElements().size() - 1) {
-//				result += AND;
-//			}
-//			counter++;
-//		}
-//
-////		if(location != Location.RETURN && getNextElements().isEmpty()) {
-////			result += AND;
-////		}
-//
-//		return result;
-//	}
-
-	@Override
-	public String translatePathFromPrevious() throws InvalidityException {
+	
+	private String translatePathFromPrevious() throws InvalidityException {
 		if(relationFromPrevious.getOption() != null) {
 			if (getPreviousElement().isRootElement()) {
 				return "/" + relationFromPrevious.getOption().getValue() + "::*";
@@ -392,39 +334,30 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			if (!mappingExistsAlready) {
 				Element newElementInNextGraph = new ElementImpl();
 				mapping.getTo().getNextElements().add(newElementInNextGraph);
-//				System.out.println("--- 1 ---");
-//				System.out.println(newElementInNextGraph.getRelationFromPrevious().getOption().getParameterList());
+
 				if (nextElement.getGraph() != null) {
 					Graph nextGraph = mapping.getMorphism().getTo();
 					nextGraph.getReturnElements().add(newElementInNextGraph);
 				}
-//				System.out.println("--- 2 ---");
-//				System.out.println(newElementInNextGraph.getRelationFromPrevious().getOption().getParameterList());
+
 				ElementMapping newNextElementMapping = new ElementMappingImpl();
 				mapping.getMorphism().getMappings().add(newNextElementMapping);
 				newNextElementMapping.setFrom(nextElement);
 				newNextElementMapping.setTo(newElementInNextGraph);
-//				System.out.println("--- 3 ---");
-//				System.out.println(newElementInNextGraph.getRelationFromPrevious().getOption().getParameterList());
+
 				if (nextElement.getRelationFromPrevious() != null) {
 					RelationMapping newRelationMapping = new RelationMappingImpl();
 					mapping.getMorphism().getMappings().add(newRelationMapping);
 					newRelationMapping.setFrom(nextElement.getRelationFromPrevious());
 					newRelationMapping.setTo(newElementInNextGraph.getRelationFromPrevious());
 				}
-//				System.out.println("--- 4 ---");
-//				System.out.println(newElementInNextGraph.getRelationFromPrevious().getOption().getParameterList());
+
 			}
 			nextElement.copyNextElementsToNextGraphs();
 		}
 	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 */
-	@Override
-	public void removeElementFromPreviousGraphs() {
+	
+	private void removeElementFromPreviousGraphs() {
 		Element correspondingPreviousElement = getMappingFrom().getFrom();
 		correspondingPreviousElement.setPreviousElement(null);
 		correspondingPreviousElement.setRoot(null);
@@ -901,8 +834,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //		}
 //	}
 
-	@Override
-	public void removeMappingsToNext() {
+	private void removeMappingsToNext() {
 		EList<ElementMapping> mappingToCopy = new BasicEList<ElementMapping>();
 		mappingToCopy.addAll(getMappingTo());
 		for (ElementMapping mapping : mappingToCopy) {
@@ -1169,32 +1101,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		else
 			return mappingFrom.getFrom().getOriginalID();
 	}
-
-//	/**
-//	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-//	 * 
-//	 * @generated NOT
-//	 */
-//	@Override
-//	public String translateElementExistencePredicates(Location location) throws InvalidityException {
-//		String predicates = "";
-//		for (Element nextElement : getNextElements()) {
-//			if (nextElement instanceof SetElement) {
-//				SetElement nextSetElement = (SetElement) nextElement;
-//				if (!nextSetElement.isTranslated()) {
-//					nextSetElement.setTranslated(true);
-//					// TODO: in SetElementImpl create for clause: String result = FOR +
-//					// getXQueryVariable() + IN + xPathExpression + xPredicates;
-//					predicates += "[." + nextSetElement.translatePathFromPrevious()
-//							+ nextSetElement.translatePredicatesViaBrackets(location) // TODO: depth+1 ?
-//							+ nextSetElement.translateElementExistencePredicates(location) + "]"; // TODO: depth+1 ?
-//				}
-//			}
-//
-//		}
-//		return predicates;
-//
-//	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1505,9 +1411,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS:
-				removeElementFromPreviousGraphs();
-				return null;
 			case GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN:
 				copyNextElementToPreviousGraphs((Element)arguments.get(0), (Boolean)arguments.get(1));
 				return null;
@@ -1516,9 +1419,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				return null;
 			case GraphstructurePackage.ELEMENT___IS_ROOT_ELEMENT:
 				return isRootElement();
-			case GraphstructurePackage.ELEMENT___REMOVE_MAPPINGS_TO_NEXT:
-				removeMappingsToNext();
-				return null;
 			case GraphstructurePackage.ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY:
 				removeFromReturnElementsRecursively();
 				return null;
@@ -1530,13 +1430,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___CLEAR_PREDICATES_RECURSIVELY:
 				clearPredicatesRecursively();
 				return null;
-			case GraphstructurePackage.ELEMENT___TRANSLATE_PREDICATES__LOCATION:
-				try {
-					return translatePredicates((Location)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case GraphstructurePackage.ELEMENT___GET_ALL_ELEMENTS:
 				return getAllElements();
 			case GraphstructurePackage.ELEMENT___GET_ORIGINAL_ID:
@@ -1565,13 +1458,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___GET_GRAPH_DEPTH:
 				try {
 					return getGraphDepth();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS:
-				try {
-					return translatePathFromPrevious();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -1673,8 +1559,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			return res;
 		}
 
-	@Override
-	public String translatePredicates(Location location) throws InvalidityException {
+	private String translatePredicates(Location location) throws InvalidityException {
 		String xPredicates = "";
 		predicatesAreBeingTranslated = true;
 		for (BooleanOperator predicate : predicates) {
@@ -1894,11 +1779,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			}
 		}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
+	@Override
 	public String getXQueryVariable() {
 		return VARIABLE + getOriginalID();
 	}

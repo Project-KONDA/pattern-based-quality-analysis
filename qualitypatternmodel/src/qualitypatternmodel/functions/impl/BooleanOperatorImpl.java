@@ -143,42 +143,6 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void createInputs() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void removeInputsFromVariableList() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void reset() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -195,6 +159,14 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		return msgs;
 	}
 
+	void createInputs() {
+		// TODO Auto-generated method stub
+		
+	}
+	void removeInputsFromVariableList() {
+		// TODO Auto-generated method stub
+		
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -297,15 +269,6 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 				return null;
 			case FunctionsPackage.BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT:
 				removeElement((Element)arguments.get(0));
-				return null;
-			case FunctionsPackage.BOOLEAN_OPERATOR___CREATE_INPUTS:
-				createInputs();
-				return null;
-			case FunctionsPackage.BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST:
-				removeInputsFromVariableList();
-				return null;
-			case FunctionsPackage.BOOLEAN_OPERATOR___RESET:
-				reset();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

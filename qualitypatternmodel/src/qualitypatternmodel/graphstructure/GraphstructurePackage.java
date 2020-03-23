@@ -666,31 +666,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Create Inputs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___CREATE_INPUTS = COMPARABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___REMOVE_INPUTS_FROM_VARIABLE_LIST = COMPARABLE_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 2;
+	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -982,22 +964,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT = COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Remove Element From Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = COMPARABLE_OPERATION_COUNT + 2;
-
-	/**
 	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN = COMPARABLE_OPERATION_COUNT + 3;
+	int ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
@@ -1006,7 +979,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = COMPARABLE_OPERATION_COUNT + 4;
+	int ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Root Element</em>' operation.
@@ -1015,16 +988,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___IS_ROOT_ELEMENT = COMPARABLE_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Remove Mappings To Next</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___REMOVE_MAPPINGS_TO_NEXT = COMPARABLE_OPERATION_COUNT + 6;
+	int ELEMENT___IS_ROOT_ELEMENT = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Remove From Return Elements Recursively</em>' operation.
@@ -1033,7 +997,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 7;
+	int ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
@@ -1042,7 +1006,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___CLEAR_MATCH_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 8;
+	int ELEMENT___CLEAR_MATCH_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get All Relations</em>' operation.
@@ -1051,7 +1015,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ALL_RELATIONS = COMPARABLE_OPERATION_COUNT + 9;
+	int ELEMENT___GET_ALL_RELATIONS = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
@@ -1060,16 +1024,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___CLEAR_PREDICATES_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Translate Predicates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___TRANSLATE_PREDICATES__LOCATION = COMPARABLE_OPERATION_COUNT + 11;
+	int ELEMENT___CLEAR_PREDICATES_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get All Elements</em>' operation.
@@ -1078,7 +1033,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ALL_ELEMENTS = COMPARABLE_OPERATION_COUNT + 12;
+	int ELEMENT___GET_ALL_ELEMENTS = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
@@ -1087,7 +1042,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ORIGINAL_ID = COMPARABLE_OPERATION_COUNT + 13;
+	int ELEMENT___GET_ORIGINAL_ID = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
@@ -1096,7 +1051,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = COMPARABLE_OPERATION_COUNT + 14;
+	int ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = COMPARABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1105,7 +1060,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 15;
+	int ELEMENT___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1114,7 +1069,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 16;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
@@ -1123,7 +1078,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_XQUERY_VARIABLE = COMPARABLE_OPERATION_COUNT + 17;
+	int ELEMENT___GET_XQUERY_VARIABLE = COMPARABLE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1132,7 +1087,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 18;
+	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1141,7 +1096,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 19;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Graph Depth</em>' operation.
@@ -1150,16 +1105,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_GRAPH_DEPTH = COMPARABLE_OPERATION_COUNT + 20;
-
-	/**
-	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = COMPARABLE_OPERATION_COUNT + 21;
+	int ELEMENT___GET_GRAPH_DEPTH = COMPARABLE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1168,7 +1114,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ALL_OPERATORS = COMPARABLE_OPERATION_COUNT + 22;
+	int ELEMENT___GET_ALL_OPERATORS = COMPARABLE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1177,7 +1123,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER = COMPARABLE_OPERATION_COUNT + 23;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER = COMPARABLE_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1186,7 +1132,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER = COMPARABLE_OPERATION_COUNT + 24;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER = COMPARABLE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
@@ -1195,7 +1141,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___CLEAR_COMPARISON_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 25;
+	int ELEMENT___CLEAR_COMPARISON_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Clear Property Recursively</em>' operation.
@@ -1204,7 +1150,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___CLEAR_PROPERTY_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 26;
+	int ELEMENT___CLEAR_PROPERTY_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 22;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -1213,7 +1159,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 27;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 23;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -1670,16 +1616,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getProperty_ReferenceOperator();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#createInputs() <em>Create Inputs</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Inputs</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#createInputs()
-	 * @generated
-	 */
-	EOperation getProperty__CreateInputs();
-
-	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1689,16 +1625,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProperty_Match();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Inputs From Variable List</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#removeInputsFromVariableList()
-	 * @generated
-	 */
-	EOperation getProperty__RemoveInputsFromVariableList();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Element <em>Element</em>}'.
@@ -1863,16 +1789,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__CopyNextElementToNextGraphs__Element();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#removeElementFromPreviousGraphs() <em>Remove Element From Previous Graphs</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Element From Previous Graphs</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#removeElementFromPreviousGraphs()
-	 * @generated
-	 */
-	EOperation getElement__RemoveElementFromPreviousGraphs();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyNextElementToPreviousGraphs(qualitypatternmodel.graphstructure.Element, boolean) <em>Copy Next Element To Previous Graphs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1901,16 +1817,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getElement__IsRootElement();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#removeMappingsToNext() <em>Remove Mappings To Next</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Mappings To Next</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#removeMappingsToNext()
-	 * @generated
-	 */
-	EOperation getElement__RemoveMappingsToNext();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElementsRecursively() <em>Remove From Return Elements Recursively</em>}' operation.
@@ -1951,16 +1857,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getElement__ClearPredicatesRecursively();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Predicates</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#translatePredicates(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	EOperation getElement__TranslatePredicates__Location();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getAllElements() <em>Get All Elements</em>}' operation.
@@ -2051,16 +1947,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getElement__GetGraphDepth();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translatePathFromPrevious() <em>Translate Path From Previous</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Path From Previous</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#translatePathFromPrevious()
-	 * @generated
-	 */
-	EOperation getElement__TranslatePathFromPrevious();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getAllOperators() <em>Get All Operators</em>}' operation.
@@ -2526,28 +2412,12 @@ public interface GraphstructurePackage extends EPackage {
 		EReference PROPERTY__REFERENCE_OPERATOR = eINSTANCE.getProperty_ReferenceOperator();
 
 		/**
-		 * The meta object literal for the '<em><b>Create Inputs</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROPERTY___CREATE_INPUTS = eINSTANCE.getProperty__CreateInputs();
-
-		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PROPERTY__MATCH = eINSTANCE.getProperty_Match();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Inputs From Variable List</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROPERTY___REMOVE_INPUTS_FROM_VARIABLE_LIST = eINSTANCE.getProperty__RemoveInputsFromVariableList();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -2672,14 +2542,6 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT = eINSTANCE.getElement__CopyNextElementToNextGraphs__Element();
 
 		/**
-		 * The meta object literal for the '<em><b>Remove Element From Previous Graphs</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = eINSTANCE.getElement__RemoveElementFromPreviousGraphs();
-
-		/**
 		 * The meta object literal for the '<em><b>Copy Next Element To Previous Graphs</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2702,14 +2564,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___IS_ROOT_ELEMENT = eINSTANCE.getElement__IsRootElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Mappings To Next</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___REMOVE_MAPPINGS_TO_NEXT = eINSTANCE.getElement__RemoveMappingsToNext();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove From Return Elements Recursively</b></em>' operation.
@@ -2742,14 +2596,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___CLEAR_PREDICATES_RECURSIVELY = eINSTANCE.getElement__ClearPredicatesRecursively();
-
-		/**
-		 * The meta object literal for the '<em><b>Translate Predicates</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___TRANSLATE_PREDICATES__LOCATION = eINSTANCE.getElement__TranslatePredicates__Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Elements</b></em>' operation.
@@ -2822,14 +2668,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___GET_GRAPH_DEPTH = eINSTANCE.getElement__GetGraphDepth();
-
-		/**
-		 * The meta object literal for the '<em><b>Translate Path From Previous</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = eINSTANCE.getElement__TranslatePathFromPrevious();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.

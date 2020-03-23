@@ -205,14 +205,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	public EList<Element> getAllArgumentElements() throws InvalidityException {		
 		return getElement().getAllArgumentElements();
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void createInputs() {
+	
+	private void createInputs() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			
@@ -530,8 +524,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		getMatch().clear();
 	}
 
-	@Override
-	public void removeInputsFromVariableList() {
+	private void removeInputsFromVariableList() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			pattern.getParameterList().getParameters().remove(getOption());
@@ -858,12 +851,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.PROPERTY___CREATE_INPUTS:
-				createInputs();
-				return null;
-			case GraphstructurePackage.PROPERTY___REMOVE_INPUTS_FROM_VARIABLE_LIST:
-				removeInputsFromVariableList();
-				return null;
 			case GraphstructurePackage.PROPERTY___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.PROPERTY___IS_TRANSLATABLE:

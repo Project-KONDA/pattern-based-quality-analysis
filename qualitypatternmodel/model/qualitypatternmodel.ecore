@@ -115,9 +115,6 @@
       <eOperations name="removeElement">
         <eParameters name="element" eType="#//graphstructure/Element"/>
       </eOperations>
-      <eOperations name="createInputs"/>
-      <eOperations name="removeInputsFromVariableList"/>
-      <eOperations name="reset"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/predicates"/>
     </eClassifiers>
@@ -152,30 +149,6 @@
           eType="#//parameters/TextLiteralParam" eOpposite="#//parameters/TextLiteralParam/match"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//functions/BooleanOperator">
-      <eOperations name="setTypeAccordingToArgument">
-        <eParameters name="newArgument" eType="#//graphstructure/Comparable"/>
-        <eParameters name="otherArgument" eType="#//graphstructure/Comparable"/>
-      </eOperations>
-      <eOperations name="adaptOperatorElementAssociation">
-        <eParameters name="newArgument" eType="#//graphstructure/Comparable"/>
-        <eParameters name="oldArgument" eType="#//graphstructure/Comparable"/>
-      </eOperations>
-      <eOperations name="moveElementsFromRootOperatorToOldArgument">
-        <eParameters name="oldArgument" eType="#//graphstructure/Comparable"/>
-        <eParameters name="rootOperator" eType="#//functions/BooleanOperator"/>
-      </eOperations>
-      <eOperations name="removeOldArgumentElementsFromRootOperator">
-        <eParameters name="oldArgument" eType="#//graphstructure/Comparable"/>
-        <eParameters name="rootOperator" eType="#//functions/BooleanOperator"/>
-      </eOperations>
-      <eOperations name="moveElementsFromNewArgumentToRootOperator">
-        <eParameters name="newArgument" eType="#//graphstructure/Comparable"/>
-        <eParameters name="rootBooleanOperators" upperBound="-1" eType="#//functions/BooleanOperator"/>
-      </eOperations>
-      <eOperations name="addNewArgumentElementsToRootOperator">
-        <eParameters name="newArgument" eType="#//graphstructure/Comparable"/>
-        <eParameters name="rootBooleanOperators" upperBound="-1" eType="#//functions/BooleanOperator"/>
-      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
           eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
@@ -232,8 +205,6 @@
           eOpposite="#//parameters/AxisOptionParam/relation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
-      <eOperations name="createInputs"/>
-      <eOperations name="removeInputsFromVariableList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
@@ -252,7 +223,6 @@
       <eOperations name="copyNextElementToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException">
         <eParameters name="nextElement" eType="#//graphstructure/Element"/>
       </eOperations>
-      <eOperations name="removeElementFromPreviousGraphs"/>
       <eOperations name="copyNextElementToPreviousGraphs">
         <eParameters name="nextElement" eType="#//graphstructure/Element"/>
         <eParameters name="recursive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -261,15 +231,10 @@
         <eParameters name="recursive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
       <eOperations name="isRootElement" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="removeMappingsToNext"/>
       <eOperations name="removeFromReturnElementsRecursively"/>
       <eOperations name="clearMatchRecursively"/>
       <eOperations name="getAllRelations" upperBound="-1" eType="#//graphstructure/Relation"/>
       <eOperations name="clearPredicatesRecursively"/>
-      <eOperations name="translatePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
       <eOperations name="getAllElements" upperBound="-1" eType="#//graphstructure/Element"/>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eOperations name="getXQueryRepresentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -286,8 +251,6 @@
       <eOperations name="addPrimitiveMatch"/>
       <eOperations name="addPrimitiveComparison"/>
       <eOperations name="getGraphDepth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="translatePathFromPrevious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>

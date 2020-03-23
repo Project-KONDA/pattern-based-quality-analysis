@@ -104,14 +104,6 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	void setReferenceOperator(ReferenceOperator value);
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void createInputs();
-
-	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
@@ -172,14 +164,6 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 * @generated
 	 */
 	EList<Match> getMatch();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void removeInputsFromVariableList();
 
 	void reset();
 
