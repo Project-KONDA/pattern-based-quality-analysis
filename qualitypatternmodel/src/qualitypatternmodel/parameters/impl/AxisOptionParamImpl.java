@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Axis;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.parameters.AxisOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -358,8 +358,8 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	public void generateDescription() {
 		String res = "Beziehung: XPath-Achse";
 		try {			
-			Element to = getRelation().getRelationTo();
-			Element from = to.getPreviousElement();
+			SingleElement to = getRelation().getRelationTo();
+			SingleElement from = to.getPrevious();
 			res += " zur Navigation von " + from.getName() + " zu " + to.getName();			
 		} catch (Exception e) {}
 		setDescription(res);

@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
@@ -26,7 +25,6 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * <!-- end-user-doc -->
  * @see qualitypatternmodel.graphstructure.GraphstructureFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface GraphstructurePackage extends EPackage {
@@ -250,7 +248,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int RELATION___COPY_TO_NEW_NEXT_GRAPHS__SINGLEELEMENT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Create Inputs</em>' operation.
@@ -287,7 +285,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getComparable()
 	 * @generated
 	 */
-	int COMPARABLE = 6;
+	int COMPARABLE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -696,448 +694,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.impl.ElementImpl
-	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getElement()
-	 * @generated
-	 */
-	int ELEMENT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__ID = COMPARABLE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__INTERNAL_ID = COMPARABLE__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__COMPARISON1 = COMPARABLE__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__COMPARISON2 = COMPARABLE__COMPARISON2;
-
-	/**
-	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__RELATION_FROM_PREVIOUS = COMPARABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__TRANSLATED = COMPARABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__PROPERTIES = COMPARABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__PREDICATES = COMPARABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = COMPARABLE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__NAME = COMPARABLE_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___TO_XQUERY__LOCATION = COMPARABLE___TO_XQUERY__LOCATION;
-
-	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_ALL_INPUTS = COMPARABLE___GET_ALL_INPUTS;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___PREPARE_TRANSLATION = COMPARABLE___PREPARE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___IS_VALID__BOOLEAN = COMPARABLE___IS_VALID__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___IS_VALID_LOCAL__BOOLEAN = COMPARABLE___IS_VALID_LOCAL__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_CONTAINER = COMPARABLE___GET_CONTAINER;
-
-	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_ANCESTOR__CLASS = COMPARABLE___GET_ANCESTOR__CLASS;
-
-	/**
-	 * The operation id for the '<em>My To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___MY_TO_STRING = COMPARABLE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Get Return Type</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_RETURN_TYPE = COMPARABLE___GET_RETURN_TYPE;
-
-	/**
-	 * The operation id for the '<em>Is Translatable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___IS_TRANSLATABLE = COMPARABLE___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get Next Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_NEXT_ELEMENTS = COMPARABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Previous Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_PREVIOUS_ELEMENT = COMPARABLE_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_ALL_OPERATORS = COMPARABLE_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_ALL_VARIABLES = COMPARABLE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = COMPARABLE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Get Graph Depth</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_GRAPH_DEPTH = COMPARABLE_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Translate Element Existence Predicates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION = COMPARABLE_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 7;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Match</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 8;
-
-	/**
-	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = COMPARABLE_OPERATION_COUNT + 9;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_XQUERY_VARIABLE = COMPARABLE_OPERATION_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Get Original ID</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_ORIGINAL_ID = COMPARABLE_OPERATION_COUNT + 11;
-
-	/**
-	 * The operation id for the '<em>Translate Predicates Via Brackets</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION = COMPARABLE_OPERATION_COUNT + 12;
-
-	/**
-	 * The operation id for the '<em>Translate Predicates Via And</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = COMPARABLE_OPERATION_COUNT + 13;
-
-	/**
-	 * The operation id for the '<em>Reset Count Operator Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 14;
-
-	/**
-	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___CLEAR_MATCH_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 15;
-
-	/**
-	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___CLEAR_COMPARISON_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 16;
-
-	/**
-	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___CLEAR_PREDICATES_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 17;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 18;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER = COMPARABLE_OPERATION_COUNT + 19;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Match</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 20;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER = COMPARABLE_OPERATION_COUNT + 21;
-
-	/**
-	 * The operation id for the '<em>Get All Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_ALL_ELEMENTS = COMPARABLE_OPERATION_COUNT + 22;
-
-	/**
-	 * The operation id for the '<em>Get All Relations</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_ALL_RELATIONS = COMPARABLE_OPERATION_COUNT + 23;
-
-	/**
-	 * The number of operations of the '<em>Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 24;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SingleElementImpl <em>Single Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1154,7 +710,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__ID = ELEMENT__ID;
+	int SINGLE_ELEMENT__ID = COMPARABLE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1163,7 +719,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__INTERNAL_ID = ELEMENT__INTERNAL_ID;
+	int SINGLE_ELEMENT__INTERNAL_ID = COMPARABLE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1172,7 +728,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__COMPARISON1 = ELEMENT__COMPARISON1;
+	int SINGLE_ELEMENT__COMPARISON1 = COMPARABLE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -1181,61 +737,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__COMPARISON2 = ELEMENT__COMPARISON2;
-
-	/**
-	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__RELATION_FROM_PREVIOUS = ELEMENT__RELATION_FROM_PREVIOUS;
-
-	/**
-	 * The feature id for the '<em><b>Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__TRANSLATED = ELEMENT__TRANSLATED;
-
-	/**
-	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__PROPERTIES = ELEMENT__PROPERTIES;
-
-	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__PREDICATES = ELEMENT__PREDICATES;
-
-	/**
-	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = ELEMENT__PREDICATES_ARE_BEING_TRANSLATED;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__NAME = ELEMENT__NAME;
+	int SINGLE_ELEMENT__COMPARISON2 = COMPARABLE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
@@ -1244,7 +746,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__MAPPING_TO = ELEMENT_FEATURE_COUNT + 0;
+	int SINGLE_ELEMENT__MAPPING_TO = COMPARABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
@@ -1253,7 +755,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__MAPPING_FROM = ELEMENT_FEATURE_COUNT + 1;
+	int SINGLE_ELEMENT__MAPPING_FROM = COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
@@ -1262,7 +764,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__ROOT = ELEMENT_FEATURE_COUNT + 2;
+	int SINGLE_ELEMENT__ROOT = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Next Single</b></em>' containment reference list.
@@ -1271,7 +773,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__NEXT_SINGLE = ELEMENT_FEATURE_COUNT + 3;
+	int SINGLE_ELEMENT__NEXT_SINGLE = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' container reference.
@@ -1280,16 +782,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__PREVIOUS = ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Next Set</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT__NEXT_SET = ELEMENT_FEATURE_COUNT + 5;
+	int SINGLE_ELEMENT__PREVIOUS = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' reference.
@@ -1298,548 +791,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_ELEMENT__GRAPH = ELEMENT_FEATURE_COUNT + 6;
-
-	/**
-	 * The number of structural features of the '<em>Single Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 7;
-
-	/**
-	 * The operation id for the '<em>To XQuery</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___TO_XQUERY__LOCATION = ELEMENT___TO_XQUERY__LOCATION;
-
-	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_ALL_INPUTS = ELEMENT___GET_ALL_INPUTS;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___PREPARE_TRANSLATION = ELEMENT___PREPARE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___IS_VALID__BOOLEAN = ELEMENT___IS_VALID__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___IS_VALID_LOCAL__BOOLEAN = ELEMENT___IS_VALID_LOCAL__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_CONTAINER = ELEMENT___GET_CONTAINER;
-
-	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_ANCESTOR__CLASS = ELEMENT___GET_ANCESTOR__CLASS;
-
-	/**
-	 * The operation id for the '<em>My To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___MY_TO_STRING = ELEMENT___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Get Return Type</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_RETURN_TYPE = ELEMENT___GET_RETURN_TYPE;
-
-	/**
-	 * The operation id for the '<em>Is Translatable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___IS_TRANSLATABLE = ELEMENT___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Get Next Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_NEXT_ELEMENTS = ELEMENT___GET_NEXT_ELEMENTS;
-
-	/**
-	 * The operation id for the '<em>Get Previous Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_PREVIOUS_ELEMENT = ELEMENT___GET_PREVIOUS_ELEMENT;
-
-	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_ALL_OPERATORS = ELEMENT___GET_ALL_OPERATORS;
-
-	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_ALL_VARIABLES = ELEMENT___GET_ALL_VARIABLES;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION;
-
-	/**
-	 * The operation id for the '<em>Get Graph Depth</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_GRAPH_DEPTH = ELEMENT___GET_GRAPH_DEPTH;
-
-	/**
-	 * The operation id for the '<em>Translate Element Existence Predicates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION = ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON = ELEMENT___ADD_PRIMITIVE_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Match</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH__STRING = ELEMENT___ADD_PRIMITIVE_MATCH__STRING;
-
-	/**
-	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_XQUERY_VARIABLE = ELEMENT___GET_XQUERY_VARIABLE;
-
-	/**
-	 * The operation id for the '<em>Get Original ID</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_ORIGINAL_ID = ELEMENT___GET_ORIGINAL_ID;
-
-	/**
-	 * The operation id for the '<em>Translate Predicates Via Brackets</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION = ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION;
-
-	/**
-	 * The operation id for the '<em>Translate Predicates Via And</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION;
-
-	/**
-	 * The operation id for the '<em>Reset Count Operator Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY = ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___CLEAR_MATCH_RECURSIVELY = ELEMENT___CLEAR_MATCH_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___CLEAR_COMPARISON_RECURSIVELY = ELEMENT___CLEAR_COMPARISON_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___CLEAR_PREDICATES_RECURSIVELY = ELEMENT___CLEAR_PREDICATES_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER = ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Match</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH = ELEMENT___ADD_PRIMITIVE_MATCH;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER = ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER;
-
-	/**
-	 * The operation id for the '<em>Get All Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_ALL_ELEMENTS = ELEMENT___GET_ALL_ELEMENTS;
-
-	/**
-	 * The operation id for the '<em>Get All Relations</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___GET_ALL_RELATIONS = ELEMENT___GET_ALL_RELATIONS;
-
-	/**
-	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__SINGLEELEMENT = ELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Remove Element From Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = ELEMENT_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN = ELEMENT_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = ELEMENT_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Has Count Predicate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___HAS_COUNT_PREDICATE = ELEMENT_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>To XQuery Count</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___TO_XQUERY_COUNT__LOCATION = ELEMENT_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>To XQuery No Count</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___TO_XQUERY_NO_COUNT__LOCATION = ELEMENT_OPERATION_COUNT + 7;
-
-	/**
-	 * The operation id for the '<em>Is Root Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___IS_ROOT_ELEMENT = ELEMENT_OPERATION_COUNT + 8;
-
-	/**
-	 * The operation id for the '<em>Remove Mappings To Next</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___REMOVE_MAPPINGS_TO_NEXT = ELEMENT_OPERATION_COUNT + 9;
-
-	/**
-	 * The operation id for the '<em>Remove From Return Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS = ELEMENT_OPERATION_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Add Count Operation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT___ADD_COUNT_OPERATION = ELEMENT_OPERATION_COUNT + 11;
-
-	/**
-	 * The number of operations of the '<em>Single Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 12;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.impl.SetElementImpl
-	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getSetElement()
-	 * @generated
-	 */
-	int SET_ELEMENT = 3;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__ID = ELEMENT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__INTERNAL_ID = ELEMENT__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__COMPARISON1 = ELEMENT__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__COMPARISON2 = ELEMENT__COMPARISON2;
-
-	/**
-	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__RELATION_FROM_PREVIOUS = ELEMENT__RELATION_FROM_PREVIOUS;
-
-	/**
-	 * The feature id for the '<em><b>Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__TRANSLATED = ELEMENT__TRANSLATED;
-
-	/**
-	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__PROPERTIES = ELEMENT__PROPERTIES;
-
-	/**
-	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__PREDICATES = ELEMENT__PREDICATES;
-
-	/**
-	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = ELEMENT__PREDICATES_ARE_BEING_TRANSLATED;
+	int SINGLE_ELEMENT__GRAPH = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1848,52 +800,61 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__NAME = ELEMENT__NAME;
+	int SINGLE_ELEMENT__NAME = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Next</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Translated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__NEXT = ELEMENT_FEATURE_COUNT + 0;
+	int SINGLE_ELEMENT__TRANSLATED = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Previous Set</b></em>' container reference.
+	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__PREVIOUS_SET = ELEMENT_FEATURE_COUNT + 1;
+	int SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = COMPARABLE_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Previous Single</b></em>' container reference.
+	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__PREVIOUS_SINGLE = ELEMENT_FEATURE_COUNT + 2;
+	int SINGLE_ELEMENT__RELATION_FROM_PREVIOUS = COMPARABLE_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Count</b></em>' reference.
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT__COUNT = ELEMENT_FEATURE_COUNT + 3;
+	int SINGLE_ELEMENT__PROPERTIES = COMPARABLE_FEATURE_COUNT + 10;
 
 	/**
-	 * The number of structural features of the '<em>Set Element</em>' class.
+	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+	int SINGLE_ELEMENT__PREDICATES = COMPARABLE_FEATURE_COUNT + 11;
+
+	/**
+	 * The number of structural features of the '<em>Single Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>To XQuery</em>' operation.
@@ -1902,7 +863,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___TO_XQUERY__LOCATION = ELEMENT___TO_XQUERY__LOCATION;
+	int SINGLE_ELEMENT___TO_XQUERY__LOCATION = COMPARABLE___TO_XQUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1911,7 +872,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_ALL_INPUTS = ELEMENT___GET_ALL_INPUTS;
+	int SINGLE_ELEMENT___GET_ALL_INPUTS = COMPARABLE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1920,7 +881,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___PREPARE_TRANSLATION = ELEMENT___PREPARE_TRANSLATION;
+	int SINGLE_ELEMENT___PREPARE_TRANSLATION = COMPARABLE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1929,7 +890,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___IS_VALID__BOOLEAN = ELEMENT___IS_VALID__BOOLEAN;
+	int SINGLE_ELEMENT___IS_VALID__BOOLEAN = COMPARABLE___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1938,7 +899,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___IS_VALID_LOCAL__BOOLEAN = ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int SINGLE_ELEMENT___IS_VALID_LOCAL__BOOLEAN = COMPARABLE___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1947,7 +908,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_CONTAINER = ELEMENT___GET_CONTAINER;
+	int SINGLE_ELEMENT___GET_CONTAINER = COMPARABLE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1956,7 +917,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_ANCESTOR__CLASS = ELEMENT___GET_ANCESTOR__CLASS;
+	int SINGLE_ELEMENT___GET_ANCESTOR__CLASS = COMPARABLE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1965,7 +926,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___MY_TO_STRING = ELEMENT___MY_TO_STRING;
+	int SINGLE_ELEMENT___MY_TO_STRING = COMPARABLE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1974,7 +935,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_RETURN_TYPE = ELEMENT___GET_RETURN_TYPE;
+	int SINGLE_ELEMENT___GET_RETURN_TYPE = COMPARABLE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1983,7 +944,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___IS_TRANSLATABLE = ELEMENT___IS_TRANSLATABLE;
+	int SINGLE_ELEMENT___IS_TRANSLATABLE = COMPARABLE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1992,7 +953,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = ELEMENT___GET_ALL_ARGUMENT_ELEMENTS;
+	int SINGLE_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS = COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2001,142 +962,88 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int SINGLE_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Get Next Elements</em>' operation.
+	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_NEXT_ELEMENTS = ELEMENT___GET_NEXT_ELEMENTS;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = COMPARABLE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get Previous Element</em>' operation.
+	 * The operation id for the '<em>Copy Next Element To Next Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_PREVIOUS_ELEMENT = ELEMENT___GET_PREVIOUS_ELEMENT;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__SINGLEELEMENT = COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * The operation id for the '<em>Remove Element From Previous Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_ALL_OPERATORS = ELEMENT___GET_ALL_OPERATORS;
+	int SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get All Variables</em>' operation.
+	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_ALL_VARIABLES = ELEMENT___GET_ALL_VARIABLES;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
+	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION;
+	int SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Get Graph Depth</em>' operation.
+	 * The operation id for the '<em>To XQuery No Count</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_GRAPH_DEPTH = ELEMENT___GET_GRAPH_DEPTH;
+	int SINGLE_ELEMENT___TO_XQUERY_NO_COUNT__LOCATION = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Translate Element Existence Predicates</em>' operation.
+	 * The operation id for the '<em>Is Root Element</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION = ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION;
+	int SINGLE_ELEMENT___IS_ROOT_ELEMENT = COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * The operation id for the '<em>Remove Mappings To Next</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___ADD_PRIMITIVE_COMPARISON = ELEMENT___ADD_PRIMITIVE_COMPARISON;
+	int SINGLE_ELEMENT___REMOVE_MAPPINGS_TO_NEXT = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Add Primitive Match</em>' operation.
+	 * The operation id for the '<em>Remove From Return Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___ADD_PRIMITIVE_MATCH__STRING = ELEMENT___ADD_PRIMITIVE_MATCH__STRING;
-
-	/**
-	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___GET_XQUERY_VARIABLE = ELEMENT___GET_XQUERY_VARIABLE;
-
-	/**
-	 * The operation id for the '<em>Get Original ID</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___GET_ORIGINAL_ID = ELEMENT___GET_ORIGINAL_ID;
-
-	/**
-	 * The operation id for the '<em>Translate Predicates Via Brackets</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION = ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION;
-
-	/**
-	 * The operation id for the '<em>Translate Predicates Via And</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION;
-
-	/**
-	 * The operation id for the '<em>Reset Count Operator Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY = ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY;
+	int SINGLE_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
@@ -2145,70 +1052,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___CLEAR_MATCH_RECURSIVELY = ELEMENT___CLEAR_MATCH_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___CLEAR_COMPARISON_RECURSIVELY = ELEMENT___CLEAR_COMPARISON_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___CLEAR_PREDICATES_RECURSIVELY = ELEMENT___CLEAR_PREDICATES_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER = ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Match</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___ADD_PRIMITIVE_MATCH = ELEMENT___ADD_PRIMITIVE_MATCH;
-
-	/**
-	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER = ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER;
-
-	/**
-	 * The operation id for the '<em>Get All Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SET_ELEMENT___GET_ALL_ELEMENTS = ELEMENT___GET_ALL_ELEMENTS;
+	int SINGLE_ELEMENT___CLEAR_MATCH_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get All Relations</em>' operation.
@@ -2217,43 +1061,178 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_ALL_RELATIONS = ELEMENT___GET_ALL_RELATIONS;
+	int SINGLE_ELEMENT___GET_ALL_RELATIONS = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
-	 * The operation id for the '<em>Get Path To Previous Single Element</em>' operation.
+	 * The operation id for the '<em>Translate Predicates Via And</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = ELEMENT_OPERATION_COUNT + 0;
+	int SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = COMPARABLE_OPERATION_COUNT + 11;
 
 	/**
-	 * The operation id for the '<em>Get All Argument Elements Set Operation</em>' operation.
+	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = ELEMENT_OPERATION_COUNT + 1;
+	int SINGLE_ELEMENT___CLEAR_PREDICATES_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 12;
 
 	/**
-	 * The operation id for the '<em>Generate Where Clause</em>' operation.
+	 * The operation id for the '<em>Translate Predicates Via Brackets</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT___GENERATE_WHERE_CLAUSE__LOCATION = ELEMENT_OPERATION_COUNT + 2;
+	int SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION = COMPARABLE_OPERATION_COUNT + 13;
 
 	/**
-	 * The number of operations of the '<em>Set Element</em>' class.
+	 * The operation id for the '<em>Get All Elements</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SET_ELEMENT_OPERATION_COUNT = ELEMENT_OPERATION_COUNT + 3;
+	int SINGLE_ELEMENT___GET_ALL_ELEMENTS = COMPARABLE_OPERATION_COUNT + 14;
+
+	/**
+	 * The operation id for the '<em>Get Original ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___GET_ORIGINAL_ID = COMPARABLE_OPERATION_COUNT + 15;
+
+	/**
+	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = COMPARABLE_OPERATION_COUNT + 16;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 17;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 18;
+
+	/**
+	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___GET_XQUERY_VARIABLE = COMPARABLE_OPERATION_COUNT + 19;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 20;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 21;
+
+	/**
+	 * The operation id for the '<em>Get Graph Depth</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___GET_GRAPH_DEPTH = COMPARABLE_OPERATION_COUNT + 22;
+
+	/**
+	 * The operation id for the '<em>Translate Path From Previous</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = COMPARABLE_OPERATION_COUNT + 23;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___GET_ALL_OPERATORS = COMPARABLE_OPERATION_COUNT + 24;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER = COMPARABLE_OPERATION_COUNT + 25;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER = COMPARABLE_OPERATION_COUNT + 26;
+
+	/**
+	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___CLEAR_COMPARISON_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 27;
+
+	/**
+	 * The operation id for the '<em>Clear Property Recursively</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT___CLEAR_PROPERTY_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 28;
+
+	/**
+	 * The number of operations of the '<em>Single Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE_ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 29;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -2263,7 +1242,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getGraph()
 	 * @generated
 	 */
-	int GRAPH = 5;
+	int GRAPH = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2507,7 +1486,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getPropertyLocation()
 	 * @generated
 	 */
-	int PROPERTY_LOCATION = 7;
+	int PROPERTY_LOCATION = 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Axis <em>Axis</em>}' enum.
@@ -2517,7 +1496,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getAxis()
 	 * @generated
 	 */
-	int AXIS = 8;
+	int AXIS = 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}' enum.
@@ -2527,7 +1506,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getReturnType()
 	 * @generated
 	 */
-	int RETURN_TYPE = 9;
+	int RETURN_TYPE = 7;
 
 
 	/**
@@ -2538,7 +1517,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getListOfElements()
 	 * @generated
 	 */
-	int LIST_OF_ELEMENTS = 10;
+	int LIST_OF_ELEMENTS = 8;
 
 
 	/**
@@ -2626,14 +1605,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__RemoveMappingsToNext();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#copyToNewNextGraphs(qualitypatternmodel.graphstructure.Element) <em>Copy To New Next Graphs</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#copyToNewNextGraphs(qualitypatternmodel.graphstructure.SingleElement) <em>Copy To New Next Graphs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Copy To New Next Graphs</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#copyToNewNextGraphs(qualitypatternmodel.graphstructure.Element)
+	 * @see qualitypatternmodel.graphstructure.Relation#copyToNewNextGraphs(qualitypatternmodel.graphstructure.SingleElement)
 	 * @generated
 	 */
-	EOperation getRelation__CopyToNewNextGraphs__Element();
+	EOperation getRelation__CopyToNewNextGraphs__SingleElement();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#createInputs() <em>Create Inputs</em>}' operation.
@@ -2817,17 +1796,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getSingleElement_Previous();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.SingleElement#getNextSet <em>Next Set</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Next Set</em>'.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#getNextSet()
-	 * @see #getSingleElement()
-	 * @generated
-	 */
-	EReference getSingleElement_NextSet();
-
-	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.SingleElement#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2837,6 +1805,72 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSingleElement_Graph();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.SingleElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getName()
+	 * @see #getSingleElement()
+	 * @generated
+	 */
+	EAttribute getSingleElement_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.SingleElement#isTranslated <em>Translated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Translated</em>'.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#isTranslated()
+	 * @see #getSingleElement()
+	 * @generated
+	 */
+	EAttribute getSingleElement_Translated();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.SingleElement#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Predicates Are Being Translated</em>'.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#isPredicatesAreBeingTranslated()
+	 * @see #getSingleElement()
+	 * @generated
+	 */
+	EAttribute getSingleElement_PredicatesAreBeingTranslated();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.SingleElement#getRelationFromPrevious <em>Relation From Previous</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Relation From Previous</em>'.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getRelationFromPrevious()
+	 * @see #getSingleElement()
+	 * @generated
+	 */
+	EReference getSingleElement_RelationFromPrevious();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.SingleElement#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getProperties()
+	 * @see #getSingleElement()
+	 * @generated
+	 */
+	EReference getSingleElement_Properties();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.SingleElement#getPredicates <em>Predicates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Predicates</em>'.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getPredicates()
+	 * @see #getSingleElement()
+	 * @generated
+	 */
+	EReference getSingleElement_Predicates();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#copyNextElementsToNextGraphs() <em>Copy Next Elements To Next Graphs</em>}' operation.
@@ -2889,26 +1923,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getSingleElement__CopyNextElementsToPreviousGraphs__boolean();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#hasCountPredicate() <em>Has Count Predicate</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Has Count Predicate</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#hasCountPredicate()
-	 * @generated
-	 */
-	EOperation getSingleElement__HasCountPredicate();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#toXQueryCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery Count</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>To XQuery Count</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#toXQueryCount(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	EOperation getSingleElement__ToXQueryCount__Location();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#toXQueryNoCount(qualitypatternmodel.patternstructure.Location) <em>To XQuery No Count</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2949,414 +1963,204 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getSingleElement__RemoveFromReturnElements();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#addCountOperation() <em>Add Count Operation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Count Operation</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SingleElement#addCountOperation()
-	 * @generated
-	 */
-	EOperation getSingleElement__AddCountOperation();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.SetElement <em>Set Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Set Element</em>'.
-	 * @see qualitypatternmodel.graphstructure.SetElement
-	 * @generated
-	 */
-	EClass getSetElement();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.SetElement#getNext <em>Next</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Next</em>'.
-	 * @see qualitypatternmodel.graphstructure.SetElement#getNext()
-	 * @see #getSetElement()
-	 * @generated
-	 */
-	EReference getSetElement_Next();
-
-	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSet <em>Previous Set</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Previous Set</em>'.
-	 * @see qualitypatternmodel.graphstructure.SetElement#getPreviousSet()
-	 * @see #getSetElement()
-	 * @generated
-	 */
-	EReference getSetElement_PreviousSet();
-
-	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSingle <em>Previous Single</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Previous Single</em>'.
-	 * @see qualitypatternmodel.graphstructure.SetElement#getPreviousSingle()
-	 * @see #getSetElement()
-	 * @generated
-	 */
-	EReference getSetElement_PreviousSingle();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.SetElement#getCount <em>Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Count</em>'.
-	 * @see qualitypatternmodel.graphstructure.SetElement#getCount()
-	 * @see #getSetElement()
-	 * @generated
-	 */
-	EReference getSetElement_Count();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#getPathToPreviousSingleElement() <em>Get Path To Previous Single Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Path To Previous Single Element</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SetElement#getPathToPreviousSingleElement()
-	 * @generated
-	 */
-	EOperation getSetElement__GetPathToPreviousSingleElement();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#getAllArgumentElementsSetOperation() <em>Get All Argument Elements Set Operation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Argument Elements Set Operation</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SetElement#getAllArgumentElementsSetOperation()
-	 * @generated
-	 */
-	EOperation getSetElement__GetAllArgumentElementsSetOperation();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SetElement#generateWhereClause(qualitypatternmodel.patternstructure.Location) <em>Generate Where Clause</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate Where Clause</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.SetElement#generateWhereClause(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	EOperation getSetElement__GenerateWhereClause__Location();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Element <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Element</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element
-	 * @generated
-	 */
-	EClass getElement();
-
-	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Predicates</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getPredicates()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Predicates();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Predicates Are Being Translated</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EAttribute getElement_PredicatesAreBeingTranslated();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Element#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getName()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EAttribute getElement_Name();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Relation From Previous</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getRelationFromPrevious()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_RelationFromPrevious();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Translated</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#isTranslated()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EAttribute getElement_Translated();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Properties</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getProperties()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Properties();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getNextElements() <em>Get Next Elements</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Next Elements</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getNextElements()
-	 * @generated
-	 */
-	EOperation getElement__GetNextElements();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getPreviousElement() <em>Get Previous Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Previous Element</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getPreviousElement()
-	 * @generated
-	 */
-	EOperation getElement__GetPreviousElement();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getAllOperators() <em>Get All Operators</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Operators</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getAllOperators()
-	 * @generated
-	 */
-	EOperation getElement__GetAllOperators();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getAllVariables() <em>Get All Variables</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Variables</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getAllVariables()
-	 * @generated
-	 */
-	EOperation getElement__GetAllVariables();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get XQuery Representation</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	EOperation getElement__GetXQueryRepresentation__Location();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getGraphDepth() <em>Get Graph Depth</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Graph Depth</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getGraphDepth()
-	 * @generated
-	 */
-	EOperation getElement__GetGraphDepth();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Element Existence Predicates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Element Existence Predicates</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#translateElementExistencePredicates(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	EOperation getElement__TranslateElementExistencePredicates__Location();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison() <em>Add Primitive Comparison</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison()
-	 * @generated
-	 */
-	EOperation getElement__AddPrimitiveComparison();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Primitive Match</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveMatch(java.lang.String)
-	 * @generated
-	 */
-	EOperation getElement__AddPrimitiveMatch__String();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translatePathFromPrevious() <em>Translate Path From Previous</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Path From Previous</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#translatePathFromPrevious()
-	 * @generated
-	 */
-	EOperation getElement__TranslatePathFromPrevious();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get XQuery Variable</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getXQueryVariable()
-	 * @generated
-	 */
-	EOperation getElement__GetXQueryVariable();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getOriginalID() <em>Get Original ID</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Original ID</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getOriginalID()
-	 * @generated
-	 */
-	EOperation getElement__GetOriginalID();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translatePredicatesViaBrackets(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates Via Brackets</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Predicates Via Brackets</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#translatePredicatesViaBrackets(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	EOperation getElement__TranslatePredicatesViaBrackets__Location();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#translatePredicatesViaAnd(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates Via And</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Predicates Via And</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#translatePredicatesViaAnd(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	EOperation getElement__TranslatePredicatesViaAnd__Location();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#resetCountOperatorRecursively() <em>Reset Count Operator Recursively</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Reset Count Operator Recursively</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#resetCountOperatorRecursively()
-	 * @generated
-	 */
-	EOperation getElement__ResetCountOperatorRecursively();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#clearMatchRecursively() <em>Clear Match Recursively</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#clearMatchRecursively() <em>Clear Match Recursively</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Clear Match Recursively</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#clearMatchRecursively()
+	 * @see qualitypatternmodel.graphstructure.SingleElement#clearMatchRecursively()
 	 * @generated
 	 */
-	EOperation getElement__ClearMatchRecursively();
+	EOperation getSingleElement__ClearMatchRecursively();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#clearComparisonRecursively() <em>Clear Comparison Recursively</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Clear Comparison Recursively</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#clearComparisonRecursively()
-	 * @generated
-	 */
-	EOperation getElement__ClearComparisonRecursively();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Clear Predicates Recursively</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#clearPredicatesRecursively()
-	 * @generated
-	 */
-	EOperation getElement__ClearPredicatesRecursively();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(java.lang.String) <em>Add Primitive Comparison</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(java.lang.String)
-	 * @generated
-	 */
-	EOperation getElement__AddPrimitiveComparison__String();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.Parameter)
-	 * @generated
-	 */
-	EOperation getElement__AddPrimitiveComparison__Parameter();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch() <em>Add Primitive Match</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Primitive Match</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveMatch()
-	 * @generated
-	 */
-	EOperation getElement__AddPrimitiveMatch();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter)
-	 * @generated
-	 */
-	EOperation getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getAllElements() <em>Get All Elements</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Elements</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getAllElements()
-	 * @generated
-	 */
-	EOperation getElement__GetAllElements();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getAllRelations() <em>Get All Relations</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getAllRelations() <em>Get All Relations</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get All Relations</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getAllRelations()
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getAllRelations()
 	 * @generated
 	 */
-	EOperation getElement__GetAllRelations();
+	EOperation getSingleElement__GetAllRelations();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#translatePredicatesViaAnd(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates Via And</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Translate Predicates Via And</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#translatePredicatesViaAnd(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	EOperation getSingleElement__TranslatePredicatesViaAnd__Location();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clear Predicates Recursively</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#clearPredicatesRecursively()
+	 * @generated
+	 */
+	EOperation getSingleElement__ClearPredicatesRecursively();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#translatePredicatesViaBrackets(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates Via Brackets</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Translate Predicates Via Brackets</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#translatePredicatesViaBrackets(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	EOperation getSingleElement__TranslatePredicatesViaBrackets__Location();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getAllElements() <em>Get All Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Elements</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getAllElements()
+	 * @generated
+	 */
+	EOperation getSingleElement__GetAllElements();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getOriginalID() <em>Get Original ID</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Original ID</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getOriginalID()
+	 * @generated
+	 */
+	EOperation getSingleElement__GetOriginalID();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get XQuery Representation</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	EOperation getSingleElement__GetXQueryRepresentation__Location();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Match</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#addPrimitiveMatch(java.lang.String)
+	 * @generated
+	 */
+	EOperation getSingleElement__AddPrimitiveMatch__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#addPrimitiveComparison(java.lang.String) <em>Add Primitive Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#addPrimitiveComparison(java.lang.String)
+	 * @generated
+	 */
+	EOperation getSingleElement__AddPrimitiveComparison__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get XQuery Variable</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getXQueryVariable()
+	 * @generated
+	 */
+	EOperation getSingleElement__GetXQueryVariable();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#addPrimitiveMatch() <em>Add Primitive Match</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Match</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#addPrimitiveMatch()
+	 * @generated
+	 */
+	EOperation getSingleElement__AddPrimitiveMatch();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#addPrimitiveComparison() <em>Add Primitive Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#addPrimitiveComparison()
+	 * @generated
+	 */
+	EOperation getSingleElement__AddPrimitiveComparison();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getGraphDepth() <em>Get Graph Depth</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Graph Depth</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getGraphDepth()
+	 * @generated
+	 */
+	EOperation getSingleElement__GetGraphDepth();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#translatePathFromPrevious() <em>Translate Path From Previous</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Translate Path From Previous</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#translatePathFromPrevious()
+	 * @generated
+	 */
+	EOperation getSingleElement__TranslatePathFromPrevious();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#getAllOperators() <em>Get All Operators</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get All Operators</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getAllOperators()
+	 * @generated
+	 */
+	EOperation getSingleElement__GetAllOperators();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter)
+	 * @generated
+	 */
+	EOperation getSingleElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#addPrimitiveComparison(qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#addPrimitiveComparison(qualitypatternmodel.parameters.Parameter)
+	 * @generated
+	 */
+	EOperation getSingleElement__AddPrimitiveComparison__Parameter();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#clearComparisonRecursively() <em>Clear Comparison Recursively</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clear Comparison Recursively</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#clearComparisonRecursively()
+	 * @generated
+	 */
+	EOperation getSingleElement__ClearComparisonRecursively();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.SingleElement#clearPropertyRecursively() <em>Clear Property Recursively</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clear Property Recursively</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.SingleElement#clearPropertyRecursively()
+	 * @generated
+	 */
+	EOperation getSingleElement__ClearPropertyRecursively();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -3715,7 +2519,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = eINSTANCE.getRelation__CopyToNewNextGraphs__Element();
+		EOperation RELATION___COPY_TO_NEW_NEXT_GRAPHS__SINGLEELEMENT = eINSTANCE.getRelation__CopyToNewNextGraphs__SingleElement();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Inputs</b></em>' operation.
@@ -3858,20 +2662,60 @@ public interface GraphstructurePackage extends EPackage {
 		EReference SINGLE_ELEMENT__PREVIOUS = eINSTANCE.getSingleElement_Previous();
 
 		/**
-		 * The meta object literal for the '<em><b>Next Set</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SINGLE_ELEMENT__NEXT_SET = eINSTANCE.getSingleElement_NextSet();
-
-		/**
 		 * The meta object literal for the '<em><b>Graph</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference SINGLE_ELEMENT__GRAPH = eINSTANCE.getSingleElement_Graph();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SINGLE_ELEMENT__NAME = eINSTANCE.getSingleElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Translated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SINGLE_ELEMENT__TRANSLATED = eINSTANCE.getSingleElement_Translated();
+
+		/**
+		 * The meta object literal for the '<em><b>Predicates Are Being Translated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = eINSTANCE.getSingleElement_PredicatesAreBeingTranslated();
+
+		/**
+		 * The meta object literal for the '<em><b>Relation From Previous</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_ELEMENT__RELATION_FROM_PREVIOUS = eINSTANCE.getSingleElement_RelationFromPrevious();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_ELEMENT__PROPERTIES = eINSTANCE.getSingleElement_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Predicates</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLE_ELEMENT__PREDICATES = eINSTANCE.getSingleElement_Predicates();
 
 		/**
 		 * The meta object literal for the '<em><b>Copy Next Elements To Next Graphs</b></em>' operation.
@@ -3914,22 +2758,6 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = eINSTANCE.getSingleElement__CopyNextElementsToPreviousGraphs__boolean();
 
 		/**
-		 * The meta object literal for the '<em><b>Has Count Predicate</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SINGLE_ELEMENT___HAS_COUNT_PREDICATE = eINSTANCE.getSingleElement__HasCountPredicate();
-
-		/**
-		 * The meta object literal for the '<em><b>To XQuery Count</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SINGLE_ELEMENT___TO_XQUERY_COUNT__LOCATION = eINSTANCE.getSingleElement__ToXQueryCount__Location();
-
-		/**
 		 * The meta object literal for the '<em><b>To XQuery No Count</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3962,320 +2790,12 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation SINGLE_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS = eINSTANCE.getSingleElement__RemoveFromReturnElements();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Count Operation</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SINGLE_ELEMENT___ADD_COUNT_OPERATION = eINSTANCE.getSingleElement__AddCountOperation();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.SetElementImpl <em>Set Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.graphstructure.impl.SetElementImpl
-		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getSetElement()
-		 * @generated
-		 */
-		EClass SET_ELEMENT = eINSTANCE.getSetElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Next</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SET_ELEMENT__NEXT = eINSTANCE.getSetElement_Next();
-
-		/**
-		 * The meta object literal for the '<em><b>Previous Set</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SET_ELEMENT__PREVIOUS_SET = eINSTANCE.getSetElement_PreviousSet();
-
-		/**
-		 * The meta object literal for the '<em><b>Previous Single</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SET_ELEMENT__PREVIOUS_SINGLE = eINSTANCE.getSetElement_PreviousSingle();
-
-		/**
-		 * The meta object literal for the '<em><b>Count</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SET_ELEMENT__COUNT = eINSTANCE.getSetElement_Count();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Path To Previous Single Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT = eINSTANCE.getSetElement__GetPathToPreviousSingleElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Argument Elements Set Operation</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION = eINSTANCE.getSetElement__GetAllArgumentElementsSetOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Generate Where Clause</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SET_ELEMENT___GENERATE_WHERE_CLAUSE__LOCATION = eINSTANCE.getSetElement__GenerateWhereClause__Location();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.graphstructure.impl.ElementImpl
-		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getElement()
-		 * @generated
-		 */
-		EClass ELEMENT = eINSTANCE.getElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Predicates</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__PREDICATES = eINSTANCE.getElement_Predicates();
-
-		/**
-		 * The meta object literal for the '<em><b>Predicates Are Being Translated</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = eINSTANCE.getElement_PredicatesAreBeingTranslated();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ELEMENT__NAME = eINSTANCE.getElement_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Relation From Previous</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__RELATION_FROM_PREVIOUS = eINSTANCE.getElement_RelationFromPrevious();
-
-		/**
-		 * The meta object literal for the '<em><b>Translated</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ELEMENT__TRANSLATED = eINSTANCE.getElement_Translated();
-
-		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__PROPERTIES = eINSTANCE.getElement_Properties();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Next Elements</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_NEXT_ELEMENTS = eINSTANCE.getElement__GetNextElements();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Previous Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_PREVIOUS_ELEMENT = eINSTANCE.getElement__GetPreviousElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_ALL_OPERATORS = eINSTANCE.getElement__GetAllOperators();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Variables</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_ALL_VARIABLES = eINSTANCE.getElement__GetAllVariables();
-
-		/**
-		 * The meta object literal for the '<em><b>Get XQuery Representation</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = eINSTANCE.getElement__GetXQueryRepresentation__Location();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Graph Depth</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_GRAPH_DEPTH = eINSTANCE.getElement__GetGraphDepth();
-
-		/**
-		 * The meta object literal for the '<em><b>Translate Element Existence Predicates</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION = eINSTANCE.getElement__TranslateElementExistencePredicates__Location();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___ADD_PRIMITIVE_COMPARISON = eINSTANCE.getElement__AddPrimitiveComparison();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Primitive Match</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___ADD_PRIMITIVE_MATCH__STRING = eINSTANCE.getElement__AddPrimitiveMatch__String();
-
-		/**
-		 * The meta object literal for the '<em><b>Translate Path From Previous</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = eINSTANCE.getElement__TranslatePathFromPrevious();
-
-		/**
-		 * The meta object literal for the '<em><b>Get XQuery Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_XQUERY_VARIABLE = eINSTANCE.getElement__GetXQueryVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Original ID</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_ORIGINAL_ID = eINSTANCE.getElement__GetOriginalID();
-
-		/**
-		 * The meta object literal for the '<em><b>Translate Predicates Via Brackets</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION = eINSTANCE.getElement__TranslatePredicatesViaBrackets__Location();
-
-		/**
-		 * The meta object literal for the '<em><b>Translate Predicates Via And</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = eINSTANCE.getElement__TranslatePredicatesViaAnd__Location();
-
-		/**
-		 * The meta object literal for the '<em><b>Reset Count Operator Recursively</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY = eINSTANCE.getElement__ResetCountOperatorRecursively();
-
-		/**
 		 * The meta object literal for the '<em><b>Clear Match Recursively</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ELEMENT___CLEAR_MATCH_RECURSIVELY = eINSTANCE.getElement__ClearMatchRecursively();
-
-		/**
-		 * The meta object literal for the '<em><b>Clear Comparison Recursively</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___CLEAR_COMPARISON_RECURSIVELY = eINSTANCE.getElement__ClearComparisonRecursively();
-
-		/**
-		 * The meta object literal for the '<em><b>Clear Predicates Recursively</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___CLEAR_PREDICATES_RECURSIVELY = eINSTANCE.getElement__ClearPredicatesRecursively();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = eINSTANCE.getElement__AddPrimitiveComparison__String();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER = eINSTANCE.getElement__AddPrimitiveComparison__Parameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Primitive Match</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___ADD_PRIMITIVE_MATCH = eINSTANCE.getElement__AddPrimitiveMatch();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER = eINSTANCE.getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Elements</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_ALL_ELEMENTS = eINSTANCE.getElement__GetAllElements();
+		EOperation SINGLE_ELEMENT___CLEAR_MATCH_RECURSIVELY = eINSTANCE.getSingleElement__ClearMatchRecursively();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Relations</b></em>' operation.
@@ -4283,7 +2803,151 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ELEMENT___GET_ALL_RELATIONS = eINSTANCE.getElement__GetAllRelations();
+		EOperation SINGLE_ELEMENT___GET_ALL_RELATIONS = eINSTANCE.getSingleElement__GetAllRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Translate Predicates Via And</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION = eINSTANCE.getSingleElement__TranslatePredicatesViaAnd__Location();
+
+		/**
+		 * The meta object literal for the '<em><b>Clear Predicates Recursively</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___CLEAR_PREDICATES_RECURSIVELY = eINSTANCE.getSingleElement__ClearPredicatesRecursively();
+
+		/**
+		 * The meta object literal for the '<em><b>Translate Predicates Via Brackets</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION = eINSTANCE.getSingleElement__TranslatePredicatesViaBrackets__Location();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___GET_ALL_ELEMENTS = eINSTANCE.getSingleElement__GetAllElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Original ID</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___GET_ORIGINAL_ID = eINSTANCE.getSingleElement__GetOriginalID();
+
+		/**
+		 * The meta object literal for the '<em><b>Get XQuery Representation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = eINSTANCE.getSingleElement__GetXQueryRepresentation__Location();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Match</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH__STRING = eINSTANCE.getSingleElement__AddPrimitiveMatch__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = eINSTANCE.getSingleElement__AddPrimitiveComparison__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get XQuery Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___GET_XQUERY_VARIABLE = eINSTANCE.getSingleElement__GetXQueryVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Match</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH = eINSTANCE.getSingleElement__AddPrimitiveMatch();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON = eINSTANCE.getSingleElement__AddPrimitiveComparison();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Graph Depth</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___GET_GRAPH_DEPTH = eINSTANCE.getSingleElement__GetGraphDepth();
+
+		/**
+		 * The meta object literal for the '<em><b>Translate Path From Previous</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS = eINSTANCE.getSingleElement__TranslatePathFromPrevious();
+
+		/**
+		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___GET_ALL_OPERATORS = eINSTANCE.getSingleElement__GetAllOperators();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER = eINSTANCE.getSingleElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Comparison</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER = eINSTANCE.getSingleElement__AddPrimitiveComparison__Parameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Clear Comparison Recursively</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___CLEAR_COMPARISON_RECURSIVELY = eINSTANCE.getSingleElement__ClearComparisonRecursively();
+
+		/**
+		 * The meta object literal for the '<em><b>Clear Property Recursively</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SINGLE_ELEMENT___CLEAR_PROPERTY_RECURSIVELY = eINSTANCE.getSingleElement__ClearPropertyRecursively();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

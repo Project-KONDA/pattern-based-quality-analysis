@@ -72,9 +72,9 @@ public class NotElementImpl extends ConditionImpl implements NotElement {
 	}
 	
 	@Override
-	public EList<GraphContainer> getNextQuantifiedConditions() {
+	public EList<GraphContainer> getNextQuantifiedConditions() throws InvalidityException {
 		EList<GraphContainer> result = new BasicEList<GraphContainer>();
-		result.addAll(getCondition().getGetNextQuantifiedConditions());
+		result.addAll(getCondition().getNextQuantifiedConditions());
 		return result;
 	}	
 	

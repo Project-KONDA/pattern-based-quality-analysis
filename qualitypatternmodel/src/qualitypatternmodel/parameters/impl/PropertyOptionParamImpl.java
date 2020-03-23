@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.PropertyOptionParam;
@@ -375,7 +375,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	public void generateDescription() {
 		String res = "Angabe des Eigenschaft-Types";
 		try {
-			Element e = getProperty().getElement();
+			SingleElement e = getProperty().getElement();
 			res += " von " + e.getName();
 			
 			

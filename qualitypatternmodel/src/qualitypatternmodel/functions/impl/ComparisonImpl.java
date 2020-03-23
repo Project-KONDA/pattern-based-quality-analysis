@@ -18,12 +18,10 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
-import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.NumberOperator;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -193,7 +191,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 //			throw new InvalidityException("invalid argument2 type" + " (" + getInternalId() + ")");
 //		}
 
-		if (argument1 instanceof Element && argument2 instanceof Element) {
+		if (argument1 instanceof SingleElement && argument2 instanceof SingleElement) {
 			if (option.getValue() != ComparisonOperator.EQUAL && option.getValue() != ComparisonOperator.NOTEQUAL) {
 				throw new InvalidityException(
 						"invalid comparison operator for arguments of type Element" + " (" + getInternalId() + ")");
@@ -204,10 +202,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 		if (getComparison1().isEmpty() && getComparison2().isEmpty()) {
 			// this is root operator
-
+			// TODO: adapt
 			EList<ListOfElements> arguments = getAllArgumentElements();
 
-			EList<Element> argumentsFlattened = new BasicEList<Element>();
+			EList<SingleElement> argumentsFlattened = new BasicEList<SingleElement>();
 			arguments.forEach(argumentsFlattened::addAll);
 
 			boolean ownersInArguments = argumentsFlattened.containsAll(elements);
@@ -219,8 +217,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			boolean argumentsInElements = true;
 			for (ListOfElements listOfElements : arguments) {
 				boolean isElement = false;
-				for (Element argument : listOfElements) {
-					for (Element owner : elements) {
+				for (SingleElement argument : listOfElements) {
+					for (SingleElement owner : elements) {
 						if (argument.equals(owner)) {
 							if (isElement) {
 								throw new InvalidityException(
@@ -237,17 +235,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 		}
 		isCycleFree();
-	}
-
-	@Override
-	public boolean hasCountPredicate() {
-		if (argument1 instanceof Count) {
-			return true;
-		}
-		if (argument2 instanceof Count) {
-			return true;
-		}
-		return false;
 	}
 
 	/**
@@ -453,7 +440,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				setType(ReturnType.UNSPECIFIED);
 			}
 		} else {
-			if (newArgument instanceof Element) {
+			if (newArgument instanceof SingleElement) {
 				setType(ReturnType.ELEMENT);
 			}
 			if (newArgument instanceof BooleanOperator) {
@@ -492,10 +479,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	private void moveElementsFromRootOperatorToOldArgument(Comparable oldArgument, BooleanOperator booleanOperator) {
 		BooleanOperator argumentOperator = (BooleanOperator) oldArgument;
-		EList<Element> boolOpElements = new BasicEList<Element>();
+		EList<SingleElement> boolOpElements = new BasicEList<SingleElement>();
 		boolOpElements.addAll(booleanOperator.getElements()); // boolOp.getElements() is already empty at this point in
 																// case THIS gets DELETED!
-		for (Element element : boolOpElements) {
+		for (SingleElement element : boolOpElements) {
 			try {
 				EList<ListOfElements> argumentElements = argumentOperator.getAllArgumentElements();
 				for (ListOfElements listOfElements : argumentElements) {
@@ -515,17 +502,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		if (oldArgument != null && oldArgument instanceof Property && ((Property) oldArgument).getElement() != null) {
 			booleanOperator.removeElement(((Property) oldArgument).getElement());
 		}
-		if (oldArgument != null && oldArgument instanceof Element) {
-			booleanOperator.removeElement((Element) oldArgument);
+		if (oldArgument != null && oldArgument instanceof SingleElement) {
+			booleanOperator.removeElement((SingleElement) oldArgument);
 		}
 	}
 
 	private void moveElementsFromNewArgumentToRootOperator(Comparable newArgument,
 			EList<BooleanOperator> rootBooleanOperators) {
 		BooleanOperator argumentOperator = (BooleanOperator) newArgument;
-		EList<Element> argumentOperatorElements = new BasicEList<Element>();
+		EList<SingleElement> argumentOperatorElements = new BasicEList<SingleElement>();
 		argumentOperatorElements.addAll(argumentOperator.getElements());
-		for (Element element : argumentOperatorElements) {
+		for (SingleElement element : argumentOperatorElements) {
 			argumentOperator.removeElement(element);
 			for (BooleanOperator rootBoolenOperator : rootBooleanOperators) {
 				rootBoolenOperator.addElement(element);
@@ -535,10 +522,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	private void addNewArgumentElementsToRootOperator(Comparable newArgument,
 			EList<BooleanOperator> rootBooleanOperators) {
-		if (newArgument instanceof Element) {
+		if (newArgument instanceof SingleElement) {
 			for (BooleanOperator boolOp : rootBooleanOperators) {
 				if (newArgument != null) {
-					boolOp.addElement((Element) newArgument);
+					boolOp.addElement((SingleElement) newArgument);
 				}
 			}
 		}

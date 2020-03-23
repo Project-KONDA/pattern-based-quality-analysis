@@ -84,16 +84,6 @@ public class FunctionsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FunctionsPackage.COUNT: {
-				Count count = (Count)theEObject;
-				T result = caseCount(count);
-				if (result == null) result = caseNumberOperator(count);
-				if (result == null) result = caseOperator(count);
-				if (result == null) result = caseComparable(count);
-				if (result == null) result = casePatternElement(count);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case FunctionsPackage.OTHER_OPERATOR: {
 				OtherOperator otherOperator = (OtherOperator)theEObject;
 				T result = caseOtherOperator(otherOperator);
@@ -180,21 +170,6 @@ public class FunctionsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOperator(Operator object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Count</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Count</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCount(Count object) {
 		return null;
 	}
 

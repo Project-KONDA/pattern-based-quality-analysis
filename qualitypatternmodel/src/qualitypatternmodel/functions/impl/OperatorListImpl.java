@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.Operator;
@@ -145,9 +144,6 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 		for(Operator op : getOperators()) {
 			if(op instanceof BooleanOperator) {
 				((BooleanOperator) op).getElements().clear();
-			}
-			if(op instanceof Count) {
-				((Count) op).setArgument(null);
 			}
 			if(op instanceof Match) {
 				((Match) op).reset();

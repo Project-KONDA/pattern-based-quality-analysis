@@ -254,7 +254,7 @@ public interface Graph extends PatternElement {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<Element> getAllElements();
+	EList<SingleElement> getAllElements();
 
 	/**
 	 * <!-- begin-user-doc -->

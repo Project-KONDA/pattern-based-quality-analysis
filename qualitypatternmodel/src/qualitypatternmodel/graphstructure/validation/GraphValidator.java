@@ -7,7 +7,6 @@ package qualitypatternmodel.graphstructure.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.functions.OperatorList;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.Morphism;
@@ -38,7 +37,7 @@ public interface GraphValidator {
 
 	boolean validateReturnGraph(boolean value);
 
-	boolean validateGetAllElements(EList<Element> value);
+	boolean validateGetAllElements(EList<SingleElement> value);
 
 	boolean validateGetAllRelations(EList<Relation> value);
 

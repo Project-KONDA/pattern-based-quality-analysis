@@ -11,11 +11,10 @@ import qualitypatternmodel.functions.BooleanOperator;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.SingleElement) <em>Add Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.SingleElement) <em>Remove Element</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.BooleanOperator#createInputs() <em>Create Inputs</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.BooleanOperator#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.BooleanOperator#hasCountPredicate() <em>Has Count Predicate</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.BooleanOperator#reset() <em>Reset</em>}</li>
  * </ul>
  * </p>
@@ -45,26 +44,26 @@ public abstract class BooleanOperatorTest extends OperatorTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.SingleElement) <em>Add Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element)
+	 * @see qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.SingleElement)
 	 * @generated
 	 */
-	public void testAddElement__Element() {
+	public void testAddElement__SingleElement() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.SingleElement) <em>Remove Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element)
+	 * @see qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.SingleElement)
 	 * @generated
 	 */
-	public void testRemoveElement__Element() {
+	public void testRemoveElement__SingleElement() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -91,19 +90,6 @@ public abstract class BooleanOperatorTest extends OperatorTest {
 	 * @generated
 	 */
 	public void testRemoveInputsFromVariableList() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#hasCountPredicate() <em>Has Count Predicate</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.functions.BooleanOperator#hasCountPredicate()
-	 * @generated
-	 */
-	public void testHasCountPredicate() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

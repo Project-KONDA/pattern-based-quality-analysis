@@ -77,10 +77,6 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 				return createOperatorAdapter();
 			}
 			@Override
-			public Adapter caseCount(Count object) {
-				return createCountAdapter();
-			}
-			@Override
 			public Adapter caseOtherOperator(OtherOperator object) {
 				return createOtherOperatorAdapter();
 			}
@@ -157,20 +153,6 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOperatorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.functions.Count <em>Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.functions.Count
-	 * @generated
-	 */
-	public Adapter createCountAdapter() {
 		return null;
 	}
 

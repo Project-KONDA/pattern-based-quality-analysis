@@ -34,7 +34,6 @@ public class GraphstructureTests extends TestSuite {
 		suite.addTestSuite(RelationTest.class);
 		suite.addTestSuite(PropertyTest.class);
 		suite.addTestSuite(SingleElementTest.class);
-		suite.addTestSuite(SetElementTest.class);
 		suite.addTestSuite(GraphTest.class);
 		return suite;
 	}

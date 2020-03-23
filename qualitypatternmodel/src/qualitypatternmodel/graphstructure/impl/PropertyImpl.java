@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -24,12 +23,12 @@ import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.ReferenceOperator;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -480,9 +479,31 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
-	public Element getElement() {
+	public SingleElement getElement() {
 		if (eContainerFeatureID() != GraphstructurePackage.PROPERTY__ELEMENT) return null;
-		return (Element)eInternalContainer();
+		return (SingleElement)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setElement(SingleElement newElement) {
+		if (newElement != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.PROPERTY__ELEMENT && newElement != null)) {
+			if (EcoreUtil.isAncestor(this, newElement))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newElement != null)
+				msgs = ((InternalEObject)newElement).eInverseAdd(this, GraphstructurePackage.SINGLE_ELEMENT__PROPERTIES, SingleElement.class, msgs);
+			msgs = basicSetElement(newElement, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ELEMENT, newElement, newElement));
 	}
 
 	/**
@@ -490,7 +511,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
+	public NotificationChain basicSetElement(SingleElement newElement, NotificationChain msgs) {
 		getComparison1().clear();
 		getComparison2().clear();
 		reset();
@@ -524,27 +545,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		} catch (MissingPatternContainerException e) {
 			// since this property is not contained in a pattern, do nothing
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setElement(Element newElement) {
-		if (newElement != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.PROPERTY__ELEMENT && newElement != null)) {
-			if (EcoreUtil.isAncestor(this, newElement))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newElement != null)
-				msgs = ((InternalEObject)newElement).eInverseAdd(this, GraphstructurePackage.ELEMENT__PROPERTIES, Element.class, msgs);
-			msgs = basicSetElement(newElement, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ELEMENT, newElement, newElement));
 	}
 
 	/**
@@ -654,7 +654,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetElement((Element)otherEnd, msgs);
+				return basicSetElement((SingleElement)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatch()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
@@ -714,7 +714,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case GraphstructurePackage.PROPERTY__ELEMENT:
-				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.ELEMENT__PROPERTIES, Element.class, msgs);
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.SINGLE_ELEMENT__PROPERTIES, SingleElement.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -767,7 +767,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				getComparison2().addAll((Collection<? extends Comparison>)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
-				setElement((Element)newValue);
+				setElement((SingleElement)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__MATCH:
 				getMatch().clear();
@@ -803,7 +803,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				getComparison2().clear();
 				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
-				setElement((Element)null);
+				setElement((SingleElement)null);
 				return;
 			case GraphstructurePackage.PROPERTY__MATCH:
 				getMatch().clear();

@@ -16,9 +16,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.OperatorList;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.SingleElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,9 +42,9 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> elements;
+	protected EList<SingleElement> elements;
 	
-	protected EMap<Element,Integer> elementCount;
+	protected EMap<SingleElement,Integer> elementCount;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,9 +76,9 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 * @generated
 	 */
 	@Override
-	public EList<Element> getElements() {
+	public EList<SingleElement> getElements() {
 		if (elements == null) {
-			elements = new EObjectWithInverseResolvingEList.ManyInverse<Element>(Element.class, this, FunctionsPackage.BOOLEAN_OPERATOR__ELEMENTS, GraphstructurePackage.ELEMENT__PREDICATES);
+			elements = new EObjectWithInverseResolvingEList.ManyInverse<SingleElement>(SingleElement.class, this, FunctionsPackage.BOOLEAN_OPERATOR__ELEMENTS, GraphstructurePackage.SINGLE_ELEMENT__PREDICATES);
 		}
 		return elements;
 	}
@@ -89,7 +89,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 * @generated NOT
 	 */
 	@Override
-	public void addElement(Element element) {
+	public void addElement(SingleElement element) {
 		if(getElementCount().containsKey(element)) {
 			getElementCount().put(element, getElementCount().get(element)+1);
 		} else {
@@ -107,7 +107,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 * @generated NOT
 	 */
 	@Override
-	public void removeElement(Element element) {
+	public void removeElement(SingleElement element) {
 		if(getElementCount().containsKey(element)) {			
 			if(getElementCount().get(element) == 1) {
 				getElements().remove(element);
@@ -143,18 +143,6 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		throw new UnsupportedOperationException();
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean hasCountPredicate() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -240,7 +228,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		switch (featureID) {
 			case FunctionsPackage.BOOLEAN_OPERATOR__ELEMENTS:
 				getElements().clear();
-				getElements().addAll((Collection<? extends Element>)newValue);
+				getElements().addAll((Collection<? extends SingleElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -283,11 +271,11 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case FunctionsPackage.BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT:
-				addElement((Element)arguments.get(0));
+			case FunctionsPackage.BOOLEAN_OPERATOR___ADD_ELEMENT__SINGLEELEMENT:
+				addElement((SingleElement)arguments.get(0));
 				return null;
-			case FunctionsPackage.BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT:
-				removeElement((Element)arguments.get(0));
+			case FunctionsPackage.BOOLEAN_OPERATOR___REMOVE_ELEMENT__SINGLEELEMENT:
+				removeElement((SingleElement)arguments.get(0));
 				return null;
 			case FunctionsPackage.BOOLEAN_OPERATOR___CREATE_INPUTS:
 				createInputs();
@@ -295,8 +283,6 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 			case FunctionsPackage.BOOLEAN_OPERATOR___REMOVE_INPUTS_FROM_VARIABLE_LIST:
 				removeInputsFromVariableList();
 				return null;
-			case FunctionsPackage.BOOLEAN_OPERATOR___HAS_COUNT_PREDICATE:
-				return hasCountPredicate();
 			case FunctionsPackage.BOOLEAN_OPERATOR___RESET:
 				reset();
 				return null;
@@ -304,14 +290,14 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		return super.eInvoke(operationID, arguments);
 	}
 
-	public EMap<Element, Integer> getElementCount() {
+	public EMap<SingleElement, Integer> getElementCount() {
 		if(elementCount == null) {
-			elementCount = new BasicEMap<Element, Integer>();
+			elementCount = new BasicEMap<SingleElement, Integer>();
 		}
 		return elementCount;
 	}
 
-	public void setElementCount(EMap<Element, Integer> elementCount) {
+	public void setElementCount(EMap<SingleElement, Integer> elementCount) {
 		this.elementCount = elementCount;
 	}
 

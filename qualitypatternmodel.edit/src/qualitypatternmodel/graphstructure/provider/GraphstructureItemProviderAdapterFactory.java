@@ -141,29 +141,6 @@ public class GraphstructureItemProviderAdapterFactory extends GraphstructureAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.graphstructure.SetElement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SetElementItemProvider setElementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.graphstructure.SetElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSetElementAdapter() {
-		if (setElementItemProvider == null) {
-			setElementItemProvider = new SetElementItemProvider(this);
-		}
-
-		return setElementItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.graphstructure.Graph} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,7 +271,6 @@ public class GraphstructureItemProviderAdapterFactory extends GraphstructureAdap
 		if (relationItemProvider != null) relationItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
 		if (singleElementItemProvider != null) singleElementItemProvider.dispose();
-		if (setElementItemProvider != null) setElementItemProvider.dispose();
 		if (graphItemProvider != null) graphItemProvider.dispose();
 	}
 

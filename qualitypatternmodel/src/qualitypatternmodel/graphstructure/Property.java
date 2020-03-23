@@ -105,17 +105,17 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Element</em>' container reference.
-	 * @see #setElement(Element)
+	 * @see #setElement(SingleElement)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Element()
-	 * @see qualitypatternmodel.graphstructure.Element#getProperties
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getProperties
 	 * @model opposite="properties" required="true" transient="false"
 	 * @generated
 	 */
-	Element getElement();
+	SingleElement getElement();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}' container reference.
@@ -125,7 +125,7 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 * @see #getElement()
 	 * @generated
 	 */
-	void setElement(Element value);
+	void setElement(SingleElement value);
 
 	/**
 	 * Returns the value of the '<em><b>Attribute Name</b></em>' reference.

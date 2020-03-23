@@ -72,29 +72,6 @@ public class FunctionsItemProviderAdapterFactory extends FunctionsAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.functions.Count} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CountItemProvider countItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.functions.Count}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCountAdapter() {
-		if (countItemProvider == null) {
-			countItemProvider = new CountItemProvider(this);
-		}
-
-		return countItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.functions.Match} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -291,7 +268,6 @@ public class FunctionsItemProviderAdapterFactory extends FunctionsAdapterFactory
 	 */
 	@Override
 	public void dispose() {
-		if (countItemProvider != null) countItemProvider.dispose();
 		if (matchItemProvider != null) matchItemProvider.dispose();
 		if (comparisonItemProvider != null) comparisonItemProvider.dispose();
 		if (operatorListItemProvider != null) operatorListItemProvider.dispose();

@@ -5,7 +5,7 @@
 package qualitypatternmodel.functions.validation;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.SingleElement;
 
 
 /**
@@ -17,6 +17,6 @@ import qualitypatternmodel.graphstructure.Element;
 public interface BooleanOperatorValidator {
 	boolean validate();
 
-	boolean validateElements(EList<Element> value);
+	boolean validateElements(EList<SingleElement> value);
 
 }

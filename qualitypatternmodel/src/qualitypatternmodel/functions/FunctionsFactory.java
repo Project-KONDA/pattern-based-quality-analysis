@@ -22,15 +22,6 @@ public interface FunctionsFactory extends EFactory {
 	FunctionsFactory eINSTANCE = qualitypatternmodel.functions.impl.FunctionsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Count</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Count</em>'.
-	 * @generated
-	 */
-	Count createCount();
-
-	/**
 	 * Returns a new object of class '<em>Match</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

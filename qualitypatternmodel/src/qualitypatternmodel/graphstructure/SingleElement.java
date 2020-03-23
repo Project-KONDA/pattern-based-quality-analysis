@@ -5,7 +5,12 @@ package qualitypatternmodel.graphstructure;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.functions.BooleanOperator;
+import qualitypatternmodel.functions.ComparisonOperator;
+import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.SingleElementMapping;
 
 /**
@@ -23,16 +28,20 @@ import qualitypatternmodel.patternstructure.SingleElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getRoot <em>Root</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNextSingle <em>Next Single</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getPrevious <em>Previous</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getNextSet <em>Next Set</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#isTranslated <em>Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getRelationFromPrevious <em>Relation From Previous</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getProperties <em>Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.SingleElement#getPredicates <em>Predicates</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasPreviousOrIsRoot correctMappingOfContainment'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot hasPreviousOrIsRoot='self.previous-&gt;notEmpty() or self.root-&gt;notEmpty()' correctMappingOfContainment='self.previous-&gt;notEmpty() implies self.mappingTo-&gt;forAll(m | m.to.previous.mappingFrom.from = self.previous)'"
+ * @model
  * @generated
  */
-public interface SingleElement extends Element {
+public interface SingleElement extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Mapping From</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.SingleElementMapping#getTo <em>To</em>}'.
@@ -134,20 +143,6 @@ public interface SingleElement extends Element {
 	void setPrevious(SingleElement value);
 
 	/**
-	 * Returns the value of the '<em><b>Next Set</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.SetElement}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SetElement#getPreviousSingle <em>Previous Single</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next Set</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_NextSet()
-	 * @see qualitypatternmodel.graphstructure.SetElement#getPreviousSingle
-	 * @model opposite="previousSingle" containment="true"
-	 * @generated
-	 */
-	EList<SetElement> getNextSet();
-
-	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}'.
 	 * <!-- begin-user-doc -->
@@ -170,6 +165,124 @@ public interface SingleElement extends Element {
 	 * @generated
 	 */
 	void setGraph(Graph value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Translated</em>' attribute.
+	 * @see #setTranslated(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Translated()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isTranslated();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#isTranslated <em>Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Translated</em>' attribute.
+	 * @see #isTranslated()
+	 * @generated
+	 */
+	void setTranslated(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Predicates Are Being Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Predicates Are Being Translated</em>' attribute.
+	 * @see #setPredicatesAreBeingTranslated(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_PredicatesAreBeingTranslated()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isPredicatesAreBeingTranslated();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Predicates Are Being Translated</em>' attribute.
+	 * @see #isPredicatesAreBeingTranslated()
+	 * @generated
+	 */
+	void setPredicatesAreBeingTranslated(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Relation From Previous</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Relation From Previous</em>' containment reference.
+	 * @see #setRelationFromPrevious(Relation)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_RelationFromPrevious()
+	 * @see qualitypatternmodel.graphstructure.Relation#getRelationTo
+	 * @model opposite="relationTo" containment="true"
+	 * @generated
+	 */
+	Relation getRelationFromPrevious();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.SingleElement#getRelationFromPrevious <em>Relation From Previous</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Relation From Previous</em>' containment reference.
+	 * @see #getRelationFromPrevious()
+	 * @generated
+	 */
+	void setRelationFromPrevious(Relation value);
+
+	/**
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Property}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Properties()
+	 * @see qualitypatternmodel.graphstructure.Property#getElement
+	 * @model opposite="element" containment="true"
+	 * @generated
+	 */
+	EList<Property> getProperties();
+
+	/**
+	 * Returns the value of the '<em><b>Predicates</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.functions.BooleanOperator}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.BooleanOperator#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Predicates</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getSingleElement_Predicates()
+	 * @see qualitypatternmodel.functions.BooleanOperator#getElements
+	 * @model opposite="elements"
+	 * @generated
+	 */
+	EList<BooleanOperator> getPredicates();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,29 +339,6 @@ public interface SingleElement extends Element {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns true if this <code>SingleElement</code> has a predicate of type count.
-	 * @return true if this <code>SingleElement</code> has a predicate of type count
-	 * <!-- end-user-doc -->
-	 * @model required="true"
-	 * @generated
-	 */
-	boolean hasCountPredicate();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns the query representing this <code>SingleElement</code>.
-	 * The predicates are inserted after "satisfies".
-	 * Is called in case this <code>SingleElement</code> has a count predicate.
-	 * @param location the <code>Location</code> of the <code>Element</code> this in the pattern
-	 * @return the query representing this <code>SingleElement</code>
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String toXQueryCount(Location location) throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
  	 * Returns the query representing this <code>SingleElement</code>.
 	 * The predicates are inserted as XPath predicates at the end of the path expression.
 	 * Is called in case this <code>SingleElement</code> does not have a count predicate.
@@ -290,6 +380,158 @@ public interface SingleElement extends Element {
 	 * @model
 	 * @generated
 	 */
-	void addCountOperation();
+	void clearMatchRecursively();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Relation> getAllRelations();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String translatePredicatesViaAnd(Location location) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clearPredicatesRecursively();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String translatePredicatesViaBrackets(Location location) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<SingleElement> getAllElements();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	int getOriginalID();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getXQueryRepresentation(Location location) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPrimitiveMatch(String regex);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPrimitiveComparison(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getXQueryVariable();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPrimitiveMatch();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPrimitiveComparison();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	int getGraphDepth() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String translatePathFromPrevious() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	EList<Operator> getAllOperators() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, Parameter input);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPrimitiveComparison(Parameter input);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clearComparisonRecursively();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clearPropertyRecursively();
 
 } // SingleElement

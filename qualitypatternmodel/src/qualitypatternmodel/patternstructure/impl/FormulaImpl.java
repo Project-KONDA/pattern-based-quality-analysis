@@ -164,10 +164,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
-	public EList<GraphContainer> getNextQuantifiedConditions() {
+	public EList<GraphContainer> getNextQuantifiedConditions() throws InvalidityException {
 		EList<GraphContainer> result = new BasicEList<GraphContainer>();
-		result.addAll(getCondition().getGetNextQuantifiedConditions());
-		result.addAll(getCondition2().getGetNextQuantifiedConditions());
+		result.addAll(getCondition().getNextQuantifiedConditions());
+		result.addAll(getCondition2().getNextQuantifiedConditions());
 		return result;
 	}
 

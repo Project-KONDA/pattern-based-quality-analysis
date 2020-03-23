@@ -24,8 +24,7 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='correctMappingOfContainment'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot correctMappingOfContainment='self.mappingTo-&gt;forAll(m | m.to.relationTo.oclIsTypeOf(SingleElement) implies m.to.relationTo.oclAsType(SingleElement).mappingFrom.from = self.relationTo)'"
+ * @model
  * @generated
  */
 public interface Relation extends PatternElement {
@@ -97,7 +96,7 @@ public interface Relation extends PatternElement {
 	 * @model
 	 * @generated
 	 */
-	void copyToNewNextGraphs(Element newRelationTo);
+	void copyToNewNextGraphs(SingleElement newRelationTo);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,17 +116,17 @@ public interface Relation extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Relation To</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.SingleElement#getRelationFromPrevious <em>Relation From Previous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Relation To</em>' container reference.
-	 * @see #setRelationTo(Element)
+	 * @see #setRelationTo(SingleElement)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_RelationTo()
-	 * @see qualitypatternmodel.graphstructure.Element#getRelationFromPrevious
+	 * @see qualitypatternmodel.graphstructure.SingleElement#getRelationFromPrevious
 	 * @model opposite="relationFromPrevious" required="true" transient="false"
 	 * @generated
 	 */
-	Element getRelationTo();
+	SingleElement getRelationTo();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}' container reference.
@@ -137,7 +136,7 @@ public interface Relation extends PatternElement {
 	 * @see #getRelationTo()
 	 * @generated
 	 */
-	void setRelationTo(Element value);
+	void setRelationTo(SingleElement value);
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.

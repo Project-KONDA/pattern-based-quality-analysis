@@ -22,7 +22,6 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.functions.impl.OperatorListImpl;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
@@ -232,7 +231,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated NOT
 	 */
 	@Override
-	public EList<Element> getAllElements() {
+	public EList<SingleElement> getAllElements() {
 		return getRootElement().getAllElements();
 	}
 
@@ -333,7 +332,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			SingleElementImpl root = (SingleElementImpl) getRootElement();
 			root.clearPredicatesRecursively();
 			root.clearMatchRecursively();
-			root.resetCountOperatorRecursively();
 			root.clearPropertyRecursively();
 		}
 		SingleElement oldRootElement = rootElement;

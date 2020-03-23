@@ -7,7 +7,7 @@ package qualitypatternmodel.graphstructure.validation;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.ReferenceOperator;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -22,7 +22,7 @@ public interface PropertyValidator {
 	boolean validate();
 
 	boolean validatePropertyOption(PropertyOptionParam value);
-	boolean validateElement(Element value);
+	boolean validateElement(SingleElement value);
 	boolean validateAttributeName(TextLiteralParam value);
 
 	boolean validateOption(PropertyOptionParam value);

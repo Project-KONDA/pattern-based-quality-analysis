@@ -18,10 +18,9 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
-import qualitypatternmodel.functions.Count;
 import qualitypatternmodel.functions.FunctionsFactory;
 import qualitypatternmodel.functions.FunctionsPackage;
+import qualitypatternmodel.functions.Match;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +59,7 @@ public class FunctionsExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.functions"));
-				Count root = FunctionsFactory.eINSTANCE.createCount();
+				Match root = FunctionsFactory.eINSTANCE.createMatch();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

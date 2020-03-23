@@ -49,15 +49,6 @@ public interface GraphstructureFactory extends EFactory {
 	SingleElement createSingleElement();
 
 	/**
-	 * Returns a new object of class '<em>Set Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Set Element</em>'.
-	 * @generated
-	 */
-	SetElement createSetElement();
-
-	/**
 	 * Returns a new object of class '<em>Graph</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

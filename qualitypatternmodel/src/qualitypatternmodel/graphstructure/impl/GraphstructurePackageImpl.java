@@ -16,7 +16,6 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.impl.FunctionsPackageImpl;
 
 import qualitypatternmodel.graphstructure.Axis;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -25,7 +24,6 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.graphstructure.util.GraphstructureValidator;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -61,20 +59,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	private EClass singleElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass setElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass elementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -289,7 +273,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__CopyToNewNextGraphs__Element() {
+	public EOperation getRelation__CopyToNewNextGraphs__SingleElement() {
 		return relationEClass.getEOperations().get(3);
 	}
 
@@ -469,7 +453,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getSingleElement_NextSet() {
+	public EReference getSingleElement_Graph() {
 		return (EReference)singleElementEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -479,8 +463,58 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getSingleElement_Graph() {
-		return (EReference)singleElementEClass.getEStructuralFeatures().get(6);
+	public EAttribute getSingleElement_Name() {
+		return (EAttribute)singleElementEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSingleElement_Translated() {
+		return (EAttribute)singleElementEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSingleElement_PredicatesAreBeingTranslated() {
+		return (EAttribute)singleElementEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSingleElement_RelationFromPrevious() {
+		return (EReference)singleElementEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSingleElement_Properties() {
+		return (EReference)singleElementEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getSingleElement_Predicates() {
+		return (EReference)singleElementEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -539,7 +573,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getSingleElement__HasCountPredicate() {
+	public EOperation getSingleElement__ToXQueryNoCount__Location() {
 		return singleElementEClass.getEOperations().get(5);
 	}
 
@@ -549,7 +583,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getSingleElement__ToXQueryCount__Location() {
+	public EOperation getSingleElement__IsRootElement() {
 		return singleElementEClass.getEOperations().get(6);
 	}
 
@@ -559,7 +593,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getSingleElement__ToXQueryNoCount__Location() {
+	public EOperation getSingleElement__RemoveMappingsToNext() {
 		return singleElementEClass.getEOperations().get(7);
 	}
 
@@ -569,7 +603,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getSingleElement__IsRootElement() {
+	public EOperation getSingleElement__RemoveFromReturnElements() {
 		return singleElementEClass.getEOperations().get(8);
 	}
 
@@ -579,7 +613,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getSingleElement__RemoveMappingsToNext() {
+	public EOperation getSingleElement__ClearMatchRecursively() {
 		return singleElementEClass.getEOperations().get(9);
 	}
 
@@ -589,7 +623,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getSingleElement__RemoveFromReturnElements() {
+	public EOperation getSingleElement__GetAllRelations() {
 		return singleElementEClass.getEOperations().get(10);
 	}
 
@@ -599,7 +633,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getSingleElement__AddCountOperation() {
+	public EOperation getSingleElement__TranslatePredicatesViaAnd__Location() {
 		return singleElementEClass.getEOperations().get(11);
 	}
 
@@ -609,8 +643,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EClass getSetElement() {
-		return setElementEClass;
+	public EOperation getSingleElement__ClearPredicatesRecursively() {
+		return singleElementEClass.getEOperations().get(12);
 	}
 
 	/**
@@ -619,8 +653,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getSetElement_Next() {
-		return (EReference)setElementEClass.getEStructuralFeatures().get(0);
+	public EOperation getSingleElement__TranslatePredicatesViaBrackets__Location() {
+		return singleElementEClass.getEOperations().get(13);
 	}
 
 	/**
@@ -629,8 +663,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getSetElement_PreviousSet() {
-		return (EReference)setElementEClass.getEStructuralFeatures().get(1);
+	public EOperation getSingleElement__GetAllElements() {
+		return singleElementEClass.getEOperations().get(14);
 	}
 
 	/**
@@ -639,8 +673,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getSetElement_PreviousSingle() {
-		return (EReference)setElementEClass.getEStructuralFeatures().get(2);
+	public EOperation getSingleElement__GetOriginalID() {
+		return singleElementEClass.getEOperations().get(15);
 	}
 
 	/**
@@ -649,8 +683,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getSetElement_Count() {
-		return (EReference)setElementEClass.getEStructuralFeatures().get(3);
+	public EOperation getSingleElement__GetXQueryRepresentation__Location() {
+		return singleElementEClass.getEOperations().get(16);
 	}
 
 	/**
@@ -659,8 +693,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getSetElement__GetPathToPreviousSingleElement() {
-		return setElementEClass.getEOperations().get(0);
+	public EOperation getSingleElement__AddPrimitiveMatch__String() {
+		return singleElementEClass.getEOperations().get(17);
 	}
 
 	/**
@@ -669,8 +703,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getSetElement__GetAllArgumentElementsSetOperation() {
-		return setElementEClass.getEOperations().get(1);
+	public EOperation getSingleElement__AddPrimitiveComparison__String() {
+		return singleElementEClass.getEOperations().get(18);
 	}
 
 	/**
@@ -679,8 +713,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getSetElement__GenerateWhereClause__Location() {
-		return setElementEClass.getEOperations().get(2);
+	public EOperation getSingleElement__GetXQueryVariable() {
+		return singleElementEClass.getEOperations().get(19);
 	}
 
 	/**
@@ -689,8 +723,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EClass getElement() {
-		return elementEClass;
+	public EOperation getSingleElement__AddPrimitiveMatch() {
+		return singleElementEClass.getEOperations().get(20);
 	}
 
 	/**
@@ -699,8 +733,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getElement_Predicates() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(3);
+	public EOperation getSingleElement__AddPrimitiveComparison() {
+		return singleElementEClass.getEOperations().get(21);
 	}
 
 	/**
@@ -709,8 +743,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EAttribute getElement_PredicatesAreBeingTranslated() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(4);
+	public EOperation getSingleElement__GetGraphDepth() {
+		return singleElementEClass.getEOperations().get(22);
 	}
 
 	/**
@@ -719,8 +753,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EAttribute getElement_Name() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(5);
+	public EOperation getSingleElement__TranslatePathFromPrevious() {
+		return singleElementEClass.getEOperations().get(23);
 	}
 
 	/**
@@ -729,8 +763,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getElement_RelationFromPrevious() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(0);
+	public EOperation getSingleElement__GetAllOperators() {
+		return singleElementEClass.getEOperations().get(24);
 	}
 
 	/**
@@ -739,8 +773,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EAttribute getElement_Translated() {
-		return (EAttribute)elementEClass.getEStructuralFeatures().get(1);
+	public EOperation getSingleElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter() {
+		return singleElementEClass.getEOperations().get(25);
 	}
 
 	/**
@@ -749,8 +783,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getElement_Properties() {
-		return (EReference)elementEClass.getEStructuralFeatures().get(2);
+	public EOperation getSingleElement__AddPrimitiveComparison__Parameter() {
+		return singleElementEClass.getEOperations().get(26);
 	}
 
 	/**
@@ -759,8 +793,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getElement__GetNextElements() {
-		return elementEClass.getEOperations().get(0);
+	public EOperation getSingleElement__ClearComparisonRecursively() {
+		return singleElementEClass.getEOperations().get(27);
 	}
 
 	/**
@@ -769,228 +803,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getElement__GetPreviousElement() {
-		return elementEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__GetAllOperators() {
-		return elementEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__GetAllVariables() {
-		return elementEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__GetXQueryRepresentation__Location() {
-		return elementEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__GetGraphDepth() {
-		return elementEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__TranslateElementExistencePredicates__Location() {
-		return elementEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__AddPrimitiveComparison() {
-		return elementEClass.getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__AddPrimitiveMatch__String() {
-		return elementEClass.getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__TranslatePathFromPrevious() {
-		return elementEClass.getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__GetXQueryVariable() {
-		return elementEClass.getEOperations().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__GetOriginalID() {
-		return elementEClass.getEOperations().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__TranslatePredicatesViaBrackets__Location() {
-		return elementEClass.getEOperations().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__TranslatePredicatesViaAnd__Location() {
-		return elementEClass.getEOperations().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__ResetCountOperatorRecursively() {
-		return elementEClass.getEOperations().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__ClearMatchRecursively() {
-		return elementEClass.getEOperations().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__ClearComparisonRecursively() {
-		return elementEClass.getEOperations().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__ClearPredicatesRecursively() {
-		return elementEClass.getEOperations().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__AddPrimitiveComparison__String() {
-		return elementEClass.getEOperations().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__AddPrimitiveComparison__Parameter() {
-		return elementEClass.getEOperations().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__AddPrimitiveMatch() {
-		return elementEClass.getEOperations().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter() {
-		return elementEClass.getEOperations().get(21);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__GetAllElements() {
-		return elementEClass.getEOperations().get(22);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getElement__GetAllRelations() {
-		return elementEClass.getEOperations().get(23);
+	public EOperation getSingleElement__ClearPropertyRecursively() {
+		return singleElementEClass.getEOperations().get(28);
 	}
 
 	/**
@@ -1280,7 +1094,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(relationEClass, RELATION___GET_GRAPH_DEPTH);
 		createEOperation(relationEClass, RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS);
 		createEOperation(relationEClass, RELATION___REMOVE_MAPPINGS_TO_NEXT);
-		createEOperation(relationEClass, RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT);
+		createEOperation(relationEClass, RELATION___COPY_TO_NEW_NEXT_GRAPHS__SINGLEELEMENT);
 		createEOperation(relationEClass, RELATION___CREATE_INPUTS);
 		createEOperation(relationEClass, RELATION___REMOVE_INPUTS_FROM_VARIABLE_LIST);
 
@@ -1300,61 +1114,42 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(singleElementEClass, SINGLE_ELEMENT__ROOT);
 		createEReference(singleElementEClass, SINGLE_ELEMENT__NEXT_SINGLE);
 		createEReference(singleElementEClass, SINGLE_ELEMENT__PREVIOUS);
-		createEReference(singleElementEClass, SINGLE_ELEMENT__NEXT_SET);
 		createEReference(singleElementEClass, SINGLE_ELEMENT__GRAPH);
+		createEAttribute(singleElementEClass, SINGLE_ELEMENT__NAME);
+		createEAttribute(singleElementEClass, SINGLE_ELEMENT__TRANSLATED);
+		createEAttribute(singleElementEClass, SINGLE_ELEMENT__PREDICATES_ARE_BEING_TRANSLATED);
+		createEReference(singleElementEClass, SINGLE_ELEMENT__RELATION_FROM_PREVIOUS);
+		createEReference(singleElementEClass, SINGLE_ELEMENT__PROPERTIES);
+		createEReference(singleElementEClass, SINGLE_ELEMENT__PREDICATES);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__SINGLEELEMENT);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___REMOVE_ELEMENT_FROM_PREVIOUS_GRAPHS);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__SINGLEELEMENT_BOOLEAN);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN);
-		createEOperation(singleElementEClass, SINGLE_ELEMENT___HAS_COUNT_PREDICATE);
-		createEOperation(singleElementEClass, SINGLE_ELEMENT___TO_XQUERY_COUNT__LOCATION);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___TO_XQUERY_NO_COUNT__LOCATION);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___IS_ROOT_ELEMENT);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___REMOVE_MAPPINGS_TO_NEXT);
 		createEOperation(singleElementEClass, SINGLE_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS);
-		createEOperation(singleElementEClass, SINGLE_ELEMENT___ADD_COUNT_OPERATION);
-
-		setElementEClass = createEClass(SET_ELEMENT);
-		createEReference(setElementEClass, SET_ELEMENT__NEXT);
-		createEReference(setElementEClass, SET_ELEMENT__PREVIOUS_SET);
-		createEReference(setElementEClass, SET_ELEMENT__PREVIOUS_SINGLE);
-		createEReference(setElementEClass, SET_ELEMENT__COUNT);
-		createEOperation(setElementEClass, SET_ELEMENT___GET_PATH_TO_PREVIOUS_SINGLE_ELEMENT);
-		createEOperation(setElementEClass, SET_ELEMENT___GET_ALL_ARGUMENT_ELEMENTS_SET_OPERATION);
-		createEOperation(setElementEClass, SET_ELEMENT___GENERATE_WHERE_CLAUSE__LOCATION);
-
-		elementEClass = createEClass(ELEMENT);
-		createEReference(elementEClass, ELEMENT__RELATION_FROM_PREVIOUS);
-		createEAttribute(elementEClass, ELEMENT__TRANSLATED);
-		createEReference(elementEClass, ELEMENT__PROPERTIES);
-		createEReference(elementEClass, ELEMENT__PREDICATES);
-		createEAttribute(elementEClass, ELEMENT__PREDICATES_ARE_BEING_TRANSLATED);
-		createEAttribute(elementEClass, ELEMENT__NAME);
-		createEOperation(elementEClass, ELEMENT___GET_NEXT_ELEMENTS);
-		createEOperation(elementEClass, ELEMENT___GET_PREVIOUS_ELEMENT);
-		createEOperation(elementEClass, ELEMENT___GET_ALL_OPERATORS);
-		createEOperation(elementEClass, ELEMENT___GET_ALL_VARIABLES);
-		createEOperation(elementEClass, ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION);
-		createEOperation(elementEClass, ELEMENT___GET_GRAPH_DEPTH);
-		createEOperation(elementEClass, ELEMENT___TRANSLATE_ELEMENT_EXISTENCE_PREDICATES__LOCATION);
-		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON);
-		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_MATCH__STRING);
-		createEOperation(elementEClass, ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS);
-		createEOperation(elementEClass, ELEMENT___GET_XQUERY_VARIABLE);
-		createEOperation(elementEClass, ELEMENT___GET_ORIGINAL_ID);
-		createEOperation(elementEClass, ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION);
-		createEOperation(elementEClass, ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION);
-		createEOperation(elementEClass, ELEMENT___RESET_COUNT_OPERATOR_RECURSIVELY);
-		createEOperation(elementEClass, ELEMENT___CLEAR_MATCH_RECURSIVELY);
-		createEOperation(elementEClass, ELEMENT___CLEAR_COMPARISON_RECURSIVELY);
-		createEOperation(elementEClass, ELEMENT___CLEAR_PREDICATES_RECURSIVELY);
-		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING);
-		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER);
-		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_MATCH);
-		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER);
-		createEOperation(elementEClass, ELEMENT___GET_ALL_ELEMENTS);
-		createEOperation(elementEClass, ELEMENT___GET_ALL_RELATIONS);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___CLEAR_MATCH_RECURSIVELY);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_ALL_RELATIONS);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_AND__LOCATION);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___CLEAR_PREDICATES_RECURSIVELY);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___TRANSLATE_PREDICATES_VIA_BRACKETS__LOCATION);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_ALL_ELEMENTS);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_ORIGINAL_ID);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH__STRING);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_XQUERY_VARIABLE);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___ADD_PRIMITIVE_MATCH);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_GRAPH_DEPTH);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___TRANSLATE_PATH_FROM_PREVIOUS);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___GET_ALL_OPERATORS);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___CLEAR_COMPARISON_RECURSIVELY);
+		createEOperation(singleElementEClass, SINGLE_ELEMENT___CLEAR_PROPERTY_RECURSIVELY);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__ROOT_ELEMENT);
@@ -1424,10 +1219,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		relationEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		propertyEClass.getESuperTypes().add(this.getComparable());
 		propertyEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
-		singleElementEClass.getESuperTypes().add(this.getElement());
-		setElementEClass.getESuperTypes().add(this.getElement());
-		elementEClass.getESuperTypes().add(this.getComparable());
-		elementEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
+		singleElementEClass.getESuperTypes().add(this.getComparable());
+		singleElementEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		graphEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		comparableEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 
@@ -1435,7 +1228,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRelation_MappingFrom(), thePatternstructurePackage.getRelationMapping(), thePatternstructurePackage.getRelationMapping_To(), "mappingFrom", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_MappingTo(), thePatternstructurePackage.getRelationMapping(), thePatternstructurePackage.getRelationMapping_From(), "mappingTo", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelation_RelationTo(), this.getElement(), this.getElement_RelationFromPrevious(), "relationTo", null, 1, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelation_RelationTo(), this.getSingleElement(), this.getSingleElement_RelationFromPrevious(), "relationTo", null, 1, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_Option(), theParametersPackage.getAxisOptionParam(), theParametersPackage.getAxisOptionParam_Relation(), "option", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getRelation__GetGraphDepth(), ecorePackage.getEInt(), "getGraphDepth", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1445,15 +1238,15 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getRelation__RemoveMappingsToNext(), null, "removeMappingsToNext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRelation__CopyToNewNextGraphs__Element(), null, "copyToNewNextGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getElement(), "newRelationTo", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRelation__CopyToNewNextGraphs__SingleElement(), null, "copyToNewNextGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSingleElement(), "newRelationTo", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRelation__CreateInputs(), null, "createInputs", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRelation__RemoveInputsFromVariableList(), null, "removeInputsFromVariableList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProperty_Element(), this.getElement(), this.getElement_Properties(), "element", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProperty_Element(), this.getSingleElement(), this.getSingleElement_Properties(), "element", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProperty_Match(), theFunctionsPackage.getMatch(), theFunctionsPackage.getMatch_Property(), "match", null, 0, -1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProperty_AttributeName(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_Property(), "attributeName", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProperty_Option(), theParametersPackage.getPropertyOptionParam(), theParametersPackage.getPropertyOptionParam_Property(), "option", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1470,8 +1263,13 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEReference(getSingleElement_Root(), this.getGraph(), this.getGraph_RootElement(), "root", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSingleElement_NextSingle(), this.getSingleElement(), this.getSingleElement_Previous(), "nextSingle", null, 0, -1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSingleElement_Previous(), this.getSingleElement(), this.getSingleElement_NextSingle(), "previous", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSingleElement_NextSet(), this.getSetElement(), this.getSetElement_PreviousSingle(), "nextSet", null, 0, -1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSingleElement_Graph(), this.getGraph(), this.getGraph_ReturnElements(), "graph", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSingleElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSingleElement_Translated(), ecorePackage.getEBoolean(), "translated", null, 1, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSingleElement_PredicatesAreBeingTranslated(), ecorePackage.getEBoolean(), "predicatesAreBeingTranslated", null, 1, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleElement_RelationFromPrevious(), this.getRelation(), this.getRelation_RelationTo(), "relationFromPrevious", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleElement_Properties(), this.getProperty(), this.getProperty_Element(), "properties", null, 0, -1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSingleElement_Predicates(), theFunctionsPackage.getBooleanOperator(), theFunctionsPackage.getBooleanOperator_Elements(), "predicates", null, 0, -1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getSingleElement__CopyNextElementsToNextGraphs(), null, "copyNextElementsToNextGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
@@ -1489,12 +1287,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getSingleElement__CopyNextElementsToPreviousGraphs__boolean(), null, "copyNextElementsToPreviousGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "recursive", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getSingleElement__HasCountPredicate(), ecorePackage.getEBoolean(), "hasCountPredicate", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getSingleElement__ToXQueryCount__Location(), ecorePackage.getEString(), "toXQueryCount", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
 		op = initEOperation(getSingleElement__ToXQueryNoCount__Location(), ecorePackage.getEString(), "toXQueryNoCount", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
@@ -1505,98 +1297,61 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getSingleElement__RemoveFromReturnElements(), null, "removeFromReturnElements", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getSingleElement__AddCountOperation(), null, "addCountOperation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSingleElement__ClearMatchRecursively(), null, "clearMatchRecursively", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(setElementEClass, SetElement.class, "SetElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSetElement_Next(), this.getSetElement(), this.getSetElement_PreviousSet(), "next", null, 0, -1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSetElement_PreviousSet(), this.getSetElement(), this.getSetElement_Next(), "previousSet", null, 0, 1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSetElement_PreviousSingle(), this.getSingleElement(), this.getSingleElement_NextSet(), "previousSingle", null, 0, 1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSetElement_Count(), theFunctionsPackage.getCount(), theFunctionsPackage.getCount_Argument(), "count", null, 0, 1, SetElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEOperation(getSingleElement__GetAllRelations(), this.getRelation(), "getAllRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getSetElement__GetPathToPreviousSingleElement(), this.getListOfElements(), "getPathToPreviousSingleElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getSetElement__GetAllArgumentElementsSetOperation(), this.getListOfElements(), "getAllArgumentElementsSetOperation", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getSetElement__GenerateWhereClause__Location(), ecorePackage.getEString(), "generateWhereClause", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSingleElement__TranslatePredicatesViaAnd__Location(), ecorePackage.getEString(), "translatePredicatesViaAnd", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEClass(elementEClass, Element.class, "Element", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getElement_RelationFromPrevious(), this.getRelation(), this.getRelation_RelationTo(), "relationFromPrevious", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Translated(), ecorePackage.getEBoolean(), "translated", null, 1, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Properties(), this.getProperty(), this.getProperty_Element(), "properties", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElement_Predicates(), theFunctionsPackage.getBooleanOperator(), theFunctionsPackage.getBooleanOperator_Elements(), "predicates", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_PredicatesAreBeingTranslated(), ecorePackage.getEBoolean(), "predicatesAreBeingTranslated", null, 1, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEOperation(getSingleElement__ClearPredicatesRecursively(), null, "clearPredicatesRecursively", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getElement__GetNextElements(), this.getElement(), "getNextElements", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getElement__GetPreviousElement(), this.getElement(), "getPreviousElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getElement__GetAllOperators(), theFunctionsPackage.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getElement__GetAllVariables(), theParametersPackage.getParameter(), "getAllVariables", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getElement__GetXQueryRepresentation__Location(), ecorePackage.getEString(), "getXQueryRepresentation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSingleElement__TranslatePredicatesViaBrackets__Location(), ecorePackage.getEString(), "translatePredicatesViaBrackets", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getElement__GetGraphDepth(), ecorePackage.getEInt(), "getGraphDepth", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+		initEOperation(getSingleElement__GetAllElements(), this.getSingleElement(), "getAllElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getElement__TranslateElementExistencePredicates__Location(), ecorePackage.getEString(), "translateElementExistencePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSingleElement__GetOriginalID(), ecorePackage.getEInt(), "getOriginalID", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSingleElement__GetXQueryRepresentation__Location(), ecorePackage.getEString(), "getXQueryRepresentation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getElement__AddPrimitiveComparison(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getElement__AddPrimitiveMatch__String(), null, "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSingleElement__AddPrimitiveMatch__String(), null, "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "regex", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getElement__TranslatePathFromPrevious(), ecorePackage.getEString(), "translatePathFromPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		initEOperation(getElement__GetXQueryVariable(), ecorePackage.getEString(), "getXQueryVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getElement__GetOriginalID(), ecorePackage.getEInt(), "getOriginalID", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getElement__TranslatePredicatesViaBrackets__Location(), ecorePackage.getEString(), "translatePredicatesViaBrackets", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getElement__TranslatePredicatesViaAnd__Location(), ecorePackage.getEString(), "translatePredicatesViaAnd", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, thePatternstructurePackage.getLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		initEOperation(getElement__ResetCountOperatorRecursively(), null, "resetCountOperatorRecursively", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getElement__ClearMatchRecursively(), null, "clearMatchRecursively", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getElement__ClearComparisonRecursively(), null, "clearComparisonRecursively", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getElement__ClearPredicatesRecursively(), null, "clearPredicatesRecursively", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getElement__AddPrimitiveComparison__String(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSingleElement__AddPrimitiveComparison__String(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getElement__AddPrimitiveComparison__Parameter(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theParametersPackage.getParameter(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSingleElement__GetXQueryVariable(), ecorePackage.getEString(), "getXQueryVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getElement__AddPrimitiveMatch(), null, "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSingleElement__AddPrimitiveMatch(), null, "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSingleElement__AddPrimitiveComparison(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSingleElement__GetGraphDepth(), ecorePackage.getEInt(), "getGraphDepth", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getSingleElement__TranslatePathFromPrevious(), ecorePackage.getEString(), "translatePathFromPrevious", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getSingleElement__GetAllOperators(), theFunctionsPackage.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getSingleElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getPropertyLocation(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "attr", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFunctionsPackage.getComparisonOperator(), "operator", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getParameter(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getElement__GetAllElements(), this.getElement(), "getAllElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSingleElement__AddPrimitiveComparison__Parameter(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theParametersPackage.getParameter(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getElement__GetAllRelations(), this.getRelation(), "getAllRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSingleElement__ClearComparisonRecursively(), null, "clearComparisonRecursively", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSingleElement__ClearPropertyRecursively(), null, "clearPropertyRecursively", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraph_RootElement(), this.getSingleElement(), this.getSingleElement_Root(), "rootElement", null, 1, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1616,7 +1371,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEParameter(op, this.getGraph(), "graph", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
 
-		initEOperation(getGraph__GetAllElements(), this.getElement(), "getAllElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getGraph__GetAllElements(), this.getSingleElement(), "getAllElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getGraph__GetAllRelations(), this.getRelation(), "getAllRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
 
@@ -1675,77 +1430,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// http://www.eclipse.org/emf/2002/Ecore
-		createEcoreAnnotations();
-		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-		createPivotAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";
-		addAnnotation
-		  (this,
-		   source,
-		   new String[] {
-			   "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			   "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			   "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });
-		addAnnotation
-		  (relationEClass,
-		   source,
-		   new String[] {
-			   "constraints", "correctMappingOfContainment"
-		   });
-		addAnnotation
-		  (singleElementEClass,
-		   source,
-		   new String[] {
-			   "constraints", "hasPreviousOrIsRoot correctMappingOfContainment"
-		   });
-		addAnnotation
-		  (setElementEClass,
-		   source,
-		   new String[] {
-			   "constraints", "hasPrevious"
-		   });
-	}
-
-	/**
-	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createPivotAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-		addAnnotation
-		  (relationEClass,
-		   source,
-		   new String[] {
-			   "correctMappingOfContainment", "self.mappingTo->forAll(m | m.to.relationTo.oclIsTypeOf(SingleElement) implies m.to.relationTo.oclAsType(SingleElement).mappingFrom.from = self.relationTo)"
-		   });
-		addAnnotation
-		  (singleElementEClass,
-		   source,
-		   new String[] {
-			   "hasPreviousOrIsRoot", "self.previous->notEmpty() or self.root->notEmpty()",
-			   "correctMappingOfContainment", "self.previous->notEmpty() implies self.mappingTo->forAll(m | m.to.previous.mappingFrom.from = self.previous)"
-		   });
-		addAnnotation
-		  (setElementEClass,
-		   source,
-		   new String[] {
-			   "hasPrevious", "self.previousSet->notEmpty() or self.previousSingle->notEmpty()"
-		   });
 	}
 
 } //GraphstructurePackageImpl

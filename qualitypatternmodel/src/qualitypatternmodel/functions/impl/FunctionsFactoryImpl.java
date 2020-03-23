@@ -58,7 +58,6 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case FunctionsPackage.COUNT: return createCount();
 			case FunctionsPackage.MATCH: return createMatch();
 			case FunctionsPackage.COMPARISON: return createComparison();
 			case FunctionsPackage.OPERATOR_LIST: return createOperatorList();
@@ -100,17 +99,6 @@ public class FunctionsFactoryImpl extends EFactoryImpl implements FunctionsFacto
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Count createCount() {
-		CountImpl count = new CountImpl();
-		return count;
 	}
 
 	/**

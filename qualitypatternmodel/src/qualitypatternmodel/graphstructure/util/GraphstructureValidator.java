@@ -3,8 +3,6 @@
 package qualitypatternmodel.graphstructure.util;
 
 import java.util.Map;
-
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -12,7 +10,6 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import qualitypatternmodel.graphstructure.Axis;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ListOfElements;
@@ -20,7 +17,6 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SetElement;
 import qualitypatternmodel.graphstructure.SingleElement;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
 
@@ -119,10 +115,6 @@ public class GraphstructureValidator extends EObjectValidator {
 				return validateProperty((Property)value, diagnostics, context);
 			case GraphstructurePackage.SINGLE_ELEMENT:
 				return validateSingleElement((SingleElement)value, diagnostics, context);
-			case GraphstructurePackage.SET_ELEMENT:
-				return validateSetElement((SetElement)value, diagnostics, context);
-			case GraphstructurePackage.ELEMENT:
-				return validateElement((Element)value, diagnostics, context);
 			case GraphstructurePackage.GRAPH:
 				return validateGraph((Graph)value, diagnostics, context);
 			case GraphstructurePackage.COMPARABLE:
@@ -156,37 +148,7 @@ public class GraphstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(relation, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(relation, diagnostics, context);
 		if (result || diagnostics != null) result &= patternstructureValidator.validatePatternElement_validate(relation, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRelation_correctMappingOfContainment(relation, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * The cached validation expression for the correctMappingOfContainment constraint of '<em>Relation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String RELATION__CORRECT_MAPPING_OF_CONTAINMENT__EEXPRESSION = "self.mappingTo->forAll(m | m.to.relationTo.oclIsTypeOf(SingleElement) implies m.to.relationTo.oclAsType(SingleElement).mappingFrom.from = self.relationTo)";
-
-	/**
-	 * Validates the correctMappingOfContainment constraint of '<em>Relation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRelation_correctMappingOfContainment(Relation relation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(GraphstructurePackage.Literals.RELATION,
-				 relation,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "correctMappingOfContainment",
-				 RELATION__CORRECT_MAPPING_OF_CONTAINMENT__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
 	}
 
 	/**
@@ -224,134 +186,6 @@ public class GraphstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(singleElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(singleElement, diagnostics, context);
 		if (result || diagnostics != null) result &= validateComparable_validate(singleElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validateSingleElement_hasPreviousOrIsRoot(singleElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validateSingleElement_correctMappingOfContainment(singleElement, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * The cached validation expression for the hasPreviousOrIsRoot constraint of '<em>Single Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String SINGLE_ELEMENT__HAS_PREVIOUS_OR_IS_ROOT__EEXPRESSION = "self.previous->notEmpty() or self.root->notEmpty()";
-
-	/**
-	 * Validates the hasPreviousOrIsRoot constraint of '<em>Single Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSingleElement_hasPreviousOrIsRoot(SingleElement singleElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(GraphstructurePackage.Literals.SINGLE_ELEMENT,
-				 singleElement,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "hasPreviousOrIsRoot",
-				 SINGLE_ELEMENT__HAS_PREVIOUS_OR_IS_ROOT__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * The cached validation expression for the correctMappingOfContainment constraint of '<em>Single Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String SINGLE_ELEMENT__CORRECT_MAPPING_OF_CONTAINMENT__EEXPRESSION = "self.previous->notEmpty() implies self.mappingTo->forAll(m | m.to.previous.mappingFrom.from = self.previous)";
-
-	/**
-	 * Validates the correctMappingOfContainment constraint of '<em>Single Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSingleElement_correctMappingOfContainment(SingleElement singleElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(GraphstructurePackage.Literals.SINGLE_ELEMENT,
-				 singleElement,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "correctMappingOfContainment",
-				 SINGLE_ELEMENT__CORRECT_MAPPING_OF_CONTAINMENT__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSetElement(SetElement setElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(setElement, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(setElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(setElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(setElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(setElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(setElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(setElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(setElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(setElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validateComparable_validate(setElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validateSetElement_hasPrevious(setElement, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * The cached validation expression for the hasPrevious constraint of '<em>Set Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String SET_ELEMENT__HAS_PREVIOUS__EEXPRESSION = "self.previousSet->notEmpty() or self.previousSingle->notEmpty()";
-
-	/**
-	 * Validates the hasPrevious constraint of '<em>Set Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSetElement_hasPrevious(SetElement setElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(GraphstructurePackage.Literals.SET_ELEMENT,
-				 setElement,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "hasPrevious",
-				 SET_ELEMENT__HAS_PREVIOUS__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateElement(Element element, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(element, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(element, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(element, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(element, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(element, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(element, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(element, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(element, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(element, diagnostics, context);
-		if (result || diagnostics != null) result &= validateComparable_validate(element, diagnostics, context);
 		return result;
 	}
 
