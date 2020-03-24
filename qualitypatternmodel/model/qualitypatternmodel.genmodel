@@ -70,7 +70,7 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/UnknownParameterValue">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize/concreteInputValue"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize/concreteValue"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateTimeParam">

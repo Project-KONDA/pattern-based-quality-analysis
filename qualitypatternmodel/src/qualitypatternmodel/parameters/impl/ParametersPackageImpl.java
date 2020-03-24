@@ -930,7 +930,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEClass(unknownParameterValueEClass, UnknownParameterValue.class, "UnknownParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getUnknownParameterValue__Concretize__ParameterValue(), null, "concretize", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getParameterValue(), "concreteInputValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getParameterValue(), "concreteValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dateTimeParamEClass, DateTimeParam.class, "DateTimeParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateTimeParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateTimeParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

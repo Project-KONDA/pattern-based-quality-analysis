@@ -91,7 +91,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UnknownParameterValue" eSuperTypes="#//parameters/Parameter">
       <eOperations name="concretize">
-        <eParameters name="concreteInputValue" eType="#//parameters/ParameterValue"/>
+        <eParameters name="concreteValue" eType="#//parameters/ParameterValue"/>
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DateTimeParam" eSuperTypes="#//parameters/ParameterValue">

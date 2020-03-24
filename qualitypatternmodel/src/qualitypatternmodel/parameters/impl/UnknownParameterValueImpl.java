@@ -50,18 +50,18 @@ public class UnknownParameterValueImpl extends ParameterImpl implements UnknownP
 	 * @generated NOT
 	 */
 	@Override
-	public void concretize(ParameterValue concreteInputValue) {
-		concreteInputValue.setParameterList(getParameterList());
+	public void concretize(ParameterValue concreteValue) {
+		concreteValue.setParameterList(getParameterList());
 		
 		EList<Comparison> comparison1Copy = new BasicEList<Comparison>();
 		comparison1Copy.addAll(getComparison1());
 		for(Comparison comparison : comparison1Copy) {
-			comparison.setArgument1(concreteInputValue);
+			comparison.setArgument1(concreteValue);
 		}
 		EList<Comparison> comparison2Copy = new BasicEList<Comparison>();
 		comparison2Copy.addAll(getComparison2());
 		for(Comparison comparison : comparison2Copy) {
-			comparison.setArgument2(concreteInputValue);	
+			comparison.setArgument2(concreteValue);	
 		}
 		
 		getParameterList().getParameters().remove(this);

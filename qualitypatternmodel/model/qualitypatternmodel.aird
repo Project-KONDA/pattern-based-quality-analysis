@@ -3325,10 +3325,10 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_fxC1kFbxEeqq28gUaBHbCA" name="concretize(concreteInputValue ParameterValue)" tooltipText="concretize(concreteInputValue)">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_fxC1kFbxEeqq28gUaBHbCA" name="concretize(concreteValue ParameterValue)" tooltipText="concretize(concreteValue)">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize"/>
-          <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize/concreteInputValue"/>
+          <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize/concreteValue"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_fxDcoFbxEeqq28gUaBHbCA" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
@@ -8931,10 +8931,10 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_H1zrv2g1EeqqIutgaIr-iw" name="concretize(concreteInputValue ParameterValue)" tooltipText="concretize(concreteInputValue)">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_H1zrv2g1EeqqIutgaIr-iw" name="concretize(concreteValue ParameterValue)" tooltipText="concretize(concreteValue)">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize"/>
-          <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize/concreteInputValue"/>
+          <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize/concreteValue"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_H1zrwGg1EeqqIutgaIr-iw" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
