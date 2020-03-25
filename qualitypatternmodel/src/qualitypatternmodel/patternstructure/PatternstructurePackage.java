@@ -568,13 +568,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION__FORMULA2 = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Not</b></em>' container reference.
+	 * The feature id for the '<em><b>Not Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__NOT = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int CONDITION__NOT_CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
@@ -758,13 +758,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION__FORMULA2 = CONDITION__FORMULA2;
 
 	/**
-	 * The feature id for the '<em><b>Not</b></em>' container reference.
+	 * The feature id for the '<em><b>Not Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION__NOT = CONDITION__NOT;
+	int QUANTIFIED_CONDITION__NOT_CONDITION = CONDITION__NOT_CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Quantifier</b></em>' attribute.
@@ -803,13 +803,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION__MORPHISM = CONDITION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Count Comparison</b></em>' containment reference.
+	 * The feature id for the '<em><b>Count Condition</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION__COUNT_COMPARISON = CONDITION_FEATURE_COUNT + 4;
+	int QUANTIFIED_CONDITION__COUNT_CONDITION = CONDITION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Quantified Condition</em>' class.
@@ -1400,13 +1400,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA__FORMULA2 = CONDITION__FORMULA2;
 
 	/**
-	 * The feature id for the '<em><b>Not</b></em>' container reference.
+	 * The feature id for the '<em><b>Not Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__NOT = CONDITION__NOT;
+	int FORMULA__NOT_CONDITION = CONDITION__NOT_CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -1418,13 +1418,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA__OPERATOR = CONDITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * The feature id for the '<em><b>Condition1</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__CONDITION = CONDITION_FEATURE_COUNT + 1;
+	int FORMULA__CONDITION1 = CONDITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Condition2</b></em>' containment reference.
@@ -1617,13 +1617,13 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT__FORMULA2 = CONDITION__FORMULA2;
 
 	/**
-	 * The feature id for the '<em><b>Not</b></em>' container reference.
+	 * The feature id for the '<em><b>Not Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT__NOT = CONDITION__NOT;
+	int TRUE_ELEMENT__NOT_CONDITION = CONDITION__NOT_CONDITION;
 
 	/**
 	 * The number of structural features of the '<em>True Element</em>' class.
@@ -1942,14 +1942,14 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotElementImpl <em>Not Element</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.impl.NotElementImpl
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNotElement()
+	 * @see qualitypatternmodel.patternstructure.impl.NotConditionImpl
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNotCondition()
 	 * @generated
 	 */
-	int NOT_ELEMENT = 10;
+	int NOT_CONDITION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1958,7 +1958,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT__ID = CONDITION__ID;
+	int NOT_CONDITION__ID = CONDITION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1967,7 +1967,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT__INTERNAL_ID = CONDITION__INTERNAL_ID;
+	int NOT_CONDITION__INTERNAL_ID = CONDITION__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -1976,7 +1976,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT__COND_DEPTH = CONDITION__COND_DEPTH;
+	int NOT_CONDITION__COND_DEPTH = CONDITION__COND_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -1985,7 +1985,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT__PATTERN = CONDITION__PATTERN;
+	int NOT_CONDITION__PATTERN = CONDITION__PATTERN;
 
 	/**
 	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
@@ -1994,7 +1994,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
+	int NOT_CONDITION__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
@@ -2003,7 +2003,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT__FORMULA1 = CONDITION__FORMULA1;
+	int NOT_CONDITION__FORMULA1 = CONDITION__FORMULA1;
 
 	/**
 	 * The feature id for the '<em><b>Formula2</b></em>' container reference.
@@ -2012,16 +2012,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT__FORMULA2 = CONDITION__FORMULA2;
+	int NOT_CONDITION__FORMULA2 = CONDITION__FORMULA2;
 
 	/**
-	 * The feature id for the '<em><b>Not</b></em>' container reference.
+	 * The feature id for the '<em><b>Not Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT__NOT = CONDITION__NOT;
+	int NOT_CONDITION__NOT_CONDITION = CONDITION__NOT_CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -2030,16 +2030,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT__CONDITION = CONDITION_FEATURE_COUNT + 0;
+	int NOT_CONDITION__CONDITION = CONDITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Not Element</em>' class.
+	 * The number of structural features of the '<em>Not Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
+	int NOT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2048,7 +2048,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
+	int NOT_CONDITION___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2057,7 +2057,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
+	int NOT_CONDITION___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2066,7 +2066,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
+	int NOT_CONDITION___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2075,7 +2075,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int NOT_CONDITION___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2084,7 +2084,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
+	int NOT_CONDITION___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2093,7 +2093,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT___GET_CONTAINER = CONDITION___GET_CONTAINER;
+	int NOT_CONDITION___GET_CONTAINER = CONDITION___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2102,7 +2102,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
+	int NOT_CONDITION___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2111,7 +2111,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT___MY_TO_STRING = CONDITION___MY_TO_STRING;
+	int NOT_CONDITION___MY_TO_STRING = CONDITION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2120,7 +2120,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int NOT_CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
@@ -2129,26 +2129,26 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT___GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS;
+	int NOT_CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS;
 
 	/**
-	 * The number of operations of the '<em>Not Element</em>' class.
+	 * The number of operations of the '<em>Not Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_ELEMENT_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+	int NOT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CountComparisonImpl <em>Count Comparison</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl <em>Count Condition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.impl.CountComparisonImpl
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountComparison()
+	 * @see qualitypatternmodel.patternstructure.impl.CountConditionImpl
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountCondition()
 	 * @generated
 	 */
-	int COUNT_COMPARISON = 11;
+	int COUNT_CONDITION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2157,7 +2157,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__ID = CONDITION__ID;
+	int COUNT_CONDITION__ID = CONDITION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2166,7 +2166,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__INTERNAL_ID = CONDITION__INTERNAL_ID;
+	int COUNT_CONDITION__INTERNAL_ID = CONDITION__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
@@ -2175,7 +2175,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__COND_DEPTH = CONDITION__COND_DEPTH;
+	int COUNT_CONDITION__COND_DEPTH = CONDITION__COND_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -2184,7 +2184,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__PATTERN = CONDITION__PATTERN;
+	int COUNT_CONDITION__PATTERN = CONDITION__PATTERN;
 
 	/**
 	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
@@ -2193,7 +2193,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
+	int COUNT_CONDITION__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
@@ -2202,7 +2202,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__FORMULA1 = CONDITION__FORMULA1;
+	int COUNT_CONDITION__FORMULA1 = CONDITION__FORMULA1;
 
 	/**
 	 * The feature id for the '<em><b>Formula2</b></em>' container reference.
@@ -2211,16 +2211,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__FORMULA2 = CONDITION__FORMULA2;
+	int COUNT_CONDITION__FORMULA2 = CONDITION__FORMULA2;
 
 	/**
-	 * The feature id for the '<em><b>Not</b></em>' container reference.
+	 * The feature id for the '<em><b>Not Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__NOT = CONDITION__NOT;
+	int COUNT_CONDITION__NOT_CONDITION = CONDITION__NOT_CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Count1</b></em>' containment reference.
@@ -2229,7 +2229,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__COUNT1 = CONDITION_FEATURE_COUNT + 0;
+	int COUNT_CONDITION__COUNT1 = CONDITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Number Param</b></em>' reference.
@@ -2238,7 +2238,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__NUMBER_PARAM = CONDITION_FEATURE_COUNT + 1;
+	int COUNT_CONDITION__NUMBER_PARAM = CONDITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Quantified Condition Count</b></em>' container reference.
@@ -2247,16 +2247,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__QUANTIFIED_CONDITION_COUNT = CONDITION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Operator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_COMPARISON__OPERATOR = CONDITION_FEATURE_COUNT + 3;
+	int COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT = CONDITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Count2</b></em>' containment reference.
@@ -2265,16 +2256,34 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON__COUNT2 = CONDITION_FEATURE_COUNT + 4;
+	int COUNT_CONDITION__COUNT2 = CONDITION_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Count Comparison</em>' class.
+	 * The feature id for the '<em><b>Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 5;
+	int COUNT_CONDITION__OPTION = CONDITION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Option Param</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION__OPTION_PARAM = CONDITION_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Count Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2283,7 +2292,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
+	int COUNT_CONDITION___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2292,7 +2301,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
+	int COUNT_CONDITION___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2301,7 +2310,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
+	int COUNT_CONDITION___PREPARE_TRANSLATION = CONDITION___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2310,7 +2319,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int COUNT_CONDITION___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2319,7 +2328,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
+	int COUNT_CONDITION___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2328,7 +2337,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___GET_CONTAINER = CONDITION___GET_CONTAINER;
+	int COUNT_CONDITION___GET_CONTAINER = CONDITION___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2337,7 +2346,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
+	int COUNT_CONDITION___GET_ANCESTOR__CLASS = CONDITION___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2346,7 +2355,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___MY_TO_STRING = CONDITION___MY_TO_STRING;
+	int COUNT_CONDITION___MY_TO_STRING = CONDITION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2355,7 +2364,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int COUNT_CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
@@ -2364,7 +2373,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS;
+	int COUNT_CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS;
 
 	/**
 	 * The operation id for the '<em>Get Argument1</em>' operation.
@@ -2373,7 +2382,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___GET_ARGUMENT1 = CONDITION_OPERATION_COUNT + 0;
+	int COUNT_CONDITION___GET_ARGUMENT1 = CONDITION_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Argument2</em>' operation.
@@ -2382,16 +2391,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON___GET_ARGUMENT2 = CONDITION_OPERATION_COUNT + 1;
+	int COUNT_CONDITION___GET_ARGUMENT2 = CONDITION_OPERATION_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Count Comparison</em>' class.
+	 * The number of operations of the '<em>Count Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 2;
+	int COUNT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CountImpl <em>Count</em>}' class.
@@ -2422,13 +2431,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Count Comparison1</b></em>' container reference.
+	 * The feature id for the '<em><b>Count Condition1</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT__COUNT_COMPARISON1 = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int COUNT__COUNT_CONDITION1 = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' containment reference.
@@ -2449,13 +2458,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT__MORPHISM = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Count Comparison2</b></em>' container reference.
+	 * The feature id for the '<em><b>Count Condition2</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT__COUNT_COMPARISON2 = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int COUNT__COUNT_CONDITION2 = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Count</em>' class.
@@ -2575,14 +2584,14 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.CountComparisonArgument <em>Count Comparison Argument</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.CountConditionArgument <em>Count Condition Argument</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.CountComparisonArgument
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountComparisonArgument()
+	 * @see qualitypatternmodel.patternstructure.CountConditionArgument
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountConditionArgument()
 	 * @generated
 	 */
-	int COUNT_COMPARISON_ARGUMENT = 13;
+	int COUNT_CONDITION_ARGUMENT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2591,7 +2600,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT__ID = PATTERN_ELEMENT__ID;
+	int COUNT_CONDITION_ARGUMENT__ID = PATTERN_ELEMENT__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2600,16 +2609,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
+	int COUNT_CONDITION_ARGUMENT__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The number of structural features of the '<em>Count Comparison Argument</em>' class.
+	 * The number of structural features of the '<em>Count Condition Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int COUNT_CONDITION_ARGUMENT_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2618,7 +2627,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int COUNT_CONDITION_ARGUMENT___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2627,7 +2636,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int COUNT_CONDITION_ARGUMENT___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2636,7 +2645,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
+	int COUNT_CONDITION_ARGUMENT___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2645,7 +2654,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int COUNT_CONDITION_ARGUMENT___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2654,7 +2663,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int COUNT_CONDITION_ARGUMENT___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2663,7 +2672,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+	int COUNT_CONDITION_ARGUMENT___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2672,7 +2681,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+	int COUNT_CONDITION_ARGUMENT___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2681,7 +2690,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
+	int COUNT_CONDITION_ARGUMENT___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2690,16 +2699,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int COUNT_CONDITION_ARGUMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The number of operations of the '<em>Count Comparison Argument</em>' class.
+	 * The number of operations of the '<em>Count Condition Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_COMPARISON_ARGUMENT_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int COUNT_CONDITION_ARGUMENT_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.GraphContainer <em>Graph Container</em>}' class.
@@ -2883,15 +2892,15 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getQuantifiedCondition_Morphism();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCountComparison <em>Count Comparison</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCountCondition <em>Count Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Count Comparison</em>'.
-	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#getCountComparison()
+	 * @return the meta object for the containment reference '<em>Count Condition</em>'.
+	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#getCountCondition()
 	 * @see #getQuantifiedCondition()
 	 * @generated
 	 */
-	EReference getQuantifiedCondition_CountComparison();
+	EReference getQuantifiedCondition_CountCondition();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#copyPreviousGraph() <em>Copy Previous Graph</em>}' operation.
@@ -2990,15 +2999,15 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCondition_Formula2();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Condition#getNot <em>Not</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Condition#getNotCondition <em>Not Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Not</em>'.
-	 * @see qualitypatternmodel.patternstructure.Condition#getNot()
+	 * @return the meta object for the container reference '<em>Not Condition</em>'.
+	 * @see qualitypatternmodel.patternstructure.Condition#getNotCondition()
 	 * @see #getCondition()
 	 * @generated
 	 */
-	EReference getCondition_Not();
+	EReference getCondition_NotCondition();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Condition#getNextQuantifiedConditions() <em>Get Next Quantified Conditions</em>}' operation.
@@ -3201,15 +3210,15 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getFormula_Operator();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Formula#getCondition <em>Condition</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Formula#getCondition1 <em>Condition1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Condition</em>'.
-	 * @see qualitypatternmodel.patternstructure.Formula#getCondition()
+	 * @return the meta object for the containment reference '<em>Condition1</em>'.
+	 * @see qualitypatternmodel.patternstructure.Formula#getCondition1()
 	 * @see #getFormula()
 	 * @generated
 	 */
-	EReference getFormula_Condition();
+	EReference getFormula_Condition1();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Formula#getCondition2 <em>Condition2</em>}'.
@@ -3411,110 +3420,121 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__Validate__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.NotElement <em>Not Element</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.NotCondition <em>Not Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Not Element</em>'.
-	 * @see qualitypatternmodel.patternstructure.NotElement
+	 * @return the meta object for class '<em>Not Condition</em>'.
+	 * @see qualitypatternmodel.patternstructure.NotCondition
 	 * @generated
 	 */
-	EClass getNotElement();
+	EClass getNotCondition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.NotElement#getCondition <em>Condition</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.NotCondition#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Condition</em>'.
-	 * @see qualitypatternmodel.patternstructure.NotElement#getCondition()
-	 * @see #getNotElement()
+	 * @see qualitypatternmodel.patternstructure.NotCondition#getCondition()
+	 * @see #getNotCondition()
 	 * @generated
 	 */
-	EReference getNotElement_Condition();
+	EReference getNotCondition_Condition();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CountComparison <em>Count Comparison</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CountCondition <em>Count Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Count Comparison</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountComparison
+	 * @return the meta object for class '<em>Count Condition</em>'.
+	 * @see qualitypatternmodel.patternstructure.CountCondition
 	 * @generated
 	 */
-	EClass getCountComparison();
+	EClass getCountCondition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountComparison#getCount1 <em>Count1</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountCondition#getCount1 <em>Count1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Count1</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getCount1()
-	 * @see #getCountComparison()
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getCount1()
+	 * @see #getCountCondition()
 	 * @generated
 	 */
-	EReference getCountComparison_Count1();
+	EReference getCountCondition_Count1();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CountComparison#getNumberParam <em>Number Param</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CountCondition#getNumberParam <em>Number Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Number Param</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getNumberParam()
-	 * @see #getCountComparison()
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getNumberParam()
+	 * @see #getCountCondition()
 	 * @generated
 	 */
-	EReference getCountComparison_NumberParam();
+	EReference getCountCondition_NumberParam();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.CountComparison#getQuantifiedConditionCount <em>Quantified Condition Count</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.CountCondition#getQuantifiedConditionCount <em>Quantified Condition Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Quantified Condition Count</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getQuantifiedConditionCount()
-	 * @see #getCountComparison()
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getQuantifiedConditionCount()
+	 * @see #getCountCondition()
 	 * @generated
 	 */
-	EReference getCountComparison_QuantifiedConditionCount();
+	EReference getCountCondition_QuantifiedConditionCount();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CountComparison#getOperator <em>Operator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Operator</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getOperator()
-	 * @see #getCountComparison()
-	 * @generated
-	 */
-	EAttribute getCountComparison_Operator();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountComparison#getCount2 <em>Count2</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountCondition#getCount2 <em>Count2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Count2</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getCount2()
-	 * @see #getCountComparison()
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getCount2()
+	 * @see #getCountCondition()
 	 * @generated
 	 */
-	EReference getCountComparison_Count2();
+	EReference getCountCondition_Count2();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CountComparison#getArgument1() <em>Get Argument1</em>}' operation.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CountCondition#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option</em>'.
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getOption()
+	 * @see #getCountCondition()
+	 * @generated
+	 */
+	EReference getCountCondition_Option();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CountCondition#getOptionParam <em>Option Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option Param</em>'.
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getOptionParam()
+	 * @see #getCountCondition()
+	 * @generated
+	 */
+	EReference getCountCondition_OptionParam();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1() <em>Get Argument1</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Argument1</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getArgument1()
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getArgument1()
 	 * @generated
 	 */
-	EOperation getCountComparison__GetArgument1();
+	EOperation getCountCondition__GetArgument1();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CountComparison#getArgument2() <em>Get Argument2</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2() <em>Get Argument2</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Argument2</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getArgument2()
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getArgument2()
 	 * @generated
 	 */
-	EOperation getCountComparison__GetArgument2();
+	EOperation getCountCondition__GetArgument2();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Count <em>Count</em>}'.
@@ -3527,15 +3547,15 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getCount();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Count#getCountComparison1 <em>Count Comparison1</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Count#getCountCondition1 <em>Count Condition1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Count Comparison1</em>'.
-	 * @see qualitypatternmodel.patternstructure.Count#getCountComparison1()
+	 * @return the meta object for the container reference '<em>Count Condition1</em>'.
+	 * @see qualitypatternmodel.patternstructure.Count#getCountCondition1()
 	 * @see #getCount()
 	 * @generated
 	 */
-	EReference getCount_CountComparison1();
+	EReference getCount_CountCondition1();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Count#getPattern <em>Pattern</em>}'.
@@ -3560,25 +3580,25 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCount_Morphism();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Count#getCountComparison2 <em>Count Comparison2</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Count#getCountCondition2 <em>Count Condition2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Count Comparison2</em>'.
-	 * @see qualitypatternmodel.patternstructure.Count#getCountComparison2()
+	 * @return the meta object for the container reference '<em>Count Condition2</em>'.
+	 * @see qualitypatternmodel.patternstructure.Count#getCountCondition2()
 	 * @see #getCount()
 	 * @generated
 	 */
-	EReference getCount_CountComparison2();
+	EReference getCount_CountCondition2();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CountComparisonArgument <em>Count Comparison Argument</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CountConditionArgument <em>Count Condition Argument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Count Comparison Argument</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountComparisonArgument
+	 * @return the meta object for class '<em>Count Condition Argument</em>'.
+	 * @see qualitypatternmodel.patternstructure.CountConditionArgument
 	 * @generated
 	 */
-	EClass getCountComparisonArgument();
+	EClass getCountConditionArgument();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.GraphContainer <em>Graph Container</em>}'.
@@ -3807,12 +3827,12 @@ public interface PatternstructurePackage extends EPackage {
 		EReference QUANTIFIED_CONDITION__MORPHISM = eINSTANCE.getQuantifiedCondition_Morphism();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Comparison</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Count Condition</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference QUANTIFIED_CONDITION__COUNT_COMPARISON = eINSTANCE.getQuantifiedCondition_CountComparison();
+		EReference QUANTIFIED_CONDITION__COUNT_CONDITION = eINSTANCE.getQuantifiedCondition_CountCondition();
 
 		/**
 		 * The meta object literal for the '<em><b>Copy Previous Graph</b></em>' operation.
@@ -3889,12 +3909,12 @@ public interface PatternstructurePackage extends EPackage {
 		EReference CONDITION__FORMULA2 = eINSTANCE.getCondition_Formula2();
 
 		/**
-		 * The meta object literal for the '<em><b>Not</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Not Condition</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONDITION__NOT = eINSTANCE.getCondition_Not();
+		EReference CONDITION__NOT_CONDITION = eINSTANCE.getCondition_NotCondition();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Next Quantified Conditions</b></em>' operation.
@@ -4057,12 +4077,12 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute FORMULA__OPERATOR = eINSTANCE.getFormula_Operator();
 
 		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Condition1</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FORMULA__CONDITION = eINSTANCE.getFormula_Condition();
+		EReference FORMULA__CONDITION1 = eINSTANCE.getFormula_Condition1();
 
 		/**
 		 * The meta object literal for the '<em><b>Condition2</b></em>' containment reference feature.
@@ -4223,14 +4243,14 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getPatternElement__Validate__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NotElementImpl <em>Not Element</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.NotElementImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNotElement()
+		 * @see qualitypatternmodel.patternstructure.impl.NotConditionImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNotCondition()
 		 * @generated
 		 */
-		EClass NOT_ELEMENT = eINSTANCE.getNotElement();
+		EClass NOT_CONDITION = eINSTANCE.getNotCondition();
 
 		/**
 		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
@@ -4238,17 +4258,17 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NOT_ELEMENT__CONDITION = eINSTANCE.getNotElement_Condition();
+		EReference NOT_CONDITION__CONDITION = eINSTANCE.getNotCondition_Condition();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.CountComparisonImpl <em>Count Comparison</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl <em>Count Condition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.CountComparisonImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountComparison()
+		 * @see qualitypatternmodel.patternstructure.impl.CountConditionImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountCondition()
 		 * @generated
 		 */
-		EClass COUNT_COMPARISON = eINSTANCE.getCountComparison();
+		EClass COUNT_CONDITION = eINSTANCE.getCountCondition();
 
 		/**
 		 * The meta object literal for the '<em><b>Count1</b></em>' containment reference feature.
@@ -4256,7 +4276,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_COMPARISON__COUNT1 = eINSTANCE.getCountComparison_Count1();
+		EReference COUNT_CONDITION__COUNT1 = eINSTANCE.getCountCondition_Count1();
 
 		/**
 		 * The meta object literal for the '<em><b>Number Param</b></em>' reference feature.
@@ -4264,7 +4284,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_COMPARISON__NUMBER_PARAM = eINSTANCE.getCountComparison_NumberParam();
+		EReference COUNT_CONDITION__NUMBER_PARAM = eINSTANCE.getCountCondition_NumberParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Quantified Condition Count</b></em>' container reference feature.
@@ -4272,15 +4292,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_COMPARISON__QUANTIFIED_CONDITION_COUNT = eINSTANCE.getCountComparison_QuantifiedConditionCount();
-
-		/**
-		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COUNT_COMPARISON__OPERATOR = eINSTANCE.getCountComparison_Operator();
+		EReference COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT = eINSTANCE.getCountCondition_QuantifiedConditionCount();
 
 		/**
 		 * The meta object literal for the '<em><b>Count2</b></em>' containment reference feature.
@@ -4288,7 +4300,23 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_COMPARISON__COUNT2 = eINSTANCE.getCountComparison_Count2();
+		EReference COUNT_CONDITION__COUNT2 = eINSTANCE.getCountCondition_Count2();
+
+		/**
+		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_CONDITION__OPTION = eINSTANCE.getCountCondition_Option();
+
+		/**
+		 * The meta object literal for the '<em><b>Option Param</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_CONDITION__OPTION_PARAM = eINSTANCE.getCountCondition_OptionParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Argument1</b></em>' operation.
@@ -4296,7 +4324,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation COUNT_COMPARISON___GET_ARGUMENT1 = eINSTANCE.getCountComparison__GetArgument1();
+		EOperation COUNT_CONDITION___GET_ARGUMENT1 = eINSTANCE.getCountCondition__GetArgument1();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Argument2</b></em>' operation.
@@ -4304,7 +4332,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation COUNT_COMPARISON___GET_ARGUMENT2 = eINSTANCE.getCountComparison__GetArgument2();
+		EOperation COUNT_CONDITION___GET_ARGUMENT2 = eINSTANCE.getCountCondition__GetArgument2();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.CountImpl <em>Count</em>}' class.
@@ -4317,12 +4345,12 @@ public interface PatternstructurePackage extends EPackage {
 		EClass COUNT = eINSTANCE.getCount();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Comparison1</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Count Condition1</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT__COUNT_COMPARISON1 = eINSTANCE.getCount_CountComparison1();
+		EReference COUNT__COUNT_CONDITION1 = eINSTANCE.getCount_CountCondition1();
 
 		/**
 		 * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.
@@ -4341,22 +4369,22 @@ public interface PatternstructurePackage extends EPackage {
 		EReference COUNT__MORPHISM = eINSTANCE.getCount_Morphism();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Comparison2</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Count Condition2</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT__COUNT_COMPARISON2 = eINSTANCE.getCount_CountComparison2();
+		EReference COUNT__COUNT_CONDITION2 = eINSTANCE.getCount_CountCondition2();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.CountComparisonArgument <em>Count Comparison Argument</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.CountConditionArgument <em>Count Condition Argument</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.CountComparisonArgument
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountComparisonArgument()
+		 * @see qualitypatternmodel.patternstructure.CountConditionArgument
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountConditionArgument()
 		 * @generated
 		 */
-		EClass COUNT_COMPARISON_ARGUMENT = eINSTANCE.getCountComparisonArgument();
+		EClass COUNT_CONDITION_ARGUMENT = eINSTANCE.getCountConditionArgument();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.GraphContainer <em>Graph Container</em>}' class.

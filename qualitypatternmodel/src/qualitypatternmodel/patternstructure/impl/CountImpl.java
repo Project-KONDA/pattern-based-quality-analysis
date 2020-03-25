@@ -17,8 +17,8 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.patternstructure.CountComparison;
-import qualitypatternmodel.patternstructure.CountComparisonArgument;
+import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.GraphContainer;
 import qualitypatternmodel.patternstructure.Location;
@@ -35,10 +35,10 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CountImpl#getCountComparison1 <em>Count Comparison1</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CountImpl#getCountCondition1 <em>Count Condition1</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountImpl#getMorphism <em>Morphism</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CountImpl#getCountComparison2 <em>Count Comparison2</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CountImpl#getCountCondition2 <em>Count Condition2</em>}</li>
  * </ul>
  *
  * @generated
@@ -108,9 +108,19 @@ public class CountImpl extends PatternElementImpl implements Count {
 	 * @generated
 	 */
 	@Override
-	public CountComparison getCountComparison1() {
-		if (eContainerFeatureID() != PatternstructurePackage.COUNT__COUNT_COMPARISON1) return null;
-		return (CountComparison)eInternalContainer();
+	public CountCondition getCountCondition1() {
+		if (eContainerFeatureID() != PatternstructurePackage.COUNT__COUNT_CONDITION1) return null;
+		return (CountCondition)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCountCondition1(CountCondition newCountCondition1, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newCountCondition1, PatternstructurePackage.COUNT__COUNT_CONDITION1, msgs);
+		return msgs;
 	}
 
 	/**
@@ -118,12 +128,12 @@ public class CountImpl extends PatternElementImpl implements Count {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetCountComparison1(CountComparison newCountComparison1, NotificationChain msgs) {
+	public NotificationChain basicSetCountComparison1(CountCondition newCountComparison1, NotificationChain msgs) {
 		getMorphism().setFrom(null);
 		getMorphism().setTo(getGraph());
 		getMorphism().removeDanglingMappingReference();		
 		
-		msgs = eBasicSetContainer((InternalEObject)newCountComparison1, PatternstructurePackage.COUNT__COUNT_COMPARISON1, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newCountComparison1, PatternstructurePackage.COUNT__COUNT_CONDITION1, msgs);
 		
 		if (newCountComparison1 != null) {
 			try {
@@ -144,31 +154,31 @@ public class CountImpl extends PatternElementImpl implements Count {
 	 * @generated
 	 */
 	@Override
-	public void setCountComparison1(CountComparison newCountComparison1) {
-		if (newCountComparison1 != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.COUNT__COUNT_COMPARISON1 && newCountComparison1 != null)) {
-			if (EcoreUtil.isAncestor(this, newCountComparison1))
+	public void setCountCondition1(CountCondition newCountCondition1) {
+		if (newCountCondition1 != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.COUNT__COUNT_CONDITION1 && newCountCondition1 != null)) {
+			if (EcoreUtil.isAncestor(this, newCountCondition1))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newCountComparison1 != null)
-				msgs = ((InternalEObject)newCountComparison1).eInverseAdd(this, PatternstructurePackage.COUNT_COMPARISON__COUNT1, CountComparison.class, msgs);
-			msgs = basicSetCountComparison1(newCountComparison1, msgs);
+			if (newCountCondition1 != null)
+				msgs = ((InternalEObject)newCountCondition1).eInverseAdd(this, PatternstructurePackage.COUNT_CONDITION__COUNT1, CountCondition.class, msgs);
+			msgs = basicSetCountCondition1(newCountCondition1, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT__COUNT_COMPARISON1, newCountComparison1, newCountComparison1));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT__COUNT_CONDITION1, newCountCondition1, newCountCondition1));
 	}
 	
 	public void copyPreviousGraph() throws MissingPatternContainerException {
 		Graph previousGraph;
 		
-		if(((CountComparison) getContainer()).getQuantifiedConditionCount() != null) {
-			QuantifiedCondition quantifiedConditionCount = ((CountComparison) getContainer()).getQuantifiedConditionCount();
+		if(((CountCondition) getContainer()).getQuantifiedConditionCount() != null) {
+			QuantifiedCondition quantifiedConditionCount = ((CountCondition) getContainer()).getQuantifiedConditionCount();
 			previousGraph = quantifiedConditionCount.getGraph();
 		}
 		try {
-			QuantifiedCondition previousQuantifiedCondition = (QuantifiedCondition) ((CountComparison) getContainer()).getContainer()
+			QuantifiedCondition previousQuantifiedCondition = (QuantifiedCondition) ((CountCondition) getContainer()).getContainer()
 					.getAncestor(QuantifiedCondition.class);
 			previousGraph = previousQuantifiedCondition.getGraph();
 		} catch (MissingPatternContainerException e) {
@@ -281,9 +291,19 @@ public class CountImpl extends PatternElementImpl implements Count {
 	 * @generated
 	 */
 	@Override
-	public CountComparison getCountComparison2() {
-		if (eContainerFeatureID() != PatternstructurePackage.COUNT__COUNT_COMPARISON2) return null;
-		return (CountComparison)eInternalContainer();
+	public CountCondition getCountCondition2() {
+		if (eContainerFeatureID() != PatternstructurePackage.COUNT__COUNT_CONDITION2) return null;
+		return (CountCondition)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCountCondition2(CountCondition newCountCondition2, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newCountCondition2, PatternstructurePackage.COUNT__COUNT_CONDITION2, msgs);
+		return msgs;
 	}
 
 	/**
@@ -291,12 +311,12 @@ public class CountImpl extends PatternElementImpl implements Count {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetCountComparison2(CountComparison newCountComparison2, NotificationChain msgs) {
+	public NotificationChain basicSetCountComparison2(CountCondition newCountComparison2, NotificationChain msgs) {
 		getMorphism().setFrom(null);
 		getMorphism().setTo(getGraph());
 		getMorphism().removeDanglingMappingReference();		
 		
-		msgs = eBasicSetContainer((InternalEObject)newCountComparison2, PatternstructurePackage.COUNT__COUNT_COMPARISON2, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newCountComparison2, PatternstructurePackage.COUNT__COUNT_CONDITION2, msgs);
 		
 		if (newCountComparison2 != null) {
 			try {
@@ -317,20 +337,20 @@ public class CountImpl extends PatternElementImpl implements Count {
 	 * @generated
 	 */
 	@Override
-	public void setCountComparison2(CountComparison newCountComparison2) {
-		if (newCountComparison2 != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.COUNT__COUNT_COMPARISON2 && newCountComparison2 != null)) {
-			if (EcoreUtil.isAncestor(this, newCountComparison2))
+	public void setCountCondition2(CountCondition newCountCondition2) {
+		if (newCountCondition2 != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.COUNT__COUNT_CONDITION2 && newCountCondition2 != null)) {
+			if (EcoreUtil.isAncestor(this, newCountCondition2))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newCountComparison2 != null)
-				msgs = ((InternalEObject)newCountComparison2).eInverseAdd(this, PatternstructurePackage.COUNT_COMPARISON__COUNT2, CountComparison.class, msgs);
-			msgs = basicSetCountComparison2(newCountComparison2, msgs);
+			if (newCountCondition2 != null)
+				msgs = ((InternalEObject)newCountCondition2).eInverseAdd(this, PatternstructurePackage.COUNT_CONDITION__COUNT2, CountCondition.class, msgs);
+			msgs = basicSetCountCondition2(newCountCondition2, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT__COUNT_COMPARISON2, newCountComparison2, newCountComparison2));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT__COUNT_CONDITION2, newCountCondition2, newCountCondition2));
 	}
 
 	/**
@@ -351,10 +371,10 @@ public class CountImpl extends PatternElementImpl implements Count {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON1:
+			case PatternstructurePackage.COUNT__COUNT_CONDITION1:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetCountComparison1((CountComparison)otherEnd, msgs);
+				return basicSetCountCondition1((CountCondition)otherEnd, msgs);
 			case PatternstructurePackage.COUNT__PATTERN:
 				if (pattern != null)
 					msgs = ((InternalEObject)pattern).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COUNT__PATTERN, null, msgs);
@@ -363,10 +383,10 @@ public class CountImpl extends PatternElementImpl implements Count {
 				if (morphism != null)
 					msgs = ((InternalEObject)morphism).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COUNT__MORPHISM, null, msgs);
 				return basicSetMorphism((Morphism)otherEnd, msgs);
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON2:
+			case PatternstructurePackage.COUNT__COUNT_CONDITION2:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetCountComparison2((CountComparison)otherEnd, msgs);
+				return basicSetCountCondition2((CountCondition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -379,14 +399,14 @@ public class CountImpl extends PatternElementImpl implements Count {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON1:
-				return basicSetCountComparison1(null, msgs);
+			case PatternstructurePackage.COUNT__COUNT_CONDITION1:
+				return basicSetCountCondition1(null, msgs);
 			case PatternstructurePackage.COUNT__PATTERN:
 				return basicSetPattern(null, msgs);
 			case PatternstructurePackage.COUNT__MORPHISM:
 				return basicSetMorphism(null, msgs);
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON2:
-				return basicSetCountComparison2(null, msgs);
+			case PatternstructurePackage.COUNT__COUNT_CONDITION2:
+				return basicSetCountCondition2(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -399,10 +419,10 @@ public class CountImpl extends PatternElementImpl implements Count {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON1:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.COUNT_COMPARISON__COUNT1, CountComparison.class, msgs);
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON2:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.COUNT_COMPARISON__COUNT2, CountComparison.class, msgs);
+			case PatternstructurePackage.COUNT__COUNT_CONDITION1:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__COUNT1, CountCondition.class, msgs);
+			case PatternstructurePackage.COUNT__COUNT_CONDITION2:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__COUNT2, CountCondition.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -415,14 +435,14 @@ public class CountImpl extends PatternElementImpl implements Count {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON1:
-				return getCountComparison1();
+			case PatternstructurePackage.COUNT__COUNT_CONDITION1:
+				return getCountCondition1();
 			case PatternstructurePackage.COUNT__PATTERN:
 				return getPattern();
 			case PatternstructurePackage.COUNT__MORPHISM:
 				return getMorphism();
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON2:
-				return getCountComparison2();
+			case PatternstructurePackage.COUNT__COUNT_CONDITION2:
+				return getCountCondition2();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -435,8 +455,8 @@ public class CountImpl extends PatternElementImpl implements Count {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON1:
-				setCountComparison1((CountComparison)newValue);
+			case PatternstructurePackage.COUNT__COUNT_CONDITION1:
+				setCountCondition1((CountCondition)newValue);
 				return;
 			case PatternstructurePackage.COUNT__PATTERN:
 				setPattern((Pattern)newValue);
@@ -444,8 +464,8 @@ public class CountImpl extends PatternElementImpl implements Count {
 			case PatternstructurePackage.COUNT__MORPHISM:
 				setMorphism((Morphism)newValue);
 				return;
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON2:
-				setCountComparison2((CountComparison)newValue);
+			case PatternstructurePackage.COUNT__COUNT_CONDITION2:
+				setCountCondition2((CountCondition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -459,8 +479,8 @@ public class CountImpl extends PatternElementImpl implements Count {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON1:
-				setCountComparison1((CountComparison)null);
+			case PatternstructurePackage.COUNT__COUNT_CONDITION1:
+				setCountCondition1((CountCondition)null);
 				return;
 			case PatternstructurePackage.COUNT__PATTERN:
 				setPattern((Pattern)null);
@@ -468,8 +488,8 @@ public class CountImpl extends PatternElementImpl implements Count {
 			case PatternstructurePackage.COUNT__MORPHISM:
 				setMorphism((Morphism)null);
 				return;
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON2:
-				setCountComparison2((CountComparison)null);
+			case PatternstructurePackage.COUNT__COUNT_CONDITION2:
+				setCountCondition2((CountCondition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -483,14 +503,14 @@ public class CountImpl extends PatternElementImpl implements Count {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON1:
-				return getCountComparison1() != null;
+			case PatternstructurePackage.COUNT__COUNT_CONDITION1:
+				return getCountCondition1() != null;
 			case PatternstructurePackage.COUNT__PATTERN:
 				return pattern != null;
 			case PatternstructurePackage.COUNT__MORPHISM:
 				return morphism != null;
-			case PatternstructurePackage.COUNT__COUNT_COMPARISON2:
-				return getCountComparison2() != null;
+			case PatternstructurePackage.COUNT__COUNT_CONDITION2:
+				return getCountCondition2() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -502,7 +522,7 @@ public class CountImpl extends PatternElementImpl implements Count {
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == CountComparisonArgument.class) {
+		if (baseClass == CountConditionArgument.class) {
 			switch (baseOperationID) {
 				default: return -1;
 			}

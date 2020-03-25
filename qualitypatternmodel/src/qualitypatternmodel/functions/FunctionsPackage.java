@@ -1148,13 +1148,22 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Option Param</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON__OPTION_PARAM = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Comparison</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
+	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1564,13 +1573,13 @@ public interface FunctionsPackage extends EPackage {
 	int REFERENCE_OPERATOR__PROPERTY2 = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Property</b></em>' reference.
+	 * The feature id for the '<em><b>Property1</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_OPERATOR__PROPERTY = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
+	int REFERENCE_OPERATOR__PROPERTY1 = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1999,6 +2008,17 @@ public interface FunctionsPackage extends EPackage {
 	EReference getComparison_Option();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Comparison#getOptionParam <em>Option Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option Param</em>'.
+	 * @see qualitypatternmodel.functions.Comparison#getOptionParam()
+	 * @see #getComparison()
+	 * @generated
+	 */
+	EReference getComparison_OptionParam();
+
+	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Comparison#getArgument2 <em>Argument2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2073,15 +2093,15 @@ public interface FunctionsPackage extends EPackage {
 	EReference getReferenceOperator_Property2();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty <em>Property</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty1 <em>Property1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Property</em>'.
-	 * @see qualitypatternmodel.functions.ReferenceOperator#getProperty()
+	 * @return the meta object for the reference '<em>Property1</em>'.
+	 * @see qualitypatternmodel.functions.ReferenceOperator#getProperty1()
 	 * @see #getReferenceOperator()
 	 * @generated
 	 */
-	EReference getReferenceOperator_Property();
+	EReference getReferenceOperator_Property1();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.functions.ReferenceOperator#getType <em>Type</em>}'.
@@ -2320,6 +2340,14 @@ public interface FunctionsPackage extends EPackage {
 		EReference COMPARISON__OPTION = eINSTANCE.getComparison_Option();
 
 		/**
+		 * The meta object literal for the '<em><b>Option Param</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPARISON__OPTION_PARAM = eINSTANCE.getComparison_OptionParam();
+
+		/**
 		 * The meta object literal for the '<em><b>Argument2</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2380,12 +2408,12 @@ public interface FunctionsPackage extends EPackage {
 		EReference REFERENCE_OPERATOR__PROPERTY2 = eINSTANCE.getReferenceOperator_Property2();
 
 		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Property1</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE_OPERATOR__PROPERTY = eINSTANCE.getReferenceOperator_Property();
+		EReference REFERENCE_OPERATOR__PROPERTY1 = eINSTANCE.getReferenceOperator_Property1();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.

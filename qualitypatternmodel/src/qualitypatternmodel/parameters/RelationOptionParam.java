@@ -15,16 +15,16 @@ import qualitypatternmodel.graphstructure.Relation;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.AxisOptionParam#getOptions <em>Options</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.AxisOptionParam#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.AxisOptionParam#getRelation <em>Relation</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#getOptions <em>Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#getValue <em>Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#getRelation <em>Relation</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.parameters.ParametersPackage#getAxisOptionParam()
+ * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam()
  * @model
  * @generated
  */
-public interface AxisOptionParam extends Parameter {
+public interface RelationOptionParam extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Axis}.
@@ -33,7 +33,7 @@ public interface AxisOptionParam extends Parameter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' attribute list.
 	 * @see qualitypatternmodel.graphstructure.Axis
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getAxisOptionParam_Options()
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam_Options()
 	 * @model
 	 * @generated
 	 */
@@ -47,14 +47,14 @@ public interface AxisOptionParam extends Parameter {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see qualitypatternmodel.graphstructure.Axis
 	 * @see #setValue(Axis)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getAxisOptionParam_Value()
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam_Value()
 	 * @model required="true"
 	 * @generated
 	 */
 	Axis getValue();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.AxisOptionParam#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.RelationOptionParam#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
@@ -71,7 +71,7 @@ public interface AxisOptionParam extends Parameter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Relation</em>' reference.
 	 * @see #setRelation(Relation)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getAxisOptionParam_Relation()
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam_Relation()
 	 * @see qualitypatternmodel.graphstructure.Relation#getOption
 	 * @model opposite="option"
 	 * @generated
@@ -79,7 +79,7 @@ public interface AxisOptionParam extends Parameter {
 	Relation getRelation();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.AxisOptionParam#getRelation <em>Relation</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.RelationOptionParam#getRelation <em>Relation</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Relation</em>' reference.

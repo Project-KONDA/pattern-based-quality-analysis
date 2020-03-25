@@ -4,7 +4,8 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.OptionParam;
+import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -21,6 +22,7 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOptionParam <em>Option Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation()
@@ -140,17 +142,17 @@ public interface Relation extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.AxisOptionParam#getRelation <em>Relation</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.RelationOptionParam#getRelation <em>Relation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
-	 * @see #setOption(AxisOptionParam)
+	 * @see #setOption(RelationOptionParam)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Option()
-	 * @see qualitypatternmodel.parameters.AxisOptionParam#getRelation
+	 * @see qualitypatternmodel.parameters.RelationOptionParam#getRelation
 	 * @model opposite="relation"
 	 * @generated
 	 */
-	AxisOptionParam getOption();
+	RelationOptionParam getOption();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getOption <em>Option</em>}' reference.
@@ -160,6 +162,30 @@ public interface Relation extends PatternElement {
 	 * @see #getOption()
 	 * @generated
 	 */
-	void setOption(AxisOptionParam value);
+	void setOption(RelationOptionParam value);
+
+	/**
+	 * Returns the value of the '<em><b>Option Param</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.OptionParam#getRelation <em>Relation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Option Param</em>' reference.
+	 * @see #setOptionParam(OptionParam)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_OptionParam()
+	 * @see qualitypatternmodel.parameters.OptionParam#getRelation
+	 * @model opposite="relation"
+	 * @generated
+	 */
+	OptionParam<Axis> getOptionParam();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getOptionParam <em>Option Param</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Option Param</em>' reference.
+	 * @see #getOptionParam()
+	 * @generated
+	 */
+	void setOptionParam(OptionParam<Axis> value);
 
 } // Relation

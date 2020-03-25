@@ -46,7 +46,7 @@ public class ReferenceOperatorItemProvider extends BooleanOperatorItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addProperty2PropertyDescriptor(object);
-			addPropertyPropertyDescriptor(object);
+			addProperty1PropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -75,19 +75,19 @@ public class ReferenceOperatorItemProvider extends BooleanOperatorItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Property feature.
+	 * This adds a property descriptor for the Property1 feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPropertyPropertyDescriptor(Object object) {
+	protected void addProperty1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReferenceOperator_property_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReferenceOperator_property_feature", "_UI_ReferenceOperator_type"),
-				 FunctionsPackage.Literals.REFERENCE_OPERATOR__PROPERTY,
+				 getString("_UI_ReferenceOperator_property1_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReferenceOperator_property1_feature", "_UI_ReferenceOperator_type"),
+				 FunctionsPackage.Literals.REFERENCE_OPERATOR__PROPERTY1,
 				 true,
 				 false,
 				 true,

@@ -234,6 +234,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EReference getRelation_OptionParam() {
+		return (EReference)relationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getRelation__GetGraphDepth() {
 		return relationEClass.getEOperations().get(0);
 	}
@@ -344,8 +354,18 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EReference getProperty_ReferenceOperator() {
+	public EReference getProperty_ReferenceOperator1() {
 		return (EReference)propertyEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProperty_OptionParam() {
+		return (EReference)propertyEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -992,6 +1012,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(relationEClass, RELATION__MAPPING_TO);
 		createEReference(relationEClass, RELATION__ELEMENT);
 		createEReference(relationEClass, RELATION__OPTION);
+		createEReference(relationEClass, RELATION__OPTION_PARAM);
 		createEOperation(relationEClass, RELATION___GET_GRAPH_DEPTH);
 		createEOperation(relationEClass, RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS);
 		createEOperation(relationEClass, RELATION___REMOVE_MAPPINGS_TO_NEXT);
@@ -1005,7 +1026,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(propertyEClass, PROPERTY__ATTRIBUTE_NAME);
 		createEReference(propertyEClass, PROPERTY__OPTION);
 		createEReference(propertyEClass, PROPERTY__REFERENCE_OPERATOR2);
-		createEReference(propertyEClass, PROPERTY__REFERENCE_OPERATOR);
+		createEReference(propertyEClass, PROPERTY__REFERENCE_OPERATOR1);
+		createEReference(propertyEClass, PROPERTY__OPTION_PARAM);
 
 		elementEClass = createEClass(ELEMENT);
 		createEReference(elementEClass, ELEMENT__MAPPING_TO);
@@ -1119,7 +1141,11 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEReference(getRelation_MappingFrom(), thePatternstructurePackage.getRelationMapping(), thePatternstructurePackage.getRelationMapping_To(), "mappingFrom", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_MappingTo(), thePatternstructurePackage.getRelationMapping(), thePatternstructurePackage.getRelationMapping_From(), "mappingTo", null, 0, -1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_Element(), this.getElement(), this.getElement_RelationFromPrevious(), "element", null, 1, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelation_Option(), theParametersPackage.getAxisOptionParam(), theParametersPackage.getAxisOptionParam_Relation(), "option", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelation_Option(), theParametersPackage.getRelationOptionParam(), theParametersPackage.getRelationOptionParam_Relation(), "option", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		EGenericType g1 = createEGenericType(theParametersPackage.getOptionParam());
+		EGenericType g2 = createEGenericType(this.getAxis());
+		g1.getETypeArguments().add(g2);
+		initEReference(getRelation_OptionParam(), g1, theParametersPackage.getOptionParam_Relation(), "optionParam", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getRelation__GetGraphDepth(), ecorePackage.getEInt(), "getGraphDepth", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
@@ -1141,7 +1167,11 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEReference(getProperty_AttributeName(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_Property(), "attributeName", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProperty_Option(), theParametersPackage.getPropertyOptionParam(), theParametersPackage.getPropertyOptionParam_Property(), "option", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProperty_ReferenceOperator2(), theFunctionsPackage.getReferenceOperator(), theFunctionsPackage.getReferenceOperator_Property2(), "referenceOperator2", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProperty_ReferenceOperator(), theFunctionsPackage.getReferenceOperator(), theFunctionsPackage.getReferenceOperator_Property(), "referenceOperator", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProperty_ReferenceOperator1(), theFunctionsPackage.getReferenceOperator(), theFunctionsPackage.getReferenceOperator_Property1(), "referenceOperator1", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theParametersPackage.getOptionParam());
+		g2 = createEGenericType(this.getPropertyLocation());
+		g1.getETypeArguments().add(g2);
+		initEReference(getProperty_OptionParam(), g1, theParametersPackage.getOptionParam_Property(), "optionParam", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElement_MappingTo(), thePatternstructurePackage.getElementMapping(), thePatternstructurePackage.getElementMapping_From(), "mappingTo", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1257,8 +1287,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		op = initEOperation(getComparable__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);

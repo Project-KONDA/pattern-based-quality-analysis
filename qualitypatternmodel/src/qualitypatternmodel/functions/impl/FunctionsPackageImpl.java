@@ -394,6 +394,16 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getComparison_OptionParam() {
+		return (EReference)comparisonEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getComparison_Argument2() {
 		return (EReference)comparisonEClass.getEStructuralFeatures().get(1);
 	}
@@ -464,7 +474,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getReferenceOperator_Property() {
+	public EReference getReferenceOperator_Property1() {
 		return (EReference)referenceOperatorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -563,6 +573,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT2);
 		createEAttribute(comparisonEClass, COMPARISON__TYPE);
 		createEReference(comparisonEClass, COMPARISON__OPTION);
+		createEReference(comparisonEClass, COMPARISON__OPTION_PARAM);
 
 		operatorListEClass = createEClass(OPERATOR_LIST);
 		createEReference(operatorListEClass, OPERATOR_LIST__GRAPH);
@@ -571,7 +582,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		referenceOperatorEClass = createEClass(REFERENCE_OPERATOR);
 		createEReference(referenceOperatorEClass, REFERENCE_OPERATOR__PROPERTY2);
-		createEReference(referenceOperatorEClass, REFERENCE_OPERATOR__PROPERTY);
+		createEReference(referenceOperatorEClass, REFERENCE_OPERATOR__PROPERTY1);
 		createEAttribute(referenceOperatorEClass, REFERENCE_OPERATOR__TYPE);
 
 		// Create enums
@@ -671,6 +682,10 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		initEReference(getComparison_Argument2(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison2(), "argument2", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComparison_Type(), theGraphstructurePackage.getReturnType(), "type", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Option(), theParametersPackage.getComparisonOptionParam(), theParametersPackage.getComparisonOptionParam_Comparison(), "option", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(theParametersPackage.getOptionParam());
+		g2 = createEGenericType(this.getComparisonOperator());
+		g1.getETypeArguments().add(g2);
+		initEReference(getComparison_OptionParam(), g1, theParametersPackage.getOptionParam_Comparison(), "optionParam", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operatorListEClass, OperatorList.class, "OperatorList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperatorList_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_OperatorList(), "graph", null, 1, 1, OperatorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -681,7 +696,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		initEClass(referenceOperatorEClass, ReferenceOperator.class, "ReferenceOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReferenceOperator_Property2(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_ReferenceOperator2(), "property2", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReferenceOperator_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_ReferenceOperator(), "property", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReferenceOperator_Property1(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_ReferenceOperator1(), "property1", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReferenceOperator_Type(), theGraphstructurePackage.getReturnType(), "type", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals

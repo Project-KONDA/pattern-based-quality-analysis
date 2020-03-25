@@ -24,7 +24,7 @@ import qualitypatternmodel.parameters.TextListParam;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextListParamItemProvider extends TextParamItemProvider {
+public class TextListParamItemProvider extends ParameterValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

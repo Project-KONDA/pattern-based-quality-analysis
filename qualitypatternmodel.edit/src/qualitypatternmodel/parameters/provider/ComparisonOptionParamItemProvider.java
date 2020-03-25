@@ -47,6 +47,7 @@ public class ComparisonOptionParamItemProvider extends ParameterItemProvider {
 			addOptionsPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
 			addComparisonPropertyDescriptor(object);
+			addCountConditionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -109,6 +110,28 @@ public class ComparisonOptionParamItemProvider extends ParameterItemProvider {
 				 getString("_UI_ComparisonOptionParam_comparison_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComparisonOptionParam_comparison_feature", "_UI_ComparisonOptionParam_type"),
 				 ParametersPackage.Literals.COMPARISON_OPTION_PARAM__COMPARISON,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Count Condition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCountConditionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ComparisonOptionParam_countCondition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComparisonOptionParam_countCondition_feature", "_UI_ComparisonOptionParam_type"),
+				 ParametersPackage.Literals.COMPARISON_OPTION_PARAM__COUNT_CONDITION,
 				 true,
 				 false,
 				 true,

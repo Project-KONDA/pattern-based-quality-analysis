@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface TextListParam extends TextParam {
+public interface TextListParam extends ParameterValue {
 
 	/**
 	 * Returns the value of the '<em><b>Values</b></em>' attribute list.

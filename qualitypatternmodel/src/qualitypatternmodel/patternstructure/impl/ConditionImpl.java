@@ -14,7 +14,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.GraphContainer;
-import qualitypatternmodel.patternstructure.NotElement;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -32,7 +32,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getFormula1 <em>Formula1</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getFormula2 <em>Formula2</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getNot <em>Not</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.ConditionImpl#getNotCondition <em>Not Condition</em>}</li>
  * </ul>
  *
  * @generated
@@ -220,7 +220,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newFormula1 != null)
-				msgs = ((InternalEObject)newFormula1).eInverseAdd(this, PatternstructurePackage.FORMULA__CONDITION, Formula.class, msgs);
+				msgs = ((InternalEObject)newFormula1).eInverseAdd(this, PatternstructurePackage.FORMULA__CONDITION1, Formula.class, msgs);
 			msgs = basicSetFormula1(newFormula1, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -277,9 +277,9 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * @generated
 	 */
 	@Override
-	public NotElement getNot() {
-		if (eContainerFeatureID() != PatternstructurePackage.CONDITION__NOT) return null;
-		return (NotElement)eInternalContainer();
+	public NotCondition getNotCondition() {
+		if (eContainerFeatureID() != PatternstructurePackage.CONDITION__NOT_CONDITION) return null;
+		return (NotCondition)eInternalContainer();
 	}
 
 	/**
@@ -287,8 +287,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNot(NotElement newNot, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newNot, PatternstructurePackage.CONDITION__NOT, msgs);
+	public NotificationChain basicSetNotCondition(NotCondition newNotCondition, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newNotCondition, PatternstructurePackage.CONDITION__NOT_CONDITION, msgs);
 		return msgs;
 	}
 
@@ -298,20 +298,20 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * @generated
 	 */
 	@Override
-	public void setNot(NotElement newNot) {
-		if (newNot != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.CONDITION__NOT && newNot != null)) {
-			if (EcoreUtil.isAncestor(this, newNot))
+	public void setNotCondition(NotCondition newNotCondition) {
+		if (newNotCondition != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.CONDITION__NOT_CONDITION && newNotCondition != null)) {
+			if (EcoreUtil.isAncestor(this, newNotCondition))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newNot != null)
-				msgs = ((InternalEObject)newNot).eInverseAdd(this, PatternstructurePackage.NOT_ELEMENT__CONDITION, NotElement.class, msgs);
-			msgs = basicSetNot(newNot, msgs);
+			if (newNotCondition != null)
+				msgs = ((InternalEObject)newNotCondition).eInverseAdd(this, PatternstructurePackage.NOT_CONDITION__CONDITION, NotCondition.class, msgs);
+			msgs = basicSetNotCondition(newNotCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.CONDITION__NOT, newNot, newNot));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.CONDITION__NOT_CONDITION, newNotCondition, newNotCondition));
 	}
 
 	/**
@@ -350,10 +350,10 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetFormula2((Formula)otherEnd, msgs);
-			case PatternstructurePackage.CONDITION__NOT:
+			case PatternstructurePackage.CONDITION__NOT_CONDITION:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetNot((NotElement)otherEnd, msgs);
+				return basicSetNotCondition((NotCondition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -374,8 +374,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				return basicSetFormula1(null, msgs);
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				return basicSetFormula2(null, msgs);
-			case PatternstructurePackage.CONDITION__NOT:
-				return basicSetNot(null, msgs);
+			case PatternstructurePackage.CONDITION__NOT_CONDITION:
+				return basicSetNotCondition(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -393,11 +393,11 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			case PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION:
 				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, QuantifiedCondition.class, msgs);
 			case PatternstructurePackage.CONDITION__FORMULA1:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.FORMULA__CONDITION, Formula.class, msgs);
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.FORMULA__CONDITION1, Formula.class, msgs);
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.FORMULA__CONDITION2, Formula.class, msgs);
-			case PatternstructurePackage.CONDITION__NOT:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.NOT_ELEMENT__CONDITION, NotElement.class, msgs);
+			case PatternstructurePackage.CONDITION__NOT_CONDITION:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.NOT_CONDITION__CONDITION, NotCondition.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -420,8 +420,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				return getFormula1();
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				return getFormula2();
-			case PatternstructurePackage.CONDITION__NOT:
-				return getNot();
+			case PatternstructurePackage.CONDITION__NOT_CONDITION:
+				return getNotCondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -450,8 +450,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				setFormula2((Formula)newValue);
 				return;
-			case PatternstructurePackage.CONDITION__NOT:
-				setNot((NotElement)newValue);
+			case PatternstructurePackage.CONDITION__NOT_CONDITION:
+				setNotCondition((NotCondition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -480,8 +480,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				setFormula2((Formula)null);
 				return;
-			case PatternstructurePackage.CONDITION__NOT:
-				setNot((NotElement)null);
+			case PatternstructurePackage.CONDITION__NOT_CONDITION:
+				setNotCondition((NotCondition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -505,8 +505,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				return getFormula1() != null;
 			case PatternstructurePackage.CONDITION__FORMULA2:
 				return getFormula2() != null;
-			case PatternstructurePackage.CONDITION__NOT:
-				return getNot() != null;
+			case PatternstructurePackage.CONDITION__NOT_CONDITION:
+				return getNotCondition() != null;
 		}
 		return super.eIsSet(featureID);
 	}

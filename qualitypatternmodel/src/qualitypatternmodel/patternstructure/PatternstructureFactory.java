@@ -85,22 +85,22 @@ public interface PatternstructureFactory extends EFactory {
 	Pattern createPattern();
 
 	/**
-	 * Returns a new object of class '<em>Not Element</em>'.
+	 * Returns a new object of class '<em>Not Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Not Element</em>'.
+	 * @return a new object of class '<em>Not Condition</em>'.
 	 * @generated
 	 */
-	NotElement createNotElement();
+	NotCondition createNotCondition();
 
 	/**
-	 * Returns a new object of class '<em>Count Comparison</em>'.
+	 * Returns a new object of class '<em>Count Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Count Comparison</em>'.
+	 * @return a new object of class '<em>Count Condition</em>'.
 	 * @generated
 	 */
-	CountComparison createCountComparison();
+	CountCondition createCountCondition();
 
 	/**
 	 * Returns a new object of class '<em>Count</em>'.

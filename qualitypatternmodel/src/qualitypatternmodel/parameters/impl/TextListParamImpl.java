@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.patternstructure.Location;
@@ -27,7 +28,7 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
  *
  * @generated
  */
-public class TextListParamImpl extends TextParamImpl implements TextListParam {
+public class TextListParamImpl extends ParameterValueImpl implements TextListParam {
 	/**
 	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -59,6 +60,11 @@ public class TextListParamImpl extends TextParamImpl implements TextListParam {
 			if (val.equals(""))
 				return false;
 		return true;
+	}
+	
+	@Override
+	public ReturnType getReturnType() {
+		return ReturnType.STRING;
 	}
 
 	/**

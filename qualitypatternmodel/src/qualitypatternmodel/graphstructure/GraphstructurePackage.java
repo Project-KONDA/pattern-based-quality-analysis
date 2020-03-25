@@ -124,13 +124,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__OPTION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Option Param</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION__OPTION_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int RELATION_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -540,13 +549,22 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY__REFERENCE_OPERATOR2 = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Reference Operator</b></em>' reference.
+	 * The feature id for the '<em><b>Reference Operator1</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__REFERENCE_OPERATOR = COMPARABLE_FEATURE_COUNT + 5;
+	int PROPERTY__REFERENCE_OPERATOR1 = COMPARABLE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Option Param</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__OPTION_PARAM = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Property</em>' class.
@@ -555,7 +573,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 6;
+	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1491,6 +1509,17 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getRelation_Option();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getOptionParam <em>Option Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option Param</em>'.
+	 * @see qualitypatternmodel.graphstructure.Relation#getOptionParam()
+	 * @see #getRelation()
+	 * @generated
+	 */
+	EReference getRelation_OptionParam();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth() <em>Get Graph Depth</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1605,15 +1634,26 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getProperty_ReferenceOperator2();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator <em>Reference Operator</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator1 <em>Reference Operator1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Reference Operator</em>'.
-	 * @see qualitypatternmodel.graphstructure.Property#getReferenceOperator()
+	 * @return the meta object for the reference '<em>Reference Operator1</em>'.
+	 * @see qualitypatternmodel.graphstructure.Property#getReferenceOperator1()
 	 * @see #getProperty()
 	 * @generated
 	 */
-	EReference getProperty_ReferenceOperator();
+	EReference getProperty_ReferenceOperator1();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getOptionParam <em>Option Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option Param</em>'.
+	 * @see qualitypatternmodel.graphstructure.Property#getOptionParam()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_OptionParam();
 
 	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
@@ -2314,6 +2354,14 @@ public interface GraphstructurePackage extends EPackage {
 		EReference RELATION__OPTION = eINSTANCE.getRelation_Option();
 
 		/**
+		 * The meta object literal for the '<em><b>Option Param</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION__OPTION_PARAM = eINSTANCE.getRelation_OptionParam();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Graph Depth</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2404,12 +2452,20 @@ public interface GraphstructurePackage extends EPackage {
 		EReference PROPERTY__REFERENCE_OPERATOR2 = eINSTANCE.getProperty_ReferenceOperator2();
 
 		/**
-		 * The meta object literal for the '<em><b>Reference Operator</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Reference Operator1</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROPERTY__REFERENCE_OPERATOR = eINSTANCE.getProperty_ReferenceOperator();
+		EReference PROPERTY__REFERENCE_OPERATOR1 = eINSTANCE.getProperty_ReferenceOperator1();
+
+		/**
+		 * The meta object literal for the '<em><b>Option Param</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__OPTION_PARAM = eINSTANCE.getProperty_OptionParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.

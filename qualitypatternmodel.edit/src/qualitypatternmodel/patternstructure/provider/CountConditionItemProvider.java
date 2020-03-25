@@ -13,27 +13,26 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.patternstructure.CountComparison;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.CountComparison} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.CountCondition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CountComparisonItemProvider extends ConditionItemProvider {
+public class CountConditionItemProvider extends ConditionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CountComparisonItemProvider(AdapterFactory adapterFactory) {
+	public CountConditionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -49,7 +48,8 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNumberParamPropertyDescriptor(object);
-			addOperatorPropertyDescriptor(object);
+			addOptionPropertyDescriptor(object);
+			addOptionParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -65,9 +65,9 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CountComparison_numberParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CountComparison_numberParam_feature", "_UI_CountComparison_type"),
-				 PatternstructurePackage.Literals.COUNT_COMPARISON__NUMBER_PARAM,
+				 getString("_UI_CountCondition_numberParam_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CountCondition_numberParam_feature", "_UI_CountCondition_type"),
+				 PatternstructurePackage.Literals.COUNT_CONDITION__NUMBER_PARAM,
 				 true,
 				 false,
 				 true,
@@ -77,23 +77,45 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Operator feature.
+	 * This adds a property descriptor for the Option feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOperatorPropertyDescriptor(Object object) {
+	protected void addOptionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CountComparison_operator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CountComparison_operator_feature", "_UI_CountComparison_type"),
-				 PatternstructurePackage.Literals.COUNT_COMPARISON__OPERATOR,
+				 getString("_UI_CountCondition_option_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CountCondition_option_feature", "_UI_CountCondition_type"),
+				 PatternstructurePackage.Literals.COUNT_CONDITION__OPTION,
 				 true,
 				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Option Param feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptionParamPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CountCondition_optionParam_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CountCondition_optionParam_feature", "_UI_CountCondition_type"),
+				 PatternstructurePackage.Literals.COUNT_CONDITION__OPTION_PARAM,
+				 true,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -110,8 +132,8 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT1);
-			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT2);
+			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_CONDITION__COUNT1);
+			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_CONDITION__COUNT2);
 		}
 		return childrenFeatures;
 	}
@@ -130,14 +152,14 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 	}
 
 	/**
-	 * This returns CountComparison.gif.
+	 * This returns CountCondition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CountComparison"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CountCondition"));
 	}
 
 	/**
@@ -148,10 +170,10 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CountComparison)object).getId();
+		String label = ((CountCondition)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CountComparison_type") :
-			getString("_UI_CountComparison_type") + " " + label;
+			getString("_UI_CountCondition_type") :
+			getString("_UI_CountCondition_type") + " " + label;
 	}
 
 
@@ -166,12 +188,9 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CountComparison.class)) {
-			case PatternstructurePackage.COUNT_COMPARISON__OPERATOR:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case PatternstructurePackage.COUNT_COMPARISON__COUNT1:
-			case PatternstructurePackage.COUNT_COMPARISON__COUNT2:
+		switch (notification.getFeatureID(CountCondition.class)) {
+			case PatternstructurePackage.COUNT_CONDITION__COUNT1:
+			case PatternstructurePackage.COUNT_CONDITION__COUNT2:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -191,12 +210,12 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT1,
+				(PatternstructurePackage.Literals.COUNT_CONDITION__COUNT1,
 				 PatternstructureFactory.eINSTANCE.createCount()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT2,
+				(PatternstructurePackage.Literals.COUNT_CONDITION__COUNT2,
 				 PatternstructureFactory.eINSTANCE.createCount()));
 	}
 
@@ -212,8 +231,8 @@ public class CountComparisonItemProvider extends ConditionItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT1 ||
-			childFeature == PatternstructurePackage.Literals.COUNT_COMPARISON__COUNT2;
+			childFeature == PatternstructurePackage.Literals.COUNT_CONDITION__COUNT1 ||
+			childFeature == PatternstructurePackage.Literals.COUNT_CONDITION__COUNT2;
 
 		if (qualify) {
 			return getString

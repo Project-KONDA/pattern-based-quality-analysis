@@ -121,13 +121,22 @@ public interface ParametersFactory extends EFactory {
 	DateTimeParam createDateTimeParam();
 
 	/**
-	 * Returns a new object of class '<em>Axis Option Param</em>'.
+	 * Returns a new object of class '<em>Relation Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Axis Option Param</em>'.
+	 * @return a new object of class '<em>Relation Option Param</em>'.
 	 * @generated
 	 */
-	AxisOptionParam createAxisOptionParam();
+	RelationOptionParam createRelationOptionParam();
+
+	/**
+	 * Returns a new object of class '<em>Option Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Option Param</em>'.
+	 * @generated
+	 */
+	<T> OptionParam<T> createOptionParam();
 
 	/**
 	 * Returns the package supported by this factory.

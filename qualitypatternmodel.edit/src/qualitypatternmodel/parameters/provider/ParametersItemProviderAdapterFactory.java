@@ -325,26 +325,49 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.AxisOptionParam} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.RelationOptionParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AxisOptionParamItemProvider axisOptionParamItemProvider;
+	protected RelationOptionParamItemProvider relationOptionParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.AxisOptionParam}.
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.RelationOptionParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAxisOptionParamAdapter() {
-		if (axisOptionParamItemProvider == null) {
-			axisOptionParamItemProvider = new AxisOptionParamItemProvider(this);
+	public Adapter createRelationOptionParamAdapter() {
+		if (relationOptionParamItemProvider == null) {
+			relationOptionParamItemProvider = new RelationOptionParamItemProvider(this);
 		}
 
-		return axisOptionParamItemProvider;
+		return relationOptionParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.OptionParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OptionParamItemProvider optionParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.OptionParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOptionParamAdapter() {
+		if (optionParamItemProvider == null) {
+			optionParamItemProvider = new OptionParamItemProvider(this);
+		}
+
+		return optionParamItemProvider;
 	}
 
 	/**
@@ -463,7 +486,8 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 		if (timeParamItemProvider != null) timeParamItemProvider.dispose();
 		if (unknownParameterValueItemProvider != null) unknownParameterValueItemProvider.dispose();
 		if (dateTimeParamItemProvider != null) dateTimeParamItemProvider.dispose();
-		if (axisOptionParamItemProvider != null) axisOptionParamItemProvider.dispose();
+		if (relationOptionParamItemProvider != null) relationOptionParamItemProvider.dispose();
+		if (optionParamItemProvider != null) optionParamItemProvider.dispose();
 	}
 
 }

@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.tests;
 
-import qualitypatternmodel.patternstructure.CountComparisonArgument;
+import qualitypatternmodel.patternstructure.CountConditionArgument;
 
 /**
  * <!-- begin-user-doc -->
@@ -10,27 +10,27 @@ import qualitypatternmodel.patternstructure.CountComparisonArgument;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class CountComparisonArgumentTest extends PatternElementTest {
+public abstract class CountConditionArgumentTest extends PatternElementTest {
 
 	/**
-	 * Constructs a new Count Comparison Argument test case with the given name.
+	 * Constructs a new Count Condition Argument test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CountComparisonArgumentTest(String name) {
+	public CountConditionArgumentTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Count Comparison Argument test case.
+	 * Returns the fixture for this Count Condition Argument test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected CountComparisonArgument getFixture() {
-		return (CountComparisonArgument)fixture;
+	protected CountConditionArgument getFixture() {
+		return (CountConditionArgument)fixture;
 	}
 
 } //CountComparisonArgumentTest

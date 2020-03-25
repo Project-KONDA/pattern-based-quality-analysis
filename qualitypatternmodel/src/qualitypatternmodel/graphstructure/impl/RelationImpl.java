@@ -18,13 +18,15 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.impl.AxisOptionParamImpl;
+import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -44,6 +46,7 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getOptionParam <em>Option Param</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,7 +77,17 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 * @ordered
 	 */
-	protected AxisOptionParam option;
+	protected RelationOptionParam option;
+
+	/**
+	 * The cached value of the '{@link #getOptionParam() <em>Option Param</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOptionParam()
+	 * @generated
+	 * @ordered
+	 */
+	protected OptionParam<Axis> optionParam;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -351,9 +364,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 
 			if (getOption() == null) {
-				AxisOptionParam axisOptionParam = new AxisOptionParamImpl();
-				pattern.getParameterList().add(axisOptionParam);
-				setOption(axisOptionParam);
+				RelationOptionParam relationOptionParam = new RelationOptionParamImpl();
+				pattern.getParameterList().add(relationOptionParam);
+				setOption(relationOptionParam);
 			} else {
 				pattern.getParameterList().add(getOption());
 			}
@@ -408,10 +421,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 */
 	@Override
-	public AxisOptionParam getOption() {
+	public RelationOptionParam getOption() {
 		if (option != null && option.eIsProxy()) {
 			InternalEObject oldOption = (InternalEObject)option;
-			option = (AxisOptionParam)eResolveProxy(oldOption);
+			option = (RelationOptionParam)eResolveProxy(oldOption);
 			if (option != oldOption) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.RELATION__OPTION, oldOption, option));
@@ -424,7 +437,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AxisOptionParam basicGetOption() {
+	public RelationOptionParam basicGetOption() {
 		return option;
 	}
 
@@ -432,8 +445,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOption(AxisOptionParam newOption, NotificationChain msgs) {
-		AxisOptionParam oldOption = option;
+	public NotificationChain basicSetOption(RelationOptionParam newOption, NotificationChain msgs) {
+		RelationOptionParam oldOption = option;
 		option = newOption;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__OPTION, oldOption, newOption);
@@ -447,18 +460,81 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 */
 	@Override
-	public void setOption(AxisOptionParam newOption) {
+	public void setOption(RelationOptionParam newOption) {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.AXIS_OPTION_PARAM__RELATION, AxisOptionParam.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.RELATION_OPTION_PARAM__RELATION, RelationOptionParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.AXIS_OPTION_PARAM__RELATION, AxisOptionParam.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.RELATION_OPTION_PARAM__RELATION, RelationOptionParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__OPTION, newOption, newOption));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public OptionParam<Axis> getOptionParam() {
+		if (optionParam != null && optionParam.eIsProxy()) {
+			InternalEObject oldOptionParam = (InternalEObject)optionParam;
+			optionParam = (OptionParam<Axis>)eResolveProxy(oldOptionParam);
+			if (optionParam != oldOptionParam) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.RELATION__OPTION_PARAM, oldOptionParam, optionParam));
+			}
+		}
+		return optionParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OptionParam<Axis> basicGetOptionParam() {
+		return optionParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOptionParam(OptionParam<Axis> newOptionParam, NotificationChain msgs) {
+		OptionParam<Axis> oldOptionParam = optionParam;
+		optionParam = newOptionParam;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__OPTION_PARAM, oldOptionParam, newOptionParam);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOptionParam(OptionParam<Axis> newOptionParam) {
+		if (newOptionParam != optionParam) {
+			NotificationChain msgs = null;
+			if (optionParam != null)
+				msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__RELATION, OptionParam.class, msgs);
+			if (newOptionParam != null)
+				msgs = ((InternalEObject)newOptionParam).eInverseAdd(this, ParametersPackage.OPTION_PARAM__RELATION, OptionParam.class, msgs);
+			msgs = basicSetOptionParam(newOptionParam, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__OPTION_PARAM, newOptionParam, newOptionParam));
 	}
 
 	/**
@@ -481,8 +557,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicSetElement((Element)otherEnd, msgs);
 			case GraphstructurePackage.RELATION__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.AXIS_OPTION_PARAM__RELATION, AxisOptionParam.class, msgs);
-				return basicSetOption((AxisOptionParam)otherEnd, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.RELATION_OPTION_PARAM__RELATION, RelationOptionParam.class, msgs);
+				return basicSetOption((RelationOptionParam)otherEnd, msgs);
+			case GraphstructurePackage.RELATION__OPTION_PARAM:
+				if (optionParam != null)
+					msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__RELATION, OptionParam.class, msgs);
+				return basicSetOptionParam((OptionParam<Axis>)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -502,6 +582,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicSetElement(null, msgs);
 			case GraphstructurePackage.RELATION__OPTION:
 				return basicSetOption(null, msgs);
+			case GraphstructurePackage.RELATION__OPTION_PARAM:
+				return basicSetOptionParam(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -537,6 +619,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__OPTION:
 				if (resolve) return getOption();
 				return basicGetOption();
+			case GraphstructurePackage.RELATION__OPTION_PARAM:
+				if (resolve) return getOptionParam();
+				return basicGetOptionParam();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -560,7 +645,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				setElement((Element)newValue);
 				return;
 			case GraphstructurePackage.RELATION__OPTION:
-				setOption((AxisOptionParam)newValue);
+				setOption((RelationOptionParam)newValue);
+				return;
+			case GraphstructurePackage.RELATION__OPTION_PARAM:
+				setOptionParam((OptionParam<Axis>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -583,7 +671,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				setElement((Element)null);
 				return;
 			case GraphstructurePackage.RELATION__OPTION:
-				setOption((AxisOptionParam)null);
+				setOption((RelationOptionParam)null);
+				return;
+			case GraphstructurePackage.RELATION__OPTION_PARAM:
+				setOptionParam((OptionParam<Axis>)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -604,6 +695,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return getElement() != null;
 			case GraphstructurePackage.RELATION__OPTION:
 				return option != null;
+			case GraphstructurePackage.RELATION__OPTION_PARAM:
+				return optionParam != null;
 		}
 		return super.eIsSet(featureID);
 	}

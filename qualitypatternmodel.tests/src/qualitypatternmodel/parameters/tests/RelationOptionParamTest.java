@@ -3,7 +3,7 @@
 package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
-import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 
 /**
@@ -12,7 +12,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AxisOptionParamTest extends ParameterTest {
+public class RelationOptionParamTest extends ParameterTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -20,28 +20,28 @@ public class AxisOptionParamTest extends ParameterTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(AxisOptionParamTest.class);
+		TestRunner.run(RelationOptionParamTest.class);
 	}
 
 	/**
-	 * Constructs a new Axis Option Param test case with the given name.
+	 * Constructs a new Relation Option Param test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AxisOptionParamTest(String name) {
+	public RelationOptionParamTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Axis Option Param test case.
+	 * Returns the fixture for this Relation Option Param test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected AxisOptionParam getFixture() {
-		return (AxisOptionParam)fixture;
+	protected RelationOptionParam getFixture() {
+		return (RelationOptionParam)fixture;
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class AxisOptionParamTest extends ParameterTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ParametersFactory.eINSTANCE.createAxisOptionParam());
+		setFixture(ParametersFactory.eINSTANCE.createRelationOptionParam());
 	}
 
 	/**

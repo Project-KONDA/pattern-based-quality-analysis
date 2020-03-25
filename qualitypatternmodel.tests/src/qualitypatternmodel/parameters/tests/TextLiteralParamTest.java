@@ -12,7 +12,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextLiteralParamTest extends TextParamTest {
+public class TextLiteralParamTest extends ParameterValueTest {
 
 	/**
 	 * <!-- begin-user-doc -->

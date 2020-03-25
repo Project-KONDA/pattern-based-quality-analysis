@@ -107,20 +107,20 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 				return createPatternElementAdapter();
 			}
 			@Override
-			public Adapter caseNotElement(NotElement object) {
-				return createNotElementAdapter();
+			public Adapter caseNotCondition(NotCondition object) {
+				return createNotConditionAdapter();
 			}
 			@Override
-			public Adapter caseCountComparison(CountComparison object) {
-				return createCountComparisonAdapter();
+			public Adapter caseCountCondition(CountCondition object) {
+				return createCountConditionAdapter();
 			}
 			@Override
 			public Adapter caseCount(Count object) {
 				return createCountAdapter();
 			}
 			@Override
-			public Adapter caseCountComparisonArgument(CountComparisonArgument object) {
-				return createCountComparisonArgumentAdapter();
+			public Adapter caseCountConditionArgument(CountConditionArgument object) {
+				return createCountConditionArgumentAdapter();
 			}
 			@Override
 			public Adapter caseGraphContainer(GraphContainer object) {
@@ -287,30 +287,30 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.NotElement <em>Not Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.NotCondition <em>Not Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.NotElement
+	 * @see qualitypatternmodel.patternstructure.NotCondition
 	 * @generated
 	 */
-	public Adapter createNotElementAdapter() {
+	public Adapter createNotConditionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.CountComparison <em>Count Comparison</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.CountCondition <em>Count Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.CountComparison
+	 * @see qualitypatternmodel.patternstructure.CountCondition
 	 * @generated
 	 */
-	public Adapter createCountComparisonAdapter() {
+	public Adapter createCountConditionAdapter() {
 		return null;
 	}
 
@@ -329,16 +329,16 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.CountComparisonArgument <em>Count Comparison Argument</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.CountConditionArgument <em>Count Condition Argument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.CountComparisonArgument
+	 * @see qualitypatternmodel.patternstructure.CountConditionArgument
 	 * @generated
 	 */
-	public Adapter createCountComparisonArgumentAdapter() {
+	public Adapter createCountConditionArgumentAdapter() {
 		return null;
 	}
 

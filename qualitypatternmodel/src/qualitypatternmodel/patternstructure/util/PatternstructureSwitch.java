@@ -140,35 +140,35 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.NOT_ELEMENT: {
-				NotElement notElement = (NotElement)theEObject;
-				T result = caseNotElement(notElement);
-				if (result == null) result = caseCondition(notElement);
-				if (result == null) result = casePatternElement(notElement);
+			case PatternstructurePackage.NOT_CONDITION: {
+				NotCondition notCondition = (NotCondition)theEObject;
+				T result = caseNotCondition(notCondition);
+				if (result == null) result = caseCondition(notCondition);
+				if (result == null) result = casePatternElement(notCondition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.COUNT_COMPARISON: {
-				CountComparison countComparison = (CountComparison)theEObject;
-				T result = caseCountComparison(countComparison);
-				if (result == null) result = caseCondition(countComparison);
-				if (result == null) result = casePatternElement(countComparison);
+			case PatternstructurePackage.COUNT_CONDITION: {
+				CountCondition countCondition = (CountCondition)theEObject;
+				T result = caseCountCondition(countCondition);
+				if (result == null) result = caseCondition(countCondition);
+				if (result == null) result = casePatternElement(countCondition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case PatternstructurePackage.COUNT: {
 				Count count = (Count)theEObject;
 				T result = caseCount(count);
-				if (result == null) result = caseCountComparisonArgument(count);
+				if (result == null) result = caseCountConditionArgument(count);
 				if (result == null) result = caseGraphContainer(count);
 				if (result == null) result = casePatternElement(count);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.COUNT_COMPARISON_ARGUMENT: {
-				CountComparisonArgument countComparisonArgument = (CountComparisonArgument)theEObject;
-				T result = caseCountComparisonArgument(countComparisonArgument);
-				if (result == null) result = casePatternElement(countComparisonArgument);
+			case PatternstructurePackage.COUNT_CONDITION_ARGUMENT: {
+				CountConditionArgument countConditionArgument = (CountConditionArgument)theEObject;
+				T result = caseCountConditionArgument(countConditionArgument);
+				if (result == null) result = casePatternElement(countConditionArgument);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -333,32 +333,32 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Not Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Not Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Not Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Not Condition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNotElement(NotElement object) {
+	public T caseNotCondition(NotCondition object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Count Comparison</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Count Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Count Comparison</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Count Condition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCountComparison(CountComparison object) {
+	public T caseCountCondition(CountCondition object) {
 		return null;
 	}
 
@@ -378,17 +378,17 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Count Comparison Argument</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Count Condition Argument</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Count Comparison Argument</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Count Condition Argument</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCountComparisonArgument(CountComparisonArgument object) {
+	public T caseCountConditionArgument(CountConditionArgument object) {
 		return null;
 	}
 

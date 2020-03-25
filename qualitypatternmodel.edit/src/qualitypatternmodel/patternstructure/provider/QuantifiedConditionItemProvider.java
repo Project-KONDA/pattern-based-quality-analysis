@@ -92,7 +92,7 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__GRAPH);
 			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION);
 			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__MORPHISM);
-			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__COUNT_COMPARISON);
+			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__COUNT_CONDITION);
 		}
 		return childrenFeatures;
 	}
@@ -152,7 +152,7 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
 			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
 			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-			case PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_COMPARISON:
+			case PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -193,12 +193,12 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createNotElement()));
+				 PatternstructureFactory.eINSTANCE.createNotCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createCountComparison()));
+				 PatternstructureFactory.eINSTANCE.createCountCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -207,8 +207,8 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__COUNT_COMPARISON,
-				 PatternstructureFactory.eINSTANCE.createCountComparison()));
+				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__COUNT_CONDITION,
+				 PatternstructureFactory.eINSTANCE.createCountCondition()));
 	}
 
 	/**
@@ -224,7 +224,7 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 
 		boolean qualify =
 			childFeature == PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION ||
-			childFeature == PatternstructurePackage.Literals.QUANTIFIED_CONDITION__COUNT_COMPARISON;
+			childFeature == PatternstructurePackage.Literals.QUANTIFIED_CONDITION__COUNT_CONDITION;
 
 		if (qualify) {
 			return getString

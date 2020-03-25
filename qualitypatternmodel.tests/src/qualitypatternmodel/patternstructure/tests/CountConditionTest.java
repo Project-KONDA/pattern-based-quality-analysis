@@ -4,7 +4,7 @@ package qualitypatternmodel.patternstructure.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.patternstructure.CountComparison;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 
 /**
@@ -14,13 +14,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.CountComparison#getArgument1() <em>Get Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CountComparison#getArgument2() <em>Get Argument2</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1() <em>Get Argument1</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2() <em>Get Argument2</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class CountComparisonTest extends ConditionTest {
+public class CountConditionTest extends ConditionTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -28,28 +28,28 @@ public class CountComparisonTest extends ConditionTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(CountComparisonTest.class);
+		TestRunner.run(CountConditionTest.class);
 	}
 
 	/**
-	 * Constructs a new Count Comparison test case with the given name.
+	 * Constructs a new Count Condition test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CountComparisonTest(String name) {
+	public CountConditionTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Count Comparison test case.
+	 * Returns the fixture for this Count Condition test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected CountComparison getFixture() {
-		return (CountComparison)fixture;
+	protected CountCondition getFixture() {
+		return (CountCondition)fixture;
 	}
 
 	/**
@@ -60,7 +60,7 @@ public class CountComparisonTest extends ConditionTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PatternstructureFactory.eINSTANCE.createCountComparison());
+		setFixture(PatternstructureFactory.eINSTANCE.createCountCondition());
 	}
 
 	/**
@@ -75,10 +75,10 @@ public class CountComparisonTest extends ConditionTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.CountComparison#getArgument1() <em>Get Argument1</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1() <em>Get Argument1</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getArgument1()
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getArgument1()
 	 * @generated
 	 */
 	public void testGetArgument1() {
@@ -88,10 +88,10 @@ public class CountComparisonTest extends ConditionTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.CountComparison#getArgument2() <em>Get Argument2</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2() <em>Get Argument2</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getArgument2()
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getArgument2()
 	 * @generated
 	 */
 	public void testGetArgument2() {

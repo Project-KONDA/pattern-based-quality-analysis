@@ -23,7 +23,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextLiteralParamItemProvider extends TextParamItemProvider {
+public class TextLiteralParamItemProvider extends ParameterValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

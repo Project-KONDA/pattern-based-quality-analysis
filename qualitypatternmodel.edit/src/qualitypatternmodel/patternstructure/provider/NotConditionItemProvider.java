@@ -13,24 +13,24 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import qualitypatternmodel.patternstructure.NotElement;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.NotElement} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.NotCondition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NotElementItemProvider extends ConditionItemProvider {
+public class NotConditionItemProvider extends ConditionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotElementItemProvider(AdapterFactory adapterFactory) {
+	public NotConditionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,7 +61,7 @@ public class NotElementItemProvider extends ConditionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION);
+			childrenFeatures.add(PatternstructurePackage.Literals.NOT_CONDITION__CONDITION);
 		}
 		return childrenFeatures;
 	}
@@ -80,14 +80,14 @@ public class NotElementItemProvider extends ConditionItemProvider {
 	}
 
 	/**
-	 * This returns NotElement.gif.
+	 * This returns NotCondition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NotElement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NotCondition"));
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class NotElementItemProvider extends ConditionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		NotElement notelem = (NotElement) object;
+		NotCondition notelem = (NotCondition) object;
 //		String text = getString("_UI_NotElement_type") + " " + notelem.getInternalId();
 		String text = "Not " + notelem.getInternalId();
 		return text;
@@ -120,8 +120,8 @@ public class NotElementItemProvider extends ConditionItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(NotElement.class)) {
-			case PatternstructurePackage.NOT_ELEMENT__CONDITION:
+		switch (notification.getFeatureID(NotCondition.class)) {
+			case PatternstructurePackage.NOT_CONDITION__CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -141,28 +141,28 @@ public class NotElementItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION,
+				(PatternstructurePackage.Literals.NOT_CONDITION__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createQuantifiedCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION,
+				(PatternstructurePackage.Literals.NOT_CONDITION__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createFormula()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION,
+				(PatternstructurePackage.Literals.NOT_CONDITION__CONDITION,
 				 PatternstructureFactory.eINSTANCE.createTrueElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createNotElement()));
+				(PatternstructurePackage.Literals.NOT_CONDITION__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createNotCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.NOT_ELEMENT__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createCountComparison()));
+				(PatternstructurePackage.Literals.NOT_CONDITION__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createCountCondition()));
 	}
 
 }

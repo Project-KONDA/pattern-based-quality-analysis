@@ -1,19 +1,19 @@
 /**
  */
-package qualitypatternmodel.patternstructure.tests;
+package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
 
-import qualitypatternmodel.patternstructure.NotElement;
-import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.parameters.OptionParam;
+import qualitypatternmodel.parameters.ParametersFactory;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Not Element</b></em>'.
+ * A test case for the model object '<em><b>Option Param</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class NotElementTest extends ConditionTest {
+public class OptionParamTest extends ParameterTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class NotElementTest extends ConditionTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(NotElementTest.class);
+		TestRunner.run(OptionParamTest.class);
 	}
 
 	/**
-	 * Constructs a new Not Element test case with the given name.
+	 * Constructs a new Option Param test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotElementTest(String name) {
+	public OptionParamTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Not Element test case.
+	 * Returns the fixture for this Option Param test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected NotElement getFixture() {
-		return (NotElement)fixture;
+	protected OptionParam<?> getFixture() {
+		return (OptionParam<?>)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class NotElementTest extends ConditionTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(PatternstructureFactory.eINSTANCE.createNotElement());
+		setFixture(ParametersFactory.eINSTANCE.createOptionParam());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class NotElementTest extends ConditionTest {
 		setFixture(null);
 	}
 
-} //NotElementTest
+} //OptionParamTest

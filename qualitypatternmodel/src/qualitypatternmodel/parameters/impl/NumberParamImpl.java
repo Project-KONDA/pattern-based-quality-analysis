@@ -14,7 +14,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.patternstructure.CountComparison;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -61,7 +61,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * @generated
 	 * @ordered
 	 */
-	protected CountComparison countComparison;
+	protected CountCondition countComparison;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,10 +130,10 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * @generated
 	 */
 	@Override
-	public CountComparison getCountComparison() {
+	public CountCondition getCountComparison() {
 		if (countComparison != null && countComparison.eIsProxy()) {
 			InternalEObject oldCountComparison = (InternalEObject)countComparison;
-			countComparison = (CountComparison)eResolveProxy(oldCountComparison);
+			countComparison = (CountCondition)eResolveProxy(oldCountComparison);
 			if (countComparison != oldCountComparison) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.NUMBER_PARAM__COUNT_COMPARISON, oldCountComparison, countComparison));
@@ -147,7 +147,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CountComparison basicGetCountComparison() {
+	public CountCondition basicGetCountComparison() {
 		return countComparison;
 	}
 
@@ -156,8 +156,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCountComparison(CountComparison newCountComparison, NotificationChain msgs) {
-		CountComparison oldCountComparison = countComparison;
+	public NotificationChain basicSetCountComparison(CountCondition newCountComparison, NotificationChain msgs) {
+		CountCondition oldCountComparison = countComparison;
 		countComparison = newCountComparison;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.NUMBER_PARAM__COUNT_COMPARISON, oldCountComparison, newCountComparison);
@@ -172,13 +172,13 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * @generated
 	 */
 	@Override
-	public void setCountComparison(CountComparison newCountComparison) {
+	public void setCountComparison(CountCondition newCountComparison) {
 		if (newCountComparison != countComparison) {
 			NotificationChain msgs = null;
 			if (countComparison != null)
-				msgs = ((InternalEObject)countComparison).eInverseRemove(this, PatternstructurePackage.COUNT_COMPARISON__NUMBER_PARAM, CountComparison.class, msgs);
+				msgs = ((InternalEObject)countComparison).eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__NUMBER_PARAM, CountCondition.class, msgs);
 			if (newCountComparison != null)
-				msgs = ((InternalEObject)newCountComparison).eInverseAdd(this, PatternstructurePackage.COUNT_COMPARISON__NUMBER_PARAM, CountComparison.class, msgs);
+				msgs = ((InternalEObject)newCountComparison).eInverseAdd(this, PatternstructurePackage.COUNT_CONDITION__NUMBER_PARAM, CountCondition.class, msgs);
 			msgs = basicSetCountComparison(newCountComparison, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -196,8 +196,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 		switch (featureID) {
 			case ParametersPackage.NUMBER_PARAM__COUNT_COMPARISON:
 				if (countComparison != null)
-					msgs = ((InternalEObject)countComparison).eInverseRemove(this, PatternstructurePackage.COUNT_COMPARISON__NUMBER_PARAM, CountComparison.class, msgs);
-				return basicSetCountComparison((CountComparison)otherEnd, msgs);
+					msgs = ((InternalEObject)countComparison).eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__NUMBER_PARAM, CountCondition.class, msgs);
+				return basicSetCountComparison((CountCondition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -245,7 +245,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 				setValue((Double)newValue);
 				return;
 			case ParametersPackage.NUMBER_PARAM__COUNT_COMPARISON:
-				setCountComparison((CountComparison)newValue);
+				setCountComparison((CountCondition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -263,7 +263,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 				setValue(VALUE_EDEFAULT);
 				return;
 			case ParametersPackage.NUMBER_PARAM__COUNT_COMPARISON:
-				setCountComparison((CountComparison)null);
+				setCountComparison((CountCondition)null);
 				return;
 		}
 		super.eUnset(featureID);

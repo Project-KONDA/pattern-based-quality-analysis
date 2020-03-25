@@ -8,9 +8,9 @@ package qualitypatternmodel.patternstructure;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountComparisonArgument()
+ * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountConditionArgument()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface CountComparisonArgument extends PatternElement {
+public interface CountConditionArgument extends PatternElement {
 } // CountComparisonArgument

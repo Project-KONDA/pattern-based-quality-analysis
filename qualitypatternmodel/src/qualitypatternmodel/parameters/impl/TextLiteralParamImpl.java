@@ -15,6 +15,7 @@ import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -35,7 +36,7 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class TextLiteralParamImpl extends TextParamImpl implements TextLiteralParam {
+public class TextLiteralParamImpl extends ParameterValueImpl implements TextLiteralParam {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -103,6 +104,11 @@ public class TextLiteralParamImpl extends TextParamImpl implements TextLiteralPa
 	@Override
 	public boolean inputIsValid() {
 		return getValue() != null && getValue() != "";
+	}
+	
+	@Override
+	public ReturnType getReturnType() {
+		return ReturnType.STRING;
 	}
 	
 	/**

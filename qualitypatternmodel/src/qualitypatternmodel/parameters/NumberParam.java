@@ -2,8 +2,8 @@
  */
 package qualitypatternmodel.parameters;
 
-import qualitypatternmodel.patternstructure.CountComparison;
-import qualitypatternmodel.patternstructure.CountComparisonArgument;
+import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.CountConditionArgument;
 
 
 /**
@@ -23,7 +23,7 @@ import qualitypatternmodel.patternstructure.CountComparisonArgument;
  * @model
  * @generated
  */
-public interface NumberParam extends ParameterValue, CountComparisonArgument {
+public interface NumberParam extends ParameterValue, CountConditionArgument {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * The default value is <code>"0.0"</code>.
@@ -49,17 +49,17 @@ public interface NumberParam extends ParameterValue, CountComparisonArgument {
 
 	/**
 	 * Returns the value of the '<em><b>Count Comparison</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountComparison#getNumberParam <em>Number Param</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountCondition#getNumberParam <em>Number Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Count Comparison</em>' reference.
-	 * @see #setCountComparison(CountComparison)
+	 * @see #setCountComparison(CountCondition)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam_CountComparison()
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getNumberParam
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getNumberParam
 	 * @model opposite="numberParam"
 	 * @generated
 	 */
-	CountComparison getCountComparison();
+	CountCondition getCountComparison();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.parameters.NumberParam#getCountComparison <em>Count Comparison</em>}' reference.
@@ -69,6 +69,6 @@ public interface NumberParam extends ParameterValue, CountComparisonArgument {
 	 * @see #getCountComparison()
 	 * @generated
 	 */
-	void setCountComparison(CountComparison value);
+	void setCountComparison(CountCondition value);
 
 } // Number

@@ -5,6 +5,7 @@ package qualitypatternmodel.graphstructure;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.ReferenceOperator;
+import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -23,7 +24,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator2 <em>Reference Operator2</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator <em>Reference Operator</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator1 <em>Reference Operator1</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getOptionParam <em>Option Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty()
@@ -80,28 +82,52 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	void setReferenceOperator2(ReferenceOperator value);
 
 	/**
-	 * Returns the value of the '<em><b>Reference Operator</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty <em>Property</em>}'.
+	 * Returns the value of the '<em><b>Reference Operator1</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty1 <em>Property1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reference Operator</em>' reference.
-	 * @see #setReferenceOperator(ReferenceOperator)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_ReferenceOperator()
-	 * @see qualitypatternmodel.functions.ReferenceOperator#getProperty
-	 * @model opposite="property"
+	 * @return the value of the '<em>Reference Operator1</em>' reference.
+	 * @see #setReferenceOperator1(ReferenceOperator)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_ReferenceOperator1()
+	 * @see qualitypatternmodel.functions.ReferenceOperator#getProperty1
+	 * @model opposite="property1"
 	 * @generated
 	 */
-	ReferenceOperator getReferenceOperator();
+	ReferenceOperator getReferenceOperator1();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator <em>Reference Operator</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator1 <em>Reference Operator1</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference Operator</em>' reference.
-	 * @see #getReferenceOperator()
+	 * @param value the new value of the '<em>Reference Operator1</em>' reference.
+	 * @see #getReferenceOperator1()
 	 * @generated
 	 */
-	void setReferenceOperator(ReferenceOperator value);
+	void setReferenceOperator1(ReferenceOperator value);
+
+	/**
+	 * Returns the value of the '<em><b>Option Param</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.OptionParam#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Option Param</em>' reference.
+	 * @see #setOptionParam(OptionParam)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_OptionParam()
+	 * @see qualitypatternmodel.parameters.OptionParam#getProperty
+	 * @model opposite="property" required="true"
+	 * @generated
+	 */
+	OptionParam<PropertyLocation> getOptionParam();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getOptionParam <em>Option Param</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Option Param</em>' reference.
+	 * @see #getOptionParam()
+	 * @generated
+	 */
+	void setOptionParam(OptionParam<PropertyLocation> value);
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.

@@ -50,7 +50,8 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 			addAttributeNamePropertyDescriptor(object);
 			addOptionPropertyDescriptor(object);
 			addReferenceOperator2PropertyDescriptor(object);
-			addReferenceOperatorPropertyDescriptor(object);
+			addReferenceOperator1PropertyDescriptor(object);
+			addOptionParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -166,19 +167,41 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Reference Operator feature.
+	 * This adds a property descriptor for the Reference Operator1 feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReferenceOperatorPropertyDescriptor(Object object) {
+	protected void addReferenceOperator1PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Property_referenceOperator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_referenceOperator_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__REFERENCE_OPERATOR,
+				 getString("_UI_Property_referenceOperator1_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Property_referenceOperator1_feature", "_UI_Property_type"),
+				 GraphstructurePackage.Literals.PROPERTY__REFERENCE_OPERATOR1,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Option Param feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptionParamPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Property_optionParam_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Property_optionParam_feature", "_UI_Property_type"),
+				 GraphstructurePackage.Literals.PROPERTY__OPTION_PARAM,
 				 true,
 				 false,
 				 true,

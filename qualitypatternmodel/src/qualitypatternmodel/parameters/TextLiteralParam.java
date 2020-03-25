@@ -24,7 +24,7 @@ import qualitypatternmodel.graphstructure.Property;
  * @model
  * @generated
  */
-public interface TextLiteralParam extends TextParam {
+public interface TextLiteralParam extends ParameterValue {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * The default value is <code>""</code>.

@@ -66,8 +66,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 			case PatternstructurePackage.FORMULA: return createFormula();
 			case PatternstructurePackage.TRUE_ELEMENT: return createTrueElement();
 			case PatternstructurePackage.PATTERN: return createPattern();
-			case PatternstructurePackage.NOT_ELEMENT: return createNotElement();
-			case PatternstructurePackage.COUNT_COMPARISON: return createCountComparison();
+			case PatternstructurePackage.NOT_CONDITION: return createNotCondition();
+			case PatternstructurePackage.COUNT_CONDITION: return createCountCondition();
 			case PatternstructurePackage.COUNT: return createCount();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -207,9 +207,9 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public NotElement createNotElement() {
-		NotElementImpl notElement = new NotElementImpl();
-		return notElement;
+	public NotCondition createNotCondition() {
+		NotConditionImpl notCondition = new NotConditionImpl();
+		return notCondition;
 	}
 
 	/**
@@ -218,9 +218,9 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public CountComparison createCountComparison() {
-		CountComparisonImpl countComparison = new CountComparisonImpl();
-		return countComparison;
+	public CountCondition createCountCondition() {
+		CountConditionImpl countCondition = new CountConditionImpl();
+		return countCondition;
 	}
 
 	/**

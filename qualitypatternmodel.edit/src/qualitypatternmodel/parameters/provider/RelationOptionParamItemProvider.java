@@ -14,23 +14,23 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.parameters.AxisOptionParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.parameters.RelationOptionParam} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AxisOptionParamItemProvider extends ParameterItemProvider {
+public class RelationOptionParamItemProvider extends ParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AxisOptionParamItemProvider(AdapterFactory adapterFactory) {
+	public RelationOptionParamItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,9 +63,9 @@ public class AxisOptionParamItemProvider extends ParameterItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AxisOptionParam_options_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AxisOptionParam_options_feature", "_UI_AxisOptionParam_type"),
-				 ParametersPackage.Literals.AXIS_OPTION_PARAM__OPTIONS,
+				 getString("_UI_RelationOptionParam_options_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RelationOptionParam_options_feature", "_UI_RelationOptionParam_type"),
+				 ParametersPackage.Literals.RELATION_OPTION_PARAM__OPTIONS,
 				 true,
 				 false,
 				 false,
@@ -85,9 +85,9 @@ public class AxisOptionParamItemProvider extends ParameterItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AxisOptionParam_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AxisOptionParam_value_feature", "_UI_AxisOptionParam_type"),
-				 ParametersPackage.Literals.AXIS_OPTION_PARAM__VALUE,
+				 getString("_UI_RelationOptionParam_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RelationOptionParam_value_feature", "_UI_RelationOptionParam_type"),
+				 ParametersPackage.Literals.RELATION_OPTION_PARAM__VALUE,
 				 true,
 				 false,
 				 false,
@@ -107,9 +107,9 @@ public class AxisOptionParamItemProvider extends ParameterItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AxisOptionParam_relation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AxisOptionParam_relation_feature", "_UI_AxisOptionParam_type"),
-				 ParametersPackage.Literals.AXIS_OPTION_PARAM__RELATION,
+				 getString("_UI_RelationOptionParam_relation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RelationOptionParam_relation_feature", "_UI_RelationOptionParam_type"),
+				 ParametersPackage.Literals.RELATION_OPTION_PARAM__RELATION,
 				 true,
 				 false,
 				 true,
@@ -119,14 +119,14 @@ public class AxisOptionParamItemProvider extends ParameterItemProvider {
 	}
 
 	/**
-	 * This returns AxisOptionParam.gif.
+	 * This returns RelationOptionParam.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AxisOptionParam"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RelationOptionParam"));
 	}
 
 	/**
@@ -137,10 +137,10 @@ public class AxisOptionParamItemProvider extends ParameterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AxisOptionParam)object).getId();
+		String label = ((RelationOptionParam)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AxisOptionParam_type") :
-			getString("_UI_AxisOptionParam_type") + " " + label;
+			getString("_UI_RelationOptionParam_type") :
+			getString("_UI_RelationOptionParam_type") + " " + label;
 	}
 
 
@@ -155,9 +155,9 @@ public class AxisOptionParamItemProvider extends ParameterItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(AxisOptionParam.class)) {
-			case ParametersPackage.AXIS_OPTION_PARAM__OPTIONS:
-			case ParametersPackage.AXIS_OPTION_PARAM__VALUE:
+		switch (notification.getFeatureID(RelationOptionParam.class)) {
+			case ParametersPackage.RELATION_OPTION_PARAM__OPTIONS:
+			case ParametersPackage.RELATION_OPTION_PARAM__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

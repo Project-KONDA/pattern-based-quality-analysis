@@ -11,7 +11,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
-import qualitypatternmodel.patternstructure.NotElement;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -41,15 +41,15 @@ public class Eval02Mandstruc {
 		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);			
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
-		NotElement notElement = patternstructureFactory.createNotElement();
-		pattern.setCondition(notElement);
+		NotCondition notCondition = patternstructureFactory.createNotCondition();
+		pattern.setCondition(notCondition);
 		
 		Formula formula = patternstructureFactory.createFormula();
 		formula.setOperator(LogicalOperator.OR);
-		notElement.setCondition(formula);
+		notCondition.setCondition(formula);
 		
 		QuantifiedCondition quantifiedCondition1 = patternstructureFactory.createQuantifiedCondition();		
-		formula.setCondition(quantifiedCondition1);
+		formula.setCondition1(quantifiedCondition1);
 		QuantifiedCondition quantifiedCondition2 = patternstructureFactory.createQuantifiedCondition();
 		formula.setCondition2(quantifiedCondition2);
 		TrueElement t1 = patternstructureFactory.createTrueElement();

@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
+import qualitypatternmodel.patternstructure.CountCondition;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,7 @@ import qualitypatternmodel.functions.ComparisonOperator;
  *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getComparison <em>Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition <em>Count Condition</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getComparisonOptionParam()
@@ -87,5 +89,29 @@ public interface ComparisonOptionParam extends Parameter {
 	 * @generated
 	 */
 	void setComparison(Comparison value);
+
+	/**
+	 * Returns the value of the '<em><b>Count Condition</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountCondition#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Count Condition</em>' reference.
+	 * @see #setCountCondition(CountCondition)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getComparisonOptionParam_CountCondition()
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getOption
+	 * @model opposite="option"
+	 * @generated
+	 */
+	CountCondition getCountCondition();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition <em>Count Condition</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Count Condition</em>' reference.
+	 * @see #getCountCondition()
+	 * @generated
+	 */
+	void setCountCondition(CountCondition value);
 
 } // CompOption

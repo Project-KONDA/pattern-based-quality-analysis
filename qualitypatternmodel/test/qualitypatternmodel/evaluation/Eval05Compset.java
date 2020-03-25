@@ -9,7 +9,7 @@ import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.patternstructure.NotElement;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
@@ -34,7 +34,7 @@ public class Eval05Compset {
 		Element nextToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(0);					
 		nextToReturnElementInGraph1.addPrimitiveComparison(); 	
 		
-		Graph graph2 = ((QuantifiedCondition) ((NotElement) ((QuantifiedCondition) pattern.getCondition()).getCondition()).getCondition()).getGraph();
+		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) pattern.getCondition()).getCondition()).getCondition()).getGraph();
 
 		Element returnElementInGraph2 = graph2.getReturnElements().get(0);
 		Element nextToReturnElementInGraph2 = returnElementInGraph2.getNextElements().get(0);	

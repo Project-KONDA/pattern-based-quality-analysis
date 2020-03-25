@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
@@ -79,7 +79,8 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 			case ParametersPackage.TIME_PARAM: return createTimeParam();
 			case ParametersPackage.UNKNOWN_PARAMETER_VALUE: return createUnknownParameterValue();
 			case ParametersPackage.DATE_TIME_PARAM: return createDateTimeParam();
-			case ParametersPackage.AXIS_OPTION_PARAM: return createAxisOptionParam();
+			case ParametersPackage.RELATION_OPTION_PARAM: return createRelationOptionParam();
+			case ParametersPackage.OPTION_PARAM: return createOptionParam();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -212,9 +213,20 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public AxisOptionParam createAxisOptionParam() {
-		AxisOptionParamImpl axisOptionParam = new AxisOptionParamImpl();
-		return axisOptionParam;
+	public RelationOptionParam createRelationOptionParam() {
+		RelationOptionParamImpl relationOptionParam = new RelationOptionParamImpl();
+		return relationOptionParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public <T> OptionParam<T> createOptionParam() {
+		OptionParamImpl<T> optionParam = new OptionParamImpl<T>();
+		return optionParam;
 	}
 
 	/**

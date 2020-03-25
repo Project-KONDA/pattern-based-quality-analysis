@@ -34,7 +34,7 @@ public class Test06NotElement {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		Pattern pattern = Test00.getBasePattern();
 		
-		NotElement n = factory.createNotElement();
+		NotCondition n = factory.createNotCondition();
 		pattern.setCondition(n);
 		QuantifiedCondition qc = factory.createQuantifiedCondition();
 		n.setCondition(qc);
@@ -50,7 +50,7 @@ public class Test06NotElement {
 	}
 	public static Pattern getPatternNotForall() {
 		Pattern pattern = getPatternNotExists();
-		QuantifiedCondition qc = ((QuantifiedCondition) ((NotElement) pattern.getCondition()).getCondition());
+		QuantifiedCondition qc = ((QuantifiedCondition) ((NotCondition) pattern.getCondition()).getCondition());
 		qc.setQuantifier(Quantifier.FORALL);
 		return pattern;
 	}
@@ -66,7 +66,7 @@ public class Test06NotElement {
 		Pattern pattern = Test03Quantor.getPatternExists();
 		TrueElement t = (TrueElement) ((QuantifiedCondition) pattern.getCondition()).getCondition();
 		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition(); 
-		NotElement n = factory.createNotElement();
+		NotCondition n = factory.createNotCondition();
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
 
 //		SingleElement root = qc1.getGraph().getRootElement();
@@ -85,7 +85,7 @@ public class Test06NotElement {
 		Pattern pattern = getPatternExistsNotExists();
 		
 		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition();
-		QuantifiedCondition qc2 = (QuantifiedCondition) ((NotElement) qc1.getCondition()).getCondition();
+		QuantifiedCondition qc2 = (QuantifiedCondition) ((NotCondition) qc1.getCondition()).getCondition();
 
 		qc1.setQuantifier(Quantifier.FORALL);
 		qc2.setQuantifier(Quantifier.FORALL);

@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import qualitypatternmodel.functions.FunctionsPackage;
@@ -17,19 +18,19 @@ import qualitypatternmodel.functions.impl.FunctionsPackageImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
-import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.PropertyOptionParam;
-import qualitypatternmodel.parameters.TextParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
@@ -80,13 +81,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	private EClass booleanParamEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass textParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -149,7 +143,14 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass axisOptionParamEClass = null;
+	private EClass relationOptionParamEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass optionParamEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -362,6 +363,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EReference getComparisonOptionParam_CountCondition() {
+		return (EReference)comparisonOptionParamEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPropertyOptionParam() {
 		return propertyOptionParamEClass;
 	}
@@ -464,16 +475,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EReference getBooleanParam_Match() {
 		return (EReference)booleanParamEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getTextParam() {
-		return textParamEClass;
 	}
 
 	/**
@@ -682,8 +683,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getAxisOptionParam() {
-		return axisOptionParamEClass;
+	public EClass getRelationOptionParam() {
+		return relationOptionParamEClass;
 	}
 
 	/**
@@ -692,8 +693,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAxisOptionParam_Options() {
-		return (EAttribute)axisOptionParamEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRelationOptionParam_Options() {
+		return (EAttribute)relationOptionParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -702,8 +703,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAxisOptionParam_Value() {
-		return (EAttribute)axisOptionParamEClass.getEStructuralFeatures().get(1);
+	public EAttribute getRelationOptionParam_Value() {
+		return (EAttribute)relationOptionParamEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -712,8 +713,78 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EReference getAxisOptionParam_Relation() {
-		return (EReference)axisOptionParamEClass.getEStructuralFeatures().get(2);
+	public EReference getRelationOptionParam_Relation() {
+		return (EReference)relationOptionParamEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getOptionParam() {
+		return optionParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getOptionParam_Value() {
+		return (EAttribute)optionParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getOptionParam_Options() {
+		return (EAttribute)optionParamEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOptionParam_Property() {
+		return (EReference)optionParamEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOptionParam_Relation() {
+		return (EReference)optionParamEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOptionParam_Comparison() {
+		return (EReference)optionParamEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getOptionParam_Countcondition() {
+		return (EReference)optionParamEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -758,6 +829,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__OPTIONS);
 		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__VALUE);
 		createEReference(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__COMPARISON);
+		createEReference(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__COUNT_CONDITION);
 
 		propertyOptionParamEClass = createEClass(PROPERTY_OPTION_PARAM);
 		createEAttribute(propertyOptionParamEClass, PROPERTY_OPTION_PARAM__OPTIONS);
@@ -772,8 +844,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		booleanParamEClass = createEClass(BOOLEAN_PARAM);
 		createEAttribute(booleanParamEClass, BOOLEAN_PARAM__VALUE);
 		createEReference(booleanParamEClass, BOOLEAN_PARAM__MATCH);
-
-		textParamEClass = createEClass(TEXT_PARAM);
 
 		textListParamEClass = createEClass(TEXT_LIST_PARAM);
 		createEAttribute(textListParamEClass, TEXT_LIST_PARAM__VALUES);
@@ -803,10 +873,18 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		dateTimeParamEClass = createEClass(DATE_TIME_PARAM);
 		createEAttribute(dateTimeParamEClass, DATE_TIME_PARAM__VALUE);
 
-		axisOptionParamEClass = createEClass(AXIS_OPTION_PARAM);
-		createEAttribute(axisOptionParamEClass, AXIS_OPTION_PARAM__OPTIONS);
-		createEAttribute(axisOptionParamEClass, AXIS_OPTION_PARAM__VALUE);
-		createEReference(axisOptionParamEClass, AXIS_OPTION_PARAM__RELATION);
+		relationOptionParamEClass = createEClass(RELATION_OPTION_PARAM);
+		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__OPTIONS);
+		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__VALUE);
+		createEReference(relationOptionParamEClass, RELATION_OPTION_PARAM__RELATION);
+
+		optionParamEClass = createEClass(OPTION_PARAM);
+		createEAttribute(optionParamEClass, OPTION_PARAM__VALUE);
+		createEAttribute(optionParamEClass, OPTION_PARAM__OPTIONS);
+		createEReference(optionParamEClass, OPTION_PARAM__PROPERTY);
+		createEReference(optionParamEClass, OPTION_PARAM__RELATION);
+		createEReference(optionParamEClass, OPTION_PARAM__COMPARISON);
+		createEReference(optionParamEClass, OPTION_PARAM__COUNTCONDITION);
 	}
 
 	/**
@@ -838,6 +916,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		FunctionsPackage theFunctionsPackage = (FunctionsPackage)EPackage.Registry.INSTANCE.getEPackage(FunctionsPackage.eNS_URI);
 
 		// Create type parameters
+		ETypeParameter optionParamEClass_T = addETypeParameter(optionParamEClass, "T");
 
 		// Set bounds for type parameters
 
@@ -848,17 +927,17 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		propertyOptionParamEClass.getESuperTypes().add(this.getParameter());
 		parameterListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		booleanParamEClass.getESuperTypes().add(this.getParameterValue());
-		textParamEClass.getESuperTypes().add(this.getParameterValue());
-		textListParamEClass.getESuperTypes().add(this.getTextParam());
-		textLiteralParamEClass.getESuperTypes().add(this.getTextParam());
+		textListParamEClass.getESuperTypes().add(this.getParameterValue());
+		textLiteralParamEClass.getESuperTypes().add(this.getParameterValue());
 		numberParamEClass.getESuperTypes().add(this.getParameterValue());
-		numberParamEClass.getESuperTypes().add(thePatternstructurePackage.getCountComparisonArgument());
+		numberParamEClass.getESuperTypes().add(thePatternstructurePackage.getCountConditionArgument());
 		parameterValueEClass.getESuperTypes().add(this.getParameter());
 		dateParamEClass.getESuperTypes().add(this.getParameterValue());
 		timeParamEClass.getESuperTypes().add(this.getParameterValue());
 		unknownParameterValueEClass.getESuperTypes().add(this.getParameter());
 		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
-		axisOptionParamEClass.getESuperTypes().add(this.getParameter());
+		relationOptionParamEClass.getESuperTypes().add(this.getParameter());
+		optionParamEClass.getESuperTypes().add(this.getParameter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -884,6 +963,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEAttribute(getComparisonOptionParam_Options(), theFunctionsPackage.getComparisonOperator(), "options", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComparisonOptionParam_Value(), theFunctionsPackage.getComparisonOperator(), "value", null, 1, 1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparisonOptionParam_Comparison(), theFunctionsPackage.getComparison(), theFunctionsPackage.getComparison_Option(), "comparison", null, 0, 1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparisonOptionParam_CountCondition(), thePatternstructurePackage.getCountCondition(), thePatternstructurePackage.getCountCondition_Option(), "countCondition", null, 0, 1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyOptionParamEClass, PropertyOptionParam.class, "PropertyOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPropertyOptionParam_Options(), theGraphstructurePackage.getPropertyLocation(), "options", null, 0, -1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -901,8 +981,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEAttribute(getBooleanParam_Value(), ecorePackage.getEBooleanObject(), "value", "true", 1, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanParam_Match(), theFunctionsPackage.getMatch(), theFunctionsPackage.getMatch_Option(), "match", null, 0, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(textParamEClass, TextParam.class, "TextParam", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(textListParamEClass, TextListParam.class, "TextListParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextListParam_Values(), ecorePackage.getEString(), "values", "", 0, -1, TextListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -917,7 +995,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEClass(numberParamEClass, NumberParam.class, "NumberParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberParam_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNumberParam_CountComparison(), thePatternstructurePackage.getCountComparison(), thePatternstructurePackage.getCountComparison_NumberParam(), "countComparison", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNumberParam_CountComparison(), thePatternstructurePackage.getCountCondition(), thePatternstructurePackage.getCountCondition_NumberParam(), "countComparison", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -935,10 +1013,20 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEClass(dateTimeParamEClass, DateTimeParam.class, "DateTimeParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateTimeParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateTimeParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(axisOptionParamEClass, AxisOptionParam.class, "AxisOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAxisOptionParam_Options(), theGraphstructurePackage.getAxis(), "options", null, 0, -1, AxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAxisOptionParam_Value(), theGraphstructurePackage.getAxis(), "value", null, 1, 1, AxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAxisOptionParam_Relation(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_Option(), "relation", null, 0, 1, AxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(relationOptionParamEClass, RelationOptionParam.class, "RelationOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRelationOptionParam_Options(), theGraphstructurePackage.getAxis(), "options", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelationOptionParam_Value(), theGraphstructurePackage.getAxis(), "value", null, 1, 1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationOptionParam_Relation(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_Option(), "relation", null, 0, 1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(optionParamEClass, OptionParam.class, "OptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(optionParamEClass_T);
+		initEAttribute(getOptionParam_Value(), g1, "value", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(optionParamEClass_T);
+		initEAttribute(getOptionParam_Options(), g1, "options", null, 0, -1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOptionParam_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_OptionParam(), "property", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOptionParam_Relation(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_OptionParam(), "relation", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOptionParam_Comparison(), theFunctionsPackage.getComparison(), theFunctionsPackage.getComparison_OptionParam(), "comparison", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOptionParam_Countcondition(), thePatternstructurePackage.getCountCondition(), thePatternstructurePackage.getCountCondition_OptionParam(), "countcondition", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

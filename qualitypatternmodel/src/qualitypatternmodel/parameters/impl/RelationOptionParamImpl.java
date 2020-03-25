@@ -22,7 +22,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.parameters.AxisOptionParam;
+import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
@@ -34,14 +34,14 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.impl.AxisOptionParamImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.AxisOptionParamImpl#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.AxisOptionParamImpl#getRelation <em>Relation</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.RelationOptionParamImpl#getOptions <em>Options</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.RelationOptionParamImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.RelationOptionParamImpl#getRelation <em>Relation</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionParam {
+public class RelationOptionParamImpl extends ParameterImpl implements RelationOptionParam {
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -85,7 +85,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	 * 
 	 * @generated NOT
 	 */
-	public AxisOptionParamImpl() {
+	public RelationOptionParamImpl() {
 		super();
 		getOptions().add(Axis.CHILD);
 		getOptions().add(Axis.DESCENDANT);
@@ -123,7 +123,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ParametersPackage.Literals.AXIS_OPTION_PARAM;
+		return ParametersPackage.Literals.RELATION_OPTION_PARAM;
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	@Override
 	public EList<Axis> getOptions() {
 		if (options == null) {
-			options = new EDataTypeUniqueEList<Axis>(Axis.class, this, ParametersPackage.AXIS_OPTION_PARAM__OPTIONS);
+			options = new EDataTypeUniqueEList<Axis>(Axis.class, this, ParametersPackage.RELATION_OPTION_PARAM__OPTIONS);
 		}
 		return options;
 	}
@@ -166,7 +166,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 		Axis oldValue = value;
 		value = newValue == null ? VALUE_EDEFAULT : newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.AXIS_OPTION_PARAM__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.RELATION_OPTION_PARAM__VALUE, oldValue, value));
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 			relation = (Relation)eResolveProxy(oldRelation);
 			if (relation != oldRelation) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.AXIS_OPTION_PARAM__RELATION, oldRelation, relation));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.RELATION_OPTION_PARAM__RELATION, oldRelation, relation));
 			}
 		}
 		return relation;
@@ -202,7 +202,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 		Relation oldRelation = relation;
 		relation = newRelation;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.AXIS_OPTION_PARAM__RELATION, oldRelation, newRelation);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.RELATION_OPTION_PARAM__RELATION, oldRelation, newRelation);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -224,7 +224,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.AXIS_OPTION_PARAM__RELATION, newRelation, newRelation));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.RELATION_OPTION_PARAM__RELATION, newRelation, newRelation));
 	}
 
 	/**
@@ -234,7 +234,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.AXIS_OPTION_PARAM__RELATION:
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
 				if (relation != null)
 					msgs = ((InternalEObject)relation).eInverseRemove(this, GraphstructurePackage.RELATION__OPTION, Relation.class, msgs);
 				return basicSetRelation((Relation)otherEnd, msgs);
@@ -249,7 +249,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.AXIS_OPTION_PARAM__RELATION:
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
 				return basicSetRelation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -262,11 +262,11 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ParametersPackage.AXIS_OPTION_PARAM__OPTIONS:
+			case ParametersPackage.RELATION_OPTION_PARAM__OPTIONS:
 				return getOptions();
-			case ParametersPackage.AXIS_OPTION_PARAM__VALUE:
+			case ParametersPackage.RELATION_OPTION_PARAM__VALUE:
 				return getValue();
-			case ParametersPackage.AXIS_OPTION_PARAM__RELATION:
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
 				if (resolve) return getRelation();
 				return basicGetRelation();
 		}
@@ -281,14 +281,14 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ParametersPackage.AXIS_OPTION_PARAM__OPTIONS:
+			case ParametersPackage.RELATION_OPTION_PARAM__OPTIONS:
 				getOptions().clear();
 				getOptions().addAll((Collection<? extends Axis>)newValue);
 				return;
-			case ParametersPackage.AXIS_OPTION_PARAM__VALUE:
+			case ParametersPackage.RELATION_OPTION_PARAM__VALUE:
 				setValue((Axis)newValue);
 				return;
-			case ParametersPackage.AXIS_OPTION_PARAM__RELATION:
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
 				setRelation((Relation)newValue);
 				return;
 		}
@@ -302,13 +302,13 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ParametersPackage.AXIS_OPTION_PARAM__OPTIONS:
+			case ParametersPackage.RELATION_OPTION_PARAM__OPTIONS:
 				getOptions().clear();
 				return;
-			case ParametersPackage.AXIS_OPTION_PARAM__VALUE:
+			case ParametersPackage.RELATION_OPTION_PARAM__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case ParametersPackage.AXIS_OPTION_PARAM__RELATION:
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
 				setRelation((Relation)null);
 				return;
 		}
@@ -322,11 +322,11 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ParametersPackage.AXIS_OPTION_PARAM__OPTIONS:
+			case ParametersPackage.RELATION_OPTION_PARAM__OPTIONS:
 				return options != null && !options.isEmpty();
-			case ParametersPackage.AXIS_OPTION_PARAM__VALUE:
+			case ParametersPackage.RELATION_OPTION_PARAM__VALUE:
 				return value != VALUE_EDEFAULT;
-			case ParametersPackage.AXIS_OPTION_PARAM__RELATION:
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
 				return relation != null;
 		}
 		return super.eIsSet(featureID);

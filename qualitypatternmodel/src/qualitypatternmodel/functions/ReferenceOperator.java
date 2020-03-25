@@ -16,7 +16,7 @@ import qualitypatternmodel.graphstructure.ReturnType;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.ReferenceOperator#getProperty2 <em>Property2</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.ReferenceOperator#getProperty <em>Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.ReferenceOperator#getProperty1 <em>Property1</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.ReferenceOperator#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -51,28 +51,28 @@ public interface ReferenceOperator extends BooleanOperator {
 	void setProperty2(Property value);
 
 	/**
-	 * Returns the value of the '<em><b>Property</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator <em>Reference Operator</em>}'.
+	 * Returns the value of the '<em><b>Property1</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator1 <em>Reference Operator1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property</em>' reference.
-	 * @see #setProperty(Property)
-	 * @see qualitypatternmodel.functions.FunctionsPackage#getReferenceOperator_Property()
-	 * @see qualitypatternmodel.graphstructure.Property#getReferenceOperator
-	 * @model opposite="referenceOperator"
+	 * @return the value of the '<em>Property1</em>' reference.
+	 * @see #setProperty1(Property)
+	 * @see qualitypatternmodel.functions.FunctionsPackage#getReferenceOperator_Property1()
+	 * @see qualitypatternmodel.graphstructure.Property#getReferenceOperator1
+	 * @model opposite="referenceOperator1"
 	 * @generated
 	 */
-	Property getProperty();
+	Property getProperty1();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty <em>Property</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty1 <em>Property1</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property</em>' reference.
-	 * @see #getProperty()
+	 * @param value the new value of the '<em>Property1</em>' reference.
+	 * @see #getProperty1()
 	 * @generated
 	 */
-	void setProperty(Property value);
+	void setProperty1(Property value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.

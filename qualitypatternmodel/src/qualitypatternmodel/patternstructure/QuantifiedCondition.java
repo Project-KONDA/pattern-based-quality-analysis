@@ -20,7 +20,7 @@ import qualitypatternmodel.graphstructure.Graph;
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCondition <em>Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getMorphism <em>Morphism</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCountComparison <em>Count Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCountCondition <em>Count Condition</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition()
@@ -99,28 +99,28 @@ public interface QuantifiedCondition extends Condition, GraphContainer {
 	void setMorphism(Morphism value);
 
 	/**
-	 * Returns the value of the '<em><b>Count Comparison</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountComparison#getQuantifiedConditionCount <em>Quantified Condition Count</em>}'.
+	 * Returns the value of the '<em><b>Count Condition</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountCondition#getQuantifiedConditionCount <em>Quantified Condition Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count Comparison</em>' containment reference.
-	 * @see #setCountComparison(CountComparison)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_CountComparison()
-	 * @see qualitypatternmodel.patternstructure.CountComparison#getQuantifiedConditionCount
+	 * @return the value of the '<em>Count Condition</em>' containment reference.
+	 * @see #setCountCondition(CountCondition)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_CountCondition()
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getQuantifiedConditionCount
 	 * @model opposite="quantifiedConditionCount" containment="true"
 	 * @generated
 	 */
-	CountComparison getCountComparison();
+	CountCondition getCountCondition();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCountComparison <em>Count Comparison</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCountCondition <em>Count Condition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count Comparison</em>' containment reference.
-	 * @see #getCountComparison()
+	 * @param value the new value of the '<em>Count Condition</em>' containment reference.
+	 * @see #getCountCondition()
 	 * @generated
 	 */
-	void setCountComparison(CountComparison value);
+	void setCountCondition(CountCondition value);
 
 	/**
 	 * <!-- begin-user-doc -->

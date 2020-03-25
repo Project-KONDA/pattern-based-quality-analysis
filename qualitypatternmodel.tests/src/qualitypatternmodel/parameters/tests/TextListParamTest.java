@@ -19,7 +19,7 @@ import qualitypatternmodel.parameters.TextListParam;
  * </p>
  * @generated
  */
-public class TextListParamTest extends TextParamTest {
+public class TextListParamTest extends ParameterValueTest {
 
 	/**
 	 * <!-- begin-user-doc -->

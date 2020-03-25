@@ -233,49 +233,49 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.NotElement} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.NotCondition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NotElementItemProvider notElementItemProvider;
+	protected NotConditionItemProvider notConditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.NotElement}.
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.NotCondition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNotElementAdapter() {
-		if (notElementItemProvider == null) {
-			notElementItemProvider = new NotElementItemProvider(this);
+	public Adapter createNotConditionAdapter() {
+		if (notConditionItemProvider == null) {
+			notConditionItemProvider = new NotConditionItemProvider(this);
 		}
 
-		return notElementItemProvider;
+		return notConditionItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.CountComparison} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.CountCondition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CountComparisonItemProvider countComparisonItemProvider;
+	protected CountConditionItemProvider countConditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.CountComparison}.
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.CountCondition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCountComparisonAdapter() {
-		if (countComparisonItemProvider == null) {
-			countComparisonItemProvider = new CountComparisonItemProvider(this);
+	public Adapter createCountConditionAdapter() {
+		if (countConditionItemProvider == null) {
+			countConditionItemProvider = new CountConditionItemProvider(this);
 		}
 
-		return countComparisonItemProvider;
+		return countConditionItemProvider;
 	}
 
 	/**
@@ -413,8 +413,8 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
 		if (trueElementItemProvider != null) trueElementItemProvider.dispose();
 		if (patternItemProvider != null) patternItemProvider.dispose();
-		if (notElementItemProvider != null) notElementItemProvider.dispose();
-		if (countComparisonItemProvider != null) countComparisonItemProvider.dispose();
+		if (notConditionItemProvider != null) notConditionItemProvider.dispose();
+		if (countConditionItemProvider != null) countConditionItemProvider.dispose();
 		if (countItemProvider != null) countItemProvider.dispose();
 	}
 

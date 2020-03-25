@@ -35,7 +35,7 @@ import qualitypatternmodel.graphstructure.Comparable;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.impl.ReferenceOperatorImpl#getProperty2 <em>Property2</em>}</li>
- *   <li>{@link qualitypatternmodel.functions.impl.ReferenceOperatorImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.impl.ReferenceOperatorImpl#getProperty1 <em>Property1</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.impl.ReferenceOperatorImpl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -53,14 +53,14 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	 */
 	protected Property property2;
 	/**
-	 * The cached value of the '{@link #getProperty() <em>Property</em>}' reference.
+	 * The cached value of the '{@link #getProperty1() <em>Property1</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProperty()
+	 * @see #getProperty1()
 	 * @generated
 	 * @ordered
 	 */
-	protected Property property;
+	protected Property property1;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -92,7 +92,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	
 	@Override
 	public String generateQuery(Location location) throws InvalidityException {
-		if(property != null && property2 != null) {
+		if(property1 != null && property2 != null) {
 			String conversionStartArgument1 = type.getConversion();
 			String conversionEndArgument1 = type.getConversionEnd();
 
@@ -100,7 +100,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 			String conversionEndArgument2 = type.getConversionEnd();
 					
 			ComparisonOperator operator = ComparisonOperator.EQUAL;				
-			return conversionStartArgument1 + property.generateQuery(location) + conversionEndArgument1 + operator.getLiteral() + conversionStartArgument2 +  property2.generateQuery(location) + conversionEndArgument2;
+			return conversionStartArgument1 + property1.generateQuery(location) + conversionEndArgument1 + operator.getLiteral() + conversionStartArgument2 +  property2.generateQuery(location) + conversionEndArgument2;
 		} else {
 			throw new InvalidityException("invalid arguments for Reference" + " (" + getInternalId() + ")");
 		}
@@ -108,12 +108,12 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	
 	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
-		property.isValid(isDefinedPattern);
+		property1.isValid(isDefinedPattern);
 		property2.isValid(isDefinedPattern);
 	}
 	
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException{
-		if (property == null)
+		if (property1 == null)
 			throw new InvalidityException("referenceSource null (" + getInternalId() + ")" );
 		if (property2 == null)
 			throw new InvalidityException("referenceSource2 null (" + getInternalId() + ")" );
@@ -127,13 +127,13 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 		if(getComparison1().isEmpty() && getComparison2().isEmpty()) {
 			// this is root operator
 
-			if(!getElements().contains(getProperty().getElement()) || !getElements().contains(getProperty2().getElement())) {
+			if(!getElements().contains(getProperty1().getElement()) || !getElements().contains(getProperty2().getElement())) {
 				throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")" );
 			}			
 		}		
 		
 		for(Element element : getElements()) {
-			if(!element.equals(getProperty().getElement()) && !element.equals(getProperty2().getElement())) {
+			if(!element.equals(getProperty1().getElement()) && !element.equals(getProperty2().getElement())) {
 				throw new InvalidityException("too many predicate owners" + " (" + getInternalId() + ")" );
 			}
 		}
@@ -186,7 +186,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	}
 	
 	public void reset() {
-		setProperty(null);;
+		setProperty1(null);;
 		setProperty2(null);
 	}
 
@@ -271,16 +271,16 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	 * @generated
 	 */
 	@Override
-	public Property getProperty() {
-		if (property != null && property.eIsProxy()) {
-			InternalEObject oldProperty = (InternalEObject)property;
-			property = (Property)eResolveProxy(oldProperty);
-			if (property != oldProperty) {
+	public Property getProperty1() {
+		if (property1 != null && property1.eIsProxy()) {
+			InternalEObject oldProperty1 = (InternalEObject)property1;
+			property1 = (Property)eResolveProxy(oldProperty1);
+			if (property1 != oldProperty1) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY, oldProperty, property));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1, oldProperty1, property1));
 			}
 		}
-		return property;
+		return property1;
 	}
 
 	/**
@@ -288,8 +288,8 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Property basicGetProperty() {
-		return property;
+	public Property basicGetProperty1() {
+		return property1;
 	}
 
 	/**
@@ -297,14 +297,14 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
-		Property oldProperty = property;
-		property = newProperty;
+	public NotificationChain basicSetProperty1(Property newProperty, NotificationChain msgs) {
+		Property oldProperty = property1;
+		property1 = newProperty;
 		
 		adaptOperatorElementAssociation(newProperty, oldProperty);
 		
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY, oldProperty, newProperty);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1, oldProperty, newProperty);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -316,18 +316,18 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	 * @generated
 	 */
 	@Override
-	public void setProperty(Property newProperty) {
-		if (newProperty != property) {
+	public void setProperty1(Property newProperty1) {
+		if (newProperty1 != property1) {
 			NotificationChain msgs = null;
-			if (property != null)
-				msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR, Property.class, msgs);
-			if (newProperty != null)
-				msgs = ((InternalEObject)newProperty).eInverseAdd(this, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR, Property.class, msgs);
-			msgs = basicSetProperty(newProperty, msgs);
+			if (property1 != null)
+				msgs = ((InternalEObject)property1).eInverseRemove(this, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR1, Property.class, msgs);
+			if (newProperty1 != null)
+				msgs = ((InternalEObject)newProperty1).eInverseAdd(this, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR1, Property.class, msgs);
+			msgs = basicSetProperty1(newProperty1, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY, newProperty, newProperty));
+			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1, newProperty1, newProperty1));
 	}
 
 	/**
@@ -365,10 +365,10 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 				if (property2 != null)
 					msgs = ((InternalEObject)property2).eInverseRemove(this, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2, Property.class, msgs);
 				return basicSetProperty2((Property)otherEnd, msgs);
-			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY:
-				if (property != null)
-					msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR, Property.class, msgs);
-				return basicSetProperty((Property)otherEnd, msgs);
+			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1:
+				if (property1 != null)
+					msgs = ((InternalEObject)property1).eInverseRemove(this, GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR1, Property.class, msgs);
+				return basicSetProperty1((Property)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -383,8 +383,8 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 		switch (featureID) {
 			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2:
 				return basicSetProperty2(null, msgs);
-			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY:
-				return basicSetProperty(null, msgs);
+			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1:
+				return basicSetProperty1(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -400,9 +400,9 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2:
 				if (resolve) return getProperty2();
 				return basicGetProperty2();
-			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY:
-				if (resolve) return getProperty();
-				return basicGetProperty();
+			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1:
+				if (resolve) return getProperty1();
+				return basicGetProperty1();
 			case FunctionsPackage.REFERENCE_OPERATOR__TYPE:
 				return getType();
 		}
@@ -420,8 +420,8 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2:
 				setProperty2((Property)newValue);
 				return;
-			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY:
-				setProperty((Property)newValue);
+			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1:
+				setProperty1((Property)newValue);
 				return;
 			case FunctionsPackage.REFERENCE_OPERATOR__TYPE:
 				setType((ReturnType)newValue);
@@ -441,8 +441,8 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2:
 				setProperty2((Property)null);
 				return;
-			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY:
-				setProperty((Property)null);
+			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1:
+				setProperty1((Property)null);
 				return;
 			case FunctionsPackage.REFERENCE_OPERATOR__TYPE:
 				setType(TYPE_EDEFAULT);
@@ -461,8 +461,8 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 		switch (featureID) {
 			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2:
 				return property2 != null;
-			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY:
-				return property != null;
+			case FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1:
+				return property1 != null;
 			case FunctionsPackage.REFERENCE_OPERATOR__TYPE:
 				return type != TYPE_EDEFAULT;
 		}
@@ -488,14 +488,14 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	@Override
 	public EList<Comparable> getArguments() {
 		EList<Comparable> list = new BasicEList<Comparable>();
-		list.add(property);
+		list.add(property1);
 		list.add(property2);
 		return list;
 	}
 	
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
-		return property.isTranslatable() && property2.isTranslatable();
+		return property1.isTranslatable() && property2.isTranslatable();
 	}
 	
 	/**
@@ -506,7 +506,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	 */
 	@Override
 	public EList<Element> getAllArgumentElements() throws InvalidityException {				
-		EList<Element> arguments = getProperty().getAllArgumentElements();
+		EList<Element> arguments = getProperty1().getAllArgumentElements();
 		arguments.addAll(getProperty2().getAllArgumentElements());
 		return arguments;
 	}
@@ -515,7 +515,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	public String myToString() {
 		String res = "Ref (" + getInternalId() + "):" + getReturnType() + " ";
 		res += "[";
-		if (getProperty() != null) res += getProperty().getInternalId(); else res += "-";
+		if (getProperty1() != null) res += getProperty1().getInternalId(); else res += "-";
 		res += " = ";
 		if (getProperty2() != null) res += getProperty2().getInternalId(); else res += "-";
 		res += "]";

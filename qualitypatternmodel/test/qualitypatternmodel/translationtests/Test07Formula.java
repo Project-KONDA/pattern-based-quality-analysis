@@ -45,7 +45,7 @@ public class Test07Formula {
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
 		TrueElement te2 = factory.createTrueElement();
 		
-		form.setCondition(qc1);
+		form.setCondition1(qc1);
 		qc1.setCondition(te1);
 		form.setCondition2(qc2);
 		qc2.setCondition(te2);

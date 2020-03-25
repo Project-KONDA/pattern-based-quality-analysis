@@ -12,7 +12,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.CountComparison;
+import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -49,14 +49,14 @@ public class Test12Count {
 		
 		Pattern pattern = Test00.getBasePattern();
 		
-		CountComparison countComparison = factory.createCountComparison();
-		pattern.setCondition(countComparison);		
+		CountCondition countCondition = factory.createCountCondition();
+		pattern.setCondition(countCondition);		
 		
 		Count count = factory.createCount();
 
 		NumberParam numberParam = parametersFactory.createNumberParam();
-		countComparison.setCount1(count);
-		countComparison.setNumberParam(numberParam);
+		countCondition.setCount1(count);
+		countCondition.setNumberParam(numberParam);
 		
 		Element returnInCPattern = count.getGraph().getReturnElements().get(0);
 		Element nextToReturnInCPattern = graphstructureFactory.createElement();
@@ -84,14 +84,14 @@ public class Test12Count {
 		Pattern pattern = Test03Quantor.getPatternExists();
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
 		
-		CountComparison countComparison = factory.createCountComparison();
-		quantifiedCondition.setCondition(countComparison);		
+		CountCondition countCondition = factory.createCountCondition();
+		quantifiedCondition.setCondition(countCondition);		
 		
 		Count count = factory.createCount();
 
 		NumberParam numberParam = parametersFactory.createNumberParam();
-		countComparison.setCount1(count);
-		countComparison.setNumberParam(numberParam);
+		countCondition.setCount1(count);
+		countCondition.setNumberParam(numberParam);
 		
 		Element returnInCPattern = count.getGraph().getReturnElements().get(0);
 		Element element2InCPattern = returnInCPattern.getNextElements().get(0);
@@ -127,14 +127,14 @@ public class Test12Count {
 		Pattern pattern = Test03Quantor.getPatternExists();
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
 		
-		CountComparison countComparison = factory.createCountComparison();
-		quantifiedCondition.setCountComparison(countComparison);	
+		CountCondition countCondition = factory.createCountCondition();
+		quantifiedCondition.setCountCondition(countCondition);	
 		
 		Count count = factory.createCount();
 
 		NumberParam numberParam = parametersFactory.createNumberParam();
-		countComparison.setCount1(count);
-		countComparison.setNumberParam(numberParam);
+		countCondition.setCount1(count);
+		countCondition.setNumberParam(numberParam);
 		
 		Element returnInCPattern = count.getGraph().getReturnElements().get(0);
 		Element element2InCPattern = returnInCPattern.getNextElements().get(0);
@@ -198,7 +198,7 @@ public class Test12Count {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
 		
 		try {
-			Pattern countPattern = ((Count) quantifiedCondition.getCountComparison().getArgument1()).getPattern();
+			Pattern countPattern = ((Count) quantifiedCondition.getCountCondition().getArgument1()).getPattern();
 			Element element1 = countPattern.getGraph().getReturnElements().get(0);
 			Element element2 = graphstructureFactory.createElement();
 			element2.setPreviousElement(element1);
@@ -225,7 +225,7 @@ public class Test12Count {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
 		
 		try {
-			Pattern countPattern = ((Count) quantifiedCondition.getCountComparison().getArgument1()).getPattern();
+			Pattern countPattern = ((Count) quantifiedCondition.getCountCondition().getArgument1()).getPattern();
 			Element element2 = countPattern.getGraph().getReturnElements().get(0);
 			Element element3 = graphstructureFactory.createElement();
 			element3.setPreviousElement(element2);

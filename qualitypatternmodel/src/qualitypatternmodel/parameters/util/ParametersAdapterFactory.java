@@ -10,21 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.patternstructure.CountComparisonArgument;
-import qualitypatternmodel.parameters.AxisOptionParam;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.DateParam;
-import qualitypatternmodel.parameters.DateTimeParam;
-import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.ParameterValue;
-import qualitypatternmodel.parameters.PropertyOptionParam;
-import qualitypatternmodel.parameters.TextParam;
-import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -104,10 +90,6 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createBooleanParamAdapter();
 			}
 			@Override
-			public Adapter caseTextParam(TextParam object) {
-				return createTextParamAdapter();
-			}
-			@Override
 			public Adapter caseTextListParam(TextListParam object) {
 				return createTextListParamAdapter();
 			}
@@ -140,8 +122,12 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createDateTimeParamAdapter();
 			}
 			@Override
-			public Adapter caseAxisOptionParam(AxisOptionParam object) {
-				return createAxisOptionParamAdapter();
+			public Adapter caseRelationOptionParam(RelationOptionParam object) {
+				return createRelationOptionParamAdapter();
+			}
+			@Override
+			public <T> Adapter caseOptionParam(OptionParam<T> object) {
+				return createOptionParamAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -152,8 +138,8 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createComparableAdapter();
 			}
 			@Override
-			public Adapter caseCountComparisonArgument(CountComparisonArgument object) {
-				return createCountComparisonArgumentAdapter();
+			public Adapter caseCountConditionArgument(CountConditionArgument object) {
+				return createCountConditionArgumentAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -242,20 +228,6 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBooleanParamAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.TextParam <em>Text Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.TextParam
-	 * @generated
-	 */
-	public Adapter createTextParamAdapter() {
 		return null;
 	}
 
@@ -372,16 +344,30 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.AxisOptionParam <em>Axis Option Param</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.RelationOptionParam <em>Relation Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.AxisOptionParam
+	 * @see qualitypatternmodel.parameters.RelationOptionParam
 	 * @generated
 	 */
-	public Adapter createAxisOptionParamAdapter() {
+	public Adapter createRelationOptionParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.OptionParam <em>Option Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.OptionParam
+	 * @generated
+	 */
+	public Adapter createOptionParamAdapter() {
 		return null;
 	}
 
@@ -414,16 +400,16 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.CountComparisonArgument <em>Count Comparison Argument</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.CountConditionArgument <em>Count Condition Argument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.CountComparisonArgument
+	 * @see qualitypatternmodel.patternstructure.CountConditionArgument
 	 * @generated
 	 */
-	public Adapter createCountComparisonArgumentAdapter() {
+	public Adapter createCountConditionArgumentAdapter() {
 		return null;
 	}
 
