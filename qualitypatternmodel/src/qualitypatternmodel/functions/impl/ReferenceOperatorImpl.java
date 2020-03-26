@@ -171,9 +171,9 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 		return property2;
 	}
 	
-	public void removeInputsFromVariableList() {}
+	public void removeParametersFromParameterList() {}
 	
-	public void createInputs() {}
+	public void createParameters() {}
 	
 	/**
 	 * <!-- begin-user-doc -->

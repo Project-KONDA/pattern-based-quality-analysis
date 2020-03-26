@@ -218,7 +218,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		return getElement().getAllArgumentElements();
 	}
 	
-	private void createInputs() {
+	@Override
+	public void createParameters() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			
@@ -584,12 +585,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		getComparison2().clear();
 		reset();
 		if(newElement == null) {
-			removeInputsFromVariableList();		
+			removeParametersFromParameterList();		
 		}
 		msgs = eBasicSetContainer((InternalEObject)newElement, GraphstructurePackage.PROPERTY__ELEMENT, msgs);
-		if(newElement != null) {
-			createInputs();
-		} 
+//		if(newElement != null) {
+//			createInputs();
+//		} 
 		return msgs;
 	}
 
@@ -599,7 +600,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		getMatch().clear();
 	}
 
-	private void removeInputsFromVariableList() {
+	@Override
+	public void removeParametersFromParameterList() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			pattern.getParameterList().getParameters().remove(getOption());
@@ -943,6 +945,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case GraphstructurePackage.PROPERTY___CREATE_PARAMETERS:
+				createParameters();
+				return null;
+			case GraphstructurePackage.PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+				removeParametersFromParameterList();
+				return null;
 			case GraphstructurePackage.PROPERTY___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.PROPERTY___IS_TRANSLATABLE:

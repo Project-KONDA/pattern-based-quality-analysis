@@ -106,7 +106,7 @@ public interface Relation extends PatternElement {
 	 * @model
 	 * @generated
 	 */
-	void createInputs();
+	void createParameters();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,7 +114,7 @@ public interface Relation extends PatternElement {
 	 * @model
 	 * @generated
 	 */
-	void removeInputsFromVariableList();
+	void removeParametersFromParameterList();
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.

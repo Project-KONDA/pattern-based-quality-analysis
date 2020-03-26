@@ -234,6 +234,26 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getBooleanOperator__CreateParameters() {
+		return booleanOperatorEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBooleanOperator__RemoveParametersFromParameterList() {
+		return booleanOperatorEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getOperator() {
 		return operatorEClass;
 	}
@@ -551,6 +571,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEReference(booleanOperatorEClass, BOOLEAN_OPERATOR__ELEMENTS);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___CREATE_PARAMETERS);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST);
 
 		operatorEClass = createEClass(OPERATOR);
 		createEReference(operatorEClass, OPERATOR__OPERATOR_LIST);
@@ -643,6 +665,10 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 
 		op = initEOperation(getBooleanOperator__RemoveElement__Element(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theGraphstructurePackage.getElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getBooleanOperator__CreateParameters(), null, "createParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getBooleanOperator__RemoveParametersFromParameterList(), null, "removeParametersFromParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperator_OperatorList(), this.getOperatorList(), this.getOperatorList_Operators(), "operatorList", null, 1, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

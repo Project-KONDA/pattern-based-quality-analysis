@@ -130,6 +130,22 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	void setOptionParam(OptionParam<PropertyLocation> value);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void createParameters();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeParametersFromParameterList();
+
+	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->

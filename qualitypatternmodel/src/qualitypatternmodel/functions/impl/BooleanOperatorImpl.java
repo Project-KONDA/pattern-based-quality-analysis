@@ -149,21 +149,23 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
 		getElements().clear();
 		if(getOperatorList() != null) {
-			removeInputsFromVariableList();
+			removeParametersFromParameterList();
 		}
 		msgs = super.basicSetOperatorList(newOperatorList, msgs);
-		if(newOperatorList != null) {
-			createInputs();
-		}
+//		if(newOperatorList != null) {
+//			createParameters();
+//		}
 		
 		return msgs;
 	}
 
-	void createInputs() {
+	@Override
+	public void createParameters() {
 		// TODO Auto-generated method stub
 		
 	}
-	void removeInputsFromVariableList() {
+	@Override
+	public void removeParametersFromParameterList() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -269,6 +271,12 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 				return null;
 			case FunctionsPackage.BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT:
 				removeElement((Element)arguments.get(0));
+				return null;
+			case FunctionsPackage.BOOLEAN_OPERATOR___CREATE_PARAMETERS:
+				createParameters();
+				return null;
+			case FunctionsPackage.BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+				removeParametersFromParameterList();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

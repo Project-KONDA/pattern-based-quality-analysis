@@ -269,7 +269,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		return list;
 	}
 
-	void createInputs() {
+	@Override
+	public void createParameters() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 
@@ -286,7 +287,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
-	void removeInputsFromVariableList() {
+	@Override
+	public void removeParametersFromParameterList() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			pattern.getParameterList().getParameters().remove(getOption());

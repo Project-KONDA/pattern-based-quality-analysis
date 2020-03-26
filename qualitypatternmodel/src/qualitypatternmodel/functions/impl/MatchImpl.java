@@ -156,7 +156,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
-	void createInputs() {
+	public void createParameters() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			
@@ -178,10 +178,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	
+	}	
+
 	@Override
-	void removeInputsFromVariableList() {
+	public void removeParametersFromParameterList() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			pattern.getParameterList().getParameters().remove(getOption());

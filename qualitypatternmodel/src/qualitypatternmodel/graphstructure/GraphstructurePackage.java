@@ -259,22 +259,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Create Inputs</em>' operation.
+	 * The operation id for the '<em>Create Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___CREATE_INPUTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int RELATION___CREATE_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Remove Inputs From Variable List</em>' operation.
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___REMOVE_INPUTS_FROM_VARIABLE_LIST = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Relation</em>' class.
@@ -684,13 +684,31 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CREATE_PARAMETERS = COMPARABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = COMPARABLE_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 0;
+	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -1560,24 +1578,24 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__CopyToNewNextGraphs__Element();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#createInputs() <em>Create Inputs</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#createParameters() <em>Create Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Inputs</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#createInputs()
+	 * @return the meta object for the '<em>Create Parameters</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#createParameters()
 	 * @generated
 	 */
-	EOperation getRelation__CreateInputs();
+	EOperation getRelation__CreateParameters();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Inputs From Variable List</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#removeInputsFromVariableList()
+	 * @return the meta object for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#removeParametersFromParameterList()
 	 * @generated
 	 */
-	EOperation getRelation__RemoveInputsFromVariableList();
+	EOperation getRelation__RemoveParametersFromParameterList();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Property <em>Property</em>}'.
@@ -1654,6 +1672,26 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProperty_OptionParam();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#createParameters() <em>Create Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Parameters</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#createParameters()
+	 * @generated
+	 */
+	EOperation getProperty__CreateParameters();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#removeParametersFromParameterList()
+	 * @generated
+	 */
+	EOperation getProperty__RemoveParametersFromParameterList();
 
 	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
@@ -2394,20 +2432,20 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = eINSTANCE.getRelation__CopyToNewNextGraphs__Element();
 
 		/**
-		 * The meta object literal for the '<em><b>Create Inputs</b></em>' operation.
+		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RELATION___CREATE_INPUTS = eINSTANCE.getRelation__CreateInputs();
+		EOperation RELATION___CREATE_PARAMETERS = eINSTANCE.getRelation__CreateParameters();
 
 		/**
-		 * The meta object literal for the '<em><b>Remove Inputs From Variable List</b></em>' operation.
+		 * The meta object literal for the '<em><b>Remove Parameters From Parameter List</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RELATION___REMOVE_INPUTS_FROM_VARIABLE_LIST = eINSTANCE.getRelation__RemoveInputsFromVariableList();
+		EOperation RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = eINSTANCE.getRelation__RemoveParametersFromParameterList();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
@@ -2466,6 +2504,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPERTY__OPTION_PARAM = eINSTANCE.getProperty_OptionParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY___CREATE_PARAMETERS = eINSTANCE.getProperty__CreateParameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Parameters From Parameter List</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = eINSTANCE.getProperty__RemoveParametersFromParameterList();
 
 		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.

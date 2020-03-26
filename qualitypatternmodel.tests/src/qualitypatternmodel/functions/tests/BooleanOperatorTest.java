@@ -13,6 +13,8 @@ import qualitypatternmodel.functions.BooleanOperator;
  * <ul>
  *   <li>{@link qualitypatternmodel.functions.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}</li>
  *   <li>{@link qualitypatternmodel.functions.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.BooleanOperator#createParameters() <em>Create Parameters</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.BooleanOperator#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -61,6 +63,32 @@ public abstract class BooleanOperatorTest extends OperatorTest {
 	 * @generated
 	 */
 	public void testRemoveElement__Element() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#createParameters() <em>Create Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.BooleanOperator#createParameters()
+	 * @generated
+	 */
+	public void testCreateParameters() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.BooleanOperator#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.BooleanOperator#removeParametersFromParameterList()
+	 * @generated
+	 */
+	public void testRemoveParametersFromParameterList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

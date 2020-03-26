@@ -20,8 +20,8 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#copyToNewNextGraphs(qualitypatternmodel.graphstructure.Element) <em>Copy To New Next Graphs</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#createInputs() <em>Create Inputs</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#createParameters() <em>Create Parameters</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -133,26 +133,26 @@ public class RelationTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#createInputs() <em>Create Inputs</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#createParameters() <em>Create Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#createInputs()
+	 * @see qualitypatternmodel.graphstructure.Relation#createParameters()
 	 * @generated
 	 */
-	public void testCreateInputs() {
+	public void testCreateParameters() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#removeInputsFromVariableList() <em>Remove Inputs From Variable List</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#removeInputsFromVariableList()
+	 * @see qualitypatternmodel.graphstructure.Relation#removeParametersFromParameterList()
 	 * @generated
 	 */
-	public void testRemoveInputsFromVariableList() {
+	public void testRemoveParametersFromParameterList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

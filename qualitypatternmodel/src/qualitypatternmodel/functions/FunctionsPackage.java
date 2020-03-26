@@ -533,13 +533,31 @@ public interface FunctionsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = OPERATOR_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___CREATE_PARAMETERS = OPERATOR_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = OPERATOR_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 2;
+	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
@@ -1039,6 +1057,24 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___CREATE_PARAMETERS = BOOLEAN_OPERATOR___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+
+	/**
 	 * The number of operations of the '<em>Match</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1335,6 +1371,24 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___CREATE_PARAMETERS = BOOLEAN_OPERATOR___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
 	 * The number of operations of the '<em>Comparison</em>' class.
@@ -1771,6 +1825,24 @@ public interface FunctionsPackage extends EPackage {
 	int REFERENCE_OPERATOR___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
 
 	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___CREATE_PARAMETERS = BOOLEAN_OPERATOR___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+
+	/**
 	 * The number of operations of the '<em>Reference Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1840,6 +1912,26 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBooleanOperator__RemoveElement__Element();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#createParameters() <em>Create Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Parameters</em>' operation.
+	 * @see qualitypatternmodel.functions.BooleanOperator#createParameters()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__CreateParameters();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.BooleanOperator#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * @see qualitypatternmodel.functions.BooleanOperator#removeParametersFromParameterList()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__RemoveParametersFromParameterList();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.functions.Operator <em>Operator</em>}'.
@@ -2202,6 +2294,22 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = eINSTANCE.getBooleanOperator__RemoveElement__Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___CREATE_PARAMETERS = eINSTANCE.getBooleanOperator__CreateParameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Parameters From Parameter List</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = eINSTANCE.getBooleanOperator__RemoveParametersFromParameterList();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.functions.impl.OperatorImpl <em>Operator</em>}' class.

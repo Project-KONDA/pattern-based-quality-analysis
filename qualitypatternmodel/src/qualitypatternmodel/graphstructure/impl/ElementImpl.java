@@ -764,7 +764,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		if (getRelationFromPrevious() != null) {
 			getRelationFromPrevious().removeRelationFromPreviousGraphs();
 			getRelationFromPrevious().removeMappingsToNext();
-			getRelationFromPrevious().removeInputsFromVariableList();
+			getRelationFromPrevious().removeParametersFromParameterList();
 			setRelationFromPrevious(null);
 		}
 		removeMappingsToNext();

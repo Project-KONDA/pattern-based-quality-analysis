@@ -133,6 +133,8 @@
       <eOperations name="removeElement">
         <eParameters name="element" eType="#//graphstructure/Element"/>
       </eOperations>
+      <eOperations name="createParameters"/>
+      <eOperations name="removeParametersFromParameterList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/predicates"/>
     </eClassifiers>
@@ -217,8 +219,8 @@
       <eOperations name="copyToNewNextGraphs">
         <eParameters name="newRelationTo" eType="#//graphstructure/Element"/>
       </eOperations>
-      <eOperations name="createInputs"/>
-      <eOperations name="removeInputsFromVariableList"/>
+      <eOperations name="createParameters"/>
+      <eOperations name="removeParametersFromParameterList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/to"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
@@ -234,6 +236,8 @@
       </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
+      <eOperations name="createParameters"/>
+      <eOperations name="removeParametersFromParameterList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"

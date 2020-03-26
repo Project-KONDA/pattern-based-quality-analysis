@@ -200,7 +200,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		RelationMapping oldMappingFrom = mappingFrom;
 		mappingFrom = newMappingFrom;
 		if (newMappingFrom != null) {
-			removeInputsFromVariableList();
+			removeParametersFromParameterList();
 			setOption(null);
 		}
 		if (eNotificationRequired()) {
@@ -320,15 +320,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		removeRelationFromPreviousGraphs();
 		removeMappingsToNext();
 		if (getElement() != null) {
-			removeInputsFromVariableList();
+			removeParametersFromParameterList();
 		}
 		if (newRelationTo != null) {
 			copyToNewNextGraphs(newRelationTo);
 		}
 		msgs = eBasicSetContainer((InternalEObject) newRelationTo, GraphstructurePackage.RELATION__ELEMENT, msgs);
-		if (newRelationTo != null && getMappingFrom() == null) {
-			createInputs();
-		}
+//		if (newRelationTo != null && getMappingFrom() == null) {
+//			createInputs();
+//		}
 		return msgs;
 	}
 
@@ -359,7 +359,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public void createInputs() {
+	public void createParameters() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 
@@ -382,7 +382,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public void removeInputsFromVariableList() {
+	public void removeParametersFromParameterList() {
 		try {
 			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
 			pattern.getParameterList().getParameters().remove(getOption());
@@ -724,11 +724,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT:
 				copyToNewNextGraphs((Element)arguments.get(0));
 				return null;
-			case GraphstructurePackage.RELATION___CREATE_INPUTS:
-				createInputs();
+			case GraphstructurePackage.RELATION___CREATE_PARAMETERS:
+				createParameters();
 				return null;
-			case GraphstructurePackage.RELATION___REMOVE_INPUTS_FROM_VARIABLE_LIST:
-				removeInputsFromVariableList();
+			case GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+				removeParametersFromParameterList();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

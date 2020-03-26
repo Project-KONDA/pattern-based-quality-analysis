@@ -284,7 +284,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__CreateInputs() {
+	public EOperation getRelation__CreateParameters() {
 		return relationEClass.getEOperations().get(4);
 	}
 
@@ -294,7 +294,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__RemoveInputsFromVariableList() {
+	public EOperation getRelation__RemoveParametersFromParameterList() {
 		return relationEClass.getEOperations().get(5);
 	}
 
@@ -366,6 +366,26 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EReference getProperty_OptionParam() {
 		return (EReference)propertyEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getProperty__CreateParameters() {
+		return propertyEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getProperty__RemoveParametersFromParameterList() {
+		return propertyEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1017,8 +1037,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(relationEClass, RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS);
 		createEOperation(relationEClass, RELATION___REMOVE_MAPPINGS_TO_NEXT);
 		createEOperation(relationEClass, RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT);
-		createEOperation(relationEClass, RELATION___CREATE_INPUTS);
-		createEOperation(relationEClass, RELATION___REMOVE_INPUTS_FROM_VARIABLE_LIST);
+		createEOperation(relationEClass, RELATION___CREATE_PARAMETERS);
+		createEOperation(relationEClass, RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEReference(propertyEClass, PROPERTY__ELEMENT);
@@ -1028,6 +1048,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(propertyEClass, PROPERTY__REFERENCE_OPERATOR2);
 		createEReference(propertyEClass, PROPERTY__REFERENCE_OPERATOR1);
 		createEReference(propertyEClass, PROPERTY__OPTION_PARAM);
+		createEOperation(propertyEClass, PROPERTY___CREATE_PARAMETERS);
+		createEOperation(propertyEClass, PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST);
 
 		elementEClass = createEClass(ELEMENT);
 		createEReference(elementEClass, ELEMENT__MAPPING_TO);
@@ -1157,9 +1179,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getRelation__CopyToNewNextGraphs__Element(), null, "copyToNewNextGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getElement(), "newRelationTo", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getRelation__CreateInputs(), null, "createInputs", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRelation__CreateParameters(), null, "createParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getRelation__RemoveInputsFromVariableList(), null, "removeInputsFromVariableList", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRelation__RemoveParametersFromParameterList(), null, "removeParametersFromParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProperty_Element(), this.getElement(), this.getElement_Properties(), "element", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1172,6 +1194,10 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		g2 = createEGenericType(this.getPropertyLocation());
 		g1.getETypeArguments().add(g2);
 		initEReference(getProperty_OptionParam(), g1, theParametersPackage.getOptionParam_Property(), "optionParam", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getProperty__CreateParameters(), null, "createParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getProperty__RemoveParametersFromParameterList(), null, "removeParametersFromParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElement_MappingTo(), thePatternstructurePackage.getElementMapping(), thePatternstructurePackage.getElementMapping_From(), "mappingTo", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
