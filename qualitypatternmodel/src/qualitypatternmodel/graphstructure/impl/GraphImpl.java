@@ -27,6 +27,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
@@ -296,12 +297,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	public NotificationChain basicSetRootElement(Element newRootElement, NotificationChain msgs) {
 		getReturnElements().clear();
-		if(getRootElement() != null) {
-			ElementImpl root = (ElementImpl) getRootElement();
-			root.clearPredicatesRecursively();
-			root.clearMatchRecursively();
-			root.clearPropertyRecursively();
-		}
+//		if(getRootElement() != null) {
+//			ElementImpl root = (ElementImpl) getRootElement();
+////			root.clearPredicatesRecursively();
+////			root.clearMatchRecursively();
+////			root.clearPropertyRecursively();	
+//		}
+		updateParameters(newRootElement.getParameterList());
+		updateOperators(newRootElement.getOperatorList());
+		
 		Element oldRootElement = rootElement;
 		rootElement = newRootElement;
 		if (eNotificationRequired()) {
@@ -313,6 +317,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				msgs.add(notification);
 		}
 		return msgs;
+	}
+	
+	@Override
+	public void updateParameters(ParameterList newParameterList) {
+		getRootElement().updateParameters(newParameterList);
 	}
 
 	/**

@@ -426,7 +426,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		
 		if(getPreviousElement() != null) {
 			for(ElementMapping mapping : getMappingTo()) {
-				if(!mapping.getTo().getPreviousElement().getMappingFrom().equals(getPreviousElement())) {
+				if(!mapping.getTo().getPreviousElement().getMappingFrom().getFrom().equals(getPreviousElement())) {
 					throw new InvalidityException("mapping invalid");
 				}
 			}
@@ -723,16 +723,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPreviousElement(Element newPreviousElement, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newPreviousElement, GraphstructurePackage.ELEMENT__PREVIOUS_ELEMENT, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public void setPreviousElement(Element newPreviousElement) {
 		if (newPreviousElement != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.ELEMENT__PREVIOUS_ELEMENT && newPreviousElement != null)) {
@@ -755,12 +745,16 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * 
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetPrevious(Element newPrevious, NotificationChain msgs) {
-		clearComparisonRecursively();
-		clearPropertyRecursively();
-		clearMatchRecursively();
+	public NotificationChain basicSetPreviousElement(Element newPrevious, NotificationChain msgs) {
+//		clearComparisonRecursively();
+//		clearPropertyRecursively();		
+			
+		updateParameters(newPrevious.getParameterList());
+		updateOperators(newPrevious.getOperatorList());
+		
+//		clearMatchRecursively();
 		removeFromReturnElementsRecursively();
-		clearPredicatesRecursively();
+//		clearPredicatesRecursively();
 		if (getRelationFromPrevious() != null) {
 			getRelationFromPrevious().removeRelationFromPreviousGraphs();
 			getRelationFromPrevious().removeMappingsToNext();
@@ -1481,6 +1475,19 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___CLEAR_PROPERTY_RECURSIVELY:
 				clearPropertyRecursively();
 				return null;
+			case GraphstructurePackage.ELEMENT___COPY_PROPERTY__PROPERTY:
+				return copyProperty((Property)arguments.get(0));
+			case GraphstructurePackage.ELEMENT___COPY_PRIMITIVE_COMPARISON__COMPARISON:
+				try {
+					copyPrimitiveComparison((Comparison)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.ELEMENT___COPY_MATCH__MATCH:
+				copyMatch((Match)arguments.get(0));
+				return null;
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.ELEMENT___IS_TRANSLATABLE:
@@ -1833,6 +1840,88 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		for(Element child : getNextElements()) {
 			child.clearPropertyRecursively();
 		}
+	}
+	
+	@Override
+	public void updateParameters(ParameterList newParameterList) {
+		for(Property p : getProperties()) {
+			p.updateParameters(newParameterList);			
+		}
+		for(Element child : getNextElements()) {
+			child.updateParameters(newParameterList);
+		}
+		for(BooleanOperator predicate : getPredicates()) {
+			predicate.updateParameters(newParameterList);
+		}
+		if(getRelationFromPrevious() != null) {
+			getRelationFromPrevious().updateParameters(newParameterList);
+		}
+	}
+	
+	@Override
+	public void updateOperators(OperatorList newOperatorList) {
+		for(Element child : getNextElements()) {
+			child.updateOperators(newOperatorList);
+		}
+		for(BooleanOperator predicate : getPredicates()) {
+			predicate.updateOperators(newOperatorList);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Property copyProperty(Property property) {
+		Property newProperty = property.copy();	
+		getProperties().add(newProperty);		
+		return newProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public void copyPrimitiveComparison(Comparison comparison) throws InvalidityException {
+		if(!(comparison.getArgument1() instanceof Property) && !(comparison.getArgument2() instanceof Property)) {			
+			throw new InvalidityException("comparison not primitive");
+		}
+		if(!(comparison.getArgument1() instanceof Parameter) && !(comparison.getArgument2() instanceof Parameter)) {			
+			throw new InvalidityException("comparison not primitive");
+		}
+		Comparison newComparison = comparison.copy();
+		if(comparison.getArgument1() instanceof Property) {
+			Property property = (Property) comparison.getArgument1();
+			Property newProperty = copyProperty(property);
+			getProperties().add(newProperty);	
+			newComparison.setArgument1(newProperty);
+		} else {
+			newComparison.setArgument1(comparison.getArgument1());
+		}
+		if(comparison.getArgument2() instanceof Property) {
+			Property property = (Property) comparison.getArgument2();
+			Property newProperty = copyProperty(property);
+			getProperties().add(newProperty);
+			newComparison.setArgument2(newProperty);
+		} else {
+			newComparison.setArgument2(comparison.getArgument2());
+		}		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void copyMatch(Match match) {
+		Match newMatch = match.copy();
+		getProperties().add(newMatch.getProperty());
 	}
 
 	/**

@@ -10,7 +10,9 @@ import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 
 /**
  * <!-- begin-user-doc -->
@@ -111,6 +113,38 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	boolean validate(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void updateParameters(ParameterList newParameterList);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	ParameterList getParameterList();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void updateOperators(OperatorList newOperatorList);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	OperatorList getOperatorList();
 
 	/**
 	 * <!-- begin-user-doc -->

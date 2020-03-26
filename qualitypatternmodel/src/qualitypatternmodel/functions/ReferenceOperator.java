@@ -98,4 +98,12 @@ public interface ReferenceOperator extends BooleanOperator {
 	 * @generated
 	 */
 	void setType(ReturnType value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ReferenceOperator copy();
 } // ReferenceOperator

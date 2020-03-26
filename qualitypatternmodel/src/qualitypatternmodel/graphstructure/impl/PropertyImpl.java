@@ -39,7 +39,6 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.patternstructure.impl.PatternImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -219,28 +218,22 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	}
 	
 	@Override
-	public void createParameters() {
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			
-			if(getOption() == null) {
-				PropertyOptionParam option = new PropertyOptionParamImpl();			
-				pattern.getParameterList().add(option);
-				setOption(option);
-			} else {
-				pattern.getParameterList().add(getOption());
-			}
-			if(getAttributeName() == null) {
-				TextLiteralParam textLiteral = new TextLiteralParamImpl();
-				pattern.getParameterList().add(textLiteral);
-				setAttributeName(textLiteral);
-			} else {
-				pattern.getParameterList().add(getAttributeName());
-			}
-		} catch (MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
+	public void createParameters() {	
+		ParameterList parameterList = getParameterList();		
+		if(getOption() == null) {
+			PropertyOptionParam option = new PropertyOptionParamImpl();			
+			parameterList.add(option);
+			setOption(option);
+		} else {
+			parameterList.add(getOption());
+		}
+		if(getAttributeName() == null) {
+			TextLiteralParam textLiteral = new TextLiteralParamImpl();
+			parameterList.add(textLiteral);
+			setAttributeName(textLiteral);
+		} else {
+			parameterList.add(getAttributeName());
+		}			
 	}
 	
 	/**
@@ -581,12 +574,16 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
-		getComparison1().clear();
-		getComparison2().clear();
-		reset();
-		if(newElement == null) {
-			removeParametersFromParameterList();		
-		}
+//		getComparison1().clear();
+//		getComparison2().clear();	
+//		getMatch().clear();			
+			
+		updateParameters(newElement.getParameterList());		
+		
+//		if(newElement == null) {
+//			removeParametersFromParameterList();		
+//		}
+//		reset();
 		msgs = eBasicSetContainer((InternalEObject)newElement, GraphstructurePackage.PROPERTY__ELEMENT, msgs);
 //		if(newElement != null) {
 //			createInputs();
@@ -594,26 +591,35 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		return msgs;
 	}
 
+	@Override
+	public void updateParameters(ParameterList newParameterList) {
+		getAttributeName().updateParameters(newParameterList);
+		getOption().updateParameters(newParameterList);		
+	}	
+
 	public void reset() {
 		setAttributeName(null);
-		setOption(null);
-		getMatch().clear();
+		setOption(null);		
 	}
 
 	@Override
 	public void removeParametersFromParameterList() {
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getParameterList().getParameters().remove(getOption());
-		} catch (MissingPatternContainerException e) {
-			// since this property is not contained in a pattern, do nothing
-		}				
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getParameterList().getParameters().remove(getAttributeName());
-		} catch (MissingPatternContainerException e) {
-			// since this property is not contained in a pattern, do nothing
-		}
+		ParameterList parameterList = getParameterList();		
+		parameterList.getParameters().remove(getOption());		
+		parameterList.getParameters().remove(getAttributeName());		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Property copy() {
+		Property newProperty = new PropertyImpl();
+		newProperty.setOption(getOption());
+		newProperty.setAttributeName(getAttributeName());
+		return newProperty;
 	}
 
 	/**
@@ -951,6 +957,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;
+			case GraphstructurePackage.PROPERTY___COPY:
+				return copy();
 			case GraphstructurePackage.PROPERTY___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.PROPERTY___IS_TRANSLATABLE:

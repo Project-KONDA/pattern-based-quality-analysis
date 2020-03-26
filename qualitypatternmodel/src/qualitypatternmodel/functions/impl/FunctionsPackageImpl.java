@@ -374,6 +374,26 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getMatch__GetElement() {
+		return matchEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMatch__Copy() {
+		return matchEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getMatch_Option() {
 		return (EReference)matchEClass.getEStructuralFeatures().get(1);
 	}
@@ -416,6 +436,36 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	@Override
 	public EReference getComparison_OptionParam() {
 		return (EReference)comparisonEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComparison__IsPrimitive() {
+		return comparisonEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComparison__GetElement() {
+		return comparisonEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getComparison__Copy() {
+		return comparisonEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -514,6 +564,16 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getReferenceOperator__Copy() {
+		return referenceOperatorEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getOperatorList_Graph() {
 		return (EReference)operatorListEClass.getEStructuralFeatures().get(0);
 	}
@@ -589,6 +649,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEReference(matchEClass, MATCH__PROPERTY);
 		createEReference(matchEClass, MATCH__OPTION);
 		createEReference(matchEClass, MATCH__REGULAR_EXPRESSION);
+		createEOperation(matchEClass, MATCH___GET_ELEMENT);
+		createEOperation(matchEClass, MATCH___COPY);
 
 		comparisonEClass = createEClass(COMPARISON);
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT1);
@@ -596,6 +658,9 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEAttribute(comparisonEClass, COMPARISON__TYPE);
 		createEReference(comparisonEClass, COMPARISON__OPTION);
 		createEReference(comparisonEClass, COMPARISON__OPTION_PARAM);
+		createEOperation(comparisonEClass, COMPARISON___IS_PRIMITIVE);
+		createEOperation(comparisonEClass, COMPARISON___GET_ELEMENT);
+		createEOperation(comparisonEClass, COMPARISON___COPY);
 
 		operatorListEClass = createEClass(OPERATOR_LIST);
 		createEReference(operatorListEClass, OPERATOR_LIST__GRAPH);
@@ -606,6 +671,7 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		createEReference(referenceOperatorEClass, REFERENCE_OPERATOR__PROPERTY2);
 		createEReference(referenceOperatorEClass, REFERENCE_OPERATOR__PROPERTY1);
 		createEAttribute(referenceOperatorEClass, REFERENCE_OPERATOR__TYPE);
+		createEOperation(referenceOperatorEClass, REFERENCE_OPERATOR___COPY);
 
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
@@ -703,6 +769,10 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		initEReference(getMatch_Option(), theParametersPackage.getBooleanParam(), theParametersPackage.getBooleanParam_Matches(), "option", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMatch_RegularExpression(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_Matches(), "regularExpression", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getMatch__GetElement(), theGraphstructurePackage.getElement(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getMatch__Copy(), this.getMatch(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComparison_Argument1(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison1(), "argument1", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Argument2(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison2(), "argument2", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -712,6 +782,12 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		g2 = createEGenericType(this.getComparisonOperator());
 		g1.getETypeArguments().add(g2);
 		initEReference(getComparison_OptionParam(), g1, theParametersPackage.getOptionParam_Comparison(), "optionParam", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getComparison__IsPrimitive(), ecorePackage.getEBoolean(), "isPrimitive", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getComparison__GetElement(), theGraphstructurePackage.getElement(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getComparison__Copy(), this.getComparison(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(operatorListEClass, OperatorList.class, "OperatorList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperatorList_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_OperatorList(), "graph", null, 1, 1, OperatorList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -724,6 +800,8 @@ public class FunctionsPackageImpl extends EPackageImpl implements FunctionsPacka
 		initEReference(getReferenceOperator_Property2(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_ReferenceOperator2(), "property2", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReferenceOperator_Property1(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_ReferenceOperator1(), "property1", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReferenceOperator_Type(), theGraphstructurePackage.getReturnType(), "type", null, 0, 1, ReferenceOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getReferenceOperator__Copy(), this.getReferenceOperator(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");

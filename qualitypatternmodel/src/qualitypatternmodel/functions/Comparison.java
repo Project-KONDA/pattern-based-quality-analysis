@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.functions;
 
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.OptionParam;
@@ -98,6 +99,30 @@ public interface Comparison extends BooleanOperator {
 	 * @generated
 	 */
 	void setOptionParam(OptionParam<ComparisonOperator> value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isPrimitive();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Element getElement();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Comparison copy();
 
 	/**
 	 * Returns the value of the '<em><b>Argument2</b></em>' reference.

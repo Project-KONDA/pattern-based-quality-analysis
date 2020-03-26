@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.functions.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -356,6 +357,19 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public ReferenceOperator copy() {
+		ReferenceOperator newReferenceOperator = new ReferenceOperatorImpl();
+		newReferenceOperator.setProperty1(getProperty1().copy());
+		newReferenceOperator.setProperty2(getProperty2().copy());
+		return newReferenceOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -467,6 +481,20 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case FunctionsPackage.REFERENCE_OPERATOR___COPY:
+				return copy();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

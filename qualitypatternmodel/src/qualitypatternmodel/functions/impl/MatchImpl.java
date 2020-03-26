@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.functions.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -30,7 +31,6 @@ import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
-import qualitypatternmodel.patternstructure.impl.PatternImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -156,44 +156,30 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
-	public void createParameters() {
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			
-			if(getOption() == null) {
-				BooleanParam bool = new BooleanParamImpl();			
-				pattern.getParameterList().add(bool);
-				setOption(bool);
-			} else {
-				pattern.getParameterList().add(getOption());
-			}
-			if(getRegularExpression() == null) {
-				TextLiteralParam textLiteral = new TextLiteralParamImpl();
-				pattern.getParameterList().add(textLiteral);
-				setRegularExpression(textLiteral);
-			} else {
-				pattern.getParameterList().add(getRegularExpression());
-			}
-		} catch (MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public void createParameters() {		
+		ParameterList parameterList = getParameterList();		
+		if(getOption() == null) {
+			BooleanParam bool = new BooleanParamImpl();			
+			parameterList.add(bool);
+			setOption(bool);
+		} else {
+			parameterList.add(getOption());
 		}
+		if(getRegularExpression() == null) {
+			TextLiteralParam textLiteral = new TextLiteralParamImpl();
+			parameterList.add(textLiteral);
+			setRegularExpression(textLiteral);
+		} else {
+			parameterList.add(getRegularExpression());
+		}
+		
 	}	
 
 	@Override
 	public void removeParametersFromParameterList() {
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getParameterList().getParameters().remove(getOption());
-		} catch (MissingPatternContainerException e) {
-			// since this comparison is not contained in a pattern, do nothing
-		}
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getParameterList().getParameters().remove(getRegularExpression());
-		} catch (MissingPatternContainerException e) {
-			// since this comparison is not contained in a pattern, do nothing
-		}
+		ParameterList parameterList = getParameterList();			
+		parameterList.getParameters().remove(getOption());		
+		parameterList.getParameters().remove(getRegularExpression());		
 	}
 	
 	/**
@@ -346,6 +332,37 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__REGULAR_EXPRESSION, newRegularExpression, newRegularExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Element getElement() {
+		return getProperty().getElement();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Match copy() {
+		Match newMatch = new MatchImpl();
+		newMatch.setOption(getOption());
+		newMatch.setRegularExpression(getRegularExpression());		
+		Property newProperty = getProperty().copy();
+		newMatch.setProperty(newProperty);
+		return newMatch;
+	}
+	
+	@Override
+	public void updateParameters(ParameterList newParameterList) {
+		getOption().updateParameters(newParameterList);
+		getRegularExpression().updateParameters(newParameterList);
 	}
 
 	/**
@@ -567,6 +584,22 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		return super.eIsSet(featureID);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case FunctionsPackage.MATCH___GET_ELEMENT:
+				return getElement();
+			case FunctionsPackage.MATCH___COPY:
+				return copy();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
 	@Override
 	public String myToString() {
 		String res = "MATCH (" + getInternalId() + ") [";

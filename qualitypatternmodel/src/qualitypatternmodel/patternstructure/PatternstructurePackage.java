@@ -178,13 +178,49 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = 8;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = 9;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_PARAMETER_LIST = 10;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST = 11;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___GET_OPERATOR_LIST = 12;
+
+	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 9;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 13;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -321,6 +357,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___UPDATE_OPERATORS__OPERATORLIST = PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
@@ -484,6 +556,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___UPDATE_PARAMETERS__PARAMETERLIST = MAPPING___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___GET_PARAMETER_LIST = MAPPING___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___UPDATE_OPERATORS__OPERATORLIST = MAPPING___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___GET_OPERATOR_LIST = MAPPING___GET_OPERATOR_LIST;
 
 	/**
 	 * The number of operations of the '<em>Relation Mapping</em>' class.
@@ -665,6 +773,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___UPDATE_OPERATORS__OPERATORLIST = PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
@@ -902,6 +1046,42 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___UPDATE_PARAMETERS__PARAMETERLIST = CONDITION___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___UPDATE_OPERATORS__OPERATORLIST = CONDITION___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1119,6 +1299,42 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___UPDATE_OPERATORS__OPERATORLIST = PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Check Element Mappings</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1316,6 +1532,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT_MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP = MAPPING___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING___UPDATE_PARAMETERS__PARAMETERLIST = MAPPING___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING___GET_PARAMETER_LIST = MAPPING___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING___UPDATE_OPERATORS__OPERATORLIST = MAPPING___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING___GET_OPERATOR_LIST = MAPPING___GET_OPERATOR_LIST;
 
 	/**
 	 * The number of operations of the '<em>Element Mapping</em>' class.
@@ -1526,6 +1778,42 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___UPDATE_PARAMETERS__PARAMETERLIST = CONDITION___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___UPDATE_OPERATORS__OPERATORLIST = CONDITION___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1716,6 +2004,42 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = CONDITION___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___UPDATE_OPERATORS__OPERATORLIST = CONDITION___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1904,6 +2228,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___UPDATE_OPERATORS__OPERATORLIST = PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2121,6 +2481,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NOT_CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___UPDATE_PARAMETERS__PARAMETERLIST = CONDITION___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___UPDATE_OPERATORS__OPERATORLIST = CONDITION___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
@@ -2367,6 +2763,42 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP = CONDITION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___UPDATE_PARAMETERS__PARAMETERLIST = CONDITION___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___GET_PARAMETER_LIST = CONDITION___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___UPDATE_OPERATORS__OPERATORLIST = CONDITION___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___GET_OPERATOR_LIST = CONDITION___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2557,6 +2989,42 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___UPDATE_OPERATORS__OPERATORLIST = PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2700,6 +3168,42 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT_CONDITION_ARGUMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___UPDATE_OPERATORS__OPERATORLIST = PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
 	 * The number of operations of the '<em>Count Condition Argument</em>' class.
@@ -3418,6 +3922,46 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__Validate__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList) <em>Update Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Update Parameters</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList)
+	 * @generated
+	 */
+	EOperation getPatternElement__UpdateParameters__ParameterList();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getParameterList() <em>Get Parameter List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Parameter List</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getParameterList()
+	 * @generated
+	 */
+	EOperation getPatternElement__GetParameterList();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.functions.OperatorList) <em>Update Operators</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Update Operators</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.functions.OperatorList)
+	 * @generated
+	 */
+	EOperation getPatternElement__UpdateOperators__OperatorList();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getOperatorList() <em>Get Operator List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Operator List</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getOperatorList()
+	 * @generated
+	 */
+	EOperation getPatternElement__GetOperatorList();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.NotCondition <em>Not Condition</em>}'.
@@ -4241,6 +4785,38 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getPatternElement__Validate__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Update Parameters</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = eINSTANCE.getPatternElement__UpdateParameters__ParameterList();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Parameter List</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GET_PARAMETER_LIST = eINSTANCE.getPatternElement__GetParameterList();
+
+		/**
+		 * The meta object literal for the '<em><b>Update Operators</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST = eINSTANCE.getPatternElement__UpdateOperators__OperatorList();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Operator List</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___GET_OPERATOR_LIST = eINSTANCE.getPatternElement__GetOperatorList();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.

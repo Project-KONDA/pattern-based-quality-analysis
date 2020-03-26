@@ -223,6 +223,42 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -485,6 +521,42 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -738,6 +810,42 @@ public interface ParametersPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -937,6 +1045,42 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Add</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1116,6 +1260,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_VALUE___MY_TO_STRING = PARAMETER___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1362,6 +1542,42 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1595,6 +1811,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1868,6 +2120,42 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2112,6 +2400,42 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2345,6 +2669,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2582,6 +2942,42 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2806,6 +3202,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNKNOWN_PARAMETER_VALUE___MY_TO_STRING = PARAMETER___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_PARAMETER_VALUE___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_PARAMETER_VALUE___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3050,6 +3482,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3303,6 +3771,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_OPTION_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3583,6 +4087,42 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPTION_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION_PARAM___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPTION_PARAM___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.

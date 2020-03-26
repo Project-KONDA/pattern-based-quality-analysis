@@ -223,6 +223,42 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Graph Depth</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -411,6 +447,42 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARABLE___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -648,6 +720,42 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___MY_TO_STRING = COMPARABLE___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___UPDATE_PARAMETERS__PARAMETERLIST = COMPARABLE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_PARAMETER_LIST = COMPARABLE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___UPDATE_OPERATORS__OPERATORLIST = COMPARABLE___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_OPERATOR_LIST = COMPARABLE___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -702,13 +810,22 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Copy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___COPY = COMPARABLE_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 2;
+	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -944,6 +1061,42 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT___MY_TO_STRING = COMPARABLE___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = COMPARABLE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___GET_PARAMETER_LIST = COMPARABLE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___UPDATE_OPERATORS__OPERATORLIST = COMPARABLE___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___GET_OPERATOR_LIST = COMPARABLE___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1189,13 +1342,40 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___CLEAR_PROPERTY_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 22;
 
 	/**
+	 * The operation id for the '<em>Copy Property</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___COPY_PROPERTY__PROPERTY = COMPARABLE_OPERATION_COUNT + 23;
+
+	/**
+	 * The operation id for the '<em>Copy Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___COPY_PRIMITIVE_COMPARISON__COMPARISON = COMPARABLE_OPERATION_COUNT + 24;
+
+	/**
+	 * The operation id for the '<em>Copy Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___COPY_MATCH__MATCH = COMPARABLE_OPERATION_COUNT + 25;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 23;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 26;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -1386,6 +1566,42 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int GRAPH___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1692,6 +1908,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getProperty__RemoveParametersFromParameterList();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#copy() <em>Copy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#copy()
+	 * @generated
+	 */
+	EOperation getProperty__Copy();
 
 	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
@@ -2075,6 +2301,36 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getElement__ClearPropertyRecursively();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyProperty(qualitypatternmodel.graphstructure.Property) <em>Copy Property</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy Property</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#copyProperty(qualitypatternmodel.graphstructure.Property)
+	 * @generated
+	 */
+	EOperation getElement__CopyProperty__Property();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyPrimitiveComparison(qualitypatternmodel.functions.Comparison) <em>Copy Primitive Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy Primitive Comparison</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#copyPrimitiveComparison(qualitypatternmodel.functions.Comparison)
+	 * @generated
+	 */
+	EOperation getElement__CopyPrimitiveComparison__Comparison();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyMatch(qualitypatternmodel.functions.Match) <em>Copy Match</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy Match</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#copyMatch(qualitypatternmodel.functions.Match)
+	 * @generated
+	 */
+	EOperation getElement__CopyMatch__Match();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -2522,6 +2778,14 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = eINSTANCE.getProperty__RemoveParametersFromParameterList();
 
 		/**
+		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY___COPY = eINSTANCE.getProperty__Copy();
+
+		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2818,6 +3082,30 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___CLEAR_PROPERTY_RECURSIVELY = eINSTANCE.getElement__ClearPropertyRecursively();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy Property</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___COPY_PROPERTY__PROPERTY = eINSTANCE.getElement__CopyProperty__Property();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy Primitive Comparison</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___COPY_PRIMITIVE_COMPARISON__COMPARISON = eINSTANCE.getElement__CopyPrimitiveComparison__Comparison();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy Match</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___COPY_MATCH__MATCH = eINSTANCE.getElement__CopyMatch__Match();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

@@ -6,7 +6,9 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.functions.BooleanOperator;
+import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
+import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.functions.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -479,5 +481,29 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	void clearPropertyRecursively();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Property copyProperty(Property property);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void copyPrimitiveComparison(Comparison comparison) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void copyMatch(Match match);
 
 } // SingleElement

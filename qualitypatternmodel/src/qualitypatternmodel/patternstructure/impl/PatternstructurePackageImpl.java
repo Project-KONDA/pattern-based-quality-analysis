@@ -861,6 +861,46 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternElement__UpdateParameters__ParameterList() {
+		return patternElementEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__GetParameterList() {
+		return patternElementEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__UpdateOperators__OperatorList() {
+		return patternElementEClass.getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__GetOperatorList() {
+		return patternElementEClass.getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNotCondition() {
 		return notConditionEClass;
 	}
@@ -1265,6 +1305,10 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ANCESTOR__CLASS);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___MY_TO_STRING);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_PARAMETER_LIST);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_OPERATOR_LIST);
 
 		notConditionEClass = createEClass(NOT_CONDITION);
 		createEReference(notConditionEClass, NOT_CONDITION__CONDITION);
@@ -1471,6 +1515,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPatternElement__UpdateParameters__ParameterList(), null, "updateParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theParametersPackage.getParameterList(), "newParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPatternElement__GetParameterList(), theParametersPackage.getParameterList(), "getParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPatternElement__UpdateOperators__OperatorList(), null, "updateOperators", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFunctionsPackage.getOperatorList(), "newOperatorList", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPatternElement__GetOperatorList(), theFunctionsPackage.getOperatorList(), "getOperatorList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNotCondition_Condition(), this.getCondition(), this.getCondition_NotCondition(), "condition", null, 1, 1, NotCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

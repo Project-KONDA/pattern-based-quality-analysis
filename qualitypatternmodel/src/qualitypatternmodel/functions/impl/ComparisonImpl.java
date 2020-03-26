@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.functions.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -38,7 +39,6 @@ import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
-import qualitypatternmodel.patternstructure.impl.PatternImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -270,32 +270,22 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	@Override
-	public void createParameters() {
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-
-			if (getOption() == null) {
-				ComparisonOptionParam comparisonOption = new ComparisonOptionParamImpl();
-				pattern.getParameterList().add(comparisonOption);
-				setOption(comparisonOption);
-			} else {
-				pattern.getParameterList().add(getOption());
-			}
-		} catch (MissingPatternContainerException e) {
-			// since this comparison is not contained in a pattern, do nothing
-			e.printStackTrace();
+	public void createParameters() {	
+		ParameterList parameterList = getParameterList();
+		if (getOption() == null) {
+			ComparisonOptionParam comparisonOption = new ComparisonOptionParamImpl();
+			parameterList.add(comparisonOption);
+			setOption(comparisonOption);
+		} else {
+			parameterList.add(getOption());
 		}
+		
 	}
 
 	@Override
 	public void removeParametersFromParameterList() {
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getParameterList().getParameters().remove(getOption());
-		} catch (MissingPatternContainerException e) {
-			// since this comparison is not contained in a pattern, do nothing
-			e.printStackTrace();
-		}
+		ParameterList parameterList = getParameterList();			
+		parameterList.getParameters().remove(getOption());		
 	}
 
 	/**
@@ -656,6 +646,80 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isPrimitive() {
+		if(!(getArgument1() instanceof Property) && !(getArgument2() instanceof Property)) {			
+			return false;
+		}
+		if(!(getArgument1() instanceof Parameter) && !(getArgument2() instanceof Parameter)) {			
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Element getElement() {
+		if(isPrimitive()) {
+			if(getArgument1() instanceof Property) {
+				return ((Property) getArgument1()).getElement();
+			}
+			if(getArgument2() instanceof Property) {
+				return ((Property) getArgument2()).getElement();
+			}
+		} 
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Comparison copy() {
+		Comparison newComparison = new ComparisonImpl();
+		newComparison.setOption(getOption());
+		return newComparison;
+	}
+	
+	@Override
+	public void updateParameters(ParameterList newParameterList) {
+		getOption().updateParameters(newParameterList);
+		if(getArgument1() instanceof Operator) {
+			getArgument1().updateParameters(newParameterList);
+		}
+		if(getArgument1() instanceof Parameter) {
+			getArgument1().updateParameters(newParameterList);
+		}
+		if(getArgument2() instanceof Operator) {
+			getArgument2().updateParameters(newParameterList);
+		}
+		if(getArgument2() instanceof Parameter) {
+			getArgument2().updateParameters(newParameterList);
+		}
+	}
+	
+	@Override
+	public void updateOperators(OperatorList newOperatorList) {
+		if(getArgument1() instanceof Operator) {
+			getArgument1().updateOperators(newOperatorList);
+		}
+		if(getArgument2() instanceof Operator) {
+			getArgument2().updateOperators(newOperatorList);
+		}
+		super.updateOperators(newOperatorList);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -903,6 +967,24 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return optionParam != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case FunctionsPackage.COMPARISON___IS_PRIMITIVE:
+				return isPrimitive();
+			case FunctionsPackage.COMPARISON___GET_ELEMENT:
+				return getElement();
+			case FunctionsPackage.COMPARISON___COPY:
+				return copy();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

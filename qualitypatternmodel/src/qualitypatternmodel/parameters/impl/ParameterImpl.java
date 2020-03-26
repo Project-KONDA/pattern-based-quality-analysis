@@ -136,6 +136,26 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 //		return true;
 //	}
 
+	@Override
+	public void updateParameters(ParameterList newParameterList) {
+		setParameterList(newParameterList);
+//		Pattern oldPattern = null;
+//		try {
+//			oldPattern = (Pattern) getAncestor(PatternImpl.class);			
+//			if(!oldPattern.equals(newParameterList)) {
+//				oldPattern.getParameterList().getParameters().removeAll(parameters);
+//				newParameterList.getParameterList().getParameters().addAll(parameters);
+//			} else if(newParameterList == null) {
+//				oldPattern.getParameterList().getParameters().removeAll(parameters);
+//			}
+//			
+//		} catch (MissingPatternContainerException e) {
+//			if(newParameterList != null) {					
+//				newParameterList.getParameterList().getParameters().addAll(parameters);
+//			} 
+//		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

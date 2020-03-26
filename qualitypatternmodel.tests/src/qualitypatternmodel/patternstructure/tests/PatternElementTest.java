@@ -22,6 +22,10 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class) <em>Get Ancestor</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList) <em>Update Parameters</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getParameterList() <em>Get Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.functions.OperatorList) <em>Update Operators</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getOperatorList() <em>Get Operator List</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -113,6 +117,58 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testValidate__DiagnosticChain_Map() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList) <em>Update Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList)
+	 * @generated
+	 */
+	public void testUpdateParameters__ParameterList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getParameterList() <em>Get Parameter List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getParameterList()
+	 * @generated
+	 */
+	public void testGetParameterList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.functions.OperatorList) <em>Update Operators</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.functions.OperatorList)
+	 * @generated
+	 */
+	public void testUpdateOperators__OperatorList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#getOperatorList() <em>Get Operator List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getOperatorList()
+	 * @generated
+	 */
+	public void testGetOperatorList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

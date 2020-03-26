@@ -11,6 +11,13 @@ import qualitypatternmodel.functions.Match;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Match</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.functions.Match#getElement() <em>Get Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.functions.Match#copy() <em>Copy</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class MatchTest extends BooleanOperatorTest {
@@ -65,6 +72,32 @@ public class MatchTest extends BooleanOperatorTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.Match#getElement() <em>Get Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.Match#getElement()
+	 * @generated
+	 */
+	public void testGetElement() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.Match#copy() <em>Copy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.Match#copy()
+	 * @generated
+	 */
+	public void testCopy() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //MatchTest

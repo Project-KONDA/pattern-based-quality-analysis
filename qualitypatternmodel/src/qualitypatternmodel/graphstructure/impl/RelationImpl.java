@@ -25,6 +25,7 @@ import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
 import qualitypatternmodel.patternstructure.Location;
@@ -32,7 +33,6 @@ import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.patternstructure.impl.PatternImpl;
 import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
 
 /**
@@ -284,16 +284,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newElement, GraphstructurePackage.RELATION__ELEMENT, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public void setElement(Element newElement) {
 		if (newElement != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.RELATION__ELEMENT && newElement != null)) {
@@ -316,12 +306,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * 
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetRelationTo(Element newRelationTo, NotificationChain msgs) {
+	public NotificationChain basicSetElement(Element newRelationTo, NotificationChain msgs) {
 		removeRelationFromPreviousGraphs();
 		removeMappingsToNext();
-		if (getElement() != null) {
-			removeParametersFromParameterList();
-		}
+//		if (getElement() != null) {
+//			removeParametersFromParameterList();
+//		}
+		updateParameters(newRelationTo.getParameterList());
+
 		if (newRelationTo != null) {
 			copyToNewNextGraphs(newRelationTo);
 		}
@@ -359,21 +351,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public void createParameters() {
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-
-			if (getOption() == null) {
-				RelationOptionParam relationOptionParam = new RelationOptionParamImpl();
-				pattern.getParameterList().add(relationOptionParam);
-				setOption(relationOptionParam);
-			} else {
-				pattern.getParameterList().add(getOption());
-			}
-		} catch (MissingPatternContainerException e) {
-			// since this comparison is not contained in a pattern, do nothing
-			e.printStackTrace();
-		}
+	public void createParameters() {		
+		ParameterList parameterList = getParameterList();
+		if (getOption() == null) {
+			RelationOptionParam relationOptionParam = new RelationOptionParamImpl();
+			parameterList.add(relationOptionParam);
+			setOption(relationOptionParam);
+		} else {
+			parameterList.add(getOption());
+		}		
 	}
 
 	/**
@@ -383,13 +369,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public void removeParametersFromParameterList() {
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getParameterList().getParameters().remove(getOption());
-		} catch (MissingPatternContainerException e) {
-			// since this comparison is not contained in a pattern, do nothing
-			e.printStackTrace();
-		}
+		ParameterList parameterList = getParameterList();			
+		parameterList.getParameters().remove(getOption());		
+	}
+	
+	@Override
+	public void updateParameters(ParameterList newParameterList) {
+		getOption().updateParameters(newParameterList);		
 	}
 
 	@Override

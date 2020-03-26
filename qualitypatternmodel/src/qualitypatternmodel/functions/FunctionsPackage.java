@@ -199,6 +199,42 @@ public interface FunctionsPackage extends EPackage {
 	int OPERATOR___MY_TO_STRING = GraphstructurePackage.COMPARABLE___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.COMPARABLE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GET_PARAMETER_LIST = GraphstructurePackage.COMPARABLE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.COMPARABLE___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___GET_OPERATOR_LIST = GraphstructurePackage.COMPARABLE___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -432,6 +468,42 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___MY_TO_STRING = OPERATOR___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GET_PARAMETER_LIST = OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___UPDATE_OPERATORS__OPERATORLIST = OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___GET_OPERATOR_LIST = OPERATOR___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -696,6 +768,42 @@ public interface FunctionsPackage extends EPackage {
 	int NUMBER_OPERATOR___MY_TO_STRING = OPERATOR___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___GET_PARAMETER_LIST = OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___UPDATE_OPERATORS__OPERATORLIST = OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___GET_OPERATOR_LIST = OPERATOR___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -958,6 +1066,42 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___MY_TO_STRING = BOOLEAN_OPERATOR___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___UPDATE_PARAMETERS__PARAMETERLIST = BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GET_PARAMETER_LIST = BOOLEAN_OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___UPDATE_OPERATORS__OPERATORLIST = BOOLEAN_OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GET_OPERATOR_LIST = BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1075,13 +1219,31 @@ public interface FunctionsPackage extends EPackage {
 	int MATCH___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Copy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___COPY = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Match</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int MATCH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.ComparisonImpl <em>Comparison</em>}' class.
@@ -1274,6 +1436,42 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___MY_TO_STRING = BOOLEAN_OPERATOR___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___UPDATE_PARAMETERS__PARAMETERLIST = BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GET_PARAMETER_LIST = BOOLEAN_OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___UPDATE_OPERATORS__OPERATORLIST = BOOLEAN_OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GET_OPERATOR_LIST = BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1391,13 +1589,40 @@ public interface FunctionsPackage extends EPackage {
 	int COMPARISON___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
+	 * The operation id for the '<em>Is Primitive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___IS_PRIMITIVE = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Copy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___COPY = BOOLEAN_OPERATOR_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Comparison</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int COMPARISON_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.impl.OperatorListImpl <em>Operator List</em>}' class.
@@ -1534,6 +1759,42 @@ public interface FunctionsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.
@@ -1726,6 +1987,42 @@ public interface FunctionsPackage extends EPackage {
 	int REFERENCE_OPERATOR___MY_TO_STRING = BOOLEAN_OPERATOR___MY_TO_STRING;
 
 	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___GET_PARAMETER_LIST = BOOLEAN_OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___UPDATE_OPERATORS__OPERATORLIST = BOOLEAN_OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___GET_OPERATOR_LIST = BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1843,13 +2140,22 @@ public interface FunctionsPackage extends EPackage {
 	int REFERENCE_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
+	 * The operation id for the '<em>Copy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_OPERATOR___COPY = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Reference Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_OPERATOR_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+	int REFERENCE_OPERATOR_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.functions.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -2057,6 +2363,26 @@ public interface FunctionsPackage extends EPackage {
 	EReference getMatch_RegularExpression();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Match#getElement() <em>Get Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Element</em>' operation.
+	 * @see qualitypatternmodel.functions.Match#getElement()
+	 * @generated
+	 */
+	EOperation getMatch__GetElement();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Match#copy() <em>Copy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy</em>' operation.
+	 * @see qualitypatternmodel.functions.Match#copy()
+	 * @generated
+	 */
+	EOperation getMatch__Copy();
+
+	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2109,6 +2435,36 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComparison_OptionParam();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Comparison#isPrimitive() <em>Is Primitive</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Primitive</em>' operation.
+	 * @see qualitypatternmodel.functions.Comparison#isPrimitive()
+	 * @generated
+	 */
+	EOperation getComparison__IsPrimitive();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Comparison#getElement() <em>Get Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Element</em>' operation.
+	 * @see qualitypatternmodel.functions.Comparison#getElement()
+	 * @generated
+	 */
+	EOperation getComparison__GetElement();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.Comparison#copy() <em>Copy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy</em>' operation.
+	 * @see qualitypatternmodel.functions.Comparison#copy()
+	 * @generated
+	 */
+	EOperation getComparison__Copy();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.functions.Comparison#getArgument2 <em>Argument2</em>}'.
@@ -2205,6 +2561,16 @@ public interface FunctionsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getReferenceOperator_Type();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.functions.ReferenceOperator#copy() <em>Copy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy</em>' operation.
+	 * @see qualitypatternmodel.functions.ReferenceOperator#copy()
+	 * @generated
+	 */
+	EOperation getReferenceOperator__Copy();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.functions.OperatorList#getGraph <em>Graph</em>}'.
@@ -2414,6 +2780,22 @@ public interface FunctionsPackage extends EPackage {
 		EReference MATCH__REGULAR_EXPRESSION = eINSTANCE.getMatch_RegularExpression();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MATCH___GET_ELEMENT = eINSTANCE.getMatch__GetElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MATCH___COPY = eINSTANCE.getMatch__Copy();
+
+		/**
 		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2454,6 +2836,30 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPARISON__OPTION_PARAM = eINSTANCE.getComparison_OptionParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Primitive</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARISON___IS_PRIMITIVE = eINSTANCE.getComparison__IsPrimitive();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARISON___GET_ELEMENT = eINSTANCE.getComparison__GetElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARISON___COPY = eINSTANCE.getComparison__Copy();
 
 		/**
 		 * The meta object literal for the '<em><b>Argument2</b></em>' reference feature.
@@ -2530,6 +2936,14 @@ public interface FunctionsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REFERENCE_OPERATOR__TYPE = eINSTANCE.getReferenceOperator_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation REFERENCE_OPERATOR___COPY = eINSTANCE.getReferenceOperator__Copy();
 
 		/**
 		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.

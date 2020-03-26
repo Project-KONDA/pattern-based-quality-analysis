@@ -22,8 +22,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.functions.OperatorList;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
@@ -139,6 +144,60 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		}
 //		System.out.println("Validation successfull at " + this.getClass().getSimpleName() + " " + this.getId() + "!");
 		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void updateParameters(ParameterList newParameterList) {
+		
+	}
+
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public ParameterList getParameterList() {
+		ParameterList newParameterList = null;
+		try {
+			newParameterList = ((Pattern) getAncestor(PatternImpl.class)).getParameterList();
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+		}	
+		return newParameterList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void updateOperators(OperatorList newOperatorList) {
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public OperatorList getOperatorList() {
+		OperatorList newOperatorList = null;
+		try {
+			newOperatorList = ((Graph) getAncestor(GraphImpl.class)).getOperatorList();
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+		}	
+		return newOperatorList;
 	}
 
 	/**
@@ -385,6 +444,16 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return myToString();
 			case PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP:
 				return validate((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST:
+				updateParameters((ParameterList)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST:
+				return getParameterList();
+			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST:
+				updateOperators((OperatorList)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
+				return getOperatorList();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

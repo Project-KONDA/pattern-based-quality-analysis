@@ -11,6 +11,12 @@ import qualitypatternmodel.functions.ReferenceOperator;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Reference Operator</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.functions.ReferenceOperator#copy() <em>Copy</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ReferenceOperatorTest extends BooleanOperatorTest {
@@ -65,6 +71,19 @@ public class ReferenceOperatorTest extends BooleanOperatorTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.functions.ReferenceOperator#copy() <em>Copy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.functions.ReferenceOperator#copy()
+	 * @generated
+	 */
+	public void testCopy() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ReferenceOperatorTest
