@@ -190,7 +190,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 */
 	public EList<Parameter> getAllInputs() throws InvalidityException {
-		EList<Parameter> res = new BasicEList<Parameter>();
+		EList<Parameter> res = new BasicEList<Parameter>();	
 		res.add(getAttributeName());
 		res.add(getOption());
 		return res;
@@ -593,8 +593,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 
 	@Override
 	public void updateParameters(ParameterList newParameterList) {
-		getAttributeName().updateParameters(newParameterList);
-		getOption().updateParameters(newParameterList);		
+		if(getAttributeName() != null) {
+			getAttributeName().updateParameters(newParameterList);
+		}
+		if(getOption() != null) {
+			getOption().updateParameters(newParameterList);		
+		}
 	}	
 
 	public void reset() {

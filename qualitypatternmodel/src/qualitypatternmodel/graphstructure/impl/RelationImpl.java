@@ -318,9 +318,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			copyToNewNextGraphs(newRelationTo);
 		}
 		msgs = eBasicSetContainer((InternalEObject) newRelationTo, GraphstructurePackage.RELATION__ELEMENT, msgs);
-//		if (newRelationTo != null && getMappingFrom() == null) {
-//			createInputs();
-//		}
+		if (newRelationTo != null && getMappingFrom() == null) {
+			createParameters();
+		}
 		return msgs;
 	}
 
@@ -375,7 +375,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	
 	@Override
 	public void updateParameters(ParameterList newParameterList) {
-		getOption().updateParameters(newParameterList);		
+		if(getOption() != null) {
+			getOption().updateParameters(newParameterList);		
+		}
 	}
 
 	@Override

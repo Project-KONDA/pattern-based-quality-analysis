@@ -256,8 +256,13 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	@Override
 	public EList<Element> getAllArgumentElements() throws InvalidityException {
-		EList<Element> arguments = argument1.getAllArgumentElements();
-		arguments.addAll(argument2.getAllArgumentElements());
+		EList<Element> arguments = new BasicEList<Element>();
+		if(argument1 != null) {
+			arguments.addAll(argument1.getAllArgumentElements());
+		}
+		if(argument2 != null) {
+			arguments.addAll(argument2.getAllArgumentElements());
+		}
 		return arguments;
 	}
 

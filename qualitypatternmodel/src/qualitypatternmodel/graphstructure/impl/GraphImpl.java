@@ -321,7 +321,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	@Override
 	public void updateParameters(ParameterList newParameterList) {
-		getRootElement().updateParameters(newParameterList);
+		if(getRootElement() != null) {
+			getRootElement().updateParameters(newParameterList);
+		}
 	}
 
 	/**

@@ -459,7 +459,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		if (isRootElement() && getRelationFromPrevious() != null)
 			throw new InvalidityException("relation specified for root element");
 
-		if(getPreviousElement() == null && getGraph() == null) {
+		if(getPreviousElement() == null && getRoot() == null) {
 			throw new InvalidityException("missing previous element or root graph");
 		}
 		if(isRootElement() && !getPredicates().isEmpty()) {
@@ -851,13 +851,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	
 		if (getMappingFrom() != null) {
 			Element se = getMappingFrom().getFrom();
-			if (!se.getName().equals(newName))
+			if (newName != null && !newName.equals(se.getName()))
 				se.setName(newName);
 		}
 		for (ElementMapping m : getMappingTo()) {
 			if (m.getTo() != null) {
 				Element se = m.getTo();
-				if (!se.getName().equals(newName)) {
+				if (newName != null && !newName.equals(se.getName())) {
 					se.setName(newName);
 				}
 			}
@@ -1601,12 +1601,14 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			OperatorList oplist = graph.getOperatorList();
 			
 			Property property = new PropertyImpl();
+			property.createParameters();
 			getProperties().add(property);
 	
 			UnknownParameterValue unknownParameterValue = new UnknownParameterValueImpl();
 			varlist.add(unknownParameterValue);
 	
 			oplist.add(comparison);	
+			comparison.createParameters();
 			comparison.setArgument1(property);
 			comparison.setArgument2(unknownParameterValue);						
 			
@@ -1622,7 +1624,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void addPrimitiveComparison(String value) {
-		Comparison comparison = new ComparisonImpl();
+		Comparison comparison = new ComparisonImpl();		
 		try {			
 			Pattern pattern = (Pattern) getAncestor(Pattern.class);
 			ParameterList varlist = pattern.getParameterList();
@@ -1631,6 +1633,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			
 			Property property = new PropertyImpl();
 			getProperties().add(property);
+			property.createParameters();
 			property.getOption().setValue(PropertyLocation.TAG);
 			
 			TextLiteralParamImpl textlit = new TextLiteralParamImpl();
@@ -1638,10 +1641,12 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			textlit.setValue(value);
 	
 			oplist.add(comparison);	
+			comparison.createParameters();
 			comparison.setArgument1(property);
 			comparison.setArgument2(textlit);			
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
@@ -1659,13 +1664,15 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			
-			Property property = new PropertyImpl();
+			Property property = new PropertyImpl();			
 			getProperties().add(property);
+			property.createParameters();
 			property.getOption().setValue(PropertyLocation.TAG);
 			
 			varlist.add(parameter);
 	
 			oplist.add(comparison);	
+			comparison.createParameters();
 			comparison.setArgument1(property);
 			comparison.setArgument2(parameter);			
 		} catch (Exception e) {
@@ -1686,15 +1693,16 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			ParameterList varlist = pattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
-			Property property1 = new PropertyImpl();
-			
+			Property property1 = new PropertyImpl();			
 			getProperties().add(property1);
+			property1.createParameters();
 			property1.getOption().setValue(property);
 			property1.getAttributeName().setValue(attr);
 			
 			varlist.add(parameter);
 	
 			oplist.add(comparison);	
+			comparison.createParameters();
 			comparison.getOption().setValue(operator);
 			comparison.setArgument1(property1);
 			comparison.setArgument2(parameter);				
@@ -1768,12 +1776,14 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				
 				Property property = new PropertyImpl();
 				getProperties().add(property);
+				property.createParameters();
 				
 	//			TextLiteralImpl textlit = new TextLiteralImpl();
 	//			varlist.add(textlit);
 	//			textlit.setValue(regex);
 	
 				oplist.add(match);	
+				match.createParameters();
 				match.setProperty(property);
 	//			match.setArgument1(property);
 	//			match.setRegularExpression(textlit);
@@ -1927,13 +1937,11 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public ReturnType getReturnType() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return ReturnType.ELEMENT;
 	}
 
 	public void clearPredicatesRecursively() {

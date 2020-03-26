@@ -22,12 +22,14 @@ import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
-
+import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
+import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.GraphContainer;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -107,7 +109,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * @generated
 	 */
 	protected CountConditionImpl() {
-		super();
+		super();		
 	}
 	
 	@Override
@@ -183,6 +185,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public EList<Parameter> getAllInputs() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
+		if(getOption() != null) {
+			res.add(getOption());
+		}
 		if(getNumberParam() != null) {
 			res.add(getNumberParam());
 		}
@@ -335,13 +340,92 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public NotificationChain basicSetQuantifiedConditionCount(QuantifiedCondition newQuantifiedConditionCount, NotificationChain msgs) {
+	public NotificationChain basicSetQuantifiedConditionCount(QuantifiedCondition newQuantifiedConditionCount, NotificationChain msgs) {		
+		if(getOption() != null) {
+			getOption().setParameterList(null);
+		}
+		
 		msgs = eBasicSetContainer((InternalEObject)newQuantifiedConditionCount, PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT, msgs);
+		
+		setOption(new ComparisonOptionParamImpl());
+		getParameterList().add(getOption());
+		
 		return msgs;
 	}
+	
+	@Override
+	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
+		if(getOption() != null) {
+			getOption().setParameterList(null);
+		}
 
+		msgs = super.basicSetPattern(newPattern, msgs);
+
+		setOption(new ComparisonOptionParamImpl());
+		getParameterList().add(getOption());
+
+		return msgs;
+	}
+	
+	@Override
+	public NotificationChain basicSetFormula1(Formula newFormula, NotificationChain msgs) {
+		if(getOption() != null) {
+			getOption().setParameterList(null);
+		}
+
+		msgs = super.basicSetFormula1(newFormula, msgs);
+
+		setOption(new ComparisonOptionParamImpl());
+		getParameterList().add(getOption());
+
+		return msgs;
+	}
+	
+	@Override
+	public NotificationChain basicSetFormula2(Formula newFormula, NotificationChain msgs) {
+		if(getOption() != null) {
+			getOption().setParameterList(null);
+		}
+
+		msgs = super.basicSetFormula2(newFormula, msgs);
+
+		setOption(new ComparisonOptionParamImpl());
+		getParameterList().add(getOption());
+
+		return msgs;
+	}
+	
+	@Override
+	public NotificationChain basicSetNotCondition(NotCondition newNotCondition, NotificationChain msgs) {
+		if(getOption() != null) {
+			getOption().setParameterList(null);
+		}
+
+		msgs = super.basicSetNotCondition(newNotCondition, msgs);
+
+		setOption(new ComparisonOptionParamImpl());
+		getParameterList().add(getOption());
+
+		return msgs;
+	}
+	
+	@Override 
+	public NotificationChain basicSetQuantifiedcondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {
+		if(getOption() != null) {
+			getOption().setParameterList(null);
+		}
+		
+		msgs = super.basicSetQuantifiedcondition(newQuantifiedCondition, msgs);
+		
+		setOption(new ComparisonOptionParamImpl());
+		getParameterList().add(getOption());
+		
+		return msgs;
+	}
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -29,7 +29,7 @@ public class Test09ComplexComparison {
 		patterns.add(getPatternTwoEs());
 //		patterns.add(getPatternEtoSE());
 //		patterns.add(getPatternTwoSetEs());
-		patterns.add(getPatternTwoOps());
+		patterns.add(getPatternTwoOps()); // TODO
 		
 		Test00.test(patterns);
 	}
@@ -58,8 +58,11 @@ public class Test09ComplexComparison {
 		Comparison comp = functionFactory.createComparison();
 		
 		pattern.getGraph().getOperatorList().add(comp);
+		comp.createParameters();
 		ret.getProperties().add(p1);
+		p1.createParameters();
 		ret.getProperties().add(p2);
+		p2.createParameters();
 		
 		p1.getOption().setValue(PropertyLocation.TAG);
 		
@@ -91,8 +94,11 @@ public class Test09ComplexComparison {
 		Comparison comp = functionFactory.createComparison();
 		
 		pattern.getGraph().getOperatorList().add(comp);
+		comp.createParameters();
 		se1.getProperties().add(p1);
+		p1.createParameters();
 		se2.getProperties().add(p2);
+		p2.createParameters();
 		
 		p1.getOption().setValue(PropertyLocation.TAG);
 		
@@ -121,6 +127,7 @@ public class Test09ComplexComparison {
 		Comparison comp = functionFactory.createComparison();
 		
 		pattern.getGraph().getOperatorList().add(comp);
+		comp.createParameters();
 		comp.setArgument1(se1);
 		comp.setArgument2(se2);
 		
@@ -242,8 +249,11 @@ public class Test09ComplexComparison {
 		Comparison comp1 = functionFactory.createComparison();
 		Comparison comp2 = functionFactory.createComparison();
 		oplist.add(comp0);
+		comp0.createParameters();
 		oplist.add(comp1);
+		comp1.createParameters();
 		oplist.add(comp2);
+		comp2.createParameters();
 		se.getPredicates().add(comp0);
 		comp0.setArgument1(comp1);
 		comp0.setArgument1(comp2);

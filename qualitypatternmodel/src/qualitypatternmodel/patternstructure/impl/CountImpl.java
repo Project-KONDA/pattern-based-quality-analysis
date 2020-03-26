@@ -67,10 +67,12 @@ public class CountImpl extends PatternElementImpl implements Count {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected CountImpl() {
 		super();
+		setPattern(new PatternImpl(true));
+		setMorphism(new MorphismImpl());
 	}
 
 	@Override
@@ -111,24 +113,14 @@ public class CountImpl extends PatternElementImpl implements Count {
 	public CountCondition getCountCondition1() {
 		if (eContainerFeatureID() != PatternstructurePackage.COUNT__COUNT_CONDITION1) return null;
 		return (CountCondition)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCountCondition1(CountCondition newCountCondition1, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newCountCondition1, PatternstructurePackage.COUNT__COUNT_CONDITION1, msgs);
-		return msgs;
-	}
+	}	
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetCountComparison1(CountCondition newCountComparison1, NotificationChain msgs) {
+	public NotificationChain basicSetCountCondition1(CountCondition newCountComparison1, NotificationChain msgs) {
 		getMorphism().setFrom(null);
 		getMorphism().setTo(getGraph());
 		getMorphism().removeDanglingMappingReference();		
@@ -299,19 +291,9 @@ public class CountImpl extends PatternElementImpl implements Count {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCountCondition2(CountCondition newCountCondition2, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newCountCondition2, PatternstructurePackage.COUNT__COUNT_CONDITION2, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetCountComparison2(CountCondition newCountComparison2, NotificationChain msgs) {
+	public NotificationChain basicSetCountCondition2(CountCondition newCountComparison2, NotificationChain msgs) {
 		getMorphism().setFrom(null);
 		getMorphism().setTo(getGraph());
 		getMorphism().removeDanglingMappingReference();		
