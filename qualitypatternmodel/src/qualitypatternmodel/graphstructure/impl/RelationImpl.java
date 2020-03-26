@@ -464,9 +464,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.RELATION_OPTION_PARAM__RELATION, RelationOptionParam.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.RELATION_OPTION_PARAM__RELATION, RelationOptionParam.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -557,7 +557,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicSetElement((Element)otherEnd, msgs);
 			case GraphstructurePackage.RELATION__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.RELATION_OPTION_PARAM__RELATION, RelationOptionParam.class, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
 				return basicSetOption((RelationOptionParam)otherEnd, msgs);
 			case GraphstructurePackage.RELATION__OPTION_PARAM:
 				if (optionParam != null)

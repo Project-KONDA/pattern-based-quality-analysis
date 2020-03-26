@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
@@ -37,7 +39,7 @@ import qualitypatternmodel.patternstructure.Location;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.PropertyOptionParamImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.PropertyOptionParamImpl#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.PropertyOptionParamImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.PropertyOptionParamImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,14 +76,14 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	protected PropertyLocation value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProperty() <em>Property</em>}' reference.
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProperty()
+	 * @see #getProperties()
 	 * @generated
 	 * @ordered
 	 */
-	protected Property property;
+	protected EList<Property> properties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,7 +127,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetVariableList(ParameterList newVariableList, NotificationChain msgs) {		
-		setProperty(null);
+		getProperties().clear();
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
 	
@@ -181,16 +183,11 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 */
 	@Override
-	public Property getProperty() {
-		if (property != null && property.eIsProxy()) {
-			InternalEObject oldProperty = (InternalEObject)property;
-			property = (Property)eResolveProxy(oldProperty);
-			if (property != oldProperty) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY, oldProperty, property));
-			}
+	public EList<Property> getProperties() {
+		if (properties == null) {
+			properties = new EObjectWithInverseResolvingEList<Property>(Property.class, this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, GraphstructurePackage.PROPERTY__OPTION);
 		}
-		return property;
+		return properties;
 	}
 
 	/**
@@ -198,57 +195,12 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Property basicGetProperty() {
-		return property;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
-		Property oldProperty = property;
-		property = newProperty;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY, oldProperty, newProperty);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setProperty(Property newProperty) {
-		if (newProperty != property) {
-			NotificationChain msgs = null;
-			if (property != null)
-				msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__OPTION, Property.class, msgs);
-			if (newProperty != null)
-				msgs = ((InternalEObject)newProperty).eInverseAdd(this, GraphstructurePackage.PROPERTY__OPTION, Property.class, msgs);
-			msgs = basicSetProperty(newProperty, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY, newProperty, newProperty));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY:
-				if (property != null)
-					msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__OPTION, Property.class, msgs);
-				return basicSetProperty((Property)otherEnd, msgs);
+			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -261,8 +213,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY:
-				return basicSetProperty(null, msgs);
+			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -279,9 +231,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				return getOptions();
 			case ParametersPackage.PROPERTY_OPTION_PARAM__VALUE:
 				return getValue();
-			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY:
-				if (resolve) return getProperty();
-				return basicGetProperty();
+			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
+				return getProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -302,8 +253,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			case ParametersPackage.PROPERTY_OPTION_PARAM__VALUE:
 				setValue((PropertyLocation)newValue);
 				return;
-			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY:
-				setProperty((Property)newValue);
+			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends Property>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -323,8 +275,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			case ParametersPackage.PROPERTY_OPTION_PARAM__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY:
-				setProperty((Property)null);
+			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
+				getProperties().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -342,8 +294,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				return options != null && !options.isEmpty();
 			case ParametersPackage.PROPERTY_OPTION_PARAM__VALUE:
 				return value != VALUE_EDEFAULT;
-			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY:
-				return property != null;
+			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
+				return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -375,10 +327,11 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	public void generateDescription() {
 		String res = "Angabe des Eigenschaft-Types";
 		try {
-			Element e = getProperty().getElement();
-			res += " von " + e.getName();
+			for(Property property : getProperties()) {
+				Element e = property.getElement();
+				res += " von " + e.getName();
 			
-			
+			}
 			
 		} catch (Exception e) {}
 		setDescription(res);

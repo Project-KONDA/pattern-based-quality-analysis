@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -36,7 +38,7 @@ import qualitypatternmodel.patternstructure.Location;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.RelationOptionParamImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.RelationOptionParamImpl#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.RelationOptionParamImpl#getRelation <em>Relation</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.RelationOptionParamImpl#getRelations <em>Relations</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,13 +74,13 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	protected Axis value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRelation() <em>Relation</em>}' reference.
+	 * The cached value of the '{@link #getRelations() <em>Relations</em>}' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getRelation()
+	 * @see #getRelations()
 	 * @generated
 	 * @ordered
 	 */
-	protected Relation relation;
+	protected EList<Relation> relations;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -132,7 +134,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetVariableList(ParameterList newVariableList, NotificationChain msgs) {
-		setRelation(null);
+		getRelations().clear();
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
 
@@ -174,70 +176,23 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated
 	 */
 	@Override
-	public Relation getRelation() {
-		if (relation != null && relation.eIsProxy()) {
-			InternalEObject oldRelation = (InternalEObject)relation;
-			relation = (Relation)eResolveProxy(oldRelation);
-			if (relation != oldRelation) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.RELATION_OPTION_PARAM__RELATION, oldRelation, relation));
-			}
+	public EList<Relation> getRelations() {
+		if (relations == null) {
+			relations = new EObjectWithInverseResolvingEList<Relation>(Relation.class, this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, GraphstructurePackage.RELATION__OPTION);
 		}
-		return relation;
+		return relations;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Relation basicGetRelation() {
-		return relation;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRelation(Relation newRelation, NotificationChain msgs) {
-		Relation oldRelation = relation;
-		relation = newRelation;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.RELATION_OPTION_PARAM__RELATION, oldRelation, newRelation);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRelation(Relation newRelation) {
-		if (newRelation != relation) {
-			NotificationChain msgs = null;
-			if (relation != null)
-				msgs = ((InternalEObject)relation).eInverseRemove(this, GraphstructurePackage.RELATION__OPTION, Relation.class, msgs);
-			if (newRelation != null)
-				msgs = ((InternalEObject)newRelation).eInverseAdd(this, GraphstructurePackage.RELATION__OPTION, Relation.class, msgs);
-			msgs = basicSetRelation(newRelation, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.RELATION_OPTION_PARAM__RELATION, newRelation, newRelation));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
-				if (relation != null)
-					msgs = ((InternalEObject)relation).eInverseRemove(this, GraphstructurePackage.RELATION__OPTION, Relation.class, msgs);
-				return basicSetRelation((Relation)otherEnd, msgs);
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRelations()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -249,8 +204,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
-				return basicSetRelation(null, msgs);
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATIONS:
+				return ((InternalEList<?>)getRelations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -266,9 +221,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 				return getOptions();
 			case ParametersPackage.RELATION_OPTION_PARAM__VALUE:
 				return getValue();
-			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
-				if (resolve) return getRelation();
-				return basicGetRelation();
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATIONS:
+				return getRelations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -288,8 +242,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 			case ParametersPackage.RELATION_OPTION_PARAM__VALUE:
 				setValue((Axis)newValue);
 				return;
-			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
-				setRelation((Relation)newValue);
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATIONS:
+				getRelations().clear();
+				getRelations().addAll((Collection<? extends Relation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -308,8 +263,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 			case ParametersPackage.RELATION_OPTION_PARAM__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
-				setRelation((Relation)null);
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATIONS:
+				getRelations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -326,8 +281,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 				return options != null && !options.isEmpty();
 			case ParametersPackage.RELATION_OPTION_PARAM__VALUE:
 				return value != VALUE_EDEFAULT;
-			case ParametersPackage.RELATION_OPTION_PARAM__RELATION:
-				return relation != null;
+			case ParametersPackage.RELATION_OPTION_PARAM__RELATIONS:
+				return relations != null && !relations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -358,9 +313,12 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	public void generateDescription() {
 		String res = "Beziehung: XPath-Achse";
 		try {			
-			Element to = getRelation().getElement();
-			Element from = to.getPreviousElement();
-			res += " zur Navigation von " + from.getName() + " zu " + to.getName();			
+			for(Relation relation : getRelations()) {
+				Element to = relation.getElement();
+				Element from = to.getPreviousElement();
+				res += " zur Navigation von " + from.getName() + " zu " + to.getName();		
+			}
+					
 		} catch (Exception e) {}
 		setDescription(res);
 	}

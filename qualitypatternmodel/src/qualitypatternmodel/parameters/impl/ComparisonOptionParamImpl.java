@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.ComparisonOperator;
@@ -38,7 +40,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getComparison <em>Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getComparisons <em>Comparisons</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getCountCondition <em>Count Condition</em>}</li>
  * </ul>
  *
@@ -76,24 +78,24 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	protected ComparisonOperator value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getComparison() <em>Comparison</em>}' reference.
+	 * The cached value of the '{@link #getComparisons() <em>Comparisons</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComparison()
+	 * @see #getComparisons()
 	 * @generated
 	 * @ordered
 	 */
-	protected Comparison comparison;
+	protected EList<Comparison> comparisons;
 
 	/**
-	 * The cached value of the '{@link #getCountCondition() <em>Count Condition</em>}' reference.
+	 * The cached value of the '{@link #getCountCondition() <em>Count Condition</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCountCondition()
 	 * @generated
 	 * @ordered
 	 */
-	protected CountCondition countCondition;
+	protected EList<CountCondition> countCondition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,7 +152,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetVariableList(ParameterList newVariableList, NotificationChain msgs) {
-		setComparison(null);
+		getComparisons().clear();
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
 
@@ -196,40 +198,11 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	 * @generated
 	 */
 	@Override
-	public Comparison getComparison() {
-		if (comparison != null && comparison.eIsProxy()) {
-			InternalEObject oldComparison = (InternalEObject)comparison;
-			comparison = (Comparison)eResolveProxy(oldComparison);
-			if (comparison != oldComparison) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON, oldComparison, comparison));
-			}
+	public EList<Comparison> getComparisons() {
+		if (comparisons == null) {
+			comparisons = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS, FunctionsPackage.COMPARISON__OPTION);
 		}
-		return comparison;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Comparison basicGetComparison() {
-		return comparison;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetComparison(Comparison newComparison, NotificationChain msgs) {
-		Comparison oldComparison = comparison;
-		comparison = newComparison;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON, oldComparison, newComparison);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return comparisons;
 	}
 
 	/**
@@ -238,34 +211,9 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	 * @generated
 	 */
 	@Override
-	public void setComparison(Comparison newComparison) {
-		if (newComparison != comparison) {
-			NotificationChain msgs = null;
-			if (comparison != null)
-				msgs = ((InternalEObject)comparison).eInverseRemove(this, FunctionsPackage.COMPARISON__OPTION, Comparison.class, msgs);
-			if (newComparison != null)
-				msgs = ((InternalEObject)newComparison).eInverseAdd(this, FunctionsPackage.COMPARISON__OPTION, Comparison.class, msgs);
-			msgs = basicSetComparison(newComparison, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON, newComparison, newComparison));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public CountCondition getCountCondition() {
-		if (countCondition != null && countCondition.eIsProxy()) {
-			InternalEObject oldCountCondition = (InternalEObject)countCondition;
-			countCondition = (CountCondition)eResolveProxy(oldCountCondition);
-			if (countCondition != oldCountCondition) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION, oldCountCondition, countCondition));
-			}
+	public EList<CountCondition> getCountCondition() {
+		if (countCondition == null) {
+			countCondition = new EObjectWithInverseResolvingEList<CountCondition>(CountCondition.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION, PatternstructurePackage.COUNT_CONDITION__OPTION);
 		}
 		return countCondition;
 	}
@@ -275,61 +223,14 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CountCondition basicGetCountCondition() {
-		return countCondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCountCondition(CountCondition newCountCondition, NotificationChain msgs) {
-		CountCondition oldCountCondition = countCondition;
-		countCondition = newCountCondition;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION, oldCountCondition, newCountCondition);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCountCondition(CountCondition newCountCondition) {
-		if (newCountCondition != countCondition) {
-			NotificationChain msgs = null;
-			if (countCondition != null)
-				msgs = ((InternalEObject)countCondition).eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__OPTION, CountCondition.class, msgs);
-			if (newCountCondition != null)
-				msgs = ((InternalEObject)newCountCondition).eInverseAdd(this, PatternstructurePackage.COUNT_CONDITION__OPTION, CountCondition.class, msgs);
-			msgs = basicSetCountCondition(newCountCondition, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION, newCountCondition, newCountCondition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON:
-				if (comparison != null)
-					msgs = ((InternalEObject)comparison).eInverseRemove(this, FunctionsPackage.COMPARISON__OPTION, Comparison.class, msgs);
-				return basicSetComparison((Comparison)otherEnd, msgs);
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparisons()).basicAdd(otherEnd, msgs);
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				if (countCondition != null)
-					msgs = ((InternalEObject)countCondition).eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__OPTION, CountCondition.class, msgs);
-				return basicSetCountCondition((CountCondition)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCountCondition()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -342,10 +243,10 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON:
-				return basicSetComparison(null, msgs);
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS:
+				return ((InternalEList<?>)getComparisons()).basicRemove(otherEnd, msgs);
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				return basicSetCountCondition(null, msgs);
+				return ((InternalEList<?>)getCountCondition()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -362,12 +263,10 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				return getOptions();
 			case ParametersPackage.COMPARISON_OPTION_PARAM__VALUE:
 				return getValue();
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON:
-				if (resolve) return getComparison();
-				return basicGetComparison();
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS:
+				return getComparisons();
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				if (resolve) return getCountCondition();
-				return basicGetCountCondition();
+				return getCountCondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -388,11 +287,13 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 			case ParametersPackage.COMPARISON_OPTION_PARAM__VALUE:
 				setValue((ComparisonOperator)newValue);
 				return;
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON:
-				setComparison((Comparison)newValue);
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS:
+				getComparisons().clear();
+				getComparisons().addAll((Collection<? extends Comparison>)newValue);
 				return;
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				setCountCondition((CountCondition)newValue);
+				getCountCondition().clear();
+				getCountCondition().addAll((Collection<? extends CountCondition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -412,11 +313,11 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 			case ParametersPackage.COMPARISON_OPTION_PARAM__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON:
-				setComparison((Comparison)null);
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS:
+				getComparisons().clear();
 				return;
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				setCountCondition((CountCondition)null);
+				getCountCondition().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -434,10 +335,10 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				return options != null && !options.isEmpty();
 			case ParametersPackage.COMPARISON_OPTION_PARAM__VALUE:
 				return value != VALUE_EDEFAULT;
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON:
-				return comparison != null;
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS:
+				return comparisons != null && !comparisons.isEmpty();
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				return countCondition != null;
+				return countCondition != null && !countCondition.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -469,11 +370,13 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	public void generateDescription() {
 		String res = "Angabe des Vergleichsoperators";
 		try {
-			Comparable arg1 = getComparison().getArgument1();
-			Comparable arg2 = getComparison().getArgument2();
-			String argument1 = arg1.getClass().getCanonicalName() + " " + arg1.getInternalId();
-			String argument2 = arg2.getClass().getCanonicalName() + " " + arg1.getInternalId();
-			res += " zum Vergleich von " + argument1 + " und " + argument2;
+			for(Comparison comp : getComparisons()) {
+				Comparable arg1 = comp.getArgument1();
+				Comparable arg2 = comp.getArgument2();
+				String argument1 = arg1.getClass().getCanonicalName() + " " + arg1.getInternalId();
+				String argument2 = arg2.getClass().getCanonicalName() + " " + arg1.getInternalId();
+				res += " zum Vergleich von " + argument1 + " und " + argument2;
+			}
 		} catch (Exception e) {}
 		setDescription(res);
 	}

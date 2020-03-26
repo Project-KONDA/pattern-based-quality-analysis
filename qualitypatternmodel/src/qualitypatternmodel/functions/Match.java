@@ -51,14 +51,14 @@ public interface Match extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Regular Expression</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getMatch <em>Match</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getMatches <em>Matches</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Regular Expression</em>' reference.
 	 * @see #setRegularExpression(TextLiteralParam)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_RegularExpression()
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getMatch
-	 * @model opposite="match" required="true"
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getMatches
+	 * @model opposite="matches" required="true"
 	 * @generated
 	 */
 	TextLiteralParam getRegularExpression();
@@ -75,14 +75,14 @@ public interface Match extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.BooleanParam#getMatch <em>Match</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.BooleanParam#getMatches <em>Matches</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
 	 * @see #setOption(BooleanParam)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getMatch_Option()
-	 * @see qualitypatternmodel.parameters.BooleanParam#getMatch
-	 * @model opposite="match" required="true"
+	 * @see qualitypatternmodel.parameters.BooleanParam#getMatches
+	 * @model opposite="matches" required="true"
 	 * @generated
 	 */
 	BooleanParam getOption();

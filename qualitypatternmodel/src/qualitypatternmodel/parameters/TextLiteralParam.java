@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.parameters;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.graphstructure.Property;
 
@@ -16,8 +17,8 @@ import qualitypatternmodel.graphstructure.Property;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getMatch <em>Match</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getProperty <em>Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getMatches <em>Matches</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam()
@@ -49,51 +50,31 @@ public interface TextLiteralParam extends ParameterValue {
 	void setValue(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Match</b></em>' reference.
+	 * Returns the value of the '<em><b>Matches</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.functions.Match}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Match#getRegularExpression <em>Regular Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Match</em>' reference.
-	 * @see #setMatch(Match)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_Match()
+	 * @return the value of the '<em>Matches</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_Matches()
 	 * @see qualitypatternmodel.functions.Match#getRegularExpression
 	 * @model opposite="regularExpression"
 	 * @generated
 	 */
-	Match getMatch();
+	EList<Match> getMatches();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getMatch <em>Match</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Match</em>' reference.
-	 * @see #getMatch()
-	 * @generated
-	 */
-	void setMatch(Match value);
-
-	/**
-	 * Returns the value of the '<em><b>Property</b></em>' reference.
+	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Property}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property</em>' reference.
-	 * @see #setProperty(Property)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_Property()
+	 * @return the value of the '<em>Properties</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_Properties()
 	 * @see qualitypatternmodel.graphstructure.Property#getAttributeName
 	 * @model opposite="attributeName"
 	 * @generated
 	 */
-	Property getProperty();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperty <em>Property</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property</em>' reference.
-	 * @see #getProperty()
-	 * @generated
-	 */
-	void setProperty(Property value);
+	EList<Property> getProperties();
 
 } // TextLiteral

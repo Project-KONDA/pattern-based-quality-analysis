@@ -311,9 +311,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		if (newNumberParam != numberParam) {
 			NotificationChain msgs = null;
 			if (numberParam != null)
-				msgs = ((InternalEObject)numberParam).eInverseRemove(this, ParametersPackage.NUMBER_PARAM__COUNT_COMPARISON, NumberParam.class, msgs);
+				msgs = ((InternalEObject)numberParam).eInverseRemove(this, ParametersPackage.NUMBER_PARAM__COUNT_COMPARISONS, NumberParam.class, msgs);
 			if (newNumberParam != null)
-				msgs = ((InternalEObject)newNumberParam).eInverseAdd(this, ParametersPackage.NUMBER_PARAM__COUNT_COMPARISON, NumberParam.class, msgs);
+				msgs = ((InternalEObject)newNumberParam).eInverseAdd(this, ParametersPackage.NUMBER_PARAM__COUNT_COMPARISONS, NumberParam.class, msgs);
 			msgs = basicSetNumberParam(newNumberParam, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -548,7 +548,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				return basicSetCount1((Count)otherEnd, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__NUMBER_PARAM:
 				if (numberParam != null)
-					msgs = ((InternalEObject)numberParam).eInverseRemove(this, ParametersPackage.NUMBER_PARAM__COUNT_COMPARISON, NumberParam.class, msgs);
+					msgs = ((InternalEObject)numberParam).eInverseRemove(this, ParametersPackage.NUMBER_PARAM__COUNT_COMPARISONS, NumberParam.class, msgs);
 				return basicSetNumberParam((NumberParam)otherEnd, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT:
 				if (eInternalContainer() != null)

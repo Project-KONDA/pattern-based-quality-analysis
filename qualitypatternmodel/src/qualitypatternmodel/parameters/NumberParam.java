@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.parameters;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 
@@ -16,7 +17,7 @@ import qualitypatternmodel.patternstructure.CountConditionArgument;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.NumberParam#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.NumberParam#getCountComparison <em>Count Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.NumberParam#getCountComparisons <em>Count Comparisons</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam()
@@ -48,27 +49,17 @@ public interface NumberParam extends ParameterValue, CountConditionArgument {
 	void setValue(Double value);
 
 	/**
-	 * Returns the value of the '<em><b>Count Comparison</b></em>' reference.
+	 * Returns the value of the '<em><b>Count Comparisons</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.patternstructure.CountCondition}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountCondition#getNumberParam <em>Number Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count Comparison</em>' reference.
-	 * @see #setCountComparison(CountCondition)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam_CountComparison()
+	 * @return the value of the '<em>Count Comparisons</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam_CountComparisons()
 	 * @see qualitypatternmodel.patternstructure.CountCondition#getNumberParam
 	 * @model opposite="numberParam"
 	 * @generated
 	 */
-	CountCondition getCountComparison();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.NumberParam#getCountComparison <em>Count Comparison</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count Comparison</em>' reference.
-	 * @see #getCountComparison()
-	 * @generated
-	 */
-	void setCountComparison(CountCondition value);
+	EList<CountCondition> getCountComparisons();
 
 } // Number

@@ -17,7 +17,7 @@ import qualitypatternmodel.graphstructure.Relation;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#getRelation <em>Relation</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#getRelations <em>Relations</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam()
@@ -65,27 +65,17 @@ public interface RelationOptionParam extends Parameter {
 	void setValue(Axis value);
 
 	/**
-	 * Returns the value of the '<em><b>Relation</b></em>' reference.
+	 * Returns the value of the '<em><b>Relations</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Relation}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relation</em>' reference.
-	 * @see #setRelation(Relation)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam_Relation()
+	 * @return the value of the '<em>Relations</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam_Relations()
 	 * @see qualitypatternmodel.graphstructure.Relation#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */
-	Relation getRelation();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.RelationOptionParam#getRelation <em>Relation</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relation</em>' reference.
-	 * @see #getRelation()
-	 * @generated
-	 */
-	void setRelation(Relation value);
+	EList<Relation> getRelations();
 
 } // AxisOption

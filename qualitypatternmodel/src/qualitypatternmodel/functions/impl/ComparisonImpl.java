@@ -580,9 +580,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON, ComparisonOptionParam.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS, ComparisonOptionParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON, ComparisonOptionParam.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS, ComparisonOptionParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -775,7 +775,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return basicSetArgument2((qualitypatternmodel.graphstructure.Comparable)otherEnd, msgs);
 			case FunctionsPackage.COMPARISON__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISON, ComparisonOptionParam.class, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS, ComparisonOptionParam.class, msgs);
 				return basicSetOption((ComparisonOptionParam)otherEnd, msgs);
 			case FunctionsPackage.COMPARISON__OPTION_PARAM:
 				if (optionParam != null)

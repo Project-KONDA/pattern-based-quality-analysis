@@ -46,7 +46,7 @@ public class ComparisonOptionParamItemProvider extends ParameterItemProvider {
 
 			addOptionsPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
-			addComparisonPropertyDescriptor(object);
+			addComparisonsPropertyDescriptor(object);
 			addCountConditionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -97,19 +97,19 @@ public class ComparisonOptionParamItemProvider extends ParameterItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Comparison feature.
+	 * This adds a property descriptor for the Comparisons feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addComparisonPropertyDescriptor(Object object) {
+	protected void addComparisonsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComparisonOptionParam_comparison_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComparisonOptionParam_comparison_feature", "_UI_ComparisonOptionParam_type"),
-				 ParametersPackage.Literals.COMPARISON_OPTION_PARAM__COMPARISON,
+				 getString("_UI_ComparisonOptionParam_comparisons_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComparisonOptionParam_comparisons_feature", "_UI_ComparisonOptionParam_type"),
+				 ParametersPackage.Literals.COMPARISON_OPTION_PARAM__COMPARISONS,
 				 true,
 				 false,
 				 true,

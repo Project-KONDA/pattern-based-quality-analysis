@@ -35,14 +35,14 @@ import qualitypatternmodel.patternstructure.PatternElement;
 public interface Property extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.PropertyOptionParam#getProperty <em>Property</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.PropertyOptionParam#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
 	 * @see #setOption(PropertyOptionParam)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Option()
-	 * @see qualitypatternmodel.parameters.PropertyOptionParam#getProperty
-	 * @model opposite="property" required="true"
+	 * @see qualitypatternmodel.parameters.PropertyOptionParam#getProperties
+	 * @model opposite="properties" required="true"
 	 * @generated
 	 */
 	PropertyOptionParam getOption();
@@ -155,14 +155,14 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * Returns the value of the '<em><b>Attribute Name</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperty <em>Property</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute Name</em>' reference.
 	 * @see #setAttributeName(TextLiteralParam)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_AttributeName()
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperty
-	 * @model opposite="property" required="true"
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperties
+	 * @model opposite="properties" required="true"
 	 * @generated
 	 */
 	TextLiteralParam getAttributeName();

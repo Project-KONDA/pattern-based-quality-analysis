@@ -2,16 +2,20 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.util.Collection;
 import java.lang.Boolean;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.functions.Match;
@@ -30,7 +34,7 @@ import qualitypatternmodel.patternstructure.Location;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getMatch <em>Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getMatches <em>Matches</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,14 +61,14 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	protected Boolean value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getMatch() <em>Match</em>}' reference.
+	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMatch()
+	 * @see #getMatches()
 	 * @generated
 	 * @ordered
 	 */
-	protected Match match;
+	protected EList<Match> matches;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,7 +126,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetVariableList(ParameterList newVariableList, NotificationChain msgs) {
-		setMatch(null);
+		getMatches().clear();
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
 
@@ -145,16 +149,11 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	 * @generated
 	 */
 	@Override
-	public Match getMatch() {
-		if (match != null && match.eIsProxy()) {
-			InternalEObject oldMatch = (InternalEObject)match;
-			match = (Match)eResolveProxy(oldMatch);
-			if (match != oldMatch) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.BOOLEAN_PARAM__MATCH, oldMatch, match));
-			}
+	public EList<Match> getMatches() {
+		if (matches == null) {
+			matches = new EObjectWithInverseResolvingEList<Match>(Match.class, this, ParametersPackage.BOOLEAN_PARAM__MATCHES, FunctionsPackage.MATCH__OPTION);
 		}
-		return match;
+		return matches;
 	}
 
 	/**
@@ -162,57 +161,12 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Match basicGetMatch() {
-		return match;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMatch(Match newMatch, NotificationChain msgs) {
-		Match oldMatch = match;
-		match = newMatch;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.BOOLEAN_PARAM__MATCH, oldMatch, newMatch);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMatch(Match newMatch) {
-		if (newMatch != match) {
-			NotificationChain msgs = null;
-			if (match != null)
-				msgs = ((InternalEObject)match).eInverseRemove(this, FunctionsPackage.MATCH__OPTION, Match.class, msgs);
-			if (newMatch != null)
-				msgs = ((InternalEObject)newMatch).eInverseAdd(this, FunctionsPackage.MATCH__OPTION, Match.class, msgs);
-			msgs = basicSetMatch(newMatch, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.BOOLEAN_PARAM__MATCH, newMatch, newMatch));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.BOOLEAN_PARAM__MATCH:
-				if (match != null)
-					msgs = ((InternalEObject)match).eInverseRemove(this, FunctionsPackage.MATCH__OPTION, Match.class, msgs);
-				return basicSetMatch((Match)otherEnd, msgs);
+			case ParametersPackage.BOOLEAN_PARAM__MATCHES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatches()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -225,8 +179,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.BOOLEAN_PARAM__MATCH:
-				return basicSetMatch(null, msgs);
+			case ParametersPackage.BOOLEAN_PARAM__MATCHES:
+				return ((InternalEList<?>)getMatches()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -241,9 +195,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		switch (featureID) {
 			case ParametersPackage.BOOLEAN_PARAM__VALUE:
 				return getValue();
-			case ParametersPackage.BOOLEAN_PARAM__MATCH:
-				if (resolve) return getMatch();
-				return basicGetMatch();
+			case ParametersPackage.BOOLEAN_PARAM__MATCHES:
+				return getMatches();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,14 +206,16 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ParametersPackage.BOOLEAN_PARAM__VALUE:
 				setValue((Boolean)newValue);
 				return;
-			case ParametersPackage.BOOLEAN_PARAM__MATCH:
-				setMatch((Match)newValue);
+			case ParametersPackage.BOOLEAN_PARAM__MATCHES:
+				getMatches().clear();
+				getMatches().addAll((Collection<? extends Match>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -277,8 +232,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 			case ParametersPackage.BOOLEAN_PARAM__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case ParametersPackage.BOOLEAN_PARAM__MATCH:
-				setMatch((Match)null);
+			case ParametersPackage.BOOLEAN_PARAM__MATCHES:
+				getMatches().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -294,8 +249,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		switch (featureID) {
 			case ParametersPackage.BOOLEAN_PARAM__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-			case ParametersPackage.BOOLEAN_PARAM__MATCH:
-				return match != null;
+			case ParametersPackage.BOOLEAN_PARAM__MATCHES:
+				return matches != null && !matches.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

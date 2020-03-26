@@ -5595,9 +5595,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mfC-I2HzEeqRJMTe2Wle0g" sourceNode="_l6Ih8B2REeqrGqxc7qjo8A" targetNode="_7csmUB2jEeqrGqxc7qjo8A" beginLabel="[1..1] option" endLabel="[0..1] match">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/BooleanParam/match"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/BooleanParam/match"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mfC-I2HzEeqRJMTe2Wle0g" sourceNode="_l6Ih8B2REeqrGqxc7qjo8A" targetNode="_7csmUB2jEeqrGqxc7qjo8A" beginLabel="[1..1] option" endLabel="[0..*] matches">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/BooleanParam/matches"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/BooleanParam/matches"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Match/option"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_mfC-JGHzEeqRJMTe2Wle0g" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -5606,9 +5606,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_tVjjAmHzEeqRJMTe2Wle0g" sourceNode="_jdPBsB2REeqrGqxc7qjo8A" targetNode="_7csmUB2jEeqrGqxc7qjo8A" beginLabel="[1..1] regularExpression" endLabel="[0..1] match">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/match"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/match"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_tVjjAmHzEeqRJMTe2Wle0g" sourceNode="_jdPBsB2REeqrGqxc7qjo8A" targetNode="_7csmUB2jEeqrGqxc7qjo8A" beginLabel="[1..1] regularExpression" endLabel="[0..*] matches">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/matches"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/matches"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Match/regularExpression"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_tVkKAGHzEeqRJMTe2Wle0g" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -5617,9 +5617,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_yp3VPGHzEeqRJMTe2Wle0g" sourceNode="_if88QDh7EeqWT8u6R6QK9w" targetNode="_6DW00B2jEeqrGqxc7qjo8A" beginLabel="[1..1] option" endLabel="[0..1] comparison">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/comparison"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/comparison"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_yp3VPGHzEeqRJMTe2Wle0g" sourceNode="_if88QDh7EeqWT8u6R6QK9w" targetNode="_6DW00B2jEeqrGqxc7qjo8A" beginLabel="[1..1] option" endLabel="[0..*] comparisons">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/comparisons"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/comparisons"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Comparison/option"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_yp38QGHzEeqRJMTe2Wle0g" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -5650,10 +5650,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Jt52omIKEeqRJMTe2Wle0g" sourceNode="_jdPBsB2REeqrGqxc7qjo8A" targetNode="_c7kEcB2REeqrGqxc7qjo8A" beginLabel="[1..1] attributeName" endLabel="[0..1] property">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/property"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Jt52omIKEeqRJMTe2Wle0g" sourceNode="_jdPBsB2REeqrGqxc7qjo8A" targetNode="_c7kEcB2REeqrGqxc7qjo8A" beginLabel="[1..1] attributeName" endLabel="[0..*] properties">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/properties"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Property/attributeName"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/property"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/properties"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Jt52o2IKEeqRJMTe2Wle0g" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_Jt52pGIKEeqRJMTe2Wle0g" showIcon="false"/>
@@ -5661,10 +5661,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_OZs3nmIKEeqRJMTe2Wle0g" sourceNode="_8daj0Dh7EeqWT8u6R6QK9w" targetNode="_c7kEcB2REeqrGqxc7qjo8A" beginLabel="[1..1] option" endLabel="[0..1] property">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/PropertyOptionParam/property"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_OZs3nmIKEeqRJMTe2Wle0g" sourceNode="_8daj0Dh7EeqWT8u6R6QK9w" targetNode="_c7kEcB2REeqrGqxc7qjo8A" beginLabel="[1..1] option" endLabel="[0..*] properties">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/PropertyOptionParam/properties"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Property/option"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/PropertyOptionParam/property"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/PropertyOptionParam/properties"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_OZteYGIKEeqRJMTe2Wle0g" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_OZteYWIKEeqRJMTe2Wle0g" showIcon="false"/>
@@ -5729,10 +5729,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_qAOxKGjyEeqrp_Bk8ukhmg" sourceNode="_6jNQoGjxEeqrp_Bk8ukhmg" targetNode="_Z81NAB2SEeqrGqxc7qjo8A" beginLabel="[0..1] option" endLabel="[0..1] relation">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/RelationOptionParam/relation"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_qAOxKGjyEeqrp_Bk8ukhmg" sourceNode="_6jNQoGjxEeqrp_Bk8ukhmg" targetNode="_Z81NAB2SEeqrGqxc7qjo8A" beginLabel="[0..1] option" endLabel="[0..*] relations">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/RelationOptionParam/relations"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Relation/option"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/RelationOptionParam/relation"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/RelationOptionParam/relations"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_qAOxKWjyEeqrp_Bk8ukhmg" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_qAOxKmjyEeqrp_Bk8ukhmg" showIcon="false"/>
@@ -5770,9 +5770,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_wcuOFmqMEeqwze_WIZAgBA" sourceNode="_lnc2gB2REeqrGqxc7qjo8A" targetNode="_EpllcGqMEeqwze_WIZAgBA" beginLabel="[0..1] numberParam" endLabel="[0..1] countComparison">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/NumberParam/countComparison"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/NumberParam/countComparison"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_wcuOFmqMEeqwze_WIZAgBA" sourceNode="_lnc2gB2REeqrGqxc7qjo8A" targetNode="_EpllcGqMEeqwze_WIZAgBA" beginLabel="[0..1] numberParam" endLabel="[0..*] countComparisons">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/NumberParam/countComparisons"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/NumberParam/countComparisons"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/numberParam"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_wcu1IGqMEeqwze_WIZAgBA" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -5939,7 +5939,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_AQethm55Eeqbus1jtXHXnw" sourceNode="_VVki0G53Eeqbus1jtXHXnw" targetNode="_6DW00B2jEeqrGqxc7qjo8A" beginLabel="[1..1] optionParam" endLabel="[0..1] comparison">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_AQethm55Eeqbus1jtXHXnw" sourceNode="_VVki0G53Eeqbus1jtXHXnw" targetNode="_6DW00B2jEeqrGqxc7qjo8A" beginLabel="[1..1] optionParam" endLabel="[0..*] comparison">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/comparison"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/comparison"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Comparison/optionParam"/>
@@ -5966,7 +5966,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_af7DoG5-Eeqbus1jtXHXnw" sourceNode="_if88QDh7EeqWT8u6R6QK9w" targetNode="_EpllcGqMEeqwze_WIZAgBA" beginLabel="[1..1] option" endLabel="[0..1] countCondition">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_af7DoG5-Eeqbus1jtXHXnw" sourceNode="_if88QDh7EeqWT8u6R6QK9w" targetNode="_EpllcGqMEeqwze_WIZAgBA" beginLabel="[1..1] option" endLabel="[0..*] countCondition">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/countCondition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/countCondition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/option"/>
@@ -11451,7 +11451,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_QxMWxmjnEeqrp_Bk8ukhmg" visible="false" sourceNode="_H10SJGg1EeqqIutgaIr-iw" targetNode="_H1zrk2g1EeqqIutgaIr-iw" beginLabel="[0..1] property" endLabel="[1..1] option">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Property/option"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Property/option"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/PropertyOptionParam/property"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/PropertyOptionParam/properties"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_QxM90GjnEeqrp_Bk8ukhmg" description="_H1_RP2g1EeqqIutgaIr-iw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_QxM90WjnEeqrp_Bk8ukhmg" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -11845,7 +11845,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ipJhbG3dEeqpkYKnB0ruEA" visible="false" sourceNode="_H1zr62g1EeqqIutgaIr-iw" targetNode="_H1zrjWg1EeqqIutgaIr-iw" beginLabel="[0..1] comparison" endLabel="[1..1] option">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Comparison/option"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/comparison"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/comparisons"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Comparison/option"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ipJhbW3dEeqpkYKnB0ruEA" description="_H1_RP2g1EeqqIutgaIr-iw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_ipJhbm3dEeqpkYKnB0ruEA" showIcon="false">
@@ -11913,7 +11913,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ipJhiG3dEeqpkYKnB0ruEA" visible="false" sourceNode="_H1zr6Wg1EeqqIutgaIr-iw" targetNode="_H1zrnWg1EeqqIutgaIr-iw" beginLabel="[0..1] match" endLabel="[1..1] option">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Match/option"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/BooleanParam/match"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/BooleanParam/matches"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Match/option"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ipJhiW3dEeqpkYKnB0ruEA" description="_H1_RP2g1EeqqIutgaIr-iw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_ipJhim3dEeqpkYKnB0ruEA" showIcon="false">
@@ -12081,8 +12081,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_jaIQcG58Eeqbus1jtXHXnw" sourceNode="_H1zrr2g1EeqqIutgaIr-iw" targetNode="_hXM0EG03EeqrjIq7keEu6A" beginLabel="[0..1] numberParam" endLabel="[0..1] countComparison">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/NumberParam/countComparison"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/NumberParam/countComparison"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/NumberParam/countComparisons"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/NumberParam/countComparisons"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/numberParam"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_jaIQcW58Eeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -12113,9 +12113,9 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_YYVFHm5-Eeqbus1jtXHXnw" sourceNode="_H1zrq2g1EeqqIutgaIr-iw" targetNode="_H10SJGg1EeqqIutgaIr-iw" beginLabel="[1..1] attributeName" endLabel="[0..1] property">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/property"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/properties"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Property/attributeName"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/property"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/properties"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YYVFH25-Eeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_YYVFIG5-Eeqbus1jtXHXnw" labelSize="11" showIcon="false">
@@ -12130,8 +12130,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_YYVsEG5-Eeqbus1jtXHXnw" sourceNode="_H1zrq2g1EeqqIutgaIr-iw" targetNode="_H1zr6Wg1EeqqIutgaIr-iw" beginLabel="[1..1] regularExpression" endLabel="[0..1] match">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/match"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/match"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/matches"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/matches"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Match/regularExpression"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YYVsEW5-Eeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -12306,7 +12306,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_RMWUv26AEeqbus1jtXHXnw"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_RMWUwG6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="12"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMWUwW6AEeqbus1jtXHXnw" x="70" y="24" width="227" height="73"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMWUwW6AEeqbus1jtXHXnw" x="69" y="39" width="227" height="73"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_RMWUwm6AEeqbus1jtXHXnw" visible="false" type="3009" element="_RML80G6AEeqbus1jtXHXnw">
               <children xmi:type="notation:Node" xmi:id="_RMWUw26AEeqbus1jtXHXnw" type="5004"/>
@@ -12353,7 +12353,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_RMWU426AEeqbus1jtXHXnw"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_RMWU5G6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="12"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMWU5W6AEeqbus1jtXHXnw" x="470" y="24" width="142" height="58"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMWU5W6AEeqbus1jtXHXnw" x="464" y="39" width="142" height="58"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_RMWU5m6AEeqbus1jtXHXnw" visible="false" type="3009" element="_RML8526AEeqbus1jtXHXnw">
               <children xmi:type="notation:Node" xmi:id="_RMWU526AEeqbus1jtXHXnw" type="5004"/>
@@ -12422,7 +12422,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_RMWVGG6AEeqbus1jtXHXnw"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_RMWVGW6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="12"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMWVGm6AEeqbus1jtXHXnw" x="9" y="135" width="168" height="62"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMWVGm6AEeqbus1jtXHXnw" x="8" y="150" width="168" height="76"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_RMWVG26AEeqbus1jtXHXnw" visible="false" type="3009" element="_RMNxxm6AEeqbus1jtXHXnw">
               <children xmi:type="notation:Node" xmi:id="_RMWVHG6AEeqbus1jtXHXnw" type="5004"/>
@@ -12461,7 +12461,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_RMW7oG6AEeqbus1jtXHXnw"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_RMW7oW6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="12"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMW7om6AEeqbus1jtXHXnw" x="224" y="135" width="257" height="77"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMW7om6AEeqbus1jtXHXnw" x="223" y="150" width="257" height="77"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_RMW7o26AEeqbus1jtXHXnw" visible="false" type="3009" element="_RMNx1m6AEeqbus1jtXHXnw">
               <children xmi:type="notation:Node" xmi:id="_RMW7pG6AEeqbus1jtXHXnw" type="5004"/>
@@ -12587,7 +12587,7 @@
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_RMW7_W6AEeqbus1jtXHXnw"/>
               </children>
               <styles xmi:type="notation:ShapeStyle" xmi:id="_RMW7_m6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="12"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMW7_26AEeqbus1jtXHXnw" x="624" y="204" width="262" height="84"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMW7_26AEeqbus1jtXHXnw" x="623" y="203" width="262" height="84"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_RMW8AG6AEeqbus1jtXHXnw" type="3009" element="_RMNyCm6AEeqbus1jtXHXnw">
               <children xmi:type="notation:Node" xmi:id="_RMW8AW6AEeqbus1jtXHXnw" type="5004"/>
@@ -13667,17 +13667,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_RMYMP26AEeqbus1jtXHXnw" type="4001" element="_RMPAbG6AEeqbus1jtXHXnw" source="_RMWUqW6AEeqbus1jtXHXnw" target="_RMWU3G6AEeqbus1jtXHXnw">
           <children xmi:type="notation:Node" xmi:id="_RMYMQG6AEeqbus1jtXHXnw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMQW6AEeqbus1jtXHXnw" x="46" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMQW6AEeqbus1jtXHXnw" x="50" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_RMYMQm6AEeqbus1jtXHXnw" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMQ26AEeqbus1jtXHXnw" x="32" y="-16"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMQ26AEeqbus1jtXHXnw" x="33" y="-16"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_RMYMRG6AEeqbus1jtXHXnw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMRW6AEeqbus1jtXHXnw" x="-36" y="14"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMRW6AEeqbus1jtXHXnw" x="-31" y="14"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_RMYMRm6AEeqbus1jtXHXnw" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_RMYMR26AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="11"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYMSG6AEeqbus1jtXHXnw" points="[132, -39, -280, -59]$[306, -39, -106, -59]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYMSG6AEeqbus1jtXHXnw" points="[131, -50, -276, -70]$[301, -50, -106, -70]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYMSW6AEeqbus1jtXHXnw" id="(0.41944658160444537,1.0790914260225408)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYMSm6AEeqbus1jtXHXnw" id="(0.7584011843079201,1.7294117647058822)"/>
         </edges>
@@ -13699,17 +13699,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_RMYMV26AEeqbus1jtXHXnw" type="4001" element="_RMPm6G6AEeqbus1jtXHXnw" source="_RMWU3G6AEeqbus1jtXHXnw" target="_RMYKy26AEeqbus1jtXHXnw">
           <children xmi:type="notation:Node" xmi:id="_RMYMWG6AEeqbus1jtXHXnw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMWW6AEeqbus1jtXHXnw" x="-108" y="2"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMWW6AEeqbus1jtXHXnw" x="-103" y="2"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_RMYMWm6AEeqbus1jtXHXnw" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMW26AEeqbus1jtXHXnw" x="-155" y="-56"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMW26AEeqbus1jtXHXnw" x="-141" y="-56"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_RMYMXG6AEeqbus1jtXHXnw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMXW6AEeqbus1jtXHXnw" x="130" y="-6"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYMXW6AEeqbus1jtXHXnw" x="131" y="-6"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_RMYMXm6AEeqbus1jtXHXnw" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_RMYMX26AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="11"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYMYG6AEeqbus1jtXHXnw" points="[-57, -48, 557, 471]$[-57, -119, 557, 400]$[-654, -119, -40, 400]$[-654, -504, -40, 15]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYMYG6AEeqbus1jtXHXnw" points="[-57, -48, 551, 486]$[-57, -134, 551, 400]$[-648, -134, -40, 400]$[-648, -519, -40, 15]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYMYW6AEeqbus1jtXHXnw" id="(0.5807549962990378,0.8647058823529412)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYMYm6AEeqbus1jtXHXnw" id="(0.4109589041095891,0.8529411764705882)"/>
         </edges>
@@ -14239,7 +14239,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_RMYyIm6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYyI26AEeqbus1jtXHXnw" points="[-64, -23, 700, 249]$[-704, -251, 60, 21]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyJG6AEeqbus1jtXHXnw" id="(0.5,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyJW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.8076923076923077)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyJW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.6490384615384615)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_RMYyJm6AEeqbus1jtXHXnw" visible="false" type="4001" element="_RMPndm6AEeqbus1jtXHXnw" source="_RMWVJW6AEeqbus1jtXHXnw" target="_RMWVFG6AEeqbus1jtXHXnw">
           <children xmi:type="notation:Node" xmi:id="_RMYyJ26AEeqbus1jtXHXnw" type="6001">
@@ -14255,7 +14255,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_RMYyLm6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYyL26AEeqbus1jtXHXnw" points="[-62, -27, 574, 245]$[-576, -247, 60, 25]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyMG6AEeqbus1jtXHXnw" id="(0.5,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyMW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.8076923076923077)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyMW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.6490384615384615)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_RMYyMm6AEeqbus1jtXHXnw" visible="false" type="4001" element="_RMPne26AEeqbus1jtXHXnw" source="_RMWU8G6AEeqbus1jtXHXnw" target="_RMWVFG6AEeqbus1jtXHXnw">
           <children xmi:type="notation:Node" xmi:id="_RMYyM26AEeqbus1jtXHXnw" type="6001">
@@ -14271,7 +14271,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_RMYyOm6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYyO26AEeqbus1jtXHXnw" points="[0, 0, 9, 500]$[-9, -450, 0, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyPG6AEeqbus1jtXHXnw" id="(0.5,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyPW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.8076923076923077)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyPW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.6490384615384615)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_RMYyPm6AEeqbus1jtXHXnw" visible="false" type="4001" element="_RMPngG6AEeqbus1jtXHXnw" source="_RMWVCm6AEeqbus1jtXHXnw" target="_RMWVFG6AEeqbus1jtXHXnw">
           <children xmi:type="notation:Node" xmi:id="_RMYyP26AEeqbus1jtXHXnw" type="6001">
@@ -14287,7 +14287,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_RMYyRm6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYyR26AEeqbus1jtXHXnw" points="[0, 0, 166, 272]$[-136, -222, 30, 50]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYySG6AEeqbus1jtXHXnw" id="(0.34380305602716466,0.7307692307692307)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYySW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.8076923076923077)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYySW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.6490384615384615)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_RMYySm6AEeqbus1jtXHXnw" visible="false" type="4001" element="_RMPnhW6AEeqbus1jtXHXnw" source="_RMWU5m6AEeqbus1jtXHXnw" target="_RMWVFG6AEeqbus1jtXHXnw">
           <children xmi:type="notation:Node" xmi:id="_RMYyS26AEeqbus1jtXHXnw" type="6001">
@@ -14303,7 +14303,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_RMYyUm6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYyU26AEeqbus1jtXHXnw" points="[0, 0, 315, 213]$[-255, -173, 60, 40]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyVG6AEeqbus1jtXHXnw" id="(0.5,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyVW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.8076923076923077)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyVW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.6490384615384615)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_RMYyVm6AEeqbus1jtXHXnw" visible="false" type="4001" element="_RMPnim6AEeqbus1jtXHXnw" source="_RMWVG26AEeqbus1jtXHXnw" target="_RMWVFG6AEeqbus1jtXHXnw">
           <children xmi:type="notation:Node" xmi:id="_RMYyV26AEeqbus1jtXHXnw" type="6001">
@@ -14319,7 +14319,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_RMYyXm6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYyX26AEeqbus1jtXHXnw" points="[-64, -35, 442, 237]$[-446, -240, 60, 32]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyYG6AEeqbus1jtXHXnw" id="(0.5,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyYW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.8076923076923077)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYyYW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.6490384615384615)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_RMYyYm6AEeqbus1jtXHXnw" visible="false" type="4001" element="_RMPnnW6AEeqbus1jtXHXnw" source="_RMYLX26AEeqbus1jtXHXnw" target="_RMYK4W6AEeqbus1jtXHXnw">
           <children xmi:type="notation:Node" xmi:id="_RMYyY26AEeqbus1jtXHXnw" type="6001">
@@ -14521,11 +14521,11 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYy9m6AEeqbus1jtXHXnw" x="-20" y="43"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_RMYy926AEeqbus1jtXHXnw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYy-G6AEeqbus1jtXHXnw" x="10" y="14"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RMYy-G6AEeqbus1jtXHXnw" x="9" y="14"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_RMYy-W6AEeqbus1jtXHXnw" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_RMYy-m6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="11"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYy-26AEeqbus1jtXHXnw" points="[-143, -58, 229, 283]$[-143, -338, 229, 3]$[-260, -338, 112, 3]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYy-26AEeqbus1jtXHXnw" points="[-143, -58, 228, 282]$[-143, -337, 228, 3]$[-259, -337, 112, 3]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYy_G6AEeqbus1jtXHXnw" id="(0.6451180559545011,0.7166427546628407)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYy_W6AEeqbus1jtXHXnw" id="(0.5,0.5979020979020979)"/>
         </edges>
@@ -14671,7 +14671,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_RMYzlm6AEeqbus1jtXHXnw" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RMYzl26AEeqbus1jtXHXnw" points="[0, 0, -115, 607]$[109, -576, -6, 31]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYzmG6AEeqbus1jtXHXnw" id="(0.41566265060240964,0.8759990730700619)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYzmW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.8076923076923077)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RMYzmW6AEeqbus1jtXHXnw" id="(0.35542168674698793,0.6490384615384615)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_RMYzsm6AEeqbus1jtXHXnw" visible="false" type="4001" element="_RMPoDW6AEeqbus1jtXHXnw" source="_RMYLQW6AEeqbus1jtXHXnw" target="_RMWUwm6AEeqbus1jtXHXnw">
           <children xmi:type="notation:Node" xmi:id="_RMYzs26AEeqbus1jtXHXnw" type="6001">
@@ -17734,7 +17734,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RMPnTG6AEeqbus1jtXHXnw" visible="false" sourceNode="_RMOZAW6AEeqbus1jtXHXnw" targetNode="_RML82W6AEeqbus1jtXHXnw" beginLabel="[0..1] property" endLabel="[1..1] option">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Property/option"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Property/option"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/PropertyOptionParam/property"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/PropertyOptionParam/properties"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RMPnTW6AEeqbus1jtXHXnw" description="_RMWUmm6AEeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_RMPnTm6AEeqbus1jtXHXnw" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -18128,7 +18128,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RMPnw26AEeqbus1jtXHXnw" visible="false" sourceNode="_RMNyCm6AEeqbus1jtXHXnw" targetNode="_RML80G6AEeqbus1jtXHXnw" beginLabel="[0..1] comparison" endLabel="[1..1] option">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Comparison/option"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/comparison"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/comparisons"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Comparison/option"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RMPnxG6AEeqbus1jtXHXnw" description="_RMWUmm6AEeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_RMPnxW6AEeqbus1jtXHXnw" showIcon="false">
@@ -18196,7 +18196,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RMPn026AEeqbus1jtXHXnw" visible="false" sourceNode="_RMNyBW6AEeqbus1jtXHXnw" targetNode="_RML8526AEeqbus1jtXHXnw" beginLabel="[0..1] match" endLabel="[1..1] option">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Match/option"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/BooleanParam/match"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/BooleanParam/matches"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Match/option"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RMPn1G6AEeqbus1jtXHXnw" description="_RMWUmm6AEeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_RMPn1W6AEeqbus1jtXHXnw" showIcon="false">
@@ -18344,7 +18344,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_YctHbm6BEeqbus1jtXHXnw" visible="false" sourceNode="_RMOZAW6AEeqbus1jtXHXnw" targetNode="_RMNxvG6AEeqbus1jtXHXnw" beginLabel="[0..1] property" endLabel="[1..1] attributeName">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Property/attributeName"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//graphstructure/Property/attributeName"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/property"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/properties"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YctHb26BEeqbus1jtXHXnw" description="_RMWUmm6AEeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_YctHcG6BEeqbus1jtXHXnw" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -18357,7 +18357,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_YctHdW6BEeqbus1jtXHXnw" visible="false" sourceNode="_RMPATG6AEeqbus1jtXHXnw" targetNode="_RMNxwG6AEeqbus1jtXHXnw" beginLabel="[0..1] countComparison" endLabel="[0..1] numberParam">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/numberParam"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/NumberParam/countComparison"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/NumberParam/countComparisons"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/numberParam"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YctHdm6BEeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -18421,7 +18421,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Ycu8g26BEeqbus1jtXHXnw" visible="false" sourceNode="_RMNyBW6AEeqbus1jtXHXnw" targetNode="_RMNxvG6AEeqbus1jtXHXnw" beginLabel="[0..1] match" endLabel="[1..1] regularExpression">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Match/regularExpression"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/match"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/TextLiteralParam/matches"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//functions/Match/regularExpression"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Ycu8hG6BEeqbus1jtXHXnw" description="_RMWUmm6AEeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_Ycu8hW6BEeqbus1jtXHXnw" showIcon="false">

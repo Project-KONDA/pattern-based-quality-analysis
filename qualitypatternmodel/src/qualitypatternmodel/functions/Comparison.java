@@ -53,14 +53,14 @@ public interface Comparison extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getComparison <em>Comparison</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getComparisons <em>Comparisons</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
 	 * @see #setOption(ComparisonOptionParam)
 	 * @see qualitypatternmodel.functions.FunctionsPackage#getComparison_Option()
-	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getComparison
-	 * @model opposite="comparison" required="true"
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getComparisons
+	 * @model opposite="comparisons" required="true"
 	 * @generated
 	 */
 	ComparisonOptionParam getOption();

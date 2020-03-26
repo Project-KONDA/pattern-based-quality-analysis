@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.functions.Comparison;
 import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -86,14 +88,14 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	protected Relation relation;
 
 	/**
-	 * The cached value of the '{@link #getComparison() <em>Comparison</em>}' reference.
+	 * The cached value of the '{@link #getComparison() <em>Comparison</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getComparison()
 	 * @generated
 	 * @ordered
 	 */
-	protected Comparison comparison;
+	protected EList<Comparison> comparison;
 
 	/**
 	 * The cached value of the '{@link #getCountcondition() <em>Countcondition</em>}' reference.
@@ -290,60 +292,11 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * @generated
 	 */
 	@Override
-	public Comparison getComparison() {
-		if (comparison != null && comparison.eIsProxy()) {
-			InternalEObject oldComparison = (InternalEObject)comparison;
-			comparison = (Comparison)eResolveProxy(oldComparison);
-			if (comparison != oldComparison) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.OPTION_PARAM__COMPARISON, oldComparison, comparison));
-			}
+	public EList<Comparison> getComparison() {
+		if (comparison == null) {
+			comparison = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.OPTION_PARAM__COMPARISON, FunctionsPackage.COMPARISON__OPTION_PARAM);
 		}
 		return comparison;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Comparison basicGetComparison() {
-		return comparison;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetComparison(Comparison newComparison, NotificationChain msgs) {
-		Comparison oldComparison = comparison;
-		comparison = newComparison;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.OPTION_PARAM__COMPARISON, oldComparison, newComparison);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setComparison(Comparison newComparison) {
-		if (newComparison != comparison) {
-			NotificationChain msgs = null;
-			if (comparison != null)
-				msgs = ((InternalEObject)comparison).eInverseRemove(this, FunctionsPackage.COMPARISON__OPTION_PARAM, Comparison.class, msgs);
-			if (newComparison != null)
-				msgs = ((InternalEObject)newComparison).eInverseAdd(this, FunctionsPackage.COMPARISON__OPTION_PARAM, Comparison.class, msgs);
-			msgs = basicSetComparison(newComparison, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.OPTION_PARAM__COMPARISON, newComparison, newComparison));
 	}
 
 	/**
@@ -413,6 +366,7 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -425,9 +379,7 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 					msgs = ((InternalEObject)relation).eInverseRemove(this, GraphstructurePackage.RELATION__OPTION_PARAM, Relation.class, msgs);
 				return basicSetRelation((Relation)otherEnd, msgs);
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
-				if (comparison != null)
-					msgs = ((InternalEObject)comparison).eInverseRemove(this, FunctionsPackage.COMPARISON__OPTION_PARAM, Comparison.class, msgs);
-				return basicSetComparison((Comparison)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison()).basicAdd(otherEnd, msgs);
 			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
 				if (countcondition != null)
 					msgs = ((InternalEObject)countcondition).eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM, CountCondition.class, msgs);
@@ -449,7 +401,7 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 			case ParametersPackage.OPTION_PARAM__RELATION:
 				return basicSetRelation(null, msgs);
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
-				return basicSetComparison(null, msgs);
+				return ((InternalEList<?>)getComparison()).basicRemove(otherEnd, msgs);
 			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
 				return basicSetCountcondition(null, msgs);
 		}
@@ -475,8 +427,7 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 				if (resolve) return getRelation();
 				return basicGetRelation();
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
-				if (resolve) return getComparison();
-				return basicGetComparison();
+				return getComparison();
 			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
 				if (resolve) return getCountcondition();
 				return basicGetCountcondition();
@@ -507,7 +458,8 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 				setRelation((Relation)newValue);
 				return;
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
-				setComparison((Comparison)newValue);
+				getComparison().clear();
+				getComparison().addAll((Collection<? extends Comparison>)newValue);
 				return;
 			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
 				setCountcondition((CountCondition)newValue);
@@ -537,7 +489,7 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 				setRelation((Relation)null);
 				return;
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
-				setComparison((Comparison)null);
+				getComparison().clear();
 				return;
 			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
 				setCountcondition((CountCondition)null);
@@ -563,7 +515,7 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 			case ParametersPackage.OPTION_PARAM__RELATION:
 				return relation != null;
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
-				return comparison != null;
+				return comparison != null && !comparison.isEmpty();
 			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
 				return countcondition != null;
 		}

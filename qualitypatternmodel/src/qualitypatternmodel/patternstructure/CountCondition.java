@@ -55,14 +55,14 @@ public interface CountCondition extends Condition {
 
 	/**
 	 * Returns the value of the '<em><b>Number Param</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.NumberParam#getCountComparison <em>Count Comparison</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.NumberParam#getCountComparisons <em>Count Comparisons</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Number Param</em>' reference.
 	 * @see #setNumberParam(NumberParam)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_NumberParam()
-	 * @see qualitypatternmodel.parameters.NumberParam#getCountComparison
-	 * @model opposite="countComparison"
+	 * @see qualitypatternmodel.parameters.NumberParam#getCountComparisons
+	 * @model opposite="countComparisons"
 	 * @generated
 	 */
 	NumberParam getNumberParam();

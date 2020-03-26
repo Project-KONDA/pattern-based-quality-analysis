@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getComparison <em>Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getComparisons <em>Comparisons</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition <em>Count Condition</em>}</li>
  * </ul>
  *
@@ -67,51 +67,31 @@ public interface ComparisonOptionParam extends Parameter {
 	void setValue(ComparisonOperator value);
 
 	/**
-	 * Returns the value of the '<em><b>Comparison</b></em>' reference.
+	 * Returns the value of the '<em><b>Comparisons</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.functions.Comparison}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Comparison#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Comparison</em>' reference.
-	 * @see #setComparison(Comparison)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getComparisonOptionParam_Comparison()
+	 * @return the value of the '<em>Comparisons</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getComparisonOptionParam_Comparisons()
 	 * @see qualitypatternmodel.functions.Comparison#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */
-	Comparison getComparison();
+	EList<Comparison> getComparisons();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getComparison <em>Comparison</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Comparison</em>' reference.
-	 * @see #getComparison()
-	 * @generated
-	 */
-	void setComparison(Comparison value);
-
-	/**
-	 * Returns the value of the '<em><b>Count Condition</b></em>' reference.
+	 * Returns the value of the '<em><b>Count Condition</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.patternstructure.CountCondition}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountCondition#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count Condition</em>' reference.
-	 * @see #setCountCondition(CountCondition)
+	 * @return the value of the '<em>Count Condition</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getComparisonOptionParam_CountCondition()
 	 * @see qualitypatternmodel.patternstructure.CountCondition#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */
-	CountCondition getCountCondition();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition <em>Count Condition</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count Condition</em>' reference.
-	 * @see #getCountCondition()
-	 * @generated
-	 */
-	void setCountCondition(CountCondition value);
+	EList<CountCondition> getCountCondition();
 
 } // CompOption

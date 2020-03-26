@@ -18,7 +18,7 @@ import qualitypatternmodel.graphstructure.PropertyLocation;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.PropertyOptionParam#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.PropertyOptionParam#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.PropertyOptionParam#getProperty <em>Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.PropertyOptionParam#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getPropertyOptionParam()
@@ -66,27 +66,17 @@ public interface PropertyOptionParam extends Parameter {
 	void setValue(PropertyLocation value);
 
 	/**
-	 * Returns the value of the '<em><b>Property</b></em>' reference.
+	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Property}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property</em>' reference.
-	 * @see #setProperty(Property)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getPropertyOptionParam_Property()
+	 * @return the value of the '<em>Properties</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getPropertyOptionParam_Properties()
 	 * @see qualitypatternmodel.graphstructure.Property#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */
-	Property getProperty();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.PropertyOptionParam#getProperty <em>Property</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property</em>' reference.
-	 * @see #getProperty()
-	 * @generated
-	 */
-	void setProperty(Property value);
+	EList<Property> getProperties();
 
 } // PropertyOption

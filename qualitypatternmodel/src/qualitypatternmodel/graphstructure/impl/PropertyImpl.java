@@ -345,9 +345,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY, PropertyOptionParam.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY, PropertyOptionParam.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -682,9 +682,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if (newAttributeName != attributeName) {
 			NotificationChain msgs = null;
 			if (attributeName != null)
-				msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY, TextLiteralParam.class, msgs);
+				msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
 			if (newAttributeName != null)
-				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY, TextLiteralParam.class, msgs);
+				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
 			msgs = basicSetAttributeName(newAttributeName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -726,11 +726,11 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatch()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
 				if (attributeName != null)
-					msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY, TextLiteralParam.class, msgs);
+					msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
 				return basicSetAttributeName((TextLiteralParam)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTY, PropertyOptionParam.class, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
 				return basicSetOption((PropertyOptionParam)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
 				if (referenceOperator2 != null)

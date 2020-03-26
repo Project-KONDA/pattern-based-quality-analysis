@@ -31,18 +31,18 @@
           eType="#//functions/ComparisonOperator"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="#//functions/ComparisonOperator"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison" eType="#//functions/Comparison"
-          eOpposite="#//functions/Comparison/option"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" eType="#//patternstructure/CountCondition"
-          eOpposite="#//patternstructure/CountCondition/option"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="comparisons" upperBound="-1"
+          eType="#//functions/Comparison" eOpposite="#//functions/Comparison/option"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" upperBound="-1"
+          eType="#//patternstructure/CountCondition" eOpposite="#//patternstructure/CountCondition/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PropertyOptionParam" eSuperTypes="#//parameters/Parameter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
           eType="#//graphstructure/PropertyLocation"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="#//graphstructure/PropertyLocation"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//graphstructure/Property"
-          eOpposite="#//graphstructure/Property/option"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//graphstructure/Property" eOpposite="#//graphstructure/Property/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterList" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="add">
@@ -57,8 +57,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           defaultValueLiteral="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="match" eType="#//functions/Match"
-          eOpposite="#//functions/Match/option"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
+          eType="#//functions/Match" eOpposite="#//functions/Match/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="getListDeclaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -70,16 +70,16 @@
     <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="match" eType="#//functions/Match"
-          eOpposite="#//functions/Match/regularExpression"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//graphstructure/Property"
-          eOpposite="#//graphstructure/Property/attributeName"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
+          eType="#//functions/Match" eOpposite="#//functions/Match/regularExpression"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//graphstructure/Property" eOpposite="#//graphstructure/Property/attributeName"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberParam" eSuperTypes="#//parameters/ParameterValue #//patternstructure/CountConditionArgument">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
           defaultValueLiteral="0.0"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countComparison" eType="#//patternstructure/CountCondition"
-          eOpposite="#//patternstructure/CountCondition/numberParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countComparisons" upperBound="-1"
+          eType="#//patternstructure/CountCondition" eOpposite="#//patternstructure/CountCondition/numberParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="#//parameters/Parameter"/>
     <eClassifiers xsi:type="ecore:EClass" name="DateParam" eSuperTypes="#//parameters/ParameterValue">
@@ -104,8 +104,8 @@
           eType="#//graphstructure/Axis"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="#//graphstructure/Axis"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="relation" eType="#//graphstructure/Relation"
-          eOpposite="#//graphstructure/Relation/option"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
+          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OptionParam" eSuperTypes="#//parameters/Parameter">
       <eTypeParameters name="T"/>
@@ -119,8 +119,8 @@
           eOpposite="#//graphstructure/Property/optionParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relation" eType="#//graphstructure/Relation"
           eOpposite="#//graphstructure/Relation/optionParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison" eType="#//functions/Comparison"
-          eOpposite="#//functions/Comparison/optionParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison" upperBound="-1"
+          eType="#//functions/Comparison" eOpposite="#//functions/Comparison/optionParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="countcondition" eType="#//patternstructure/CountCondition"
           eOpposite="#//patternstructure/CountCondition/optionParam"/>
     </eClassifiers>
@@ -162,9 +162,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
           eType="#//graphstructure/Property" eOpposite="#//graphstructure/Property/match"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//parameters/BooleanParam" eOpposite="#//parameters/BooleanParam/match"/>
+          eType="#//parameters/BooleanParam" eOpposite="#//parameters/BooleanParam/matches"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="regularExpression" lowerBound="1"
-          eType="#//parameters/TextLiteralParam" eOpposite="#//parameters/TextLiteralParam/match"/>
+          eType="#//parameters/TextLiteralParam" eOpposite="#//parameters/TextLiteralParam/matches"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//functions/BooleanOperator">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
@@ -173,7 +173,7 @@
           eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison2"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/comparison"/>
+          eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/comparisons"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" lowerBound="1"
           eOpposite="#//parameters/OptionParam/comparison">
         <eGenericType eClassifier="#//parameters/OptionParam">
@@ -226,7 +226,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/relationFromPrevious"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/RelationOptionParam"
-          eOpposite="#//parameters/RelationOptionParam/relation"/>
+          eOpposite="#//parameters/RelationOptionParam/relations"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" eOpposite="#//parameters/OptionParam/relation">
         <eGenericType eClassifier="#//parameters/OptionParam">
           <eTypeArguments eClassifier="#//graphstructure/Axis"/>
@@ -239,9 +239,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
           eType="#//functions/Match" eOpposite="#//functions/Match/property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" lowerBound="1"
-          eType="#//parameters/TextLiteralParam" eOpposite="#//parameters/TextLiteralParam/property"/>
+          eType="#//parameters/TextLiteralParam" eOpposite="#//parameters/TextLiteralParam/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//parameters/PropertyOptionParam" eOpposite="#//parameters/PropertyOptionParam/property"/>
+          eType="#//parameters/PropertyOptionParam" eOpposite="#//parameters/PropertyOptionParam/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="referenceOperator2" eType="#//functions/ReferenceOperator"
           eOpposite="#//functions/ReferenceOperator/property2"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="referenceOperator1" eType="#//functions/ReferenceOperator"
@@ -557,7 +557,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="count1" lowerBound="1"
           eType="#//patternstructure/Count" containment="true" eOpposite="#//patternstructure/Count/countCondition1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="numberParam" eType="#//parameters/NumberParam"
-          eOpposite="#//parameters/NumberParam/countComparison"/>
+          eOpposite="#//parameters/NumberParam/countComparisons"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedConditionCount"
           eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/countCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="count2" eType="#//patternstructure/Count"

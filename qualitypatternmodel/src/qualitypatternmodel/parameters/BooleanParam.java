@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.parameters;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.functions.Match;
 
 
@@ -15,7 +16,7 @@ import qualitypatternmodel.functions.Match;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getMatch <em>Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getMatches <em>Matches</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam()
@@ -47,27 +48,17 @@ public interface BooleanParam extends ParameterValue {
 	void setValue(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Match</b></em>' reference.
+	 * Returns the value of the '<em><b>Matches</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.functions.Match}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Match</em>' reference.
-	 * @see #setMatch(Match)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam_Match()
+	 * @return the value of the '<em>Matches</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam_Matches()
 	 * @see qualitypatternmodel.functions.Match#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */
-	Match getMatch();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.BooleanParam#getMatch <em>Match</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Match</em>' reference.
-	 * @see #getMatch()
-	 * @generated
-	 */
-	void setMatch(Match value);
+	EList<Match> getMatches();
 
 } // Boolean

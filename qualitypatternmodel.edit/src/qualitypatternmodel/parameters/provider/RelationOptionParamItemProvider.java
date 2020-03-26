@@ -47,7 +47,7 @@ public class RelationOptionParamItemProvider extends ParameterItemProvider {
 
 			addOptionsPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
-			addRelationPropertyDescriptor(object);
+			addRelationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,19 +97,19 @@ public class RelationOptionParamItemProvider extends ParameterItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Relation feature.
+	 * This adds a property descriptor for the Relations feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRelationPropertyDescriptor(Object object) {
+	protected void addRelationsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RelationOptionParam_relation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RelationOptionParam_relation_feature", "_UI_RelationOptionParam_type"),
-				 ParametersPackage.Literals.RELATION_OPTION_PARAM__RELATION,
+				 getString("_UI_RelationOptionParam_relations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RelationOptionParam_relations_feature", "_UI_RelationOptionParam_type"),
+				 ParametersPackage.Literals.RELATION_OPTION_PARAM__RELATIONS,
 				 true,
 				 false,
 				 true,

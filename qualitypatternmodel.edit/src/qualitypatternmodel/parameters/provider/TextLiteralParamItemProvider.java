@@ -46,8 +46,8 @@ public class TextLiteralParamItemProvider extends ParameterValueItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addValuePropertyDescriptor(object);
-			addMatchPropertyDescriptor(object);
-			addPropertyPropertyDescriptor(object);
+			addMatchesPropertyDescriptor(object);
+			addPropertiesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,19 +75,19 @@ public class TextLiteralParamItemProvider extends ParameterValueItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Match feature.
+	 * This adds a property descriptor for the Matches feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMatchPropertyDescriptor(Object object) {
+	protected void addMatchesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TextLiteralParam_match_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TextLiteralParam_match_feature", "_UI_TextLiteralParam_type"),
-				 ParametersPackage.Literals.TEXT_LITERAL_PARAM__MATCH,
+				 getString("_UI_TextLiteralParam_matches_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextLiteralParam_matches_feature", "_UI_TextLiteralParam_type"),
+				 ParametersPackage.Literals.TEXT_LITERAL_PARAM__MATCHES,
 				 true,
 				 false,
 				 true,
@@ -97,19 +97,19 @@ public class TextLiteralParamItemProvider extends ParameterValueItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Property feature.
+	 * This adds a property descriptor for the Properties feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPropertyPropertyDescriptor(Object object) {
+	protected void addPropertiesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TextLiteralParam_property_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TextLiteralParam_property_feature", "_UI_TextLiteralParam_type"),
-				 ParametersPackage.Literals.TEXT_LITERAL_PARAM__PROPERTY,
+				 getString("_UI_TextLiteralParam_properties_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextLiteralParam_properties_feature", "_UI_TextLiteralParam_type"),
+				 ParametersPackage.Literals.TEXT_LITERAL_PARAM__PROPERTIES,
 				 true,
 				 false,
 				 true,

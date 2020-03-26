@@ -45,7 +45,7 @@ public class BooleanParamItemProvider extends ParameterValueItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addValuePropertyDescriptor(object);
-			addMatchPropertyDescriptor(object);
+			addMatchesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,19 +73,19 @@ public class BooleanParamItemProvider extends ParameterValueItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Match feature.
+	 * This adds a property descriptor for the Matches feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMatchPropertyDescriptor(Object object) {
+	protected void addMatchesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BooleanParam_match_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BooleanParam_match_feature", "_UI_BooleanParam_type"),
-				 ParametersPackage.Literals.BOOLEAN_PARAM__MATCH,
+				 getString("_UI_BooleanParam_matches_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BooleanParam_matches_feature", "_UI_BooleanParam_type"),
+				 ParametersPackage.Literals.BOOLEAN_PARAM__MATCHES,
 				 true,
 				 false,
 				 true,

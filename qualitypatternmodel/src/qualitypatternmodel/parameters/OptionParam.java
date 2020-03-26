@@ -112,28 +112,18 @@ public interface OptionParam<T> extends Parameter {
 	void setRelation(Relation value);
 
 	/**
-	 * Returns the value of the '<em><b>Comparison</b></em>' reference.
+	 * Returns the value of the '<em><b>Comparison</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.functions.Comparison}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Comparison#getOptionParam <em>Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Comparison</em>' reference.
-	 * @see #setComparison(Comparison)
+	 * @return the value of the '<em>Comparison</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getOptionParam_Comparison()
 	 * @see qualitypatternmodel.functions.Comparison#getOptionParam
 	 * @model opposite="optionParam"
 	 * @generated
 	 */
-	Comparison getComparison();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.OptionParam#getComparison <em>Comparison</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Comparison</em>' reference.
-	 * @see #getComparison()
-	 * @generated
-	 */
-	void setComparison(Comparison value);
+	EList<Comparison> getComparison();
 
 	/**
 	 * Returns the value of the '<em><b>Countcondition</b></em>' reference.

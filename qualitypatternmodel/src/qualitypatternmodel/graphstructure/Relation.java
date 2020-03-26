@@ -142,14 +142,14 @@ public interface Relation extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.RelationOptionParam#getRelation <em>Relation</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.RelationOptionParam#getRelations <em>Relations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
 	 * @see #setOption(RelationOptionParam)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Option()
-	 * @see qualitypatternmodel.parameters.RelationOptionParam#getRelation
-	 * @model opposite="relation"
+	 * @see qualitypatternmodel.parameters.RelationOptionParam#getRelations
+	 * @model opposite="relations"
 	 * @generated
 	 */
 	RelationOptionParam getOption();

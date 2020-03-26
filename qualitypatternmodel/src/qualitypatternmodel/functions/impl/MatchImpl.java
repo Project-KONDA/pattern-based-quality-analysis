@@ -338,9 +338,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		if (newRegularExpression != regularExpression) {
 			NotificationChain msgs = null;
 			if (regularExpression != null)
-				msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCH, TextLiteralParam.class, msgs);
+				msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCHES, TextLiteralParam.class, msgs);
 			if (newRegularExpression != null)
-				msgs = ((InternalEObject)newRegularExpression).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCH, TextLiteralParam.class, msgs);
+				msgs = ((InternalEObject)newRegularExpression).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCHES, TextLiteralParam.class, msgs);
 			msgs = basicSetRegularExpression(newRegularExpression, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -362,11 +362,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				return basicSetProperty((Property)otherEnd, msgs);
 			case FunctionsPackage.MATCH__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__MATCH, BooleanParam.class, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__MATCHES, BooleanParam.class, msgs);
 				return basicSetOption((BooleanParam)otherEnd, msgs);
 			case FunctionsPackage.MATCH__REGULAR_EXPRESSION:
 				if (regularExpression != null)
-					msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCH, TextLiteralParam.class, msgs);
+					msgs = ((InternalEObject)regularExpression).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__MATCHES, TextLiteralParam.class, msgs);
 				return basicSetRegularExpression((TextLiteralParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -458,9 +458,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__MATCH, BooleanParam.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__MATCHES, BooleanParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.BOOLEAN_PARAM__MATCH, BooleanParam.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.BOOLEAN_PARAM__MATCHES, BooleanParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}

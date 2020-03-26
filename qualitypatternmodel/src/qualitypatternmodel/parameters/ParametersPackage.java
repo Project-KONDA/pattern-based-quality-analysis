@@ -386,16 +386,16 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM__VALUE = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Comparison</b></em>' reference.
+	 * The feature id for the '<em><b>Comparisons</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM__COMPARISON = PARAMETER_FEATURE_COUNT + 2;
+	int COMPARISON_OPTION_PARAM__COMPARISONS = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Count Condition</b></em>' reference.
+	 * The feature id for the '<em><b>Count Condition</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -648,13 +648,13 @@ public interface ParametersPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM__VALUE = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Property</b></em>' reference.
+	 * The feature id for the '<em><b>Properties</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM__PROPERTY = PARAMETER_FEATURE_COUNT + 2;
+	int PROPERTY_OPTION_PARAM__PROPERTIES = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Property Option Param</em>' class.
@@ -1272,13 +1272,13 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' reference.
+	 * The feature id for the '<em><b>Matches</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM__MATCH = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int BOOLEAN_PARAM__MATCHES = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Boolean Param</em>' class.
@@ -1769,22 +1769,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Match</b></em>' reference.
+	 * The feature id for the '<em><b>Matches</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM__MATCH = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int TEXT_LITERAL_PARAM__MATCHES = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Property</b></em>' reference.
+	 * The feature id for the '<em><b>Properties</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM__PROPERTY = PARAMETER_VALUE_FEATURE_COUNT + 2;
+	int TEXT_LITERAL_PARAM__PROPERTIES = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Text Literal Param</em>' class.
@@ -2022,13 +2022,13 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Count Comparison</b></em>' reference.
+	 * The feature id for the '<em><b>Count Comparisons</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM__COUNT_COMPARISON = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int NUMBER_PARAM__COUNT_COMPARISONS = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Number Param</em>' class.
@@ -3215,13 +3215,13 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM__VALUE = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Relation</b></em>' reference.
+	 * The feature id for the '<em><b>Relations</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM__RELATION = PARAMETER_FEATURE_COUNT + 2;
+	int RELATION_OPTION_PARAM__RELATIONS = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Relation Option Param</em>' class.
@@ -3486,7 +3486,7 @@ public interface ParametersPackage extends EPackage {
 	int OPTION_PARAM__RELATION = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Comparison</b></em>' reference.
+	 * The feature id for the '<em><b>Comparison</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3764,21 +3764,21 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getComparisonOptionParam_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getComparison <em>Comparison</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getComparisons <em>Comparisons</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Comparison</em>'.
-	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getComparison()
+	 * @return the meta object for the reference list '<em>Comparisons</em>'.
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getComparisons()
 	 * @see #getComparisonOptionParam()
 	 * @generated
 	 */
-	EReference getComparisonOptionParam_Comparison();
+	EReference getComparisonOptionParam_Comparisons();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition <em>Count Condition</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition <em>Count Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Count Condition</em>'.
+	 * @return the meta object for the reference list '<em>Count Condition</em>'.
 	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition()
 	 * @see #getComparisonOptionParam()
 	 * @generated
@@ -3818,15 +3818,15 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getPropertyOptionParam_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.PropertyOptionParam#getProperty <em>Property</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.PropertyOptionParam#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Property</em>'.
-	 * @see qualitypatternmodel.parameters.PropertyOptionParam#getProperty()
+	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @see qualitypatternmodel.parameters.PropertyOptionParam#getProperties()
 	 * @see #getPropertyOptionParam()
 	 * @generated
 	 */
-	EReference getPropertyOptionParam_Property();
+	EReference getPropertyOptionParam_Properties();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ParameterList <em>Parameter List</em>}'.
@@ -3892,15 +3892,15 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getBooleanParam_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.BooleanParam#getMatch <em>Match</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.BooleanParam#getMatches <em>Matches</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Match</em>'.
-	 * @see qualitypatternmodel.parameters.BooleanParam#getMatch()
+	 * @return the meta object for the reference list '<em>Matches</em>'.
+	 * @see qualitypatternmodel.parameters.BooleanParam#getMatches()
 	 * @see #getBooleanParam()
 	 * @generated
 	 */
-	EReference getBooleanParam_Match();
+	EReference getBooleanParam_Matches();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TextListParam <em>Text List Param</em>}'.
@@ -3965,26 +3965,26 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getTextLiteralParam_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getMatch <em>Match</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.TextLiteralParam#getMatches <em>Matches</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Match</em>'.
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getMatch()
+	 * @return the meta object for the reference list '<em>Matches</em>'.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getMatches()
 	 * @see #getTextLiteralParam()
 	 * @generated
 	 */
-	EReference getTextLiteralParam_Match();
+	EReference getTextLiteralParam_Matches();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperty <em>Property</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Property</em>'.
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperty()
+	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperties()
 	 * @see #getTextLiteralParam()
 	 * @generated
 	 */
-	EReference getTextLiteralParam_Property();
+	EReference getTextLiteralParam_Properties();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.NumberParam <em>Number Param</em>}'.
@@ -4008,15 +4008,15 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getNumberParam_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.NumberParam#getCountComparison <em>Count Comparison</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.NumberParam#getCountComparisons <em>Count Comparisons</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Count Comparison</em>'.
-	 * @see qualitypatternmodel.parameters.NumberParam#getCountComparison()
+	 * @return the meta object for the reference list '<em>Count Comparisons</em>'.
+	 * @see qualitypatternmodel.parameters.NumberParam#getCountComparisons()
 	 * @see #getNumberParam()
 	 * @generated
 	 */
-	EReference getNumberParam_CountComparison();
+	EReference getNumberParam_CountComparisons();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ParameterValue <em>Parameter Value</em>}'.
@@ -4144,15 +4144,15 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getRelationOptionParam_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.RelationOptionParam#getRelation <em>Relation</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.RelationOptionParam#getRelations <em>Relations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Relation</em>'.
-	 * @see qualitypatternmodel.parameters.RelationOptionParam#getRelation()
+	 * @return the meta object for the reference list '<em>Relations</em>'.
+	 * @see qualitypatternmodel.parameters.RelationOptionParam#getRelations()
 	 * @see #getRelationOptionParam()
 	 * @generated
 	 */
-	EReference getRelationOptionParam_Relation();
+	EReference getRelationOptionParam_Relations();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.OptionParam <em>Option Param</em>}'.
@@ -4209,10 +4209,10 @@ public interface ParametersPackage extends EPackage {
 	EReference getOptionParam_Relation();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.OptionParam#getComparison <em>Comparison</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.OptionParam#getComparison <em>Comparison</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Comparison</em>'.
+	 * @return the meta object for the reference list '<em>Comparison</em>'.
 	 * @see qualitypatternmodel.parameters.OptionParam#getComparison()
 	 * @see #getOptionParam()
 	 * @generated
@@ -4346,15 +4346,15 @@ public interface ParametersPackage extends EPackage {
 		EAttribute COMPARISON_OPTION_PARAM__VALUE = eINSTANCE.getComparisonOptionParam_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Comparison</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Comparisons</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPARISON_OPTION_PARAM__COMPARISON = eINSTANCE.getComparisonOptionParam_Comparison();
+		EReference COMPARISON_OPTION_PARAM__COMPARISONS = eINSTANCE.getComparisonOptionParam_Comparisons();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Condition</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Count Condition</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4388,12 +4388,12 @@ public interface ParametersPackage extends EPackage {
 		EAttribute PROPERTY_OPTION_PARAM__VALUE = eINSTANCE.getPropertyOptionParam_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROPERTY_OPTION_PARAM__PROPERTY = eINSTANCE.getPropertyOptionParam_Property();
+		EReference PROPERTY_OPTION_PARAM__PROPERTIES = eINSTANCE.getPropertyOptionParam_Properties();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ParameterListImpl <em>Parameter List</em>}' class.
@@ -4448,12 +4448,12 @@ public interface ParametersPackage extends EPackage {
 		EAttribute BOOLEAN_PARAM__VALUE = eINSTANCE.getBooleanParam_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Match</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Matches</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BOOLEAN_PARAM__MATCH = eINSTANCE.getBooleanParam_Match();
+		EReference BOOLEAN_PARAM__MATCHES = eINSTANCE.getBooleanParam_Matches();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TextListParamImpl <em>Text List Param</em>}' class.
@@ -4508,20 +4508,20 @@ public interface ParametersPackage extends EPackage {
 		EAttribute TEXT_LITERAL_PARAM__VALUE = eINSTANCE.getTextLiteralParam_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Match</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Matches</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEXT_LITERAL_PARAM__MATCH = eINSTANCE.getTextLiteralParam_Match();
+		EReference TEXT_LITERAL_PARAM__MATCHES = eINSTANCE.getTextLiteralParam_Matches();
 
 		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEXT_LITERAL_PARAM__PROPERTY = eINSTANCE.getTextLiteralParam_Property();
+		EReference TEXT_LITERAL_PARAM__PROPERTIES = eINSTANCE.getTextLiteralParam_Properties();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.
@@ -4542,12 +4542,12 @@ public interface ParametersPackage extends EPackage {
 		EAttribute NUMBER_PARAM__VALUE = eINSTANCE.getNumberParam_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Comparison</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Count Comparisons</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NUMBER_PARAM__COUNT_COMPARISON = eINSTANCE.getNumberParam_CountComparison();
+		EReference NUMBER_PARAM__COUNT_COMPARISONS = eINSTANCE.getNumberParam_CountComparisons();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
@@ -4658,12 +4658,12 @@ public interface ParametersPackage extends EPackage {
 		EAttribute RELATION_OPTION_PARAM__VALUE = eINSTANCE.getRelationOptionParam_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Relation</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Relations</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RELATION_OPTION_PARAM__RELATION = eINSTANCE.getRelationOptionParam_Relation();
+		EReference RELATION_OPTION_PARAM__RELATIONS = eINSTANCE.getRelationOptionParam_Relations();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.OptionParamImpl <em>Option Param</em>}' class.
@@ -4708,7 +4708,7 @@ public interface ParametersPackage extends EPackage {
 		EReference OPTION_PARAM__RELATION = eINSTANCE.getOptionParam_Relation();
 
 		/**
-		 * The meta object literal for the '<em><b>Comparison</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Comparison</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
