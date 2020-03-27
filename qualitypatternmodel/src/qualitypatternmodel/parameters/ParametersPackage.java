@@ -2310,13 +2310,13 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM__VALUE = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Count Comparisons</b></em>' reference list.
+	 * The feature id for the '<em><b>Number Argument</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM__COUNT_COMPARISONS = PARAMETER_VALUE_FEATURE_COUNT + 1;
+	int NUMBER_PARAM__NUMBER_ARGUMENT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Number Param</em>' class.
@@ -4548,15 +4548,15 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getNumberParam_Value();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.NumberParam#getCountComparisons <em>Count Comparisons</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.NumberParam#getNumberArgument <em>Number Argument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Count Comparisons</em>'.
-	 * @see qualitypatternmodel.parameters.NumberParam#getCountComparisons()
+	 * @return the meta object for the reference '<em>Number Argument</em>'.
+	 * @see qualitypatternmodel.parameters.NumberParam#getNumberArgument()
 	 * @see #getNumberParam()
 	 * @generated
 	 */
-	EReference getNumberParam_CountComparisons();
+	EReference getNumberParam_NumberArgument();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ParameterValue <em>Parameter Value</em>}'.
@@ -5082,12 +5082,12 @@ public interface ParametersPackage extends EPackage {
 		EAttribute NUMBER_PARAM__VALUE = eINSTANCE.getNumberParam_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Comparisons</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Number Argument</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NUMBER_PARAM__COUNT_COMPARISONS = eINSTANCE.getNumberParam_CountComparisons();
+		EReference NUMBER_PARAM__NUMBER_ARGUMENT = eINSTANCE.getNumberParam_NumberArgument();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ParameterValueImpl <em>Parameter Value</em>}' class.

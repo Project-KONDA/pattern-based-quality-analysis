@@ -22,27 +22,27 @@ public class Test01Axis {
 //		GraphstructurePackage.eINSTANCE.eClass();
 //		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(Test00.getBasePattern()); // child
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(Test00.getBasePattern()); // child
 		
 		for (Axis ax : Axis.VALUES) {
-			patterns.add(getBasePatternAxis(ax));
+			completePatterns.add(getBasePatternAxis(ax));
 		}
 		
-		Test00.test(patterns);
+		Test00.test(completePatterns);
 	}
 
-	public static Pattern getBasePatternAxis(Axis axis) {
+	public static CompletePattern getBasePatternAxis(Axis axis) {
 //		ParametersPackage.eINSTANCE.eClass();
 //		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
-		Pattern pattern = Test00.getBasePattern();
+		CompletePattern completePattern = Test00.getBasePattern();
 //		AxisOptionParam axisOption = parametersFactory.createAxisOptionParam();		
-		RelationOptionParam axisOption = pattern.getGraph().getRootElement().getNextElements().get(0).getRelationFromPrevious().getOption();
+		RelationOptionParam axisOption = completePattern.getGraph().getRootElement().getNextElements().get(0).getRelationFromPrevious().getOption();
 		EList<Axis> axisOptions = axisOption.getOptions();
 		if(!axisOptions.contains(axis)) axisOptions.add(axis);
 		axisOption.setValue(axis);
-		return pattern;
+		return completePattern;
 	}
 
 	public static List<PatternTestPair> getTestPairs() {

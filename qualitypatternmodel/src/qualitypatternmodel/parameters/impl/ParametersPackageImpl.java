@@ -583,7 +583,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EReference getNumberParam_CountComparisons() {
+	public EReference getNumberParam_NumberArgument() {
 		return (EReference)numberParamEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -857,7 +857,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		numberParamEClass = createEClass(NUMBER_PARAM);
 		createEAttribute(numberParamEClass, NUMBER_PARAM__VALUE);
-		createEReference(numberParamEClass, NUMBER_PARAM__COUNT_COMPARISONS);
+		createEReference(numberParamEClass, NUMBER_PARAM__NUMBER_ARGUMENT);
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
 
@@ -930,7 +930,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		textListParamEClass.getESuperTypes().add(this.getParameterValue());
 		textLiteralParamEClass.getESuperTypes().add(this.getParameterValue());
 		numberParamEClass.getESuperTypes().add(this.getParameterValue());
-		numberParamEClass.getESuperTypes().add(thePatternstructurePackage.getCountConditionArgument());
 		parameterValueEClass.getESuperTypes().add(this.getParameter());
 		dateParamEClass.getESuperTypes().add(this.getParameterValue());
 		timeParamEClass.getESuperTypes().add(this.getParameterValue());
@@ -972,7 +971,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEClass(parameterListEClass, ParameterList.class, "ParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterList_Parameters(), this.getParameter(), this.getParameter_ParameterList(), "parameters", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameterList_Pattern(), thePatternstructurePackage.getPattern(), thePatternstructurePackage.getPattern_ParameterList(), "pattern", null, 1, 1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterList_Pattern(), thePatternstructurePackage.getCompletePattern(), thePatternstructurePackage.getCompletePattern_ParameterList(), "pattern", null, 1, 1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getParameterList__Add__Parameter(), null, "add", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getParameter(), "Input", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -995,7 +994,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEClass(numberParamEClass, NumberParam.class, "NumberParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberParam_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNumberParam_CountComparisons(), thePatternstructurePackage.getCountCondition(), thePatternstructurePackage.getCountCondition_NumberParam(), "countComparisons", null, 0, -1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNumberParam_NumberArgument(), thePatternstructurePackage.getNumberElement(), thePatternstructurePackage.getNumberElement_NumberParam(), "numberArgument", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

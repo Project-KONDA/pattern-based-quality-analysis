@@ -24,6 +24,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Count;
@@ -33,6 +34,7 @@ import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
@@ -167,6 +169,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		
 		checkMorphismOfNextGraph();
 
+	}
+	
+	@Override	
+	public void updateParameters(ParameterList newParameterList) {
+		getGraph().updateParameters(newParameterList);
+		getCondition().updateParameters(newParameterList);
+		if(getCountCondition() != null) {
+			getCountCondition().updateParameters(newParameterList);
+		}
 	}
 	
 	@Override
@@ -535,10 +546,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 					.getAncestor(QuantifiedCondition.class);
 			previousGraph = previousQuantifiedCondition.getGraph();
 		} catch (MissingPatternContainerException e) {
-			Pattern pattern;
+			CompletePattern completePattern;
 			try {
-				pattern = (Pattern) getAncestor(Pattern.class);
-				previousGraph = pattern.getGraph();
+				completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+				previousGraph = completePattern.getGraph();
 			} catch (MissingPatternContainerException e1) {
 				e1.printStackTrace();
 				return;

@@ -27,10 +27,10 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.patternstructure.impl.PatternImpl;
+import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -63,9 +63,9 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 		super();
 	}
 
-	public ParameterListImpl(PatternImpl patternImpl) {
+	public ParameterListImpl(CompletePatternImpl completePatternImpl) {
 		super();
-		setPattern(patternImpl);
+		setPattern(completePatternImpl);
 	}
 
 	@Override
@@ -140,9 +140,9 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	 * @generated
 	 */
 	@Override
-	public Pattern getPattern() {
+	public CompletePattern getPattern() {
 		if (eContainerFeatureID() != ParametersPackage.PARAMETER_LIST__PATTERN) return null;
-		return (Pattern)eInternalContainer();
+		return (CompletePattern)eInternalContainer();
 	}
 
 	/**
@@ -150,7 +150,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	 * 
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
+	public NotificationChain basicSetPattern(CompletePattern newPattern, NotificationChain msgs) {
 		for (Parameter parameter : getParameters()) {
 			if (parameter instanceof BooleanParam) {
 				((BooleanParam) parameter).getMatches().clear();;
@@ -177,7 +177,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	 * @generated
 	 */
 	@Override
-	public void setPattern(Pattern newPattern) {
+	public void setPattern(CompletePattern newPattern) {
 		if (newPattern != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.PARAMETER_LIST__PATTERN && newPattern != null)) {
 			if (EcoreUtil.isAncestor(this, newPattern))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -185,7 +185,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPattern != null)
-				msgs = ((InternalEObject)newPattern).eInverseAdd(this, PatternstructurePackage.PATTERN__PARAMETER_LIST, Pattern.class, msgs);
+				msgs = ((InternalEObject)newPattern).eInverseAdd(this, PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST, CompletePattern.class, msgs);
 			msgs = basicSetPattern(newPattern, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -217,7 +217,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 			case ParametersPackage.PARAMETER_LIST__PATTERN:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetPattern((Pattern)otherEnd, msgs);
+				return basicSetPattern((CompletePattern)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -245,7 +245,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case ParametersPackage.PARAMETER_LIST__PATTERN:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.PATTERN__PARAMETER_LIST, Pattern.class, msgs);
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST, CompletePattern.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -278,7 +278,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 				getParameters().addAll((Collection<? extends Parameter>)newValue);
 				return;
 			case ParametersPackage.PARAMETER_LIST__PATTERN:
-				setPattern((Pattern)newValue);
+				setPattern((CompletePattern)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -295,7 +295,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 				getParameters().clear();
 				return;
 			case ParametersPackage.PARAMETER_LIST__PATTERN:
-				setPattern((Pattern)null);
+				setPattern((CompletePattern)null);
 				return;
 		}
 		super.eUnset(featureID);

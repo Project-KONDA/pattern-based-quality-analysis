@@ -20,24 +20,24 @@ public class Test07Formula {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
 		for (LogicalOperator lo: LogicalOperator.VALUES) {
-			patterns.add(getFormulaPattern(lo));
+			completePatterns.add(getFormulaPattern(lo));
 		}
 
-		Test00.test(patterns);
+		Test00.test(completePatterns);
 	}
 	
-	public static Pattern getFormulaPattern(LogicalOperator op) {
+	public static CompletePattern getFormulaPattern(LogicalOperator op) {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		Pattern pattern = factory.createPattern();
+		CompletePattern completePattern = factory.createCompletePattern();
 		Formula form = factory.createFormula();
-		pattern.setCondition(form);
+		completePattern.setCondition(form);
 		form.setOperator(op);
 
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
@@ -53,7 +53,7 @@ public class Test07Formula {
 		qc1.getGraph().getReturnElements().get(0).getNextElements().add(graphFactory.createElement());
 		qc2.getGraph().getReturnElements().get(0).getNextElements().add(graphFactory.createElement());
 		
-		return pattern;
+		return completePattern;
 	}
 	
 	

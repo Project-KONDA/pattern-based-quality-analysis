@@ -99,8 +99,8 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 				return createTrueElementAdapter();
 			}
 			@Override
-			public Adapter casePattern(Pattern object) {
-				return createPatternAdapter();
+			public Adapter caseCompletePattern(CompletePattern object) {
+				return createCompletePatternAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -125,6 +125,18 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGraphContainer(GraphContainer object) {
 				return createGraphContainerAdapter();
+			}
+			@Override
+			public Adapter caseCountPattern(CountPattern object) {
+				return createCountPatternAdapter();
+			}
+			@Override
+			public Adapter casePattern(Pattern object) {
+				return createPatternAdapter();
+			}
+			@Override
+			public Adapter caseNumberElement(NumberElement object) {
+				return createNumberElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -259,16 +271,16 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.Pattern <em>Pattern</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.CompletePattern <em>Complete Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.Pattern
+	 * @see qualitypatternmodel.patternstructure.CompletePattern
 	 * @generated
 	 */
-	public Adapter createPatternAdapter() {
+	public Adapter createCompletePatternAdapter() {
 		return null;
 	}
 
@@ -353,6 +365,48 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGraphContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.CountPattern <em>Count Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.patternstructure.CountPattern
+	 * @generated
+	 */
+	public Adapter createCountPatternAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.Pattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.patternstructure.Pattern
+	 * @generated
+	 */
+	public Adapter createPatternAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.NumberElement <em>Number Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.patternstructure.NumberElement
+	 * @generated
+	 */
+	public Adapter createNumberElementAdapter() {
 		return null;
 	}
 

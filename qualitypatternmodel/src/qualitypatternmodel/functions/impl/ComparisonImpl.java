@@ -38,7 +38,7 @@ import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -543,9 +543,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		option = newOption;
 
 		try {
-			Pattern pattern;
-			pattern = (Pattern) getAncestor(Pattern.class);
-			ParameterList varlist = pattern.getParameterList();
+			CompletePattern completePattern;
+			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
 			if (oldOption != null) {
 				varlist.getParameters().remove(oldOption);
 			}

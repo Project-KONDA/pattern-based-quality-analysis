@@ -76,13 +76,13 @@ public interface PatternstructureFactory extends EFactory {
 	TrueElement createTrueElement();
 
 	/**
-	 * Returns a new object of class '<em>Pattern</em>'.
+	 * Returns a new object of class '<em>Complete Pattern</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pattern</em>'.
+	 * @return a new object of class '<em>Complete Pattern</em>'.
 	 * @generated
 	 */
-	Pattern createPattern();
+	CompletePattern createCompletePattern();
 
 	/**
 	 * Returns a new object of class '<em>Not Condition</em>'.
@@ -110,6 +110,24 @@ public interface PatternstructureFactory extends EFactory {
 	 * @generated
 	 */
 	Count createCount();
+
+	/**
+	 * Returns a new object of class '<em>Count Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Count Pattern</em>'.
+	 * @generated
+	 */
+	CountPattern createCountPattern();
+
+	/**
+	 * Returns a new object of class '<em>Number Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number Element</em>'.
+	 * @generated
+	 */
+	NumberElement createNumberElement();
 
 	/**
 	 * Returns the package supported by this factory.

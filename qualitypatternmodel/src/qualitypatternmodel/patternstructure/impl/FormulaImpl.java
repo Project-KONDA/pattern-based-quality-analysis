@@ -16,6 +16,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.GraphContainer;
@@ -161,6 +162,12 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		if (condition1 == null || condition2 == null) {
 			throw new InvalidityException("arguments invalid" + " (" + getInternalId() + ")");
 		}
+	}
+	
+	@Override	
+	public void updateParameters(ParameterList newParameterList) {
+		getCondition1().updateParameters(newParameterList);
+		getCondition2().updateParameters(newParameterList);
 	}
 	
 	@Override

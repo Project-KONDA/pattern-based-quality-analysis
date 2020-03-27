@@ -15,6 +15,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.GraphContainer;
 import qualitypatternmodel.patternstructure.Location;
@@ -69,6 +70,11 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (condition == null)
 			throw new InvalidityException("condition null (" + getInternalId() + ")");
+	}
+	
+	@Override	
+	public void updateParameters(ParameterList newParameterList) {
+		getCondition().updateParameters(newParameterList);		
 	}
 	
 	@Override

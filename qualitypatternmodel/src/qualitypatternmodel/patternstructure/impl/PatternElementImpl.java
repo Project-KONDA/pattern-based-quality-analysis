@@ -28,7 +28,7 @@ import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
@@ -167,9 +167,10 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	public ParameterList getParameterList() {
 		ParameterList newParameterList = null;
 		try {
-			newParameterList = ((Pattern) getAncestor(PatternImpl.class)).getParameterList();
+			newParameterList = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getParameterList();
 		} catch (MissingPatternContainerException e) {
 			// do nothing
+			e.printStackTrace();
 		}	
 		return newParameterList;
 	}
@@ -305,7 +306,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	public int getInternalId() {
 		if (internalId == -1) {
 			try {
-				internalId = ((PatternImpl) this.getAncestor(PatternImpl.class)).getNewRefNo();
+				internalId = ((CompletePatternImpl) this.getAncestor(CompletePatternImpl.class)).getNewRefNo();
 			} catch (MissingPatternContainerException e) {
 				// TODO Auto-generated catch block
 //				e.printStackTrace();

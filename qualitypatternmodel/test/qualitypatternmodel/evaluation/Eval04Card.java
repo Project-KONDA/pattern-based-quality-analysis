@@ -18,16 +18,16 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
 
 public class Eval04Card {
 	public static void main(String[] args) {
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		patterns.add(getCardMidas());
-		Test00.test(patterns);		
+		Test00.test(completePatterns);		
 	}
 	
 //	public static Pattern getCardAbstract() {

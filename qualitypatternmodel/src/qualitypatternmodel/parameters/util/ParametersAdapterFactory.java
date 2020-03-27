@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -136,10 +135,6 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseComparable(qualitypatternmodel.graphstructure.Comparable object) {
 				return createComparableAdapter();
-			}
-			@Override
-			public Adapter caseCountConditionArgument(CountConditionArgument object) {
-				return createCountConditionArgumentAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -396,20 +391,6 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComparableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.CountConditionArgument <em>Count Condition Argument</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.CountConditionArgument
-	 * @generated
-	 */
-	public Adapter createCountConditionArgumentAdapter() {
 		return null;
 	}
 

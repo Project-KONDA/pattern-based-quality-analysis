@@ -11,42 +11,42 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
 
 public class Eval00Match {
 	public static void main(String[] args) {
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getMatchMidas());
-		Test00.test(patterns);
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getMatchMidas());
+		Test00.test(completePatterns);
 		
 	}
-	public static Pattern getMatchAbstract() {
+	public static CompletePattern getMatchAbstract() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		
-		Pattern pattern = Test03Quantor.getPatternExists();
-		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
+		CompletePattern completePattern = Test03Quantor.getPatternExists();
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
 		
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
-		Element returnElementInGraph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph().getReturnElements().get(0);				
+		Element returnElementInGraph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph().getReturnElements().get(0);				
 		Element element2 = returnElementInGraph1.getNextElements().get(0);	
 		
 		element2.addPrimitiveComparison(); 		
 		element2.addPrimitiveMatch();
 		
-		return pattern;
+		return completePattern;
 	}
 	
-	public static Pattern getMatchMidas() {
+	public static CompletePattern getMatchMidas() {
 		
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
-		Pattern pattern = getMatchAbstract();
-		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
+		CompletePattern completePattern = getMatchAbstract();
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
@@ -54,7 +54,7 @@ public class Eval00Match {
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
 		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		
-		Element returnElementInGraph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph().getReturnElements().get(0);				
+		Element returnElementInGraph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph().getReturnElements().get(0);				
 		Element element2 = returnElementInGraph1.getNextElements().get(0);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -69,6 +69,6 @@ public class Eval00Match {
 		element2.getProperties().get(1).getAttributeName().setValue("Value");
 		element2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		
-		return pattern;		
+		return completePattern;		
 	}
 }

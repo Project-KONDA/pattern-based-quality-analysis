@@ -34,6 +34,7 @@ import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
@@ -180,13 +181,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 //		if(!foundRootMapping) {
 //			addRootMapping(graph);
 //		}	
-		Element newRootElement = new ElementImpl();
-		newRootElement.setRoot(graph);
+		Element newRootElement = new ElementImpl();		
+		newRootElement.setRoot(graph);		
 		ElementMapping newMapping = new ElementMappingImpl();
 		if(graph.getQuantifiedCondition() != null) {
 			graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
-		} else {
-			graph.getPattern().getCount().getMorphism().getMappings().add(newMapping);
+		} else if(graph.getPattern() instanceof CountPattern) {
+			((CountPattern) graph.getPattern()).getCount().getMorphism().getMappings().add(newMapping);
 		}
 		
 		newMapping.setFrom(rootElement);
@@ -303,11 +304,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 ////			root.clearMatchRecursively();
 ////			root.clearPropertyRecursively();	
 //		}
-		updateParameters(newRootElement.getParameterList());
-		updateOperators(newRootElement.getOperatorList());
 		
 		Element oldRootElement = rootElement;
 		rootElement = newRootElement;
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					GraphstructurePackage.GRAPH__ROOT_ELEMENT, oldRootElement, newRootElement);
@@ -316,6 +316,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			else
 				msgs.add(notification);
 		}
+			
 		return msgs;
 	}
 	
@@ -579,7 +580,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
@@ -588,7 +590,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

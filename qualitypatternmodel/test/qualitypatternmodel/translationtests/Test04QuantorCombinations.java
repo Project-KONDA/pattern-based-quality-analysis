@@ -11,22 +11,22 @@ public class Test04QuantorCombinations {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getPatternExistsInExists());
-		patterns.add(getPatternForallInExists());
-		patterns.add(getPatternExistsInForall());
-		patterns.add(getPatternForallInForall());
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getPatternExistsInExists());
+		completePatterns.add(getPatternForallInExists());
+		completePatterns.add(getPatternExistsInForall());
+		completePatterns.add(getPatternForallInForall());
 
-		Test00.test(patterns);
+		Test00.test(completePatterns);
 	}
 
-	public static Pattern getPatternExistsInExists() {
+	public static CompletePattern getPatternExistsInExists() {
 		
 		// PatternStructure
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		Pattern pattern = Test03Quantor.getPatternExists();
-		QuantifiedCondition qcond = (QuantifiedCondition) pattern.getCondition();
+		CompletePattern completePattern = Test03Quantor.getPatternExists();
+		QuantifiedCondition qcond = (QuantifiedCondition) completePattern.getCondition();
 		QuantifiedCondition qcond2 =  factory.createQuantifiedCondition();
 		qcond.setCondition(qcond2);
 		TrueElement t = factory.createTrueElement();
@@ -40,24 +40,24 @@ public class Test04QuantorCombinations {
 		Element se3 = graphFactory.createElement();
 		qcond2.getGraph().getRootElement().getNextElements().get(0).getNextElements().get(0).getNextElements().add(se3);
 		
-		return pattern;
+		return completePattern;
 	}
 	
-	public static Pattern getPatternForallInExists() {
-		Pattern pattern = getPatternExistsInExists();
-		((QuantifiedCondition)((QuantifiedCondition) pattern.getCondition()).getCondition()).setQuantifier(Quantifier.FORALL);
-		return pattern;		
+	public static CompletePattern getPatternForallInExists() {
+		CompletePattern completePattern = getPatternExistsInExists();
+		((QuantifiedCondition)((QuantifiedCondition) completePattern.getCondition()).getCondition()).setQuantifier(Quantifier.FORALL);
+		return completePattern;		
 	}
 
-	public static Pattern getPatternExistsInForall() {
-		Pattern pattern = getPatternExistsInExists();
-		((QuantifiedCondition) pattern.getCondition()).setQuantifier(Quantifier.FORALL);
-		return pattern;
+	public static CompletePattern getPatternExistsInForall() {
+		CompletePattern completePattern = getPatternExistsInExists();
+		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
+		return completePattern;
 	}
-	public static Pattern getPatternForallInForall() {
-		Pattern pattern = getPatternForallInExists();
-		((QuantifiedCondition) pattern.getCondition()).setQuantifier(Quantifier.FORALL);
-		return pattern;
+	public static CompletePattern getPatternForallInForall() {
+		CompletePattern completePattern = getPatternForallInExists();
+		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
+		return completePattern;
 	}
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();

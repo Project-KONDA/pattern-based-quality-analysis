@@ -30,7 +30,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
  * <!-- begin-user-doc -->
@@ -294,9 +294,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		regularExpression = newRegularExpression;
 		
 		try {
-			Pattern pattern;
-			pattern = (Pattern) getAncestor(Pattern.class);
-			ParameterList varlist = pattern.getParameterList();
+			CompletePattern completePattern;
+			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
 			if(oldRegularExpression != null) {				
 				varlist.getParameters().remove(oldRegularExpression);
 			}
@@ -445,9 +445,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		option = newOption;
 		
 		try {
-			Pattern pattern;
-			pattern = (Pattern) getAncestor(Pattern.class);
-			ParameterList varlist = pattern.getParameterList();
+			CompletePattern completePattern;
+			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
 			if(oldOption != null) {				
 				varlist.getParameters().remove(oldOption);
 			}

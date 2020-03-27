@@ -47,33 +47,10 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNumberParamPropertyDescriptor(object);
 			addOptionPropertyDescriptor(object);
 			addOptionParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Number Param feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNumberParamPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CountCondition_numberParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CountCondition_numberParam_feature", "_UI_CountCondition_type"),
-				 PatternstructurePackage.Literals.COUNT_CONDITION__NUMBER_PARAM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -132,8 +109,8 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_CONDITION__COUNT1);
-			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_CONDITION__COUNT2);
+			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT1);
+			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT2);
 		}
 		return childrenFeatures;
 	}
@@ -189,8 +166,8 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CountCondition.class)) {
-			case PatternstructurePackage.COUNT_CONDITION__COUNT1:
-			case PatternstructurePackage.COUNT_CONDITION__COUNT2:
+			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
+			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT2:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -210,13 +187,23 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.COUNT_CONDITION__COUNT1,
+				(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT1,
 				 PatternstructureFactory.eINSTANCE.createCount()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.COUNT_CONDITION__COUNT2,
+				(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT1,
+				 PatternstructureFactory.eINSTANCE.createNumberElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT2,
 				 PatternstructureFactory.eINSTANCE.createCount()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT2,
+				 PatternstructureFactory.eINSTANCE.createNumberElement()));
 	}
 
 	/**
@@ -231,8 +218,8 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == PatternstructurePackage.Literals.COUNT_CONDITION__COUNT1 ||
-			childFeature == PatternstructurePackage.Literals.COUNT_CONDITION__COUNT2;
+			childFeature == PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT1 ||
+			childFeature == PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT2;
 
 		if (qualify) {
 			return getString

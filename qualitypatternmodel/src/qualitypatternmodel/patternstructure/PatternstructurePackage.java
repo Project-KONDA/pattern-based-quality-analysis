@@ -2065,7 +2065,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getPattern()
 	 * @generated
 	 */
-	int PATTERN = 8;
+	int PATTERN = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2086,22 +2086,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Parameter List</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN__PARAMETER_LIST = PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Graph</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__GRAPH = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int PATTERN__GRAPH = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -2110,34 +2101,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Element Counter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN__ELEMENT_COUNTER = PATTERN_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN__NAME = PATTERN_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Count</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN__COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int PATTERN__CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Pattern</em>' class.
@@ -2146,7 +2110,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 6;
+	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2266,31 +2230,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___GENERATE_QUERY = PATTERN_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get New Ref No</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___GET_NEW_REF_NO = PATTERN_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN_ELEMENT_OPERATION_COUNT + 2;
+	int PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Pattern</em>' class.
@@ -2299,7 +2245,242 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int PATTERN_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl <em>Complete Pattern</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.impl.CompletePatternImpl
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCompletePattern()
+	 * @generated
+	 */
+	int COMPLETE_PATTERN = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__ID = PATTERN__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__INTERNAL_ID = PATTERN__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__GRAPH = PATTERN__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__CONDITION = PATTERN__CONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Parameter List</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__PARAMETER_LIST = PATTERN_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Element Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__ELEMENT_COUNTER = PATTERN_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__NAME = PATTERN_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Complete Pattern</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_QUERY__LOCATION = PATTERN___GENERATE_QUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GET_ALL_INPUTS = PATTERN___GET_ALL_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___PREPARE_TRANSLATION = PATTERN___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___IS_VALID__BOOLEAN = PATTERN___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___IS_VALID_LOCAL__BOOLEAN = PATTERN___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GET_CONTAINER = PATTERN___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GET_ANCESTOR__CLASS = PATTERN___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___MY_TO_STRING = PATTERN___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GET_PARAMETER_LIST = PATTERN___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___UPDATE_OPERATORS__OPERATORLIST = PATTERN___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GET_OPERATOR_LIST = PATTERN___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_QUERY = PATTERN_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get New Ref No</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GET_NEW_REF_NO = PATTERN_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Complete Pattern</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -2619,22 +2800,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION__NOT_CONDITION = CONDITION__NOT_CONDITION;
 
 	/**
-	 * The feature id for the '<em><b>Count1</b></em>' containment reference.
+	 * The feature id for the '<em><b>Argument1</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION__COUNT1 = CONDITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Number Param</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION__NUMBER_PARAM = CONDITION_FEATURE_COUNT + 1;
+	int COUNT_CONDITION__ARGUMENT1 = CONDITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Quantified Condition Count</b></em>' container reference.
@@ -2643,16 +2815,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT = CONDITION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Count2</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION__COUNT2 = CONDITION_FEATURE_COUNT + 3;
+	int COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT = CONDITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Option</b></em>' reference.
@@ -2661,7 +2824,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION__OPTION = CONDITION_FEATURE_COUNT + 4;
+	int COUNT_CONDITION__OPTION = CONDITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Option Param</b></em>' reference.
@@ -2670,7 +2833,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION__OPTION_PARAM = CONDITION_FEATURE_COUNT + 5;
+	int COUNT_CONDITION__OPTION_PARAM = CONDITION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Argument2</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION__ARGUMENT2 = CONDITION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Count Condition</em>' class.
@@ -2679,7 +2851,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 6;
+	int COUNT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2808,31 +2980,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS;
 
 	/**
-	 * The operation id for the '<em>Get Argument1</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION___GET_ARGUMENT1 = CONDITION_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Argument2</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION___GET_ARGUMENT2 = CONDITION_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Count Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 2;
+	int COUNT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CountImpl <em>Count</em>}' class.
@@ -2872,13 +3026,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT__COUNT_CONDITION1 = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Count Condition2</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT__COUNT_CONDITION2 = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT__PATTERN = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int COUNT__PATTERN = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Morphism</b></em>' containment reference.
@@ -2887,16 +3050,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT__MORPHISM = PATTERN_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Count Condition2</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT__COUNT_CONDITION2 = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int COUNT__MORPHISM = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Count</em>' class.
@@ -3080,13 +3234,31 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
+	 * The feature id for the '<em><b>Count Condition1</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT__COUNT_CONDITION1 = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Count Condition2</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT__COUNT_CONDITION2 = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Count Condition Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int COUNT_CONDITION_ARGUMENT_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -3261,6 +3433,395 @@ public interface PatternstructurePackage extends EPackage {
 	int GRAPH_CONTAINER_OPERATION_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl <em>Count Pattern</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.impl.CountPatternImpl
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountPattern()
+	 * @generated
+	 */
+	int COUNT_PATTERN = 15;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN__ID = PATTERN__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN__INTERNAL_ID = PATTERN__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN__GRAPH = PATTERN__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN__CONDITION = PATTERN__CONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Count</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN__COUNT = PATTERN_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Count Pattern</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GENERATE_QUERY__LOCATION = PATTERN___GENERATE_QUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GET_ALL_INPUTS = PATTERN___GET_ALL_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___PREPARE_TRANSLATION = PATTERN___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___IS_VALID__BOOLEAN = PATTERN___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___IS_VALID_LOCAL__BOOLEAN = PATTERN___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GET_CONTAINER = PATTERN___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GET_ANCESTOR__CLASS = PATTERN___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___MY_TO_STRING = PATTERN___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GET_PARAMETER_LIST = PATTERN___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___UPDATE_OPERATORS__OPERATORLIST = PATTERN___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___GET_OPERATOR_LIST = PATTERN___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH;
+
+	/**
+	 * The number of operations of the '<em>Count Pattern</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NumberElementImpl <em>Number Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.impl.NumberElementImpl
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNumberElement()
+	 * @generated
+	 */
+	int NUMBER_ELEMENT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT__ID = COUNT_CONDITION_ARGUMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT__INTERNAL_ID = COUNT_CONDITION_ARGUMENT__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Count Condition1</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT__COUNT_CONDITION1 = COUNT_CONDITION_ARGUMENT__COUNT_CONDITION1;
+
+	/**
+	 * The feature id for the '<em><b>Count Condition2</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT__COUNT_CONDITION2 = COUNT_CONDITION_ARGUMENT__COUNT_CONDITION2;
+
+	/**
+	 * The feature id for the '<em><b>Number Param</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT__NUMBER_PARAM = COUNT_CONDITION_ARGUMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Number Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT_FEATURE_COUNT = COUNT_CONDITION_ARGUMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GENERATE_QUERY__LOCATION = COUNT_CONDITION_ARGUMENT___GENERATE_QUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GET_ALL_INPUTS = COUNT_CONDITION_ARGUMENT___GET_ALL_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___PREPARE_TRANSLATION = COUNT_CONDITION_ARGUMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___IS_VALID__BOOLEAN = COUNT_CONDITION_ARGUMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___IS_VALID_LOCAL__BOOLEAN = COUNT_CONDITION_ARGUMENT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GET_CONTAINER = COUNT_CONDITION_ARGUMENT___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GET_ANCESTOR__CLASS = COUNT_CONDITION_ARGUMENT___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___MY_TO_STRING = COUNT_CONDITION_ARGUMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = COUNT_CONDITION_ARGUMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = COUNT_CONDITION_ARGUMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GET_PARAMETER_LIST = COUNT_CONDITION_ARGUMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___UPDATE_OPERATORS__OPERATORLIST = COUNT_CONDITION_ARGUMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___GET_OPERATOR_LIST = COUNT_CONDITION_ARGUMENT___GET_OPERATOR_LIST;
+
+	/**
+	 * The number of operations of the '<em>Number Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT_OPERATION_COUNT = COUNT_CONDITION_ARGUMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.LogicalOperator <em>Logical Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3268,7 +3829,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLogicalOperator()
 	 * @generated
 	 */
-	int LOGICAL_OPERATOR = 15;
+	int LOGICAL_OPERATOR = 18;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Quantifier <em>Quantifier</em>}' enum.
@@ -3278,7 +3839,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getQuantifier()
 	 * @generated
 	 */
-	int QUANTIFIER = 16;
+	int QUANTIFIER = 19;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Location <em>Location</em>}' enum.
@@ -3288,7 +3849,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLocation()
 	 * @generated
 	 */
-	int LOCATION = 17;
+	int LOCATION = 20;
 
 	/**
 	 * The meta object id for the '<em>Invalidity Exception Wrapper</em>' data type.
@@ -3298,7 +3859,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 	 * @generated
 	 */
-	int INVALIDITY_EXCEPTION_WRAPPER = 18;
+	int INVALIDITY_EXCEPTION_WRAPPER = 21;
 
 	/**
 	 * The meta object id for the '<em>Class Wrapper</em>' data type.
@@ -3308,7 +3869,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getClassWrapper()
 	 * @generated
 	 */
-	int CLASS_WRAPPER = 19;
+	int CLASS_WRAPPER = 22;
 
 	/**
 	 * The meta object id for the '<em>Missing Pattern Container Exception</em>' data type.
@@ -3318,7 +3879,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMissingPatternContainerException()
 	 * @generated
 	 */
-	int MISSING_PATTERN_CONTAINER_EXCEPTION = 20;
+	int MISSING_PATTERN_CONTAINER_EXCEPTION = 23;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.RelationMapping <em>Relation Mapping</em>}'.
@@ -3746,110 +4307,67 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getTrueElement();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Pattern <em>Pattern</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CompletePattern <em>Complete Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Pattern</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern
+	 * @return the meta object for class '<em>Complete Pattern</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern
 	 * @generated
 	 */
-	EClass getPattern();
+	EClass getCompletePattern();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getParameterList <em>Parameter List</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterList <em>Parameter List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Parameter List</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getParameterList()
-	 * @see #getPattern()
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getParameterList()
+	 * @see #getCompletePattern()
 	 * @generated
 	 */
-	EReference getPattern_ParameterList();
+	EReference getCompletePattern_ParameterList();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Condition</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getCondition()
-	 * @see #getPattern()
-	 * @generated
-	 */
-	EReference getPattern_Condition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getElementCounter <em>Element Counter</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Element Counter</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getElementCounter()
-	 * @see #getPattern()
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getElementCounter()
+	 * @see #getCompletePattern()
 	 * @generated
 	 */
-	EAttribute getPattern_ElementCounter();
+	EAttribute getCompletePattern_ElementCounter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getName()
-	 * @see #getPattern()
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getName()
+	 * @see #getCompletePattern()
 	 * @generated
 	 */
-	EAttribute getPattern_Name();
+	EAttribute getCompletePattern_Name();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Pattern#getCount <em>Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Count</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getCount()
-	 * @see #getPattern()
-	 * @generated
-	 */
-	EReference getPattern_Count();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#generateQuery() <em>Generate Query</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateQuery() <em>Generate Query</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Generate Query</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Pattern#generateQuery()
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateQuery()
 	 * @generated
 	 */
-	EOperation getPattern__GenerateQuery();
+	EOperation getCompletePattern__GenerateQuery();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Graph</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getGraph()
-	 * @see #getPattern()
-	 * @generated
-	 */
-	EReference getPattern_Graph();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#getNewRefNo() <em>Get New Ref No</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo() <em>Get New Ref No</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get New Ref No</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getNewRefNo()
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo()
 	 * @generated
 	 */
-	EOperation getPattern__GetNewRefNo();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#checkMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Check Morphism Of Next Graph</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Pattern#checkMorphismOfNextGraph()
-	 * @generated
-	 */
-	EOperation getPattern__CheckMorphismOfNextGraph();
+	EOperation getCompletePattern__GetNewRefNo();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
@@ -3995,26 +4513,15 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getCountCondition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountCondition#getCount1 <em>Count1</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1 <em>Argument1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Count1</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountCondition#getCount1()
+	 * @return the meta object for the containment reference '<em>Argument1</em>'.
+	 * @see qualitypatternmodel.patternstructure.CountCondition#getArgument1()
 	 * @see #getCountCondition()
 	 * @generated
 	 */
-	EReference getCountCondition_Count1();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CountCondition#getNumberParam <em>Number Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Number Param</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountCondition#getNumberParam()
-	 * @see #getCountCondition()
-	 * @generated
-	 */
-	EReference getCountCondition_NumberParam();
+	EReference getCountCondition_Argument1();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.CountCondition#getQuantifiedConditionCount <em>Quantified Condition Count</em>}'.
@@ -4026,17 +4533,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCountCondition_QuantifiedConditionCount();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountCondition#getCount2 <em>Count2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Count2</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountCondition#getCount2()
-	 * @see #getCountCondition()
-	 * @generated
-	 */
-	EReference getCountCondition_Count2();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CountCondition#getOption <em>Option</em>}'.
@@ -4061,24 +4557,15 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCountCondition_OptionParam();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1() <em>Get Argument1</em>}' operation.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2 <em>Argument2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Argument1</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.CountCondition#getArgument1()
-	 * @generated
-	 */
-	EOperation getCountCondition__GetArgument1();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2() <em>Get Argument2</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Argument2</em>' operation.
+	 * @return the meta object for the containment reference '<em>Argument2</em>'.
 	 * @see qualitypatternmodel.patternstructure.CountCondition#getArgument2()
+	 * @see #getCountCondition()
 	 * @generated
 	 */
-	EOperation getCountCondition__GetArgument2();
+	EReference getCountCondition_Argument2();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Count <em>Count</em>}'.
@@ -4089,17 +4576,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCount();
-
-	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Count#getCountCondition1 <em>Count Condition1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Count Condition1</em>'.
-	 * @see qualitypatternmodel.patternstructure.Count#getCountCondition1()
-	 * @see #getCount()
-	 * @generated
-	 */
-	EReference getCount_CountCondition1();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Count#getPattern <em>Pattern</em>}'.
@@ -4124,17 +4600,6 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCount_Morphism();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Count#getCountCondition2 <em>Count Condition2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Count Condition2</em>'.
-	 * @see qualitypatternmodel.patternstructure.Count#getCountCondition2()
-	 * @see #getCount()
-	 * @generated
-	 */
-	EReference getCount_CountCondition2();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CountConditionArgument <em>Count Condition Argument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4143,6 +4608,28 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCountConditionArgument();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition2 <em>Count Condition2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Count Condition2</em>'.
+	 * @see qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition2()
+	 * @see #getCountConditionArgument()
+	 * @generated
+	 */
+	EReference getCountConditionArgument_CountCondition2();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition1 <em>Count Condition1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Count Condition1</em>'.
+	 * @see qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition1()
+	 * @see #getCountConditionArgument()
+	 * @generated
+	 */
+	EReference getCountConditionArgument_CountCondition1();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.GraphContainer <em>Graph Container</em>}'.
@@ -4173,6 +4660,90 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGraphContainer__GetMorphism();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CountPattern <em>Count Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Count Pattern</em>'.
+	 * @see qualitypatternmodel.patternstructure.CountPattern
+	 * @generated
+	 */
+	EClass getCountPattern();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.CountPattern#getCount <em>Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Count</em>'.
+	 * @see qualitypatternmodel.patternstructure.CountPattern#getCount()
+	 * @see #getCountPattern()
+	 * @generated
+	 */
+	EReference getCountPattern_Count();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Pattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pattern</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern
+	 * @generated
+	 */
+	EClass getPattern();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Graph</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getGraph()
+	 * @see #getPattern()
+	 * @generated
+	 */
+	EReference getPattern_Graph();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Condition</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getCondition()
+	 * @see #getPattern()
+	 * @generated
+	 */
+	EReference getPattern_Condition();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#checkMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Morphism Of Next Graph</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.Pattern#checkMorphismOfNextGraph()
+	 * @generated
+	 */
+	EOperation getPattern__CheckMorphismOfNextGraph();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.NumberElement <em>Number Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Number Element</em>'.
+	 * @see qualitypatternmodel.patternstructure.NumberElement
+	 * @generated
+	 */
+	EClass getNumberElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.NumberElement#getNumberParam <em>Number Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Number Param</em>'.
+	 * @see qualitypatternmodel.patternstructure.NumberElement#getNumberParam()
+	 * @see #getNumberElement()
+	 * @generated
+	 */
+	EReference getNumberElement_NumberParam();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}' operation.
@@ -4647,14 +5218,14 @@ public interface PatternstructurePackage extends EPackage {
 		EClass TRUE_ELEMENT = eINSTANCE.getTrueElement();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternImpl <em>Pattern</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl <em>Complete Pattern</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.impl.PatternImpl
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getPattern()
+		 * @see qualitypatternmodel.patternstructure.impl.CompletePatternImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCompletePattern()
 		 * @generated
 		 */
-		EClass PATTERN = eINSTANCE.getPattern();
+		EClass COMPLETE_PATTERN = eINSTANCE.getCompletePattern();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter List</b></em>' containment reference feature.
@@ -4662,15 +5233,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PATTERN__PARAMETER_LIST = eINSTANCE.getPattern_ParameterList();
-
-		/**
-		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PATTERN__CONDITION = eINSTANCE.getPattern_Condition();
+		EReference COMPLETE_PATTERN__PARAMETER_LIST = eINSTANCE.getCompletePattern_ParameterList();
 
 		/**
 		 * The meta object literal for the '<em><b>Element Counter</b></em>' attribute feature.
@@ -4678,7 +5241,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PATTERN__ELEMENT_COUNTER = eINSTANCE.getPattern_ElementCounter();
+		EAttribute COMPLETE_PATTERN__ELEMENT_COUNTER = eINSTANCE.getCompletePattern_ElementCounter();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -4686,15 +5249,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PATTERN__NAME = eINSTANCE.getPattern_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Count</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PATTERN__COUNT = eINSTANCE.getPattern_Count();
+		EAttribute COMPLETE_PATTERN__NAME = eINSTANCE.getCompletePattern_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate Query</b></em>' operation.
@@ -4702,15 +5257,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN___GENERATE_QUERY = eINSTANCE.getPattern__GenerateQuery();
-
-		/**
-		 * The meta object literal for the '<em><b>Graph</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PATTERN__GRAPH = eINSTANCE.getPattern_Graph();
+		EOperation COMPLETE_PATTERN___GENERATE_QUERY = eINSTANCE.getCompletePattern__GenerateQuery();
 
 		/**
 		 * The meta object literal for the '<em><b>Get New Ref No</b></em>' operation.
@@ -4718,15 +5265,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN___GET_NEW_REF_NO = eINSTANCE.getPattern__GetNewRefNo();
-
-		/**
-		 * The meta object literal for the '<em><b>Check Morphism Of Next Graph</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH = eINSTANCE.getPattern__CheckMorphismOfNextGraph();
+		EOperation COMPLETE_PATTERN___GET_NEW_REF_NO = eINSTANCE.getCompletePattern__GetNewRefNo();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.
@@ -4847,20 +5386,12 @@ public interface PatternstructurePackage extends EPackage {
 		EClass COUNT_CONDITION = eINSTANCE.getCountCondition();
 
 		/**
-		 * The meta object literal for the '<em><b>Count1</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Argument1</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COUNT_CONDITION__COUNT1 = eINSTANCE.getCountCondition_Count1();
-
-		/**
-		 * The meta object literal for the '<em><b>Number Param</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COUNT_CONDITION__NUMBER_PARAM = eINSTANCE.getCountCondition_NumberParam();
+		EReference COUNT_CONDITION__ARGUMENT1 = eINSTANCE.getCountCondition_Argument1();
 
 		/**
 		 * The meta object literal for the '<em><b>Quantified Condition Count</b></em>' container reference feature.
@@ -4869,14 +5400,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT = eINSTANCE.getCountCondition_QuantifiedConditionCount();
-
-		/**
-		 * The meta object literal for the '<em><b>Count2</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COUNT_CONDITION__COUNT2 = eINSTANCE.getCountCondition_Count2();
 
 		/**
 		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
@@ -4895,20 +5418,12 @@ public interface PatternstructurePackage extends EPackage {
 		EReference COUNT_CONDITION__OPTION_PARAM = eINSTANCE.getCountCondition_OptionParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Argument1</b></em>' operation.
+		 * The meta object literal for the '<em><b>Argument2</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation COUNT_CONDITION___GET_ARGUMENT1 = eINSTANCE.getCountCondition__GetArgument1();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Argument2</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COUNT_CONDITION___GET_ARGUMENT2 = eINSTANCE.getCountCondition__GetArgument2();
+		EReference COUNT_CONDITION__ARGUMENT2 = eINSTANCE.getCountCondition_Argument2();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.CountImpl <em>Count</em>}' class.
@@ -4919,14 +5434,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EClass COUNT = eINSTANCE.getCount();
-
-		/**
-		 * The meta object literal for the '<em><b>Count Condition1</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COUNT__COUNT_CONDITION1 = eINSTANCE.getCount_CountCondition1();
 
 		/**
 		 * The meta object literal for the '<em><b>Pattern</b></em>' containment reference feature.
@@ -4945,14 +5452,6 @@ public interface PatternstructurePackage extends EPackage {
 		EReference COUNT__MORPHISM = eINSTANCE.getCount_Morphism();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Condition2</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COUNT__COUNT_CONDITION2 = eINSTANCE.getCount_CountCondition2();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.CountConditionArgument <em>Count Condition Argument</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4961,6 +5460,22 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EClass COUNT_CONDITION_ARGUMENT = eINSTANCE.getCountConditionArgument();
+
+		/**
+		 * The meta object literal for the '<em><b>Count Condition2</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_CONDITION_ARGUMENT__COUNT_CONDITION2 = eINSTANCE.getCountConditionArgument_CountCondition2();
+
+		/**
+		 * The meta object literal for the '<em><b>Count Condition1</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_CONDITION_ARGUMENT__COUNT_CONDITION1 = eINSTANCE.getCountConditionArgument_CountCondition1();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.GraphContainer <em>Graph Container</em>}' class.
@@ -4987,6 +5502,76 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRAPH_CONTAINER___GET_MORPHISM = eINSTANCE.getGraphContainer__GetMorphism();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl <em>Count Pattern</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.patternstructure.impl.CountPatternImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getCountPattern()
+		 * @generated
+		 */
+		EClass COUNT_PATTERN = eINSTANCE.getCountPattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Count</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_PATTERN__COUNT = eINSTANCE.getCountPattern_Count();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternImpl <em>Pattern</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.patternstructure.impl.PatternImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getPattern()
+		 * @generated
+		 */
+		EClass PATTERN = eINSTANCE.getPattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Graph</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATTERN__GRAPH = eINSTANCE.getPattern_Graph();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATTERN__CONDITION = eINSTANCE.getPattern_Condition();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Morphism Of Next Graph</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH = eINSTANCE.getPattern__CheckMorphismOfNextGraph();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NumberElementImpl <em>Number Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.patternstructure.impl.NumberElementImpl
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getNumberElement()
+		 * @generated
+		 */
+		EClass NUMBER_ELEMENT = eINSTANCE.getNumberElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Number Param</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NUMBER_ELEMENT__NUMBER_PARAM = eINSTANCE.getNumberElement_NumberParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Container</b></em>' operation.

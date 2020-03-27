@@ -20,18 +20,18 @@ import qualitypatternmodel.graphstructure.Element;
 
 public class Test00 {
 	
-	public static void test(ArrayList<Pattern> patterns) {
-		for (Pattern pattern : patterns) {
+	public static void test(ArrayList<CompletePattern> completePatterns) {
+		for (CompletePattern completePattern : completePatterns) {
 			try {
-				pattern.isValid(true);
+				completePattern.isValid(true);
 				System.out.println("\n\n___PATTERN_(VALID)___");
-				System.out.println(pattern.myToString());
+				System.out.println(completePattern.myToString());
 				System.out.print("\n___TRANSLATION___");
-				System.out.println(pattern.generateQuery());
+				System.out.println(completePattern.generateQuery());
 			} catch (Exception e) {
 				e.printStackTrace();
 				try {
-				  System.out.println(pattern.myToString());
+				  System.out.println(completePattern.myToString());
 				} catch (Exception e2) {
 					e2.printStackTrace();
 				}
@@ -41,21 +41,21 @@ public class Test00 {
 	
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getBasePattern());
-		patterns.add(getBasePatternCond("my_cond"));
-		patterns.add(getBasePatternMatch("my_regex"));
-		Test00.test(patterns);
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getBasePattern());
+		completePatterns.add(getBasePatternCond("my_cond"));
+		completePatterns.add(getBasePatternMatch("my_regex"));
+		Test00.test(completePatterns);
 	}
 
 
-	public static Pattern getBasePattern() {
+	public static CompletePattern getBasePattern() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
 		// PATTERN
-		Pattern pattern = factory.createPattern();
-		pattern.setName("MyPattern");
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
 //		VariableList varlist = pattern.getVariableList();
 
 		// RETURN GRAPH
@@ -66,23 +66,23 @@ public class Test00 {
 		
 		// FIRST CONDITION
 		Condition truecondition = factory.createTrueElement();
-		pattern.setCondition(truecondition);
+		completePattern.setCondition(truecondition);
 		
-		return pattern;
+		return completePattern;
 	}
 	
-	public static Pattern getBasePatternCond(String comp) {
-		Pattern pattern = getBasePattern();
-		Element se = pattern.getGraph().getReturnElements().get(0);
+	public static CompletePattern getBasePatternCond(String comp) {
+		CompletePattern completePattern = getBasePattern();
+		Element se = completePattern.getGraph().getReturnElements().get(0);
 		se.addPrimitiveComparison(comp);
-		return pattern;
+		return completePattern;
 	}
 	
-	public static Pattern getBasePatternMatch(String regex) {
-		Pattern pattern = getBasePattern();
-		Element se = pattern.getGraph().getReturnElements().get(0);
+	public static CompletePattern getBasePatternMatch(String regex) {
+		CompletePattern completePattern = getBasePattern();
+		Element se = completePattern.getGraph().getReturnElements().get(0);
 		se.addPrimitiveMatch(regex);
-		return pattern;
+		return completePattern;
 	}
 	
 	public static List<PatternTestPair> getTestPairs(){

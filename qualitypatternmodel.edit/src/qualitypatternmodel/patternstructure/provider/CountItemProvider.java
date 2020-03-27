@@ -139,7 +139,7 @@ public class CountItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.COUNT__PATTERN,
-				 PatternstructureFactory.eINSTANCE.createPattern()));
+				 PatternstructureFactory.eINSTANCE.createCountPattern()));
 
 		newChildDescriptors.add
 			(createChildParameter

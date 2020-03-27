@@ -11,7 +11,7 @@ import org.eclipse.ocl.pivot.internal.delegate.OCLValidationDelegateFactory;
 import org.eclipse.ocl.pivot.model.OCLstdlib;
 import org.eclipse.ocl.xtext.oclinecore.OCLinEcoreStandaloneSetup;
 
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
@@ -23,9 +23,9 @@ public class ProgrammaticalValidation {
 		
 		PatternstructurePackage.eINSTANCE.eClass();		
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;		
-		Pattern pattern = factory.createPattern();
+		CompletePattern completePattern = factory.createCompletePattern();
 		
-		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);			
+		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(completePattern);			
 		
 		printDiagnostic(diagnostic, "");
 	}

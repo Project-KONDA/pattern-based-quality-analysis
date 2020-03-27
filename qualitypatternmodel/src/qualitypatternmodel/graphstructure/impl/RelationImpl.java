@@ -28,8 +28,8 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
+import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -101,18 +101,17 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (getMappingFrom() == null && option == null)
 			throw new InvalidityException("axis missing");
 		if (getMappingFrom() != null && option != null)
-			throw new InvalidityException("axis redundant");
+			throw new InvalidityException("axis redundant");		
 		
+		CountPattern countPattern = null;				
 		try {
-			Pattern pattern;
-			pattern = (Pattern) getAncestor(Pattern.class);
-			if (getGraphDepth() == 0 && mappingFrom != null && pattern.getCount() == null) // depth=0 => ReturnGraph
-				throw new InvalidityException("invalid RelationMapping to returnGraph: " + mappingFrom + " "
-						+ mappingFrom.getId() + " - (" + mappingTo + ")");
+			countPattern = (CountPattern) getAncestor(CountPattern.class);
 		} catch (MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// do nothing
 		}
+		if (getGraphDepth() == 0 && mappingFrom != null && countPattern == null) // depth=0 => ReturnGraph
+			throw new InvalidityException("invalid RelationMapping to returnGraph: " + mappingFrom + " "
+					+ mappingFrom.getId() + " - (" + mappingTo + ")");		
 		
 		for(RelationMapping mapping : getMappingTo()) {
 			if(!mapping.getTo().getElement().getMappingFrom().getFrom().equals(getElement())) {

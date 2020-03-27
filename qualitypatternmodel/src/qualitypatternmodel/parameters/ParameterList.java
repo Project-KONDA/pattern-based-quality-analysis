@@ -4,7 +4,7 @@ package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -41,17 +41,17 @@ public interface ParameterList extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Pattern</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Pattern#getParameterList <em>Parameter List</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterList <em>Parameter List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pattern</em>' container reference.
-	 * @see #setPattern(Pattern)
+	 * @see #setPattern(CompletePattern)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameterList_Pattern()
-	 * @see qualitypatternmodel.patternstructure.Pattern#getParameterList
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getParameterList
 	 * @model opposite="parameterList" required="true" transient="false"
 	 * @generated
 	 */
-	Pattern getPattern();
+	CompletePattern getPattern();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.parameters.ParameterList#getPattern <em>Pattern</em>}' container reference.
@@ -61,7 +61,7 @@ public interface ParameterList extends PatternElement {
 	 * @see #getPattern()
 	 * @generated
 	 */
-	void setPattern(Pattern value);
+	void setPattern(CompletePattern value);
 
 	/**
 	 * <!-- begin-user-doc -->

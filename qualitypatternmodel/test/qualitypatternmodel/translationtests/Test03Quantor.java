@@ -13,36 +13,36 @@ public class Test03Quantor {
 	public static void main(String[] args) {
 //		System.out.println(getPatternExists().myToString());
 		
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getPatternExists());
-		patterns.add(getPatternExistsCond());
-		patterns.add(getPatternForall());
-		patterns.add(getPatternForallCond());
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getPatternExists());
+		completePatterns.add(getPatternExistsCond());
+		completePatterns.add(getPatternForall());
+		completePatterns.add(getPatternForallCond());
 
-		Test00.test(patterns);
+		Test00.test(completePatterns);
 	}
 
-	public static Pattern getPatternExists() {
+	public static CompletePattern getPatternExists() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		// Pattern Structure
-		Pattern pattern = Test00.getBasePattern();
+		CompletePattern completePattern = Test00.getBasePattern();
 		QuantifiedCondition cond = factory.createQuantifiedCondition();
 		cond.setCondition(factory.createTrueElement());
-		pattern.setCondition(cond);
+		completePattern.setCondition(cond);
 				
 		// EXISTS additional graph structure
 		Element se2 = graphFactory.createElement();
 		cond.getGraph().getReturnElements().get(0).getNextElements().add(se2);		
 		
-		return pattern;
+		return completePattern;
 	}
 
 
-	public static Pattern getPatternExistsCond() {
+	public static CompletePattern getPatternExistsCond() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		FunctionsPackage.eINSTANCE.eClass();
@@ -50,9 +50,9 @@ public class Test03Quantor {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory inputFactory = ParametersFactory.eINSTANCE;
 		
-		Pattern pattern = getPatternExists();
+		CompletePattern completePattern = getPatternExists();
 //		VariableList varlist = pattern.getVariableList();
-		Graph graph2 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
+		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 //		OperatorList oplist = graph2.getOperatorList();
 		Element last = graph2.getRootElement().getNextElements().get(0).getNextElements().get(0);
 		last.addPrimitiveComparison("myvalue");
@@ -68,21 +68,21 @@ public class Test03Quantor {
 //		varlist.add(textlit);
 //		
 //		comp.setArgument2(textlit);
-		return pattern;
+		return completePattern;
 	}
 
-	public static Pattern getPatternForall() {		
-		Pattern pattern = getPatternExists();
-		QuantifiedCondition cond1 = (QuantifiedCondition) pattern.getCondition();
+	public static CompletePattern getPatternForall() {		
+		CompletePattern completePattern = getPatternExists();
+		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);
-		return pattern;
+		return completePattern;
 	}
 
-	public static Pattern getPatternForallCond() {		
-		Pattern pattern = getPatternExistsCond();
-		QuantifiedCondition cond1 = (QuantifiedCondition) pattern.getCondition();
+	public static CompletePattern getPatternForallCond() {		
+		CompletePattern completePattern = getPatternExistsCond();
+		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);		
-		return pattern;
+		return completePattern;
 	}
 	
 	public static List<PatternTestPair> getTestPairs(){

@@ -2,24 +2,19 @@
  */
 package qualitypatternmodel.parameters.impl;
 
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
@@ -31,7 +26,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.NumberParamImpl#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.NumberParamImpl#getCountComparisons <em>Count Comparisons</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.NumberParamImpl#getNumberArgument <em>Number Argument</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,14 +53,14 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	protected Double value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCountComparisons() <em>Count Comparisons</em>}' reference list.
+	 * The cached value of the '{@link #getNumberArgument() <em>Number Argument</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCountComparisons()
+	 * @see #getNumberArgument()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CountCondition> countComparisons;
+	protected NumberElement numberArgument;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,11 +129,60 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * @generated
 	 */
 	@Override
-	public EList<CountCondition> getCountComparisons() {
-		if (countComparisons == null) {
-			countComparisons = new EObjectWithInverseResolvingEList<CountCondition>(CountCondition.class, this, ParametersPackage.NUMBER_PARAM__COUNT_COMPARISONS, PatternstructurePackage.COUNT_CONDITION__NUMBER_PARAM);
+	public NumberElement getNumberArgument() {
+		if (numberArgument != null && numberArgument.eIsProxy()) {
+			InternalEObject oldNumberArgument = (InternalEObject)numberArgument;
+			numberArgument = (NumberElement)eResolveProxy(oldNumberArgument);
+			if (numberArgument != oldNumberArgument) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT, oldNumberArgument, numberArgument));
+			}
 		}
-		return countComparisons;
+		return numberArgument;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NumberElement basicGetNumberArgument() {
+		return numberArgument;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNumberArgument(NumberElement newNumberArgument, NotificationChain msgs) {
+		NumberElement oldNumberArgument = numberArgument;
+		numberArgument = newNumberArgument;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT, oldNumberArgument, newNumberArgument);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNumberArgument(NumberElement newNumberArgument) {
+		if (newNumberArgument != numberArgument) {
+			NotificationChain msgs = null;
+			if (numberArgument != null)
+				msgs = ((InternalEObject)numberArgument).eInverseRemove(this, PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM, NumberElement.class, msgs);
+			if (newNumberArgument != null)
+				msgs = ((InternalEObject)newNumberArgument).eInverseAdd(this, PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM, NumberElement.class, msgs);
+			msgs = basicSetNumberArgument(newNumberArgument, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT, newNumberArgument, newNumberArgument));
 	}
 
 	/**
@@ -150,8 +194,10 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.NUMBER_PARAM__COUNT_COMPARISONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCountComparisons()).basicAdd(otherEnd, msgs);
+			case ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT:
+				if (numberArgument != null)
+					msgs = ((InternalEObject)numberArgument).eInverseRemove(this, PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM, NumberElement.class, msgs);
+				return basicSetNumberArgument((NumberElement)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -164,8 +210,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.NUMBER_PARAM__COUNT_COMPARISONS:
-				return ((InternalEList<?>)getCountComparisons()).basicRemove(otherEnd, msgs);
+			case ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT:
+				return basicSetNumberArgument(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -180,8 +226,9 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 		switch (featureID) {
 			case ParametersPackage.NUMBER_PARAM__VALUE:
 				return getValue();
-			case ParametersPackage.NUMBER_PARAM__COUNT_COMPARISONS:
-				return getCountComparisons();
+			case ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT:
+				if (resolve) return getNumberArgument();
+				return basicGetNumberArgument();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -198,9 +245,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 			case ParametersPackage.NUMBER_PARAM__VALUE:
 				setValue((Double)newValue);
 				return;
-			case ParametersPackage.NUMBER_PARAM__COUNT_COMPARISONS:
-				getCountComparisons().clear();
-				getCountComparisons().addAll((Collection<? extends CountCondition>)newValue);
+			case ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT:
+				setNumberArgument((NumberElement)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -217,8 +263,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 			case ParametersPackage.NUMBER_PARAM__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case ParametersPackage.NUMBER_PARAM__COUNT_COMPARISONS:
-				getCountComparisons().clear();
+			case ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT:
+				setNumberArgument((NumberElement)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -234,8 +280,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 		switch (featureID) {
 			case ParametersPackage.NUMBER_PARAM__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-			case ParametersPackage.NUMBER_PARAM__COUNT_COMPARISONS:
-				return countComparisons != null && !countComparisons.isEmpty();
+			case ParametersPackage.NUMBER_PARAM__NUMBER_ARGUMENT:
+				return numberArgument != null;
 		}
 		return super.eIsSet(featureID);
 	}

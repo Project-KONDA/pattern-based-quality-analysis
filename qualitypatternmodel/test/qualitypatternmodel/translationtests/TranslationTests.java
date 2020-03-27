@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
 import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;

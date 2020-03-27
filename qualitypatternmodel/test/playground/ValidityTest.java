@@ -14,7 +14,7 @@ import org.eclipse.ocl.xtext.oclinecore.OCLinEcoreStandaloneSetup;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
 import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
 
@@ -25,14 +25,14 @@ public class ValidityTest {
 		
 		 // Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();
-        Pattern pattern = loader.load("instances/playground/My53.patternstructure");
+        CompletePattern completePattern = loader.load("instances/playground/My53.patternstructure");
 		
-		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);			
+		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(completePattern);			
 		
 		printDiagnostic(diagnostic, "");
         
         try {
-			pattern.isValid(true);
+			completePattern.isValid(true);
 		} catch (InvalidityException | OperatorCycleException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,7 +41,7 @@ public class ValidityTest {
 			e.printStackTrace();
 		}
 		try {
-			System.out.println(pattern.generateQuery());
+			System.out.println(completePattern.generateQuery());
 		} catch (InvalidityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

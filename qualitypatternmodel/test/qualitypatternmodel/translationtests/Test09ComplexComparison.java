@@ -22,16 +22,16 @@ public class Test09ComplexComparison {
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		patterns.add(getPatternCount());
-		patterns.add(getPatternSelfTwoProps());
-		patterns.add(getPatternTwoProps());
-		patterns.add(getPatternTwoEs());
+		completePatterns.add(getPatternSelfTwoProps());
+		completePatterns.add(getPatternTwoProps());
+		completePatterns.add(getPatternTwoEs());
 //		patterns.add(getPatternEtoSE());
 //		patterns.add(getPatternTwoSetEs());
-		patterns.add(getPatternTwoOps()); // TODO
+		completePatterns.add(getPatternTwoOps()); // TODO
 		
-		Test00.test(patterns);
+		Test00.test(completePatterns);
 	}
 
 //	public static Pattern getPatternCount() {
@@ -43,21 +43,21 @@ public class Test09ComplexComparison {
 //		return pattern;		
 //	}
 	
-	public static Pattern getPatternSelfTwoProps() {
+	public static CompletePattern getPatternSelfTwoProps() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		FunctionsPackage.eINSTANCE.eClass();
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
 
-		Pattern pattern = Test00.getBasePattern();
-		Element ret = pattern.getGraph().getReturnElements().get(0);
+		CompletePattern completePattern = Test00.getBasePattern();
+		Element ret = completePattern.getGraph().getReturnElements().get(0);
 		
 		Property p1 = graphFactory.createProperty();
 		Property p2 = graphFactory.createProperty();
 		
 		Comparison comp = functionFactory.createComparison();
 		
-		pattern.getGraph().getOperatorList().add(comp);
+		completePattern.getGraph().getOperatorList().add(comp);
 		comp.createParameters();
 		ret.getProperties().add(p1);
 		p1.createParameters();
@@ -70,17 +70,17 @@ public class Test09ComplexComparison {
 		comp.setArgument2(p2);
 		comp.setType(ReturnType.STRING);
 
-		return pattern;
+		return completePattern;
 	}
 
-	public static Pattern getPatternTwoProps() {
+	public static CompletePattern getPatternTwoProps() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		FunctionsPackage.eINSTANCE.eClass();
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
 
-		Pattern pattern = Test00.getBasePattern();
-		Element ret = pattern.getGraph().getReturnElements().get(0);
+		CompletePattern completePattern = Test00.getBasePattern();
+		Element ret = completePattern.getGraph().getReturnElements().get(0);
 
 		Element se1 = graphFactory.createElement();
 		Element se2 = graphFactory.createElement();
@@ -93,7 +93,7 @@ public class Test09ComplexComparison {
 		
 		Comparison comp = functionFactory.createComparison();
 		
-		pattern.getGraph().getOperatorList().add(comp);
+		completePattern.getGraph().getOperatorList().add(comp);
 		comp.createParameters();
 		se1.getProperties().add(p1);
 		p1.createParameters();
@@ -106,17 +106,17 @@ public class Test09ComplexComparison {
 		comp.setArgument2(p2);
 		comp.setType(ReturnType.STRING);
 
-		return pattern;
+		return completePattern;
 	}
 
-	public static Pattern getPatternTwoEs() {
+	public static CompletePattern getPatternTwoEs() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		FunctionsPackage.eINSTANCE.eClass();
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
 
-		Pattern pattern = Test00.getBasePattern();
-		Element ret = pattern.getGraph().getReturnElements().get(0);
+		CompletePattern completePattern = Test00.getBasePattern();
+		Element ret = completePattern.getGraph().getReturnElements().get(0);
 
 		Element se1 = graphFactory.createElement();
 		Element se2 = graphFactory.createElement();
@@ -126,12 +126,12 @@ public class Test09ComplexComparison {
 		
 		Comparison comp = functionFactory.createComparison();
 		
-		pattern.getGraph().getOperatorList().add(comp);
+		completePattern.getGraph().getOperatorList().add(comp);
 		comp.createParameters();
 		comp.setArgument1(se1);
 		comp.setArgument2(se2);
 		
-		return pattern;
+		return completePattern;
 	}	
 
 //	public static Pattern getPatternEtoSE() {
@@ -220,16 +220,16 @@ public class Test09ComplexComparison {
 //		return pattern;
 //	}	
 
-	public static Pattern getPatternTwoOps() {
+	public static CompletePattern getPatternTwoOps() {
 		FunctionsPackage.eINSTANCE.eClass();
 		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory inputsFactory = ParametersFactory.eINSTANCE;
 		
-		Pattern pattern = Test00.getBasePattern();
-		ParameterList varlist = pattern.getParameterList();
-		OperatorList oplist = pattern.getGraph().getOperatorList();
-		Element se = pattern.getGraph().getReturnElements().get(0);
+		CompletePattern completePattern = Test00.getBasePattern();
+		ParameterList varlist = completePattern.getParameterList();
+		OperatorList oplist = completePattern.getGraph().getOperatorList();
+		Element se = completePattern.getGraph().getReturnElements().get(0);
 		
 		TextLiteralParam tl = inputsFactory.createTextLiteralParam();
 		tl.setValue("a");
@@ -264,7 +264,7 @@ public class Test09ComplexComparison {
 		comp2.setArgument2(tl4);
 		
 		
-		return pattern;		
+		return completePattern;		
 	}
 	
 	

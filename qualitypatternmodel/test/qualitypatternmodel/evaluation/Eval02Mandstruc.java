@@ -12,7 +12,7 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -22,12 +22,12 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 
 public class Eval02Mandstruc {
 	public static void main(String[] args) {
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getMandstrucAbstract());
-		Test00.test(patterns);
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getMandstrucAbstract());
+		Test00.test(completePatterns);
 		
 	}
-	public static Pattern getMandstrucAbstract() {
+	public static CompletePattern getMandstrucAbstract() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -37,12 +37,12 @@ public class Eval02Mandstruc {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory patternstructureFactory = PatternstructureFactory.eINSTANCE;		
 		
-		Pattern pattern = Test03Quantor.getPatternExists();
-		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);			
+		CompletePattern completePattern = Test03Quantor.getPatternExists();
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);			
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
 		NotCondition notCondition = patternstructureFactory.createNotCondition();
-		pattern.setCondition(notCondition);
+		completePattern.setCondition(notCondition);
 		
 		Formula formula = patternstructureFactory.createFormula();
 		formula.setOperator(LogicalOperator.OR);
@@ -67,6 +67,6 @@ public class Eval02Mandstruc {
 		graph2.getReturnElements().get(0).getNextElements().add(element2);
 		element2.addPrimitiveComparison();		
 		
-		return pattern;
+		return completePattern;
 	}
 }

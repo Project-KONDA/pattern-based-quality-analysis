@@ -45,7 +45,8 @@ import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.ElementMapping;
@@ -434,19 +435,18 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {		
-			
+	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {	
+		CountPattern countPattern = null;				
 		try {
-			Pattern pattern;
-			pattern = (Pattern) getAncestor(Pattern.class);
-			if (getGraphDepth() == 0 && mappingFrom != null && pattern.getCount() == null) // depth=0 => ReturnGraph
-				throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + mappingFrom + " "
-						+ mappingFrom.getId() + " - (" + mappingTo + ")");
+			countPattern = (CountPattern) getAncestor(CountPattern.class);
 		} catch (MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// do nothing
 		}
-		
+	
+		if (getGraphDepth() == 0 && mappingFrom != null && countPattern == null) // depth=0 => ReturnGraph
+			throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + mappingFrom + " "
+					+ mappingFrom.getId() + " - (" + mappingTo + ")");
+			
 		if (!eIsSet(GraphstructurePackage.ELEMENT__ROOT)
 				&& !eIsSet(GraphstructurePackage.ELEMENT__PREVIOUS_ELEMENT))
 			throw new InvalidityException("previousElement null at SingleElement " + getId());
@@ -662,6 +662,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //				} 
 //			}
 //		}
+		
+		updateParameters(newRoot.getParameterList());
+		updateOperators(newRoot.getOperatorList());
+		
 		if (getRelationFromPrevious() != null) {
 			setRelationFromPrevious(null);
 		}
@@ -1595,8 +1599,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	public void addPrimitiveComparison() {
 		Comparison comparison = new ComparisonImpl();
 		try {
-			Pattern pattern = (Pattern) getAncestor(Pattern.class);
-			ParameterList varlist = pattern.getParameterList();
+			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			
@@ -1626,8 +1630,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	public void addPrimitiveComparison(String value) {
 		Comparison comparison = new ComparisonImpl();		
 		try {			
-			Pattern pattern = (Pattern) getAncestor(Pattern.class);
-			ParameterList varlist = pattern.getParameterList();
+			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			
@@ -1659,8 +1663,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	public void addPrimitiveComparison(Parameter parameter) {
 		Comparison comparison = new ComparisonImpl();
 		try {			
-			Pattern pattern = (Pattern) getAncestor(Pattern.class);
-			ParameterList varlist = pattern.getParameterList();
+			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			
@@ -1689,8 +1693,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	public void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, Parameter parameter) {
 		Comparison comparison = new ComparisonImpl();
 		try {		
-			Pattern pattern = (Pattern) getAncestor(Pattern.class);
-			ParameterList varlist = pattern.getParameterList();
+			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			Property property1 = new PropertyImpl();			
@@ -1769,8 +1773,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	//		match.setProperty(property);
 			Match match = new MatchImpl();
 			try {			
-				Pattern pattern = (Pattern) getAncestor(Pattern.class);
-				ParameterList varlist = pattern.getParameterList();
+				CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+				ParameterList varlist = completePattern.getParameterList();
 				Graph graph = (Graph) getAncestor(Graph.class);
 				OperatorList oplist = graph.getOperatorList();
 				

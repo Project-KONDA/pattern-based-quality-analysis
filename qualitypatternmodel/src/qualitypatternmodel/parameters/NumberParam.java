@@ -2,9 +2,7 @@
  */
 package qualitypatternmodel.parameters;
 
-import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.CountConditionArgument;
+import qualitypatternmodel.patternstructure.NumberElement;
 
 
 /**
@@ -17,14 +15,14 @@ import qualitypatternmodel.patternstructure.CountConditionArgument;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.NumberParam#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.NumberParam#getCountComparisons <em>Count Comparisons</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.NumberParam#getNumberArgument <em>Number Argument</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam()
  * @model
  * @generated
  */
-public interface NumberParam extends ParameterValue, CountConditionArgument {
+public interface NumberParam extends ParameterValue {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * The default value is <code>"0.0"</code>.
@@ -49,17 +47,27 @@ public interface NumberParam extends ParameterValue, CountConditionArgument {
 	void setValue(Double value);
 
 	/**
-	 * Returns the value of the '<em><b>Count Comparisons</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.patternstructure.CountCondition}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountCondition#getNumberParam <em>Number Param</em>}'.
+	 * Returns the value of the '<em><b>Number Argument</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.NumberElement#getNumberParam <em>Number Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count Comparisons</em>' reference list.
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam_CountComparisons()
-	 * @see qualitypatternmodel.patternstructure.CountCondition#getNumberParam
+	 * @return the value of the '<em>Number Argument</em>' reference.
+	 * @see #setNumberArgument(NumberElement)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam_NumberArgument()
+	 * @see qualitypatternmodel.patternstructure.NumberElement#getNumberParam
 	 * @model opposite="numberParam"
 	 * @generated
 	 */
-	EList<CountCondition> getCountComparisons();
+	NumberElement getNumberArgument();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.NumberParam#getNumberArgument <em>Number Argument</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Number Argument</em>' reference.
+	 * @see #getNumberArgument()
+	 * @generated
+	 */
+	void setNumberArgument(NumberElement value);
 
 } // Number

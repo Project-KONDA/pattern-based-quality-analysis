@@ -110,8 +110,8 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validateFormula((Formula)value, diagnostics, context);
 			case PatternstructurePackage.TRUE_ELEMENT:
 				return validateTrueElement((TrueElement)value, diagnostics, context);
-			case PatternstructurePackage.PATTERN:
-				return validatePattern((Pattern)value, diagnostics, context);
+			case PatternstructurePackage.COMPLETE_PATTERN:
+				return validateCompletePattern((CompletePattern)value, diagnostics, context);
 			case PatternstructurePackage.PATTERN_ELEMENT:
 				return validatePatternElement((PatternElement)value, diagnostics, context);
 			case PatternstructurePackage.NOT_CONDITION:
@@ -124,6 +124,12 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validateCountConditionArgument((CountConditionArgument)value, diagnostics, context);
 			case PatternstructurePackage.GRAPH_CONTAINER:
 				return validateGraphContainer((GraphContainer)value, diagnostics, context);
+			case PatternstructurePackage.COUNT_PATTERN:
+				return validateCountPattern((CountPattern)value, diagnostics, context);
+			case PatternstructurePackage.PATTERN:
+				return validatePattern((Pattern)value, diagnostics, context);
+			case PatternstructurePackage.NUMBER_ELEMENT:
+				return validateNumberElement((NumberElement)value, diagnostics, context);
 			case PatternstructurePackage.LOGICAL_OPERATOR:
 				return validateLogicalOperator((LogicalOperator)value, diagnostics, context);
 			case PatternstructurePackage.QUANTIFIER:
@@ -298,17 +304,17 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePattern(Pattern pattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(pattern, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePatternElement_validate(pattern, diagnostics, context);
+	public boolean validateCompletePattern(CompletePattern completePattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(completePattern, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(completePattern, diagnostics, context);
 		return result;
 	}
 
@@ -424,6 +430,63 @@ public class PatternstructureValidator extends EObjectValidator {
 	 */
 	public boolean validateGraphContainer(GraphContainer graphContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(graphContainer, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCountPattern(CountPattern countPattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(countPattern, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(countPattern, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePattern(Pattern pattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(pattern, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(pattern, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNumberElement(NumberElement numberElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(numberElement, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(numberElement, diagnostics, context);
+		return result;
 	}
 
 	/**

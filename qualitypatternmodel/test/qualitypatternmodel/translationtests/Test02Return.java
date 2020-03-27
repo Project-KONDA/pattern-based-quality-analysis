@@ -11,48 +11,48 @@ public class Test02Return {
 
 	public static void main(String[] args) {
 
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getPatternMultipleReturn());
-		patterns.add(getPatternMultipleReturnNested());
-		patterns.add(getPatternLateReturn());
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getPatternMultipleReturn());
+		completePatterns.add(getPatternMultipleReturnNested());
+		completePatterns.add(getPatternLateReturn());
 
-		Test00.test(patterns);
+		Test00.test(completePatterns);
 	}
 
-	public static Pattern getPatternMultipleReturn() {
+	public static CompletePattern getPatternMultipleReturn() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 			
-		Pattern pattern = Test00.getBasePattern();
-		Graph return_graph = pattern.getGraph();
+		CompletePattern completePattern = Test00.getBasePattern();
+		Graph return_graph = completePattern.getGraph();
 		
-		Element root = pattern.getGraph().getRootElement();
+		Element root = completePattern.getGraph().getRootElement();
 		Element return2 = graphFactory.createElement();
 		root.getNextElements().add(return2);
 		return_graph.getReturnElements().add(return2);
 				
-		return pattern;
+		return completePattern;
 	}
 
-	public static Pattern getPatternMultipleReturnNested() {
+	public static CompletePattern getPatternMultipleReturnNested() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		Pattern pattern = Test00.getBasePattern();
+		CompletePattern completePattern = Test00.getBasePattern();
 		
 		Element return2 = graphFactory.createElement();
-		pattern.getGraph().getReturnElements().get(0).getNextElements().add(return2);
-		pattern.getGraph().getReturnElements().add(return2);
+		completePattern.getGraph().getReturnElements().get(0).getNextElements().add(return2);
+		completePattern.getGraph().getReturnElements().add(return2);
 		
-		return pattern;
+		return completePattern;
 	}
 
-	public static Pattern getPatternLateReturn() {
+	public static CompletePattern getPatternLateReturn() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 			
-		Pattern pattern = Test00.getBasePattern();
-		Graph return_graph = pattern.getGraph();
+		CompletePattern completePattern = Test00.getBasePattern();
+		Graph return_graph = completePattern.getGraph();
 		
 		Element return2 = graphFactory.createElement();
 		EList<Element> return_elements = return_graph.getReturnElements();
@@ -60,7 +60,7 @@ public class Test02Return {
 		return_elements.remove(0);
 		return_elements.add(return2);
 		
-		return pattern;
+		return completePattern;
 	}
 	
 	public static List<PatternTestPair> getTestPairs(){

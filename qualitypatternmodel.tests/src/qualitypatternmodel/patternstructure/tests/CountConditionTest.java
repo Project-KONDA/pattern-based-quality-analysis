@@ -11,13 +11,6 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Count Comparison</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1() <em>Get Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2() <em>Get Argument2</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public class CountConditionTest extends ConditionTest {
@@ -72,32 +65,6 @@ public class CountConditionTest extends ConditionTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1() <em>Get Argument1</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.CountCondition#getArgument1()
-	 * @generated
-	 */
-	public void testGetArgument1() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2() <em>Get Argument2</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.CountCondition#getArgument2()
-	 * @generated
-	 */
-	public void testGetArgument2() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //CountComparisonTest

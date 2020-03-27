@@ -37,7 +37,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -309,9 +309,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		option = newOption;
 		
 		try {
-			Pattern pattern;
-			pattern = (Pattern) getAncestor(Pattern.class);
-			ParameterList varlist = pattern.getParameterList();
+			CompletePattern completePattern;
+			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
 			if(oldOption != null) {				
 				varlist.getParameters().remove(oldOption);
 			}
@@ -663,9 +663,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		attributeName = newAttributeName;
 		
 		try {
-			Pattern pattern;
-			pattern = (Pattern) getAncestor(Pattern.class);
-			ParameterList varlist = pattern.getParameterList();
+			CompletePattern completePattern;
+			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
 			if(oldAttributeName != null) {				
 				varlist.getParameters().remove(oldAttributeName);
 			}

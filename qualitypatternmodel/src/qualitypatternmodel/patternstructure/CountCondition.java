@@ -3,8 +3,9 @@
 package qualitypatternmodel.patternstructure;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.OptionParam;
 
 /**
@@ -16,12 +17,11 @@ import qualitypatternmodel.parameters.OptionParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getCount1 <em>Count1</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getNumberParam <em>Number Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1 <em>Argument1</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getQuantifiedConditionCount <em>Quantified Condition Count</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getCount2 <em>Count2</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getOptionParam <em>Option Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2 <em>Argument2</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition()
@@ -30,52 +30,18 @@ import qualitypatternmodel.parameters.OptionParam;
  */
 public interface CountCondition extends Condition {
 	/**
-	 * Returns the value of the '<em><b>Count1</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Count#getCountCondition1 <em>Count Condition1</em>}'.
+	 * Returns the value of the '<em><b>Argument1</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition1 <em>Count Condition1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count1</em>' containment reference.
-	 * @see #setCount1(Count)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_Count1()
-	 * @see qualitypatternmodel.patternstructure.Count#getCountCondition1
+	 * @return the value of the '<em>Argument1</em>' containment reference.
+	 * @see #setArgument1(CountConditionArgument)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_Argument1()
+	 * @see qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition1
 	 * @model opposite="countCondition1" containment="true" required="true"
 	 * @generated
 	 */
-	Count getCount1();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountCondition#getCount1 <em>Count1</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count1</em>' containment reference.
-	 * @see #getCount1()
-	 * @generated
-	 */
-	void setCount1(Count value);
-
-	/**
-	 * Returns the value of the '<em><b>Number Param</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.NumberParam#getCountComparisons <em>Count Comparisons</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Number Param</em>' reference.
-	 * @see #setNumberParam(NumberParam)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_NumberParam()
-	 * @see qualitypatternmodel.parameters.NumberParam#getCountComparisons
-	 * @model opposite="countComparisons"
-	 * @generated
-	 */
-	NumberParam getNumberParam();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountCondition#getNumberParam <em>Number Param</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number Param</em>' reference.
-	 * @see #getNumberParam()
-	 * @generated
-	 */
-	void setNumberParam(NumberParam value);
+	CountConditionArgument getArgument1();
 
 	/**
 	 * Returns the value of the '<em><b>Quantified Condition Count</b></em>' container reference.
@@ -102,30 +68,6 @@ public interface CountCondition extends Condition {
 	void setQuantifiedConditionCount(QuantifiedCondition value);
 
 	/**
-	 * Returns the value of the '<em><b>Count2</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Count#getCountCondition2 <em>Count Condition2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count2</em>' containment reference.
-	 * @see #setCount2(Count)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_Count2()
-	 * @see qualitypatternmodel.patternstructure.Count#getCountCondition2
-	 * @model opposite="countCondition2" containment="true"
-	 * @generated
-	 */
-	Count getCount2();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountCondition#getCount2 <em>Count2</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count2</em>' containment reference.
-	 * @see #getCount2()
-	 * @generated
-	 */
-	void setCount2(Count value);
-
-	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition <em>Count Condition</em>}'.
 	 * <!-- begin-user-doc -->
@@ -148,6 +90,20 @@ public interface CountCondition extends Condition {
 	 * @generated
 	 */
 	void setOption(ComparisonOptionParam value);
+
+	/**
+	 * Returns the value of the '<em><b>Argument2</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition2 <em>Count Condition2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Argument2</em>' containment reference.
+	 * @see #setArgument2(CountConditionArgument)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_Argument2()
+	 * @see qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition2
+	 * @model opposite="countCondition2" containment="true" required="true"
+	 * @generated
+	 */
+	CountConditionArgument getArgument2();
 
 	/**
 	 * Returns the value of the '<em><b>Option Param</b></em>' reference.
@@ -174,19 +130,23 @@ public interface CountCondition extends Condition {
 	void setOptionParam(OptionParam value);
 
 	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1 <em>Argument1</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @param value the new value of the '<em>Argument1</em>' containment reference.
+	 * @see #getArgument1()
 	 * @generated
 	 */
-	CountConditionArgument getArgument1() throws InvalidityException;
+	void setArgument1(CountConditionArgument value);
 
 	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2 <em>Argument2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @param value the new value of the '<em>Argument2</em>' containment reference.
+	 * @see #getArgument2()
 	 * @generated
 	 */
-	CountConditionArgument getArgument2() throws InvalidityException;
+	void setArgument2(CountConditionArgument value);	
 
 } // CountComparison

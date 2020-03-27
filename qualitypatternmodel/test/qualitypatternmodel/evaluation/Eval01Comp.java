@@ -17,30 +17,30 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
 
 public class Eval01Comp {
 	public static void main(String[] args) {
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getCompMidas());
-		Test00.test(patterns);
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getCompMidas());
+		Test00.test(completePatterns);
 		
 	}
-	public static Pattern getCompAbstract() {
+	public static CompletePattern getCompAbstract() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		FunctionsPackage.eINSTANCE.eClass();
 		FunctionsFactory functionsFactory = FunctionsFactory.eINSTANCE;		
 		
-		Pattern pattern = Test03Quantor.getPatternExists();
-		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);			
+		CompletePattern completePattern = Test03Quantor.getPatternExists();
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);			
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
-		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
+		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);	
 		
 		Element next1 = returnElementInGraph1.getNextElements().get(0);	
@@ -59,16 +59,16 @@ public class Eval01Comp {
 		comparison.setArgument1(property1);
 		comparison.setArgument2(property2);		
 		
-		return pattern;		
+		return completePattern;		
 	}
 	
-	public static Pattern getCompMidas() {
+	public static CompletePattern getCompMidas() {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
-		Pattern pattern = getCompAbstract();
+		CompletePattern completePattern = getCompAbstract();
 		
-		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
@@ -76,7 +76,7 @@ public class Eval01Comp {
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
 		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		
-		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
+		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);
 		Element next1ToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(0);	
 		Element next2ToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(1);	
@@ -103,6 +103,6 @@ public class Eval01Comp {
 		comparison3.setType(ReturnType.STRING);
 
 				
-		return pattern;
+		return completePattern;
 	}
 }

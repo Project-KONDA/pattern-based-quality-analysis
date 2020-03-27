@@ -65,10 +65,12 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 			case PatternstructurePackage.ELEMENT_MAPPING: return createElementMapping();
 			case PatternstructurePackage.FORMULA: return createFormula();
 			case PatternstructurePackage.TRUE_ELEMENT: return createTrueElement();
-			case PatternstructurePackage.PATTERN: return createPattern();
+			case PatternstructurePackage.COMPLETE_PATTERN: return createCompletePattern();
 			case PatternstructurePackage.NOT_CONDITION: return createNotCondition();
 			case PatternstructurePackage.COUNT_CONDITION: return createCountCondition();
 			case PatternstructurePackage.COUNT: return createCount();
+			case PatternstructurePackage.COUNT_PATTERN: return createCountPattern();
+			case PatternstructurePackage.NUMBER_ELEMENT: return createNumberElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -196,9 +198,9 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public Pattern createPattern() {
-		PatternImpl pattern = new PatternImpl();
-		return pattern;
+	public CompletePattern createCompletePattern() {
+		CompletePatternImpl completePattern = new CompletePatternImpl();
+		return completePattern;
 	}
 
 	/**
@@ -232,6 +234,28 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	public Count createCount() {
 		CountImpl count = new CountImpl();
 		return count;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CountPattern createCountPattern() {
+		CountPatternImpl countPattern = new CountPatternImpl();
+		return countPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NumberElement createNumberElement() {
+		NumberElementImpl numberElement = new NumberElementImpl();
+		return numberElement;
 	}
 
 	/**

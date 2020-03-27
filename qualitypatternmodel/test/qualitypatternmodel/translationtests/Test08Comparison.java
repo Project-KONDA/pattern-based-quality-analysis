@@ -23,19 +23,19 @@ public class Test08Comparison {
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
 		for (PropertyLocation pl : PropertyLocation.VALUES) {
 				for (Parameter parameter : getExampleInputs()) {
-					Pattern pattern = Test00.getBasePattern();
-					pattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.EQUAL, parameter);
-					pattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.NOTEQUAL, parameter);
-					patterns.add(pattern);
+					CompletePattern completePattern = Test00.getBasePattern();
+					completePattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.EQUAL, parameter);
+					completePattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.NOTEQUAL, parameter);
+					completePatterns.add(completePattern);
 				
 			}
 		}
 
-		Test00.test(patterns);
+		Test00.test(completePatterns);
 	}
 
 	public static ArrayList<Parameter> getExampleInputs() {
@@ -71,14 +71,14 @@ public class Test08Comparison {
 		return parameters;
 	}
 
-	public static Pattern getPrimCondPattern(PropertyLocation pl, LogicalOperator op, Parameter parameter) {
+	public static CompletePattern getPrimCondPattern(PropertyLocation pl, LogicalOperator op, Parameter parameter) {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
-		Pattern pattern = Test00.getBasePattern();
-		Element ret = pattern.getGraph().getReturnElements().get(0);
+		CompletePattern completePattern = Test00.getBasePattern();
+		Element ret = completePattern.getGraph().getReturnElements().get(0);
 		ret.addPrimitiveComparison(parameter);
-		return pattern;
+		return completePattern;
 	}
 
 	public static List<PatternTestPair> getTestPairs() {

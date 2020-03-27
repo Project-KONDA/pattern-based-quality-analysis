@@ -210,26 +210,26 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.Pattern} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.CompletePattern} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PatternItemProvider patternItemProvider;
+	protected CompletePatternItemProvider completePatternItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.Pattern}.
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.CompletePattern}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPatternAdapter() {
-		if (patternItemProvider == null) {
-			patternItemProvider = new PatternItemProvider(this);
+	public Adapter createCompletePatternAdapter() {
+		if (completePatternItemProvider == null) {
+			completePatternItemProvider = new CompletePatternItemProvider(this);
 		}
 
-		return patternItemProvider;
+		return completePatternItemProvider;
 	}
 
 	/**
@@ -299,6 +299,52 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		}
 
 		return countItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.CountPattern} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CountPatternItemProvider countPatternItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.CountPattern}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCountPatternAdapter() {
+		if (countPatternItemProvider == null) {
+			countPatternItemProvider = new CountPatternItemProvider(this);
+		}
+
+		return countPatternItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.NumberElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberElementItemProvider numberElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.NumberElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberElementAdapter() {
+		if (numberElementItemProvider == null) {
+			numberElementItemProvider = new NumberElementItemProvider(this);
+		}
+
+		return numberElementItemProvider;
 	}
 
 	/**
@@ -412,10 +458,12 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		if (elementMappingItemProvider != null) elementMappingItemProvider.dispose();
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
 		if (trueElementItemProvider != null) trueElementItemProvider.dispose();
-		if (patternItemProvider != null) patternItemProvider.dispose();
+		if (completePatternItemProvider != null) completePatternItemProvider.dispose();
 		if (notConditionItemProvider != null) notConditionItemProvider.dispose();
 		if (countConditionItemProvider != null) countConditionItemProvider.dispose();
 		if (countItemProvider != null) countItemProvider.dispose();
+		if (countPatternItemProvider != null) countPatternItemProvider.dispose();
+		if (numberElementItemProvider != null) numberElementItemProvider.dispose();
 	}
 
 }

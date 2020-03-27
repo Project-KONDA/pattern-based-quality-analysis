@@ -7,7 +7,7 @@ package qualitypatternmodel.parameters.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.parameters.ParameterList}.
@@ -19,5 +19,5 @@ public interface ParameterListValidator {
 	boolean validate();
 
 	boolean validateVariables(EList<Parameter> value);
-	boolean validatePattern(Pattern value);
+	boolean validatePattern(CompletePattern value);
 }

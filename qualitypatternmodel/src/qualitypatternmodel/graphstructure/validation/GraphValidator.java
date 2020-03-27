@@ -10,7 +10,7 @@ import qualitypatternmodel.functions.OperatorList;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Morphism;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 /**
@@ -45,5 +45,5 @@ public interface GraphValidator {
 
 	boolean validateQuantifiedcondition(QuantifiedCondition value);
 
-	boolean validatePattern(Pattern value);
+	boolean validatePattern(CompletePattern value);
 }

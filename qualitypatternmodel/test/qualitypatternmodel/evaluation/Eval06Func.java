@@ -13,20 +13,20 @@ import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
 
 public class Eval06Func {
 	public static void main(String[] args) {
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getFuncAbstract());
-		Test00.test(patterns);
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getFuncAbstract());
+		Test00.test(completePatterns);
 		
 	}
 	
-	private static Pattern getFuncAbstract() {
+	private static CompletePattern getFuncAbstract() {
 		
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
@@ -34,12 +34,12 @@ public class Eval06Func {
 		FunctionsPackage.eINSTANCE.eClass();
 		FunctionsFactory functionsFactory = FunctionsFactory.eINSTANCE;
 		
-		Pattern pattern = Test03Quantor.getPatternExists();
-		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
+		CompletePattern completePattern = Test03Quantor.getPatternExists();
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
 		
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
-		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
+		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);				
 		Element fieldAReturn = returnElementInGraph1.getNextElements().get(0);	
 		Element fieldBReturn = graphFactory.createElement();
@@ -75,7 +75,7 @@ public class Eval06Func {
 		propertyBOtherRecord.setElement(fieldBOtherRecord);
 		comparisonB.setArgument2(propertyBOtherRecord);		
 		
-		return pattern;
+		return completePattern;
 	}
 
 }

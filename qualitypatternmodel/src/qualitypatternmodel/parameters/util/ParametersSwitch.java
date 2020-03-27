@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -135,7 +134,6 @@ public class ParametersSwitch<T1> extends Switch<T1> {
 				NumberParam numberParam = (NumberParam)theEObject;
 				T1 result = caseNumberParam(numberParam);
 				if (result == null) result = caseParameterValue(numberParam);
-				if (result == null) result = caseCountConditionArgument(numberParam);
 				if (result == null) result = caseParameter(numberParam);
 				if (result == null) result = caseComparable(numberParam);
 				if (result == null) result = casePatternElement(numberParam);
@@ -464,21 +462,6 @@ public class ParametersSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseComparable(qualitypatternmodel.graphstructure.Comparable object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Count Condition Argument</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Count Condition Argument</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseCountConditionArgument(CountConditionArgument object) {
 		return null;
 	}
 
