@@ -90,31 +90,19 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	
 	protected CompletePatternImpl() {
 		super();
-		initialize(false);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	protected CompletePatternImpl(boolean emptyGraph) {
-		super();
-		initialize(emptyGraph);
-	}
-
-	private void initialize(boolean emptyGraph) {
 		setParameterList(new ParameterListImpl(this));
 		setGraph(new GraphImpl());
-		if(!emptyGraph) { // TODO: remove if
-			ElementImpl rootElement = new ElementImpl();
-			getGraph().setRootElement(rootElement);
-			ElementImpl returnElement = new ElementImpl();
-			returnElement.setPreviousElement(getGraph().getRootElement());
-			getGraph().getReturnElements().add(returnElement);
-			rootElement.setName("Root");
-			returnElement.setName("Return");
-		}
+		
+		ElementImpl rootElement = new ElementImpl();
+		getGraph().setRootElement(rootElement);
+		ElementImpl returnElement = new ElementImpl();
+		returnElement.setPreviousElement(getGraph().getRootElement());
+		getGraph().getReturnElements().add(returnElement);
+		rootElement.setName("Root");
+		returnElement.setName("Return");
+		
 		getInternalId();
-	}
+	}	
 	
 
 	@Override

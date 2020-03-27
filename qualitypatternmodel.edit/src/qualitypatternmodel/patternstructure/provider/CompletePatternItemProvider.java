@@ -147,7 +147,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	@Override
 	public String getText(Object object) {
 		CompletePattern completePattern = (CompletePattern) object;
-		String text = getString("_UI_Pattern_type") + " " + completePattern.getInternalId();
+		String text = getString("_UI_CompletePattern_type") + " " + completePattern.getInternalId();
 		if(completePattern.getName() != null) {
 			text += " " + completePattern.getName();
 		}

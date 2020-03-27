@@ -589,11 +589,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
-		ParameterList parameterList = newPattern.getParameterList();
-		if(parameterList != null) {
-			updateParameters(parameterList);
+		if(newPattern != null) {
+			ParameterList parameterList = newPattern.getParameterList();
+			if(parameterList != null) {
+				updateParameters(parameterList);
+			}	
 		}	
-			
 		msgs = eBasicSetContainer((InternalEObject)newPattern, GraphstructurePackage.GRAPH__PATTERN, msgs);
 		return msgs;
 	}

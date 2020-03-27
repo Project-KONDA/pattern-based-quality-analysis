@@ -311,8 +311,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 //		if (getElement() != null) {
 //			removeParametersFromParameterList();
 //		}
-		updateParameters(newRelationTo.getParameterList());
-
+		if(newRelationTo != null) {
+			updateParameters(newRelationTo.getParameterList());
+		}
 		if (newRelationTo != null) {
 			copyToNewNextGraphs(newRelationTo);
 		}
@@ -354,7 +355,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		ParameterList parameterList = getParameterList();
 		if (getOption() == null) {
 			RelationOptionParam relationOptionParam = new RelationOptionParamImpl();
-			parameterList.add(relationOptionParam);
+			if(parameterList != null) {
+				parameterList.add(relationOptionParam);
+			}
 			setOption(relationOptionParam);
 		} else {
 			parameterList.add(getOption());
