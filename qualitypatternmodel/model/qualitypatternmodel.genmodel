@@ -481,9 +481,9 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountConditionArgument/countCondition1"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountConditionArgument/countCondition2"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/GraphContainer">
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/GraphContainer/getGraph"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/GraphContainer/getMorphism"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/MorphismContainer">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/getGraph"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/getMorphism"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/CountPattern">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountPattern/count"/>

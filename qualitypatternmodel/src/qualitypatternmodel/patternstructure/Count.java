@@ -19,7 +19,7 @@ package qualitypatternmodel.patternstructure;
  * @model
  * @generated
  */
-public interface Count extends PatternElement, CountConditionArgument, GraphContainer {
+public interface Count extends PatternElement, CountConditionArgument, MorphismContainer {
 	/**
 	 * Returns the value of the '<em><b>Pattern</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountPattern#getCount <em>Count</em>}'.

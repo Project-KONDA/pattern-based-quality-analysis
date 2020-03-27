@@ -29,7 +29,7 @@ import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.GraphContainer;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
@@ -181,8 +181,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	
 	@Override
-	public EList<GraphContainer> getNextQuantifiedConditions() throws InvalidityException {
-		EList<GraphContainer> result = new BasicEList<GraphContainer>();
+	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {
+		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		result.add(this);		
 		return result;
 	}
@@ -567,16 +567,16 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	@Override
 	public void checkMorphismOfNextGraph() throws InvalidityException  {
-		EList<GraphContainer> nextGraphContainers = getCondition().getNextQuantifiedConditions();
+		EList<MorphismContainer> nextGraphContainers = getCondition().getNextQuantifiedConditions();
 		if(getCountCondition() != null) {
 			if(getCountCondition().getArgument1() instanceof Count) {
-				nextGraphContainers.add((GraphContainer) getCountCondition().getArgument1());
+				nextGraphContainers.add((MorphismContainer) getCountCondition().getArgument1());
 			}
 			if(getCountCondition().getArgument2() instanceof Count) {
-				nextGraphContainers.add((GraphContainer) getCountCondition().getArgument2());
+				nextGraphContainers.add((MorphismContainer) getCountCondition().getArgument2());
 			}
 		}
-		for(GraphContainer next : nextGraphContainers) {
+		for(MorphismContainer next : nextGraphContainers) {
 			if(!getGraph().equals(next.getMorphism().getFrom())) {
 				throw new InvalidityException("wrong mapping from");
 			}

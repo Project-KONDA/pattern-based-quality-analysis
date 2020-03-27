@@ -24,7 +24,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.Count;
-import qualitypatternmodel.patternstructure.GraphContainer;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -136,13 +136,13 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
-	public EList<GraphContainer> getNextQuantifiedConditions() throws InvalidityException {		
-		BasicEList<GraphContainer> result = new BasicEList<GraphContainer>();
+	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {		
+		BasicEList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		if(getArgument1() instanceof Count) {
-			result.add((GraphContainer) getArgument1());
+			result.add((MorphismContainer) getArgument1());
 		}
 		if(getArgument2() instanceof Count) {
-			result.add((GraphContainer) getArgument2());
+			result.add((MorphismContainer) getArgument2());
 		}
 		return result;
 	}	

@@ -23,7 +23,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Count;
-import qualitypatternmodel.patternstructure.GraphContainer;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -526,7 +526,7 @@ public class CountImpl extends PatternElementImpl implements Count {
 				default: return -1;
 			}
 		}
-		if (baseClass == GraphContainer.class) {
+		if (baseClass == MorphismContainer.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
@@ -548,7 +548,7 @@ public class CountImpl extends PatternElementImpl implements Count {
 				default: return -1;
 			}
 		}
-		if (baseClass == GraphContainer.class) {
+		if (baseClass == MorphismContainer.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
@@ -568,10 +568,10 @@ public class CountImpl extends PatternElementImpl implements Count {
 				default: return -1;
 			}
 		}
-		if (baseClass == GraphContainer.class) {
+		if (baseClass == MorphismContainer.class) {
 			switch (baseOperationID) {
-				case PatternstructurePackage.GRAPH_CONTAINER___GET_GRAPH: return PatternstructurePackage.COUNT___GET_GRAPH;
-				case PatternstructurePackage.GRAPH_CONTAINER___GET_MORPHISM: return PatternstructurePackage.COUNT___GET_MORPHISM;
+				case PatternstructurePackage.MORPHISM_CONTAINER___GET_GRAPH: return PatternstructurePackage.COUNT___GET_GRAPH;
+				case PatternstructurePackage.MORPHISM_CONTAINER___GET_MORPHISM: return PatternstructurePackage.COUNT___GET_MORPHISM;
 				default: return -1;
 			}
 		}

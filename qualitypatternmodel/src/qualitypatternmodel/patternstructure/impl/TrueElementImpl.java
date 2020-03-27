@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.patternstructure.GraphContainer;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.TrueElement;
@@ -38,8 +38,8 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	public void isValidLocal(boolean isDefinedPattern) {}
 
 	@Override
-	public EList<GraphContainer> getNextQuantifiedConditions() {
-		return new BasicEList<GraphContainer>();
+	public EList<MorphismContainer> getNextQuantifiedConditions() {
+		return new BasicEList<MorphismContainer>();
 	}	
 	
 	/**

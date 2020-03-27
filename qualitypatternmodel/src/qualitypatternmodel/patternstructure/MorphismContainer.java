@@ -12,11 +12,11 @@ import qualitypatternmodel.graphstructure.Graph;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getGraphContainer()
+ * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphismContainer()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface GraphContainer extends EObject {
+public interface MorphismContainer extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

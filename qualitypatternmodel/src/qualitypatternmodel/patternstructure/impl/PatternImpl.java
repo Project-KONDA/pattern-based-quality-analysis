@@ -23,7 +23,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.GraphContainer;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -129,8 +129,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 */
 	@Override
 	public void checkMorphismOfNextGraph() throws InvalidityException {
-		EList<GraphContainer> nextQuantifiedConditions = getCondition().getNextQuantifiedConditions();
-		for(GraphContainer next : nextQuantifiedConditions) {
+		EList<MorphismContainer> nextQuantifiedConditions = getCondition().getNextQuantifiedConditions();
+		for(MorphismContainer next : nextQuantifiedConditions) {
 			if(!getGraph().equals(next.getMorphism().getFrom())) {
 				throw new InvalidityException("wrong mapping from");
 			}

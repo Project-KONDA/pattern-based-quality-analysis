@@ -122,8 +122,8 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validateCount((Count)value, diagnostics, context);
 			case PatternstructurePackage.COUNT_CONDITION_ARGUMENT:
 				return validateCountConditionArgument((CountConditionArgument)value, diagnostics, context);
-			case PatternstructurePackage.GRAPH_CONTAINER:
-				return validateGraphContainer((GraphContainer)value, diagnostics, context);
+			case PatternstructurePackage.MORPHISM_CONTAINER:
+				return validateMorphismContainer((MorphismContainer)value, diagnostics, context);
 			case PatternstructurePackage.COUNT_PATTERN:
 				return validateCountPattern((CountPattern)value, diagnostics, context);
 			case PatternstructurePackage.PATTERN:
@@ -428,8 +428,8 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateGraphContainer(GraphContainer graphContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(graphContainer, diagnostics, context);
+	public boolean validateMorphismContainer(MorphismContainer morphismContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(morphismContainer, diagnostics, context);
 	}
 
 	/**

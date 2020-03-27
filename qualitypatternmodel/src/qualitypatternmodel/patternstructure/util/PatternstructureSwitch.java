@@ -77,7 +77,7 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				QuantifiedCondition quantifiedCondition = (QuantifiedCondition)theEObject;
 				T result = caseQuantifiedCondition(quantifiedCondition);
 				if (result == null) result = caseCondition(quantifiedCondition);
-				if (result == null) result = caseGraphContainer(quantifiedCondition);
+				if (result == null) result = caseMorphismContainer(quantifiedCondition);
 				if (result == null) result = casePatternElement(quantifiedCondition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -161,7 +161,7 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				Count count = (Count)theEObject;
 				T result = caseCount(count);
 				if (result == null) result = caseCountConditionArgument(count);
-				if (result == null) result = caseGraphContainer(count);
+				if (result == null) result = caseMorphismContainer(count);
 				if (result == null) result = casePatternElement(count);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -173,9 +173,9 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.GRAPH_CONTAINER: {
-				GraphContainer graphContainer = (GraphContainer)theEObject;
-				T result = caseGraphContainer(graphContainer);
+			case PatternstructurePackage.MORPHISM_CONTAINER: {
+				MorphismContainer morphismContainer = (MorphismContainer)theEObject;
+				T result = caseMorphismContainer(morphismContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -417,17 +417,17 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Graph Container</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Morphism Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Graph Container</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Morphism Container</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGraphContainer(GraphContainer object) {
+	public T caseMorphismContainer(MorphismContainer object) {
 		return null;
 	}
 

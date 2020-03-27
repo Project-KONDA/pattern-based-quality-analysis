@@ -123,8 +123,8 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 				return createCountConditionArgumentAdapter();
 			}
 			@Override
-			public Adapter caseGraphContainer(GraphContainer object) {
-				return createGraphContainerAdapter();
+			public Adapter caseMorphismContainer(MorphismContainer object) {
+				return createMorphismContainerAdapter();
 			}
 			@Override
 			public Adapter caseCountPattern(CountPattern object) {
@@ -355,16 +355,16 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.GraphContainer <em>Graph Container</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.MorphismContainer <em>Morphism Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.GraphContainer
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer
 	 * @generated
 	 */
-	public Adapter createGraphContainerAdapter() {
+	public Adapter createMorphismContainerAdapter() {
 		return null;
 	}
 

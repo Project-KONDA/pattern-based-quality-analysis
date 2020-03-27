@@ -17,7 +17,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.GraphContainer;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -78,8 +78,8 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 	
 	@Override
-	public EList<GraphContainer> getNextQuantifiedConditions() throws InvalidityException {
-		EList<GraphContainer> result = new BasicEList<GraphContainer>();
+	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {
+		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		result.addAll(getCondition().getNextQuantifiedConditions());
 		return result;
 	}	

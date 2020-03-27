@@ -14,7 +14,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.GraphContainer#getGraph() <em>Get Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.MorphismContainer#getGraph() <em>Get Graph</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -74,10 +74,10 @@ public class CountTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.GraphContainer#getGraph() <em>Get Graph</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.MorphismContainer#getGraph() <em>Get Graph</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.GraphContainer#getGraph()
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer#getGraph()
 	 * @generated
 	 */
 	public void testGetGraph() {

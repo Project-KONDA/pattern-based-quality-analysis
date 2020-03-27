@@ -27,7 +27,7 @@ import qualitypatternmodel.graphstructure.Graph;
  * @model
  * @generated
  */
-public interface QuantifiedCondition extends Condition, GraphContainer {
+public interface QuantifiedCondition extends Condition, MorphismContainer {
 	/**
 	 * Returns the value of the '<em><b>Condition</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition <em>Quantifiedcondition</em>}'.

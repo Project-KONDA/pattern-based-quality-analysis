@@ -4,7 +4,7 @@ package qualitypatternmodel.patternstructure.tests;
 
 import junit.framework.TestCase;
 
-import qualitypatternmodel.patternstructure.GraphContainer;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,57 +13,57 @@ import qualitypatternmodel.patternstructure.GraphContainer;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.GraphContainer#getGraph() <em>Get Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.GraphContainer#getMorphism() <em>Get Morphism</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.MorphismContainer#getGraph() <em>Get Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.MorphismContainer#getMorphism() <em>Get Morphism</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public abstract class GraphContainerTest extends TestCase {
+public abstract class MorphismContainerTest extends TestCase {
 
 	/**
-	 * The fixture for this Graph Container test case.
+	 * The fixture for this Morphism Container test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GraphContainer fixture = null;
+	protected MorphismContainer fixture = null;
 
 	/**
-	 * Constructs a new Graph Container test case with the given name.
+	 * Constructs a new Morphism Container test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GraphContainerTest(String name) {
+	public MorphismContainerTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Sets the fixture for this Graph Container test case.
+	 * Sets the fixture for this Morphism Container test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void setFixture(GraphContainer fixture) {
+	protected void setFixture(MorphismContainer fixture) {
 		this.fixture = fixture;
 	}
 
 	/**
-	 * Returns the fixture for this Graph Container test case.
+	 * Returns the fixture for this Morphism Container test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GraphContainer getFixture() {
+	protected MorphismContainer getFixture() {
 		return fixture;
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.GraphContainer#getGraph() <em>Get Graph</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.MorphismContainer#getGraph() <em>Get Graph</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.GraphContainer#getGraph()
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer#getGraph()
 	 * @generated
 	 */
 	public void testGetGraph() {
@@ -73,10 +73,10 @@ public abstract class GraphContainerTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.GraphContainer#getMorphism() <em>Get Morphism</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.MorphismContainer#getMorphism() <em>Get Morphism</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.GraphContainer#getMorphism()
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer#getMorphism()
 	 * @generated
 	 */
 	public void testGetMorphism() {

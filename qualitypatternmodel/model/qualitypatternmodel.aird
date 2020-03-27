@@ -4696,7 +4696,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_BEGL0GqUEeqwze_WIZAgBA" name="getNextQuantifiedConditions() : GraphContainer" tooltipText="getNextQuantifiedConditions() : GraphContainer">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_BEGL0GqUEeqwze_WIZAgBA" name="getNextQuantifiedConditions() : MorphismContainer" tooltipText="getNextQuantifiedConditions() : MorphismContainer">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/Condition/getNextQuantifiedConditions"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/Condition/getNextQuantifiedConditions"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_BEGL0WqUEeqwze_WIZAgBA" labelAlignment="LEFT">
@@ -5235,9 +5235,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qIMpEGqZEeqwze_WIZAgBA" name="GraphContainer" tooltipText="" incomingEdges="_wE__TGqZEeqwze_WIZAgBA _wsJeWGqZEeqwze_WIZAgBA" width="12" height="10">
-        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/GraphContainer"/>
-        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/GraphContainer"/>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qIMpEGqZEeqwze_WIZAgBA" name="MorphismContainer" tooltipText="" incomingEdges="_wE__TGqZEeqwze_WIZAgBA _wsJeWGqZEeqwze_WIZAgBA" width="12" height="10">
+        <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer"/>
+        <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -5247,16 +5247,16 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_zOuvwGqZEeqwze_WIZAgBA" name="getGraph() : Graph" tooltipText="getGraph() : Graph">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/GraphContainer/getGraph"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/GraphContainer/getGraph"/>
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/getGraph"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/getGraph"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_zOuvwWqZEeqwze_WIZAgBA" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_1WY_0GqZEeqwze_WIZAgBA" name="getMorphism() : Morphism" tooltipText="getMorphism() : Morphism">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/GraphContainer/getMorphism"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/GraphContainer/getMorphism"/>
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/getMorphism"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/getMorphism"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_1WZm4GqZEeqwze_WIZAgBA" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>

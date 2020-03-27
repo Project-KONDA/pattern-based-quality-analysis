@@ -3387,23 +3387,23 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.GraphContainer <em>Graph Container</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.MorphismContainer <em>Morphism Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.GraphContainer
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getGraphContainer()
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMorphismContainer()
 	 * @generated
 	 */
-	int GRAPH_CONTAINER = 14;
+	int MORPHISM_CONTAINER = 14;
 
 	/**
-	 * The number of structural features of the '<em>Graph Container</em>' class.
+	 * The number of structural features of the '<em>Morphism Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_CONTAINER_FEATURE_COUNT = 0;
+	int MORPHISM_CONTAINER_FEATURE_COUNT = 0;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -3412,7 +3412,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_CONTAINER___GET_GRAPH = 0;
+	int MORPHISM_CONTAINER___GET_GRAPH = 0;
 
 	/**
 	 * The operation id for the '<em>Get Morphism</em>' operation.
@@ -3421,16 +3421,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_CONTAINER___GET_MORPHISM = 1;
+	int MORPHISM_CONTAINER___GET_MORPHISM = 1;
 
 	/**
-	 * The number of operations of the '<em>Graph Container</em>' class.
+	 * The number of operations of the '<em>Morphism Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_CONTAINER_OPERATION_COUNT = 2;
+	int MORPHISM_CONTAINER_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl <em>Count Pattern</em>}' class.
@@ -4621,6 +4621,36 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCountConditionArgument_CountCondition2();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.MorphismContainer <em>Morphism Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Morphism Container</em>'.
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer
+	 * @generated
+	 */
+	EClass getMorphismContainer();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.MorphismContainer#getGraph() <em>Get Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Graph</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer#getGraph()
+	 * @generated
+	 */
+	EOperation getMorphismContainer__GetGraph();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.MorphismContainer#getMorphism() <em>Get Morphism</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Morphism</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer#getMorphism()
+	 * @generated
+	 */
+	EOperation getMorphismContainer__GetMorphism();
+
+	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition1 <em>Count Condition1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4630,36 +4660,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCountConditionArgument_CountCondition1();
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.GraphContainer <em>Graph Container</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Graph Container</em>'.
-	 * @see qualitypatternmodel.patternstructure.GraphContainer
-	 * @generated
-	 */
-	EClass getGraphContainer();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.GraphContainer#getGraph() <em>Get Graph</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Graph</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.GraphContainer#getGraph()
-	 * @generated
-	 */
-	EOperation getGraphContainer__GetGraph();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.GraphContainer#getMorphism() <em>Get Morphism</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Morphism</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.GraphContainer#getMorphism()
-	 * @generated
-	 */
-	EOperation getGraphContainer__GetMorphism();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CountPattern <em>Count Pattern</em>}'.
@@ -5470,22 +5470,14 @@ public interface PatternstructurePackage extends EPackage {
 		EReference COUNT_CONDITION_ARGUMENT__COUNT_CONDITION2 = eINSTANCE.getCountConditionArgument_CountCondition2();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Condition1</b></em>' container reference feature.
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.MorphismContainer <em>Morphism Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.patternstructure.MorphismContainer
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMorphismContainer()
 		 * @generated
 		 */
-		EReference COUNT_CONDITION_ARGUMENT__COUNT_CONDITION1 = eINSTANCE.getCountConditionArgument_CountCondition1();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.GraphContainer <em>Graph Container</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.GraphContainer
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getGraphContainer()
-		 * @generated
-		 */
-		EClass GRAPH_CONTAINER = eINSTANCE.getGraphContainer();
+		EClass MORPHISM_CONTAINER = eINSTANCE.getMorphismContainer();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Graph</b></em>' operation.
@@ -5493,7 +5485,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GRAPH_CONTAINER___GET_GRAPH = eINSTANCE.getGraphContainer__GetGraph();
+		EOperation MORPHISM_CONTAINER___GET_GRAPH = eINSTANCE.getMorphismContainer__GetGraph();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Morphism</b></em>' operation.
@@ -5501,7 +5493,15 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GRAPH_CONTAINER___GET_MORPHISM = eINSTANCE.getGraphContainer__GetMorphism();
+		EOperation MORPHISM_CONTAINER___GET_MORPHISM = eINSTANCE.getMorphismContainer__GetMorphism();
+
+		/**
+		 * The meta object literal for the '<em><b>Count Condition1</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_CONDITION_ARGUMENT__COUNT_CONDITION1 = eINSTANCE.getCountConditionArgument_CountCondition1();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl <em>Count Pattern</em>}' class.

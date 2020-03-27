@@ -427,7 +427,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
           eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/mappingTo"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="QuantifiedCondition" eSuperTypes="#//patternstructure/Condition #//patternstructure/GraphContainer">
+    <eClassifiers xsi:type="ecore:EClass" name="QuantifiedCondition" eSuperTypes="#//patternstructure/Condition #//patternstructure/MorphismContainer">
       <eOperations name="copyPreviousGraph" eExceptions="#//patternstructure/MissingPatternContainerException"/>
       <eOperations name="checkMorphismOfNextGraph" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
@@ -441,7 +441,7 @@
           containment="true" eOpposite="#//patternstructure/CountCondition/quantifiedConditionCount"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="getNextQuantifiedConditions" upperBound="-1" eType="#//patternstructure/GraphContainer"
+      <eOperations name="getNextQuantifiedConditions" upperBound="-1" eType="#//patternstructure/MorphismContainer"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="condDepth" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
@@ -582,7 +582,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
           eType="#//patternstructure/CountConditionArgument" containment="true" eOpposite="#//patternstructure/CountConditionArgument/countCondition2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//patternstructure/PatternElement #//patternstructure/CountConditionArgument #//patternstructure/GraphContainer">
+    <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//patternstructure/PatternElement #//patternstructure/CountConditionArgument #//patternstructure/MorphismContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/count"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"
@@ -595,7 +595,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition2" eType="#//patternstructure/CountCondition"
           eOpposite="#//patternstructure/CountCondition/argument2"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="GraphContainer" abstract="true" interface="true">
+    <eClassifiers xsi:type="ecore:EClass" name="MorphismContainer" abstract="true"
+        interface="true">
       <eOperations name="getGraph" eType="#//graphstructure/Graph"/>
       <eOperations name="getMorphism" eType="#//patternstructure/Morphism"/>
     </eClassifiers>
