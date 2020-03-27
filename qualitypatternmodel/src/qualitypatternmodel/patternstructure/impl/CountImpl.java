@@ -18,7 +18,6 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -102,10 +101,10 @@ public class CountImpl extends PatternElementImpl implements Count {
 		return res;
 	}
 	
-	@Override	
-	public void updateParameters(ParameterList newParameterList) {
-		getPattern().updateParameters(newParameterList);
-	}
+//	@Override	
+//	public void updateParameters(ParameterList newParameterList) {
+//		getPattern().updateParameters(newParameterList);
+//	}
 	
 	/**
 	 * <!-- begin-user-doc -->

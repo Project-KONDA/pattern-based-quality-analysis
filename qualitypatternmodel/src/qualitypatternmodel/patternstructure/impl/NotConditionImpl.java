@@ -15,7 +15,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
@@ -72,10 +71,10 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			throw new InvalidityException("condition null (" + getInternalId() + ")");
 	}
 	
-	@Override	
-	public void updateParameters(ParameterList newParameterList) {
-		getCondition().updateParameters(newParameterList);		
-	}
+//	@Override	
+//	public void updateParameters(ParameterList newParameterList) {
+//		getCondition().updateParameters(newParameterList);		
+//	}
 	
 	@Override
 	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {

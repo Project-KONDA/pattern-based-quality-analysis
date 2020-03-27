@@ -170,7 +170,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			newParameterList = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getParameterList();
 		} catch (MissingPatternContainerException e) {
 			// do nothing
-			e.printStackTrace();
+			
 		}	
 		return newParameterList;
 	}

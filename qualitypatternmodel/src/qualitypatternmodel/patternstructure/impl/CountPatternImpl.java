@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -45,13 +44,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		getInternalId();
 	}	
 	
-	@Override	
-	public void updateParameters(ParameterList newParameterList) {
-		getGraph().updateParameters(newParameterList);
-		if(getCondition() != null) {
-			getCondition().updateParameters(newParameterList);
-		}
-	}
+//	@Override	
+//	public void updateParameters(ParameterList newParameterList) {
+//		getGraph().updateParameters(newParameterList);
+//		if(getCondition() != null) {
+//			getCondition().updateParameters(newParameterList);
+//		}
+//	}
 	
 	/**
 	 * <!-- begin-user-doc -->

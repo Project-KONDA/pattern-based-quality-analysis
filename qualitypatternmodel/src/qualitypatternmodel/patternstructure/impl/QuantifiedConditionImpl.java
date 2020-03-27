@@ -24,7 +24,6 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Count;
@@ -171,14 +170,16 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	}
 	
-	@Override	
-	public void updateParameters(ParameterList newParameterList) {
-		getGraph().updateParameters(newParameterList);
-		getCondition().updateParameters(newParameterList);
-		if(getCountCondition() != null) {
-			getCountCondition().updateParameters(newParameterList);
-		}
-	}
+//	@Override	
+//	public void updateParameters(ParameterList newParameterList) {
+//		getGraph().updateParameters(newParameterList);
+//		if(getCondition() != null) {
+//			getCondition().updateParameters(newParameterList);
+//		}		
+//		if(getCountCondition() != null) {
+//			getCountCondition().updateParameters(newParameterList);
+//		}
+//	}
 	
 	@Override
 	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {
