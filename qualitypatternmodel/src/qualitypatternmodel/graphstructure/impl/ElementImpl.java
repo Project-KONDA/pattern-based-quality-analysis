@@ -1035,7 +1035,14 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	private void setGraphForCorrespondingElements(Graph newGraph) {
 		for (ElementMapping mapping : getMappingTo()) {
-			if(mapping.getMorphism().getCount() == null) {
+//			PatternElement elem;
+//			try {
+//				elem = mapping.getMorphism().getContainer();
+//			} catch (MissingPatternContainerException e1) {
+//				elem = null;
+//			}
+//			if (!( elem instanceof CountPattern)) {
+			if (!( mapping.getMorphism().getMorphismContainer() instanceof CountPattern)) {
 				Element element = mapping.getTo();
 				if (newGraph == null && element.getGraph() != null) {
 					element.setGraph(null);
@@ -1050,7 +1057,16 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				}
 			}			
 		}
-		if (getMappingFrom() != null && getMappingFrom().getMorphism().getCount() == null) {
+		if (getMappingFrom() != null && getMappingFrom().getMorphism().getMorphismContainer() != null) {
+
+//			PatternElement elem;
+//			try {
+//				elem = getMappingFrom().getMorphism().getContainer();
+//			} catch (MissingPatternContainerException e1) {
+//				elem = null;
+//			}
+//			if (!(elem instanceof CountPattern)) {
+			
 			Element element = getMappingFrom().getFrom();
 			if (newGraph == null && element.getGraph() != null) {
 				element.setGraph(null);
@@ -1062,7 +1078,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}
+			}		
 		}
 	}
 

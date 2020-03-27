@@ -19,8 +19,6 @@ import qualitypatternmodel.graphstructure.Graph;
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getQuantifier <em>Quantifier</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCondition <em>Condition</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getMorphism <em>Morphism</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCountCondition <em>Count Condition</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition()
@@ -75,52 +73,6 @@ public interface QuantifiedCondition extends Condition, MorphismContainer {
 	 * @generated
 	 */
 	void setGraph(Graph value);
-
-	/**
-	 * Returns the value of the '<em><b>Morphism</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Morphism</em>' containment reference.
-	 * @see #setMorphism(Morphism)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_Morphism()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	Morphism getMorphism();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getMorphism <em>Morphism</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Morphism</em>' containment reference.
-	 * @see #getMorphism()
-	 * @generated
-	 */
-	void setMorphism(Morphism value);
-
-	/**
-	 * Returns the value of the '<em><b>Count Condition</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountCondition#getQuantifiedConditionCount <em>Quantified Condition Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count Condition</em>' containment reference.
-	 * @see #setCountCondition(CountCondition)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_CountCondition()
-	 * @see qualitypatternmodel.patternstructure.CountCondition#getQuantifiedConditionCount
-	 * @model opposite="quantifiedConditionCount" containment="true"
-	 * @generated
-	 */
-	CountCondition getCountCondition();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCountCondition <em>Count Condition</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count Condition</em>' containment reference.
-	 * @see #getCountCondition()
-	 * @generated
-	 */
-	void setCountCondition(CountCondition value);
 
 	/**
 	 * <!-- begin-user-doc -->

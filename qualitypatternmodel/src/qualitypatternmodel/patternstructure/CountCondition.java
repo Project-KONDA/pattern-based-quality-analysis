@@ -15,7 +15,6 @@ import qualitypatternmodel.parameters.OptionParam;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1 <em>Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getQuantifiedConditionCount <em>Quantified Condition Count</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getOptionParam <em>Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2 <em>Argument2</em>}</li>
@@ -39,30 +38,6 @@ public interface CountCondition extends Condition {
 	 * @generated
 	 */
 	CountConditionArgument getArgument1();
-
-	/**
-	 * Returns the value of the '<em><b>Quantified Condition Count</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCountCondition <em>Count Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Quantified Condition Count</em>' container reference.
-	 * @see #setQuantifiedConditionCount(QuantifiedCondition)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_QuantifiedConditionCount()
-	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#getCountCondition
-	 * @model opposite="countCondition" transient="false"
-	 * @generated
-	 */
-	QuantifiedCondition getQuantifiedConditionCount();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountCondition#getQuantifiedConditionCount <em>Quantified Condition Count</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Quantified Condition Count</em>' container reference.
-	 * @see #getQuantifiedConditionCount()
-	 * @generated
-	 */
-	void setQuantifiedConditionCount(QuantifiedCondition value);
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.

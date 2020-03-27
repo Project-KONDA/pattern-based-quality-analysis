@@ -115,10 +115,6 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 				return createCountConditionAdapter();
 			}
 			@Override
-			public Adapter caseCount(Count object) {
-				return createCountAdapter();
-			}
-			@Override
 			public Adapter caseCountConditionArgument(CountConditionArgument object) {
 				return createCountConditionArgumentAdapter();
 			}
@@ -323,20 +319,6 @@ public class PatternstructureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCountConditionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.Count <em>Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.patternstructure.Count
-	 * @generated
-	 */
-	public Adapter createCountAdapter() {
 		return null;
 	}
 

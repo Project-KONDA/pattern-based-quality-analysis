@@ -187,7 +187,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if(graph.getQuantifiedCondition() != null) {
 			graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
 		} else if(graph.getPattern() instanceof CountPattern) {
-			((CountPattern) graph.getPattern()).getCount().getMorphism().getMappings().add(newMapping);
+			((CountPattern) graph.getPattern()).getMorphism().getMappings().add(newMapping);
 		}
 		
 		newMapping.setFrom(rootElement);

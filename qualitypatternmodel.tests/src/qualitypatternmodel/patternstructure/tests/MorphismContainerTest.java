@@ -14,7 +14,6 @@ import qualitypatternmodel.patternstructure.MorphismContainer;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.MorphismContainer#getGraph() <em>Get Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.MorphismContainer#getMorphism() <em>Get Morphism</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -67,19 +66,6 @@ public abstract class MorphismContainerTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetGraph() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.MorphismContainer#getMorphism() <em>Get Morphism</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.MorphismContainer#getMorphism()
-	 * @generated
-	 */
-	public void testGetMorphism() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -25,8 +25,6 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
@@ -45,16 +43,24 @@ import qualitypatternmodel.patternstructure.Quantifier;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getMorphism <em>Morphism</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getQuantifier <em>Quantifier</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getMorphism <em>Morphism</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl#getCountCondition <em>Count Condition</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class QuantifiedConditionImpl extends ConditionImpl implements QuantifiedCondition {
+	/**
+	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getMorphism()
+	 * @generated
+	 * @ordered
+	 */
+	protected Morphism morphism;
+
 	/**
 	 * The default value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -92,25 +98,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	protected Condition condition;
 
 	/**
-	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getMorphism()
-	 * @generated
-	 * @ordered
-	 */
-	protected Morphism morphism;
-
-	/**
-	 * The cached value of the '{@link #getCountCondition() <em>Count Condition</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCountCondition()
-	 * @generated
-	 * @ordered
-	 */
-	protected CountCondition countCondition;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected QuantifiedConditionImpl() {
@@ -130,13 +117,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			throw new InvalidityException("invalid quantifier");
 		}
 //		result = addMissingBrackets(result);
-		if(getCountCondition() != null) {
-			if (quantifier == Quantifier.EXISTS) {
-				result += getCountCondition().generateQuery(location) + AND;
-			} else if (quantifier == Quantifier.FORALL) {
-				result += NOT + "(" + getCountCondition().generateQuery(location) + ")" + OR;
-			}
-		}
+//		if(getCountCondition() != null) {
+//			if (quantifier == Quantifier.EXISTS) {
+//				result += getCountCondition().generateQuery(location) + AND;
+//			} else if (quantifier == Quantifier.FORALL) {
+//				result += NOT + "(" + getCountCondition().generateQuery(location) + ")" + OR;
+//			}
+//		}
 		result += "(" + condition.generateQuery(location) + ")";
 		return result;
 
@@ -200,9 +187,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (condition != null) {
 			parameters.addAll(condition.getAllInputs());
 		}
-		if(getCountCondition() != null) {
-			parameters.addAll(getCountCondition().getAllInputs());
-		}
+//		if(getCountCondition() != null) {
+//			parameters.addAll(getCountCondition().getAllInputs());
+//		}
 		return parameters;
 	}
 
@@ -355,6 +342,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+				if (morphism != null)
+					msgs = ((InternalEObject)morphism).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, null, msgs);
+				return basicSetMorphism((Morphism)otherEnd, msgs);
 			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
 				if (graph != null)
 					msgs = ((InternalEObject)graph).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH, null, msgs);
@@ -363,10 +354,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				if (condition != null)
 					msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION, null, msgs);
 				return basicSetCondition((Condition)otherEnd, msgs);
-			case PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION:
-				if (countCondition != null)
-					msgs = ((InternalEObject)countCondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION, null, msgs);
-				return basicSetCountCondition((CountCondition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -489,51 +476,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public CountCondition getCountCondition() {
-		return countCondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCountCondition(CountCondition newCountCondition, NotificationChain msgs) {
-		CountCondition oldCountCondition = countCondition;
-		countCondition = newCountCondition;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION, oldCountCondition, newCountCondition);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCountCondition(CountCondition newCountCondition) {
-		if (newCountCondition != countCondition) {
-			NotificationChain msgs = null;
-			if (countCondition != null)
-				msgs = ((InternalEObject)countCondition).eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT, CountCondition.class, msgs);
-			if (newCountCondition != null)
-				msgs = ((InternalEObject)newCountCondition).eInverseAdd(this, PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT, CountCondition.class, msgs);
-			msgs = basicSetCountCondition(newCountCondition, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION, newCountCondition, newCountCondition));
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @throws MissingPatternContainerException
@@ -569,14 +511,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public void checkMorphismOfNextGraph() throws InvalidityException  {
 		EList<MorphismContainer> nextGraphContainers = getCondition().getNextQuantifiedConditions();
-		if(getCountCondition() != null) {
-			if(getCountCondition().getArgument1() instanceof Count) {
-				nextGraphContainers.add((MorphismContainer) getCountCondition().getArgument1());
-			}
-			if(getCountCondition().getArgument2() instanceof Count) {
-				nextGraphContainers.add((MorphismContainer) getCountCondition().getArgument2());
-			}
-		}
+//		if(getCountCondition() != null) {
+//			if(getCountCondition().getArgument1() instanceof Count) {
+//				nextGraphContainers.add((MorphismContainer) getCountCondition().getArgument1());
+//			}
+//			if(getCountCondition().getArgument2() instanceof Count) {
+//				nextGraphContainers.add((MorphismContainer) getCountCondition().getArgument2());
+//			}
+//		}
 		for(MorphismContainer next : nextGraphContainers) {
 			if(!getGraph().equals(next.getMorphism().getFrom())) {
 				throw new InvalidityException("wrong mapping from");
@@ -615,14 +557,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+				return basicSetMorphism(null, msgs);
 			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
 				return basicSetGraph(null, msgs);
 			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
 				return basicSetCondition(null, msgs);
-			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-				return basicSetMorphism(null, msgs);
-			case PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION:
-				return basicSetCountCondition(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -634,16 +574,14 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+				return getMorphism();
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
 				return getQuantifier();
 			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
 				return getGraph();
 			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
 				return getCondition();
-			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-				return getMorphism();
-			case PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION:
-				return getCountCondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -655,6 +593,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+				setMorphism((Morphism)newValue);
+				return;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
 				setQuantifier((Quantifier)newValue);
 				return;
@@ -663,12 +604,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				return;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
 				setCondition((Condition)newValue);
-				return;
-			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-				setMorphism((Morphism)newValue);
-				return;
-			case PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION:
-				setCountCondition((CountCondition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -681,6 +616,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+				setMorphism((Morphism)null);
+				return;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
 				setQuantifier(QUANTIFIER_EDEFAULT);
 				return;
@@ -689,12 +627,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				return;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
 				setCondition((Condition)null);
-				return;
-			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-				setMorphism((Morphism)null);
-				return;
-			case PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION:
-				setCountCondition((CountCondition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -707,18 +639,48 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
+				return morphism != null;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
 				return quantifier != QUANTIFIER_EDEFAULT;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
 				return graph != null;
 			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
 				return condition != null;
-			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
-				return morphism != null;
-			case PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION:
-				return countCondition != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == MorphismContainer.class) {
+			switch (derivedFeatureID) {
+				case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM: return PatternstructurePackage.MORPHISM_CONTAINER__MORPHISM;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == MorphismContainer.class) {
+			switch (baseFeatureID) {
+				case PatternstructurePackage.MORPHISM_CONTAINER__MORPHISM: return PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -768,9 +730,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String res = getQuantifier().getLiteral() + " " + getInternalId();
 		res += "\n: " + getGraph().myToString().replace("\n", "\n: ");
 		res += "\n: " + getMorphism().myToString().replace("\n", "\n: ");
-		if(getCountCondition() != null) {
-			res += "\n: included " + getCountCondition().myToString().replace("\n", "\n: ");
-		}
+//		if(getCountCondition() != null) {
+//			res += "\n: included " + getCountCondition().myToString().replace("\n", "\n: ");
+//		}
 		res += "\n: " + getCondition().myToString().replace("\n", "\n: ");
 		return res;
 	}

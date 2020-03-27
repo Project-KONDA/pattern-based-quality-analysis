@@ -14,10 +14,21 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.patternstructure.Count;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Morphism;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,12 +38,24 @@ import qualitypatternmodel.patternstructure.CountPattern;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl#getCount <em>Count</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl#getMorphism <em>Morphism</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl#getCountCondition1 <em>Count Condition1</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl#getCountCondition2 <em>Count Condition2</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CountPatternImpl extends PatternImpl implements CountPattern {
+	/**
+	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMorphism()
+	 * @generated
+	 * @ordered
+	 */
+	protected Morphism morphism;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40,9 +63,22 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 */
 	protected CountPatternImpl() {
 		super();
+		setMorphism(new MorphismImpl());
 		setGraph(new GraphImpl());
 		getInternalId();
-	}	
+	}
+	
+	@Override
+	public String generateQuery(Location location) throws InvalidityException {
+		return "count(" + super.generateQuery(location) + ")";
+	}
+	
+	@Override
+	public void isValid(boolean isDefinedPattern)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		getMorphism().isValid(isDefinedPattern);
+		super.isValid(isDefinedPattern);
+	}
 	
 //	@Override	
 //	public void updateParameters(ParameterList newParameterList) {
@@ -51,6 +87,31 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 //			getCondition().updateParameters(newParameterList);
 //		}
 //	}
+	
+	public void copyPreviousGraph() throws MissingPatternContainerException {
+		Graph previousGraph;
+		
+//		if(((CountCondition) getContainer()).getQuantifiedConditionCount() != null) {
+//			QuantifiedCondition quantifiedConditionCount = ((CountCondition) getContainer()).getQuantifiedConditionCount();
+//			previousGraph = quantifiedConditionCount.getGraph();
+//		}
+		try {
+			QuantifiedCondition previousQuantifiedCondition = (QuantifiedCondition) ((CountCondition) getContainer()).getContainer()
+					.getAncestor(QuantifiedCondition.class);
+			previousGraph = previousQuantifiedCondition.getGraph();
+		} catch (MissingPatternContainerException e) {
+			CompletePattern completePattern;
+			try {
+				completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+				previousGraph = completePattern.getGraph();
+			} catch (MissingPatternContainerException e1) {
+				e1.printStackTrace();
+				return;
+			}
+		}
+		getMorphism().setFrom(previousGraph);		
+		previousGraph.copyGraph(getGraph());
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,16 +122,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	protected EClass eStaticClass() {
 		return PatternstructurePackage.Literals.COUNT_PATTERN;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	
 	@Override
-	public Count getCount() {
-		if (eContainerFeatureID() != PatternstructurePackage.COUNT_PATTERN__COUNT) return null;
-		return (Count)eInternalContainer();
+	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		getMorphism().setFrom(null);
+		getMorphism().setTo(getGraph());
+		getMorphism().removeDanglingMappingReference();		
+		return super.basicSetGraph(newGraph, msgs);
 	}
 
 	/**
@@ -78,8 +136,23 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCount(Count newCount, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newCount, PatternstructurePackage.COUNT_PATTERN__COUNT, msgs);
+	@Override
+	public Morphism getMorphism() {
+		return morphism;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
+		Morphism oldMorphism = morphism;
+		morphism = newMorphism;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_PATTERN__MORPHISM, oldMorphism, newMorphism);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
 		return msgs;
 	}
 
@@ -89,20 +162,133 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 * @generated
 	 */
 	@Override
-	public void setCount(Count newCount) {
-		if (newCount != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.COUNT_PATTERN__COUNT && newCount != null)) {
-			if (EcoreUtil.isAncestor(this, newCount))
+	public void setMorphism(Morphism newMorphism) {
+		if (newMorphism != morphism) {
+			NotificationChain msgs = null;
+			if (morphism != null)
+				msgs = ((InternalEObject)morphism).eInverseRemove(this, PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER, Morphism.class, msgs);
+			if (newMorphism != null)
+				msgs = ((InternalEObject)newMorphism).eInverseAdd(this, PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER, Morphism.class, msgs);
+			msgs = basicSetMorphism(newMorphism, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_PATTERN__MORPHISM, newMorphism, newMorphism));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CountCondition getCountCondition1() {
+		if (eContainerFeatureID() != PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1) return null;
+		return (CountCondition)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NotificationChain basicSetCountCondition1(CountCondition newCountCondition1, NotificationChain msgs) {
+		getMorphism().setFrom(null);
+		getMorphism().setTo(getGraph());
+		getMorphism().removeDanglingMappingReference();		
+
+		msgs = eBasicSetContainer((InternalEObject)newCountCondition1, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1, msgs);
+		
+		if (newCountCondition1 != null) {
+			try {
+				copyPreviousGraph();
+			} catch (MissingPatternContainerException e) {
+
+			}
+		} else {
+			// TODO
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCountCondition1(CountCondition newCountCondition1) {
+		if (newCountCondition1 != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1 && newCountCondition1 != null)) {
+			if (EcoreUtil.isAncestor(this, newCountCondition1))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newCount != null)
-				msgs = ((InternalEObject)newCount).eInverseAdd(this, PatternstructurePackage.COUNT__PATTERN, Count.class, msgs);
-			msgs = basicSetCount(newCount, msgs);
+			if (newCountCondition1 != null)
+				msgs = ((InternalEObject)newCountCondition1).eInverseAdd(this, PatternstructurePackage.COUNT_CONDITION__ARGUMENT1, CountCondition.class, msgs);
+			msgs = basicSetCountCondition1(newCountCondition1, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_PATTERN__COUNT, newCount, newCount));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1, newCountCondition1, newCountCondition1));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CountCondition getCountCondition2() {
+		if (eContainerFeatureID() != PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2) return null;
+		return (CountCondition)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NotificationChain basicSetCountCondition2(CountCondition newCountCondition2, NotificationChain msgs) {
+		getMorphism().setFrom(null);
+		getMorphism().setTo(getGraph());
+		getMorphism().removeDanglingMappingReference();		
+		
+		msgs = eBasicSetContainer((InternalEObject)newCountCondition2, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2, msgs);
+		
+		if (newCountCondition2 != null) {
+			try {
+				copyPreviousGraph();
+			} catch (MissingPatternContainerException e) {
+
+			}
+		} else {
+			// TODO
+		}
+		
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCountCondition2(CountCondition newCountCondition2) {
+		if (newCountCondition2 != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2 && newCountCondition2 != null)) {
+			if (EcoreUtil.isAncestor(this, newCountCondition2))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newCountCondition2 != null)
+				msgs = ((InternalEObject)newCountCondition2).eInverseAdd(this, PatternstructurePackage.COUNT_CONDITION__ARGUMENT2, CountCondition.class, msgs);
+			msgs = basicSetCountCondition2(newCountCondition2, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2, newCountCondition2, newCountCondition2));
 	}
 
 	/**
@@ -113,10 +299,18 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_PATTERN__COUNT:
+			case PatternstructurePackage.COUNT_PATTERN__MORPHISM:
+				if (morphism != null)
+					msgs = ((InternalEObject)morphism).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COUNT_PATTERN__MORPHISM, null, msgs);
+				return basicSetMorphism((Morphism)otherEnd, msgs);
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetCount((Count)otherEnd, msgs);
+				return basicSetCountCondition1((CountCondition)otherEnd, msgs);
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetCountCondition2((CountCondition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -129,8 +323,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_PATTERN__COUNT:
-				return basicSetCount(null, msgs);
+			case PatternstructurePackage.COUNT_PATTERN__MORPHISM:
+				return basicSetMorphism(null, msgs);
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1:
+				return basicSetCountCondition1(null, msgs);
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2:
+				return basicSetCountCondition2(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -143,8 +341,10 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case PatternstructurePackage.COUNT_PATTERN__COUNT:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.COUNT__PATTERN, Count.class, msgs);
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__ARGUMENT1, CountCondition.class, msgs);
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__ARGUMENT2, CountCondition.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -157,8 +357,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_PATTERN__COUNT:
-				return getCount();
+			case PatternstructurePackage.COUNT_PATTERN__MORPHISM:
+				return getMorphism();
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1:
+				return getCountCondition1();
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2:
+				return getCountCondition2();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,8 +375,14 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_PATTERN__COUNT:
-				setCount((Count)newValue);
+			case PatternstructurePackage.COUNT_PATTERN__MORPHISM:
+				setMorphism((Morphism)newValue);
+				return;
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1:
+				setCountCondition1((CountCondition)newValue);
+				return;
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2:
+				setCountCondition2((CountCondition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -186,8 +396,14 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_PATTERN__COUNT:
-				setCount((Count)null);
+			case PatternstructurePackage.COUNT_PATTERN__MORPHISM:
+				setMorphism((Morphism)null);
+				return;
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1:
+				setCountCondition1((CountCondition)null);
+				return;
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2:
+				setCountCondition2((CountCondition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -201,10 +417,60 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_PATTERN__COUNT:
-				return getCount() != null;
+			case PatternstructurePackage.COUNT_PATTERN__MORPHISM:
+				return morphism != null;
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1:
+				return getCountCondition1() != null;
+			case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2:
+				return getCountCondition2() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == MorphismContainer.class) {
+			switch (derivedFeatureID) {
+				case PatternstructurePackage.COUNT_PATTERN__MORPHISM: return PatternstructurePackage.MORPHISM_CONTAINER__MORPHISM;
+				default: return -1;
+			}
+		}
+		if (baseClass == CountConditionArgument.class) {
+			switch (derivedFeatureID) {
+				case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1: return PatternstructurePackage.COUNT_CONDITION_ARGUMENT__COUNT_CONDITION1;
+				case PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2: return PatternstructurePackage.COUNT_CONDITION_ARGUMENT__COUNT_CONDITION2;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == MorphismContainer.class) {
+			switch (baseFeatureID) {
+				case PatternstructurePackage.MORPHISM_CONTAINER__MORPHISM: return PatternstructurePackage.COUNT_PATTERN__MORPHISM;
+				default: return -1;
+			}
+		}
+		if (baseClass == CountConditionArgument.class) {
+			switch (baseFeatureID) {
+				case PatternstructurePackage.COUNT_CONDITION_ARGUMENT__COUNT_CONDITION1: return PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION1;
+				case PatternstructurePackage.COUNT_CONDITION_ARGUMENT__COUNT_CONDITION2: return PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	@Override
@@ -217,7 +483,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 
 	@Override
 	public String myToString() {
-		String res = "Subpattern " + getInternalId() + " " + "("; 
+		String res = "Count Subpattern " + getInternalId() + " " + "("; 
 		res += getParameterList().myToString().replace("\n", "\n  ");
 		res += "\n  " + getGraph().myToString().replace("\n", "\n  ");
 		res += "\n  " + getCondition().myToString().replace("\n", "\n  ") + "\n)";

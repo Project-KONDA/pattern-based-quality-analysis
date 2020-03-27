@@ -157,15 +157,6 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.COUNT: {
-				Count count = (Count)theEObject;
-				T result = caseCount(count);
-				if (result == null) result = caseCountConditionArgument(count);
-				if (result == null) result = caseMorphismContainer(count);
-				if (result == null) result = casePatternElement(count);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case PatternstructurePackage.COUNT_CONDITION_ARGUMENT: {
 				CountConditionArgument countConditionArgument = (CountConditionArgument)theEObject;
 				T result = caseCountConditionArgument(countConditionArgument);
@@ -183,6 +174,8 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				CountPattern countPattern = (CountPattern)theEObject;
 				T result = caseCountPattern(countPattern);
 				if (result == null) result = casePattern(countPattern);
+				if (result == null) result = caseMorphismContainer(countPattern);
+				if (result == null) result = caseCountConditionArgument(countPattern);
 				if (result == null) result = casePatternElement(countPattern);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -383,21 +376,6 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCountCondition(CountCondition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Count</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Count</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCount(Count object) {
 		return null;
 	}
 

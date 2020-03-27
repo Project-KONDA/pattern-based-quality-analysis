@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -40,7 +39,6 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getArgument1 <em>Argument1</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getQuantifiedConditionCount <em>Quantified Condition Count</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getOptionParam <em>Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getArgument2 <em>Argument2</em>}</li>
@@ -262,34 +260,23 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 //		return msgs;
 //	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public QuantifiedCondition getQuantifiedConditionCount() {
-		if (eContainerFeatureID() != PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT) return null;
-		return (QuantifiedCondition)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public NotificationChain basicSetQuantifiedConditionCount(QuantifiedCondition newQuantifiedConditionCount, NotificationChain msgs) {		
-		if(getOption() != null) {
-			getOption().setParameterList(null);
-		}
-		
-		msgs = eBasicSetContainer((InternalEObject)newQuantifiedConditionCount, PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT, msgs);
-		
-		setOption(new ComparisonOptionParamImpl());
-		getParameterList().add(getOption());
-		
-		return msgs;
-	}
+//	/**
+//	 * <!-- begin-user-doc -->
+//	 * <!-- end-user-doc -->
+//	 * @generated NOT
+//	 */
+//	public NotificationChain basicSetQuantifiedConditionCount(QuantifiedCondition newQuantifiedConditionCount, NotificationChain msgs) {		
+//		if(getOption() != null) {
+//			getOption().setParameterList(null);
+//		}
+//		
+//		msgs = eBasicSetContainer((InternalEObject)newQuantifiedConditionCount, PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT, msgs);
+//		
+//		setOption(new ComparisonOptionParamImpl());
+//		getParameterList().add(getOption());
+//		
+//		return msgs;
+//	}
 	
 	@Override
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
@@ -362,28 +349,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setQuantifiedConditionCount(QuantifiedCondition newQuantifiedConditionCount) {
-		if (newQuantifiedConditionCount != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT && newQuantifiedConditionCount != null)) {
-			if (EcoreUtil.isAncestor(this, newQuantifiedConditionCount))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newQuantifiedConditionCount != null)
-				msgs = ((InternalEObject)newQuantifiedConditionCount).eInverseAdd(this, PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION, QuantifiedCondition.class, msgs);
-			msgs = basicSetQuantifiedConditionCount(newQuantifiedConditionCount, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT, newQuantifiedConditionCount, newQuantifiedConditionCount));
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -567,10 +532,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				if (argument1 != null)
 					msgs = ((InternalEObject)argument1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COUNT_CONDITION__ARGUMENT1, null, msgs);
 				return basicSetArgument1((CountConditionArgument)otherEnd, msgs);
-			case PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetQuantifiedConditionCount((QuantifiedCondition)otherEnd, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				if (option != null)
 					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION, ComparisonOptionParam.class, msgs);
@@ -597,8 +558,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		switch (featureID) {
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
 				return basicSetArgument1(null, msgs);
-			case PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT:
-				return basicSetQuantifiedConditionCount(null, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				return basicSetOption(null, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM:
@@ -615,26 +574,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.QUANTIFIED_CONDITION__COUNT_CONDITION, QuantifiedCondition.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
 				return getArgument1();
-			case PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT:
-				return getQuantifiedConditionCount();
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				if (resolve) return getOption();
 				return basicGetOption();
@@ -658,9 +601,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		switch (featureID) {
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
 				setArgument1((CountConditionArgument)newValue);
-				return;
-			case PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT:
-				setQuantifiedConditionCount((QuantifiedCondition)newValue);
 				return;
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				setOption((ComparisonOptionParam)newValue);
@@ -686,9 +626,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
 				setArgument1((CountConditionArgument)null);
 				return;
-			case PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT:
-				setQuantifiedConditionCount((QuantifiedCondition)null);
-				return;
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				setOption((ComparisonOptionParam)null);
 				return;
@@ -712,8 +649,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		switch (featureID) {
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
 				return argument1 != null;
-			case PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT:
-				return getQuantifiedConditionCount() != null;
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				return option != null;
 			case PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM:

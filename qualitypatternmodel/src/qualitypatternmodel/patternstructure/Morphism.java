@@ -22,7 +22,7 @@ import qualitypatternmodel.graphstructure.Graph;
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCount <em>Count</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMorphismContainer <em>Morphism Container</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism()
@@ -93,28 +93,28 @@ public interface Morphism extends PatternElement {
 	void setTo(Graph value);
 
 	/**
-	 * Returns the value of the '<em><b>Count</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Count#getMorphism <em>Morphism</em>}'.
+	 * Returns the value of the '<em><b>Morphism Container</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.MorphismContainer#getMorphism <em>Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count</em>' container reference.
-	 * @see #setCount(Count)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Count()
-	 * @see qualitypatternmodel.patternstructure.Count#getMorphism
+	 * @return the value of the '<em>Morphism Container</em>' container reference.
+	 * @see #setMorphismContainer(MorphismContainer)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_MorphismContainer()
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer#getMorphism
 	 * @model opposite="morphism" transient="false"
 	 * @generated
 	 */
-	Count getCount();
+	MorphismContainer getMorphismContainer();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getCount <em>Count</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getMorphismContainer <em>Morphism Container</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count</em>' container reference.
-	 * @see #getCount()
+	 * @param value the new value of the '<em>Morphism Container</em>' container reference.
+	 * @see #getMorphismContainer()
 	 * @generated
 	 */
-	void setCount(Count value);
+	void setMorphismContainer(MorphismContainer value);
 
 	/**
 	 * <!-- begin-user-doc -->

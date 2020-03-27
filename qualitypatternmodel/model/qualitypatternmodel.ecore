@@ -435,10 +435,6 @@
           eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/quantifiedCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
           eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/quantifiedcondition"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"
-          eType="#//patternstructure/Morphism" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" eType="#//patternstructure/CountCondition"
-          containment="true" eOpposite="#//patternstructure/CountCondition/quantifiedConditionCount"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getNextQuantifiedConditions" upperBound="-1" eType="#//patternstructure/MorphismContainer"
@@ -469,8 +465,8 @@
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/morphismTo"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/Graph"
           eOpposite="#//graphstructure/Graph/morphismFrom"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//patternstructure/Count"
-          eOpposite="#//patternstructure/Count/morphism"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="morphismContainer" eType="#//patternstructure/MorphismContainer"
+          eOpposite="#//patternstructure/MorphismContainer/morphism"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ElementMapping" eSuperTypes="#//patternstructure/Mapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
@@ -573,20 +569,12 @@
     <eClassifiers xsi:type="ecore:EClass" name="CountCondition" eSuperTypes="#//patternstructure/Condition">
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
           eType="#//patternstructure/CountConditionArgument" containment="true" eOpposite="#//patternstructure/CountConditionArgument/countCondition1"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedConditionCount"
-          eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/countCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/countCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" lowerBound="1"
           eType="#//parameters/OptionParam" eOpposite="#//parameters/OptionParam/countcondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
           eType="#//patternstructure/CountConditionArgument" containment="true" eOpposite="#//patternstructure/CountConditionArgument/countCondition2"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//patternstructure/PatternElement #//patternstructure/CountConditionArgument #//patternstructure/MorphismContainer">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
-          eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/count"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"
-          eType="#//patternstructure/Morphism" containment="true" eOpposite="#//patternstructure/Morphism/count"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CountConditionArgument" abstract="true"
         interface="true" eSuperTypes="#//patternstructure/PatternElement">
@@ -598,12 +586,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="MorphismContainer" abstract="true"
         interface="true">
       <eOperations name="getGraph" eType="#//graphstructure/Graph"/>
-      <eOperations name="getMorphism" eType="#//patternstructure/Morphism"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" eType="#//patternstructure/Morphism"
+          containment="true" eOpposite="#//patternstructure/Morphism/morphismContainer"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CountPattern" eSuperTypes="#//patternstructure/Pattern">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//patternstructure/Count"
-          eOpposite="#//patternstructure/Count/pattern"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CountPattern" eSuperTypes="#//patternstructure/Pattern #//patternstructure/MorphismContainer #//patternstructure/CountConditionArgument"/>
     <eClassifiers xsi:type="ecore:EClass" name="Pattern" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="checkMorphismOfNextGraph" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"

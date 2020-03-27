@@ -28,9 +28,9 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.ElementMapping;
@@ -46,7 +46,7 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMappings <em>Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getFrom <em>From</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getTo <em>To</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getCount <em>Count</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMorphismContainer <em>Morphism Container</em>}</li>
  * </ul>
  *
  * @generated
@@ -190,10 +190,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				if (to != null)
 					msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.GRAPH__MORPHISM_FROM, Graph.class, msgs);
 				return basicSetTo((Graph)otherEnd, msgs);
-			case PatternstructurePackage.MORPHISM__COUNT:
+			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetCount((Count)otherEnd, msgs);
+				return basicSetMorphismContainer((MorphismContainer)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -322,9 +322,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated
 	 */
 	@Override
-	public Count getCount() {
-		if (eContainerFeatureID() != PatternstructurePackage.MORPHISM__COUNT) return null;
-		return (Count)eInternalContainer();
+	public MorphismContainer getMorphismContainer() {
+		if (eContainerFeatureID() != PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER) return null;
+		return (MorphismContainer)eInternalContainer();
 	}
 
 	/**
@@ -332,8 +332,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCount(Count newCount, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newCount, PatternstructurePackage.MORPHISM__COUNT, msgs);
+	public NotificationChain basicSetMorphismContainer(MorphismContainer newMorphismContainer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newMorphismContainer, PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER, msgs);
 		return msgs;
 	}
 
@@ -343,20 +343,20 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated
 	 */
 	@Override
-	public void setCount(Count newCount) {
-		if (newCount != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.MORPHISM__COUNT && newCount != null)) {
-			if (EcoreUtil.isAncestor(this, newCount))
+	public void setMorphismContainer(MorphismContainer newMorphismContainer) {
+		if (newMorphismContainer != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER && newMorphismContainer != null)) {
+			if (EcoreUtil.isAncestor(this, newMorphismContainer))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newCount != null)
-				msgs = ((InternalEObject)newCount).eInverseAdd(this, PatternstructurePackage.COUNT__MORPHISM, Count.class, msgs);
-			msgs = basicSetCount(newCount, msgs);
+			if (newMorphismContainer != null)
+				msgs = ((InternalEObject)newMorphismContainer).eInverseAdd(this, PatternstructurePackage.MORPHISM_CONTAINER__MORPHISM, MorphismContainer.class, msgs);
+			msgs = basicSetMorphismContainer(newMorphismContainer, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__COUNT, newCount, newCount));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER, newMorphismContainer, newMorphismContainer));
 	}
 
 	/**
@@ -481,8 +481,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return basicSetFrom(null, msgs);
 			case PatternstructurePackage.MORPHISM__TO:
 				return basicSetTo(null, msgs);
-			case PatternstructurePackage.MORPHISM__COUNT:
-				return basicSetCount(null, msgs);
+			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
+				return basicSetMorphismContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -495,8 +495,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case PatternstructurePackage.MORPHISM__COUNT:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.COUNT__MORPHISM, Count.class, msgs);
+			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
+				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.MORPHISM_CONTAINER__MORPHISM, MorphismContainer.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -518,8 +518,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__TO:
 				if (resolve) return getTo();
 				return basicGetTo();
-			case PatternstructurePackage.MORPHISM__COUNT:
-				return getCount();
+			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
+				return getMorphismContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -545,8 +545,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__TO:
 				setTo((Graph)newValue);
 				return;
-			case PatternstructurePackage.MORPHISM__COUNT:
-				setCount((Count)newValue);
+			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
+				setMorphismContainer((MorphismContainer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -571,8 +571,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__TO:
 				setTo((Graph)null);
 				return;
-			case PatternstructurePackage.MORPHISM__COUNT:
-				setCount((Count)null);
+			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
+				setMorphismContainer((MorphismContainer)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -593,8 +593,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return from != null;
 			case PatternstructurePackage.MORPHISM__TO:
 				return to != null;
-			case PatternstructurePackage.MORPHISM__COUNT:
-				return getCount() != null;
+			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
+				return getMorphismContainer() != null;
 		}
 		return super.eIsSet(featureID);
 	}

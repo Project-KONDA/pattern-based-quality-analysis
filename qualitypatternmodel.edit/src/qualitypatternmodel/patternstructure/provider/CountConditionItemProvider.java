@@ -188,7 +188,7 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT1,
-				 PatternstructureFactory.eINSTANCE.createCount()));
+				 PatternstructureFactory.eINSTANCE.createCountPattern()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -198,7 +198,7 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT2,
-				 PatternstructureFactory.eINSTANCE.createCount()));
+				 PatternstructureFactory.eINSTANCE.createCountPattern()));
 
 		newChildDescriptors.add
 			(createChildParameter

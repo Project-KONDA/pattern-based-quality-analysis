@@ -68,7 +68,6 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 			case PatternstructurePackage.COMPLETE_PATTERN: return createCompletePattern();
 			case PatternstructurePackage.NOT_CONDITION: return createNotCondition();
 			case PatternstructurePackage.COUNT_CONDITION: return createCountCondition();
-			case PatternstructurePackage.COUNT: return createCount();
 			case PatternstructurePackage.COUNT_PATTERN: return createCountPattern();
 			case PatternstructurePackage.NUMBER_ELEMENT: return createNumberElement();
 			default:
@@ -223,17 +222,6 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	public CountCondition createCountCondition() {
 		CountConditionImpl countCondition = new CountConditionImpl();
 		return countCondition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Count createCount() {
-		CountImpl count = new CountImpl();
-		return count;
 	}
 
 	/**

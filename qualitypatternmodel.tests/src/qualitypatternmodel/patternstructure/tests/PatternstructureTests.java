@@ -40,7 +40,6 @@ public class PatternstructureTests extends TestSuite {
 		suite.addTestSuite(CompletePatternTest.class);
 		suite.addTestSuite(NotConditionTest.class);
 		suite.addTestSuite(CountConditionTest.class);
-		suite.addTestSuite(CountTest.class);
 		suite.addTestSuite(CountPatternTest.class);
 		suite.addTestSuite(NumberElementTest.class);
 		return suite;

@@ -118,8 +118,6 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validateNotCondition((NotCondition)value, diagnostics, context);
 			case PatternstructurePackage.COUNT_CONDITION:
 				return validateCountCondition((CountCondition)value, diagnostics, context);
-			case PatternstructurePackage.COUNT:
-				return validateCount((Count)value, diagnostics, context);
 			case PatternstructurePackage.COUNT_CONDITION_ARGUMENT:
 				return validateCountConditionArgument((CountConditionArgument)value, diagnostics, context);
 			case PatternstructurePackage.MORPHISM_CONTAINER:
@@ -382,25 +380,6 @@ public class PatternstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(countCondition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(countCondition, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePatternElement_validate(countCondition, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCount(Count count, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(count, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(count, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(count, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(count, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(count, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(count, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(count, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(count, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(count, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePatternElement_validate(count, diagnostics, context);
 		return result;
 	}
 
