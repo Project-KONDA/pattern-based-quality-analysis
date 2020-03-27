@@ -45,6 +45,7 @@ import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -643,25 +644,27 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetRoot(Graph newRoot, NotificationChain msgs) {
-//		if(newRoot != null) {
-//			for(Morphism morphism : newRoot.getMorphismTo()) {
-//				Graph nextGraph = morphism.getTo();
-//				SingleElement newElementInNextGraph = new SingleElementImpl();
-//				nextGraph.getRootElements().add(newElementInNextGraph);
-//				if(this.getGraph() != null) {
-//					nextGraph.getReturnElements().add(newElementInNextGraph);
-//				}
-//				SingleElementMapping newNextElementMapping = new SingleElementMappingImpl(this, newElementInNextGraph);	
-//				morphism.getMappings().add(newNextElementMapping);				
-//					
-//				try {
-//					copyNextElementsToNextGraphs();
-//				} catch (MissingPatternContainerException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				} 
-//			}
-//		}
+		if(newRoot != null) {
+			for(Morphism morphism : newRoot.getMorphismTo()) {
+				Graph nextGraph = morphism.getTo();
+				Element newElementInNextGraph = new ElementImpl();
+				nextGraph.setRootElement(newElementInNextGraph);
+				if(this.getGraph() != null) {
+					nextGraph.getReturnElements().add(newElementInNextGraph);
+				}
+				ElementMapping newNextElementMapping = new ElementMappingImpl();	
+				newNextElementMapping.setFrom(this);
+				newNextElementMapping.setTo(newElementInNextGraph);
+				morphism.getMappings().add(newNextElementMapping);				
+					
+				try {
+					copyNextElementsToNextGraphs();
+				} catch (MissingPatternContainerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+			}
+		}
 		
 		updateParameters(newRoot.getParameterList());
 		updateOperators(newRoot.getOperatorList());
@@ -669,10 +672,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		if (getRelationFromPrevious() != null) {
 			setRelationFromPrevious(null);
 		}
-//		
-//		if(getMappingFrom() != null) {
-//			removeElementFromPreviousGraphs();
-//		}
+		
+		if(getMappingFrom() != null) {
+			removeElementFromPreviousGraphs();
+		}
 
 		msgs = eBasicSetContainer((InternalEObject) newRoot, GraphstructurePackage.ELEMENT__ROOT, msgs);
 		return msgs;
