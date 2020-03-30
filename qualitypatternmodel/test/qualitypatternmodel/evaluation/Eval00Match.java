@@ -2,9 +2,9 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.functions.BooleanOperator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PropertyLocation;
+import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;

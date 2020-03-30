@@ -6,11 +6,8 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 import junit.textui.TestRunner;
-
-import qualitypatternmodel.functions.tests.FunctionsTests;
-
 import qualitypatternmodel.graphstructure.tests.GraphstructureTests;
-
+import qualitypatternmodel.operators.tests.OperatorsTests;
 import qualitypatternmodel.patternstructure.tests.PatternstructureTests;
 
 /**
@@ -38,7 +35,7 @@ public class QualitypatternmodelAllTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new QualitypatternmodelAllTests("Qualitypatternmodel Tests");
 		suite.addTest(ParametersTests.suite());
-		suite.addTest(FunctionsTests.suite());
+		suite.addTest(OperatorsTests.suite());
 		suite.addTest(GraphstructureTests.suite());
 		suite.addTest(PatternstructureTests.suite());
 		return suite;

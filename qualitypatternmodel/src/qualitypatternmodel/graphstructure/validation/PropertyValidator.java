@@ -5,9 +5,10 @@
 package qualitypatternmodel.graphstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.functions.Match;
-import qualitypatternmodel.functions.ReferenceOperator;
+
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.ReferenceOperator;
 import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextParam;
 import qualitypatternmodel.parameters.TextLiteralParam;

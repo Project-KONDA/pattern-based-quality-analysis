@@ -17,8 +17,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated qualitypatternmodel -->
       <package
-            uri="functions"
-            class="qualitypatternmodel.functions.FunctionsPackage"
+            uri="operators"
+            class="qualitypatternmodel.operators.OperatorsPackage"
             genModel="model/qualitypatternmodel.genmodel"/>
    </extension>
 

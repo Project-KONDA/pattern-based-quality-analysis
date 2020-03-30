@@ -15,11 +15,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -168,7 +168,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public EList<Match> getMatches() {
 		if (matches == null) {
-			matches = new EObjectWithInverseResolvingEList<Match>(Match.class, this, ParametersPackage.TEXT_LITERAL_PARAM__MATCHES, FunctionsPackage.MATCH__REGULAR_EXPRESSION);
+			matches = new EObjectWithInverseResolvingEList<Match>(Match.class, this, ParametersPackage.TEXT_LITERAL_PARAM__MATCHES, OperatorsPackage.MATCH__REGULAR_EXPRESSION);
 		}
 		return matches;
 	}

@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.functions.OperatorList;
+import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 
@@ -161,7 +161,7 @@ public interface PatternElement extends EObject {
 	 * @param isDefinedPattern true, if all input elements shall have assigned a concrete value
 	 * @throws InvalidityException when the current or one contained model element is invalid
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
 	 */
 	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
@@ -173,7 +173,7 @@ public interface PatternElement extends EObject {
 	 * if the current element does not extend Input, the parameter does not have an impact
 	 * @throws InvalidityException when the current model element is invalid
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
 	 * @generated
 	 */
 	void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;

@@ -6,8 +6,8 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.functions.Operator;
-import qualitypatternmodel.functions.OperatorList;
+import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -115,13 +115,13 @@ public interface Graph extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Operator List</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.OperatorList#getGraph <em>Graph</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.OperatorList#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operator List</em>' containment reference.
 	 * @see #setOperatorList(OperatorList)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_OperatorList()
-	 * @see qualitypatternmodel.functions.OperatorList#getGraph
+	 * @see qualitypatternmodel.operators.OperatorList#getGraph
 	 * @model opposite="graph" containment="true" required="true"
 	 * @generated
 	 */

@@ -6,8 +6,9 @@ import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import qualitypatternmodel.functions.Comparison;
+
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.UnknownParameterValue;

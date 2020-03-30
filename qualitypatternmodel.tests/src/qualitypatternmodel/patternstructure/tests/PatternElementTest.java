@@ -24,7 +24,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList) <em>Update Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getParameterList() <em>Get Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.functions.OperatorList) <em>Update Operators</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.operators.OperatorList) <em>Update Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getOperatorList() <em>Get Operator List</em>}</li>
  * </ul>
  * </p>
@@ -149,10 +149,10 @@ public abstract class PatternElementTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.functions.OperatorList) <em>Update Operators</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.operators.OperatorList) <em>Update Operators</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.functions.OperatorList)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.operators.OperatorList)
 	 * @generated
 	 */
 	public void testUpdateOperators__OperatorList() {

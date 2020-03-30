@@ -156,10 +156,9 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAdapterFactory;
-
+import qualitypatternmodel.operators.provider.OperatorsItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
-import qualitypatternmodel.functions.provider.FunctionsItemProviderAdapterFactory;
 import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin;
 import qualitypatternmodel.parameters.provider.ParametersItemProviderAdapterFactory;
 import qualitypatternmodel.patternstructure.provider.PatternstructureItemProviderAdapterFactory;
@@ -716,7 +715,7 @@ public class GraphstructureEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ParametersItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new FunctionsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new OperatorsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new GraphstructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PatternstructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());

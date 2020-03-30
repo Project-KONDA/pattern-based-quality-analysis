@@ -15,13 +15,11 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.functions.FunctionsPackage;
-
-import qualitypatternmodel.functions.impl.FunctionsPackageImpl;
-
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
+import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
 import qualitypatternmodel.patternstructure.Condition;
@@ -266,21 +264,21 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 		ParametersPackageImpl theParametersPackage = (ParametersPackageImpl)(registeredPackage instanceof ParametersPackageImpl ? registeredPackage : ParametersPackage.eINSTANCE);
-		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FunctionsPackage.eNS_URI);
-		FunctionsPackageImpl theFunctionsPackage = (FunctionsPackageImpl)(registeredPackage instanceof FunctionsPackageImpl ? registeredPackage : FunctionsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
+		OperatorsPackageImpl theOperatorsPackage = (OperatorsPackageImpl)(registeredPackage instanceof OperatorsPackageImpl ? registeredPackage : OperatorsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		GraphstructurePackageImpl theGraphstructurePackage = (GraphstructurePackageImpl)(registeredPackage instanceof GraphstructurePackageImpl ? registeredPackage : GraphstructurePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePatternstructurePackage.createPackageContents();
 		theParametersPackage.createPackageContents();
-		theFunctionsPackage.createPackageContents();
+		theOperatorsPackage.createPackageContents();
 		theGraphstructurePackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePatternstructurePackage.initializePackageContents();
 		theParametersPackage.initializePackageContents();
-		theFunctionsPackage.initializePackageContents();
+		theOperatorsPackage.initializePackageContents();
 		theGraphstructurePackage.initializePackageContents();
 
 		// Register package validator
@@ -1324,7 +1322,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		// Obtain other dependent packages
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
-		FunctionsPackage theFunctionsPackage = (FunctionsPackage)EPackage.Registry.INSTANCE.getEPackage(FunctionsPackage.eNS_URI);
+		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1437,12 +1435,12 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		op = initEOperation(getPatternElement__IsValid__boolean(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
-		addEException(op, theFunctionsPackage.getOperatorCycleExceptionWrapper());
+		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
 
 		op = initEOperation(getPatternElement__IsValidLocal__boolean(), null, "isValidLocal", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
-		addEException(op, theFunctionsPackage.getOperatorCycleExceptionWrapper());
+		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
 
 		op = initEOperation(getPatternElement__GetContainer(), this.getPatternElement(), "getContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getMissingPatternContainerException());
@@ -1468,9 +1466,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEOperation(getPatternElement__GetParameterList(), theParametersPackage.getParameterList(), "getParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getPatternElement__UpdateOperators__OperatorList(), null, "updateOperators", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theFunctionsPackage.getOperatorList(), "newOperatorList", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatorsPackage.getOperatorList(), "newOperatorList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getPatternElement__GetOperatorList(), theFunctionsPackage.getOperatorList(), "getOperatorList", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPatternElement__GetOperatorList(), theOperatorsPackage.getOperatorList(), "getOperatorList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNotCondition_Condition(), this.getCondition(), this.getCondition_NotCondition(), "condition", null, 1, 1, NotCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

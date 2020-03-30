@@ -2263,11 +2263,11 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__GetAllOperators();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.Parameter) <em>Add Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.functions.ComparisonOperator, qualitypatternmodel.parameters.Parameter)
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.Parameter)
 	 * @generated
 	 */
 	EOperation getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter();
@@ -2313,21 +2313,21 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__CopyProperty__Property();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyPrimitiveComparison(qualitypatternmodel.functions.Comparison) <em>Copy Primitive Comparison</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyPrimitiveComparison(qualitypatternmodel.operators.Comparison) <em>Copy Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Copy Primitive Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#copyPrimitiveComparison(qualitypatternmodel.functions.Comparison)
+	 * @see qualitypatternmodel.graphstructure.Element#copyPrimitiveComparison(qualitypatternmodel.operators.Comparison)
 	 * @generated
 	 */
 	EOperation getElement__CopyPrimitiveComparison__Comparison();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyMatch(qualitypatternmodel.functions.Match) <em>Copy Match</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyMatch(qualitypatternmodel.operators.Match) <em>Copy Match</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Copy Match</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#copyMatch(qualitypatternmodel.functions.Match)
+	 * @see qualitypatternmodel.graphstructure.Element#copyMatch(qualitypatternmodel.operators.Match)
 	 * @generated
 	 */
 	EOperation getElement__CopyMatch__Match();

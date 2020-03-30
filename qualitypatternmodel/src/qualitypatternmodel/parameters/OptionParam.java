@@ -3,9 +3,10 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.functions.Comparison;
+
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.patternstructure.CountCondition;
 
 /**
@@ -113,13 +114,13 @@ public interface OptionParam<T> extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Comparison</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.functions.Comparison}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Comparison#getOptionParam <em>Option Param</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.operators.Comparison}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Comparison#getOptionParam <em>Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comparison</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getOptionParam_Comparison()
-	 * @see qualitypatternmodel.functions.Comparison#getOptionParam
+	 * @see qualitypatternmodel.operators.Comparison#getOptionParam
 	 * @model opposite="optionParam"
 	 * @generated
 	 */

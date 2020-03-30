@@ -6,8 +6,8 @@ package qualitypatternmodel.parameters.validation;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.ComparisonOperator;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.parameters.ComparisonOptionParam}.

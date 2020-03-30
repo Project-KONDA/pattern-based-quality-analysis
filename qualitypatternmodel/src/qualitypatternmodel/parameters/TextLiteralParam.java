@@ -3,8 +3,9 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.functions.Match;
+
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.operators.Match;
 
 
 /**
@@ -51,13 +52,13 @@ public interface TextLiteralParam extends ParameterValue {
 
 	/**
 	 * Returns the value of the '<em><b>Matches</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.functions.Match}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Match#getRegularExpression <em>Regular Expression</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.operators.Match}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Match#getRegularExpression <em>Regular Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Matches</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_Matches()
-	 * @see qualitypatternmodel.functions.Match#getRegularExpression
+	 * @see qualitypatternmodel.operators.Match#getRegularExpression
 	 * @model opposite="regularExpression"
 	 * @generated
 	 */

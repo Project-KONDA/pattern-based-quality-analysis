@@ -3,8 +3,9 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.functions.Match;
-import qualitypatternmodel.functions.ReferenceOperator;
+
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.ReferenceOperator;
 import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -59,13 +60,13 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * Returns the value of the '<em><b>Reference Operator2</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty2 <em>Property2</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.ReferenceOperator#getProperty2 <em>Property2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Reference Operator2</em>' reference.
 	 * @see #setReferenceOperator2(ReferenceOperator)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_ReferenceOperator2()
-	 * @see qualitypatternmodel.functions.ReferenceOperator#getProperty2
+	 * @see qualitypatternmodel.operators.ReferenceOperator#getProperty2
 	 * @model opposite="property2"
 	 * @generated
 	 */
@@ -83,13 +84,13 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * Returns the value of the '<em><b>Reference Operator1</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.ReferenceOperator#getProperty1 <em>Property1</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.ReferenceOperator#getProperty1 <em>Property1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Reference Operator1</em>' reference.
 	 * @see #setReferenceOperator1(ReferenceOperator)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_ReferenceOperator1()
-	 * @see qualitypatternmodel.functions.ReferenceOperator#getProperty1
+	 * @see qualitypatternmodel.operators.ReferenceOperator#getProperty1
 	 * @model opposite="property1"
 	 * @generated
 	 */
@@ -203,13 +204,13 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * Returns the value of the '<em><b>Match</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.functions.Match}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Match#getProperty <em>Property</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.operators.Match}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Match#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Match</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Match()
-	 * @see qualitypatternmodel.functions.Match#getProperty
+	 * @see qualitypatternmodel.operators.Match#getProperty
 	 * @model opposite="property"
 	 * @generated
 	 */

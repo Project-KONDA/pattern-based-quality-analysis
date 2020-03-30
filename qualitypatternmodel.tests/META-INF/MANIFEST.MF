@@ -8,8 +8,8 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: qualitypatternmodel.functions.tests,
- qualitypatternmodel.graphstructure.tests,
+Export-Package: qualitypatternmodel.graphstructure.tests,
+ qualitypatternmodel.operators.tests,
  qualitypatternmodel.parameters.tests,
  qualitypatternmodel.patternstructure.tests
 Require-Bundle: org.eclipse.core.runtime,

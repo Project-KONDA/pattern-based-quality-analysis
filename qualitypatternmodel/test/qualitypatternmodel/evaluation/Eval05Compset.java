@@ -2,12 +2,12 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.functions.FunctionsFactory;
-import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.operators.FunctionsFactory;
+import qualitypatternmodel.operators.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.CompletePattern;

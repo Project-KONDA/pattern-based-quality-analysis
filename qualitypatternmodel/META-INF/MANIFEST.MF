@@ -8,12 +8,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: qualitypatternmodel.functions,
- qualitypatternmodel.functions.impl,
- qualitypatternmodel.functions.util,
- qualitypatternmodel.graphstructure,
+Export-Package: qualitypatternmodel.graphstructure,
  qualitypatternmodel.graphstructure.impl,
  qualitypatternmodel.graphstructure.util,
+ qualitypatternmodel.operators,
+ qualitypatternmodel.operators.impl,
+ qualitypatternmodel.operators.util,
  qualitypatternmodel.parameters,
  qualitypatternmodel.parameters.impl,
  qualitypatternmodel.parameters.util,

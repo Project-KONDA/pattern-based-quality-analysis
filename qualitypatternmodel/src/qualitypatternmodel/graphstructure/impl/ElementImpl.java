@@ -23,21 +23,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.functions.BooleanOperator;
-import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.ComparisonOperator;
-import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.functions.Match;
-import qualitypatternmodel.functions.Operator;
-import qualitypatternmodel.functions.OperatorList;
-import qualitypatternmodel.functions.impl.ComparisonImpl;
-import qualitypatternmodel.functions.impl.MatchImpl;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.BooleanOperator;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.operators.OperatorList;
+import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.impl.ComparisonImpl;
+import qualitypatternmodel.operators.impl.MatchImpl;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
@@ -540,7 +540,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@Override
 	public EList<Comparison> getComparison1() {
 		if (comparison1 == null) {
-			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.ELEMENT__COMPARISON1, FunctionsPackage.COMPARISON__ARGUMENT1);
+			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.ELEMENT__COMPARISON1, OperatorsPackage.COMPARISON__ARGUMENT1);
 		}
 		return comparison1;
 	}
@@ -553,7 +553,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@Override
 	public EList<Comparison> getComparison2() {
 		if (comparison2 == null) {
-			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.ELEMENT__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
+			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.ELEMENT__COMPARISON2, OperatorsPackage.COMPARISON__ARGUMENT2);
 		}
 		return comparison2;
 	}
@@ -983,7 +983,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@Override
 	public EList<BooleanOperator> getPredicates() {
 		if (predicates == null) {
-			predicates = new EObjectWithInverseResolvingEList.ManyInverse<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES, FunctionsPackage.BOOLEAN_OPERATOR__ELEMENTS);
+			predicates = new EObjectWithInverseResolvingEList.ManyInverse<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.ELEMENT__PREDICATES, OperatorsPackage.BOOLEAN_OPERATOR__ELEMENTS);
 		}
 		return predicates;
 	}

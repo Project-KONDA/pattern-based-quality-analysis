@@ -17,12 +17,13 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.FunctionsPackage;
+
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -294,7 +295,7 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	@Override
 	public EList<Comparison> getComparison() {
 		if (comparison == null) {
-			comparison = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.OPTION_PARAM__COMPARISON, FunctionsPackage.COMPARISON__OPTION_PARAM);
+			comparison = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.OPTION_PARAM__COMPARISON, OperatorsPackage.COMPARISON__OPTION_PARAM);
 		}
 		return comparison;
 	}

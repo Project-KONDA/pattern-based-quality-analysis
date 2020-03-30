@@ -6,7 +6,7 @@ package qualitypatternmodel.graphstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.functions.Comparison;
+import qualitypatternmodel.operators.Comparison;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.Comparable}.

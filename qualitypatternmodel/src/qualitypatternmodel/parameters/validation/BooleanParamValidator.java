@@ -4,7 +4,7 @@
  */
 package qualitypatternmodel.parameters.validation;
 
-import qualitypatternmodel.functions.Match;
+import qualitypatternmodel.operators.Match;
 
 
 /**

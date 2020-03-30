@@ -34,18 +34,19 @@
             contributorClass="qualitypatternmodel.parameters.presentation.ParametersActionBarContributor">
       </editor>
    </extension>
+
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated qualitypatternmodel -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="qualitypatternmodel.functions.presentation.FunctionsModelWizardID"
-            name="%_UI_FunctionsModelWizard_label"
-            class="qualitypatternmodel.functions.presentation.FunctionsModelWizard"
+            id="qualitypatternmodel.operators.presentation.OperatorsModelWizardID"
+            name="%_UI_OperatorsModelWizard_label"
+            class="qualitypatternmodel.operators.presentation.OperatorsModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/FunctionsModelFile.gif">
-         <description>%_UI_FunctionsModelWizard_description</description>
+            icon="icons/full/obj16/OperatorsModelFile.gif">
+         <description>%_UI_OperatorsModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
@@ -53,15 +54,14 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated qualitypatternmodel -->
       <editor
-            id="qualitypatternmodel.functions.presentation.FunctionsEditorID"
-            name="%_UI_FunctionsEditor_label"
-            icon="icons/full/obj16/FunctionsModelFile.gif"
-            extensions="functions"
-            class="qualitypatternmodel.functions.presentation.FunctionsEditor"
-            contributorClass="qualitypatternmodel.functions.presentation.FunctionsActionBarContributor">
+            id="qualitypatternmodel.operators.presentation.OperatorsEditorID"
+            name="%_UI_OperatorsEditor_label"
+            icon="icons/full/obj16/OperatorsModelFile.gif"
+            extensions="operators"
+            class="qualitypatternmodel.operators.presentation.OperatorsEditor"
+            contributorClass="qualitypatternmodel.operators.presentation.OperatorsActionBarContributor">
       </editor>
    </extension>
-
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated qualitypatternmodel -->
       <category

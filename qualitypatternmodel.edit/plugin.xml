@@ -22,8 +22,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated qualitypatternmodel -->
       <factory
-            uri="functions"
-            class="qualitypatternmodel.functions.provider.FunctionsItemProviderAdapterFactory"
+            uri="operators"
+            class="qualitypatternmodel.operators.provider.OperatorsItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

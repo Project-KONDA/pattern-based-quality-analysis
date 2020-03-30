@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -172,7 +172,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public EList<Comparison> getComparison1() {
 		if (comparison1 == null) {
-			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.PARAMETER__COMPARISON1, FunctionsPackage.COMPARISON__ARGUMENT1);
+			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.PARAMETER__COMPARISON1, OperatorsPackage.COMPARISON__ARGUMENT1);
 		}
 		return comparison1;
 	}
@@ -184,7 +184,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public EList<Comparison> getComparison2() {
 		if (comparison2 == null) {
-			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.PARAMETER__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
+			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.PARAMETER__COMPARISON2, OperatorsPackage.COMPARISON__ARGUMENT2);
 		}
 		return comparison2;
 	}

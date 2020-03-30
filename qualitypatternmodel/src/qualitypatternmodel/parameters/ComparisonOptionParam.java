@@ -3,8 +3,9 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.ComparisonOperator;
+
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.CountCondition;
 
 /**
@@ -29,12 +30,12 @@ import qualitypatternmodel.patternstructure.CountCondition;
 public interface ComparisonOptionParam extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
-	 * The list contents are of type {@link qualitypatternmodel.functions.ComparisonOperator}.
-	 * The literals are from the enumeration {@link qualitypatternmodel.functions.ComparisonOperator}.
+	 * The list contents are of type {@link qualitypatternmodel.operators.ComparisonOperator}.
+	 * The literals are from the enumeration {@link qualitypatternmodel.operators.ComparisonOperator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' attribute list.
-	 * @see qualitypatternmodel.functions.ComparisonOperator
+	 * @see qualitypatternmodel.operators.ComparisonOperator
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getComparisonOptionParam_Options()
 	 * @model
 	 * @generated
@@ -43,11 +44,11 @@ public interface ComparisonOptionParam extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.functions.ComparisonOperator}.
+	 * The literals are from the enumeration {@link qualitypatternmodel.operators.ComparisonOperator}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see qualitypatternmodel.functions.ComparisonOperator
+	 * @see qualitypatternmodel.operators.ComparisonOperator
 	 * @see #setValue(ComparisonOperator)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getComparisonOptionParam_Value()
 	 * @model required="true"
@@ -60,7 +61,7 @@ public interface ComparisonOptionParam extends Parameter {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see qualitypatternmodel.functions.ComparisonOperator
+	 * @see qualitypatternmodel.operators.ComparisonOperator
 	 * @see #getValue()
 	 * @generated
 	 */
@@ -68,13 +69,13 @@ public interface ComparisonOptionParam extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Comparisons</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.functions.Comparison}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Comparison#getOption <em>Option</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.operators.Comparison}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Comparison#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comparisons</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getComparisonOptionParam_Comparisons()
-	 * @see qualitypatternmodel.functions.Comparison#getOption
+	 * @see qualitypatternmodel.operators.Comparison#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */

@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -151,7 +151,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	@Override
 	public EList<Match> getMatches() {
 		if (matches == null) {
-			matches = new EObjectWithInverseResolvingEList<Match>(Match.class, this, ParametersPackage.BOOLEAN_PARAM__MATCHES, FunctionsPackage.MATCH__OPTION);
+			matches = new EObjectWithInverseResolvingEList<Match>(Match.class, this, ParametersPackage.BOOLEAN_PARAM__MATCHES, OperatorsPackage.MATCH__OPTION);
 		}
 		return matches;
 	}

@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.ComparisonOperator;
-import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -200,7 +200,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	@Override
 	public EList<Comparison> getComparisons() {
 		if (comparisons == null) {
-			comparisons = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS, FunctionsPackage.COMPARISON__OPTION);
+			comparisons = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS, OperatorsPackage.COMPARISON__OPTION);
 		}
 		return comparisons;
 	}

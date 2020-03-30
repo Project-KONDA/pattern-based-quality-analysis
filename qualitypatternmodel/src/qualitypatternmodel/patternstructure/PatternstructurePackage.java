@@ -4223,11 +4223,11 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__GetParameterList();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.functions.OperatorList) <em>Update Operators</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.operators.OperatorList) <em>Update Operators</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Update Operators</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.functions.OperatorList)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#updateOperators(qualitypatternmodel.operators.OperatorList)
 	 * @generated
 	 */
 	EOperation getPatternElement__UpdateOperators__OperatorList();

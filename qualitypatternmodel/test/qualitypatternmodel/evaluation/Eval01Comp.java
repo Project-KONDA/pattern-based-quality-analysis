@@ -2,16 +2,16 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.functions.BooleanOperator;
-import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.FunctionsFactory;
-import qualitypatternmodel.functions.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.BooleanOperator;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.FunctionsFactory;
+import qualitypatternmodel.operators.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;

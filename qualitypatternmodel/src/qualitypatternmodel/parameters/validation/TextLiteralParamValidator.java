@@ -4,8 +4,8 @@
  */
 package qualitypatternmodel.parameters.validation;
 
-import qualitypatternmodel.functions.Match;
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.operators.Match;
 
 
 /**

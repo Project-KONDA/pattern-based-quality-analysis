@@ -5,8 +5,8 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
+import qualitypatternmodel.operators.*;
 import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.functions.*;
 
 public class Test03Quantor {
 

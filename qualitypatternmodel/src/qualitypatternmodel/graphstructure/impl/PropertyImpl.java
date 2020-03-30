@@ -19,14 +19,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.functions.Match;
-import qualitypatternmodel.functions.ReferenceOperator;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.ReferenceOperator;
 import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.Parameter;
@@ -253,7 +253,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public EList<Comparison> getComparison1() {
 		if (comparison1 == null) {
-			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.PROPERTY__COMPARISON1, FunctionsPackage.COMPARISON__ARGUMENT1);
+			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.PROPERTY__COMPARISON1, OperatorsPackage.COMPARISON__ARGUMENT1);
 		}
 		return comparison1;
 	}
@@ -266,7 +266,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public EList<Comparison> getComparison2() {
 		if (comparison2 == null) {
-			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.PROPERTY__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
+			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.PROPERTY__COMPARISON2, OperatorsPackage.COMPARISON__ARGUMENT2);
 		}
 		return comparison2;
 	}
@@ -401,9 +401,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if (newReferenceOperator2 != referenceOperator2) {
 			NotificationChain msgs = null;
 			if (referenceOperator2 != null)
-				msgs = ((InternalEObject)referenceOperator2).eInverseRemove(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2, ReferenceOperator.class, msgs);
+				msgs = ((InternalEObject)referenceOperator2).eInverseRemove(this, OperatorsPackage.REFERENCE_OPERATOR__PROPERTY2, ReferenceOperator.class, msgs);
 			if (newReferenceOperator2 != null)
-				msgs = ((InternalEObject)newReferenceOperator2).eInverseAdd(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2, ReferenceOperator.class, msgs);
+				msgs = ((InternalEObject)newReferenceOperator2).eInverseAdd(this, OperatorsPackage.REFERENCE_OPERATOR__PROPERTY2, ReferenceOperator.class, msgs);
 			msgs = basicSetReferenceOperator2(newReferenceOperator2, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -463,9 +463,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if (newReferenceOperator1 != referenceOperator1) {
 			NotificationChain msgs = null;
 			if (referenceOperator1 != null)
-				msgs = ((InternalEObject)referenceOperator1).eInverseRemove(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1, ReferenceOperator.class, msgs);
+				msgs = ((InternalEObject)referenceOperator1).eInverseRemove(this, OperatorsPackage.REFERENCE_OPERATOR__PROPERTY1, ReferenceOperator.class, msgs);
 			if (newReferenceOperator1 != null)
-				msgs = ((InternalEObject)newReferenceOperator1).eInverseAdd(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1, ReferenceOperator.class, msgs);
+				msgs = ((InternalEObject)newReferenceOperator1).eInverseAdd(this, OperatorsPackage.REFERENCE_OPERATOR__PROPERTY1, ReferenceOperator.class, msgs);
 			msgs = basicSetReferenceOperator1(newReferenceOperator1, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -712,7 +712,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public EList<Match> getMatch() {
 		if (match == null) {
-			match = new EObjectWithInverseResolvingEList<Match>(Match.class, this, GraphstructurePackage.PROPERTY__MATCH, FunctionsPackage.MATCH__PROPERTY);
+			match = new EObjectWithInverseResolvingEList<Match>(Match.class, this, GraphstructurePackage.PROPERTY__MATCH, OperatorsPackage.MATCH__PROPERTY);
 		}
 		return match;
 	}
@@ -746,11 +746,11 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return basicSetOption((PropertyOptionParam)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR2:
 				if (referenceOperator2 != null)
-					msgs = ((InternalEObject)referenceOperator2).eInverseRemove(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY2, ReferenceOperator.class, msgs);
+					msgs = ((InternalEObject)referenceOperator2).eInverseRemove(this, OperatorsPackage.REFERENCE_OPERATOR__PROPERTY2, ReferenceOperator.class, msgs);
 				return basicSetReferenceOperator2((ReferenceOperator)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__REFERENCE_OPERATOR1:
 				if (referenceOperator1 != null)
-					msgs = ((InternalEObject)referenceOperator1).eInverseRemove(this, FunctionsPackage.REFERENCE_OPERATOR__PROPERTY1, ReferenceOperator.class, msgs);
+					msgs = ((InternalEObject)referenceOperator1).eInverseRemove(this, OperatorsPackage.REFERENCE_OPERATOR__PROPERTY1, ReferenceOperator.class, msgs);
 				return basicSetReferenceOperator1((ReferenceOperator)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__OPTION_PARAM:
 				if (optionParam != null)

@@ -9,8 +9,8 @@ Bundle-Activator: qualitypatternmodel.parameters.presentation.Qualitypatternmode
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: qualitypatternmodel.functions.presentation,
- qualitypatternmodel.graphstructure.presentation,
+Export-Package: qualitypatternmodel.graphstructure.presentation,
+ qualitypatternmodel.operators.presentation,
  qualitypatternmodel.parameters.presentation,
  qualitypatternmodel.patternstructure.presentation
 Require-Bundle: org.eclipse.core.runtime,

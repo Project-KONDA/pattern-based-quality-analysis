@@ -3,7 +3,8 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.functions.Match;
+
+import qualitypatternmodel.operators.Match;
 
 
 /**
@@ -49,13 +50,13 @@ public interface BooleanParam extends ParameterValue {
 
 	/**
 	 * Returns the value of the '<em><b>Matches</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.functions.Match}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Match#getOption <em>Option</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.operators.Match}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Match#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Matches</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam_Matches()
-	 * @see qualitypatternmodel.functions.Match#getOption
+	 * @see qualitypatternmodel.operators.Match#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */

@@ -17,10 +17,10 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.functions.FunctionsFactory;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
@@ -248,7 +248,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST,
-				 FunctionsFactory.eINSTANCE.createOperatorList()));
+				 OperatorsFactory.eINSTANCE.createOperatorList()));
 	}
 
 	/**

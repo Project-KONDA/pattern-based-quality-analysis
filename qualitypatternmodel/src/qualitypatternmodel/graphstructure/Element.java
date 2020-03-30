@@ -5,11 +5,11 @@ package qualitypatternmodel.graphstructure;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.functions.BooleanOperator;
-import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.ComparisonOperator;
-import qualitypatternmodel.functions.Match;
-import qualitypatternmodel.functions.Operator;
+import qualitypatternmodel.operators.BooleanOperator;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.ElementMapping;
@@ -274,13 +274,13 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * Returns the value of the '<em><b>Predicates</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.functions.BooleanOperator}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.BooleanOperator#getElements <em>Elements</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.operators.BooleanOperator}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.BooleanOperator#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Predicates</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Predicates()
-	 * @see qualitypatternmodel.functions.BooleanOperator#getElements
+	 * @see qualitypatternmodel.operators.BooleanOperator#getElements
 	 * @model opposite="elements"
 	 * @generated
 	 */

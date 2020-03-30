@@ -18,13 +18,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.functions.Operator;
-import qualitypatternmodel.functions.OperatorList;
-import qualitypatternmodel.functions.impl.OperatorListImpl;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.operators.Operator;
+import qualitypatternmodel.operators.OperatorList;
+import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.impl.OperatorListImpl;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -486,9 +486,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (newOperatorList != operatorList) {
 			NotificationChain msgs = null;
 			if (operatorList != null)
-				msgs = ((InternalEObject)operatorList).eInverseRemove(this, FunctionsPackage.OPERATOR_LIST__GRAPH, OperatorList.class, msgs);
+				msgs = ((InternalEObject)operatorList).eInverseRemove(this, OperatorsPackage.OPERATOR_LIST__GRAPH, OperatorList.class, msgs);
 			if (newOperatorList != null)
-				msgs = ((InternalEObject)newOperatorList).eInverseAdd(this, FunctionsPackage.OPERATOR_LIST__GRAPH, OperatorList.class, msgs);
+				msgs = ((InternalEObject)newOperatorList).eInverseAdd(this, OperatorsPackage.OPERATOR_LIST__GRAPH, OperatorList.class, msgs);
 			msgs = basicSetOperatorList(newOperatorList, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
