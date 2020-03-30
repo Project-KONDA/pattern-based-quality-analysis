@@ -15,7 +15,6 @@ import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.NumberElement;
-import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -30,6 +29,9 @@ public class Test12Count {
 		completePatterns.add(getPatternCountAsPatternCondition());	
 		completePatterns.add(getPatternCountAsQuantifiedConditionExistsCondition());	
 		completePatterns.add(getPatternCountAsQuantifiedConditionForallCondition());	
+		// TODO: getPatternCountAsFormulaCondition
+		// TODO: getPatternCountAsNotConditionCondition
+		
 //		completePatterns.add(getPatternCountInQuantifiedConditionExists());
 //		completePatterns.add(getPatternCountInQuantifiedConditionForall());
 //		completePatterns.add(getPatternCountInQuantifiedConditionExistsNested());

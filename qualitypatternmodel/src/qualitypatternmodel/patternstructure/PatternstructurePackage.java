@@ -3180,13 +3180,22 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER___GET_GRAPH = 0;
 
 	/**
+	 * The operation id for the '<em>Copy Previous Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___COPY_PREVIOUS_GRAPH = 1;
+
+	/**
 	 * The number of operations of the '<em>Morphism Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER_OPERATION_COUNT = 1;
+	int MORPHISM_CONTAINER_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl <em>Count Pattern</em>}' class.
@@ -3406,13 +3415,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___GET_GRAPH = PATTERN_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Copy Previous Graph</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___COPY_PREVIOUS_GRAPH = PATTERN_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Count Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 1;
+	int COUNT_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NumberElementImpl <em>Number Element</em>}' class.
@@ -3727,16 +3745,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getQuantifiedCondition_Graph();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#copyPreviousGraph() <em>Copy Previous Graph</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy Previous Graph</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#copyPreviousGraph()
-	 * @generated
-	 */
-	EOperation getQuantifiedCondition__CopyPreviousGraph();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#checkMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' operation.
@@ -4370,6 +4378,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getMorphismContainer__GetGraph();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph() <em>Copy Previous Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Copy Previous Graph</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph()
+	 * @generated
+	 */
+	EOperation getMorphismContainer__CopyPreviousGraph();
+
+	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition1 <em>Count Condition1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4640,14 +4658,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference QUANTIFIED_CONDITION__GRAPH = eINSTANCE.getQuantifiedCondition_Graph();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy Previous Graph</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation QUANTIFIED_CONDITION___COPY_PREVIOUS_GRAPH = eINSTANCE.getQuantifiedCondition__CopyPreviousGraph();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Morphism Of Next Graph</b></em>' operation.
@@ -5152,6 +5162,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation MORPHISM_CONTAINER___GET_GRAPH = eINSTANCE.getMorphismContainer__GetGraph();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy Previous Graph</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MORPHISM_CONTAINER___COPY_PREVIOUS_GRAPH = eINSTANCE.getMorphismContainer__CopyPreviousGraph();
 
 		/**
 		 * The meta object literal for the '<em><b>Count Condition1</b></em>' container reference feature.

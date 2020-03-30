@@ -2,12 +2,14 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import static qualitypatternmodel.utilityclasses.Constants.RETURN;
 import static qualitypatternmodel.utilityclasses.Constants.VARIABLE;
 import static qualitypatternmodel.utilityclasses.Constants.WHERE;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -88,6 +90,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 //		}
 //	}
 	
+	@Override
 	public void copyPreviousGraph() throws MissingPatternContainerException {
 		Graph previousGraph;
 		
@@ -96,8 +99,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 //			previousGraph = quantifiedConditionCount.getGraph();
 //		}
 		try {
-			QuantifiedCondition previousQuantifiedCondition = (QuantifiedCondition) ((CountCondition) getContainer()).getContainer()
-					.getAncestor(QuantifiedCondition.class);
+			QuantifiedCondition previousQuantifiedCondition = (QuantifiedCondition) getAncestor(QuantifiedCondition.class);
 			previousGraph = previousQuantifiedCondition.getGraph();
 		} catch (MissingPatternContainerException e) {
 			CompletePattern completePattern;
@@ -471,6 +473,48 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == MorphismContainer.class) {
+			switch (baseOperationID) {
+				case PatternstructurePackage.MORPHISM_CONTAINER___GET_GRAPH: return PatternstructurePackage.COUNT_PATTERN___GET_GRAPH;
+				case PatternstructurePackage.MORPHISM_CONTAINER___COPY_PREVIOUS_GRAPH: return PatternstructurePackage.COUNT_PATTERN___COPY_PREVIOUS_GRAPH;
+				default: return -1;
+			}
+		}
+		if (baseClass == CountConditionArgument.class) {
+			switch (baseOperationID) {
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PatternstructurePackage.COUNT_PATTERN___COPY_PREVIOUS_GRAPH:
+				try {
+					copyPreviousGraph();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override

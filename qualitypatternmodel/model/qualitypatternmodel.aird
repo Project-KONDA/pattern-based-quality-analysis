@@ -928,10 +928,6 @@
                   <styles xmi:type="notation:FontStyle" xmi:id="_dP3n1CM0Eeq7GbtfgEc6MA" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_dP3n1SM0Eeq7GbtfgEc6MA"/>
                 </children>
-                <children xmi:type="notation:Node" xmi:id="_1VxYkEM4Eeq0cZxoDyHtYQ" type="3010" element="_1B9rwEM4Eeq0cZxoDyHtYQ">
-                  <styles xmi:type="notation:FontStyle" xmi:id="_1VxYkUM4Eeq0cZxoDyHtYQ" fontName="Segoe UI" fontHeight="8"/>
-                  <layoutConstraint xmi:type="notation:Location" xmi:id="_1VxYkkM4Eeq0cZxoDyHtYQ"/>
-                </children>
                 <children xmi:type="notation:Node" xmi:id="_6qdTwGqUEeqwze_WIZAgBA" type="3010" element="_6VqIcGqUEeqwze_WIZAgBA">
                   <styles xmi:type="notation:FontStyle" xmi:id="_6qdTwWqUEeqwze_WIZAgBA" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_6qdTwmqUEeqwze_WIZAgBA"/>
@@ -1269,6 +1265,10 @@
                 <children xmi:type="notation:Node" xmi:id="_zPQ7QGqZEeqwze_WIZAgBA" type="3010" element="_zOuvwGqZEeqwze_WIZAgBA">
                   <styles xmi:type="notation:FontStyle" xmi:id="_zPQ7QWqZEeqwze_WIZAgBA" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_zPQ7QmqZEeqwze_WIZAgBA"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_EwLlIHJtEeqvXfop6Vcvxg" type="3010" element="_1B9rwEM4Eeq0cZxoDyHtYQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_EwMMMHJtEeqvXfop6Vcvxg" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_EwMMMXJtEeqvXfop6Vcvxg"/>
                 </children>
                 <styles xmi:type="notation:SortingStyle" xmi:id="_qIwCsmqZEeqwze_WIZAgBA"/>
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_qIwCs2qZEeqwze_WIZAgBA"/>
@@ -4581,14 +4581,6 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_1B9rwEM4Eeq0cZxoDyHtYQ" name="copyPreviousGraph()" tooltipText="copyPreviousGraph()">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
-          <ownedStyle xmi:type="diagram:BundledImage" uid="_1B9rwUM4Eeq0cZxoDyHtYQ" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-        </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_6VqIcGqUEeqwze_WIZAgBA" name="checkMorphismOfNextGraph()" tooltipText="checkMorphismOfNextGraph()">
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/checkMorphismOfNextGraph"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/checkMorphismOfNextGraph"/>
@@ -5160,6 +5152,14 @@
           <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/getGraph"/>
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/getGraph"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_zOuvwWqZEeqwze_WIZAgBA" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_1B9rwEM4Eeq0cZxoDyHtYQ" name="copyPreviousGraph()" tooltipText="copyPreviousGraph()">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/copyPreviousGraph"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/copyPreviousGraph"/>
+          <ownedStyle xmi:type="diagram:BundledImage" uid="_1B9rwUM4Eeq0cZxoDyHtYQ" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
@@ -10440,8 +10440,8 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_H10S1Wg1EeqqIutgaIr-iw" name="copyPreviousGraph()" visible="false" tooltipText="copyPreviousGraph()">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/copyPreviousGraph"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/copyPreviousGraph"/>
           <graphicalFilters xmi:type="diagram:HideFilter" uid="_SpyVgGg2EeqqIutgaIr-iw"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_H10S1mg1EeqqIutgaIr-iw" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
@@ -16639,8 +16639,8 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_RMOZlm6AEeqbus1jtXHXnw" name="copyPreviousGraph()" visible="false" tooltipText="copyPreviousGraph()">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/copyPreviousGraph"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/copyPreviousGraph"/>
           <graphicalFilters xmi:type="diagram:HideFilter" uid="_RMOZl26AEeqbus1jtXHXnw"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_RMOZmG6AEeqbus1jtXHXnw" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
@@ -23123,8 +23123,8 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_luBUqXJSEeqSxt7l0Y750A" name="copyPreviousGraph()" tooltipText="copyPreviousGraph()">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/copyPreviousGraph"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/copyPreviousGraph"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_luBUqnJSEeqSxt7l0Y750A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
@@ -29467,8 +29467,8 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_zCrkNXJkEeqSxt7l0Y750A" name="copyPreviousGraph()" visible="false" tooltipText="copyPreviousGraph()">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/copyPreviousGraph"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/copyPreviousGraph"/>
           <graphicalFilters xmi:type="diagram:HideFilter" uid="_APp54HJlEeqSxt7l0Y750A"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_zCrkNnJkEeqSxt7l0Y750A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>

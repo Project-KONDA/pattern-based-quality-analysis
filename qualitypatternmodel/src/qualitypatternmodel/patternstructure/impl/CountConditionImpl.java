@@ -21,8 +21,8 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
+import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.Count;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NotCondition;
@@ -136,10 +136,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {		
 		BasicEList<MorphismContainer> result = new BasicEList<MorphismContainer>();
-		if(getArgument1() instanceof Count) {
+		if(getArgument1() instanceof CountPattern) {
 			result.add((MorphismContainer) getArgument1());
 		}
-		if(getArgument2() instanceof Count) {
+		if(getArgument2() instanceof CountPattern) {
 			result.add((MorphismContainer) getArgument2());
 		}
 		return result;

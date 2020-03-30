@@ -4,6 +4,7 @@ package qualitypatternmodel.patternstructure;
 
 import org.eclipse.emf.ecore.EObject;
 
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Graph;
 
 /**
@@ -30,6 +31,14 @@ public interface MorphismContainer extends EObject {
 	 * @generated
 	 */
 	Graph getGraph();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
+	 * @generated
+	 */
+	void copyPreviousGraph() throws MissingPatternContainerException;
 
 	/**
 	 * Returns the value of the '<em><b>Morphism</b></em>' containment reference.

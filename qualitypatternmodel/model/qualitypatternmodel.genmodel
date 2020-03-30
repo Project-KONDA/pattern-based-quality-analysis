@@ -378,7 +378,6 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/quantifier"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/graph"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/copyPreviousGraph"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/checkMorphismOfNextGraph"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/Condition">
@@ -476,6 +475,7 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/MorphismContainer">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/MorphismContainer/morphism"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/getGraph"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/MorphismContainer/copyPreviousGraph"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/CountPattern"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/Pattern">

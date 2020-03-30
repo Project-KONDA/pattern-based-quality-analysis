@@ -14,8 +14,8 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#copyPreviousGraph() <em>Copy Previous Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.QuantifiedCondition#checkMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph() <em>Copy Previous Graph</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -75,10 +75,10 @@ public class QuantifiedConditionTest extends ConditionTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#copyPreviousGraph() <em>Copy Previous Graph</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph() <em>Copy Previous Graph</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#copyPreviousGraph()
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph()
 	 * @generated
 	 */
 	public void testCopyPreviousGraph() {

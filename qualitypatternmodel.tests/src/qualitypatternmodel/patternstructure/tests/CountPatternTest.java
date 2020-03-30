@@ -11,6 +11,12 @@ import qualitypatternmodel.patternstructure.CountPattern;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Subpattern</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph() <em>Copy Previous Graph</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class CountPatternTest extends PatternTest {
@@ -65,6 +71,19 @@ public class CountPatternTest extends PatternTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph() <em>Copy Previous Graph</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer#copyPreviousGraph()
+	 * @generated
+	 */
+	public void testCopyPreviousGraph() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //SubpatternTest

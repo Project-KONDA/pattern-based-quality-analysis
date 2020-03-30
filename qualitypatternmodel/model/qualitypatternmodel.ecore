@@ -428,7 +428,6 @@
           eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/mappingTo"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="QuantifiedCondition" eSuperTypes="#//patternstructure/Condition #//patternstructure/MorphismContainer">
-      <eOperations name="copyPreviousGraph" eExceptions="#//patternstructure/MissingPatternContainerException"/>
       <eOperations name="checkMorphismOfNextGraph" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
@@ -586,6 +585,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="MorphismContainer" abstract="true"
         interface="true">
       <eOperations name="getGraph" eType="#//graphstructure/Graph"/>
+      <eOperations name="copyPreviousGraph" eExceptions="#//patternstructure/MissingPatternContainerException"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" eType="#//patternstructure/Morphism"
           containment="true" eOpposite="#//patternstructure/Morphism/morphismContainer"/>
     </eClassifiers>

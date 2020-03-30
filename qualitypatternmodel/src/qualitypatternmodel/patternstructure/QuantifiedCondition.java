@@ -3,7 +3,6 @@
 package qualitypatternmodel.patternstructure;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Graph;
 
 /**
@@ -73,14 +72,6 @@ public interface QuantifiedCondition extends Condition, MorphismContainer {
 	 * @generated
 	 */
 	void setGraph(Graph value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
-	 * @generated
-	 */
-	void copyPreviousGraph() throws MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
