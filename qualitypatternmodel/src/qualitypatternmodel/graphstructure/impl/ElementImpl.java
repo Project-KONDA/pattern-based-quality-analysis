@@ -755,9 +755,11 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	public NotificationChain basicSetPreviousElement(Element newPrevious, NotificationChain msgs) {
 //		clearComparisonRecursively();
 //		clearPropertyRecursively();		
-			
-		updateParameters(newPrevious.getParameterList());
-		updateOperators(newPrevious.getOperatorList());
+		
+		if(newPrevious != null) {
+			updateParameters(newPrevious.getParameterList());
+			updateOperators(newPrevious.getOperatorList());
+		}
 		
 //		clearMatchRecursively();
 		removeFromReturnElementsRecursively();
@@ -1623,9 +1625,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			
-			Property property = new PropertyImpl();
-			property.createParameters();
+			Property property = new PropertyImpl();			
 			getProperties().add(property);
+			property.createParameters();
 	
 			UnknownParameterValue unknownParameterValue = new UnknownParameterValueImpl();
 			varlist.add(unknownParameterValue);
@@ -1635,8 +1637,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			comparison.setArgument1(property);
 			comparison.setArgument2(unknownParameterValue);						
 			
-		} catch (Exception e) {
-			System.out.println("Adding Condition Failed: " + e.getMessage());			
+		} catch (Exception e) {			
+			System.out.println("Adding Condition Failed: " + e.getMessage());		
+			e.printStackTrace();
 		}
 	}
 
