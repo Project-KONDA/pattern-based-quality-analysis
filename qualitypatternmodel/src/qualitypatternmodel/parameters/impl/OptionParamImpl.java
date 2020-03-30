@@ -42,7 +42,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  *   <li>{@link qualitypatternmodel.parameters.impl.OptionParamImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.OptionParamImpl#getRelation <em>Relation</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.OptionParamImpl#getComparison <em>Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.OptionParamImpl#getCountcondition <em>Countcondition</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.OptionParamImpl#getCountCondition <em>Count Condition</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,14 +99,14 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	protected EList<Comparison> comparison;
 
 	/**
-	 * The cached value of the '{@link #getCountcondition() <em>Countcondition</em>}' reference.
+	 * The cached value of the '{@link #getCountCondition() <em>Count Condition</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCountcondition()
+	 * @see #getCountCondition()
 	 * @generated
 	 * @ordered
 	 */
-	protected CountCondition countcondition;
+	protected CountCondition countCondition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -306,16 +306,16 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * @generated
 	 */
 	@Override
-	public CountCondition getCountcondition() {
-		if (countcondition != null && countcondition.eIsProxy()) {
-			InternalEObject oldCountcondition = (InternalEObject)countcondition;
-			countcondition = (CountCondition)eResolveProxy(oldCountcondition);
-			if (countcondition != oldCountcondition) {
+	public CountCondition getCountCondition() {
+		if (countCondition != null && countCondition.eIsProxy()) {
+			InternalEObject oldCountCondition = (InternalEObject)countCondition;
+			countCondition = (CountCondition)eResolveProxy(oldCountCondition);
+			if (countCondition != oldCountCondition) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.OPTION_PARAM__COUNTCONDITION, oldCountcondition, countcondition));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.OPTION_PARAM__COUNT_CONDITION, oldCountCondition, countCondition));
 			}
 		}
-		return countcondition;
+		return countCondition;
 	}
 
 	/**
@@ -323,8 +323,8 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CountCondition basicGetCountcondition() {
-		return countcondition;
+	public CountCondition basicGetCountCondition() {
+		return countCondition;
 	}
 
 	/**
@@ -332,11 +332,11 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCountcondition(CountCondition newCountcondition, NotificationChain msgs) {
-		CountCondition oldCountcondition = countcondition;
-		countcondition = newCountcondition;
+	public NotificationChain basicSetCountCondition(CountCondition newCountCondition, NotificationChain msgs) {
+		CountCondition oldCountCondition = countCondition;
+		countCondition = newCountCondition;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.OPTION_PARAM__COUNTCONDITION, oldCountcondition, newCountcondition);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.OPTION_PARAM__COUNT_CONDITION, oldCountCondition, newCountCondition);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -348,18 +348,18 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * @generated
 	 */
 	@Override
-	public void setCountcondition(CountCondition newCountcondition) {
-		if (newCountcondition != countcondition) {
+	public void setCountCondition(CountCondition newCountCondition) {
+		if (newCountCondition != countCondition) {
 			NotificationChain msgs = null;
-			if (countcondition != null)
-				msgs = ((InternalEObject)countcondition).eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM, CountCondition.class, msgs);
-			if (newCountcondition != null)
-				msgs = ((InternalEObject)newCountcondition).eInverseAdd(this, PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM, CountCondition.class, msgs);
-			msgs = basicSetCountcondition(newCountcondition, msgs);
+			if (countCondition != null)
+				msgs = ((InternalEObject)countCondition).eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM, CountCondition.class, msgs);
+			if (newCountCondition != null)
+				msgs = ((InternalEObject)newCountCondition).eInverseAdd(this, PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM, CountCondition.class, msgs);
+			msgs = basicSetCountCondition(newCountCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.OPTION_PARAM__COUNTCONDITION, newCountcondition, newCountcondition));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.OPTION_PARAM__COUNT_CONDITION, newCountCondition, newCountCondition));
 	}
 
 	/**
@@ -381,10 +381,10 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 				return basicSetRelation((Relation)otherEnd, msgs);
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison()).basicAdd(otherEnd, msgs);
-			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
-				if (countcondition != null)
-					msgs = ((InternalEObject)countcondition).eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM, CountCondition.class, msgs);
-				return basicSetCountcondition((CountCondition)otherEnd, msgs);
+			case ParametersPackage.OPTION_PARAM__COUNT_CONDITION:
+				if (countCondition != null)
+					msgs = ((InternalEObject)countCondition).eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM, CountCondition.class, msgs);
+				return basicSetCountCondition((CountCondition)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -403,8 +403,8 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 				return basicSetRelation(null, msgs);
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
 				return ((InternalEList<?>)getComparison()).basicRemove(otherEnd, msgs);
-			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
-				return basicSetCountcondition(null, msgs);
+			case ParametersPackage.OPTION_PARAM__COUNT_CONDITION:
+				return basicSetCountCondition(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -429,9 +429,9 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 				return basicGetRelation();
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
 				return getComparison();
-			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
-				if (resolve) return getCountcondition();
-				return basicGetCountcondition();
+			case ParametersPackage.OPTION_PARAM__COUNT_CONDITION:
+				if (resolve) return getCountCondition();
+				return basicGetCountCondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -462,8 +462,8 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 				getComparison().clear();
 				getComparison().addAll((Collection<? extends Comparison>)newValue);
 				return;
-			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
-				setCountcondition((CountCondition)newValue);
+			case ParametersPackage.OPTION_PARAM__COUNT_CONDITION:
+				setCountCondition((CountCondition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -492,8 +492,8 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
 				getComparison().clear();
 				return;
-			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
-				setCountcondition((CountCondition)null);
+			case ParametersPackage.OPTION_PARAM__COUNT_CONDITION:
+				setCountCondition((CountCondition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -517,8 +517,8 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 				return relation != null;
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
 				return comparison != null && !comparison.isEmpty();
-			case ParametersPackage.OPTION_PARAM__COUNTCONDITION:
-				return countcondition != null;
+			case ParametersPackage.OPTION_PARAM__COUNT_CONDITION:
+				return countCondition != null;
 		}
 		return super.eIsSet(featureID);
 	}

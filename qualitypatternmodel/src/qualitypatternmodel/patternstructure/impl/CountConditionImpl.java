@@ -509,9 +509,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		if (newOptionParam != optionParam) {
 			NotificationChain msgs = null;
 			if (optionParam != null)
-				msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__COUNTCONDITION, OptionParam.class, msgs);
+				msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__COUNT_CONDITION, OptionParam.class, msgs);
 			if (newOptionParam != null)
-				msgs = ((InternalEObject)newOptionParam).eInverseAdd(this, ParametersPackage.OPTION_PARAM__COUNTCONDITION, OptionParam.class, msgs);
+				msgs = ((InternalEObject)newOptionParam).eInverseAdd(this, ParametersPackage.OPTION_PARAM__COUNT_CONDITION, OptionParam.class, msgs);
 			msgs = basicSetOptionParam(newOptionParam, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -538,7 +538,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				return basicSetOption((ComparisonOptionParam)otherEnd, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM:
 				if (optionParam != null)
-					msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__COUNTCONDITION, OptionParam.class, msgs);
+					msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__COUNT_CONDITION, OptionParam.class, msgs);
 				return basicSetOptionParam((OptionParam)otherEnd, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT2:
 				if (argument2 != null)

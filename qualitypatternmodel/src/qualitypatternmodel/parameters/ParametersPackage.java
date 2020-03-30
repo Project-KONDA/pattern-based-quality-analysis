@@ -3999,13 +3999,13 @@ public interface ParametersPackage extends EPackage {
 	int OPTION_PARAM__COMPARISON = PARAMETER_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Countcondition</b></em>' reference.
+	 * The feature id for the '<em><b>Count Condition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPTION_PARAM__COUNTCONDITION = PARAMETER_FEATURE_COUNT + 5;
+	int OPTION_PARAM__COUNT_CONDITION = PARAMETER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Option Param</em>' class.
@@ -4760,15 +4760,15 @@ public interface ParametersPackage extends EPackage {
 	EReference getOptionParam_Comparison();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.OptionParam#getCountcondition <em>Countcondition</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.OptionParam#getCountCondition <em>Count Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Countcondition</em>'.
-	 * @see qualitypatternmodel.parameters.OptionParam#getCountcondition()
+	 * @return the meta object for the reference '<em>Count Condition</em>'.
+	 * @see qualitypatternmodel.parameters.OptionParam#getCountCondition()
 	 * @see #getOptionParam()
 	 * @generated
 	 */
-	EReference getOptionParam_Countcondition();
+	EReference getOptionParam_CountCondition();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -5256,12 +5256,12 @@ public interface ParametersPackage extends EPackage {
 		EReference OPTION_PARAM__COMPARISON = eINSTANCE.getOptionParam_Comparison();
 
 		/**
-		 * The meta object literal for the '<em><b>Countcondition</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Count Condition</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OPTION_PARAM__COUNTCONDITION = eINSTANCE.getOptionParam_Countcondition();
+		EReference OPTION_PARAM__COUNT_CONDITION = eINSTANCE.getOptionParam_CountCondition();
 
 	}
 

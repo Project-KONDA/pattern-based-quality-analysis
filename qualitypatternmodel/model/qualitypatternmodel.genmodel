@@ -95,7 +95,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/OptionParam/comparison"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/OptionParam/countcondition"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/OptionParam/countCondition"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Operators" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//operators">

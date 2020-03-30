@@ -6059,9 +6059,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m8f5HG5-Eeqbus1jtXHXnw" sourceNode="_VVki0G53Eeqbus1jtXHXnw" targetNode="_EpllcGqMEeqwze_WIZAgBA" beginLabel="[1..1] optionParam" endLabel="[0..1] countcondition">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countcondition"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countcondition"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m8f5HG5-Eeqbus1jtXHXnw" sourceNode="_VVki0G53Eeqbus1jtXHXnw" targetNode="_EpllcGqMEeqwze_WIZAgBA" beginLabel="[1..1] optionParam" endLabel="[0..1] countCondition">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countCondition"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countCondition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/optionParam"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m8ggIG5-Eeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -12257,8 +12257,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_m8-abG5-Eeqbus1jtXHXnw" sourceNode="_bYO98G55Eeqbus1jtXHXnw" targetNode="_hXM0EG03EeqrjIq7keEu6A" beginLabel="[1..1] optionParam" endLabel="[0..1] countcondition">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countcondition"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countcondition"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countCondition"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countCondition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/optionParam"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_m8_BQG5-Eeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -18429,7 +18429,7 @@
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_YcuVgW6BEeqbus1jtXHXnw" visible="false" sourceNode="_RMPATG6AEeqbus1jtXHXnw" targetNode="_RMNx3G6AEeqbus1jtXHXnw" beginLabel="[0..1] countcondition" endLabel="[1..1] optionParam">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/optionParam"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countcondition"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countCondition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/optionParam"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_YcuVgm6BEeqbus1jtXHXnw" description="_RMWUmm6AEeqbus1jtXHXnw" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_YcuVg26BEeqbus1jtXHXnw" showIcon="false">
@@ -24627,8 +24627,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_luB7e3JSEeqSxt7l0Y750A" sourceNode="_luBTsnJSEeqSxt7l0Y750A" targetNode="_luBVInJSEeqSxt7l0Y750A" beginLabel="[1..1] optionParam" endLabel="[0..1] countcondition">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countcondition"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countcondition"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countCondition"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countCondition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/optionParam"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_luB7fHJSEeqSxt7l0Y750A" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
@@ -30945,8 +30945,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_zCsKiXJkEeqSxt7l0Y750A" visible="false" sourceNode="_zCri9nJkEeqSxt7l0Y750A" targetNode="_zCsJX3JkEeqSxt7l0Y750A" beginLabel="[1..1] optionParam" endLabel="[0..1] countcondition">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countcondition"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countcondition"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countCondition"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//parameters/OptionParam/countCondition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/optionParam"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_zCsKinJkEeqSxt7l0Y750A" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>

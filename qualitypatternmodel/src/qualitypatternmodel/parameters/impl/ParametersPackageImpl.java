@@ -782,7 +782,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EReference getOptionParam_Countcondition() {
+	public EReference getOptionParam_CountCondition() {
 		return (EReference)optionParamEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -883,7 +883,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(optionParamEClass, OPTION_PARAM__PROPERTY);
 		createEReference(optionParamEClass, OPTION_PARAM__RELATION);
 		createEReference(optionParamEClass, OPTION_PARAM__COMPARISON);
-		createEReference(optionParamEClass, OPTION_PARAM__COUNTCONDITION);
+		createEReference(optionParamEClass, OPTION_PARAM__COUNT_CONDITION);
 	}
 
 	/**
@@ -1024,7 +1024,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getOptionParam_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_OptionParam(), "property", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOptionParam_Relation(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_OptionParam(), "relation", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOptionParam_Comparison(), theOperatorsPackage.getComparison(), theOperatorsPackage.getComparison_OptionParam(), "comparison", null, 0, -1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOptionParam_Countcondition(), thePatternstructurePackage.getCountCondition(), thePatternstructurePackage.getCountCondition_OptionParam(), "countcondition", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOptionParam_CountCondition(), thePatternstructurePackage.getCountCondition(), thePatternstructurePackage.getCountCondition_OptionParam(), "countCondition", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

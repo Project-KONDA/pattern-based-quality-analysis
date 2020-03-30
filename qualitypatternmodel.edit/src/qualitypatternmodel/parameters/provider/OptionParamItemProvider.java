@@ -50,7 +50,7 @@ public class OptionParamItemProvider
 			addPropertyPropertyDescriptor(object);
 			addRelationPropertyDescriptor(object);
 			addComparisonPropertyDescriptor(object);
-			addCountconditionPropertyDescriptor(object);
+			addCountConditionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -166,19 +166,19 @@ public class OptionParamItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Countcondition feature.
+	 * This adds a property descriptor for the Count Condition feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCountconditionPropertyDescriptor(Object object) {
+	protected void addCountConditionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OptionParam_countcondition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OptionParam_countcondition_feature", "_UI_OptionParam_type"),
-				 ParametersPackage.Literals.OPTION_PARAM__COUNTCONDITION,
+				 getString("_UI_OptionParam_countCondition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OptionParam_countCondition_feature", "_UI_OptionParam_type"),
+				 ParametersPackage.Literals.OPTION_PARAM__COUNT_CONDITION,
 				 true,
 				 false,
 				 true,

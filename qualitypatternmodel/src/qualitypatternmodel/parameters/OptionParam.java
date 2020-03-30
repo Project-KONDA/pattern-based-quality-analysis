@@ -23,7 +23,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
  *   <li>{@link qualitypatternmodel.parameters.OptionParam#getProperty <em>Property</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.OptionParam#getRelation <em>Relation</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.OptionParam#getComparison <em>Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.OptionParam#getCountcondition <em>Countcondition</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.OptionParam#getCountCondition <em>Count Condition</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getOptionParam()
@@ -127,27 +127,27 @@ public interface OptionParam<T> extends Parameter {
 	EList<Comparison> getComparison();
 
 	/**
-	 * Returns the value of the '<em><b>Countcondition</b></em>' reference.
+	 * Returns the value of the '<em><b>Count Condition</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountCondition#getOptionParam <em>Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Countcondition</em>' reference.
-	 * @see #setCountcondition(CountCondition)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getOptionParam_Countcondition()
+	 * @return the value of the '<em>Count Condition</em>' reference.
+	 * @see #setCountCondition(CountCondition)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getOptionParam_CountCondition()
 	 * @see qualitypatternmodel.patternstructure.CountCondition#getOptionParam
 	 * @model opposite="optionParam"
 	 * @generated
 	 */
-	CountCondition getCountcondition();
+	CountCondition getCountCondition();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.OptionParam#getCountcondition <em>Countcondition</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.OptionParam#getCountCondition <em>Count Condition</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Countcondition</em>' reference.
-	 * @see #getCountcondition()
+	 * @param value the new value of the '<em>Count Condition</em>' reference.
+	 * @see #getCountCondition()
 	 * @generated
 	 */
-	void setCountcondition(CountCondition value);
+	void setCountCondition(CountCondition value);
 
 } // OptionParam

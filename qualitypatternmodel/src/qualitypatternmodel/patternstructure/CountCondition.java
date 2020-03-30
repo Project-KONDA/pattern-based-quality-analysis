@@ -79,14 +79,14 @@ public interface CountCondition extends Condition {
 
 	/**
 	 * Returns the value of the '<em><b>Option Param</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.OptionParam#getCountcondition <em>Countcondition</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.OptionParam#getCountCondition <em>Count Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option Param</em>' reference.
 	 * @see #setOptionParam(OptionParam)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_OptionParam()
-	 * @see qualitypatternmodel.parameters.OptionParam#getCountcondition
-	 * @model opposite="countcondition" required="true"
+	 * @see qualitypatternmodel.parameters.OptionParam#getCountCondition
+	 * @model opposite="countCondition" required="true"
 	 * @generated
 	 */
 	OptionParam getOptionParam();
