@@ -434,7 +434,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/quantifiedCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
-          eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/quantifiedcondition"/>
+          eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/quantifiedCondition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getNextQuantifiedConditions" upperBound="-1" eType="#//patternstructure/MorphismContainer"
@@ -443,7 +443,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//patternstructure/Pattern"
           eOpposite="#//patternstructure/Pattern/condition"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedcondition"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedCondition"
           eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/condition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="formula1" eType="#//patternstructure/Formula"
           eOpposite="#//patternstructure/Formula/condition1"/>

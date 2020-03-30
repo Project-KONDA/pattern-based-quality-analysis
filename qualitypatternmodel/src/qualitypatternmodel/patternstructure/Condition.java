@@ -17,7 +17,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getCondDepth <em>Cond Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getPattern <em>Pattern</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition <em>Quantifiedcondition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getFormula1 <em>Formula1</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getFormula2 <em>Formula2</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getNotCondition <em>Not Condition</em>}</li>
@@ -77,28 +77,28 @@ public interface Condition extends PatternElement {
 	void setPattern(Pattern value);
 
 	/**
-	 * Returns the value of the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * Returns the value of the '<em><b>Quantified Condition</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getCondition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Quantifiedcondition</em>' container reference.
-	 * @see #setQuantifiedcondition(QuantifiedCondition)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_Quantifiedcondition()
+	 * @return the value of the '<em>Quantified Condition</em>' container reference.
+	 * @see #setQuantifiedCondition(QuantifiedCondition)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_QuantifiedCondition()
 	 * @see qualitypatternmodel.patternstructure.QuantifiedCondition#getCondition
 	 * @model opposite="condition" transient="false"
 	 * @generated
 	 */
-	QuantifiedCondition getQuantifiedcondition();
+	QuantifiedCondition getQuantifiedCondition();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition <em>Quantifiedcondition</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedCondition <em>Quantified Condition</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Quantifiedcondition</em>' container reference.
-	 * @see #getQuantifiedcondition()
+	 * @param value the new value of the '<em>Quantified Condition</em>' container reference.
+	 * @see #getQuantifiedCondition()
 	 * @generated
 	 */
-	void setQuantifiedcondition(QuantifiedCondition value);
+	void setQuantifiedCondition(QuantifiedCondition value);
 
 	/**
 	 * Returns the value of the '<em><b>Formula1</b></em>' container reference.

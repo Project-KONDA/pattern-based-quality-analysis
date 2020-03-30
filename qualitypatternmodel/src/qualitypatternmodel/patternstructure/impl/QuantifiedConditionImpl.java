@@ -194,12 +194,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public NotificationChain basicSetQuantifiedcondition(QuantifiedCondition newQuantifiedcondition,
+	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedcondition,
 			NotificationChain msgs) {
 		getMorphism().setFrom(null);
 		getMorphism().setTo(getGraph());
 		getMorphism().removeDanglingMappingReference();
-		NotificationChain msg = super.basicSetQuantifiedcondition(newQuantifiedcondition, msgs);
+		NotificationChain msg = super.basicSetQuantifiedCondition(newQuantifiedcondition, msgs);
 		if (newQuantifiedcondition != null) {
 			try {
 				copyPreviousGraph();
@@ -325,9 +325,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (newCondition != condition) {
 			NotificationChain msgs = null;
 			if (condition != null)
-				msgs = ((InternalEObject)condition).eInverseRemove(this, PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, Condition.class, msgs);
+				msgs = ((InternalEObject)condition).eInverseRemove(this, PatternstructurePackage.CONDITION__QUANTIFIED_CONDITION, Condition.class, msgs);
 			if (newCondition != null)
-				msgs = ((InternalEObject)newCondition).eInverseAdd(this, PatternstructurePackage.CONDITION__QUANTIFIEDCONDITION, Condition.class, msgs);
+				msgs = ((InternalEObject)newCondition).eInverseAdd(this, PatternstructurePackage.CONDITION__QUANTIFIED_CONDITION, Condition.class, msgs);
 			msgs = basicSetCondition(newCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}

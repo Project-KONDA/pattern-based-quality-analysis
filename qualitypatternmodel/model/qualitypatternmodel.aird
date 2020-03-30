@@ -5475,10 +5475,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_hluxYD6qEeqXC8_vDFMcOg" sourceNode="_LSGTYB2REeqrGqxc7qjo8A" targetNode="_LGvX8B2REeqrGqxc7qjo8A" beginLabel="[0..1] quantifiedcondition" endLabel="[1..1] condition">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_hluxYD6qEeqXC8_vDFMcOg" sourceNode="_LSGTYB2REeqrGqxc7qjo8A" targetNode="_LGvX8B2REeqrGqxc7qjo8A" beginLabel="[0..1] quantifiedCondition" endLabel="[1..1] condition">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/Condition/quantifiedcondition"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/Condition/quantifiedCondition"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xYo0LT6rEeqCS-1j1plv3Q" description="_xYo0Kj6rEeqCS-1j1plv3Q" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_xYo0Lj6rEeqCS-1j1plv3Q" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -11387,7 +11387,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_H105mmg1EeqqIutgaIr-iw" sourceNode="_H10Sz2g1EeqqIutgaIr-iw" targetNode="_H10S12g1EeqqIutgaIr-iw" beginLabel="[0..1] quantifiedcondition" endLabel="[1..1] condition">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/Condition/quantifiedcondition"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/Condition/quantifiedCondition"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_H105m2g1EeqqIutgaIr-iw" description="_H1_RQmg1EeqqIutgaIr-iw" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_H105nGg1EeqqIutgaIr-iw" labelSize="11" showIcon="false">
           <customFeatures>labelFormat</customFeatures>
@@ -17596,7 +17596,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RMPnAG6AEeqbus1jtXHXnw" sourceNode="_RMOZkm6AEeqbus1jtXHXnw" targetNode="_RMOZn26AEeqbus1jtXHXnw" beginLabel="[0..1] quantifiedcondition" endLabel="[1..1] condition">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/Condition/quantifiedcondition"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/Condition/quantifiedCondition"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RMPnAW6AEeqbus1jtXHXnw" description="_RMWUnW6AEeqbus1jtXHXnw" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_RMPnAm6AEeqbus1jtXHXnw" labelSize="11" showIcon="false">
           <customFeatures>labelFormat</customFeatures>
@@ -24045,7 +24045,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_luB6u3JSEeqSxt7l0Y750A" sourceNode="_luBUpXJSEeqSxt7l0Y750A" targetNode="_luBUrXJSEeqSxt7l0Y750A" beginLabel="[0..1] quantifiedcondition" endLabel="[1..1] condition">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/Condition/quantifiedcondition"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/Condition/quantifiedCondition"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_luB6vHJSEeqSxt7l0Y750A" description="_luE93XJSEeqSxt7l0Y750A" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_luB6vXJSEeqSxt7l0Y750A" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -30460,7 +30460,7 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_zCsJyXJkEeqSxt7l0Y750A" sourceNode="_zCrkMXJkEeqSxt7l0Y750A" targetNode="_zCrkOXJkEeqSxt7l0Y750A" beginLabel="[0..1] quantifiedcondition" endLabel="[1..1] condition">
       <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
       <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/QuantifiedCondition/condition"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/Condition/quantifiedcondition"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/Condition/quantifiedCondition"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_zCsJynJkEeqSxt7l0Y750A" description="_zCt-jXJkEeqSxt7l0Y750A" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_zCsJy3JkEeqSxt7l0Y750A" showIcon="false">
           <labelFormat>bold</labelFormat>

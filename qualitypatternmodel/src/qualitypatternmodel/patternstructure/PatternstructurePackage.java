@@ -649,13 +649,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION__PATTERN = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * The feature id for the '<em><b>Quantified Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__QUANTIFIEDCONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int CONDITION__QUANTIFIED_CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
@@ -875,13 +875,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION__PATTERN = CONDITION__PATTERN;
 
 	/**
-	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * The feature id for the '<em><b>Quantified Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
+	int QUANTIFIED_CONDITION__QUANTIFIED_CONDITION = CONDITION__QUANTIFIED_CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
@@ -1607,13 +1607,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA__PATTERN = CONDITION__PATTERN;
 
 	/**
-	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * The feature id for the '<em><b>Quantified Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
+	int FORMULA__QUANTIFIED_CONDITION = CONDITION__QUANTIFIED_CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
@@ -1860,13 +1860,13 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT__PATTERN = CONDITION__PATTERN;
 
 	/**
-	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * The feature id for the '<em><b>Quantified Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
+	int TRUE_ELEMENT__QUANTIFIED_CONDITION = CONDITION__QUANTIFIED_CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
@@ -2511,13 +2511,13 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION__PATTERN = CONDITION__PATTERN;
 
 	/**
-	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * The feature id for the '<em><b>Quantified Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
+	int NOT_CONDITION__QUANTIFIED_CONDITION = CONDITION__QUANTIFIED_CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
@@ -2746,13 +2746,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION__PATTERN = CONDITION__PATTERN;
 
 	/**
-	 * The feature id for the '<em><b>Quantifiedcondition</b></em>' container reference.
+	 * The feature id for the '<em><b>Quantified Condition</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION__QUANTIFIEDCONDITION = CONDITION__QUANTIFIEDCONDITION;
+	int COUNT_CONDITION__QUANTIFIED_CONDITION = CONDITION__QUANTIFIED_CONDITION;
 
 	/**
 	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
@@ -3792,15 +3792,15 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCondition_Pattern();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition <em>Quantifiedcondition</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedCondition <em>Quantified Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Quantifiedcondition</em>'.
-	 * @see qualitypatternmodel.patternstructure.Condition#getQuantifiedcondition()
+	 * @return the meta object for the container reference '<em>Quantified Condition</em>'.
+	 * @see qualitypatternmodel.patternstructure.Condition#getQuantifiedCondition()
 	 * @see #getCondition()
 	 * @generated
 	 */
-	EReference getCondition_Quantifiedcondition();
+	EReference getCondition_QuantifiedCondition();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Condition#getFormula1 <em>Formula1</em>}'.
@@ -4692,12 +4692,12 @@ public interface PatternstructurePackage extends EPackage {
 		EReference CONDITION__PATTERN = eINSTANCE.getCondition_Pattern();
 
 		/**
-		 * The meta object literal for the '<em><b>Quantifiedcondition</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Quantified Condition</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONDITION__QUANTIFIEDCONDITION = eINSTANCE.getCondition_Quantifiedcondition();
+		EReference CONDITION__QUANTIFIED_CONDITION = eINSTANCE.getCondition_QuantifiedCondition();
 
 		/**
 		 * The meta object literal for the '<em><b>Formula1</b></em>' container reference feature.

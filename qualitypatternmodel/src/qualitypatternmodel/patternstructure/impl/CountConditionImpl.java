@@ -335,12 +335,12 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override 
-	public NotificationChain basicSetQuantifiedcondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {
+	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {
 		if(getOption() != null) {
 			getOption().setParameterList(null);
 		}
 		
-		msgs = super.basicSetQuantifiedcondition(newQuantifiedCondition, msgs);
+		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);
 		
 		setOption(new ComparisonOptionParamImpl());
 		getParameterList().add(getOption());
