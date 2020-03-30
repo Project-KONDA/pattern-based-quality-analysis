@@ -45,17 +45,20 @@ public class Eval01Comp {
 		
 		Element next1 = returnElementInGraph1.getNextElements().get(0);	
 		next1.addPrimitiveComparison();
-		Property property1 = graphFactory.createProperty();
+		Property property1 = graphFactory.createProperty();		
 		property1.setElement(next1);
+		property1.createParameters();
 		
 		Element next2 = graphFactory.createElement();
 		returnElementInGraph1.getNextElements().add(next2);
 		next2.addPrimitiveComparison();
 		Property property2 = graphFactory.createProperty();
 		property2.setElement(next2);
+		property2.createParameters();
 		
 		Comparison comparison = functionsFactory.createComparison();
 		graph1.getOperatorList().add(comparison);		
+		comparison.createParameters();
 		comparison.setArgument1(property1);
 		comparison.setArgument2(property2);		
 		
@@ -87,7 +90,9 @@ public class Eval01Comp {
 		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
 		next1ToReturnElementInGraph1.getProperties().get(0).getAttributeName().setValue("Type");
 		next1ToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
-		next1ToReturnElementInGraph1.getProperties().get(1).getAttributeName().setValue("Value");
+		next1ToReturnElementInGraph1.getProperties().get(1)
+		.getAttributeName()
+		.setValue("Value");
 		next1ToReturnElementInGraph1.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		
 		Comparison comparison2 = (Comparison) next2ToReturnElementInGraph1.getPredicates().get(0);
