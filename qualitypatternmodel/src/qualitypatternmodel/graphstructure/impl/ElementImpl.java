@@ -1057,7 +1057,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				}
 			}			
 		}
-		if (getMappingFrom() != null && getMappingFrom().getMorphism().getMorphismContainer() != null) {
+		if (getMappingFrom() != null && !(getMappingFrom().getMorphism().getMorphismContainer() instanceof CountPattern)) {
 
 //			PatternElement elem;
 //			try {
