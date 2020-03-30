@@ -107,7 +107,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	
 	@Override
 	public boolean inputIsValid() {
-		return getValue() != null && getValue() != "";
+		return getValue() != null && !getValue().equals("");
 	}
 	
 	@Override
