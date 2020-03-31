@@ -102,7 +102,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					switch (operator) {
 					case AND:
 					case OR:
-						result = "((" + condition1.generateQuery(location) + ")" + operator.getLiteral() + "("
+						result = "((" + condition1.generateQuery(location) + ") " + operator.getLiteral() + " ("
 						+ condition2.generateQuery(location) + "))";
 						break;
 					case IMPLIES:
