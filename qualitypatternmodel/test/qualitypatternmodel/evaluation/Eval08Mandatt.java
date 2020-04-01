@@ -2,10 +2,17 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
+import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.PropertyLocation;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
@@ -19,7 +26,7 @@ import qualitypatternmodel.translationtests.Test00;
 public class Eval08Mandatt {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getMandattAbstract());
+		completePatterns.add(getMandattMidas());
 		Test00.test(completePatterns);
 		
 	}
@@ -31,6 +38,7 @@ public class Eval08Mandatt {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.getGraph().getReturnElements().get(0).addPrimitiveComparison();
 		Formula form = factory.createFormula();
 		completePattern.setCondition(form);
 		form.setOperator(LogicalOperator.OR);
@@ -61,5 +69,57 @@ public class Eval08Mandatt {
 		element3.addPrimitiveComparison();	
 		
 		return completePattern;		
+	}
+	
+	private static CompletePattern getMandattMidas() {
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
+		CompletePattern completePattern = getMandattAbstract();
+		
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		
+		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
+		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
+		concreteInputValue.setValue("kue");
+		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
+		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		
+		Formula formula = (Formula) completePattern.getCondition();
+		NotCondition not = (NotCondition) formula.getCondition1();
+		QuantifiedCondition qc1 = (QuantifiedCondition) not.getCondition();
+		QuantifiedCondition qc2 = (QuantifiedCondition) formula.getCondition2();
+		
+		Graph graph1 = qc1.getGraph();
+		Element returnElementInGraph1 = graph1.getReturnElements().get(0);
+		Element next1ToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(0);	
+		Comparison comparison1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
+		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
+		concreteInputValue1.setValue("3162");
+		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
+		next1ToReturnElementInGraph1.getProperties().get(0).getAttributeName().setValue("Type");
+		next1ToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		
+		Graph graph2 = qc2.getGraph();
+		Element returnElementInGraph2 = graph2.getReturnElements().get(0);
+		Element next1ToReturnElementInGraph2 = returnElementInGraph2.getNextElements().get(0);	
+		
+		Comparison comparison2 = (Comparison) next1ToReturnElementInGraph2.getPredicates().get(0);
+		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
+		concreteInputValue2.setValue("3162");
+		((UnknownParameterValue) comparison2.getArguments().get(1)).concretize(concreteInputValue2);
+		next1ToReturnElementInGraph2.getProperties().get(0).getAttributeName().setValue("Type");
+		next1ToReturnElementInGraph2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		
+		Comparison comparison3 = (Comparison) next1ToReturnElementInGraph2.getPredicates().get(1);
+		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
+		concreteInputValue3.setValue("");
+		((UnknownParameterValue) comparison3.getArguments().get(1)).concretize(concreteInputValue3);
+		next1ToReturnElementInGraph2.getProperties().get(1).getAttributeName().setValue("Value");
+		next1ToReturnElementInGraph2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		
+		return completePattern;
 	}
 }

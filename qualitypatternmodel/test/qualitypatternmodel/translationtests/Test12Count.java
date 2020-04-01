@@ -70,7 +70,7 @@ public class Test12Count {
 			
 		countpattern.getGraph().getReturnElements().clear();
 		countpattern.getGraph().getReturnElements().add(nextToReturnInCPattern);
-		
+				
 		Condition truecondition = factory.createTrueElement();
 		countpattern.setCondition(truecondition);
 		

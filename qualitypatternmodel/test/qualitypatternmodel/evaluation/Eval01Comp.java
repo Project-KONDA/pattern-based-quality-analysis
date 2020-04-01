@@ -12,6 +12,7 @@ import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.FunctionsFactory;
 import qualitypatternmodel.operators.FunctionsPackage;
+import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -39,6 +40,7 @@ public class Eval01Comp {
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);			
 		returnElementInReturnGraph.addPrimitiveComparison(); 
+		
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);	
@@ -71,7 +73,8 @@ public class Eval01Comp {
 		
 		CompletePattern completePattern = getCompAbstract();
 		
-		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
@@ -90,9 +93,7 @@ public class Eval01Comp {
 		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
 		next1ToReturnElementInGraph1.getProperties().get(0).getAttributeName().setValue("Type");
 		next1ToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
-		next1ToReturnElementInGraph1.getProperties().get(1)
-		.getAttributeName()
-		.setValue("Value");
+		next1ToReturnElementInGraph1.getProperties().get(1).getAttributeName().setValue("Value");
 		next1ToReturnElementInGraph1.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		
 		Comparison comparison2 = (Comparison) next2ToReturnElementInGraph1.getPredicates().get(0);

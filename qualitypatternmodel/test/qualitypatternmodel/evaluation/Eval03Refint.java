@@ -15,6 +15,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -25,7 +26,7 @@ import qualitypatternmodel.translationtests.Test06NotElement;
 public class Eval03Refint {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getRefintRunningExample());
+		completePatterns.add(getRefintMidas());
 		Test00.test(completePatterns);
 		
 	}
@@ -55,6 +56,8 @@ public class Eval03Refint {
 		propertyNextToReturnElementInGraph2.setElement(nextToReturnElementInGraph2);
 		propertyNextToReturnElementInGraph2.createParameters();
 		
+		nextToReturnElementInGraph2.getNextElements().clear();
+		
 		Element otherRecordInGraph2 = graphFactory.createElement();
 		rootElementInGraph2.getNextElements().add(otherRecordInGraph2);
 		otherRecordInGraph2.addPrimitiveComparison();
@@ -74,6 +77,58 @@ public class Eval03Refint {
 		
 		return completePattern;
 	}
+	
+	public static CompletePattern getRefintMidas() {
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
+		CompletePattern completePattern = getRefintAbstract();
+		
+		Element returnInReturnGraph = completePattern.getGraph().getRootElement().getNextElements().get(0);
+		returnInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
+		concreteInputValue.setValue("obj");
+		((UnknownParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
+		returnInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
+		returnInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		
+		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
+		Element element1 = graph1.getRootElement().getNextElements().get(0).getNextElements().get(0);
+		element1.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
+		concreteInputValue2.setValue("3600");
+		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
+		element1.getProperties().get(0).getAttributeName().setValue("Type");
+		element1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		
+		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
+		Element element1InGraph2 = graph2.getRootElement().getNextElements().get(0).getNextElements().get(0);
+		Element element2 = graph2.getRootElement().getNextElements().get(1);
+		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
+		concreteInputValue3.setValue("wer");
+		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
+		element2.getProperties().get(0).getAttributeName().setValue("Type");
+		element2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		
+		Element element3 = element2.getNextElements().get(0);
+		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
+		concreteInputValue4.setValue("3600");
+		((UnknownParameterValue) ((Comparison) element3.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
+		element3.getProperties().get(0).getAttributeName().setValue("Type");
+		element3.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);		
+		
+		element1InGraph2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element1InGraph2.getProperties().get(0).getAttributeName().setValue("Value");
+		
+		element3.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element3.getProperties().get(1).getAttributeName().setValue("Value");
+		
+		((Comparison) element3.getPredicates().get(1)).setType(ReturnType.STRING);
+		
+		return completePattern;		
+	}
+	
 	public static CompletePattern getRefintAbstractRunningExample() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;

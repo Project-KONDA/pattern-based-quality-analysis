@@ -100,7 +100,7 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 			if (i!=0) res += ", ";
 			res += "'" + getValues().get(i) + "'";
 		}
-		return res + ")" + "\n";
+		return res + ")";
 		//let $sequence := ("apple", 'banana', "carrot", 'dog', "egg", 'fig')
 	}
 
