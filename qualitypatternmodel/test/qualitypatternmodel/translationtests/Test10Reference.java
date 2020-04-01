@@ -46,15 +46,21 @@ public class Test10Reference {
 		
 		ReferenceOperator refop = operatorFactory.createReferenceOperator();
 
-		Property prop1 = graphstructureFactory.createProperty();
-		Property prop2 = graphstructureFactory.createProperty();
-		PropertyOptionParam proppa = parametersFactory.createPropertyOptionParam();
-		PropertyOptionParam proppa2 = parametersFactory.createPropertyOptionParam();
+		Property prop1 = graphstructureFactory.createProperty();		
+		prop1.setElement(ret);
+		prop1.createParameters();
+		
+		Property prop2 = graphstructureFactory.createProperty();		
+		prop2.setElement(ele);
+		prop2.createParameters();
+		
+//		PropertyOptionParam proppa = parametersFactory.createPropertyOptionParam();
+//		PropertyOptionParam proppa2 = parametersFactory.createPropertyOptionParam();
 		oplist.add(refop);
-		prop1.setOption(proppa);
-		prop2.setOption(proppa2);	
-		ret.getProperties().add(prop1);
-		ret.getProperties().add(prop2);
+//		prop1.setOption(proppa);
+//		prop2.setOption(proppa2);	
+//		ret.getProperties().add(prop1);
+//		ret.getProperties().add(prop2);
 		refop.setProperty1(prop1);
 		refop.setProperty2(prop2);	
 		return pattern;		
