@@ -274,12 +274,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				}
 			}
 		}
-
+		String following = "";
 		for (Element nextElement : getNextElements()) {
-			query += nextElement.generateQuery(location);
+			following += nextElement.generateQuery(location);
 		}
-
-		return query;			
+		if (!isRootElement()) following = following.replace("\n", "\n  ");
+			
+		return query + following;			
 		
 	}
 

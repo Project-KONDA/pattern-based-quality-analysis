@@ -89,7 +89,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	@Override
 	public String generateQuery(Location location) throws InvalidityException {
-		String result;
+		String result = "";
 		if (operator != null) {
 //			if (operator == LogicalOperator.NOT) {
 //				if (condition2 == null && condition != null) {
@@ -102,22 +102,32 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					switch (operator) {
 					case AND:
 					case OR:
-						result = "((" + condition1.generateQuery(location) + ") " + operator.getLiteral() + " ("
-						+ condition2.generateQuery(location) + "))";
+						result += "((" + condition1.generateQuery(location) + ")\n";
+						result += operator.getLiteral();
+						result += "\n" + " (" + condition2.generateQuery(location) + "))";
 						break;
 					case IMPLIES:
-						result = "(" + Constants.NOT + "(" + condition1.generateQuery(location) + ")" + Constants.OR + "("
-						+ condition2.generateQuery(location) + "))";
+						result += "(" + Constants.NOT + "(" + condition1.generateQuery(location) + ")";
+						result += Constants.OR;
+						result += "(" + condition2.generateQuery(location) + "))";
 						break;
 					case XOR:
-						result = "(" + Constants.NOT + "(" + condition1.generateQuery(location) + ")" + Constants.AND + "("
-						+ condition2.generateQuery(location) + "))" + Constants.OR + "((" + condition1.generateQuery(location) + ")" + Constants.AND + Constants.NOT + "("
-						+ condition2.generateQuery(location) + "))";
+						result = "(" + Constants.NOT + "(" + condition1.generateQuery(location) + ")";
+						result += Constants.AND;
+						result += "(" + condition2.generateQuery(location) + "))";
+						result += Constants.OR;
+						result += "((" + condition1.generateQuery(location) + ")";
+						result += Constants.AND;
+						result += Constants.NOT + "("+ condition2.generateQuery(location) + "))";
 						break;
 					case EQUAL:
-						result = "(" + Constants.NOT + "(" + condition1.generateQuery(location) + ")" + Constants.AND + Constants.NOT + "("
-						+ condition2.generateQuery(location) + "))" + Constants.OR + "((" + condition1.generateQuery(location) + ")" + Constants.AND + "("
-						+ condition2.generateQuery(location) + "))";			
+						result += "(" + Constants.NOT + "(" + condition1.generateQuery(location) + ")";
+						result += Constants.AND;
+						result += Constants.NOT + "(" + condition2.generateQuery(location) + "))";
+						result += Constants.OR;
+						result += "((" + condition1.generateQuery(location) + ")";
+						result += Constants.AND;
+						result += "("+ condition2.generateQuery(location) + "))";			
 						break;
 					default:
 						throw new InvalidityException("invalid arguments");
