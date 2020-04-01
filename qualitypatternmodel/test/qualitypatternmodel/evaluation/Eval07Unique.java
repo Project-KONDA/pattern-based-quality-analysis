@@ -2,6 +2,7 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
+import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -30,7 +31,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval07Unique {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getUniqueAbstractMidas());
+		completePatterns.add(getUniqueMidas());
 		Test00.test(completePatterns);
 		
 	}
@@ -158,6 +159,57 @@ public class Eval07Unique {
 		
 		Condition truecondition = patternStructureFactory.createTrueElement();
 		countPattern.setCondition(truecondition);		
+		
+		return completePattern;
+	}
+	
+	private static CompletePattern getUniqueMidas() {
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
+		CompletePattern completePattern = getUniqueAbstractMidas();
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
+		concreteInputValue.setValue("wer");
+		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
+		
+		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
+		CountPattern countPattern = (CountPattern) countCondition.getArgument1();
+		
+		Element returnInCPattern = countPattern.getGraph().getRootElement().getNextElements().get(0);
+		Element rootInCPattern = countPattern.getGraph().getRootElement();
+		Element element2 = rootInCPattern.getNextElements().get(1);	
+		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element2.getProperties().get(0).getAttributeName().setValue("Type");
+		element2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
+		concreteInputValue2.setValue("wer");
+		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
+		
+		Element nextToReturn = returnInCPattern.getNextElements().get(0);
+		nextToReturn.getProperties().get(0).getAttributeName().setValue("Type");
+		nextToReturn.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
+		concreteInputValue3.setValue("3600");
+		((UnknownParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
+		
+		Element nextToElement2 = element2.getNextElements().get(0);
+		nextToElement2.getProperties().get(0).getAttributeName().setValue("Type");
+		nextToElement2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
+		concreteInputValue4.setValue("3600");
+		((UnknownParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
+		
+		nextToReturn.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		nextToReturn.getProperties().get(1).getAttributeName().setValue("Value");
+		
+		nextToElement2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		nextToElement2.getProperties().get(1).getAttributeName().setValue("Value");
+		
+		((Comparison) nextToElement2.getPredicates().get(1)).setType(ReturnType.STRING);
 		
 		return completePattern;
 	}
