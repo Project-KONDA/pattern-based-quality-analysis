@@ -43,11 +43,9 @@ public class Test12Count {
 
 	public static CompletePattern getPatternCountInPattern() {
 		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;		
 		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;		
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		

@@ -213,7 +213,8 @@
           eOpposite="#//graphstructure/Property/referenceOperator2"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="property1" eType="#//graphstructure/Property"
           eOpposite="#//graphstructure/Property/referenceOperator1"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"
+          defaultValueLiteral="STRING"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">

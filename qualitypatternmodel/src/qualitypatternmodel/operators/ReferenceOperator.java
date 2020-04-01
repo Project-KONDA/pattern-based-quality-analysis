@@ -76,6 +76,7 @@ public interface ReferenceOperator extends BooleanOperator {
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The default value is <code>"STRING"</code>.
 	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.ReturnType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,7 +84,7 @@ public interface ReferenceOperator extends BooleanOperator {
 	 * @see qualitypatternmodel.graphstructure.ReturnType
 	 * @see #setType(ReturnType)
 	 * @see qualitypatternmodel.operators.OperatorsPackage#getReferenceOperator_Type()
-	 * @model
+	 * @model default="STRING"
 	 * @generated
 	 */
 	ReturnType getType();

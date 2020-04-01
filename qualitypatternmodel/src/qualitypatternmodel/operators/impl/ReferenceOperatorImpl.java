@@ -72,7 +72,7 @@ public class ReferenceOperatorImpl extends BooleanOperatorImpl implements Refere
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ReturnType TYPE_EDEFAULT = ReturnType.UNSPECIFIED;
+	protected static final ReturnType TYPE_EDEFAULT = ReturnType.STRING;
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->

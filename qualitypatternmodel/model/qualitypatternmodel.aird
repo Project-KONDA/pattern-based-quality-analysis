@@ -3845,7 +3845,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_QWChkGUSEeq0b-I-pEWxgQ" name="type : ReturnType = UNSPECIFIED" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_QWChkGUSEeq0b-I-pEWxgQ" name="type : ReturnType = STRING" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//operators/ReferenceOperator/type"/>
           <semanticElements xmi:type="ecore:EAttribute" href="qualitypatternmodel.ecore#//operators/ReferenceOperator/type"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_IT4bUWkrEeq2j5V0IdsM7A" labelAlignment="LEFT">
