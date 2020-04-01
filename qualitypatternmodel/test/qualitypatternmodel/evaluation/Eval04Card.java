@@ -19,65 +19,46 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
+import qualitypatternmodel.translationtests.Test12Count;
 
 public class Eval04Card {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		patterns.add(getCardMidas());
+		completePatterns.add(getCardAbstract());
 		Test00.test(completePatterns);		
 	}
 	
-//	public static Pattern getCardAbstract() {
-//		GraphstructurePackage.eINSTANCE.eClass();
-//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-//		
-//		FunctionsPackage.eINSTANCE.eClass();
-//		FunctionsFactory functionsFactory = FunctionsFactory.eINSTANCE;	
-//		
-//		ParametersPackage.eINSTANCE.eClass();
-//		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-//		
-//		Pattern pattern = Test03Quantor.getPatternExists();
-//		SingleElement returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);		
-//
-//		returnElementInReturnGraph.addPrimitiveComparison(); 
-//		
-//		Graph graph1 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
-//		SingleElement returnElementInGraph1 = graph1.getReturnElements().get(0);	
-//		SingleElement nextToReturnElementInGraph1 = returnElementInGraph1.getNextSingle().get(0);	
-//		nextToReturnElementInGraph1.addPrimitiveComparison(); 	
-//		
-//		SetElement setElement1InGraph1 = graphFactory.createSetElement();
-//		nextToReturnElementInGraph1.getNextSet().add(setElement1InGraph1);
-//		setElement1InGraph1.addPrimitiveComparison();
-//		setElement1InGraph1.addPrimitiveComparison();
-//		
-//		SetElement setElement2InGraph1 = graphFactory.createSetElement();
-//		setElement1InGraph1.getNext().add(setElement2InGraph1);
-//		setElement2InGraph1.addPrimitiveComparison();
-//		
-//		Comparison comparison = functionsFactory.createComparison();
-//		graph1.getOperatorList().add(comparison);
-//		
-//		UnknownParameterValue unknownParameterValue = parametersFactory.createUnknownParameterValue();
-//		pattern.getParameterList().add(unknownParameterValue);
-//		
-//		comparison.setArgument1(unknownParameterValue);
-//		
-//		Count count = functionsFactory.createCount();
-//		graph1.getOperatorList().add(count);
-//		comparison.setArgument2(count);
-//		
-//		count.setArgument(setElement1InGraph1);
-//		
-//		comparison.getElements().add(nextToReturnElementInGraph1);
-//		
-//		return pattern;
-//	}
-//	
+	public static CompletePattern getCardAbstract() {	
+		
+		CompletePattern pattern = Test12Count.getPatternCountAsPatternCondition();		
+		
+		return pattern;
+	}
+	
+	public static CompletePattern getCardAbstractMidas() {	
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
+		
+		CompletePattern pattern = Test12Count.getPatternCountAsPatternCondition();		
+		CountCondition condition = (CountCondition) pattern.getCondition();
+		CountPattern countPattern = (CountPattern) condition.getArgument1();
+		Element element2InC = countPattern.getGraph().getReturnElements().get(0).getNextElements().get(0);
+		element2InC.addPrimitiveComparison();
+		Element element3InC = graphstructureFactory.createElement();
+		element3InC.setPreviousElement(element2InC);
+		element3InC.addPrimitiveComparison();
+		
+		return pattern;
+	}
+	
+// TODO
 //	public static Pattern getCardMidas() {
 //		ParametersPackage.eINSTANCE.eClass();
 //		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
