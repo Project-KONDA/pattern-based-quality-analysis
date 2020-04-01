@@ -278,7 +278,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		for (Element nextElement : getNextElements()) {
 			following += nextElement.generateQuery(location);
 		}
-		if (!isRootElement()) following = following.replace("\n", "\n  ");
+//		if (!isRootElement()) following = following.replace("\n", "\n  ");
 			
 		return query + following;			
 		
