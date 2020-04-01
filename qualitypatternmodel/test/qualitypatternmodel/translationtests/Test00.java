@@ -2,11 +2,18 @@ package qualitypatternmodel.translationtests;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.exceptions.*;
 import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.UnknownParameterValue;
 
 //import qualitypatternmodel.patternstructure.*;
 //import qualitypatternmodel.patternstructure.impl.*;
@@ -89,5 +96,21 @@ public class Test00 {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		testPairs.add(new PatternTestPair("BASE", getBasePattern(), "/*"));
 		return testPairs;		
+	}
+	
+	public static CompletePattern concretize(CompletePattern pattern) {
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
+		EList<Parameter> params = pattern.getParameterList().getParameters();
+		for (int i = params.size()-1; i > -1; i--) {
+			Parameter param = pattern.getParameterList().getParameters().get(i);
+			if (param instanceof UnknownParameterValue) {
+				TextLiteralParam text = parametersFactory.createTextLiteralParam();
+				text.setValue("unknown");
+				((UnknownParameterValue) param).concretize(text);
+			}
+		}
+		return pattern;
 	}
 }

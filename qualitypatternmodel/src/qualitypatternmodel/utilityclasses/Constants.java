@@ -11,7 +11,7 @@ public class Constants {
 	public static final String NOT = "not ";
 	public static final String FOR = "\nfor ";
 	public static final String LET = "\nlet ";
-	public static final String WHERE = "\nwhere ";
+	public static final String WHERE = "\n  where ";
 	public static final String RETURN = "\nreturn ";
 	public static final String IN = " in ";
 	public static final String INSTANCES_FOLDER = "instances";

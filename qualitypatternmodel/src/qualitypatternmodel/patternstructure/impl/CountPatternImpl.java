@@ -528,7 +528,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	@Override
 	public String myToString() {
 		String res = "Count Subpattern " + getInternalId() + " " + "("; 
-		res += getParameterList().myToString().replace("\n", "\n  ");
+//		res += getParameterList().myToString().replace("\n", "\n  ");
 		res += "\n  " + getGraph().myToString().replace("\n", "\n  ");
 		res += "\n  " + getCondition().myToString().replace("\n", "\n  ") + "\n)";
 		return res;

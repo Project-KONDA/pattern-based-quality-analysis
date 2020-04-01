@@ -119,9 +119,17 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 	public String generateQuery() throws InvalidityException {
-		return super.generateQuery(Location.OUTSIDE);
+		return generateQuery(Location.OUTSIDE);
 	}
 
+	@Override
+	public String generateQuery(Location location) throws InvalidityException {
+		String res = getParameterList().generateQuery(location);
+		res += super.generateQuery(location);
+		return res;
+	}
+
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
