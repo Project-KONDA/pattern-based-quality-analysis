@@ -729,7 +729,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (getOption() != null) {
 			return getOption().getValue().getLiteral() + " (" + getInternalId() + ")";
 		} else {
-			return "no axis option " + " (" + getInternalId() + ")";
+			return "[no axis] (" + getInternalId() + ")";
 		}
 	}
 

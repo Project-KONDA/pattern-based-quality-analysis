@@ -97,7 +97,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			throw new InvalidityException("return elements missing");
 		}
 		res += graph.generateQuery(Location.RETURN);
-		res += WHERE + condition.generateQuery(Location.OUTSIDE); // TODO: schachteln!
+		res += "  " + WHERE + condition.generateQuery(Location.OUTSIDE).replace("\n", "\n  "); // TODO: schachteln!
 
 		res += RETURN + "(";
 		EList<Element> returnElements = graph.getReturnElements();

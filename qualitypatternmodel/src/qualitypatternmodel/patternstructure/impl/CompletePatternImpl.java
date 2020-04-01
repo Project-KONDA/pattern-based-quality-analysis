@@ -119,7 +119,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 	public String generateQuery() throws InvalidityException {
-		return generateQuery(Location.OUTSIDE);
+		return super.generateQuery(Location.OUTSIDE);
 	}
 
 	/**

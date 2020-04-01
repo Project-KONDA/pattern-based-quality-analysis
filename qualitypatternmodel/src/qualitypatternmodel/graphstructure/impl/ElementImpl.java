@@ -1542,7 +1542,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			res += getRelationFromPrevious().myToString() + " ";
 		if (getGraph() != null)
 			res += "Return-";
-		res += "Single";
+//		res += "Single";
 		res += "Element " + getName() + " " + getInternalId();
 		for (Property prop : getProperties())
 			res += "\n  " + prop.myToString();
@@ -1976,12 +1976,5 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			child.clearPredicatesRecursively();
 		}
 	}
-
-	
-
-
-	
-
-	
 
 } // SingleElementImpl

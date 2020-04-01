@@ -101,7 +101,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		String argument1 = getArgument1().generateQuery(location);
 		String argument2 = getArgument2().generateQuery(location);
 		if(getOption() != null && getOption().getValue() != null) {
-			return argument1 + getOption().getValue() + argument2;
+			return argument1 + " " + getOption().getValue() + " " + argument2;
 		} else {
 			throw new InvalidityException("invalid option");
 		}
