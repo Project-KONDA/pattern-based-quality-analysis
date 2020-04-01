@@ -30,7 +30,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval07Unique {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getUniqueRunningExample());
+		completePatterns.add(getUniqueAbstractMidas());
 		Test00.test(completePatterns);
 		
 	}
@@ -86,6 +86,74 @@ public class Eval07Unique {
 		comparison.createParameters();
 		comparison.setArgument1(propertyReturn);
 		comparison.setArgument2(propertyNextToRoot);	
+		comparison.getOption().setValue(ComparisonOperator.EQUAL);
+		
+		Condition truecondition = patternStructureFactory.createTrueElement();
+		countPattern.setCondition(truecondition);		
+		
+		return completePattern;
+	}
+	
+	private static CompletePattern getUniqueAbstractMidas() {
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+		
+		FunctionsPackage.eINSTANCE.eClass();
+		FunctionsFactory functionsFactory = FunctionsFactory.eINSTANCE;
+		
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;		
+
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
+		CompletePattern completePattern = Test00.getBasePattern();
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		returnElementInReturnGraph.addPrimitiveComparison();
+		
+		CountCondition countCondition = patternStructureFactory.createCountCondition();
+		completePattern.setCondition(countCondition);		
+		
+		CountPattern countPattern = patternStructureFactory.createCountPattern();
+
+		NumberParam numberParam = parametersFactory.createNumberParam();
+		numberParam.setValue(1.0);
+		NumberElement numberElement = patternStructureFactory.createNumberElement();
+		numberElement.setNumberParam(numberParam);
+		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
+		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+		countCondition.setArgument1(countPattern);
+		countCondition.setArgument2(numberElement);
+		
+		Element returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
+		Element rootInCPattern = countPattern.getGraph().getRootElement();
+		Element element2 = graphFactory.createElement();
+		element2.setPreviousElement(rootInCPattern);
+		countPattern.getGraph().getReturnElements().clear();
+		countPattern.getGraph().getReturnElements().add(element2);
+		element2.addPrimitiveComparison();
+		
+		Element nextToReturn = graphFactory.createElement();
+		nextToReturn.setPreviousElement(returnInCPattern);
+		nextToReturn.addPrimitiveComparison();
+		
+		Element nextToElement2 = graphFactory.createElement();
+		nextToElement2.setPreviousElement(element2);
+		nextToElement2.addPrimitiveComparison();
+		
+		Property propertyNextToReturn = graphFactory.createProperty();
+		propertyNextToReturn.setElement(nextToReturn);
+		propertyNextToReturn.createParameters();
+		
+		Property propertyNextToElement2 = graphFactory.createProperty();
+		propertyNextToElement2.setElement(nextToElement2);
+		propertyNextToElement2.createParameters();
+			
+		Comparison comparison = functionsFactory.createComparison();
+		countPattern.getGraph().getOperatorList().add(comparison);		
+		comparison.createParameters();
+		comparison.setArgument1(propertyNextToReturn);
+		comparison.setArgument2(propertyNextToElement2);	
 		comparison.getOption().setValue(ComparisonOperator.EQUAL);
 		
 		Condition truecondition = patternStructureFactory.createTrueElement();
