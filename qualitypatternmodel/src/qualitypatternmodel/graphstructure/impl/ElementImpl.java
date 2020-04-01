@@ -249,7 +249,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				if (mappingFrom == null) {
 					String xPathExpression = translatePathFromPrevious();
 					query += xPathExpression + xPredicates;
-				} else if (!getPredicates().isEmpty()) {
+				} else if (!xPredicates.equals("")) {
 					query += getXQueryVariable() + xPredicates;
 				} else {
 					query = "";
@@ -267,7 +267,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				if (mappingFrom == null) {
 					String xPathExpression = translatePathFromPrevious();
 					query += xPathExpression + xPredicates + SATISFIES;
-				} else if (!getPredicates().isEmpty()) {
+				} else if (!xPredicates.equals("")) {
 					query += getXQueryVariable() + xPredicates + SATISFIES;
 				} else {
 					query = "";
