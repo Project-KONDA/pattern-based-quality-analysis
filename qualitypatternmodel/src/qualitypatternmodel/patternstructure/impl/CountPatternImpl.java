@@ -72,7 +72,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	@Override
 	public String generateQuery(Location location) throws InvalidityException {
-		return "count (" + super.generateQuery(location).replace("\n", "\n  ") + "\n)";
+		return "\ncount (" + super.generateQuery(location).replace("\n", "\n  ") + "\n)";
 	}
 	
 	@Override

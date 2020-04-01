@@ -21,12 +21,24 @@ public class Test06NotElement {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternNotExists());
+		completePatterns.add(getPatternNotTrue());		
 		completePatterns.add(getPatternNotForall());
 		completePatterns.add(getPatternExistsNotExists());
 		completePatterns.add(getPatternForallNotForall());
 
 		Test00.test(completePatterns);
+	}
+	
+	public static CompletePattern getPatternNotTrue() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		CompletePattern completePattern = Test00.getBasePattern();
+		
+		NotCondition n = factory.createNotCondition();
+		completePattern.setCondition(n);
+		TrueElement t = factory.createTrueElement();
+		n.setCondition(t);
+		return completePattern;		
 	}
 	
 	public static CompletePattern getPatternNotExists() {

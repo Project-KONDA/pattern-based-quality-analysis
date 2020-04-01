@@ -38,7 +38,7 @@ public class Eval04Card {
 	
 	public static CompletePattern getCardAbstract() {	
 		
-		CompletePattern pattern = Test12Count.getPatternCountAsPatternCondition();		
+		CompletePattern pattern = Test12Count.getPatternCountInPattern();		
 		
 		return pattern;
 	}
@@ -47,7 +47,7 @@ public class Eval04Card {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
-		CompletePattern pattern = Test12Count.getPatternCountAsPatternCondition();	
+		CompletePattern pattern = Test12Count.getPatternCountInPattern();	
 		pattern.getGraph().getReturnElements().get(0).getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
 		CountCondition condition = (CountCondition) pattern.getCondition();
 		CountPattern countPattern = (CountPattern) condition.getArgument1();
