@@ -22,7 +22,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.PropertyLocation;
-import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -95,11 +94,6 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 		getOptions().add(PropertyLocation.TAG);
 		getOptions().add(PropertyLocation.DATA);
 		getOptions().add(PropertyLocation.ATTRIBUTE);
-	}
-
-	@Override
-	public ReturnType getReturnType() {
-		return ReturnType.UNSPECIFIED;
 	}
 	
 	@Override

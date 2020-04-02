@@ -231,36 +231,37 @@ public class Test09ComplexComparison {
 		OperatorList oplist = completePattern.getGraph().getOperatorList();
 		Element se = completePattern.getGraph().getReturnElements().get(0);
 		
-		TextLiteralParam tl = inputsFactory.createTextLiteralParam();
-		tl.setValue("a");
+//		TextLiteralParam tl = inputsFactory.createTextLiteralParam();
+//		tl.setValue("a");
 		TextLiteralParam tl2 = inputsFactory.createTextLiteralParam();
-		tl.setValue("a");
+		tl2.setValue("a");
 		TextLiteralParam tl3 = inputsFactory.createTextLiteralParam();
-		tl.setValue("a");
+		tl3.setValue("a");
 		TextLiteralParam tl4 = inputsFactory.createTextLiteralParam();
-		tl.setValue("a");
+		tl4.setValue("a");
 
-		varlist.add(tl);
+//		varlist.add(tl);
 		varlist.add(tl2);
 		varlist.add(tl3);
 		varlist.add(tl4);
 
 		Comparison comp0 = functionFactory.createComparison();
-		Comparison comp1 = functionFactory.createComparison();
-		Comparison comp2 = functionFactory.createComparison();
 		oplist.add(comp0);
 		comp0.createParameters();
+		Comparison comp1 = functionFactory.createComparison();
 		oplist.add(comp1);
 		comp1.createParameters();
-		oplist.add(comp2);
+		Comparison comp2 = functionFactory.createComparison();
+		oplist.add(comp2);		
 		comp2.createParameters();
+		
 		se.getPredicates().add(comp0);
 		comp0.setArgument1(comp1);
-		comp0.setArgument1(comp2);
+		comp0.setArgument2(comp2);
 
-		comp1.setArgument1(tl);
+		comp1.setArgument1(se.addNewProperty());
 		comp1.setArgument2(tl2);
-		comp2.setArgument2(tl3);
+		comp2.setArgument1(tl3);
 		comp2.setArgument2(tl4);
 		
 		

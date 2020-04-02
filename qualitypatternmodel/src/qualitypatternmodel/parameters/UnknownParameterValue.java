@@ -13,7 +13,7 @@ package qualitypatternmodel.parameters;
  * @model
  * @generated
  */
-public interface UnknownParameterValue extends Parameter {
+public interface UnknownParameterValue extends Parameter, qualitypatternmodel.graphstructure.Comparable {
 
 	/**
 	 * <!-- begin-user-doc -->

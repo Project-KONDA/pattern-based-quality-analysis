@@ -221,7 +221,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	public void createParameters() {	
 		ParameterList parameterList = getParameterList();		
 		if(getOption() == null) {
-			PropertyOptionParam option = new PropertyOptionParamImpl();			
+			PropertyOptionParam option = new PropertyOptionParamImpl();	
 			parameterList.add(option);
 			setOption(option);
 		} else {

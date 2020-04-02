@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -110,11 +109,6 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 //		getOptions().add(ComparisonOperator.GREATEROREQUAL);
 //		getOptions().add(ComparisonOperator.LESSOREQUAL);
 		getOptions().add(ComparisonOperator.NOTEQUAL);
-	}
-
-	@Override
-	public ReturnType getReturnType() {
-		return ReturnType.UNSPECIFIED;
 	}
 	
 	@Override

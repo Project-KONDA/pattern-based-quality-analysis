@@ -10,7 +10,8 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
-import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.Location;
@@ -432,7 +433,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model
 	 * @generated
 	 */
-	void addPrimitiveComparison();
+	UnknownParameterValue addPrimitiveComparison();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -456,7 +457,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model
 	 * @generated
 	 */
-	void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, Parameter input);
+	void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, ParameterValue input);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -464,7 +465,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model
 	 * @generated
 	 */
-	void addPrimitiveComparison(Parameter input);
+	void addPrimitiveComparison(ParameterValue input);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -505,5 +506,13 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	void copyMatch(Match match);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Property addNewProperty();
 
 } // SingleElement

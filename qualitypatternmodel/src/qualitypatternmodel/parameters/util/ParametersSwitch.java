@@ -70,7 +70,6 @@ public class ParametersSwitch<T1> extends Switch<T1> {
 			case ParametersPackage.PARAMETER: {
 				Parameter parameter = (Parameter)theEObject;
 				T1 result = caseParameter(parameter);
-				if (result == null) result = caseComparable(parameter);
 				if (result == null) result = casePatternElement(parameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -79,7 +78,6 @@ public class ParametersSwitch<T1> extends Switch<T1> {
 				ComparisonOptionParam comparisonOptionParam = (ComparisonOptionParam)theEObject;
 				T1 result = caseComparisonOptionParam(comparisonOptionParam);
 				if (result == null) result = caseParameter(comparisonOptionParam);
-				if (result == null) result = caseComparable(comparisonOptionParam);
 				if (result == null) result = casePatternElement(comparisonOptionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -88,7 +86,6 @@ public class ParametersSwitch<T1> extends Switch<T1> {
 				PropertyOptionParam propertyOptionParam = (PropertyOptionParam)theEObject;
 				T1 result = casePropertyOptionParam(propertyOptionParam);
 				if (result == null) result = caseParameter(propertyOptionParam);
-				if (result == null) result = caseComparable(propertyOptionParam);
 				if (result == null) result = casePatternElement(propertyOptionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -192,7 +189,6 @@ public class ParametersSwitch<T1> extends Switch<T1> {
 				RelationOptionParam relationOptionParam = (RelationOptionParam)theEObject;
 				T1 result = caseRelationOptionParam(relationOptionParam);
 				if (result == null) result = caseParameter(relationOptionParam);
-				if (result == null) result = caseComparable(relationOptionParam);
 				if (result == null) result = casePatternElement(relationOptionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -201,7 +197,6 @@ public class ParametersSwitch<T1> extends Switch<T1> {
 				OptionParam<?> optionParam = (OptionParam<?>)theEObject;
 				T1 result = caseOptionParam(optionParam);
 				if (result == null) result = caseParameter(optionParam);
-				if (result == null) result = caseComparable(optionParam);
 				if (result == null) result = casePatternElement(optionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

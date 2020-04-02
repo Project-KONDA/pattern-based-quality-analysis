@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.OptionParam;
@@ -552,11 +551,4 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public ReturnType getReturnType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 } //OptionParamImpl

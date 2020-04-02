@@ -911,8 +911,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		// Obtain other dependent packages
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
-		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
+		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 
 		// Create type parameters
 		ETypeParameter optionParamEClass_T = addETypeParameter(optionParamEClass, "T");
@@ -921,7 +921,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		// Add supertypes to classes
 		parameterEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
-		parameterEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
 		comparisonOptionParamEClass.getESuperTypes().add(this.getParameter());
 		propertyOptionParamEClass.getESuperTypes().add(this.getParameter());
 		parameterListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
@@ -930,9 +929,11 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		textLiteralParamEClass.getESuperTypes().add(this.getParameterValue());
 		numberParamEClass.getESuperTypes().add(this.getParameterValue());
 		parameterValueEClass.getESuperTypes().add(this.getParameter());
+		parameterValueEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
 		dateParamEClass.getESuperTypes().add(this.getParameterValue());
 		timeParamEClass.getESuperTypes().add(this.getParameterValue());
 		unknownParameterValueEClass.getESuperTypes().add(this.getParameter());
+		unknownParameterValueEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
 		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
 		relationOptionParamEClass.getESuperTypes().add(this.getParameter());
 		optionParamEClass.getESuperTypes().add(this.getParameter());

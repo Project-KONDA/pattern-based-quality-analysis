@@ -26,7 +26,7 @@ public class Test08Comparison {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
 		for (PropertyLocation pl : PropertyLocation.VALUES) {
-				for (Parameter parameter : getExampleInputs()) {
+				for (ParameterValue parameter : getExampleInputs()) {
 					CompletePattern completePattern = Test00.getBasePattern();
 					completePattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.EQUAL, parameter);
 					completePattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.NOTEQUAL, parameter);
@@ -38,9 +38,9 @@ public class Test08Comparison {
 		Test00.test(completePatterns);
 	}
 
-	public static ArrayList<Parameter> getExampleInputs() {
+	public static ArrayList<ParameterValue> getExampleInputs() {
 
-		ArrayList<Parameter> parameters = new ArrayList<Parameter>();
+		ArrayList<ParameterValue> parameters = new ArrayList<ParameterValue>();
 
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory inputFactory = ParametersFactory.eINSTANCE;
@@ -71,7 +71,7 @@ public class Test08Comparison {
 		return parameters;
 	}
 
-	public static CompletePattern getPrimCondPattern(PropertyLocation pl, LogicalOperator op, Parameter parameter) {
+	public static CompletePattern getPrimCondPattern(PropertyLocation pl, LogicalOperator op, ParameterValue parameter) {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 

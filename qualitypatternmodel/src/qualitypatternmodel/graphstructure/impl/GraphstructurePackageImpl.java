@@ -734,7 +734,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter() {
+	public EOperation getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_ParameterValue() {
 		return elementEClass.getEOperations().get(19);
 	}
 
@@ -744,7 +744,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getElement__AddPrimitiveComparison__Parameter() {
+	public EOperation getElement__AddPrimitiveComparison__ParameterValue() {
 		return elementEClass.getEOperations().get(20);
 	}
 
@@ -796,6 +796,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EOperation getElement__CopyMatch__Match() {
 		return elementEClass.getEOperations().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getElement__AddNewProperty() {
+		return elementEClass.getEOperations().get(26);
 	}
 
 	/**
@@ -1124,13 +1134,14 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON);
 		createEOperation(elementEClass, ELEMENT___GET_GRAPH_DEPTH);
 		createEOperation(elementEClass, ELEMENT___GET_ALL_OPERATORS);
-		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER);
-		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER);
+		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETERVALUE);
+		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE);
 		createEOperation(elementEClass, ELEMENT___CLEAR_COMPARISON_RECURSIVELY);
 		createEOperation(elementEClass, ELEMENT___CLEAR_PROPERTY_RECURSIVELY);
 		createEOperation(elementEClass, ELEMENT___COPY_PROPERTY__PROPERTY);
 		createEOperation(elementEClass, ELEMENT___COPY_PRIMITIVE_COMPARISON__COMPARISON);
 		createEOperation(elementEClass, ELEMENT___COPY_MATCH__MATCH);
+		createEOperation(elementEClass, ELEMENT___ADD_NEW_PROPERTY);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__ROOT_ELEMENT);
@@ -1301,7 +1312,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getElement__AddPrimitiveMatch(), null, "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getElement__AddPrimitiveComparison(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getElement__AddPrimitiveComparison(), theParametersPackage.getUnknownParameterValue(), "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getElement__GetGraphDepth(), ecorePackage.getEInt(), "getGraphDepth", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
@@ -1309,14 +1320,14 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getElement__GetAllOperators(), theOperatorsPackage.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_Parameter(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_ParameterValue(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getPropertyLocation(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "attr", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatorsPackage.getComparisonOperator(), "operator", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theParametersPackage.getParameter(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theParametersPackage.getParameterValue(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getElement__AddPrimitiveComparison__Parameter(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theParametersPackage.getParameter(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getElement__AddPrimitiveComparison__ParameterValue(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theParametersPackage.getParameterValue(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getElement__ClearComparisonRecursively(), null, "clearComparisonRecursively", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1331,6 +1342,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		op = initEOperation(getElement__CopyMatch__Match(), null, "copyMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatorsPackage.getMatch(), "match", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getElement__AddNewProperty(), this.getProperty(), "addNewProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraph_RootElement(), this.getElement(), this.getElement_Root(), "rootElement", null, 1, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

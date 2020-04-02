@@ -22,7 +22,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -93,11 +92,6 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 		getOptions().add(Axis.DESCENDANT);
 //		getOptions().add(Axis.PARENT);
 //		getOptions().add(Axis.ANCESTOR);
-	}
-
-	@Override
-	public ReturnType getReturnType() {
-		return ReturnType.UNSPECIFIED;
 	}
 
 	@Override

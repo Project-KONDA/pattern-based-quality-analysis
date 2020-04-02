@@ -31,6 +31,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
+import qualitypatternmodel.graphstructure.Comparable;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -165,8 +166,10 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 			if (parameter instanceof PropertyOptionParam) {
 				((PropertyOptionParam) parameter).getProperties().clear();
 			}
-			parameter.getComparison1().clear();
-			parameter.getComparison2().clear();
+			if (parameter instanceof Comparable) {
+				((Comparable) parameter).getComparison1().clear();
+				((Comparable) parameter).getComparison2().clear();
+			}
 		}
 		msgs = eBasicSetContainer((InternalEObject) newPattern, ParametersPackage.PARAMETER_LIST__PATTERN, msgs);
 		return msgs;

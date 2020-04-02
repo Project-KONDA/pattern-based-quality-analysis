@@ -25,7 +25,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @model abstract="true"
  * @generated
  */
-public interface Parameter extends PatternElement, qualitypatternmodel.graphstructure.Comparable {
+public interface Parameter extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Parameter List</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.ParameterList#getParameters <em>Parameters</em>}'.

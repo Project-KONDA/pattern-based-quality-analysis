@@ -44,6 +44,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -1473,8 +1474,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				addPrimitiveMatch();
 				return null;
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON:
-				addPrimitiveComparison();
-				return null;
+				return addPrimitiveComparison();
 			case GraphstructurePackage.ELEMENT___GET_GRAPH_DEPTH:
 				try {
 					return getGraphDepth();
@@ -1489,11 +1489,11 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETER:
-				addPrimitiveComparison((PropertyLocation)arguments.get(0), (String)arguments.get(1), (ComparisonOperator)arguments.get(2), (Parameter)arguments.get(3));
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETERVALUE:
+				addPrimitiveComparison((PropertyLocation)arguments.get(0), (String)arguments.get(1), (ComparisonOperator)arguments.get(2), (ParameterValue)arguments.get(3));
 				return null;
-			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETER:
-				addPrimitiveComparison((Parameter)arguments.get(0));
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE:
+				addPrimitiveComparison((ParameterValue)arguments.get(0));
 				return null;
 			case GraphstructurePackage.ELEMENT___CLEAR_COMPARISON_RECURSIVELY:
 				clearComparisonRecursively();
@@ -1514,6 +1514,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___COPY_MATCH__MATCH:
 				copyMatch((Match)arguments.get(0));
 				return null;
+			case GraphstructurePackage.ELEMENT___ADD_NEW_PROPERTY:
+				return addNewProperty();
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.ELEMENT___IS_TRANSLATABLE:
@@ -1614,13 +1616,14 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return 
 	 * 
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveComparison() {
-		Comparison comparison = new ComparisonImpl();
+	public UnknownParameterValue addPrimitiveComparison() {
 		try {
+			Comparison comparison = new ComparisonImpl();
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
@@ -1638,10 +1641,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			comparison.setArgument1(property);
 			comparison.setArgument2(unknownParameterValue);						
 			
+			return unknownParameterValue;
+			
 		} catch (Exception e) {			
 			System.out.println("Adding Condition Failed: " + e.getMessage());		
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 	/**
@@ -1683,28 +1689,30 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveComparison(Parameter parameter) {
-		Comparison comparison = new ComparisonImpl();
-		try {			
-			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			Graph graph = (Graph) getAncestor(Graph.class);
-			OperatorList oplist = graph.getOperatorList();
-			
-			Property property = new PropertyImpl();			
-			getProperties().add(property);
-			property.createParameters();
-			property.getOption().setValue(PropertyLocation.TAG);
-			
-			varlist.add(parameter);
-	
-			oplist.add(comparison);	
-			comparison.createParameters();
-			comparison.setArgument1(property);
-			comparison.setArgument2(parameter);			
-		} catch (Exception e) {
-			System.out.println("Adding Condition Failed: " + e.getMessage());
-		}
+	public void addPrimitiveComparison(ParameterValue parameter) {
+//		Comparison comparison = new ComparisonImpl();
+//		try {			
+//			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+//			ParameterList varlist = completePattern.getParameterList();
+//			Graph graph = (Graph) getAncestor(Graph.class);
+//			OperatorList oplist = graph.getOperatorList();
+//			
+//			Property property = new PropertyImpl();			
+//			getProperties().add(property);
+//			property.createParameters();
+//			property.getOption().setValue(PropertyLocation.TAG);
+//			
+//			varlist.add(parameter);
+//	
+//			oplist.add(comparison);	
+//			comparison.createParameters();
+//			comparison.setArgument1(property);
+//			comparison.setArgument2(parameter);			
+//		} catch (Exception e) {
+//			System.out.println("Adding Condition Failed: " + e.getMessage());
+//		}
+		
+		addPrimitiveComparison().concretize(parameter);
 	}
 
 	/**
@@ -1713,7 +1721,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, Parameter parameter) {
+	public void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, ParameterValue parameter) {
 		Comparison comparison = new ComparisonImpl();
 		try {		
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -1737,8 +1745,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
 		}
 	}
-
-	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1959,6 +1965,19 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	public void copyMatch(Match match) {
 		Match newMatch = match.copy();
 		getProperties().add(newMatch.getProperty());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Property addNewProperty() {
+		Property prop = new PropertyImpl();
+		getProperties().add(prop);
+		prop.createParameters();
+		return prop;
 	}
 
 	/**

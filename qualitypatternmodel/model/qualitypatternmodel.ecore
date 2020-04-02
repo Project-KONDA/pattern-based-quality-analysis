@@ -5,7 +5,7 @@
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
   </eAnnotations>
   <eSubpackages name="parameters" nsURI="parameters" nsPrefix="parameters">
-    <eClassifiers xsi:type="ecore:EClass" name="Parameter" abstract="true" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Comparable">
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="inputIsValid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="generateDescription"/>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -81,7 +81,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="numberArgument" eType="#//patternstructure/NumberElement"
           eOpposite="#//patternstructure/NumberElement/numberParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="#//parameters/Parameter"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Comparable"/>
     <eClassifiers xsi:type="ecore:EClass" name="DateParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
@@ -90,7 +90,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UnknownParameterValue" eSuperTypes="#//parameters/Parameter">
+    <eClassifiers xsi:type="ecore:EClass" name="UnknownParameterValue" eSuperTypes="#//parameters/Parameter #//graphstructure/Comparable">
       <eOperations name="concretize">
         <eParameters name="concreteValue" eType="#//parameters/ParameterValue"/>
       </eOperations>
@@ -296,7 +296,7 @@
       </eOperations>
       <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="addPrimitiveMatch"/>
-      <eOperations name="addPrimitiveComparison"/>
+      <eOperations name="addPrimitiveComparison" eType="#//parameters/UnknownParameterValue"/>
       <eOperations name="getGraphDepth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
@@ -305,10 +305,10 @@
         <eParameters name="property" eType="#//graphstructure/PropertyLocation"/>
         <eParameters name="attr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="operator" eType="#//operators/ComparisonOperator"/>
-        <eParameters name="input" eType="#//parameters/Parameter"/>
+        <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>
       <eOperations name="addPrimitiveComparison">
-        <eParameters name="input" eType="#//parameters/Parameter"/>
+        <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>
       <eOperations name="clearComparisonRecursively"/>
       <eOperations name="clearPropertyRecursively"/>
@@ -321,6 +321,7 @@
       <eOperations name="copyMatch">
         <eParameters name="match" eType="#//operators/Match"/>
       </eOperations>
+      <eOperations name="addNewProperty" eType="#//graphstructure/Property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/ElementMapping"

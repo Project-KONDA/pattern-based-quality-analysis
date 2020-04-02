@@ -4,7 +4,6 @@ package qualitypatternmodel.parameters.impl;
 
 import java.lang.Boolean;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -14,15 +13,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -35,8 +27,6 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getComparison1 <em>Comparison1</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getComparison2 <em>Comparison2</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#isIsPredefined <em>Is Predefined</em>}</li>
@@ -46,22 +36,6 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * @generated
  */
 public abstract class ParameterImpl extends PatternElementImpl implements Parameter {
-	/**
-	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getComparison1()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Comparison> comparison1;
-	/**
-	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getComparison2()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Comparison> comparison2;
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -163,30 +137,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	protected EClass eStaticClass() {
 		return ParametersPackage.Literals.PARAMETER;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Comparison> getComparison1() {
-		if (comparison1 == null) {
-			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.PARAMETER__COMPARISON1, OperatorsPackage.COMPARISON__ARGUMENT1);
-		}
-		return comparison1;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Comparison> getComparison2() {
-		if (comparison2 == null) {
-			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.PARAMETER__COMPARISON2, OperatorsPackage.COMPARISON__ARGUMENT2);
-		}
-		return comparison2;
 	}
 
 	/**
@@ -323,44 +273,12 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public abstract ReturnType getReturnType();
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public boolean isTranslatable() throws InvalidityException {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Element> getAllArgumentElements() throws InvalidityException {
-		return new BasicEList<Element>();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER__COMPARISON1:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison1()).basicAdd(otherEnd, msgs);
-			case ParametersPackage.PARAMETER__COMPARISON2:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison2()).basicAdd(otherEnd, msgs);
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -376,10 +294,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER__COMPARISON1:
-				return ((InternalEList<?>)getComparison1()).basicRemove(otherEnd, msgs);
-			case ParametersPackage.PARAMETER__COMPARISON2:
-				return ((InternalEList<?>)getComparison2()).basicRemove(otherEnd, msgs);
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				return basicSetParameterList(null, msgs);
 		}
@@ -406,10 +320,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER__COMPARISON1:
-				return getComparison1();
-			case ParametersPackage.PARAMETER__COMPARISON2:
-				return getComparison2();
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				return getParameterList();
 			case ParametersPackage.PARAMETER__DESCRIPTION:
@@ -430,14 +340,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER__COMPARISON1:
-				getComparison1().clear();
-				getComparison1().addAll((Collection<? extends Comparison>)newValue);
-				return;
-			case ParametersPackage.PARAMETER__COMPARISON2:
-				getComparison2().clear();
-				getComparison2().addAll((Collection<? extends Comparison>)newValue);
-				return;
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				setParameterList((ParameterList)newValue);
 				return;
@@ -461,12 +363,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER__COMPARISON1:
-				getComparison1().clear();
-				return;
-			case ParametersPackage.PARAMETER__COMPARISON2:
-				getComparison2().clear();
-				return;
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				setParameterList((ParameterList)null);
 				return;
@@ -490,10 +386,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER__COMPARISON1:
-				return comparison1 != null && !comparison1.isEmpty();
-			case ParametersPackage.PARAMETER__COMPARISON2:
-				return comparison2 != null && !comparison2.isEmpty();
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				return getParameterList() != null;
 			case ParametersPackage.PARAMETER__DESCRIPTION:
@@ -511,56 +403,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated
 	 */
 	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
-			switch (derivedFeatureID) {
-				case ParametersPackage.PARAMETER__COMPARISON1: return GraphstructurePackage.COMPARABLE__COMPARISON1;
-				case ParametersPackage.PARAMETER__COMPARISON2: return GraphstructurePackage.COMPARABLE__COMPARISON2;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
-			switch (baseFeatureID) {
-				case GraphstructurePackage.COMPARABLE__COMPARISON1: return ParametersPackage.PARAMETER__COMPARISON1;
-				case GraphstructurePackage.COMPARABLE__COMPARISON2: return ParametersPackage.PARAMETER__COMPARISON2;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
-			switch (baseOperationID) {
-				case GraphstructurePackage.COMPARABLE___GET_RETURN_TYPE: return ParametersPackage.PARAMETER___GET_RETURN_TYPE;
-				case GraphstructurePackage.COMPARABLE___IS_TRANSLATABLE: return ParametersPackage.PARAMETER___IS_TRANSLATABLE;
-				case GraphstructurePackage.COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS: return ParametersPackage.PARAMETER___GET_ALL_ARGUMENT_ELEMENTS;
-				case GraphstructurePackage.COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP: return ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ParametersPackage.PARAMETER___INPUT_IS_VALID:
@@ -568,22 +410,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION:
 				generateDescription();
 				return null;
-			case ParametersPackage.PARAMETER___GET_RETURN_TYPE:
-				return getReturnType();
-			case ParametersPackage.PARAMETER___IS_TRANSLATABLE:
-				try {
-					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ParametersPackage.PARAMETER___GET_ALL_ARGUMENT_ELEMENTS:
-				try {
-					return getAllArgumentElements();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

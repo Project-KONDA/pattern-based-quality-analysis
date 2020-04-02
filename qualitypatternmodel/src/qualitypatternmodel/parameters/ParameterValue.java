@@ -13,5 +13,5 @@ package qualitypatternmodel.parameters;
  * @model abstract="true"
  * @generated
  */
-public interface ParameterValue extends Parameter {
+public interface ParameterValue extends Parameter, qualitypatternmodel.graphstructure.Comparable {
 } // XSType
