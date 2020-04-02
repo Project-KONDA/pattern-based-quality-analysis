@@ -27,7 +27,7 @@ import qualitypatternmodel.translationtests.Test06NotElement;
 public class Eval05Compset {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getCompsetMIDAS());
+		completePatterns.add(getCompsetLido());
 		Test00.test(completePatterns);
 		
 	}
@@ -98,6 +98,55 @@ public class Eval05Compset {
 		((UnknownParameterValue) comparison2.getArguments().get(1)).concretize(concreteInputValue2);
 		nextToReturnElementInGraph2.getProperties().get(0).getAttributeName().setValue("Value");
 		nextToReturnElementInGraph2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		
+		
+		return completePattern;
+	}
+	
+	public static CompletePattern getCompsetLido() {	
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
+		CompletePattern completePattern = getCompsetAbstract();
+		
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
+		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
+		concreteInputValue.setValue("lido:lido");
+		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
+//		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		
+		QuantifiedCondition condition = (QuantifiedCondition) completePattern.getCondition();
+		Graph graph1 = condition.getGraph();
+		Element returnElementInGraph1 = graph1.getReturnElements().get(0);
+		Element nextToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(0);	
+		nextToReturnElementInGraph1.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		
+		Comparison comparison1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
+		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
+		concreteInputValue1.setValue("lido:genderActor");
+		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
+//		nextToReturnElementInGraph1.getProperties().get(0).getAttributeName().setValue("Type");
+		nextToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+	
+		NotCondition notCondition = (NotCondition) condition.getCondition();
+		QuantifiedCondition condition2 = (QuantifiedCondition) notCondition.getCondition();
+		Graph graph2 = condition2.getGraph();
+		Element nextToReturnElementInGraph2 = graph2.getReturnElements().get(0).getNextElements().get(0);
+		
+		Comparison comparison2 = (Comparison) nextToReturnElementInGraph2.getPredicates().get(0);
+		TextListParam concreteInputValue2 = parametersFactory.createTextListParam();
+		concreteInputValue2.getValues().add("male");	
+		concreteInputValue2.getValues().add("männlich");
+		concreteInputValue2.getValues().add("weiblich");
+		concreteInputValue2.getValues().add("female");
+		concreteInputValue2.getValues().add("unknown");
+		concreteInputValue2.getValues().add("not applicable");
+		((UnknownParameterValue) comparison2.getArguments().get(1)).concretize(concreteInputValue2);
+//		nextToReturnElementInGraph2.getProperties().get(0).getAttributeName().setValue("Value");
+		nextToReturnElementInGraph2.getProperties().get(0).getOption().setValue(PropertyLocation.DATA);
 		
 		
 		return completePattern;
