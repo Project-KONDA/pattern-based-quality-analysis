@@ -20,7 +20,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval00Match {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getMatchMidas5360());
+		completePatterns.add(getMatchLido());
 		Test00.test(completePatterns);
 		
 	}
@@ -138,6 +138,40 @@ public class Eval00Match {
 		regularExpression.setValue("^[0-9]+(,[0-9]+)?( x [0-9]+(,[0-9]+)?)? (m|mm)( \\([a-zA-Z‰¸ˆƒ‹÷ ]+\\))?$");
 		element2.getProperties().get(1).getAttributeName().setValue("Value");
 		element2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		
+		return completePattern;		
+	}
+	
+public static CompletePattern getMatchLido() {
+		
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
+		CompletePattern completePattern = getMatchAbstract();
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
+		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
+		concreteInputValue.setValue("lido:lido");
+		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
+//		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		
+		Element returnElementInGraph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph().getReturnElements().get(0);				
+		Element element2 = returnElementInGraph1.getNextElements().get(0);
+		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
+		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
+		concreteInputValue2.setValue("lido:measurementValue");
+		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
+//		element2.getProperties().get(0).getAttributeName().setValue("Type");
+		element2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		
+		BooleanOperator matchElement2 = element2.getPredicates().get(1);
+		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
+		regularExpression.setValue("[a-zA-Z¸ˆ‰‹÷ƒ]");
+//		element2.getProperties().get(1).getAttributeName().setValue("Value");
+		element2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
 		
 		return completePattern;		
 	}

@@ -56,9 +56,9 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	public boolean inputIsValid() {
 		if (getValues() == null || getValues().isEmpty())
 			return false;
-		for (String val : getValues())
-			if (val.equals(""))
-				return false;
+//		for (String val : getValues())
+//			if (val.equals(""))
+//				return false;
 		return true;
 	}
 	
