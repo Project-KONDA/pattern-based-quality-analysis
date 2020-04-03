@@ -17,8 +17,8 @@ public class Test10Reference {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(Test00.concretize(getPatternReference()));
-		completePatterns.add(Test00.concretize(getPatternReferenceSameProp()));		
+		completePatterns.add(getPatternReference());
+		completePatterns.add(getPatternReferenceSameProp());		
 		Test00.test(completePatterns);
 	}
 
