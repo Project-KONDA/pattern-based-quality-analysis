@@ -29,14 +29,14 @@ public class Test12Count {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(Test00.concretize(getPatternCountInPattern()));	
-		completePatterns.add(Test00.concretize(getPatternCountInExists()));	
-		completePatterns.add(Test00.concretize(getPatternCountInForall()));	
-		completePatterns.add(Test00.concretize(getPatternCountNextToExists()));
-		completePatterns.add(Test00.concretize(getPatternCountNextToForall()));
-		completePatterns.add(Test00.concretize(getPatternCountInNot()));
-		completePatterns.add(Test00.concretize(getPatternCountNextToExistsNested()));
-		completePatterns.add(Test00.concretize(getPatternCountNextToForallNested()));
+		completePatterns.add(getPatternCountInPattern());	
+		completePatterns.add(getPatternCountInExists());	
+		completePatterns.add(getPatternCountInForall());	
+		completePatterns.add(getPatternCountNextToExists());
+		completePatterns.add(getPatternCountNextToForall());
+		completePatterns.add(getPatternCountInNot());
+		completePatterns.add(getPatternCountNextToExistsNested());
+		completePatterns.add(getPatternCountNextToForallNested());
 
 		Test00.test(completePatterns);
 	}

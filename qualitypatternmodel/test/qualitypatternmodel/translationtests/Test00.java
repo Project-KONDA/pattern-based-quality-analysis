@@ -29,6 +29,7 @@ public class Test00 {
 	
 	public static void test(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
+			concretize(completePattern);
 			try {
 				completePattern.isValid(true);
 				System.out.println("\n\n___PATTERN_(VALID)___");

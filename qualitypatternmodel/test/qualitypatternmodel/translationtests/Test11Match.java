@@ -22,13 +22,13 @@ public class Test11Match {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(Test00.concretize(getPatternMatch(true, "a")));
-		completePatterns.add(Test00.concretize(getPatternMatch(false, "a")));
-		completePatterns.add(Test00.concretize(getPatternMatch(true, "^a$")));
-		completePatterns.add(Test00.concretize(getPatternMatch(true, "^a")));
-		completePatterns.add(Test00.concretize(getPatternMatch(true, "a$")));
-		completePatterns.add(Test00.concretize(getPatternMatch(true, "^a$")));
-		completePatterns.add(Test00.concretize(getPatternMatch(false, "^a$")));
+		completePatterns.add(getPatternMatch(true, "a"));
+		completePatterns.add(getPatternMatch(false, "a"));
+		completePatterns.add(getPatternMatch(true, "^a$"));
+		completePatterns.add(getPatternMatch(true, "^a"));
+		completePatterns.add(getPatternMatch(true, "a$"));
+		completePatterns.add(getPatternMatch(true, "^a$"));
+		completePatterns.add(getPatternMatch(false, "^a$"));
 		Test00.test(completePatterns);
 	}
 
