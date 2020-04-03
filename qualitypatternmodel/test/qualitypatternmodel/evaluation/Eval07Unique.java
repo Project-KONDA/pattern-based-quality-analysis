@@ -31,7 +31,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval07Unique {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getUniqueMidas());
+		completePatterns.add(getUniqueLidoObjectPublishedId());
 		Test00.test(completePatterns);
 		
 	}
@@ -208,6 +208,108 @@ public class Eval07Unique {
 		
 		nextToElement2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
 		nextToElement2.getProperties().get(1).getAttributeName().setValue("Value");
+		
+		((Comparison) nextToElement2.getPredicates().get(1)).setType(ReturnType.STRING);
+		
+		return completePattern;
+	}
+	
+	private static CompletePattern getUniqueLido() {
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
+		CompletePattern completePattern = getUniqueAbstractMidas();
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+//		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
+		concreteInputValue.setValue("lido:lido");
+		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
+		
+		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
+		CountPattern countPattern = (CountPattern) countCondition.getArgument1();
+		
+		Element returnInCPattern = countPattern.getGraph().getRootElement().getNextElements().get(0);
+		Element rootInCPattern = countPattern.getGraph().getRootElement();
+		Element element2 = rootInCPattern.getNextElements().get(1);	
+		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+//		element2.getProperties().get(0).getAttributeName().setValue("Type");
+		element2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
+		concreteInputValue2.setValue("lido:lido");
+		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
+		
+		Element nextToReturn = returnInCPattern.getNextElements().get(0);
+//		nextToReturn.getProperties().get(0).getAttributeName().setValue("Type");
+		nextToReturn.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
+		concreteInputValue3.setValue("lido:lidoRecID");
+		((UnknownParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
+		
+		Element nextToElement2 = element2.getNextElements().get(0);
+//		nextToElement2.getProperties().get(0).getAttributeName().setValue("Type");
+		nextToElement2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
+		concreteInputValue4.setValue("lido:lidoRecID");
+		((UnknownParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
+		
+		nextToReturn.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+//		nextToReturn.getProperties().get(1).getAttributeName().setValue("Value");
+		
+		nextToElement2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+//		nextToElement2.getProperties().get(1).getAttributeName().setValue("Value");
+		
+		((Comparison) nextToElement2.getPredicates().get(1)).setType(ReturnType.STRING);
+		
+		return completePattern;
+	}
+	
+	private static CompletePattern getUniqueLidoObjectPublishedId() {
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
+		CompletePattern completePattern = getUniqueAbstractMidas();
+		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+//		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
+		concreteInputValue.setValue("lido:lido");
+		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
+		
+		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
+		CountPattern countPattern = (CountPattern) countCondition.getArgument1();
+		
+		Element returnInCPattern = countPattern.getGraph().getRootElement().getNextElements().get(0);
+		Element rootInCPattern = countPattern.getGraph().getRootElement();
+		Element element2 = rootInCPattern.getNextElements().get(1);	
+		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+//		element2.getProperties().get(0).getAttributeName().setValue("Type");
+		element2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
+		concreteInputValue2.setValue("lido:lido");
+		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
+		
+		Element nextToReturn = returnInCPattern.getNextElements().get(0);
+//		nextToReturn.getProperties().get(0).getAttributeName().setValue("Type");
+		nextToReturn.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
+		concreteInputValue3.setValue("lido:objectPublishedID");
+		((UnknownParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
+		
+		Element nextToElement2 = element2.getNextElements().get(0);
+//		nextToElement2.getProperties().get(0).getAttributeName().setValue("Type");
+		nextToElement2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
+		concreteInputValue4.setValue("lido:objectPublishedID");
+		((UnknownParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
+		
+		nextToReturn.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+//		nextToReturn.getProperties().get(1).getAttributeName().setValue("Value");
+		
+		nextToElement2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+//		nextToElement2.getProperties().get(1).getAttributeName().setValue("Value");
 		
 		((Comparison) nextToElement2.getPredicates().get(1)).setType(ReturnType.STRING);
 		
