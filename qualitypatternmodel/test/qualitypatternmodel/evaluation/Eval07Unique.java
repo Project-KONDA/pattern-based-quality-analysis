@@ -64,7 +64,7 @@ public class Eval07Unique {
 		numberElement.setNumberParam(numberParam);
 		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
 		countCondition.getOption().setValue(ComparisonOperator.GREATER);
-		countCondition.setArgument1(countPattern);
+		countCondition.setCountPattern(countPattern);
 		countCondition.setArgument2(numberElement);
 		
 		Element returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
@@ -123,7 +123,7 @@ public class Eval07Unique {
 		numberElement.setNumberParam(numberParam);
 		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
 		countCondition.getOption().setValue(ComparisonOperator.GREATER);
-		countCondition.setArgument1(countPattern);
+		countCondition.setCountPattern(countPattern);
 		countCondition.setArgument2(numberElement);
 		
 		Element returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
@@ -177,7 +177,7 @@ public class Eval07Unique {
 		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
 		
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
-		CountPattern countPattern = (CountPattern) countCondition.getArgument1();
+		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		
 		Element returnInCPattern = countPattern.getGraph().getRootElement().getNextElements().get(0);
 		Element rootInCPattern = countPattern.getGraph().getRootElement();
@@ -228,7 +228,7 @@ public class Eval07Unique {
 		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
 		
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
-		CountPattern countPattern = (CountPattern) countCondition.getArgument1();
+		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		
 		Element returnInCPattern = countPattern.getGraph().getRootElement().getNextElements().get(0);
 		Element rootInCPattern = countPattern.getGraph().getRootElement();
@@ -279,7 +279,7 @@ public class Eval07Unique {
 		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
 		
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
-		CountPattern countPattern = (CountPattern) countCondition.getArgument1();
+		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		
 		Element returnInCPattern = countPattern.getGraph().getRootElement().getNextElements().get(0);
 		Element rootInCPattern = countPattern.getGraph().getRootElement();
@@ -328,7 +328,7 @@ public class Eval07Unique {
 		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
 		
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
-		CountPattern countPattern = (CountPattern) countCondition.getArgument1();
+		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		
 		Element returnInCPattern = countPattern.getGraph().getRootElement().getNextElements().get(0);
 		Element rootInCPattern = countPattern.getGraph().getRootElement();

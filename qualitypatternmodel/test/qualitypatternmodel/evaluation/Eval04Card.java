@@ -50,7 +50,7 @@ public class Eval04Card {
 		CompletePattern pattern = Test12Count.getPatternCountInPattern();	
 		pattern.getGraph().getReturnElements().get(0).getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
 		CountCondition condition = (CountCondition) pattern.getCondition();
-		CountPattern countPattern = (CountPattern) condition.getArgument1();
+		CountPattern countPattern = (CountPattern) condition.getCountPattern();
 		Element element2InC = countPattern.getGraph()
 				.getReturnElements()
 				.get(0);				
@@ -87,7 +87,7 @@ public class Eval04Card {
 		countCondition.getOption().setValue(ComparisonOperator.GREATER);
 		NumberElement numberElement = (NumberElement) countCondition.getArgument2();		
 		numberElement.getNumberParam().setValue(1.0);
-		CountPattern countPattern = (CountPattern) countCondition.getArgument1();
+		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		Graph graph1 = countPattern.getGraph();
 		
 		Element returnElementInGraph1 = graph1.getRootElement().getNextElements().get(0);

@@ -60,7 +60,7 @@ public class Test12Count {
 		NumberParam numberParam = parametersFactory.createNumberParam();
 		NumberElement numberElement = factory.createNumberElement();
 		numberElement.setNumberParam(numberParam);
-		countCondition.setArgument1(countpattern);
+		countCondition.setCountPattern(countpattern);
 		countCondition.setArgument2(numberElement);
 		
 		Element returnInCPattern = countpattern.getGraph().getReturnElements().get(0);
@@ -97,7 +97,7 @@ public class Test12Count {
 		NumberParam numberParam = parametersFactory.createNumberParam();
 		NumberElement numberElement = factory.createNumberElement();
 		numberElement.setNumberParam(numberParam);
-		countCondition.setArgument1(countpattern);
+		countCondition.setCountPattern(countpattern);
 		countCondition.setArgument2(numberElement);
 		
 		Element returnInCPattern = countpattern.getGraph().getReturnElements().get(0);
@@ -145,7 +145,7 @@ public class Test12Count {
 		NumberElement numberElement = factory.createNumberElement();
 		NumberParam numberParam = parametersFactory.createNumberParam();
 		numberElement.setNumberParam(numberParam);
-		countCondition.setArgument1(countpattern);
+		countCondition.setCountPattern(countpattern);
 		countCondition.setArgument2(numberElement);
 		
 		Element returnInCPattern = countpattern.getGraph().getReturnElements().get(0);
@@ -190,7 +190,7 @@ public class Test12Count {
 		NumberParam numberParam = parametersFactory.createNumberParam();
 		NumberElement numberElement = factory.createNumberElement();
 		numberElement.setNumberParam(numberParam);
-		countCondition.setArgument1(countpattern);
+		countCondition.setCountPattern(countpattern);
 		countCondition.setArgument2(numberElement);
 		
 		Element returnInCPattern = countpattern.getGraph().getReturnElements().get(0);
@@ -252,7 +252,7 @@ public class Test12Count {
 		NumberParam numberParam = parametersFactory.createNumberParam();
 		NumberElement numberElement = factory.createNumberElement();
 		numberElement.setNumberParam(numberParam);
-		countCondition.setArgument1(countpattern);
+		countCondition.setCountPattern(countpattern);
 		countCondition.setArgument2(numberElement);
 		
 		Element returnInCPattern = countpattern.getGraph().getReturnElements().get(0);
