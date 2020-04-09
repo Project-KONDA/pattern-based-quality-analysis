@@ -34,7 +34,6 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.NumberElementImpl#getCountCondition1 <em>Count Condition1</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.NumberElementImpl#getCountCondition2 <em>Count Condition2</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.NumberElementImpl#getNumberParam <em>Number Param</em>}</li>
  * </ul>
@@ -97,49 +96,6 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	@Override
 	protected EClass eStaticClass() {
 		return PatternstructurePackage.Literals.NUMBER_ELEMENT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public CountCondition getCountCondition1() {
-		if (eContainerFeatureID() != PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION1) return null;
-		return (CountCondition)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCountCondition1(CountCondition newCountCondition1, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newCountCondition1, PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION1, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCountCondition1(CountCondition newCountCondition1) {
-		if (newCountCondition1 != eInternalContainer() || (eContainerFeatureID() != PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION1 && newCountCondition1 != null)) {
-			if (EcoreUtil.isAncestor(this, newCountCondition1))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newCountCondition1 != null)
-				msgs = ((InternalEObject)newCountCondition1).eInverseAdd(this, PatternstructurePackage.COUNT_CONDITION__ARGUMENT1, CountCondition.class, msgs);
-			msgs = basicSetCountCondition1(newCountCondition1, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION1, newCountCondition1, newCountCondition1));
 	}
 
 	/**
@@ -255,10 +211,6 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION1:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetCountCondition1((CountCondition)otherEnd, msgs);
 			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION2:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -279,8 +231,6 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION1:
-				return basicSetCountCondition1(null, msgs);
 			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION2:
 				return basicSetCountCondition2(null, msgs);
 			case PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM:
@@ -297,8 +247,6 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION1:
-				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__ARGUMENT1, CountCondition.class, msgs);
 			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION2:
 				return eInternalContainer().eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION__ARGUMENT2, CountCondition.class, msgs);
 		}
@@ -313,8 +261,6 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION1:
-				return getCountCondition1();
 			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION2:
 				return getCountCondition2();
 			case PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM:
@@ -332,9 +278,6 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION1:
-				setCountCondition1((CountCondition)newValue);
-				return;
 			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION2:
 				setCountCondition2((CountCondition)newValue);
 				return;
@@ -353,9 +296,6 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION1:
-				setCountCondition1((CountCondition)null);
-				return;
 			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION2:
 				setCountCondition2((CountCondition)null);
 				return;
@@ -374,8 +314,6 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION1:
-				return getCountCondition1() != null;
 			case PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION2:
 				return getCountCondition2() != null;
 			case PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM:

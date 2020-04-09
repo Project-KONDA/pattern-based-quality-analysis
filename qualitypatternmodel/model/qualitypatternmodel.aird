@@ -5950,9 +5950,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_bU1OaGqMEeqwze_WIZAgBA" sourceNode="_EpllcGqMEeqwze_WIZAgBA" targetNode="_XXNI4GqREeqwze_WIZAgBA" beginLabel="[0..1] countCondition1" endLabel="[1..1] argument1">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountConditionArgument/countCondition1"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_rwrVsGqMEeqwze_WIZAgBA" description="_xYo0Kj6rEeqCS-1j1plv3Q" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_rwrVsWqMEeqwze_WIZAgBA" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -11176,8 +11175,8 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_jmq3UHJQEeqSxt7l0Y750A" name=" argument1 : CountConditionArgument" tooltipText="">
-          <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-          <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
+          <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
+          <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_jmreYHJQEeqSxt7l0Y750A" labelAlignment="LEFT" description="_Qv-11GjnEeqrp_Bk8ukhmg" color="114,159,207">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
@@ -12318,9 +12317,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_jm_AcnJQEeqSxt7l0Y750A" visible="false" sourceNode="_hXM0EG03EeqrjIq7keEu6A" targetNode="_hXOCMG03EeqrjIq7keEu6A" beginLabel="[0..1] countCondition1" endLabel="[1..1] argument1">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountConditionArgument/countCondition1"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_jm_ncHJQEeqSxt7l0Y750A" description="_H1_RQmg1EeqqIutgaIr-iw" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_jm_ncXJQEeqSxt7l0Y750A" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -17362,8 +17360,8 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_kGIagHJQEeqSxt7l0Y750A" name=" argument1 : CountConditionArgument" tooltipText="">
-          <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-          <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
+          <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
+          <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_kGIagXJQEeqSxt7l0Y750A" labelAlignment="LEFT" description="_RMWUpG6AEeqbus1jtXHXnw" color="114,159,207">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
@@ -18487,9 +18485,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_kGWc_HJQEeqSxt7l0Y750A" visible="false" sourceNode="_RMPATG6AEeqbus1jtXHXnw" targetNode="_RMPnj26AEeqbus1jtXHXnw" beginLabel="[0..1] countCondition1" endLabel="[1..1] argument1">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountConditionArgument/countCondition1"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_kGWc_XJQEeqSxt7l0Y750A" description="_RMWUnW6AEeqbus1jtXHXnw" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_kGWc_nJQEeqSxt7l0Y750A" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -20648,17 +20645,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_luFnqHJSEeqSxt7l0Y750A" type="4001" element="_luB7D3JSEeqSxt7l0Y750A" source="_luFAY3JSEeqSxt7l0Y750A" target="_luFlFHJSEeqSxt7l0Y750A">
           <children xmi:type="notation:Node" xmi:id="_luFnqXJSEeqSxt7l0Y750A" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFnqnJSEeqSxt7l0Y750A" x="66" y="-3"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFnqnJSEeqSxt7l0Y750A" x="67" y="-3"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_luFnq3JSEeqSxt7l0Y750A" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFnrHJSEeqSxt7l0Y750A" x="12" y="-8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFnrHJSEeqSxt7l0Y750A" x="11" y="-8"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_luFnrXJSEeqSxt7l0Y750A" type="6003">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFnrnJSEeqSxt7l0Y750A" x="-20" y="-49"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_luFnr3JSEeqSxt7l0Y750A" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_luFnsHJSEeqSxt7l0Y750A" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_luFnsXJSEeqSxt7l0Y750A" points="[128, -27, -98, -179]$[195, -27, -31, -179]$[195, 75, -31, -77]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_luFnsXJSEeqSxt7l0Y750A" points="[128, -17, -98, -169]$[206, -17, -20, -169]$[206, 75, -20, -77]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_luFnsnJSEeqSxt7l0Y750A" id="(0.3155080213903743,1.108776844070962)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_luFns3JSEeqSxt7l0Y750A" id="(0.4411764705882353,1.31310123683005)"/>
         </edges>
@@ -21112,17 +21109,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_luFpWHJSEeqSxt7l0Y750A" type="4001" element="_luB7jnJSEeqSxt7l0Y750A" source="_luFlRHJSEeqSxt7l0Y750A" target="_luFlInJSEeqSxt7l0Y750A">
           <children xmi:type="notation:Node" xmi:id="_luFpWXJSEeqSxt7l0Y750A" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpWnJSEeqSxt7l0Y750A" x="12" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpWnJSEeqSxt7l0Y750A" x="6" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_luFpW3JSEeqSxt7l0Y750A" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpXHJSEeqSxt7l0Y750A" x="2" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpXHJSEeqSxt7l0Y750A" x="-4" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_luFpXXJSEeqSxt7l0Y750A" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpXnJSEeqSxt7l0Y750A" x="14" y="4"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpXnJSEeqSxt7l0Y750A" x="8" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_luFpX3JSEeqSxt7l0Y750A" routing="Tree" lineColor="10011046"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_luFpYHJSEeqSxt7l0Y750A" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_luFpYXJSEeqSxt7l0Y750A" points="[-1, -4, 166, 50]$[-1, -17, 166, 37]$[-163, -17, 4, 37]$[-163, -34, 4, 20]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_luFpYXJSEeqSxt7l0Y750A" points="[-1, -3, 166, 50]$[-1, -10, 166, 43]$[-163, -10, 4, 43]$[-163, -33, 4, 20]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_luFpYnJSEeqSxt7l0Y750A" id="(0.7966101694915254,0.08368200836820085)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_luFpZHJSEeqSxt7l0Y750A" type="4001" element="_luB7k3JSEeqSxt7l0Y750A" source="_luE-RXJSEeqSxt7l0Y750A" target="_luFlRHJSEeqSxt7l0Y750A">
@@ -21141,22 +21138,6 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_luFpbnJSEeqSxt7l0Y750A" id="(0.3719065077080011,1.1220472440944882)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_luFpb3JSEeqSxt7l0Y750A" id="(0.5,19.989539748953973)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_luFpcHJSEeqSxt7l0Y750A" type="4001" element="_luB7TnJSEeqSxt7l0Y750A" source="_luFlG3JSEeqSxt7l0Y750A" target="_luFlInJSEeqSxt7l0Y750A">
-          <children xmi:type="notation:Node" xmi:id="_luFpcXJSEeqSxt7l0Y750A" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpcnJSEeqSxt7l0Y750A" x="-27"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_luFpc3JSEeqSxt7l0Y750A" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpdHJSEeqSxt7l0Y750A" x="-4" y="64"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_luFpdXJSEeqSxt7l0Y750A" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpdnJSEeqSxt7l0Y750A" x="-70" y="44"/>
-          </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_luFpd3JSEeqSxt7l0Y750A" routing="Rectilinear"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_luFpeHJSEeqSxt7l0Y750A" fontName="Segoe UI" fontHeight="8" bold="true"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_luFpeXJSEeqSxt7l0Y750A" points="[-48, -101, 72, 152]$[-48, -325, 72, -72]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_luFpenJSEeqSxt7l0Y750A" id="(0.5377358490566038,1.7246577574967403)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_luFpe3JSEeqSxt7l0Y750A" id="(0.2702702702702703,2.85)"/>
-        </edges>
         <edges xmi:type="notation:Edge" xmi:id="_luFpfHJSEeqSxt7l0Y750A" type="4001" element="_luB7l3JSEeqSxt7l0Y750A" source="_luFlG3JSEeqSxt7l0Y750A" target="_luFlInJSEeqSxt7l0Y750A">
           <children xmi:type="notation:Node" xmi:id="_luFpfXJSEeqSxt7l0Y750A" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpfnJSEeqSxt7l0Y750A" x="10"/>
@@ -21165,7 +21146,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpgHJSEeqSxt7l0Y750A" x="-24" y="67"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_luFpgXJSEeqSxt7l0Y750A" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpgnJSEeqSxt7l0Y750A" x="-90" y="52"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luFpgnJSEeqSxt7l0Y750A" x="29" y="49"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_luFpg3JSEeqSxt7l0Y750A" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_luFphHJSEeqSxt7l0Y750A" fontName="Segoe UI" fontHeight="8"/>
@@ -21332,6 +21313,22 @@
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uSQ2U3TMEeq-csq4K3Gu0Q" points="[-1, -7, 590, 231]$[-1, -410, 590, -172]$[-571, -410, 20, -172]$[-571, -449, 20, -211]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uSQ2WnTMEeq-csq4K3Gu0Q" id="(0.17073170731707318,0.1206896551724138)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uSQ2W3TMEeq-csq4K3Gu0Q" id="(0.3235294117647059,6.416329671920351)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_-c4IsHo7EeqwiPzySWN3AQ" type="4001" element="_luB7TnJSEeqSxt7l0Y750A" source="_luFlG3JSEeqSxt7l0Y750A" target="_luFlM3JSEeqSxt7l0Y750A">
+          <children xmi:type="notation:Node" xmi:id="_-c7zEHo7EeqwiPzySWN3AQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-c7zEXo7EeqwiPzySWN3AQ" x="35" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-c8aIHo7EeqwiPzySWN3AQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-c8aIXo7EeqwiPzySWN3AQ" x="84" y="-49"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_-c8aIno7EeqwiPzySWN3AQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-c8aI3o7EeqwiPzySWN3AQ" x="-36" y="-56"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_-c4IsXo7EeqwiPzySWN3AQ" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_-c4Isno7EeqwiPzySWN3AQ" fontName="Segoe UI" fontHeight="8" bold="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-c4Is3o7EeqwiPzySWN3AQ" points="[-38, -101, 24, 193]$[-38, -287, 24, 7]$[-56, -287, 6, 7]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-c-PUHo7EeqwiPzySWN3AQ" id="(0.5377358490566038,1.7246577574967403)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-c-2YHo7EeqwiPzySWN3AQ" id="(0.9574468085106383,0.02127659574468085)"/>
         </edges>
       </data>
     </ownedAnnotationEntries>
@@ -23945,7 +23942,7 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_luBVJHJSEeqSxt7l0Y750A" name="CountConditionArgument" tooltipText="" outgoingEdges="_luB7V3JSEeqSxt7l0Y750A" incomingEdges="_luB7UnJSEeqSxt7l0Y750A _luB7jnJSEeqSxt7l0Y750A _luB7TnJSEeqSxt7l0Y750A _luB7l3JSEeqSxt7l0Y750A" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_luBVJHJSEeqSxt7l0Y750A" name="CountConditionArgument" tooltipText="" outgoingEdges="_luB7V3JSEeqSxt7l0Y750A" incomingEdges="_luB7UnJSEeqSxt7l0Y750A _luB7jnJSEeqSxt7l0Y750A _luB7l3JSEeqSxt7l0Y750A" width="12" height="10">
         <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountConditionArgument"/>
         <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountConditionArgument"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -23997,7 +23994,7 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_luBVKnJSEeqSxt7l0Y750A" name="CountPattern" tooltipText="" outgoingEdges="_luB7hHJSEeqSxt7l0Y750A _luB7UnJSEeqSxt7l0Y750A" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_luBVKnJSEeqSxt7l0Y750A" name="CountPattern" tooltipText="" outgoingEdges="_luB7hHJSEeqSxt7l0Y750A _luB7UnJSEeqSxt7l0Y750A" incomingEdges="_luB7TnJSEeqSxt7l0Y750A" width="12" height="10">
         <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountPattern"/>
         <semanticElements xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountPattern"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -24697,10 +24694,10 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_luB7TnJSEeqSxt7l0Y750A" sourceNode="_luBVInJSEeqSxt7l0Y750A" targetNode="_luBVJHJSEeqSxt7l0Y750A" beginLabel="[0..1] countCondition1" endLabel="[1..1] argument1">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountConditionArgument/countCondition1"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_luB7TnJSEeqSxt7l0Y750A" sourceNode="_luBVInJSEeqSxt7l0Y750A" targetNode="_luBVKnJSEeqSxt7l0Y750A" beginLabel="[0..1] countCondition" endLabel="[1..1] countPattern">
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountPattern/countCondition"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_luB7T3JSEeqSxt7l0Y750A" description="_luE93XJSEeqSxt7l0Y750A" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_luB7UHJSEeqSxt7l0Y750A" showIcon="false">
           <labelFormat>bold</labelFormat>
@@ -31636,9 +31633,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_zCsKXHJkEeqSxt7l0Y750A" sourceNode="_zCsJX3JkEeqSxt7l0Y750A" targetNode="_zCsJYXJkEeqSxt7l0Y750A" beginLabel="[0..1] countCondition1" endLabel="[1..1] argument1">
-      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/argument1"/>
-      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountConditionArgument/countCondition1"/>
+      <target xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
+      <semanticElements xmi:type="ecore:EReference" href="qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_zCsKXXJkEeqSxt7l0Y750A" description="_zCt-jXJkEeqSxt7l0Y750A" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_zCsKXnJkEeqSxt7l0Y750A" showIcon="false">
           <labelFormat>bold</labelFormat>

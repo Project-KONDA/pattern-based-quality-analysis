@@ -38,7 +38,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getArgument1 <em>Argument1</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getCountPattern <em>Count Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getOptionParam <em>Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getArgument2 <em>Argument2</em>}</li>
@@ -48,14 +48,14 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  */
 public class CountConditionImpl extends ConditionImpl implements CountCondition {
 	/**
-	 * The cached value of the '{@link #getArgument1() <em>Argument1</em>}' containment reference.
+	 * The cached value of the '{@link #getCountPattern() <em>Count Pattern</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getArgument1()
+	 * @see #getCountPattern()
 	 * @generated
 	 * @ordered
 	 */
-	protected CountConditionArgument argument1;
+	protected CountPattern countPattern;
 
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
@@ -98,7 +98,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	
 	@Override
 	public String generateQuery(Location location) throws InvalidityException {
-		String argument1 = getArgument1().generateQuery(location);
+		String argument1 = getCountPattern().generateQuery(location);
 		String argument2 = getArgument2().generateQuery(location);
 		if(getOption() != null && getOption().getValue() != null) {
 			return argument1 + " " + getOption().getValue() + " " + argument2;
@@ -112,7 +112,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	public void isValid(boolean isDefinedPattern)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
-		getArgument1().isValid(isDefinedPattern);
+		getCountPattern().isValid(isDefinedPattern);
 		getArgument2().isValid(isDefinedPattern);
 		if(getOption() != null) {
 			getOption().isValid(isDefinedPattern);
@@ -122,7 +122,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		if(getArgument1() == null) {
+		if(getCountPattern() == null) {
 			throw new InvalidityException("argument1 missing");
 		} 		
 		if(getArgument2() == null) {
@@ -136,8 +136,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {		
 		BasicEList<MorphismContainer> result = new BasicEList<MorphismContainer>();
-		if(getArgument1() instanceof CountPattern) {
-			result.add((MorphismContainer) getArgument1());
+		if(getCountPattern() instanceof CountPattern) {
+			result.add((MorphismContainer) getCountPattern());
 		}
 		if(getArgument2() instanceof CountPattern) {
 			result.add((MorphismContainer) getArgument2());
@@ -169,7 +169,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		if(getOption() != null) {
 			res.add(getOption());
 		}		
-		res.addAll(getArgument1().getAllInputs());
+		res.addAll(getCountPattern().getAllInputs());
 		res.addAll(getArgument2().getAllInputs());		
 		return res;
 	}
@@ -190,8 +190,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * @generated
 	 */
 	@Override
-	public CountConditionArgument getArgument1() {
-		return argument1;
+	public CountPattern getCountPattern() {
+		return countPattern;
 	}
 
 	/**
@@ -199,12 +199,12 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetArgument1(CountConditionArgument newArgument1, NotificationChain msgs) {
-		newArgument1.updateParameters(newArgument1.getParameterList());
-		CountConditionArgument oldArgument1 = argument1;
-		argument1 = newArgument1;
+	public NotificationChain basicSetCountPattern(CountPattern newCountPattern, NotificationChain msgs) {
+		newCountPattern.updateParameters(getCountPattern().getParameterList());
+		CountPattern oldCountPattern = countPattern;
+		countPattern = newCountPattern;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__ARGUMENT1, oldArgument1, newArgument1);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN, oldCountPattern, newCountPattern);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -216,18 +216,18 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * @generated
 	 */
 	@Override
-	public void setArgument1(CountConditionArgument newArgument1) {
-		if (newArgument1 != argument1) {
+	public void setCountPattern(CountPattern newCountPattern) {
+		if (newCountPattern != countPattern) {
 			NotificationChain msgs = null;
-			if (argument1 != null)
-				msgs = ((InternalEObject)argument1).eInverseRemove(this, PatternstructurePackage.COUNT_CONDITION_ARGUMENT__COUNT_CONDITION1, CountConditionArgument.class, msgs);
-			if (newArgument1 != null)
-				msgs = ((InternalEObject)newArgument1).eInverseAdd(this, PatternstructurePackage.COUNT_CONDITION_ARGUMENT__COUNT_CONDITION1, CountConditionArgument.class, msgs);
-			msgs = basicSetArgument1(newArgument1, msgs);
+			if (countPattern != null)
+				msgs = ((InternalEObject)countPattern).eInverseRemove(this, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION, CountPattern.class, msgs);
+			if (newCountPattern != null)
+				msgs = ((InternalEObject)newCountPattern).eInverseAdd(this, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION, CountPattern.class, msgs);
+			msgs = basicSetCountPattern(newCountPattern, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__ARGUMENT1, newArgument1, newArgument1));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN, newCountPattern, newCountPattern));
 	}
 
 //	/**
@@ -528,10 +528,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
-				if (argument1 != null)
-					msgs = ((InternalEObject)argument1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COUNT_CONDITION__ARGUMENT1, null, msgs);
-				return basicSetArgument1((CountConditionArgument)otherEnd, msgs);
+			case PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN:
+				if (countPattern != null)
+					msgs = ((InternalEObject)countPattern).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN, null, msgs);
+				return basicSetCountPattern((CountPattern)otherEnd, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				if (option != null)
 					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION, ComparisonOptionParam.class, msgs);
@@ -556,8 +556,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
-				return basicSetArgument1(null, msgs);
+			case PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN:
+				return basicSetCountPattern(null, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				return basicSetOption(null, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM:
@@ -576,8 +576,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
-				return getArgument1();
+			case PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN:
+				return getCountPattern();
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				if (resolve) return getOption();
 				return basicGetOption();
@@ -599,8 +599,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
-				setArgument1((CountConditionArgument)newValue);
+			case PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN:
+				setCountPattern((CountPattern)newValue);
 				return;
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				setOption((ComparisonOptionParam)newValue);
@@ -623,8 +623,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
-				setArgument1((CountConditionArgument)null);
+			case PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN:
+				setCountPattern((CountPattern)null);
 				return;
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				setOption((ComparisonOptionParam)null);
@@ -647,8 +647,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
-				return argument1 != null;
+			case PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN:
+				return countPattern != null;
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				return option != null;
 			case PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM:
@@ -661,7 +661,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 
 	@Override
 	public String myToString() {
-		return "CountCondition " + getInternalId() + " " + getOption().getValue().getLiteral() + ("\n" + getArgument1().myToString()).replace("\n", "\n#  ") + ("\n" + getArgument2().myToString()).replace("\n", "\n#  ");
+		return "CountCondition " + getInternalId() + " " + getOption().getValue().getLiteral() + ("\n" + getCountPattern().myToString()).replace("\n", "\n#  ") + ("\n" + getArgument2().myToString()).replace("\n", "\n#  ");
 	}
 
 } //CountComparisonImpl

@@ -14,7 +14,7 @@ import qualitypatternmodel.parameters.OptionParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1 <em>Argument1</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getCountPattern <em>Count Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getOptionParam <em>Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2 <em>Argument2</em>}</li>
@@ -26,18 +26,28 @@ import qualitypatternmodel.parameters.OptionParam;
  */
 public interface CountCondition extends Condition {
 	/**
-	 * Returns the value of the '<em><b>Argument1</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition1 <em>Count Condition1</em>}'.
+	 * Returns the value of the '<em><b>Count Pattern</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CountPattern#getCountCondition <em>Count Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Argument1</em>' containment reference.
-	 * @see #setArgument1(CountConditionArgument)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_Argument1()
-	 * @see qualitypatternmodel.patternstructure.CountConditionArgument#getCountCondition1
-	 * @model opposite="countCondition1" containment="true" required="true"
+	 * @return the value of the '<em>Count Pattern</em>' containment reference.
+	 * @see #setCountPattern(CountPattern)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_CountPattern()
+	 * @see qualitypatternmodel.patternstructure.CountPattern#getCountCondition
+	 * @model opposite="countCondition" containment="true" required="true"
 	 * @generated
 	 */
-	CountConditionArgument getArgument1();
+	CountPattern getCountPattern();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountCondition#getCountPattern <em>Count Pattern</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Count Pattern</em>' containment reference.
+	 * @see #getCountPattern()
+	 * @generated
+	 */
+	void setCountPattern(CountPattern value);
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
@@ -100,16 +110,6 @@ public interface CountCondition extends Condition {
 	 * @generated
 	 */
 	void setOptionParam(OptionParam value);
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument1 <em>Argument1</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Argument1</em>' containment reference.
-	 * @see #getArgument1()
-	 * @generated
-	 */
-	void setArgument1(CountConditionArgument value);
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2 <em>Argument2</em>}' containment reference.

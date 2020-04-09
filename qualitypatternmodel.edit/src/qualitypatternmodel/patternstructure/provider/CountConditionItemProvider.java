@@ -109,7 +109,7 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT1);
+			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_CONDITION__COUNT_PATTERN);
 			childrenFeatures.add(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT2);
 		}
 		return childrenFeatures;
@@ -166,7 +166,7 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CountCondition.class)) {
-			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT1:
+			case PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN:
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT2:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -187,13 +187,8 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT1,
+				(PatternstructurePackage.Literals.COUNT_CONDITION__COUNT_PATTERN,
 				 PatternstructureFactory.eINSTANCE.createCountPattern()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT1,
-				 PatternstructureFactory.eINSTANCE.createNumberElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -218,7 +213,7 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT1 ||
+			childFeature == PatternstructurePackage.Literals.COUNT_CONDITION__COUNT_PATTERN ||
 			childFeature == PatternstructurePackage.Literals.COUNT_CONDITION__ARGUMENT2;
 
 		if (qualify) {
