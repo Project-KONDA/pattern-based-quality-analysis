@@ -1407,6 +1407,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEEnumLiteral(axisEEnum, Axis.ANCESTOR_OR_SELF);
 		addEEnumLiteral(axisEEnum, Axis.DESCENDANT_OR_SELF);
 		addEEnumLiteral(axisEEnum, Axis.SELF);
+		addEEnumLiteral(axisEEnum, Axis.TWOCHILD);
+		addEEnumLiteral(axisEEnum, Axis.THREECHILD);
+		addEEnumLiteral(axisEEnum, Axis.FOURCHILD);
 
 		initEEnum(returnTypeEEnum, ReturnType.class, "ReturnType");
 		addEEnumLiteral(returnTypeEEnum, ReturnType.UNSPECIFIED);

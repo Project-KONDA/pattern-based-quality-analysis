@@ -143,9 +143,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ParametersPackage.PARAMETER_VALUE__COMPARISON1:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>) getComparison1()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison1()).basicAdd(otherEnd, msgs);
 			case ParametersPackage.PARAMETER_VALUE__COMPARISON2:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>) getComparison2()).basicAdd(otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison2()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

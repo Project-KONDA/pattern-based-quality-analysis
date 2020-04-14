@@ -105,7 +105,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 
 	@Override
 	public String generateQuery(Location location) throws InvalidityException {
-		return "/" + value.getLiteral() + "::*";
+//		return "/" + value.getLiteral() + "::*";
+		return value.getLiteral();
 	}
 
 	@Override
