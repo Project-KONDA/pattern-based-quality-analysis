@@ -194,6 +194,9 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/Axis/ANCESTOR_OR_SELF"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/Axis/DESCENDANT_OR_SELF"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/Axis/SELF"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/Axis/TWOCHILD"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/Axis/THREECHILD"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/Axis/FOURCHILD"/>
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//graphstructure/ReturnType">
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//graphstructure/ReturnType/UNSPECIFIED"/>
