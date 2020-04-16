@@ -231,7 +231,6 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementsToPreviousGraphs">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementsToPreviousGraphs/recursive"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearMatchRecursively"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearPredicatesRecursively"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getOriginalID"/>

@@ -597,10 +597,6 @@
                   <styles xmi:type="notation:FontStyle" xmi:id="_7FXhUVfAEeqjyM_iFY7l0Q" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_7FXhUlfAEeqjyM_iFY7l0Q"/>
                 </children>
-                <children xmi:type="notation:Node" xmi:id="_PRErkGIHEeqRJMTe2Wle0g" type="3010" element="_Oz940GIHEeqRJMTe2Wle0g">
-                  <styles xmi:type="notation:FontStyle" xmi:id="_PRErkWIHEeqRJMTe2Wle0g" fontName="Segoe UI" fontHeight="8"/>
-                  <layoutConstraint xmi:type="notation:Location" xmi:id="_PRErkmIHEeqRJMTe2Wle0g"/>
-                </children>
                 <children xmi:type="notation:Node" xmi:id="_eq9OpmzeEeqFoZB-JbQqGQ" type="3010" element="_wpalwGIGEeqRJMTe2Wle0g">
                   <styles xmi:type="notation:FontStyle" xmi:id="_eq9Op2zeEeqFoZB-JbQqGQ" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_eq9OqGzeEeqFoZB-JbQqGQ"/>
@@ -4121,14 +4117,6 @@
           <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementsToPreviousGraphs"/>
           <semanticElements xmi:type="ecore:EParameter" href="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementsToPreviousGraphs/recursive"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_63hSkFfAEeqjyM_iFY7l0Q" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-        </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_Oz940GIHEeqRJMTe2Wle0g" name="removeFromReturnElementsRecursively()" tooltipText="removeFromReturnElementsRecursively()">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
-          <ownedStyle xmi:type="diagram:BundledImage" uid="_Oz-f4GIHEeqRJMTe2Wle0g" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
@@ -10174,8 +10162,6 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_H10SQGg1EeqqIutgaIr-iw" name="removeFromReturnElementsRecursively()" visible="false" tooltipText="removeFromReturnElementsRecursively()">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
           <graphicalFilters xmi:type="diagram:HideFilter" uid="_iJgL0Gg2EeqqIutgaIr-iw"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_H10SQWg1EeqqIutgaIr-iw" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
@@ -16166,8 +16152,6 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_RMOZF26AEeqbus1jtXHXnw" name="removeFromReturnElementsRecursively()" visible="false" tooltipText="removeFromReturnElementsRecursively()">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
           <graphicalFilters xmi:type="diagram:HideFilter" uid="_RMOZGG6AEeqbus1jtXHXnw"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_RMOZGW6AEeqbus1jtXHXnw" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
@@ -22420,8 +22404,6 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_luBUJ3JSEeqSxt7l0Y750A" name="removeFromReturnElementsRecursively()" visible="false" tooltipText="removeFromReturnElementsRecursively()">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
           <graphicalFilters xmi:type="diagram:HideFilter" uid="_wJsyw3JTEeqSxt7l0Y750A"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_luBUKHJSEeqSxt7l0Y750A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
@@ -29171,8 +29153,6 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" uid="_zCrjj3JkEeqSxt7l0Y750A" name="removeFromReturnElementsRecursively()" visible="false" tooltipText="removeFromReturnElementsRecursively()">
-          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
-          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
           <graphicalFilters xmi:type="diagram:HideFilter" uid="_zCrjkHJkEeqSxt7l0Y750A"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_zCrjkXJkEeqSxt7l0Y750A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>

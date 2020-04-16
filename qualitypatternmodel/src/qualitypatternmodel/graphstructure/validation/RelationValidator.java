@@ -5,7 +5,8 @@
 package qualitypatternmodel.graphstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.graphstructure.Axis;
+
+import qualitypatternmodel.adaptionxml.Axis;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
