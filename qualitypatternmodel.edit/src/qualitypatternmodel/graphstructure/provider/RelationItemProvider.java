@@ -47,8 +47,8 @@ public class RelationItemProvider extends PatternElementItemProvider {
 
 			addMappingFromPropertyDescriptor(object);
 			addMappingToPropertyDescriptor(object);
-			addOptionPropertyDescriptor(object);
-			addOptionParamPropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -98,19 +98,19 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Option feature.
+	 * This adds a property descriptor for the Source feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOptionPropertyDescriptor(Object object) {
+	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Relation_option_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_option_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__OPTION,
+				 getString("_UI_Relation_source_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_source_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__SOURCE,
 				 true,
 				 false,
 				 true,
@@ -120,19 +120,19 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Option Param feature.
+	 * This adds a property descriptor for the Target feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOptionParamPropertyDescriptor(Object object) {
+	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Relation_optionParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_optionParam_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__OPTION_PARAM,
+				 getString("_UI_Relation_target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_target_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__TARGET,
 				 true,
 				 false,
 				 true,
@@ -179,7 +179,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

@@ -3,9 +3,8 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-
-import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.PropertyLocation;
+import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.XMLProperty;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,12 +27,12 @@ import qualitypatternmodel.graphstructure.PropertyLocation;
 public interface PropertyOptionParam extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.PropertyLocation}.
-	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.PropertyLocation}.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.PropertyLocation}.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.PropertyLocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' attribute list.
-	 * @see qualitypatternmodel.graphstructure.PropertyLocation
+	 * @see qualitypatternmodel.adaptionxml.PropertyLocation
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getPropertyOptionParam_Options()
 	 * @model
 	 * @generated
@@ -42,11 +41,11 @@ public interface PropertyOptionParam extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.PropertyLocation}.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.PropertyLocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see qualitypatternmodel.graphstructure.PropertyLocation
+	 * @see qualitypatternmodel.adaptionxml.PropertyLocation
 	 * @see #setValue(PropertyLocation)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getPropertyOptionParam_Value()
 	 * @model required="true"
@@ -59,7 +58,7 @@ public interface PropertyOptionParam extends Parameter {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see qualitypatternmodel.graphstructure.PropertyLocation
+	 * @see qualitypatternmodel.adaptionxml.PropertyLocation
 	 * @see #getValue()
 	 * @generated
 	 */
@@ -67,16 +66,16 @@ public interface PropertyOptionParam extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Property}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getOption <em>Option</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XMLProperty}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XMLProperty#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Properties</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getPropertyOptionParam_Properties()
-	 * @see qualitypatternmodel.graphstructure.Property#getOption
+	 * @see qualitypatternmodel.adaptionxml.XMLProperty#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */
-	EList<Property> getProperties();
+	EList<XMLProperty> getProperties();
 
 } // PropertyOption

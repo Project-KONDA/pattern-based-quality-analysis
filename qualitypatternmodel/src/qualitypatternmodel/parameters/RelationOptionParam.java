@@ -3,8 +3,8 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.graphstructure.Axis;
-import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.adaptionxml.Axis;
+import qualitypatternmodel.adaptionxml.XMLNavigation;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,12 +27,12 @@ import qualitypatternmodel.graphstructure.Relation;
 public interface RelationOptionParam extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Axis}.
-	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.Axis}.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.Axis}.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.Axis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' attribute list.
-	 * @see qualitypatternmodel.graphstructure.Axis
+	 * @see qualitypatternmodel.adaptionxml.Axis
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam_Options()
 	 * @model
 	 * @generated
@@ -41,11 +41,11 @@ public interface RelationOptionParam extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.Axis}.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.Axis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see qualitypatternmodel.graphstructure.Axis
+	 * @see qualitypatternmodel.adaptionxml.Axis
 	 * @see #setValue(Axis)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam_Value()
 	 * @model required="true"
@@ -58,7 +58,7 @@ public interface RelationOptionParam extends Parameter {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see qualitypatternmodel.graphstructure.Axis
+	 * @see qualitypatternmodel.adaptionxml.Axis
 	 * @see #getValue()
 	 * @generated
 	 */
@@ -66,16 +66,16 @@ public interface RelationOptionParam extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Relations</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Relation}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getOption <em>Option</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XMLNavigation}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XMLNavigation#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Relations</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam_Relations()
-	 * @see qualitypatternmodel.graphstructure.Relation#getOption
+	 * @see qualitypatternmodel.adaptionxml.XMLNavigation#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */
-	EList<Relation> getRelations();
+	EList<XMLNavigation> getRelations();
 
 } // AxisOption

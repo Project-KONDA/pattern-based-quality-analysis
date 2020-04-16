@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.graphstructure;
+package qualitypatternmodel.adaptionxml;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Property Location</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPropertyLocation()
+ * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPropertyLocation()
  * @model
  * @generated
  */
@@ -26,7 +26,9 @@ public enum PropertyLocation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DATA(0, "DATA", "DATA"), /**
+	DATA(0, "DATA", "DATA"),
+
+	/**
 	 * The '<em><b>TAG</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,7 +36,9 @@ public enum PropertyLocation implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TAG(1, "TAG", "TAG"), /**
+	TAG(1, "TAG", "TAG"),
+
+	/**
 	 * The '<em><b>ATTRIBUTE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

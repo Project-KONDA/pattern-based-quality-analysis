@@ -106,31 +106,31 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__MAPPING_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Element</b></em>' container reference.
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int RELATION__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__OPTION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int RELATION__SOURCE = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Option Param</b></em>' reference.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__OPTION_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int RELATION__TARGET = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Relation</em>' class.
@@ -259,40 +259,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___GET_OPERATOR_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST;
 
 	/**
-	 * The operation id for the '<em>Get Graph Depth</em>' operation.
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___GET_GRAPH_DEPTH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Remove Relation From Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Remove Mappings To Next</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION___REMOVE_MAPPINGS_TO_NEXT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Copy To New Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -301,16 +274,34 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___CREATE_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int RELATION___CREATE_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * The operation id for the '<em>Remove Relation From Previous Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Remove Mappings To Next</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___REMOVE_MAPPINGS_TO_NEXT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Copy To New Next Graphs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Relation</em>' class.
@@ -319,7 +310,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
+	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.
@@ -594,58 +585,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY__MATCH = COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Attribute Name</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__ATTRIBUTE_NAME = COMPARABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Option</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__OPTION = COMPARABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Reference Operator2</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__REFERENCE_OPERATOR2 = COMPARABLE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Reference Operator1</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__REFERENCE_OPERATOR1 = COMPARABLE_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Option Param</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__OPTION_PARAM = COMPARABLE_FEATURE_COUNT + 6;
-
-	/**
 	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 7;
+	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -792,22 +738,22 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Create Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___CREATE_PARAMETERS = COMPARABLE_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = COMPARABLE_OPERATION_COUNT + 1;
+	int PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = COMPARABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CREATE_PARAMETERS = COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Copy</em>' operation.
@@ -892,40 +838,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__MAPPING_FROM = COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' container reference.
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__ROOT = COMPARABLE_FEATURE_COUNT + 2;
+	int ELEMENT__GRAPH = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Next Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Result Of</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__NEXT_ELEMENTS = COMPARABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Previous Element</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__PREVIOUS_ELEMENT = COMPARABLE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Graph</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__GRAPH = COMPARABLE_FEATURE_COUNT + 5;
+	int ELEMENT__RESULT_OF = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -934,7 +862,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__NAME = COMPARABLE_FEATURE_COUNT + 6;
+	int ELEMENT__NAME = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Translated</b></em>' attribute.
@@ -943,7 +871,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__TRANSLATED = COMPARABLE_FEATURE_COUNT + 7;
+	int ELEMENT__TRANSLATED = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
@@ -952,16 +880,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = COMPARABLE_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Relation From Previous</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__RELATION_FROM_PREVIOUS = COMPARABLE_FEATURE_COUNT + 9;
+	int ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -970,7 +889,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PROPERTIES = COMPARABLE_FEATURE_COUNT + 10;
+	int ELEMENT__PROPERTIES = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
@@ -979,7 +898,25 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__PREDICATES = COMPARABLE_FEATURE_COUNT + 11;
+	int ELEMENT__PREDICATES = COMPARABLE_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__OUTGOING = COMPARABLE_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT__INCOMING = COMPARABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Element</em>' class.
@@ -988,7 +925,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 12;
+	int ELEMENT_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1135,13 +1072,31 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = COMPARABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___CREATE_PARAMETERS = COMPARABLE_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = COMPARABLE_OPERATION_COUNT + 0;
+	int ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Copy Next Element To Next Graphs</em>' operation.
@@ -1150,7 +1105,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT = COMPARABLE_OPERATION_COUNT + 1;
+	int ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
@@ -1159,7 +1114,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN = COMPARABLE_OPERATION_COUNT + 2;
+	int ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
@@ -1168,16 +1123,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = COMPARABLE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Is Root Element</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___IS_ROOT_ELEMENT = COMPARABLE_OPERATION_COUNT + 4;
+	int ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Remove From Return Elements Recursively</em>' operation.
@@ -1186,7 +1132,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 5;
+	int ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
@@ -1195,16 +1141,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___CLEAR_MATCH_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Get All Relations</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_ALL_RELATIONS = COMPARABLE_OPERATION_COUNT + 7;
+	int ELEMENT___CLEAR_MATCH_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
@@ -1216,31 +1153,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___CLEAR_PREDICATES_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>Get All Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_ALL_ELEMENTS = COMPARABLE_OPERATION_COUNT + 9;
-
-	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ORIGINAL_ID = COMPARABLE_OPERATION_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = COMPARABLE_OPERATION_COUNT + 11;
+	int ELEMENT___GET_ORIGINAL_ID = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1249,7 +1168,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 12;
+	int ELEMENT___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1258,16 +1177,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 13;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_XQUERY_VARIABLE = COMPARABLE_OPERATION_COUNT + 14;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1276,7 +1186,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 15;
+	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1285,16 +1195,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 16;
-
-	/**
-	 * The operation id for the '<em>Get Graph Depth</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___GET_GRAPH_DEPTH = COMPARABLE_OPERATION_COUNT + 17;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1303,7 +1204,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ALL_OPERATORS = COMPARABLE_OPERATION_COUNT + 18;
+	int ELEMENT___GET_ALL_OPERATORS = COMPARABLE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1312,7 +1213,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 19;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1321,7 +1222,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 20;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
@@ -1330,7 +1231,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___CLEAR_COMPARISON_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 21;
+	int ELEMENT___CLEAR_COMPARISON_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Clear Property Recursively</em>' operation.
@@ -1339,7 +1240,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___CLEAR_PROPERTY_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 22;
+	int ELEMENT___CLEAR_PROPERTY_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Copy Property</em>' operation.
@@ -1348,7 +1249,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_PROPERTY__PROPERTY = COMPARABLE_OPERATION_COUNT + 23;
+	int ELEMENT___COPY_PROPERTY__PROPERTY = COMPARABLE_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Copy Primitive Comparison</em>' operation.
@@ -1357,7 +1258,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_PRIMITIVE_COMPARISON__COMPARISON = COMPARABLE_OPERATION_COUNT + 24;
+	int ELEMENT___COPY_PRIMITIVE_COMPARISON__COMPARISON = COMPARABLE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Copy Match</em>' operation.
@@ -1366,7 +1267,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_MATCH__MATCH = COMPARABLE_OPERATION_COUNT + 25;
+	int ELEMENT___COPY_MATCH__MATCH = COMPARABLE_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Add New Property</em>' operation.
@@ -1375,7 +1276,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_NEW_PROPERTY = COMPARABLE_OPERATION_COUNT + 26;
+	int ELEMENT___ADD_NEW_PROPERTY = COMPARABLE_OPERATION_COUNT + 22;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -1384,7 +1285,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 27;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 23;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -1415,13 +1316,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Root Element</b></em>' containment reference.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__ROOT_ELEMENT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int GRAPH__ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Operator List</b></em>' containment reference.
@@ -1487,13 +1388,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__MORPHISM_FROM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Relations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH__RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 8;
+	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1631,31 +1541,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___COPY_GRAPH__GRAPH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get All Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH___GET_ALL_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Get All Relations</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH___GET_ALL_RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
-
-	/**
 	 * The operation id for the '<em>Is Return Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___IS_RETURN_GRAPH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int GRAPH___IS_RETURN_GRAPH = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Graph</em>' class.
@@ -1664,27 +1556,53 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.
+	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.PropertyLocation
-	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getPropertyLocation()
+	 * @see qualitypatternmodel.graphstructure.Adaptable
+	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getAdaptable()
 	 * @generated
 	 */
-	int PROPERTY_LOCATION = 5;
+	int ADAPTABLE = 5;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Axis <em>Axis</em>}' enum.
+	 * The number of structural features of the '<em>Adaptable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Axis
-	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getAxis()
 	 * @generated
+	 * @ordered
 	 */
-	int AXIS = 6;
+	int ADAPTABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = 0;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADAPTABLE___CREATE_PARAMETERS = 1;
+
+	/**
+	 * The number of operations of the '<em>Adaptable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADAPTABLE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}' enum.
@@ -1694,7 +1612,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getReturnType()
 	 * @generated
 	 */
-	int RETURN_TYPE = 7;
+	int RETURN_TYPE = 6;
 
 
 	/**
@@ -1719,15 +1637,37 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getRelation_MappingTo();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Relation#getElement <em>Element</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Relation#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Element</em>'.
-	 * @see qualitypatternmodel.graphstructure.Relation#getElement()
+	 * @return the meta object for the container reference '<em>Graph</em>'.
+	 * @see qualitypatternmodel.graphstructure.Relation#getGraph()
 	 * @see #getRelation()
 	 * @generated
 	 */
-	EReference getRelation_Element();
+	EReference getRelation_Graph();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see qualitypatternmodel.graphstructure.Relation#getSource()
+	 * @see #getRelation()
+	 * @generated
+	 */
+	EReference getRelation_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see qualitypatternmodel.graphstructure.Relation#getTarget()
+	 * @see #getRelation()
+	 * @generated
+	 */
+	EReference getRelation_Target();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}'.
@@ -1739,38 +1679,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRelation_MappingFrom();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getOption <em>Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Option</em>'.
-	 * @see qualitypatternmodel.graphstructure.Relation#getOption()
-	 * @see #getRelation()
-	 * @generated
-	 */
-	EReference getRelation_Option();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getOptionParam <em>Option Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Option Param</em>'.
-	 * @see qualitypatternmodel.graphstructure.Relation#getOptionParam()
-	 * @see #getRelation()
-	 * @generated
-	 */
-	EReference getRelation_OptionParam();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth() <em>Get Graph Depth</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Graph Depth</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#getGraphDepth()
-	 * @generated
-	 */
-	EOperation getRelation__GetGraphDepth();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}' operation.
@@ -1803,26 +1711,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__CopyToNewNextGraphs__Element();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#createParameters() <em>Create Parameters</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Parameters</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#createParameters()
-	 * @generated
-	 */
-	EOperation getRelation__CreateParameters();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Parameters From Parameter List</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#removeParametersFromParameterList()
-	 * @generated
-	 */
-	EOperation getRelation__RemoveParametersFromParameterList();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Property <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1842,81 +1730,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProperty_Element();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getAttributeName <em>Attribute Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Attribute Name</em>'.
-	 * @see qualitypatternmodel.graphstructure.Property#getAttributeName()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EReference getProperty_AttributeName();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getOption <em>Option</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Option</em>'.
-	 * @see qualitypatternmodel.graphstructure.Property#getOption()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EReference getProperty_Option();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator2 <em>Reference Operator2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Reference Operator2</em>'.
-	 * @see qualitypatternmodel.graphstructure.Property#getReferenceOperator2()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EReference getProperty_ReferenceOperator2();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getReferenceOperator1 <em>Reference Operator1</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Reference Operator1</em>'.
-	 * @see qualitypatternmodel.graphstructure.Property#getReferenceOperator1()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EReference getProperty_ReferenceOperator1();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Property#getOptionParam <em>Option Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Option Param</em>'.
-	 * @see qualitypatternmodel.graphstructure.Property#getOptionParam()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EReference getProperty_OptionParam();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#createParameters() <em>Create Parameters</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create Parameters</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#createParameters()
-	 * @generated
-	 */
-	EOperation getProperty__CreateParameters();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Parameters From Parameter List</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#removeParametersFromParameterList()
-	 * @generated
-	 */
-	EOperation getProperty__RemoveParametersFromParameterList();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#copy() <em>Copy</em>}' operation.
@@ -1972,48 +1785,26 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getElement_MappingFrom();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Element#getRoot <em>Root</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Root</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getRoot()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_Root();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Element#getNextElements <em>Next Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Next Elements</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getNextElements()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_NextElements();
-
-	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Element#getPreviousElement <em>Previous Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Previous Element</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getPreviousElement()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_PreviousElement();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Graph</em>'.
+	 * @return the meta object for the container reference '<em>Graph</em>'.
 	 * @see qualitypatternmodel.graphstructure.Element#getGraph()
 	 * @see #getElement()
 	 * @generated
 	 */
 	EReference getElement_Graph();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Element#getResultOf <em>Result Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Result Of</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#getResultOf()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EReference getElement_ResultOf();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Element#getName <em>Name</em>}'.
@@ -2049,17 +1840,6 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getElement_PredicatesAreBeingTranslated();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Relation From Previous</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getRelationFromPrevious()
-	 * @see #getElement()
-	 * @generated
-	 */
-	EReference getElement_RelationFromPrevious();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2080,6 +1860,28 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getElement_Predicates();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Element#getOutgoing <em>Outgoing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Outgoing</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#getOutgoing()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EReference getElement_Outgoing();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Element#getIncoming <em>Incoming</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Incoming</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#getIncoming()
+	 * @see #getElement()
+	 * @generated
+	 */
+	EReference getElement_Incoming();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyNextElementsToNextGraphs() <em>Copy Next Elements To Next Graphs</em>}' operation.
@@ -2122,16 +1924,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__CopyNextElementsToPreviousGraphs__boolean();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#isRootElement() <em>Is Root Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Root Element</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#isRootElement()
-	 * @generated
-	 */
-	EOperation getElement__IsRootElement();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElementsRecursively() <em>Remove From Return Elements Recursively</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2152,16 +1944,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__ClearMatchRecursively();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getAllRelations() <em>Get All Relations</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Relations</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getAllRelations()
-	 * @generated
-	 */
-	EOperation getElement__GetAllRelations();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2172,16 +1954,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__ClearPredicatesRecursively();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getAllElements() <em>Get All Elements</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Elements</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getAllElements()
-	 * @generated
-	 */
-	EOperation getElement__GetAllElements();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getOriginalID() <em>Get Original ID</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2190,16 +1962,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getElement__GetOriginalID();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get XQuery Representation</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	EOperation getElement__GetXQueryRepresentation__Location();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}' operation.
@@ -2222,16 +1984,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__AddPrimitiveComparison__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get XQuery Variable</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getXQueryVariable()
-	 * @generated
-	 */
-	EOperation getElement__GetXQueryVariable();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch() <em>Add Primitive Match</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2252,16 +2004,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__AddPrimitiveComparison();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getGraphDepth() <em>Get Graph Depth</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Graph Depth</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#getGraphDepth()
-	 * @generated
-	 */
-	EOperation getElement__GetGraphDepth();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getAllOperators() <em>Get All Operators</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2272,11 +2014,11 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__GetAllOperators();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.adaptionxml.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Primitive Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue)
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.adaptionxml.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue)
 	 * @generated
 	 */
 	EOperation getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_ParameterValue();
@@ -2362,15 +2104,15 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getGraph();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Graph#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Root Element</em>'.
-	 * @see qualitypatternmodel.graphstructure.Graph#getRootElement()
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getElements()
 	 * @see #getGraph()
 	 * @generated
 	 */
-	EReference getGraph_RootElement();
+	EReference getGraph_Elements();
 
 	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}'.
@@ -2404,6 +2146,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGraph_MorphismFrom();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Graph#getRelations <em>Relations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Relations</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getRelations()
+	 * @see #getGraph()
+	 * @generated
+	 */
+	EReference getGraph_Relations();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}'.
@@ -2468,26 +2221,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGraph__CopyGraph__Graph();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getAllElements() <em>Get All Elements</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Elements</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Graph#getAllElements()
-	 * @generated
-	 */
-	EOperation getGraph__GetAllElements();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getAllRelations() <em>Get All Relations</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Relations</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Graph#getAllRelations()
-	 * @generated
-	 */
-	EOperation getGraph__GetAllRelations();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph() <em>Is Return Graph</em>}' operation.
@@ -2572,24 +2305,34 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getComparable__Validate__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for enum '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Property Location</em>'.
-	 * @see qualitypatternmodel.graphstructure.PropertyLocation
+	 * @return the meta object for class '<em>Adaptable</em>'.
+	 * @see qualitypatternmodel.graphstructure.Adaptable
 	 * @generated
 	 */
-	EEnum getPropertyLocation();
+	EClass getAdaptable();
 
 	/**
-	 * Returns the meta object for enum '{@link qualitypatternmodel.graphstructure.Axis <em>Axis</em>}'.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Axis</em>'.
-	 * @see qualitypatternmodel.graphstructure.Axis
+	 * @return the meta object for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList()
 	 * @generated
 	 */
-	EEnum getAxis();
+	EOperation getAdaptable__RemoveParametersFromParameterList();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Parameters</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Adaptable#createParameters()
+	 * @generated
+	 */
+	EOperation getAdaptable__CreateParameters();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}'.
@@ -2643,12 +2386,28 @@ public interface GraphstructurePackage extends EPackage {
 		EReference RELATION__MAPPING_TO = eINSTANCE.getRelation_MappingTo();
 
 		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RELATION__ELEMENT = eINSTANCE.getRelation_Element();
+		EReference RELATION__GRAPH = eINSTANCE.getRelation_Graph();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION__SOURCE = eINSTANCE.getRelation_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION__TARGET = eINSTANCE.getRelation_Target();
 
 		/**
 		 * The meta object literal for the '<em><b>Mapping From</b></em>' reference feature.
@@ -2657,30 +2416,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference RELATION__MAPPING_FROM = eINSTANCE.getRelation_MappingFrom();
-
-		/**
-		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RELATION__OPTION = eINSTANCE.getRelation_Option();
-
-		/**
-		 * The meta object literal for the '<em><b>Option Param</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RELATION__OPTION_PARAM = eINSTANCE.getRelation_OptionParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Graph Depth</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RELATION___GET_GRAPH_DEPTH = eINSTANCE.getRelation__GetGraphDepth();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Relation From Previous Graphs</b></em>' operation.
@@ -2707,22 +2442,6 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = eINSTANCE.getRelation__CopyToNewNextGraphs__Element();
 
 		/**
-		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RELATION___CREATE_PARAMETERS = eINSTANCE.getRelation__CreateParameters();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Parameters From Parameter List</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = eINSTANCE.getRelation__RemoveParametersFromParameterList();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2739,62 +2458,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPERTY__ELEMENT = eINSTANCE.getProperty_Element();
-
-		/**
-		 * The meta object literal for the '<em><b>Attribute Name</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__ATTRIBUTE_NAME = eINSTANCE.getProperty_AttributeName();
-
-		/**
-		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__OPTION = eINSTANCE.getProperty_Option();
-
-		/**
-		 * The meta object literal for the '<em><b>Reference Operator2</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__REFERENCE_OPERATOR2 = eINSTANCE.getProperty_ReferenceOperator2();
-
-		/**
-		 * The meta object literal for the '<em><b>Reference Operator1</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__REFERENCE_OPERATOR1 = eINSTANCE.getProperty_ReferenceOperator1();
-
-		/**
-		 * The meta object literal for the '<em><b>Option Param</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__OPTION_PARAM = eINSTANCE.getProperty_OptionParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROPERTY___CREATE_PARAMETERS = eINSTANCE.getProperty__CreateParameters();
-
-		/**
-		 * The meta object literal for the '<em><b>Remove Parameters From Parameter List</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = eINSTANCE.getProperty__RemoveParametersFromParameterList();
 
 		/**
 		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
@@ -2839,36 +2502,20 @@ public interface GraphstructurePackage extends EPackage {
 		EReference ELEMENT__MAPPING_FROM = eINSTANCE.getElement_MappingFrom();
 
 		/**
-		 * The meta object literal for the '<em><b>Root</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__ROOT = eINSTANCE.getElement_Root();
-
-		/**
-		 * The meta object literal for the '<em><b>Next Elements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__NEXT_ELEMENTS = eINSTANCE.getElement_NextElements();
-
-		/**
-		 * The meta object literal for the '<em><b>Previous Element</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__PREVIOUS_ELEMENT = eINSTANCE.getElement_PreviousElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Graph</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ELEMENT__GRAPH = eINSTANCE.getElement_Graph();
+
+		/**
+		 * The meta object literal for the '<em><b>Result Of</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT__RESULT_OF = eINSTANCE.getElement_ResultOf();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2895,14 +2542,6 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute ELEMENT__PREDICATES_ARE_BEING_TRANSLATED = eINSTANCE.getElement_PredicatesAreBeingTranslated();
 
 		/**
-		 * The meta object literal for the '<em><b>Relation From Previous</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ELEMENT__RELATION_FROM_PREVIOUS = eINSTANCE.getElement_RelationFromPrevious();
-
-		/**
 		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2917,6 +2556,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT__PREDICATES = eINSTANCE.getElement_Predicates();
+
+		/**
+		 * The meta object literal for the '<em><b>Outgoing</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT__OUTGOING = eINSTANCE.getElement_Outgoing();
+
+		/**
+		 * The meta object literal for the '<em><b>Incoming</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ELEMENT__INCOMING = eINSTANCE.getElement_Incoming();
 
 		/**
 		 * The meta object literal for the '<em><b>Copy Next Elements To Next Graphs</b></em>' operation.
@@ -2951,14 +2606,6 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = eINSTANCE.getElement__CopyNextElementsToPreviousGraphs__boolean();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Root Element</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___IS_ROOT_ELEMENT = eINSTANCE.getElement__IsRootElement();
-
-		/**
 		 * The meta object literal for the '<em><b>Remove From Return Elements Recursively</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2975,14 +2622,6 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation ELEMENT___CLEAR_MATCH_RECURSIVELY = eINSTANCE.getElement__ClearMatchRecursively();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Relations</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_ALL_RELATIONS = eINSTANCE.getElement__GetAllRelations();
-
-		/**
 		 * The meta object literal for the '<em><b>Clear Predicates Recursively</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2991,28 +2630,12 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation ELEMENT___CLEAR_PREDICATES_RECURSIVELY = eINSTANCE.getElement__ClearPredicatesRecursively();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Elements</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_ALL_ELEMENTS = eINSTANCE.getElement__GetAllElements();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Original ID</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation ELEMENT___GET_ORIGINAL_ID = eINSTANCE.getElement__GetOriginalID();
-
-		/**
-		 * The meta object literal for the '<em><b>Get XQuery Representation</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = eINSTANCE.getElement__GetXQueryRepresentation__Location();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Primitive Match</b></em>' operation.
@@ -3031,14 +2654,6 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = eINSTANCE.getElement__AddPrimitiveComparison__String();
 
 		/**
-		 * The meta object literal for the '<em><b>Get XQuery Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_XQUERY_VARIABLE = eINSTANCE.getElement__GetXQueryVariable();
-
-		/**
 		 * The meta object literal for the '<em><b>Add Primitive Match</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3053,14 +2668,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___ADD_PRIMITIVE_COMPARISON = eINSTANCE.getElement__AddPrimitiveComparison();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Graph Depth</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___GET_GRAPH_DEPTH = eINSTANCE.getElement__GetGraphDepth();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
@@ -3145,12 +2752,12 @@ public interface GraphstructurePackage extends EPackage {
 		EClass GRAPH = eINSTANCE.getGraph();
 
 		/**
-		 * The meta object literal for the '<em><b>Root Element</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRAPH__ROOT_ELEMENT = eINSTANCE.getGraph_RootElement();
+		EReference GRAPH__ELEMENTS = eINSTANCE.getGraph_Elements();
 
 		/**
 		 * The meta object literal for the '<em><b>Return Elements</b></em>' reference list feature.
@@ -3175,6 +2782,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference GRAPH__MORPHISM_FROM = eINSTANCE.getGraph_MorphismFrom();
+
+		/**
+		 * The meta object literal for the '<em><b>Relations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GRAPH__RELATIONS = eINSTANCE.getGraph_Relations();
 
 		/**
 		 * The meta object literal for the '<em><b>Operator List</b></em>' containment reference feature.
@@ -3223,22 +2838,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRAPH___COPY_GRAPH__GRAPH = eINSTANCE.getGraph__CopyGraph__Graph();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Elements</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GRAPH___GET_ALL_ELEMENTS = eINSTANCE.getGraph__GetAllElements();
-
-		/**
-		 * The meta object literal for the '<em><b>Get All Relations</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GRAPH___GET_ALL_RELATIONS = eINSTANCE.getGraph__GetAllRelations();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Return Graph</b></em>' operation.
@@ -3307,24 +2906,30 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getComparable__Validate__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.PropertyLocation <em>Property Location</em>}' enum.
+		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.graphstructure.PropertyLocation
-		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getPropertyLocation()
+		 * @see qualitypatternmodel.graphstructure.Adaptable
+		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getAdaptable()
 		 * @generated
 		 */
-		EEnum PROPERTY_LOCATION = eINSTANCE.getPropertyLocation();
+		EClass ADAPTABLE = eINSTANCE.getAdaptable();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.Axis <em>Axis</em>}' enum.
+		 * The meta object literal for the '<em><b>Remove Parameters From Parameter List</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.graphstructure.Axis
-		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getAxis()
 		 * @generated
 		 */
-		EEnum AXIS = eINSTANCE.getAxis();
+		EOperation ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = eINSTANCE.getAdaptable__RemoveParametersFromParameterList();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ADAPTABLE___CREATE_PARAMETERS = eINSTANCE.getAdaptable__CreateParameters();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}' enum.

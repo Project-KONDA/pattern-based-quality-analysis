@@ -129,7 +129,6 @@ public class UnknownParameterValueItemProvider extends ParameterItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

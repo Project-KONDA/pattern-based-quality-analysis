@@ -18,8 +18,6 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph) <em>Copy Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllElements() <em>Get All Elements</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllRelations() <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph() <em>Is Return Graph</em>}</li>
  * </ul>
  * </p>
@@ -100,32 +98,6 @@ public class GraphTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testCopyGraph__Graph() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getAllElements() <em>Get All Elements</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Graph#getAllElements()
-	 * @generated
-	 */
-	public void testGetAllElements() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getAllRelations() <em>Get All Relations</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Graph#getAllRelations()
-	 * @generated
-	 */
-	public void testGetAllRelations() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -16,12 +16,11 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth() <em>Get Graph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#copyToNewNextGraphs(qualitypatternmodel.graphstructure.Element) <em>Copy To New Next Graphs</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#createParameters() <em>Create Parameters</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -81,19 +80,6 @@ public class RelationTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#getGraphDepth() <em>Get Graph Depth</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#getGraphDepth()
-	 * @generated
-	 */
-	public void testGetGraphDepth() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,10 +119,10 @@ public class RelationTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#createParameters() <em>Create Parameters</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#createParameters()
+	 * @see qualitypatternmodel.graphstructure.Adaptable#createParameters()
 	 * @generated
 	 */
 	public void testCreateParameters() {
@@ -146,10 +132,10 @@ public class RelationTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#removeParametersFromParameterList()
+	 * @see qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList()
 	 * @generated
 	 */
 	public void testRemoveParametersFromParameterList() {

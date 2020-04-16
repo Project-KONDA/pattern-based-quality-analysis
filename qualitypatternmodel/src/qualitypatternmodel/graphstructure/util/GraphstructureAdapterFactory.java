@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
@@ -90,6 +91,10 @@ public class GraphstructureAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseComparable(qualitypatternmodel.graphstructure.Comparable object) {
 				return createComparableAdapter();
+			}
+			@Override
+			public Adapter caseAdaptable(Adaptable object) {
+				return createAdaptableAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -182,6 +187,20 @@ public class GraphstructureAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComparableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.graphstructure.Adaptable
+	 * @generated
+	 */
+	public Adapter createAdaptableAdapter() {
 		return null;
 	}
 

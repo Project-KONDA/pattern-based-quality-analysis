@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
@@ -205,18 +207,22 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		GraphstructurePackageImpl theGraphstructurePackage = (GraphstructurePackageImpl)(registeredPackage instanceof GraphstructurePackageImpl ? registeredPackage : GraphstructurePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 		PatternstructurePackageImpl thePatternstructurePackage = (PatternstructurePackageImpl)(registeredPackage instanceof PatternstructurePackageImpl ? registeredPackage : PatternstructurePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionxmlPackage.eNS_URI);
+		AdaptionxmlPackageImpl theAdaptionxmlPackage = (AdaptionxmlPackageImpl)(registeredPackage instanceof AdaptionxmlPackageImpl ? registeredPackage : AdaptionxmlPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theParametersPackage.createPackageContents();
 		theOperatorsPackage.createPackageContents();
 		theGraphstructurePackage.createPackageContents();
 		thePatternstructurePackage.createPackageContents();
+		theAdaptionxmlPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theParametersPackage.initializePackageContents();
 		theOperatorsPackage.initializePackageContents();
 		theGraphstructurePackage.initializePackageContents();
 		thePatternstructurePackage.initializePackageContents();
+		theAdaptionxmlPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
@@ -912,6 +918,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		// Obtain other dependent packages
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
+		AdaptionxmlPackage theAdaptionxmlPackage = (AdaptionxmlPackage)EPackage.Registry.INSTANCE.getEPackage(AdaptionxmlPackage.eNS_URI);
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 
 		// Create type parameters
@@ -965,9 +972,9 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getComparisonOptionParam_CountCondition(), thePatternstructurePackage.getCountCondition(), thePatternstructurePackage.getCountCondition_Option(), "countCondition", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyOptionParamEClass, PropertyOptionParam.class, "PropertyOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPropertyOptionParam_Options(), theGraphstructurePackage.getPropertyLocation(), "options", null, 0, -1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPropertyOptionParam_Value(), theGraphstructurePackage.getPropertyLocation(), "value", null, 1, 1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropertyOptionParam_Properties(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_Option(), "properties", null, 0, -1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPropertyOptionParam_Options(), theAdaptionxmlPackage.getPropertyLocation(), "options", null, 0, -1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPropertyOptionParam_Value(), theAdaptionxmlPackage.getPropertyLocation(), "value", null, 1, 1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPropertyOptionParam_Properties(), theAdaptionxmlPackage.getXMLProperty(), theAdaptionxmlPackage.getXMLProperty_Option(), "properties", null, 0, -1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterListEClass, ParameterList.class, "ParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterList_Parameters(), this.getParameter(), this.getParameter_ParameterList(), "parameters", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -990,7 +997,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEClass(textLiteralParamEClass, TextLiteralParam.class, "TextLiteralParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextLiteralParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextLiteralParam_Matches(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_RegularExpression(), "matches", null, 0, -1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTextLiteralParam_Properties(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_AttributeName(), "properties", null, 0, -1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTextLiteralParam_Properties(), theAdaptionxmlPackage.getXMLProperty(), theAdaptionxmlPackage.getXMLProperty_AttributeName(), "properties", null, 0, -1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(numberParamEClass, NumberParam.class, "NumberParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberParam_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1013,17 +1020,17 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEAttribute(getDateTimeParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateTimeParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(relationOptionParamEClass, RelationOptionParam.class, "RelationOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRelationOptionParam_Options(), theGraphstructurePackage.getAxis(), "options", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRelationOptionParam_Value(), theGraphstructurePackage.getAxis(), "value", null, 1, 1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelationOptionParam_Relations(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_Option(), "relations", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelationOptionParam_Options(), theAdaptionxmlPackage.getAxis(), "options", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelationOptionParam_Value(), theAdaptionxmlPackage.getAxis(), "value", null, 1, 1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationOptionParam_Relations(), theAdaptionxmlPackage.getXMLNavigation(), theAdaptionxmlPackage.getXMLNavigation_Option(), "relations", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(optionParamEClass, OptionParam.class, "OptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(optionParamEClass_T);
 		initEAttribute(getOptionParam_Value(), g1, "value", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		g1 = createEGenericType(optionParamEClass_T);
 		initEAttribute(getOptionParam_Options(), g1, "options", null, 0, -1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOptionParam_Property(), theGraphstructurePackage.getProperty(), theGraphstructurePackage.getProperty_OptionParam(), "property", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOptionParam_Relation(), theGraphstructurePackage.getRelation(), theGraphstructurePackage.getRelation_OptionParam(), "relation", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOptionParam_Property(), theAdaptionxmlPackage.getXMLProperty(), theAdaptionxmlPackage.getXMLProperty_OptionParam(), "property", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOptionParam_Relation(), theAdaptionxmlPackage.getXMLNavigation(), theAdaptionxmlPackage.getXMLNavigation_OptionParam(), "relation", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOptionParam_Comparison(), theOperatorsPackage.getComparison(), theOperatorsPackage.getComparison_OptionParam(), "comparison", null, 0, -1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOptionParam_CountCondition(), thePatternstructurePackage.getCountCondition(), thePatternstructurePackage.getCountCondition_OptionParam(), "countCondition", null, 0, 1, OptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

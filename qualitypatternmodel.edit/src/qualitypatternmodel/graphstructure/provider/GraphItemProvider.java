@@ -17,6 +17,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -161,8 +162,9 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENT);
+			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__ELEMENTS);
 			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST);
+			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__RELATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -221,8 +223,9 @@ public class GraphItemProvider extends PatternElementItemProvider {
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
+			case GraphstructurePackage.GRAPH__ELEMENTS:
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
+			case GraphstructurePackage.GRAPH__RELATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -242,13 +245,38 @@ public class GraphItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENT,
+				(GraphstructurePackage.Literals.GRAPH__ELEMENTS,
 				 GraphstructureFactory.eINSTANCE.createElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__ELEMENTS,
+				 AdaptionxmlFactory.eINSTANCE.createXMLElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__ELEMENTS,
+				 AdaptionxmlFactory.eINSTANCE.createXMLRoot()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST,
 				 OperatorsFactory.eINSTANCE.createOperatorList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
+				 GraphstructureFactory.eINSTANCE.createRelation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
+				 AdaptionxmlFactory.eINSTANCE.createXMLNavigation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
+				 AdaptionxmlFactory.eINSTANCE.createXMLReference()));
 	}
 
 	/**

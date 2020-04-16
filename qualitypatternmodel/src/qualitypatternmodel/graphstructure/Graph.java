@@ -22,7 +22,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getElements <em>Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getGraphDepth <em>Graph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}</li>
@@ -30,6 +30,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getMorphismTo <em>Morphism To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRelations <em>Relations</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph()
@@ -38,39 +39,29 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  */
 public interface Graph extends PatternElement {
 	/**
-	 * Returns the value of the '<em><b>Root Element</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getRoot <em>Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root Element</em>' containment reference.
-	 * @see #setRootElement(Element)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_RootElement()
-	 * @see qualitypatternmodel.graphstructure.Element#getRoot
-	 * @model opposite="root" containment="true" required="true"
-	 * @generated
-	 */
-	Element getRootElement();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root Element</em>' containment reference.
-	 * @see #getRootElement()
-	 * @generated
-	 */
-	void setRootElement(Element value);
-
-	/**
-	 * Returns the value of the '<em><b>Return Elements</b></em>' reference list.
+	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_Elements()
+	 * @see qualitypatternmodel.graphstructure.Element#getGraph
+	 * @model opposite="graph" containment="true" required="true"
+	 * @generated
+	 */
+	EList<Element> getElements();
+
+	/**
+	 * Returns the value of the '<em><b>Return Elements</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getResultOf <em>Result Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Return Elements</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_ReturnElements()
-	 * @see qualitypatternmodel.graphstructure.Element#getGraph
-	 * @model opposite="graph" required="true"
+	 * @see qualitypatternmodel.graphstructure.Element#getResultOf
+	 * @model opposite="resultOf" required="true"
 	 * @generated
 	 */
 	EList<Element> getReturnElements();
@@ -112,6 +103,20 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	void setMorphismFrom(Morphism value);
+
+	/**
+	 * Returns the value of the '<em><b>Relations</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Relation}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getGraph <em>Graph</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Relations</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_Relations()
+	 * @see qualitypatternmodel.graphstructure.Relation#getGraph
+	 * @model opposite="graph" containment="true"
+	 * @generated
+	 */
+	EList<Relation> getRelations();
 
 	/**
 	 * Returns the value of the '<em><b>Operator List</b></em>' containment reference.
@@ -231,21 +236,5 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	void copyGraph(Graph graph) throws MissingPatternContainerException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Element> getAllElements();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Relation> getAllRelations();
 
 } // Graph

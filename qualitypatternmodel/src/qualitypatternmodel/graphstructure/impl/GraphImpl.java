@@ -6,15 +6,19 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.adaptionxml.XMLRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -29,15 +33,11 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -46,7 +46,7 @@ import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getRootElement <em>Root Element</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGraphDepth <em>Graph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getQuantifiedCondition <em>Quantified Condition</em>}</li>
@@ -54,19 +54,21 @@ import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElements <em>Return Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getMorphismTo <em>Morphism To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getMorphismFrom <em>Morphism From</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getRelations <em>Relations</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
-	 * The cached value of the '{@link #getRootElement() <em>Root Element</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getRootElement()
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected Element rootElement;
+	protected EList<Element> elements;
 
 	/**
 	 * The cached value of the '{@link #getOperatorList() <em>Operator List</em>}' containment reference.
@@ -112,6 +114,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	protected Morphism morphismFrom;
 
 	/**
+	 * The cached value of the '{@link #getRelations() <em>Relations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Relation> relations;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public GraphImpl() {
@@ -126,14 +138,25 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	@Override
 	public String generateQuery(Location location) throws InvalidityException {
-		return getRootElement().generateQuery(location);
+		String result = "";
+		for(Element element : getElements()) {
+			if(element instanceof XMLRoot) {
+				result += element.generateQuery(location);
+			}
+		}
+		return result;
 	}
 
 	@Override
 	public void isValid(boolean isDefinedPattern)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(isDefinedPattern);
-		rootElement.isValid(isDefinedPattern);
+		for(Element element : getElements()) {
+			element.isValid(isDefinedPattern);
+		}
+		for(Relation relation: getRelations()) {
+			relation.isValid(isDefinedPattern);
+		}
 		operatorList.isValid(isDefinedPattern);
 	}
 
@@ -142,11 +165,17 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			throw new InvalidityException("returnElement empty (" + getInternalId() + ")");
 		if (operatorList == null)
 			throw new InvalidityException("operatorList null (" + getInternalId() + ")");
-		if (rootElement == null)
-			throw new InvalidityException("rootElement null (" + getInternalId() + ")");
+		boolean rootExists = false;
+		for(Element element : getElements()) {
+			if(element instanceof XMLRoot) {
+				rootExists = true;
+			}
+		}
+		if (!rootExists)
+			throw new InvalidityException("XMLRoot missing (" + getInternalId() + ")");
 
 		for (Element returnElement : returnElements) {
-			if (!returnElement.getAncestor(Graph.class).equals(this)) {
+			if (!returnElement.getGraph().equals(this)) {
 				throw new InvalidityException("returnElement not contained in this graph (" + getInternalId() + ")");
 			}
 		}
@@ -154,18 +183,32 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	@Override
 	public void prepareTranslation() {
-		rootElement.prepareTranslation();
+		for(Element element : getElements()) {
+			element.prepareTranslation();
+		}
+		for(Relation relation: getRelations()) {
+			relation.prepareTranslation();
+		}
 	}
 
 	@Override
 	public EList<Parameter> getAllInputs() throws InvalidityException {
-		EList<Parameter> res = rootElement.getAllInputs();
+		EList<Parameter> res = new BasicEList<Parameter>();
+		for(Element element : getElements()) {
+			res.addAll(element.getAllInputs());
+		}
+		for(Relation relation: getRelations()) {
+			res.addAll(relation.getAllInputs());
+		}
 		return res;
 	}
 
 	@Override
 	public EList<Operator> getAllOperators() throws InvalidityException {
-		EList<Operator> res = rootElement.getAllOperators();
+		EList<Operator> res = new BasicEList<Operator>();
+		for(Element element : getElements()) {
+			res.addAll(element.getAllOperators());
+		}
 		return res;
 	}
 
@@ -177,63 +220,39 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public void copyGraph(Graph graph) throws MissingPatternContainerException {
-//		boolean foundRootMapping = updateRootMapping(graph);
-//		if(!foundRootMapping) {
-//			addRootMapping(graph);
-//		}	
-		Element newRootElement = new ElementImpl();		
-		newRootElement.setRoot(graph);		
-		ElementMapping newMapping = new ElementMappingImpl();
-		if(graph.getQuantifiedCondition() != null) {
-			graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
-		} else if(graph.getPattern() instanceof CountPattern) {
-			((CountPattern) graph.getPattern()).getMorphism().getMappings().add(newMapping);
-		}
-		
-		newMapping.setFrom(rootElement);
-		newMapping.setTo(newRootElement);
-		rootElement.copyNextElementsToNextGraphs();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Element> getAllElements() {
-		return getRootElement().getAllElements();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Relation> getAllRelations() {
-		return getRootElement().getAllRelations();
+//		Element newRootElement = new ElementImpl();		
+//		newRootElement.setRoot(graph);		
+//		ElementMapping newMapping = new ElementMappingImpl();
+//		if(graph.getQuantifiedCondition() != null) {
+//			graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
+//		} else if(graph.getPattern() instanceof CountPattern) {
+//			((CountPattern) graph.getPattern()).getMorphism().getMappings().add(newMapping);
+//		}
+//		
+//		newMapping.setFrom(rootElement);
+//		newMapping.setTo(newRootElement);
+//		rootElement.copyNextElementsToNextGraphs();
 	}
 
 	private void addRootMapping(Graph graph) {
-		ElementMappingImpl mapping = new ElementMappingImpl();
-		graph.getQuantifiedCondition().getMorphism().getMappings()
-				.add(mapping);
-		mapping.setFrom(rootElement);
-		mapping.setTo(graph.getRootElement());
+//		ElementMappingImpl mapping = new ElementMappingImpl();
+//		graph.getQuantifiedCondition().getMorphism().getMappings()
+//				.add(mapping);
+//		mapping.setFrom(rootElement);
+//		mapping.setTo(graph.getRootElement());
 	}
 
 	private boolean updateRootMapping(Graph graph) {
-		for (Mapping mapping : graph.getQuantifiedCondition().getMorphism().getMappings()) {
-			if (mapping instanceof ElementMapping) {
-				ElementMapping elementMapping = (ElementMapping) mapping;
-				if (elementMapping.getTo().equals(graph.getRootElement())) {
-					elementMapping.getFrom().getMappingTo().remove(elementMapping);
-					elementMapping.setFrom(rootElement);
-					return true;
-				}
-			}
-		}
+//		for (Mapping mapping : graph.getQuantifiedCondition().getMorphism().getMappings()) {
+//			if (mapping instanceof ElementMapping) {
+//				ElementMapping elementMapping = (ElementMapping) mapping;
+//				if (elementMapping.getTo().equals(graph.getRootElement())) {
+//					elementMapping.getFrom().getMappingTo().remove(elementMapping);
+//					elementMapping.setFrom(rootElement);
+//					return true;
+//				}
+//			}
+//		}
 		return false;
 	}
 
@@ -245,10 +264,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-				if (rootElement != null)
-					msgs = ((InternalEObject)rootElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__ROOT_ELEMENT, null, msgs);
-				return basicSetRootElement((Element)otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				if (operatorList != null)
 					msgs = ((InternalEObject)operatorList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__OPERATOR_LIST, null, msgs);
@@ -269,6 +286,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if (morphismFrom != null)
 					msgs = ((InternalEObject)morphismFrom).eInverseRemove(this, PatternstructurePackage.MORPHISM__TO, Morphism.class, msgs);
 				return basicSetMorphismFrom((Morphism)otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__RELATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRelations()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -283,67 +302,55 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Element getRootElement() {
-		return rootElement;
+	public EList<Element> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentWithInverseEList<Element>(Element.class, this, GraphstructurePackage.GRAPH__ELEMENTS, GraphstructurePackage.ELEMENT__GRAPH);
+		}
+		return elements;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public NotificationChain basicSetRootElement(Element newRootElement, NotificationChain msgs) {
-		getReturnElements().clear();
-//		if(getRootElement() != null) {
-//			ElementImpl root = (ElementImpl) getRootElement();
-////			root.clearPredicatesRecursively();
-////			root.clearMatchRecursively();
-////			root.clearPropertyRecursively();	
+//	/**
+//	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+//	 * 
+//	 * @generated NOT
+//	 */
+//	public NotificationChain basicSetRootElement(Element newRootElement, NotificationChain msgs) {
+//		getReturnElements().clear();
+////		if(getRootElement() != null) {
+////			ElementImpl root = (ElementImpl) getRootElement();
+//////			root.clearPredicatesRecursively();
+//////			root.clearMatchRecursively();
+//////			root.clearPropertyRecursively();	
+////		}
+//		
+//		Element oldRootElement = rootElement;
+//		rootElement = newRootElement;
+//		
+//		if (eNotificationRequired()) {
+//			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+//					GraphstructurePackage.GRAPH__ROOT_ELEMENT, oldRootElement, newRootElement);
+//			if (msgs == null)
+//				msgs = notification;
+//			else
+//				msgs.add(notification);
 //		}
-		
-		Element oldRootElement = rootElement;
-		rootElement = newRootElement;
-		
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					GraphstructurePackage.GRAPH__ROOT_ELEMENT, oldRootElement, newRootElement);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-			
-		return msgs;
-	}
+//			
+//		return msgs;
+//	}
 	
 	@Override
 	public void updateParameters(ParameterList newParameterList) {
-		if(getRootElement() != null) {
-			getRootElement().updateParameters(newParameterList);
+		for(Element element : getElements()) {
+			element.updateParameters(newParameterList);
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRootElement(Element newRootElement) {
-		if (newRootElement != rootElement) {
-			NotificationChain msgs = null;
-			if (rootElement != null)
-				msgs = ((InternalEObject)rootElement).eInverseRemove(this, GraphstructurePackage.ELEMENT__ROOT, Element.class, msgs);
-			if (newRootElement != null)
-				msgs = ((InternalEObject)newRootElement).eInverseAdd(this, GraphstructurePackage.ELEMENT__ROOT, Element.class, msgs);
-			msgs = basicSetRootElement(newRootElement, msgs);
-			if (msgs != null) msgs.dispatch();
+		for(Relation relation: getRelations()) {
+			relation.updateParameters(newParameterList);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__ROOT_ELEMENT, newRootElement, newRootElement));
 	}
 
 	/**
@@ -353,7 +360,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public EList<Element> getReturnElements() {
 		if (returnElements == null) {
-			returnElements = new EObjectWithInverseResolvingEList<Element>(Element.class, this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS, GraphstructurePackage.ELEMENT__GRAPH);
+			returnElements = new EObjectWithInverseResolvingEList<Element>(Element.class, this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS, GraphstructurePackage.ELEMENT__RESULT_OF);
 		}
 		return returnElements;
 	}
@@ -431,6 +438,19 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__MORPHISM_FROM, newMorphismFrom, newMorphismFrom));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Relation> getRelations() {
+		if (relations == null) {
+			relations = new EObjectContainmentWithInverseEList<Relation>(Relation.class, this, GraphstructurePackage.GRAPH__RELATIONS, GraphstructurePackage.RELATION__GRAPH);
+		}
+		return relations;
 	}
 
 	// /**
@@ -628,8 +648,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-				return basicSetRootElement(null, msgs);
+			case GraphstructurePackage.GRAPH__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				return basicSetOperatorList(null, msgs);
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
@@ -642,6 +662,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return ((InternalEList<?>)getMorphismTo()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__MORPHISM_FROM:
 				return basicSetMorphismFrom(null, msgs);
+			case GraphstructurePackage.GRAPH__RELATIONS:
+				return ((InternalEList<?>)getRelations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -668,8 +690,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-				return getRootElement();
+			case GraphstructurePackage.GRAPH__ELEMENTS:
+				return getElements();
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				return getOperatorList();
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
@@ -685,6 +707,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__MORPHISM_FROM:
 				if (resolve) return getMorphismFrom();
 				return basicGetMorphismFrom();
+			case GraphstructurePackage.GRAPH__RELATIONS:
+				return getRelations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -697,8 +721,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-				setRootElement((Element)newValue);
+			case GraphstructurePackage.GRAPH__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends Element>)newValue);
 				return;
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				setOperatorList((OperatorList)newValue);
@@ -723,6 +748,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__MORPHISM_FROM:
 				setMorphismFrom((Morphism)newValue);
 				return;
+			case GraphstructurePackage.GRAPH__RELATIONS:
+				getRelations().clear();
+				getRelations().addAll((Collection<? extends Relation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -734,8 +763,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-				setRootElement((Element)null);
+			case GraphstructurePackage.GRAPH__ELEMENTS:
+				getElements().clear();
 				return;
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				setOperatorList((OperatorList)null);
@@ -758,6 +787,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__MORPHISM_FROM:
 				setMorphismFrom((Morphism)null);
 				return;
+			case GraphstructurePackage.GRAPH__RELATIONS:
+				getRelations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -769,8 +801,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
-				return rootElement != null;
+			case GraphstructurePackage.GRAPH__ELEMENTS:
+				return elements != null && !elements.isEmpty();
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				return operatorList != null;
 			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
@@ -785,6 +817,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return morphismTo != null && !morphismTo.isEmpty();
 			case GraphstructurePackage.GRAPH__MORPHISM_FROM:
 				return morphismFrom != null;
+			case GraphstructurePackage.GRAPH__RELATIONS:
+				return relations != null && !relations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -811,10 +845,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.GRAPH___GET_ALL_ELEMENTS:
-				return getAllElements();
-			case GraphstructurePackage.GRAPH___GET_ALL_RELATIONS:
-				return getAllRelations();
 			case GraphstructurePackage.GRAPH___IS_RETURN_GRAPH:
 				return isReturnGraph();
 		}
@@ -843,8 +873,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (isReturnGraph())
 			res += "Return-";
 		res += "Graph " + getInternalId();
-		if ( getRootElement() != null)
-		res += "\n| " + getRootElement().myToString().replace("\n", "\n| ");
+		// TODO: call Element.myToString()
+//		if ( getRootElement() != null)
+//		res += "\n| " + getRootElement().myToString().replace("\n", "\n| ");
 		res += getOperatorList().myToString().replace("\n", "\n| ");
 		return res;
 	}

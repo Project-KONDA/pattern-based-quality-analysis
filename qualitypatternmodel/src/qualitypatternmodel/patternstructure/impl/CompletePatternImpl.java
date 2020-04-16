@@ -94,9 +94,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setGraph(new GraphImpl());
 		
 		ElementImpl rootElement = new ElementImpl();
-		getGraph().setRootElement(rootElement);
+//		getGraph().setRootElement(rootElement);
 		ElementImpl returnElement = new ElementImpl();
-		returnElement.setPreviousElement(getGraph().getRootElement());
+//		returnElement.setPreviousElement(getGraph().getRootElement());
 		getGraph().getReturnElements().add(returnElement);
 		rootElement.setName("Root");
 		returnElement.setName("Return");

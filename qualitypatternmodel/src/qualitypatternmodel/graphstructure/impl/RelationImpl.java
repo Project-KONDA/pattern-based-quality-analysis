@@ -18,18 +18,15 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.graphstructure.Axis;
+import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.parameters.RelationOptionParam;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
 import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -44,9 +41,9 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getMappingTo <em>Mapping To</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getElement <em>Element</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getOptionParam <em>Option Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,23 +68,24 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	protected EList<RelationMapping> mappingTo;
 
 	/**
-	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getOption()
-	 * @generated
-	 * @ordered
-	 */
-	protected RelationOptionParam option;
-
-	/**
-	 * The cached value of the '{@link #getOptionParam() <em>Option Param</em>}' reference.
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOptionParam()
+	 * @see #getSource()
 	 * @generated
 	 * @ordered
 	 */
-	protected OptionParam<Axis> optionParam;
+	protected Element source;
+
+	/**
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTarget()
+	 * @generated
+	 * @ordered
+	 */
+	protected Element target;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -98,10 +96,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		if (getMappingFrom() == null && option == null)
-			throw new InvalidityException("axis missing");
-		if (getMappingFrom() != null && option != null)
-			throw new InvalidityException("axis redundant");		
 		
 		CountPattern countPattern = null;				
 		try {
@@ -109,40 +103,36 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 		}
-		if (getGraphDepth() == 0 && mappingFrom != null && countPattern == null) // depth=0 => ReturnGraph
+		if (getGraph().getPattern() != null && mappingFrom != null && countPattern == null) // depth=0 => ReturnGraph
 			throw new InvalidityException("invalid RelationMapping to returnGraph: " + mappingFrom + " "
 					+ mappingFrom.getId() + " - (" + mappingTo + ")");		
 		
+//		for(RelationMapping mapping : getMappingTo()) {
+//			if(!mapping.getTo().getElement().getMappingFrom().getFrom().equals(getElement())) {
+//				throw new InvalidityException("mapping invalid");
+//			}
+//		}
+		
+		if(getSource() == null) {
+			throw new InvalidityException("source null " + getId());
+		}
+		if(getTarget() == null) {
+			throw new InvalidityException("target null " + getId());
+		}
+		
 		for(RelationMapping mapping : getMappingTo()) {
-			if(!mapping.getTo().getElement().getMappingFrom().getFrom().equals(getElement())) {
-				throw new InvalidityException("mapping invalid");
+			Relation mappedRelation = mapping.getTo();
+			Element mappedSource = mappedRelation.getSource();
+			if(!mappedSource.getMappingFrom().getFrom().equals(getSource())) {
+				throw new InvalidityException("mapping of source invalid");
+			}
+			Element mappedTarget = mappedRelation.getTarget();
+			if(!mappedTarget.getMappingFrom().getFrom().equals(getTarget())) {
+				throw new InvalidityException("mapping of target invalid");
 			}
 		}
 	
-	}
-
-	@Override
-	public String generateQuery(Location location) throws InvalidityException {
-		if (option != null) {
-			return option.generateQuery(location);
-		} else {
-			throw new InvalidityException("option null");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	@Override
-	public EList<Parameter> getAllInputs() throws InvalidityException {
-		EList<Parameter> res = new BasicEList<Parameter>();
-		if (getOption() != null) {
-			res.add(option);
-		} else if (getMappingFrom() == null) {
-			throw new InvalidityException("option null" + " (" + getInternalId() + ")");
-		}
-		return res;
-	}
+	}	
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -163,6 +153,182 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			mappingTo = new EObjectWithInverseResolvingEList<RelationMapping>(RelationMapping.class, this, GraphstructurePackage.RELATION__MAPPING_TO, PatternstructurePackage.RELATION_MAPPING__FROM);
 		}
 		return mappingTo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Graph getGraph() {
+		if (eContainerFeatureID() != GraphstructurePackage.RELATION__GRAPH) return null;
+		return (Graph)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		removeRelationFromPreviousGraphs();
+		removeMappingsToNext();
+//		if (getElement() != null) {
+//			removeParametersFromParameterList();
+//		}		
+//		if (newGraph != null) {
+//			copyToNewNextGraphs(newGraph); // not needed anymore
+//		}
+		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.RELATION__GRAPH, msgs);
+		
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setGraph(Graph newGraph) {
+		if (newGraph != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.RELATION__GRAPH && newGraph != null)) {
+			if (EcoreUtil.isAncestor(this, newGraph))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newGraph != null)
+				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__RELATIONS, Graph.class, msgs);
+			msgs = basicSetGraph(newGraph, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__GRAPH, newGraph, newGraph));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Element getSource() {
+		if (source != null && source.eIsProxy()) {
+			InternalEObject oldSource = (InternalEObject)source;
+			source = (Element)eResolveProxy(oldSource);
+			if (source != oldSource) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.RELATION__SOURCE, oldSource, source));
+			}
+		}
+		return source;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element basicGetSource() {
+		return source;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSource(Element newSource, NotificationChain msgs) {
+		Element oldSource = source;
+		source = newSource;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, oldSource, newSource);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSource(Element newSource) {
+		if (newSource != source) {
+			NotificationChain msgs = null;
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.ELEMENT__OUTGOING, Element.class, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.ELEMENT__OUTGOING, Element.class, msgs);
+			msgs = basicSetSource(newSource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, newSource, newSource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Element getTarget() {
+		if (target != null && target.eIsProxy()) {
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (Element)eResolveProxy(oldTarget);
+			if (target != oldTarget) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.RELATION__TARGET, oldTarget, target));
+			}
+		}
+		return target;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Element basicGetTarget() {
+		return target;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTarget(Element newTarget, NotificationChain msgs) {
+		Element oldTarget = target;
+		target = newTarget;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, oldTarget, newTarget);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTarget(Element newTarget) {
+		if (newTarget != target) {
+			NotificationChain msgs = null;
+			if (target != null)
+				msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.ELEMENT__INCOMING, Element.class, msgs);
+			if (newTarget != null)
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, GraphstructurePackage.ELEMENT__INCOMING, Element.class, msgs);
+			msgs = basicSetTarget(newTarget, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, newTarget, newTarget));
 	}
 
 	/**
@@ -192,23 +358,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	public NotificationChain basicSetMappingFrom(RelationMapping newMappingFrom, NotificationChain msgs) {
 		RelationMapping oldMappingFrom = mappingFrom;
 		mappingFrom = newMappingFrom;
-		if (newMappingFrom != null) {
-			removeParametersFromParameterList();
-			setOption(null);
-		}
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					GraphstructurePackage.RELATION__MAPPING_FROM, oldMappingFrom, newMappingFrom);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__MAPPING_FROM, oldMappingFrom, newMappingFrom);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
@@ -258,129 +415,26 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 //			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__AXIS, oldAxis, axis));
 //	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @throws InvalidityException
-	 */
-	@Override
-	public int getGraphDepth() throws InvalidityException {
-		return getElement().getGraphDepth();
-	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Element getElement() {
-		if (eContainerFeatureID() != GraphstructurePackage.RELATION__ELEMENT) return null;
-		return (Element)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setElement(Element newElement) {
-		if (newElement != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.RELATION__ELEMENT && newElement != null)) {
-			if (EcoreUtil.isAncestor(this, newElement))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newElement != null)
-				msgs = ((InternalEObject)newElement).eInverseAdd(this, GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, Element.class, msgs);
-			msgs = basicSetElement(newElement, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__ELEMENT, newElement, newElement));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public NotificationChain basicSetElement(Element newRelationTo, NotificationChain msgs) {
-		removeRelationFromPreviousGraphs();
-		removeMappingsToNext();
-//		if (getElement() != null) {
-//			removeParametersFromParameterList();
-//		}
-		if(newRelationTo != null) {
-			updateParameters(newRelationTo.getParameterList());
-		}
-		if (newRelationTo != null) {
-			copyToNewNextGraphs(newRelationTo);
-		}
-		msgs = eBasicSetContainer((InternalEObject) newRelationTo, GraphstructurePackage.RELATION__ELEMENT, msgs);
-		if (newRelationTo != null && getMappingFrom() == null) {
-			createParameters();
-		}
-		return msgs;
-	}
 
 	@Override
-	public void copyToNewNextGraphs(Element newRelationTo) {
-		if (newRelationTo instanceof Element) {
-			Element element = (Element) newRelationTo;
-			if (element.getMappingFrom() != null) {
-				Element correspondingElement = element.getMappingFrom().getFrom();
-				Relation newCorrespondingRelation;
-				if (correspondingElement.getRelationFromPrevious() != null) {
-					newCorrespondingRelation = correspondingElement.getRelationFromPrevious();
-				} else {
-					newCorrespondingRelation = new RelationImpl();
-				}
-//				newCorrespondingRelation.setAxis(getAxis());
-				RelationMapping mapping = new RelationMappingImpl();
-				element.getMappingFrom().getMorphism().getMappings().add(mapping);
-				mapping.setFrom(newCorrespondingRelation);
-				mapping.setTo(this);
-			}
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public void createParameters() {		
-		ParameterList parameterList = getParameterList();
-		if (getOption() == null) {
-			RelationOptionParam relationOptionParam = new RelationOptionParamImpl();
-			if(parameterList != null) {
-				parameterList.add(relationOptionParam);
-			}
-			setOption(relationOptionParam);
-		} else {
-			parameterList.add(getOption());
-		}		
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public void removeParametersFromParameterList() {
-		ParameterList parameterList = getParameterList();			
-		parameterList.getParameters().remove(getOption());		
-	}
-	
-	@Override
-	public void updateParameters(ParameterList newParameterList) {
-		if(getOption() != null) {
-			getOption().updateParameters(newParameterList);		
-		}
-	}
+	public void copyToNewNextGraphs(Element element) {
+		// TODO: not needed anymore
+//		if (element.getMappingFrom() != null) {
+//			Element correspondingElement = element.getMappingFrom().getFrom();
+//			Relation newCorrespondingRelation;
+//			if (correspondingElement.getRelationFromPrevious() != null) {
+//				newCorrespondingRelation = correspondingElement.getRelationFromPrevious();
+//			} else {
+//				newCorrespondingRelation = new RelationImpl();
+//			}
+////				newCorrespondingRelation.setAxis(getAxis());
+//			RelationMapping mapping = new RelationMappingImpl();
+//			element.getMappingFrom().getMorphism().getMappings().add(mapping);
+//			mapping.setFrom(newCorrespondingRelation);
+//			mapping.setTo(this);
+//		}		
+	}	
 
 	@Override
 	public void removeMappingsToNext() {
@@ -397,134 +451,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public void removeRelationFromPreviousGraphs() {
 		if (getMappingFrom() != null) {
 			Relation correspondingRelation = getMappingFrom().getFrom();
-			correspondingRelation.getElement().setRelationFromPrevious(null);
+			correspondingRelation.setGraph(null);
+//			correspondingRelation.getElement().setRelationFromPrevious(null);
 //			getMappingFrom().setFrom(null);
 //			if(getMappingFrom().getMorphism() != null) {
 //				getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
 //				getMappingFrom().setTo(null);
 //			}
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public RelationOptionParam getOption() {
-		if (option != null && option.eIsProxy()) {
-			InternalEObject oldOption = (InternalEObject)option;
-			option = (RelationOptionParam)eResolveProxy(oldOption);
-			if (option != oldOption) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.RELATION__OPTION, oldOption, option));
-			}
-		}
-		return option;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RelationOptionParam basicGetOption() {
-		return option;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOption(RelationOptionParam newOption, NotificationChain msgs) {
-		RelationOptionParam oldOption = option;
-		option = newOption;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__OPTION, oldOption, newOption);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOption(RelationOptionParam newOption) {
-		if (newOption != option) {
-			NotificationChain msgs = null;
-			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
-			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
-			msgs = basicSetOption(newOption, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__OPTION, newOption, newOption));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public OptionParam<Axis> getOptionParam() {
-		if (optionParam != null && optionParam.eIsProxy()) {
-			InternalEObject oldOptionParam = (InternalEObject)optionParam;
-			optionParam = (OptionParam<Axis>)eResolveProxy(oldOptionParam);
-			if (optionParam != oldOptionParam) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.RELATION__OPTION_PARAM, oldOptionParam, optionParam));
-			}
-		}
-		return optionParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OptionParam<Axis> basicGetOptionParam() {
-		return optionParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOptionParam(OptionParam<Axis> newOptionParam, NotificationChain msgs) {
-		OptionParam<Axis> oldOptionParam = optionParam;
-		optionParam = newOptionParam;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__OPTION_PARAM, oldOptionParam, newOptionParam);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOptionParam(OptionParam<Axis> newOptionParam) {
-		if (newOptionParam != optionParam) {
-			NotificationChain msgs = null;
-			if (optionParam != null)
-				msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__RELATION, OptionParam.class, msgs);
-			if (newOptionParam != null)
-				msgs = ((InternalEObject)newOptionParam).eInverseAdd(this, ParametersPackage.OPTION_PARAM__RELATION, OptionParam.class, msgs);
-			msgs = basicSetOptionParam(newOptionParam, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__OPTION_PARAM, newOptionParam, newOptionParam));
 	}
 
 	/**
@@ -541,18 +475,18 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicSetMappingFrom((RelationMapping)otherEnd, msgs);
 			case GraphstructurePackage.RELATION__MAPPING_TO:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappingTo()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.RELATION__ELEMENT:
+			case GraphstructurePackage.RELATION__GRAPH:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetElement((Element)otherEnd, msgs);
-			case GraphstructurePackage.RELATION__OPTION:
-				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
-				return basicSetOption((RelationOptionParam)otherEnd, msgs);
-			case GraphstructurePackage.RELATION__OPTION_PARAM:
-				if (optionParam != null)
-					msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__RELATION, OptionParam.class, msgs);
-				return basicSetOptionParam((OptionParam<Axis>)otherEnd, msgs);
+				return basicSetGraph((Graph)otherEnd, msgs);
+			case GraphstructurePackage.RELATION__SOURCE:
+				if (source != null)
+					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.ELEMENT__OUTGOING, Element.class, msgs);
+				return basicSetSource((Element)otherEnd, msgs);
+			case GraphstructurePackage.RELATION__TARGET:
+				if (target != null)
+					msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.ELEMENT__INCOMING, Element.class, msgs);
+				return basicSetTarget((Element)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -568,12 +502,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicSetMappingFrom(null, msgs);
 			case GraphstructurePackage.RELATION__MAPPING_TO:
 				return ((InternalEList<?>)getMappingTo()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.RELATION__ELEMENT:
-				return basicSetElement(null, msgs);
-			case GraphstructurePackage.RELATION__OPTION:
-				return basicSetOption(null, msgs);
-			case GraphstructurePackage.RELATION__OPTION_PARAM:
-				return basicSetOptionParam(null, msgs);
+			case GraphstructurePackage.RELATION__GRAPH:
+				return basicSetGraph(null, msgs);
+			case GraphstructurePackage.RELATION__SOURCE:
+				return basicSetSource(null, msgs);
+			case GraphstructurePackage.RELATION__TARGET:
+				return basicSetTarget(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -586,8 +520,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case GraphstructurePackage.RELATION__ELEMENT:
-				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS, Element.class, msgs);
+			case GraphstructurePackage.RELATION__GRAPH:
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.GRAPH__RELATIONS, Graph.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -604,14 +538,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicGetMappingFrom();
 			case GraphstructurePackage.RELATION__MAPPING_TO:
 				return getMappingTo();
-			case GraphstructurePackage.RELATION__ELEMENT:
-				return getElement();
-			case GraphstructurePackage.RELATION__OPTION:
-				if (resolve) return getOption();
-				return basicGetOption();
-			case GraphstructurePackage.RELATION__OPTION_PARAM:
-				if (resolve) return getOptionParam();
-				return basicGetOptionParam();
+			case GraphstructurePackage.RELATION__GRAPH:
+				return getGraph();
+			case GraphstructurePackage.RELATION__SOURCE:
+				if (resolve) return getSource();
+				return basicGetSource();
+			case GraphstructurePackage.RELATION__TARGET:
+				if (resolve) return getTarget();
+				return basicGetTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -631,14 +565,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				getMappingTo().clear();
 				getMappingTo().addAll((Collection<? extends RelationMapping>)newValue);
 				return;
-			case GraphstructurePackage.RELATION__ELEMENT:
-				setElement((Element)newValue);
+			case GraphstructurePackage.RELATION__GRAPH:
+				setGraph((Graph)newValue);
 				return;
-			case GraphstructurePackage.RELATION__OPTION:
-				setOption((RelationOptionParam)newValue);
+			case GraphstructurePackage.RELATION__SOURCE:
+				setSource((Element)newValue);
 				return;
-			case GraphstructurePackage.RELATION__OPTION_PARAM:
-				setOptionParam((OptionParam<Axis>)newValue);
+			case GraphstructurePackage.RELATION__TARGET:
+				setTarget((Element)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -657,14 +591,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__MAPPING_TO:
 				getMappingTo().clear();
 				return;
-			case GraphstructurePackage.RELATION__ELEMENT:
-				setElement((Element)null);
+			case GraphstructurePackage.RELATION__GRAPH:
+				setGraph((Graph)null);
 				return;
-			case GraphstructurePackage.RELATION__OPTION:
-				setOption((RelationOptionParam)null);
+			case GraphstructurePackage.RELATION__SOURCE:
+				setSource((Element)null);
 				return;
-			case GraphstructurePackage.RELATION__OPTION_PARAM:
-				setOptionParam((OptionParam<Axis>)null);
+			case GraphstructurePackage.RELATION__TARGET:
+				setTarget((Element)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -681,14 +615,31 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return mappingFrom != null;
 			case GraphstructurePackage.RELATION__MAPPING_TO:
 				return mappingTo != null && !mappingTo.isEmpty();
-			case GraphstructurePackage.RELATION__ELEMENT:
-				return getElement() != null;
-			case GraphstructurePackage.RELATION__OPTION:
-				return option != null;
-			case GraphstructurePackage.RELATION__OPTION_PARAM:
-				return optionParam != null;
+			case GraphstructurePackage.RELATION__GRAPH:
+				return getGraph() != null;
+			case GraphstructurePackage.RELATION__SOURCE:
+				return source != null;
+			case GraphstructurePackage.RELATION__TARGET:
+				return target != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == Adaptable.class) {
+			switch (baseOperationID) {
+				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return GraphstructurePackage.RELATION___CREATE_PARAMETERS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	/**
@@ -698,13 +649,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.RELATION___GET_GRAPH_DEPTH:
-				try {
-					return getGraphDepth();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case GraphstructurePackage.RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS:
 				removeRelationFromPreviousGraphs();
 				return null;
@@ -714,11 +658,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT:
 				copyToNewNextGraphs((Element)arguments.get(0));
 				return null;
-			case GraphstructurePackage.RELATION___CREATE_PARAMETERS:
-				createParameters();
-				return null;
 			case GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
+				return null;
+			case GraphstructurePackage.RELATION___CREATE_PARAMETERS:
+				createParameters();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -726,11 +670,22 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	@Override
 	public String myToString() {
-		if (getOption() != null) {
-			return getOption().getValue().getLiteral() + " (" + getInternalId() + ")";
-		} else {
+//		if (getOption() != null) {
+//			return getOption().getValue().getLiteral() + " (" + getInternalId() + ")";
+//		} else {
 			return "[prev.] (" + getInternalId() + ")";
-		}
+//		}
+	}
+
+	@Override
+	public void removeParametersFromParameterList() {
+		
+		
+	}
+
+	@Override
+	public void createParameters() {
+		
 	}
 
 } // RelationImpl

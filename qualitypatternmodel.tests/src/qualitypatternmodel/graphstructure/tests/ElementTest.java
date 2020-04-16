@@ -19,22 +19,16 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyNextElementToNextGraphs(qualitypatternmodel.graphstructure.Element) <em>Copy Next Element To Next Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyNextElementToPreviousGraphs(qualitypatternmodel.graphstructure.Element, boolean) <em>Copy Next Element To Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyNextElementsToPreviousGraphs(boolean) <em>Copy Next Elements To Previous Graphs</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#isRootElement() <em>Is Root Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElementsRecursively() <em>Remove From Return Elements Recursively</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearMatchRecursively() <em>Clear Match Recursively</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllRelations() <em>Get All Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllElements() <em>Get All Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getOriginalID() <em>Get Original ID</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(java.lang.String) <em>Add Primitive Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch() <em>Add Primitive Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison() <em>Add Primitive Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraphDepth() <em>Get Graph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllOperators() <em>Get All Operators</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.adaptionxml.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearComparisonRecursively() <em>Clear Comparison Recursively</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#clearPropertyRecursively() <em>Clear Property Recursively</em>}</li>
@@ -42,6 +36,8 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyPrimitiveComparison(qualitypatternmodel.operators.Comparison) <em>Copy Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#copyMatch(qualitypatternmodel.operators.Match) <em>Copy Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#addNewProperty() <em>Add New Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
@@ -156,19 +152,6 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#isRootElement() <em>Is Root Element</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#isRootElement()
-	 * @generated
-	 */
-	public void testIsRootElement() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#removeFromReturnElementsRecursively() <em>Remove From Return Elements Recursively</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,19 +178,6 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getAllRelations() <em>Get All Relations</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#getAllRelations()
-	 * @generated
-	 */
-	public void testGetAllRelations() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#clearPredicatesRecursively() <em>Clear Predicates Recursively</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,19 +191,6 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getAllElements() <em>Get All Elements</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#getAllElements()
-	 * @generated
-	 */
-	public void testGetAllElements() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getOriginalID() <em>Get Original ID</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -241,19 +198,6 @@ public class ElementTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetOriginalID() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location)
-	 * @generated
-	 */
-	public void testGetXQueryRepresentation__Location() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -286,19 +230,6 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#getXQueryVariable()
-	 * @generated
-	 */
-	public void testGetXQueryVariable() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch() <em>Add Primitive Match</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -325,19 +256,6 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getGraphDepth() <em>Get Graph Depth</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#getGraphDepth()
-	 * @generated
-	 */
-	public void testGetGraphDepth() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getAllOperators() <em>Get All Operators</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -351,10 +269,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.adaptionxml.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.graphstructure.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue)
+	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.adaptionxml.PropertyLocation, java.lang.String, qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue)
 	 * @generated
 	 */
 	public void testAddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_ParameterValue() {
@@ -449,6 +367,32 @@ public class ElementTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAddNewProperty() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList()
+	 * @generated
+	 */
+	public void testRemoveParametersFromParameterList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Adaptable#createParameters()
+	 * @generated
+	 */
+	public void testCreateParameters() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

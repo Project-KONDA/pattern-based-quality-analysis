@@ -15,9 +15,9 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#createParameters() <em>Create Parameters</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#copy() <em>Copy</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
@@ -80,10 +80,10 @@ public class PropertyTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#createParameters() <em>Create Parameters</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Property#createParameters()
+	 * @see qualitypatternmodel.graphstructure.Adaptable#createParameters()
 	 * @generated
 	 */
 	public void testCreateParameters() {
@@ -93,10 +93,10 @@ public class PropertyTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Property#removeParametersFromParameterList()
+	 * @see qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList()
 	 * @generated
 	 */
 	public void testRemoveParametersFromParameterList() {

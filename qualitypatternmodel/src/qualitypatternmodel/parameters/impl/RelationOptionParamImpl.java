@@ -18,9 +18,10 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.Axis;
+import qualitypatternmodel.adaptionxml.XMLNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Axis;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.RelationOptionParam;
@@ -79,7 +80,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Relation> relations;
+	protected EList<XMLNavigation> relations;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -155,7 +156,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -171,9 +173,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated
 	 */
 	@Override
-	public EList<Relation> getRelations() {
+	public EList<XMLNavigation> getRelations() {
 		if (relations == null) {
-			relations = new EObjectWithInverseResolvingEList<Relation>(Relation.class, this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, GraphstructurePackage.RELATION__OPTION);
+			relations = new EObjectWithInverseResolvingEList<XMLNavigation>(XMLNavigation.class, this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, AdaptionxmlPackage.XML_NAVIGATION__OPTION);
 		}
 		return relations;
 	}
@@ -239,7 +241,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 				return;
 			case ParametersPackage.RELATION_OPTION_PARAM__RELATIONS:
 				getRelations().clear();
-				getRelations().addAll((Collection<? extends Relation>)newValue);
+				getRelations().addAll((Collection<? extends XMLNavigation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -309,8 +311,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 		String res = "Beziehung: XPath-Achse";
 		try {			
 			for(Relation relation : getRelations()) {
-				Element to = relation.getElement();
-				Element from = to.getPreviousElement();
+				Element to = relation.getTarget();
+				Element from = relation.getSource();
 				res += " zur Navigation von " + from.getName() + " zu " + to.getName();		
 			}
 					

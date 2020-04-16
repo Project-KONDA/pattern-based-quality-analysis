@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Element;
@@ -52,10 +53,13 @@ public class ElementItemProvider extends PatternElementItemProvider {
 			addMappingToPropertyDescriptor(object);
 			addMappingFromPropertyDescriptor(object);
 			addGraphPropertyDescriptor(object);
+			addResultOfPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addTranslatedPropertyDescriptor(object);
 			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
 			addPredicatesPropertyDescriptor(object);
+			addOutgoingPropertyDescriptor(object);
+			addIncomingPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -171,6 +175,28 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Result Of feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResultOfPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Element_resultOf_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_resultOf_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__RESULT_OF,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,6 +285,50 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Outgoing feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutgoingPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Element_outgoing_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_outgoing_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__OUTGOING,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Incoming feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncomingPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Element_incoming_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_incoming_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__INCOMING,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -270,8 +340,6 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__NEXT_ELEMENTS);
-			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__RELATION_FROM_PREVIOUS);
 			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__PROPERTIES);
 		}
 		return childrenFeatures;
@@ -337,8 +405,6 @@ public class ElementItemProvider extends PatternElementItemProvider {
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case GraphstructurePackage.ELEMENT__NEXT_ELEMENTS:
-			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -359,18 +425,13 @@ public class ElementItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.ELEMENT__NEXT_ELEMENTS,
-				 GraphstructureFactory.eINSTANCE.createElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphstructurePackage.Literals.ELEMENT__RELATION_FROM_PREVIOUS,
-				 GraphstructureFactory.eINSTANCE.createRelation()));
+				(GraphstructurePackage.Literals.ELEMENT__PROPERTIES,
+				 GraphstructureFactory.eINSTANCE.createProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.ELEMENT__PROPERTIES,
-				 GraphstructureFactory.eINSTANCE.createProperty()));
+				 AdaptionxmlFactory.eINSTANCE.createXMLProperty()));
 	}
 
 	/**

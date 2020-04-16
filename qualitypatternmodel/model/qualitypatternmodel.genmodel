@@ -189,7 +189,6 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/source"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/target"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/getGraphDepth"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeRelationFromPreviousGraphs"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeMappingsToNext"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/copyToNewNextGraphs">
@@ -234,7 +233,6 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/removeFromReturnElementsRecursively"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearMatchRecursively"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getAllRelations"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearPredicatesRecursively"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getOriginalID"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveMatch">
@@ -245,7 +243,6 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveMatch.1"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.1"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getGraphDepth"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getAllOperators"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.2">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.2/property"/>
@@ -286,8 +283,6 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/copyGraph">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/copyGraph/graph"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/getAllElements"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/getAllRelations"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/isReturnGraph"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//graphstructure/Comparable">

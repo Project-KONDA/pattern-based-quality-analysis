@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XMLProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -79,7 +79,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Property> properties;
+	protected EList<XMLProperty> properties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,9 +179,9 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 */
 	@Override
-	public EList<Property> getProperties() {
+	public EList<XMLProperty> getProperties() {
 		if (properties == null) {
-			properties = new EObjectWithInverseResolvingEList<Property>(Property.class, this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME);
+			properties = new EObjectWithInverseResolvingEList<XMLProperty>(XMLProperty.class, this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME);
 		}
 		return properties;
 	}
@@ -255,7 +255,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
 				getProperties().clear();
-				getProperties().addAll((Collection<? extends Property>)newValue);
+				getProperties().addAll((Collection<? extends XMLProperty>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

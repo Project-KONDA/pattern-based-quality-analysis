@@ -38,9 +38,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PropertyOptionParam" eSuperTypes="#//parameters/Parameter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
-          eType="#//adaptionxml/Axis"/>
+          eType="#//adaptionxml/PropertyLocation"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="#//adaptionxml/Axis"/>
+          eType="#//adaptionxml/PropertyLocation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
           eType="#//adaptionxml/XMLProperty" eOpposite="#//adaptionxml/XMLProperty/option"/>
     </eClassifiers>
@@ -210,8 +210,6 @@
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
     <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
-      <eOperations name="getGraphDepth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="removeRelationFromPreviousGraphs"/>
       <eOperations name="removeMappingsToNext"/>
       <eOperations name="copyToNewNextGraphs">
@@ -249,7 +247,6 @@
       </eOperations>
       <eOperations name="removeFromReturnElementsRecursively"/>
       <eOperations name="clearMatchRecursively"/>
-      <eOperations name="getAllRelations" upperBound="-1" eType="#//graphstructure/Relation"/>
       <eOperations name="clearPredicatesRecursively"/>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eOperations name="addPrimitiveMatch">
@@ -260,8 +257,6 @@
       </eOperations>
       <eOperations name="addPrimitiveMatch"/>
       <eOperations name="addPrimitiveComparison" eType="#//parameters/UnknownParameterValue"/>
-      <eOperations name="getGraphDepth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addPrimitiveComparison">
@@ -313,8 +308,6 @@
       <eOperations name="copyGraph" eExceptions="#//patternstructure/MissingPatternContainerException">
         <eParameters name="graph" eType="#//graphstructure/Graph"/>
       </eOperations>
-      <eOperations name="getAllElements" upperBound="-1" eType="#//graphstructure/Element"/>
-      <eOperations name="getAllRelations" upperBound="-1" eType="#//graphstructure/Relation"/>
       <eOperations name="isReturnGraph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
           upperBound="-1" eType="#//graphstructure/Element" containment="true" eOpposite="#//graphstructure/Element/graph"/>

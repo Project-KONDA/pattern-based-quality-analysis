@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -268,18 +270,22 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		OperatorsPackageImpl theOperatorsPackage = (OperatorsPackageImpl)(registeredPackage instanceof OperatorsPackageImpl ? registeredPackage : OperatorsPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		GraphstructurePackageImpl theGraphstructurePackage = (GraphstructurePackageImpl)(registeredPackage instanceof GraphstructurePackageImpl ? registeredPackage : GraphstructurePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionxmlPackage.eNS_URI);
+		AdaptionxmlPackageImpl theAdaptionxmlPackage = (AdaptionxmlPackageImpl)(registeredPackage instanceof AdaptionxmlPackageImpl ? registeredPackage : AdaptionxmlPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePatternstructurePackage.createPackageContents();
 		theParametersPackage.createPackageContents();
 		theOperatorsPackage.createPackageContents();
 		theGraphstructurePackage.createPackageContents();
+		theAdaptionxmlPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePatternstructurePackage.initializePackageContents();
 		theParametersPackage.initializePackageContents();
 		theOperatorsPackage.initializePackageContents();
 		theGraphstructurePackage.initializePackageContents();
+		theAdaptionxmlPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put

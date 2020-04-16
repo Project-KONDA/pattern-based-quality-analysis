@@ -47,11 +47,6 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 			addComparison1PropertyDescriptor(object);
 			addComparison2PropertyDescriptor(object);
 			addMatchPropertyDescriptor(object);
-			addAttributeNamePropertyDescriptor(object);
-			addOptionPropertyDescriptor(object);
-			addReferenceOperator2PropertyDescriptor(object);
-			addReferenceOperator1PropertyDescriptor(object);
-			addOptionParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -92,116 +87,6 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Comparable_comparison2_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Comparable_comparison2_feature", "_UI_Comparable_type"),
 				 GraphstructurePackage.Literals.COMPARABLE__COMPARISON2,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Attribute Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAttributeNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_attributeName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_attributeName_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__ATTRIBUTE_NAME,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Option feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_option_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_option_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__OPTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Reference Operator2 feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReferenceOperator2PropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_referenceOperator2_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_referenceOperator2_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__REFERENCE_OPERATOR2,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Reference Operator1 feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReferenceOperator1PropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_referenceOperator1_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_referenceOperator1_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__REFERENCE_OPERATOR1,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Option Param feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOptionParamPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_optionParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_optionParam_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__OPTION_PARAM,
 				 true,
 				 false,
 				 true,
@@ -266,7 +151,6 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

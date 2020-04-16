@@ -18,10 +18,11 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.XMLProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -82,7 +83,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Property> properties;
+	protected EList<XMLProperty> properties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -177,9 +178,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 */
 	@Override
-	public EList<Property> getProperties() {
+	public EList<XMLProperty> getProperties() {
 		if (properties == null) {
-			properties = new EObjectWithInverseResolvingEList<Property>(Property.class, this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, GraphstructurePackage.PROPERTY__OPTION);
+			properties = new EObjectWithInverseResolvingEList<XMLProperty>(XMLProperty.class, this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, AdaptionxmlPackage.XML_PROPERTY__OPTION);
 		}
 		return properties;
 	}
@@ -249,7 +250,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				return;
 			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
 				getProperties().clear();
-				getProperties().addAll((Collection<? extends Property>)newValue);
+				getProperties().addAll((Collection<? extends XMLProperty>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -6,8 +6,8 @@ package qualitypatternmodel.parameters.validation;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionxml.PropertyLocation;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.PropertyLocation;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.parameters.PropertyOptionParam}.

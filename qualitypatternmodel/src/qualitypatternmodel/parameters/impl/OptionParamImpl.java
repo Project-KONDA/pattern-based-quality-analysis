@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XMLProperty;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.OptionParam;
@@ -75,7 +75,7 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * @generated
 	 * @ordered
 	 */
-	protected Property property;
+	protected XMLProperty property;
 
 	/**
 	 * The cached value of the '{@link #getRelation() <em>Relation</em>}' reference.
@@ -85,7 +85,7 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * @generated
 	 * @ordered
 	 */
-	protected Relation relation;
+	protected XMLNavigation relation;
 
 	/**
 	 * The cached value of the '{@link #getComparison() <em>Comparison</em>}' reference list.
@@ -168,10 +168,10 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * @generated
 	 */
 	@Override
-	public Property getProperty() {
+	public XMLProperty getProperty() {
 		if (property != null && property.eIsProxy()) {
 			InternalEObject oldProperty = (InternalEObject)property;
-			property = (Property)eResolveProxy(oldProperty);
+			property = (XMLProperty)eResolveProxy(oldProperty);
 			if (property != oldProperty) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.OPTION_PARAM__PROPERTY, oldProperty, property));
@@ -185,7 +185,7 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Property basicGetProperty() {
+	public XMLProperty basicGetProperty() {
 		return property;
 	}
 
@@ -194,8 +194,8 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
-		Property oldProperty = property;
+	public NotificationChain basicSetProperty(XMLProperty newProperty, NotificationChain msgs) {
+		XMLProperty oldProperty = property;
 		property = newProperty;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.OPTION_PARAM__PROPERTY, oldProperty, newProperty);
@@ -210,13 +210,13 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * @generated
 	 */
 	@Override
-	public void setProperty(Property newProperty) {
+	public void setProperty(XMLProperty newProperty) {
 		if (newProperty != property) {
 			NotificationChain msgs = null;
 			if (property != null)
-				msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__OPTION_PARAM, Property.class, msgs);
+				msgs = ((InternalEObject)property).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY__OPTION_PARAM, XMLProperty.class, msgs);
 			if (newProperty != null)
-				msgs = ((InternalEObject)newProperty).eInverseAdd(this, GraphstructurePackage.PROPERTY__OPTION_PARAM, Property.class, msgs);
+				msgs = ((InternalEObject)newProperty).eInverseAdd(this, AdaptionxmlPackage.XML_PROPERTY__OPTION_PARAM, XMLProperty.class, msgs);
 			msgs = basicSetProperty(newProperty, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -230,10 +230,10 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * @generated
 	 */
 	@Override
-	public Relation getRelation() {
+	public XMLNavigation getRelation() {
 		if (relation != null && relation.eIsProxy()) {
 			InternalEObject oldRelation = (InternalEObject)relation;
-			relation = (Relation)eResolveProxy(oldRelation);
+			relation = (XMLNavigation)eResolveProxy(oldRelation);
 			if (relation != oldRelation) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ParametersPackage.OPTION_PARAM__RELATION, oldRelation, relation));
@@ -247,7 +247,7 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Relation basicGetRelation() {
+	public XMLNavigation basicGetRelation() {
 		return relation;
 	}
 
@@ -256,8 +256,8 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRelation(Relation newRelation, NotificationChain msgs) {
-		Relation oldRelation = relation;
+	public NotificationChain basicSetRelation(XMLNavigation newRelation, NotificationChain msgs) {
+		XMLNavigation oldRelation = relation;
 		relation = newRelation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.OPTION_PARAM__RELATION, oldRelation, newRelation);
@@ -272,13 +272,13 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 	 * @generated
 	 */
 	@Override
-	public void setRelation(Relation newRelation) {
+	public void setRelation(XMLNavigation newRelation) {
 		if (newRelation != relation) {
 			NotificationChain msgs = null;
 			if (relation != null)
-				msgs = ((InternalEObject)relation).eInverseRemove(this, GraphstructurePackage.RELATION__OPTION_PARAM, Relation.class, msgs);
+				msgs = ((InternalEObject)relation).eInverseRemove(this, AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM, XMLNavigation.class, msgs);
 			if (newRelation != null)
-				msgs = ((InternalEObject)newRelation).eInverseAdd(this, GraphstructurePackage.RELATION__OPTION_PARAM, Relation.class, msgs);
+				msgs = ((InternalEObject)newRelation).eInverseAdd(this, AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM, XMLNavigation.class, msgs);
 			msgs = basicSetRelation(newRelation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -372,12 +372,12 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 		switch (featureID) {
 			case ParametersPackage.OPTION_PARAM__PROPERTY:
 				if (property != null)
-					msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__OPTION_PARAM, Property.class, msgs);
-				return basicSetProperty((Property)otherEnd, msgs);
+					msgs = ((InternalEObject)property).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY__OPTION_PARAM, XMLProperty.class, msgs);
+				return basicSetProperty((XMLProperty)otherEnd, msgs);
 			case ParametersPackage.OPTION_PARAM__RELATION:
 				if (relation != null)
-					msgs = ((InternalEObject)relation).eInverseRemove(this, GraphstructurePackage.RELATION__OPTION_PARAM, Relation.class, msgs);
-				return basicSetRelation((Relation)otherEnd, msgs);
+					msgs = ((InternalEObject)relation).eInverseRemove(this, AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM, XMLNavigation.class, msgs);
+				return basicSetRelation((XMLNavigation)otherEnd, msgs);
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison()).basicAdd(otherEnd, msgs);
 			case ParametersPackage.OPTION_PARAM__COUNT_CONDITION:
@@ -452,10 +452,10 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 				getOptions().addAll((Collection<? extends T>)newValue);
 				return;
 			case ParametersPackage.OPTION_PARAM__PROPERTY:
-				setProperty((Property)newValue);
+				setProperty((XMLProperty)newValue);
 				return;
 			case ParametersPackage.OPTION_PARAM__RELATION:
-				setRelation((Relation)newValue);
+				setRelation((XMLNavigation)newValue);
 				return;
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
 				getComparison().clear();
@@ -483,10 +483,10 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 				getOptions().clear();
 				return;
 			case ParametersPackage.OPTION_PARAM__PROPERTY:
-				setProperty((Property)null);
+				setProperty((XMLProperty)null);
 				return;
 			case ParametersPackage.OPTION_PARAM__RELATION:
-				setRelation((Relation)null);
+				setRelation((XMLNavigation)null);
 				return;
 			case ParametersPackage.OPTION_PARAM__COMPARISON:
 				getComparison().clear();

@@ -118,4 +118,32 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.adaptionxml.presentation.AdaptionxmlModelWizardID"
+            name="%_UI_AdaptionxmlModelWizard_label"
+            class="qualitypatternmodel.adaptionxml.presentation.AdaptionxmlModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AdaptionxmlModelFile.gif">
+         <description>%_UI_AdaptionxmlModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.adaptionxml.presentation.AdaptionxmlEditorID"
+            name="%_UI_AdaptionxmlEditor_label"
+            icon="icons/full/obj16/AdaptionxmlModelFile.gif"
+            extensions="adaptionxml"
+            class="qualitypatternmodel.adaptionxml.presentation.AdaptionxmlEditor"
+            contributorClass="qualitypatternmodel.adaptionxml.presentation.AdaptionxmlActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

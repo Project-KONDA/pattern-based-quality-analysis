@@ -9,11 +9,10 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import qualitypatternmodel.graphstructure.Axis;
+import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.Element;
@@ -118,10 +117,8 @@ public class GraphstructureValidator extends EObjectValidator {
 				return validateGraph((Graph)value, diagnostics, context);
 			case GraphstructurePackage.COMPARABLE:
 				return validateComparable((qualitypatternmodel.graphstructure.Comparable)value, diagnostics, context);
-			case GraphstructurePackage.PROPERTY_LOCATION:
-				return validatePropertyLocation((PropertyLocation)value, diagnostics, context);
-			case GraphstructurePackage.AXIS:
-				return validateAxis((Axis)value, diagnostics, context);
+			case GraphstructurePackage.ADAPTABLE:
+				return validateAdaptable((Adaptable)value, diagnostics, context);
 			case GraphstructurePackage.RETURN_TYPE:
 				return validateReturnType((ReturnType)value, diagnostics, context);
 			default:
@@ -239,17 +236,8 @@ public class GraphstructureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePropertyLocation(PropertyLocation propertyLocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateAxis(Axis axis, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
+	public boolean validateAdaptable(Adaptable adaptable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(adaptable, diagnostics, context);
 	}
 
 	/**

@@ -3,6 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.adaptionxml.PropertyLocation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.operators.BooleanOperator;
@@ -14,7 +15,6 @@ import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.ElementMapping;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,23 +28,22 @@ import qualitypatternmodel.patternstructure.Location;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getMappingTo <em>Mapping To</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getMappingFrom <em>Mapping From</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getRoot <em>Root</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getNextElements <em>Next Elements</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getPreviousElement <em>Previous Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getResultOf <em>Result Of</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getOutgoing <em>Outgoing</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getIncoming <em>Incoming</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
  * @model
  * @generated
  */
-public interface Element extends qualitypatternmodel.graphstructure.Comparable, PatternElement {
+public interface Element extends qualitypatternmodel.graphstructure.Comparable, PatternElement, Adaptable {
 	/**
 	 * Returns the value of the '<em><b>Mapping From</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.ElementMapping#getTo <em>To</em>}'.
@@ -84,90 +83,52 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	EList<ElementMapping> getMappingTo();
 
 	/**
-	 * Returns the value of the '<em><b>Root</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getRootElement <em>Root Element</em>}'.
+	 * Returns the value of the '<em><b>Graph</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Root</em>' container reference.
-	 * @see #setRoot(Graph)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Root()
-	 * @see qualitypatternmodel.graphstructure.Graph#getRootElement
-	 * @model opposite="rootElement" transient="false"
-	 * @generated
-	 */
-	Graph getRoot();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getRoot <em>Root</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Root</em>' container reference.
-	 * @see #getRoot()
-	 * @generated
-	 */
-	void setRoot(Graph value);
-
-	/**
-	 * Returns the value of the '<em><b>Next Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getPreviousElement <em>Previous Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next Elements</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_NextElements()
-	 * @see qualitypatternmodel.graphstructure.Element#getPreviousElement
-	 * @model opposite="previousElement" containment="true"
-	 * @generated
-	 */
-	EList<Element> getNextElements();
-
-	/**
-	 * Returns the value of the '<em><b>Previous Element</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getNextElements <em>Next Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Previous Element</em>' container reference.
-	 * @see #setPreviousElement(Element)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_PreviousElement()
-	 * @see qualitypatternmodel.graphstructure.Element#getNextElements
-	 * @model opposite="nextElements" transient="false"
-	 * @generated
-	 */
-	Element getPreviousElement();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getPreviousElement <em>Previous Element</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Previous Element</em>' container reference.
-	 * @see #getPreviousElement()
-	 * @generated
-	 */
-	void setPreviousElement(Element value);
-
-	/**
-	 * Returns the value of the '<em><b>Graph</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Graph</em>' reference.
+	 * @return the value of the '<em>Graph</em>' container reference.
 	 * @see #setGraph(Graph)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Graph()
-	 * @see qualitypatternmodel.graphstructure.Graph#getReturnElements
-	 * @model opposite="returnElements"
+	 * @see qualitypatternmodel.graphstructure.Graph#getElements
+	 * @model opposite="elements" required="true" transient="false"
 	 * @generated
 	 */
 	Graph getGraph();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Graph</em>' reference.
+	 * @param value the new value of the '<em>Graph</em>' container reference.
 	 * @see #getGraph()
 	 * @generated
 	 */
 	void setGraph(Graph value);
+
+	/**
+	 * Returns the value of the '<em><b>Result Of</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Result Of</em>' reference.
+	 * @see #setResultOf(Graph)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_ResultOf()
+	 * @see qualitypatternmodel.graphstructure.Graph#getReturnElements
+	 * @model opposite="returnElements"
+	 * @generated
+	 */
+	Graph getResultOf();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getResultOf <em>Result Of</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Result Of</em>' reference.
+	 * @see #getResultOf()
+	 * @generated
+	 */
+	void setResultOf(Graph value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -236,30 +197,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	void setPredicatesAreBeingTranslated(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Relation From Previous</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getElement <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relation From Previous</em>' containment reference.
-	 * @see #setRelationFromPrevious(Relation)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_RelationFromPrevious()
-	 * @see qualitypatternmodel.graphstructure.Relation#getElement
-	 * @model opposite="element" containment="true"
-	 * @generated
-	 */
-	Relation getRelationFromPrevious();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relation From Previous</em>' containment reference.
-	 * @see #getRelationFromPrevious()
-	 * @generated
-	 */
-	void setRelationFromPrevious(Relation value);
-
-	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Property}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}'.
@@ -286,6 +223,34 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	EList<BooleanOperator> getPredicates();
+
+	/**
+	 * Returns the value of the '<em><b>Outgoing</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Relation}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Outgoing</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Outgoing()
+	 * @see qualitypatternmodel.graphstructure.Relation#getSource
+	 * @model opposite="source"
+	 * @generated
+	 */
+	EList<Relation> getOutgoing();
+
+	/**
+	 * Returns the value of the '<em><b>Incoming</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Relation}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Incoming</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Incoming()
+	 * @see qualitypatternmodel.graphstructure.Relation#getTarget
+	 * @model opposite="target"
+	 * @generated
+	 */
+	EList<Relation> getIncoming();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -334,14 +299,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	boolean isRootElement();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -358,14 +315,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Relation> getAllRelations();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -374,26 +323,10 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Element> getAllElements();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
 	int getOriginalID();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String getXQueryRepresentation(Location location) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -414,14 +347,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	String getXQueryVariable();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -434,14 +359,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	UnknownParameterValue addPrimitiveComparison();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	int getGraphDepth() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

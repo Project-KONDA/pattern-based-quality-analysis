@@ -3,9 +3,6 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.OptionParam;
-import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -20,16 +17,16 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getElement <em>Element</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOptionParam <em>Option Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation()
  * @model
  * @generated
  */
-public interface Relation extends PatternElement {
+public interface Relation extends PatternElement, Adaptable {
 	/**
 	 * Returns the value of the '<em><b>Mapping To</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.patternstructure.RelationMapping}.
@@ -43,6 +40,78 @@ public interface Relation extends PatternElement {
 	 * @generated
 	 */
 	EList<RelationMapping> getMappingTo();
+
+	/**
+	 * Returns the value of the '<em><b>Graph</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getRelations <em>Relations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Graph</em>' container reference.
+	 * @see #setGraph(Graph)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Graph()
+	 * @see qualitypatternmodel.graphstructure.Graph#getRelations
+	 * @model opposite="relations" required="true" transient="false"
+	 * @generated
+	 */
+	Graph getGraph();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getGraph <em>Graph</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Graph</em>' container reference.
+	 * @see #getGraph()
+	 * @generated
+	 */
+	void setGraph(Graph value);
+
+	/**
+	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getOutgoing <em>Outgoing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source</em>' reference.
+	 * @see #setSource(Element)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Source()
+	 * @see qualitypatternmodel.graphstructure.Element#getOutgoing
+	 * @model opposite="outgoing" required="true"
+	 * @generated
+	 */
+	Element getSource();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source</em>' reference.
+	 * @see #getSource()
+	 * @generated
+	 */
+	void setSource(Element value);
+
+	/**
+	 * Returns the value of the '<em><b>Target</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getIncoming <em>Incoming</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target</em>' reference.
+	 * @see #setTarget(Element)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Target()
+	 * @see qualitypatternmodel.graphstructure.Element#getIncoming
+	 * @model opposite="incoming" required="true"
+	 * @generated
+	 */
+	Element getTarget();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getTarget <em>Target</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target</em>' reference.
+	 * @see #getTarget()
+	 * @generated
+	 */
+	void setTarget(Element value);
 
 	/**
 	 * Returns the value of the '<em><b>Mapping From</b></em>' reference.
@@ -71,14 +140,6 @@ public interface Relation extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	int getGraphDepth() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -99,93 +160,5 @@ public interface Relation extends PatternElement {
 	 * @generated
 	 */
 	void copyToNewNextGraphs(Element newRelationTo);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void createParameters();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void removeParametersFromParameterList();
-
-	/**
-	 * Returns the value of the '<em><b>Element</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element</em>' container reference.
-	 * @see #setElement(Element)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Element()
-	 * @see qualitypatternmodel.graphstructure.Element#getRelationFromPrevious
-	 * @model opposite="relationFromPrevious" required="true" transient="false"
-	 * @generated
-	 */
-	Element getElement();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getElement <em>Element</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element</em>' container reference.
-	 * @see #getElement()
-	 * @generated
-	 */
-	void setElement(Element value);
-
-	/**
-	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.RelationOptionParam#getRelations <em>Relations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Option</em>' reference.
-	 * @see #setOption(RelationOptionParam)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Option()
-	 * @see qualitypatternmodel.parameters.RelationOptionParam#getRelations
-	 * @model opposite="relations"
-	 * @generated
-	 */
-	RelationOptionParam getOption();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getOption <em>Option</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Option</em>' reference.
-	 * @see #getOption()
-	 * @generated
-	 */
-	void setOption(RelationOptionParam value);
-
-	/**
-	 * Returns the value of the '<em><b>Option Param</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.OptionParam#getRelation <em>Relation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Option Param</em>' reference.
-	 * @see #setOptionParam(OptionParam)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_OptionParam()
-	 * @see qualitypatternmodel.parameters.OptionParam#getRelation
-	 * @model opposite="relation"
-	 * @generated
-	 */
-	OptionParam<Axis> getOptionParam();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getOptionParam <em>Option Param</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Option Param</em>' reference.
-	 * @see #getOptionParam()
-	 * @generated
-	 */
-	void setOptionParam(OptionParam<Axis> value);
 
 } // Relation

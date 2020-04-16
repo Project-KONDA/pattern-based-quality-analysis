@@ -370,10 +370,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof ElementMapping) {
 				ElementMapping elementMapping = (ElementMapping) mapping;
-				if(!getFrom().getAllElements().contains(elementMapping.getFrom())) {
+				if(!getFrom().getElements().contains(elementMapping.getFrom())) {
 					throw new InvalidityException("wrong SingleElementMapping from");
 				}
-				if(!getTo().getAllElements().contains(elementMapping.getTo())) {
+				if(!getTo().getElements().contains(elementMapping.getTo())) {
 					throw new InvalidityException("wrong SingleElementMapping to");
 				}
 			}
@@ -391,10 +391,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof RelationMapping) {
 				RelationMapping relationMapping = (RelationMapping) mapping;
-				if(!getFrom().getAllRelations().contains(relationMapping.getFrom())) {
+				if(!getFrom().getRelations().contains(relationMapping.getFrom())) {
 					throw new InvalidityException("wrong RelationMapping from");
 				}
-				if(!getTo().getAllRelations().contains(relationMapping.getTo())) {
+				if(!getTo().getRelations().contains(relationMapping.getTo())) {
 					throw new InvalidityException("wrong RelationMapping to");
 				}
 			}
