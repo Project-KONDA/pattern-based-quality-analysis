@@ -412,15 +412,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN;
 
 	/**
-	 * The operation id for the '<em>Remove From Return Elements Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY = GraphstructurePackage.ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY;
-
-	/**
 	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1764,15 +1755,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Remove From Return Elements Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY = GraphstructurePackage.ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY;
 
 	/**
 	 * The operation id for the '<em>Clear Match Recursively</em>' operation.

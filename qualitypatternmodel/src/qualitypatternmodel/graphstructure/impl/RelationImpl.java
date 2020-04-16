@@ -23,14 +23,10 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.parameters.RelationOptionParam;
-import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object

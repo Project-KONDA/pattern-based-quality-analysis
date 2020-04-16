@@ -615,13 +615,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //		return msgs;
 //	}
 
-	public void removeFromReturnElementsRecursively() {
-		setResultOf(null);
-//		for (Element child : getNextElements()) {
-//			child.removeFromReturnElementsRecursively();
-//		}
-	}
-
 //	/**
 //	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 //	 * 
@@ -845,12 +838,12 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //			if (!( elem instanceof CountPattern)) {
 			if (!( mapping.getMorphism().getMorphismContainer() instanceof CountPattern)) {
 				Element element = mapping.getTo();
-				if (newGraph == null && element.getGraph() != null) {
-					element.setGraph(null);
+				if (newGraph == null && element.getResultOf() != null) {
+					element.setResultOf(null);
 				}
-				if (newGraph != null && element.getGraph() == null) {
+				if (newGraph != null && element.getResultOf() == null) {
 					try {
-						element.setGraph((Graph) element.getAncestor(GraphImpl.class));
+						element.setResultOf((Graph) element.getAncestor(GraphImpl.class));
 					} catch (MissingPatternContainerException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -869,12 +862,12 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //			if (!(elem instanceof CountPattern)) {
 			
 			Element element = getMappingFrom().getFrom();
-			if (newGraph == null && element.getGraph() != null) {
-				element.setGraph(null);
+			if (newGraph == null && element.getResultOf() != null) {
+				element.setResultOf(null);
 			}
-			if (newGraph != null && element.getGraph() == null) {
+			if (newGraph != null && element.getResultOf() == null) {
 				try {
-					element.setGraph((Graph) element.getAncestor(GraphImpl.class));
+					element.setResultOf((Graph) element.getAncestor(GraphImpl.class));
 				} catch (MissingPatternContainerException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -1298,9 +1291,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN:
 				copyNextElementsToPreviousGraphs((Boolean)arguments.get(0));
 				return null;
-			case GraphstructurePackage.ELEMENT___REMOVE_FROM_RETURN_ELEMENTS_RECURSIVELY:
-				removeFromReturnElementsRecursively();
-				return null;
 			case GraphstructurePackage.ELEMENT___CLEAR_MATCH_RECURSIVELY:
 				clearMatchRecursively();
 				return null;
@@ -1491,6 +1481,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void addPrimitiveComparison(String value) {
+		// TODO: move to XMLElement ?
 		Comparison comparison = new ComparisonImpl();		
 		try {			
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -1524,6 +1515,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void addPrimitiveComparison(ParameterValue parameter) {
+		// TODO: move to XMLElement ?
 //		Comparison comparison = new ComparisonImpl();
 //		try {			
 //			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -1556,6 +1548,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, ParameterValue parameter) {
+		// TODO: move to XMLElement ?
 		Comparison comparison = new ComparisonImpl();
 		try {		
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -1597,6 +1590,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void addPrimitiveMatch(String regex) {
+		// TODO: move to XMLElement ?
 	//		Match match = new MatchImpl();
 	//		Property property = new PropertyImpl();
 	//		getPredicates().add(match);
@@ -1719,6 +1713,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public Property copyProperty(Property property) {
+		// TODO: move to XMLElement ?
 		Property newProperty = property.copy();	
 		getProperties().add(newProperty);		
 		return newProperty;
@@ -1732,6 +1727,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void copyPrimitiveComparison(Comparison comparison) throws InvalidityException {
+		// TODO: move to XMLElement ?
 		if(!(comparison.getArgument1() instanceof Property) && !(comparison.getArgument2() instanceof Property)) {			
 			throw new InvalidityException("comparison not primitive");
 		}
@@ -1764,6 +1760,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void copyMatch(Match match) {
+		// TODO: move to XMLElement ?
 		Match newMatch = match.copy();
 		getProperties().add(newMatch.getProperty());
 	}
@@ -1775,6 +1772,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public Property addNewProperty() {
+		// TODO: move to XMLElement ?
 		Property prop = new PropertyImpl();
 		getProperties().add(prop);
 		prop.createParameters();

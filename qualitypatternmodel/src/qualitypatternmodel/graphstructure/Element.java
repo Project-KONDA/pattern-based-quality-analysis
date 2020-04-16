@@ -302,14 +302,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model
 	 * @generated
 	 */
-	void removeFromReturnElementsRecursively();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void clearMatchRecursively();
 
 	/**

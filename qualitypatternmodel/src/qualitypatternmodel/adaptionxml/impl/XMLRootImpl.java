@@ -8,6 +8,7 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XMLRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +25,12 @@ public class XMLRootImpl extends ElementImpl implements XMLRoot {
 	 */
 	protected XMLRootImpl() {
 		super();
+	}
+	
+	@Override
+	public String generateQuery(Location location) throws InvalidityException {
+		// TODO: call generateQuery for all related elements
+		return "";		
 	}
 
 	@Override

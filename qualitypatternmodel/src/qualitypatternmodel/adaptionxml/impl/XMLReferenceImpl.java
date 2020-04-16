@@ -12,8 +12,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XMLProperty;
 import qualitypatternmodel.adaptionxml.XMLReference;
-
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
+import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,6 +60,12 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 		super();
 	}
 
+	@Override
+	public String generateQuery(Location location) throws InvalidityException {
+		// TODO: copy from ReferenceOperator
+		return "";		
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

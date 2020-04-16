@@ -245,7 +245,6 @@
       <eOperations name="copyNextElementsToPreviousGraphs">
         <eParameters name="recursive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
-      <eOperations name="removeFromReturnElementsRecursively"/>
       <eOperations name="clearMatchRecursively"/>
       <eOperations name="clearPredicatesRecursively"/>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
