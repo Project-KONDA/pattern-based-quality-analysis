@@ -202,6 +202,27 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public PatternElement createXMLAdaption() {
+		return this;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void finalizeXMLAdaption() {
+		
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @throws MissingPatternContainerException 
 	 * @throws Exception 
@@ -455,6 +476,11 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return null;
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
 				return getOperatorList();
+			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION:
+				return createXMLAdaption();
+			case PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION:
+				finalizeXMLAdaption();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -16,6 +16,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XMLReference;
+import qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl;
+import qualitypatternmodel.adaptionxml.impl.XMLReferenceImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Adaptable;
@@ -24,6 +29,7 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -85,9 +91,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected RelationImpl() {
+	public RelationImpl() {
 		super();
 	}
 
@@ -129,6 +135,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		}
 	
 	}	
+	
+	@Override
+	public PatternElement createXMLAdaption() {
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -435,6 +446,60 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 //		}		
 	}	
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public XMLNavigation adaptAsXMLNavigation() {
+		if(!(this instanceof XMLNavigation)) {
+			XMLNavigation navigation = new XMLNavigationImpl();
+			navigation.setGraph(getGraph());
+			navigation.setSource(getSource());
+			navigation.setTarget(getTarget());
+			setSource(null);
+			setTarget(null);
+			navigation.getMappingTo().addAll(getMappingTo());
+			getMappingTo().clear();
+			for(RelationMapping mapping : navigation.getMappingTo()) {
+				mapping.getTo().adaptAsXMLNavigation();
+			}
+			navigation.setMappingFrom(getMappingFrom());
+			setMappingFrom(null);
+			setGraph(null);
+			return navigation;
+		}
+		return (XMLNavigation) this;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public XMLReference adaptAsXMLReference() {
+		if(!(this instanceof XMLReference)) {
+			XMLReference reference = new XMLReferenceImpl();
+			reference.setGraph(getGraph());
+			reference.setSource(getSource());
+			reference.setTarget(getTarget());
+			setSource(null);
+			setTarget(null);
+			reference.getMappingTo().addAll(getMappingTo());
+			getMappingTo().clear();
+			for(RelationMapping mapping : reference.getMappingTo()) {
+				mapping.getTo().adaptAsXMLReference();
+			}
+			reference.setMappingFrom(getMappingFrom());
+			setMappingFrom(null);
+			setGraph(null);
+			return reference;
+		}
+		return (XMLReference) this;
+	}
+
 	@Override
 	public void removeMappingsToNext() {
 		EList<RelationMapping> mappingToCopy = new BasicEList<RelationMapping>();
@@ -657,6 +722,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT:
 				copyToNewNextGraphs((Element)arguments.get(0));
 				return null;
+			case GraphstructurePackage.RELATION___ADAPT_AS_XML_NAVIGATION:
+				return adaptAsXMLNavigation();
+			case GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE:
+				return adaptAsXMLReference();
 			case GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

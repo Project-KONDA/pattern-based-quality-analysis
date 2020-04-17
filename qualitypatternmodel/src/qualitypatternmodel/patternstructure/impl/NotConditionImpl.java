@@ -19,6 +19,7 @@ import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NotCondition;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
@@ -69,6 +70,17 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		if (condition == null)
 			throw new InvalidityException("condition null (" + getInternalId() + ")");
+	}
+	
+	@Override
+	public PatternElement createXMLAdaption() {
+		getCondition().createXMLAdaption();
+		return this;
+	}
+	
+	@Override
+	public void finalizeXMLAdaption() {
+		getCondition().finalizeXMLAdaption();
 	}
 	
 //	@Override	

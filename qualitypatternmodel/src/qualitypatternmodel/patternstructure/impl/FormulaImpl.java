@@ -19,6 +19,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.MorphismContainer;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -171,6 +172,19 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		if (condition1 == null || condition2 == null) {
 			throw new InvalidityException("arguments invalid" + " (" + getInternalId() + ")");
 		}
+	}
+	
+	@Override
+	public PatternElement createXMLAdaption() {
+		getCondition1().createXMLAdaption();
+		getCondition2().createXMLAdaption();
+		return this;
+	}
+	
+	@Override
+	public void finalizeXMLAdaption() {
+		getCondition1().finalizeXMLAdaption();
+		getCondition2().finalizeXMLAdaption();
 	}
 	
 //	@Override	

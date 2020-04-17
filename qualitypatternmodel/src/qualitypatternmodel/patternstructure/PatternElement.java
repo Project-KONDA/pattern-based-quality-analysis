@@ -148,6 +148,22 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	PatternElement createXMLAdaption();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void finalizeXMLAdaption();
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * get element, which directly contain the current element
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"

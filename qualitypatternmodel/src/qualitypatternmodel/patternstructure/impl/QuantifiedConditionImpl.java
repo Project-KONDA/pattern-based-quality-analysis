@@ -31,6 +31,7 @@ import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -155,6 +156,19 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		
 		checkMorphismOfNextGraph();
 
+	}
+	
+	@Override
+	public PatternElement createXMLAdaption() {		
+		getGraph().createXMLAdaption();		
+		getCondition().createXMLAdaption();
+		return this;
+	}
+	
+	@Override
+	public void finalizeXMLAdaption() {
+		getGraph().finalizeXMLAdaption();		
+		getCondition().finalizeXMLAdaption();
 	}
 	
 //	@Override	

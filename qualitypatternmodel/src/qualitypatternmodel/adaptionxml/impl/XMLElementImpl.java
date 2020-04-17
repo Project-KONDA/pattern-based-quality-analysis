@@ -17,14 +17,24 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.PropertyLocation;
 import qualitypatternmodel.adaptionxml.XMLElement;
 import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XMLProperty;
 import qualitypatternmodel.adaptionxml.XMLReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
 import qualitypatternmodel.operators.BooleanOperator;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.OperatorList;
+import qualitypatternmodel.operators.impl.ComparisonImpl;
+import qualitypatternmodel.operators.impl.MatchImpl;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -38,9 +48,9 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected XMLElementImpl() {
+	public XMLElementImpl() {
 		super();
 	}
 
@@ -190,6 +200,61 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 	public String getXQueryVariable() {
 		return VARIABLE + getOriginalID();
 	}
+	
+	
+	@Override
+	public void addPrimitiveComparison(String value) {
+		// TODO: move to XMLElement ?
+		Comparison comparison = new ComparisonImpl();		
+		try {			
+			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+			
+			XMLProperty property = new XMLPropertyImpl();
+			getProperties().add(property);
+			property.createParameters();
+			property.getOption().setValue(PropertyLocation.TAG);
+						
+			TextLiteralParamImpl textlit = new TextLiteralParamImpl();
+			varlist.add(textlit);
+			textlit.setValue(value);
+	
+			oplist.add(comparison);	
+			comparison.createParameters();
+			comparison.setArgument1(property);
+			comparison.setArgument2(textlit);			
+		} catch (Exception e) {
+			System.out.println("addPrimitiveComparison failed: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void addPrimitiveMatch(String regex) {
+		Match match = new MatchImpl();
+		try {			
+			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+			
+			XMLProperty property = new XMLPropertyImpl();
+			getProperties().add(property);
+			property.createParameters();	
+
+			oplist.add(match);	
+			match.createParameters();
+			match.setProperty(property);
+	
+			if(regex != null) {
+				match.getRegularExpression().setValue(regex);
+			}
+		} catch (Exception e) {
+			System.out.println("addPrimitiveMatch failed: " + e.getMessage());
+		}
+	}
+
 
 	@Override
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {

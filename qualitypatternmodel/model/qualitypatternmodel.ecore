@@ -215,6 +215,8 @@
       <eOperations name="copyToNewNextGraphs">
         <eParameters name="newRelationTo" eType="#//graphstructure/Element"/>
       </eOperations>
+      <eOperations name="adaptAsXMLNavigation" eType="#//adaptionxml/XMLNavigation"/>
+      <eOperations name="adaptAsXMLReference" eType="#//adaptionxml/XMLReference"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/to"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
@@ -489,6 +491,8 @@
         <eParameters name="newOperatorList" eType="#//operators/OperatorList"/>
       </eOperations>
       <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
+      <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"/>
+      <eOperations name="finalizeXMLAdaption"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"

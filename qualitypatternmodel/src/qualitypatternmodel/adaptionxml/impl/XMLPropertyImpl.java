@@ -82,9 +82,9 @@ public class XMLPropertyImpl extends PropertyImpl implements XMLProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected XMLPropertyImpl() {
+	public XMLPropertyImpl() {
 		super();
 	}
 	

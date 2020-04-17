@@ -27,6 +27,7 @@ import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
@@ -131,6 +132,19 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		if(getOption() == null) {
 			throw new InvalidityException("invalid option");
 		} 		
+	}
+	
+	@Override
+	public PatternElement createXMLAdaption() {
+		getCountPattern().createXMLAdaption();
+		getArgument2().createXMLAdaption();
+		return this;
+	}
+	
+	@Override
+	public void finalizeXMLAdaption() {
+		getCountPattern().finalizeXMLAdaption();
+		getArgument2().finalizeXMLAdaption();
 	}
 	
 	@Override

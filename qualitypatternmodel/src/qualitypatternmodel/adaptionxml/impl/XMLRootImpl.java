@@ -24,9 +24,9 @@ public class XMLRootImpl extends ElementImpl implements XMLRoot {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected XMLRootImpl() {
+	public XMLRootImpl() {
 		super();
 	}
 	
@@ -46,7 +46,7 @@ public class XMLRootImpl extends ElementImpl implements XMLRoot {
 	@Override
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {	
 		super.isValidLocal(isDefinedPattern);
-		if(getIncoming() != null) {
+		if(!getIncoming().isEmpty()) {
 			throw new InvalidityException("incoming relation at XMLRoot " + getId());
 		}
 		if(!getPredicates().isEmpty()) {

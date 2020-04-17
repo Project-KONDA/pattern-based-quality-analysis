@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.XMLElement;
+import qualitypatternmodel.adaptionxml.impl.XMLElementImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -52,6 +54,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -409,6 +412,40 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				throw new InvalidityException("predicate null (" + predicate + ")");
 	}
 
+	@Override
+	public PatternElement createXMLAdaption() {
+		for(Property property : getProperties()) {
+			property.createXMLAdaption();
+		}
+		if(!(this instanceof XMLElement)) {
+			XMLElement xmlElement = new XMLElementImpl();
+			xmlElement.setGraph(getGraph());
+			xmlElement.setResultOf(getResultOf());
+			setResultOf(null);
+			xmlElement.getMappingTo().addAll(getMappingTo());
+			getMappingTo().clear();
+			xmlElement.setMappingFrom(getMappingFrom());
+			setMappingFrom(null);
+			setGraph(null);
+			for(Relation relation : getOutgoing()) {
+				relation.setSource(xmlElement);
+			}
+			for(Relation relation : getIncoming()) {
+				relation.setTarget(xmlElement);
+			}
+			xmlElement.getComparison1().addAll(getComparison1());
+			getComparison1().clear();
+			xmlElement.getComparison2().addAll(getComparison2());
+			getComparison2().clear();			
+			for(Property property : getProperties()) {
+				property.setElement(xmlElement);
+			}			
+			return xmlElement;
+		}
+		return this;		
+		
+	}
+	
 	@Override
 	public boolean isTranslatable() {
 		return translated;
@@ -809,15 +846,17 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			removeElementFromPreviousGraphs();
 		}
 		
-		for(Morphism morphism : newGraph.getMorphismTo()) {
-			MorphismContainer container = morphism.getMorphismContainer();
-			Element newElement = new ElementImpl();
-			newElement.setGraph(container.getGraph());
-			ElementMapping newMapping = new ElementMappingImpl();
-			newMapping.setMorphism(morphism);
-			newMapping.setFrom(this);
-			newMapping.setTo(newElement);
-		}		
+		if(newGraph != null) {
+			for(Morphism morphism : newGraph.getMorphismTo()) {
+				MorphismContainer container = morphism.getMorphismContainer();
+				Element newElement = new ElementImpl();
+				newElement.setGraph(container.getGraph());
+				ElementMapping newMapping = new ElementMappingImpl();
+				newMapping.setMorphism(morphism);
+				newMapping.setFrom(this);
+				newMapping.setTo(newElement);
+			}		
+		}
 		
 		setResultOf(null);
 		

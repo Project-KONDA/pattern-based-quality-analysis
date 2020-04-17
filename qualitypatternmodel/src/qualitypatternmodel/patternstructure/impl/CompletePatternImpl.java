@@ -17,12 +17,15 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParameterListImpl;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -93,13 +96,20 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setParameterList(new ParameterListImpl(this));
 		setGraph(new GraphImpl());
 		
-		ElementImpl rootElement = new ElementImpl();
+		ElementImpl element = new ElementImpl();
+		element.setGraph(getGraph());
 //		getGraph().setRootElement(rootElement);
-		ElementImpl returnElement = new ElementImpl();
-//		returnElement.setPreviousElement(getGraph().getRootElement());
-		getGraph().getReturnElements().add(returnElement);
-		rootElement.setName("Root");
-		returnElement.setName("Return");
+//		ElementImpl returnElement = new ElementImpl();
+//		returnElement.setGraph(getGraph());
+////		returnElement.setPreviousElement(getGraph().getRootElement());
+		getGraph().getReturnElements().add(element);
+		element.setName("First");
+//		returnElement.setName("Return");
+//		
+//		Relation relation = new RelationImpl();
+//		relation.setGraph(getGraph());
+//		relation.setSource(rootElement);
+//		relation.setTarget(returnElement);
 		
 		getInternalId();
 	}	
@@ -127,6 +137,19 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		String res = getParameterList().generateQuery(location);
 		res += super.generateQuery(location);
 		return res;
+	}
+
+	@Override
+	public PatternElement createXMLAdaption() {
+		getGraph().createXMLAdaption();
+		getCondition().createXMLAdaption();
+		return this;
+	}
+	
+	@Override
+	public void finalizeXMLAdaption() {
+		getGraph().finalizeXMLAdaption();
+		getCondition().finalizeXMLAdaption();
 	}
 
 	

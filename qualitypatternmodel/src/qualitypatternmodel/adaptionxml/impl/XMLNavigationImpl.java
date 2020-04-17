@@ -71,9 +71,9 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected XMLNavigationImpl() {
+	public XMLNavigationImpl() {
 		super();
 	}
 	
@@ -101,6 +101,7 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 		String target;
 		if(getTarget() instanceof XMLElement) {
 			XMLElement targetElement = (XMLElement) getTarget();
+			targetElement.setTranslated(true);
 			xPredicates = targetElement.translatePredicates(location);
 			target = targetElement.getXQueryVariable();
 		} else {

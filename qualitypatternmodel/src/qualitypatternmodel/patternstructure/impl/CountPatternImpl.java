@@ -31,6 +31,7 @@ import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +81,19 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getMorphism().isValid(isDefinedPattern);
 		super.isValid(isDefinedPattern);
+	}
+	
+	@Override
+	public PatternElement createXMLAdaption() {
+		getGraph().createXMLAdaption();
+		getCondition().createXMLAdaption();
+		return this;
+	}
+	
+	@Override
+	public void finalizeXMLAdaption() {
+		getGraph().finalizeXMLAdaption();
+		getCondition().finalizeXMLAdaption();
 	}
 	
 //	@Override	

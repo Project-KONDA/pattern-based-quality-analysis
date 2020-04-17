@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import qualitypatternmodel.adaptionxml.XMLProperty;
+import qualitypatternmodel.adaptionxml.impl.XMLPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -26,6 +28,7 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -91,6 +94,23 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if (getElement() == null) 
 			throw new InvalidityException("element null");		
 	}	
+	
+	@Override
+	public PatternElement createXMLAdaption() {
+		if(!(this instanceof XMLProperty)) {
+			XMLProperty xmlProperty = new XMLPropertyImpl();
+			xmlProperty.setElement(getElement());
+			setElement(null);
+			xmlProperty.getMatch().addAll(getMatch());
+			getMatch().clear();
+			xmlProperty.getComparison1().addAll(getComparison1());
+			getComparison1().clear();
+			xmlProperty.getComparison2().addAll(getComparison2());
+			getComparison2().clear();
+			return xmlProperty;
+		}
+		return this;
+	}
 	
 	@Override
 	public ReturnType getReturnType() {

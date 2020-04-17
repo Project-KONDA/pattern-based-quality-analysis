@@ -11,6 +11,7 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.adaptionxml.Axis;
 import qualitypatternmodel.exceptions.*;
 
 public class Test01Axis {

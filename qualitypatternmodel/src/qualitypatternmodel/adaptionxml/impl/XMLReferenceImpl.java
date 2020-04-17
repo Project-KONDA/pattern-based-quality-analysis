@@ -80,9 +80,9 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected XMLReferenceImpl() {
+	public XMLReferenceImpl() {
 		super();
 	}
 

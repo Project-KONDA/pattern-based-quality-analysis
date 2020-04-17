@@ -3,12 +3,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
+import org.graalvm.graphio.GraphStructure;
 
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
+import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XMLElement;
+import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XMLRoot;
+import qualitypatternmodel.adaptionxml.impl.XMLElementImpl;
+import qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl;
+import qualitypatternmodel.adaptionxml.impl.XMLRootImpl;
 import qualitypatternmodel.exceptions.*;
-import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructureFactory;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -60,21 +71,17 @@ public class Test00 {
 	public static CompletePattern getBasePattern() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-
+		
 		// PATTERN
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.setName("MyPattern");
-//		VariableList varlist = pattern.getVariableList();
-
-		// RETURN GRAPH
-//		Graph returnGraph = pattern.getReturnGraph();
-//		SingleElement returnRoot = returnGraph.getRootElement();
-//		OperatorList returnOpList = returnGraph.getOperatorList();
-//		SingleElement returnReturn = returnRoot.getNextSingle().get(0);
-		
+				
 		// FIRST CONDITION
 		Condition truecondition = factory.createTrueElement();
 		completePattern.setCondition(truecondition);
+		
+		completePattern.createXMLAdaption();
+		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;
 	}

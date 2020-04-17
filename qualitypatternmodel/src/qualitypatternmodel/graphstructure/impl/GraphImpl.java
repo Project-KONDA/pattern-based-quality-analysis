@@ -18,7 +18,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.adaptionxml.XMLElement;
+import qualitypatternmodel.adaptionxml.XMLNavigation;
 import qualitypatternmodel.adaptionxml.XMLRoot;
+import qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl;
+import qualitypatternmodel.adaptionxml.impl.XMLRootImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -35,6 +39,7 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -177,6 +182,36 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for (Element returnElement : returnElements) {
 			if (!returnElement.getGraph().equals(this)) {
 				throw new InvalidityException("returnElement not contained in this graph (" + getInternalId() + ")");
+			}
+		}
+	}
+	
+	@Override
+	public PatternElement createXMLAdaption() {
+		for(Element element : getElements()) {
+			element.createXMLAdaption();
+		}				
+		return this;
+	}
+	
+	@Override
+	public void finalizeXMLAdaption() {
+		XMLRoot root = new XMLRootImpl();
+		root.setGraph(this);	
+		for(Element element : getElements()) {
+			if(element instanceof XMLElement) {
+				boolean hasIncomingNavigation = false;
+				for(Relation relation : element.getIncoming()) {
+					if(relation instanceof XMLNavigation) {
+						hasIncomingNavigation = true;
+					}
+				}
+				if(!hasIncomingNavigation) {				
+					XMLNavigation navigation = new XMLNavigationImpl();
+					navigation.setGraph(this);
+					navigation.setSource(root);
+					navigation.setTarget(element);
+				}
 			}
 		}
 	}
