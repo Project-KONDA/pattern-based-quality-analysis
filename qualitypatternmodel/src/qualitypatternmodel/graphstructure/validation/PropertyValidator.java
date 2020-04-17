@@ -8,7 +8,6 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.operators.Match;
-import qualitypatternmodel.operators.ReferenceOperator;
 import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -28,9 +27,9 @@ public interface PropertyValidator {
 
 	boolean validateOption(PropertyOptionParam value);
 
-	boolean validateReferenceOperator2(ReferenceOperator value);
-
-	boolean validateReferenceOperator(ReferenceOperator value);
+//	boolean validateReferenceOperator2(ReferenceOperator value);
+//
+//	boolean validateReferenceOperator(ReferenceOperator value);
 
 	boolean validateMatch(EList<Match> value);
 

@@ -119,17 +119,7 @@ public class FunctionsSwitch<T> extends Switch<T> {
 				if (result == null) result = casePatternElement(operatorList);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
-			}
-			case FunctionsPackage.REFERENCE_OPERATOR: {
-				ReferenceOperator referenceOperator = (ReferenceOperator)theEObject;
-				T result = caseReferenceOperator(referenceOperator);
-				if (result == null) result = caseBooleanOperator(referenceOperator);
-				if (result == null) result = caseOperator(referenceOperator);
-				if (result == null) result = caseComparable(referenceOperator);
-				if (result == null) result = casePatternElement(referenceOperator);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
+			}			
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -221,21 +211,6 @@ public class FunctionsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOperatorList(OperatorList object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Reference Operator</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Reference Operator</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseReferenceOperator(ReferenceOperator object) {
 		return null;
 	}
 

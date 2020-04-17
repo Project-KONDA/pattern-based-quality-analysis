@@ -91,11 +91,7 @@ public class FunctionsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseOperatorList(OperatorList object) {
 				return createOperatorListAdapter();
-			}
-			@Override
-			public Adapter caseReferenceOperator(ReferenceOperator object) {
-				return createReferenceOperatorAdapter();
-			}
+			}			
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
