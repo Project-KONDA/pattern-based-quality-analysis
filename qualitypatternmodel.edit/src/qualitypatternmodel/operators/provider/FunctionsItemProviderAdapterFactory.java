@@ -140,28 +140,7 @@ public class FunctionsItemProviderAdapterFactory extends FunctionsAdapterFactory
 		return operatorListItemProvider;
 	}
 
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.operators.ReferenceOperator} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ReferenceOperatorItemProvider referenceOperatorItemProvider;
 
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.operators.ReferenceOperator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createReferenceOperatorAdapter() {
-		if (referenceOperatorItemProvider == null) {
-			referenceOperatorItemProvider = new ReferenceOperatorItemProvider(this);
-		}
-
-		return referenceOperatorItemProvider;
-	}
 
 	/**
 	 * This returns the root adapter factory that contains this factory.
@@ -271,7 +250,6 @@ public class FunctionsItemProviderAdapterFactory extends FunctionsAdapterFactory
 		if (matchItemProvider != null) matchItemProvider.dispose();
 		if (comparisonItemProvider != null) comparisonItemProvider.dispose();
 		if (operatorListItemProvider != null) operatorListItemProvider.dispose();
-		if (referenceOperatorItemProvider != null) referenceOperatorItemProvider.dispose();
 	}
 
 }

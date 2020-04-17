@@ -162,9 +162,9 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	public String getText(Object object) {
 		Relation relation = (Relation) object;
 		String text = getString("_UI_Relation_type") + " " + relation.getInternalId();
-		if(relation.getOption() != null && relation.getOption().getValue() != null) {
-			text += " " + relation.getOption().getValue().getName();
-		}
+//		if(relation.getOption() != null && relation.getOption().getValue() != null) {
+//			text += " " + relation.getOption().getValue().getName();
+//		}
 		return text;
 	}
 
