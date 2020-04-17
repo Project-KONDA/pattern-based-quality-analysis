@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.adaptionxml.XMLElement;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -131,16 +132,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			String conversionStartArgument1 = type.getConversion();
 			String conversionEndArgument1 = type.getConversionEnd();
 			String argument1Translated = "";
-			if (argument1 instanceof Element) {
-				argument1Translated = ((Element) argument1).getXQueryRepresentation(location);
+			if (argument1 instanceof XMLElement) {
+				argument1Translated = ((XMLElement) argument1).getXQueryRepresentation(location);
 			} else {
 				argument1Translated = argument1.generateQuery(location);
 			}
 			String conversionStartArgument2 = type.getConversion();
 			String conversionEndArgument2 = type.getConversionEnd();
 			String argument2Translated = "";
-			if (argument2 instanceof Element) {
-				argument2Translated = ((Element) argument2).getXQueryRepresentation(location);
+			if (argument2 instanceof XMLElement) {
+				argument2Translated = ((XMLElement) argument2).getXQueryRepresentation(location);
 			} else {
 				argument2Translated = argument2.generateQuery(location);
 			}

@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XMLElement;
 import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XMLReference;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
@@ -56,49 +56,53 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 	
 	@Override
 	public String generateQuery(Location location) throws InvalidityException {
-		String query = "";
 		translated = true;
-		
-		if(!isRootElement()) {
-			String xPredicates = translatePredicates(location);
-			if (location == Location.RETURN) {
-				query = FOR + getXQueryVariable() + IN; 			
-				if (mappingFrom == null) {
-					String xPathExpression = translatePathFromPrevious();
-					query += xPathExpression + xPredicates;
-				} else if (!xPredicates.equals("")) {
-					query += getXQueryVariable() + xPredicates;
-				} else {
-					query = "";
-				}
-				
-			} else {
-				if (location == Location.EXISTS) {
-					query += SOME;
-				} else if (location == Location.FORALL) {
-					query += EVERY;
-				} else {
-					throw new InvalidityException("invalid location");
-				}
-				query += getXQueryVariable() + IN;
-				if (mappingFrom == null) {
-					String xPathExpression = translatePathFromPrevious();
-					query += xPathExpression + xPredicates + SATISFIES;
-				} else if (!xPredicates.equals("")) {
-					query += getXQueryVariable() + xPredicates + SATISFIES;
-				} else {
-					query = "";
-				}
+		String query = "";
+		for(Relation relation : getOutgoing()) {
+			if(relation instanceof XMLNavigation) {
+				query += relation.generateQuery(location);
 			}
-		}
-		String following = "";
-		for (Element nextElement : getNextElements()) {
-			following += nextElement.generateQuery(location);
-		}
-//		if (!isRootElement()) following = following.replace("\n", "\n  ");
-			
-		return query + following;			
+		}		
+		return query;
 		
+//		if(!isRootElement()) {
+//			String xPredicates = translatePredicates(location);
+//			if (location == Location.RETURN) {
+//				query = FOR + getXQueryVariable() + IN; 			
+//				if (mappingFrom == null) {
+//					String xPathExpression = translatePathFromPrevious();
+//					query += xPathExpression + xPredicates;
+//				} else if (!xPredicates.equals("")) {
+//					query += getXQueryVariable() + xPredicates;
+//				} else {
+//					query = "";
+//				}
+//				
+//			} else {
+//				if (location == Location.EXISTS) {
+//					query += SOME;
+//				} else if (location == Location.FORALL) {
+//					query += EVERY;
+//				} else {
+//					throw new InvalidityException("invalid location");
+//				}
+//				query += getXQueryVariable() + IN;
+//				if (mappingFrom == null) {
+//					String xPathExpression = translatePathFromPrevious();
+//					query += xPathExpression + xPredicates + SATISFIES;
+//				} else if (!xPredicates.equals("")) {
+//					query += getXQueryVariable() + xPredicates + SATISFIES;
+//				} else {
+//					query = "";
+//				}
+//			}
+//		}
+//		String following = "";
+//		for (Element nextElement : getNextElements()) {
+//			following += nextElement.generateQuery(location);
+//		}
+//		if (!isRootElement()) following = following.replace("\n", "\n  ");
+					
 	}
 	
 	@Override
@@ -123,17 +127,17 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 		
 	}
 	
-	private String translatePathFromPrevious() throws InvalidityException {
-		if(relationFromPrevious.getOption() != null) {
-			if (getPreviousElement().isRootElement()) {
-				return "/" + relationFromPrevious.getOption().getValue() + "::*";
-			} else {
-				return ((Element) getPreviousElement()).getXQueryVariable() + "/" + relationFromPrevious.getOption().getValue() + "::*";
-			}
-		} else {
-			throw new InvalidityException("relation option null");
-		}
-	}
+//	private String translatePathFromPrevious() throws InvalidityException {
+//		if(relationFromPrevious.getOption() != null) {
+//			if (getPreviousElement().isRootElement()) {
+//				return "/" + relationFromPrevious.getOption().getValue() + "::*";
+//			} else {
+//				return ((Element) getPreviousElement()).getXQueryVariable() + "/" + relationFromPrevious.getOption().getValue() + "::*";
+//			}
+//		} else {
+//			throw new InvalidityException("relation option null");
+//		}
+//	}
 	
 	@Override
 	public String getXQueryRepresentation(Location location) throws InvalidityException {
@@ -148,14 +152,35 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 		}
 	}
 	
-	private String translatePredicates(Location location) throws InvalidityException {
+	@Override
+	public String translatePredicates(Location location) throws InvalidityException {
 		String xPredicates = "";
 		predicatesAreBeingTranslated = true;
+		
 		for (BooleanOperator predicate : predicates) {
 			if (predicate.isTranslatable()) {
 				xPredicates += "[" + predicate.generateQuery(location) + "]";
 			}
 		}
+		
+		// translate XMLReferences:
+		for (Relation relation : getIncoming()) {
+			if(relation instanceof XMLReference) {
+				XMLReference reference = (XMLReference) relation;
+				if (reference.isTranslatable()) {
+					xPredicates += "[" + relation.generateQuery(location) + "]";
+				}
+			}			
+		}
+		for (Relation relation : getOutgoing()) {
+			if(relation instanceof XMLReference) {
+				XMLReference reference = (XMLReference) relation;
+				if (reference.isTranslatable()) {
+					xPredicates += "[" + relation.generateQuery(location) + "]";
+				}
+			}			
+		}
+		
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
 	}
@@ -193,6 +218,13 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 				}
 			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_VARIABLE:
 				return getXQueryVariable();
+			case AdaptionxmlPackage.XML_ELEMENT___TRANSLATE_PREDICATES__LOCATION:
+				try {
+					return translatePredicates((Location)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

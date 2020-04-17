@@ -13,6 +13,12 @@ import qualitypatternmodel.graphstructure.tests.RelationTest;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>XML Reference</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XMLReference#isTranslatable() <em>Is Translatable</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class XMLReferenceTest extends RelationTest {
@@ -67,6 +73,19 @@ public class XMLReferenceTest extends RelationTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XMLReference#isTranslatable() <em>Is Translatable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XMLReference#isTranslatable()
+	 * @generated
+	 */
+	public void testIsTranslatable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //XMLReferenceTest

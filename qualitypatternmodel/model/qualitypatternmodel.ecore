@@ -553,6 +553,10 @@
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>
       <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="translatePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="location" eType="#//patternstructure/Location"/>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XMLNavigation" eSuperTypes="#//graphstructure/Relation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/RelationOptionParam"
@@ -561,10 +565,13 @@
           eOpposite="#//parameters/OptionParam/relation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XMLReference" eSuperTypes="#//graphstructure/Relation">
+      <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" lowerBound="1"
           eType="#//adaptionxml/XMLProperty"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" lowerBound="1"
           eType="#//adaptionxml/XMLProperty"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XMLProperty" eSuperTypes="#//graphstructure/Property">
       <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" eType="#//parameters/OptionParam"

@@ -5,8 +5,11 @@ package qualitypatternmodel.adaptionxml.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XMLReference;
 import qualitypatternmodel.adaptionxml.XMLRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
 import qualitypatternmodel.patternstructure.Location;
 
@@ -29,8 +32,15 @@ public class XMLRootImpl extends ElementImpl implements XMLRoot {
 	
 	@Override
 	public String generateQuery(Location location) throws InvalidityException {
-		// TODO: call generateQuery for all related elements
-		return "";		
+		String result = "";
+		for(Relation relation : getOutgoing()) {
+			if(relation instanceof XMLNavigation) {
+				result += relation.generateQuery(location);
+			} else {
+				throw new InvalidityException("XMLRoot has XMLReference");
+			}
+		}
+		return result;		
 	}
 
 	@Override
@@ -41,7 +51,12 @@ public class XMLRootImpl extends ElementImpl implements XMLRoot {
 		}
 		if(!getPredicates().isEmpty()) {
 			throw new InvalidityException("XMLRoot has predicate");
-		}		
+		}
+		for(Relation relation : getOutgoing()) {
+			if(relation instanceof XMLReference) {
+				throw new InvalidityException("XMLRoot has XMLReference");
+			}
+		}
 	}
 	
 	/**

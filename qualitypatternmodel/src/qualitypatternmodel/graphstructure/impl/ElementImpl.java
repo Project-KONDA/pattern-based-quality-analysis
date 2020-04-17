@@ -823,6 +823,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		
 		removeMappingsToNext();
 		
+		// TODO: reset incoming and outgoing ?
+		
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.ELEMENT__GRAPH, msgs);
 		return msgs;
 	}

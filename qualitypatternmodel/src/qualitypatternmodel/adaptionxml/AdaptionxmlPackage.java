@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
@@ -574,13 +575,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___GET_XQUERY_VARIABLE = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Translate Predicates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___TRANSLATE_PREDICATES__LOCATION = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>XML Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 2;
+	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl <em>XML Navigation</em>}' class.
@@ -945,13 +955,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE__TARGET_PROPERTY = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE__TYPE = GraphstructurePackage.RELATION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>XML Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 2;
+	int XML_REFERENCE_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1116,13 +1135,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT;
 
 	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___IS_TRANSLATABLE = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>XML Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
+	int XML_REFERENCE_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XMLPropertyImpl <em>XML Property</em>}' class.
@@ -1961,6 +1989,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getXMLElement__GetXQueryVariable();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XMLElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Translate Predicates</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XMLElement#translatePredicates(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	EOperation getXMLElement__TranslatePredicates__Location();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XMLNavigation <em>XML Navigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2023,6 +2061,27 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getXMLReference_TargetProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionxml.XMLReference#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XMLReference#getType()
+	 * @see #getXMLReference()
+	 * @generated
+	 */
+	EAttribute getXMLReference_Type();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XMLReference#isTranslatable() <em>Is Translatable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Translatable</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XMLReference#isTranslatable()
+	 * @generated
+	 */
+	EOperation getXMLReference__IsTranslatable();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XMLProperty <em>XML Property</em>}'.
@@ -2147,6 +2206,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		EOperation XML_ELEMENT___GET_XQUERY_VARIABLE = eINSTANCE.getXMLElement__GetXQueryVariable();
 
 		/**
+		 * The meta object literal for the '<em><b>Translate Predicates</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_ELEMENT___TRANSLATE_PREDICATES__LOCATION = eINSTANCE.getXMLElement__TranslatePredicates__Location();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl <em>XML Navigation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2197,6 +2264,22 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference XML_REFERENCE__TARGET_PROPERTY = eINSTANCE.getXMLReference_TargetProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_REFERENCE__TYPE = eINSTANCE.getXMLReference_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Translatable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_REFERENCE___IS_TRANSLATABLE = eINSTANCE.getXMLReference__IsTranslatable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XMLPropertyImpl <em>XML Property</em>}' class.

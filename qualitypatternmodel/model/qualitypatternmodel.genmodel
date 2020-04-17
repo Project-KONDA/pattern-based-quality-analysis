@@ -474,6 +474,9 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XMLElement/getXQueryRepresentation/location"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XMLElement/getXQueryVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XMLElement/translatePredicates">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XMLElement/translatePredicates/location"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XMLNavigation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -486,6 +489,8 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XMLReference/sourceProperty"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XMLReference/targetProperty"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XMLReference/type"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XMLReference/isTranslatable"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XMLProperty">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

@@ -35,4 +35,12 @@ public interface XMLElement extends Element {
 	 */
 	String getXQueryVariable();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String translatePredicates(Location location) throws InvalidityException;
+
 } // XMLElement

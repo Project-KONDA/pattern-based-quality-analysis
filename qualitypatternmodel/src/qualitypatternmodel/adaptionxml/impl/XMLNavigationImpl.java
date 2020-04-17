@@ -2,6 +2,12 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
+import static qualitypatternmodel.utilityclasses.Constants.EVERY;
+import static qualitypatternmodel.utilityclasses.Constants.FOR;
+import static qualitypatternmodel.utilityclasses.Constants.IN;
+import static qualitypatternmodel.utilityclasses.Constants.SATISFIES;
+import static qualitypatternmodel.utilityclasses.Constants.SOME;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -12,6 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XMLElement;
 import qualitypatternmodel.adaptionxml.XMLNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Graph;
@@ -72,11 +79,65 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 	
 	@Override
 	public String generateQuery(Location location) throws InvalidityException {
+		// TODO: adapt
+//		translated = true;
+
+		String query = "";
+		
+		String source = "";
+		if(getSource() instanceof XMLElement) {
+			XMLElement sourceElement = (XMLElement) getSource();
+			source = sourceElement.getXQueryVariable();
+		}
+		
+		String xPathExpression;
 		if (option != null) {
-			return option.generateQuery(location);
+			xPathExpression = source + option.generateQuery(location);
 		} else {
 			throw new InvalidityException("option null");
 		}
+		
+		String xPredicates;
+		String target;
+		if(getTarget() instanceof XMLElement) {
+			XMLElement targetElement = (XMLElement) getTarget();
+			xPredicates = targetElement.translatePredicates(location);
+			target = targetElement.getXQueryVariable();
+		} else {
+			throw new InvalidityException("target of relation not XMLElement");
+		}	
+		
+		if (location == Location.RETURN) {
+			query += FOR + target + IN; 			
+			if (mappingFrom == null) {
+				query += xPathExpression + xPredicates;
+			} else if (!xPredicates.equals("")) {
+				query += target + xPredicates;
+			} else {
+				query = "";
+			}
+			
+		} else {
+			if (location == Location.EXISTS) {
+				query += SOME;
+			} else if (location == Location.FORALL) {
+				query += EVERY;
+			} else {
+				throw new InvalidityException("invalid location");
+			}
+			query += target + IN;
+			if (mappingFrom == null) {
+				query += xPathExpression + xPredicates + SATISFIES;
+			} else if (!xPredicates.equals("")) {
+				query += target + xPredicates + SATISFIES;
+			} else {
+				query = "";
+			}
+		}
+		
+		query += getTarget().generateQuery(location);
+		
+		return query;
 	}
 	
 	@Override

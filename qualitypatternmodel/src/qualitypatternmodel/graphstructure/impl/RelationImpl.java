@@ -170,6 +170,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
 		removeRelationFromPreviousGraphs();
 		removeMappingsToNext();
+		
+		// TODO: reset ?
+		
 //		if (getElement() != null) {
 //			removeParametersFromParameterList();
 //		}		

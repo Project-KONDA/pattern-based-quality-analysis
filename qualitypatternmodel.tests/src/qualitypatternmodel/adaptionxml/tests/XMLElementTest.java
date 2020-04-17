@@ -18,6 +18,7 @@ import qualitypatternmodel.graphstructure.tests.ElementTest;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.XMLElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XMLElement#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XMLElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -97,6 +98,19 @@ public class XMLElementTest extends ElementTest {
 	 * @generated
 	 */
 	public void testGetXQueryVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XMLElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XMLElement#translatePredicates(qualitypatternmodel.patternstructure.Location)
+	 * @generated
+	 */
+	public void testTranslatePredicates__Location() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
