@@ -424,4 +424,12 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 */
 	Property addNewProperty();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setGraphSimple(Graph newGraph);
+
 } // SingleElement

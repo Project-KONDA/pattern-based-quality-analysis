@@ -89,7 +89,6 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 			XMLElement sourceElement = (XMLElement) getSource();
 			source = sourceElement.getXQueryVariable();
 		}
-		
 		String xPathExpression;
 		if (option != null) {
 			xPathExpression = source + option.generateQuery(location);
@@ -110,7 +109,7 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 		
 		if (location == Location.RETURN) {
 			query += FOR + target + IN; 			
-			if (mappingFrom == null) {
+			if (getTarget().getMappingFrom() == null) {
 				query += xPathExpression + xPredicates;
 			} else if (!xPredicates.equals("")) {
 				query += target + xPredicates;
@@ -127,7 +126,7 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 				throw new InvalidityException("invalid location");
 			}
 			query += target + IN;
-			if (mappingFrom == null) {
+			if (getTarget().getMappingFrom() == null) {
 				query += xPathExpression + xPredicates + SATISFIES;
 			} else if (!xPredicates.equals("")) {
 				query += target + xPredicates + SATISFIES;

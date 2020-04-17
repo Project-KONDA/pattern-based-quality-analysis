@@ -179,4 +179,12 @@ public interface Relation extends PatternElement, Adaptable {
 	 */
 	XMLReference adaptAsXMLReference();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setGraphSimple(Graph newGraph);
+
 } // Relation

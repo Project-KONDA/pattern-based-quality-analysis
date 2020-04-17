@@ -27,15 +27,19 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.Mapping;
+import qualitypatternmodel.patternstructure.Morphism;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -175,6 +179,47 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (eContainerFeatureID() != GraphstructurePackage.RELATION__GRAPH) return null;
 		return (Graph)eInternalContainer();
 	}
+	
+	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {
+//		removeRelationFromPreviousGraphs();
+//		removeMappingsToNext();
+		
+		// TODO: reset ?
+		
+//		if(newGraph != null) {
+//			for(Morphism morphism : newGraph.getMorphismTo()) {
+//				MorphismContainer container = morphism.getMorphismContainer();
+//				Relation newRelation = new RelationImpl();
+//				newRelation.setGraph(container.getGraph());
+//				RelationMapping newMapping = new RelationMappingImpl();
+//				newMapping.setMorphism(morphism);
+//				newMapping.setFrom(this);
+//				newMapping.setTo(newRelation);
+//				
+//				for(Mapping mapping : morphism.getMappings()) {
+//					if(mapping instanceof ElementMapping) {
+//						ElementMapping elementMapping = (ElementMapping) mapping;
+//						if(elementMapping.getFrom().equals(getSource())) {
+//							newRelation.setSource(elementMapping.getTo());
+//						}
+//						if(elementMapping.getFrom().equals(getTarget())) {
+//							newRelation.setTarget(elementMapping.getTo());
+//						}
+//					}
+//				}
+//			}		
+//		}
+		
+//		if (getElement() != null) {
+//			removeParametersFromParameterList();
+//		}		
+//		if (newGraph != null) {
+//			copyToNewNextGraphs(newGraph); // not needed anymore
+//		}
+		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.RELATION__GRAPH, msgs);
+		
+		return msgs;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,6 +231,30 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		removeMappingsToNext();
 		
 		// TODO: reset ?
+		
+		if(newGraph != null) {
+			for(Morphism morphism : newGraph.getMorphismTo()) {
+				MorphismContainer container = morphism.getMorphismContainer();
+				Relation newRelation = new RelationImpl();
+				newRelation.setGraph(container.getGraph());
+				RelationMapping newMapping = new RelationMappingImpl();
+				newMapping.setMorphism(morphism);
+				newMapping.setFrom(this);
+				newMapping.setTo(newRelation);
+				
+				for(Mapping mapping : morphism.getMappings()) {
+					if(mapping instanceof ElementMapping) {
+						ElementMapping elementMapping = (ElementMapping) mapping;
+						if(elementMapping.getFrom().equals(getSource())) {
+							newRelation.setSource(elementMapping.getTo());
+						}
+						if(elementMapping.getFrom().equals(getTarget())) {
+							newRelation.setTarget(elementMapping.getTo());
+						}
+					}
+				}
+			}		
+		}
 		
 //		if (getElement() != null) {
 //			removeParametersFromParameterList();
@@ -214,6 +283,28 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			if (newGraph != null)
 				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__RELATIONS, Graph.class, msgs);
 			msgs = basicSetGraph(newGraph, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__GRAPH, newGraph, newGraph));
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setGraphSimple(Graph newGraph) {
+		if (newGraph != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.RELATION__GRAPH && newGraph != null)) {
+			if (EcoreUtil.isAncestor(this, newGraph))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newGraph != null)
+				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__RELATIONS, Graph.class, msgs);
+			msgs = basicSetGraphSimple(newGraph, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
@@ -458,7 +549,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public XMLNavigation adaptAsXMLNavigation() {
 		if(!(this instanceof XMLNavigation)) {
 			XMLNavigation navigation = new XMLNavigationImpl();
-			navigation.setGraph(getGraph());
+			navigation.setGraphSimple(getGraph());
 			navigation.setSource(getSource());
 			navigation.setTarget(getTarget());
 			setSource(null);
@@ -485,7 +576,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public XMLReference adaptAsXMLReference() {
 		if(!(this instanceof XMLReference)) {
 			XMLReference reference = new XMLReferenceImpl();
-			reference.setGraph(getGraph());
+			reference.setGraphSimple(getGraph());
 			reference.setSource(getSource());
 			reference.setTarget(getTarget());
 			setSource(null);
@@ -737,6 +828,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return adaptAsXMLNavigation();
 			case GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE:
 				return adaptAsXMLReference();
+			case GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH:
+				setGraphSimple((Graph)arguments.get(0));
+				return null;
 			case GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

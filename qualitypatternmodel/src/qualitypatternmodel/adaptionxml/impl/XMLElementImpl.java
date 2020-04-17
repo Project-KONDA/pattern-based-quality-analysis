@@ -209,7 +209,7 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 		try {			
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			Graph graph = (Graph) getAncestor(Graph.class);
+			Graph graph = getGraph();
 			OperatorList oplist = graph.getOperatorList();
 			
 			XMLProperty property = new XMLPropertyImpl();

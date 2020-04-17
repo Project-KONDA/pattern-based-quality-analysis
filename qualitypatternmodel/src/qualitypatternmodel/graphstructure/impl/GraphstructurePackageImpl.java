@@ -292,6 +292,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getRelation__SetGraphSimple__Graph() {
+		return relationEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getProperty() {
 		return propertyEClass;
 	}
@@ -652,6 +662,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getElement__SetGraphSimple__Graph() {
+		return elementEClass.getEOperations().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGraph() {
 		return graphEClass;
 	}
@@ -926,6 +946,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(relationEClass, RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_NAVIGATION);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_REFERENCE);
+		createEOperation(relationEClass, RELATION___SET_GRAPH_SIMPLE__GRAPH);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEReference(propertyEClass, PROPERTY__ELEMENT);
@@ -964,6 +985,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(elementEClass, ELEMENT___COPY_PRIMITIVE_COMPARISON__COMPARISON);
 		createEOperation(elementEClass, ELEMENT___COPY_MATCH__MATCH);
 		createEOperation(elementEClass, ELEMENT___ADD_NEW_PROPERTY);
+		createEOperation(elementEClass, ELEMENT___SET_GRAPH_SIMPLE__GRAPH);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__ELEMENTS);
@@ -1059,6 +1081,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getRelation__AdaptAsXMLReference(), theAdaptionxmlPackage.getXMLReference(), "adaptAsXMLReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getRelation__SetGraphSimple__Graph(), null, "setGraphSimple", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGraph(), "newGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProperty_Element(), this.getElement(), this.getElement_Properties(), "element", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProperty_Match(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_Property(), "match", null, 0, -1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1135,6 +1160,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEParameter(op, theOperatorsPackage.getMatch(), "match", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getElement__AddNewProperty(), this.getProperty(), "addNewProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getElement__SetGraphSimple__Graph(), null, "setGraphSimple", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGraph(), "newGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraph_Elements(), this.getElement(), this.getElement_Graph(), "elements", null, 1, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -575,6 +575,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___ADD_NEW_PROPERTY = GraphstructurePackage.ELEMENT___ADD_NEW_PROPERTY;
 
 	/**
+	 * The operation id for the '<em>Set Graph Simple</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.ELEMENT___SET_GRAPH_SIMPLE__GRAPH;
+
+	/**
 	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -909,6 +918,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___ADAPT_AS_XML_REFERENCE = GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE;
 
 	/**
+	 * The operation id for the '<em>Set Graph Simple</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH;
+
+	/**
 	 * The number of operations of the '<em>XML Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1223,6 +1241,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE___ADAPT_AS_XML_REFERENCE = GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE;
+
+	/**
+	 * The operation id for the '<em>Set Graph Simple</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -2053,6 +2080,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADD_NEW_PROPERTY = GraphstructurePackage.ELEMENT___ADD_NEW_PROPERTY;
+
+	/**
+	 * The operation id for the '<em>Set Graph Simple</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.ELEMENT___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
 	 * The number of operations of the '<em>XML Root</em>' class.

@@ -420,14 +420,22 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		}
 		if(!(this instanceof XMLElement) && !(this instanceof XMLRoot)) {
 			XMLElement xmlElement = new XMLElementImpl();
-			xmlElement.setGraph(getGraph());
+			xmlElement.setGraphSimple(getGraph());		 // TODO: Simple	
+			
+//			for(ElementMapping mapping : xmlElement.getMappingTo()) {
+//				mapping.getTo().setGraph(null);
+//			}
+//			xmlElement.getMappingTo().clear();
+			
 			xmlElement.setResultOf(getResultOf());
-			setResultOf(null);
+			xmlElement.getPredicates().addAll(getPredicates());
+			getPredicates().clear();
 			xmlElement.getMappingTo().addAll(getMappingTo());
 			getMappingTo().clear();
 			xmlElement.setMappingFrom(getMappingFrom());
 			setMappingFrom(null);
-			setGraph(null);
+			setResultOf(null);
+			setGraph(null);		
 			EList<Relation> outgoingCopy = new BasicEList<Relation>();
 			outgoingCopy.addAll(getOutgoing());
 			for(Relation relation : outgoingCopy) {
@@ -446,7 +454,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			propertiesCopy.addAll(getProperties());
 			for(Property property : propertiesCopy) {
 				property.setElement(xmlElement);
-			}			
+			}		
 			return xmlElement;
 		}
 		return this;		
@@ -874,6 +882,33 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.ELEMENT__GRAPH, msgs);
 		return msgs;
 	}
+	
+	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {
+//		if (getMappingFrom() != null) {
+//			removeElementFromPreviousGraphs();
+//		}
+//		
+//		if(newGraph != null) {
+//			for(Morphism morphism : newGraph.getMorphismTo()) {
+//				MorphismContainer container = morphism.getMorphismContainer();
+//				Element newElement = new ElementImpl();
+//				newElement.setGraph(container.getGraph());
+//				ElementMapping newMapping = new ElementMappingImpl();
+//				newMapping.setMorphism(morphism);
+//				newMapping.setFrom(this);
+//				newMapping.setTo(newElement);
+//			}		
+//		}
+		
+//		setResultOf(null);
+		
+//		removeMappingsToNext();
+		
+		// TODO: reset incoming and outgoing ?
+		
+		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.ELEMENT__GRAPH, msgs);
+		return msgs;
+	}
 
 	private void setGraphForCorrespondingElements(Graph newGraph) {
 		for (ElementMapping mapping : getMappingTo()) {
@@ -890,12 +925,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 					element.setResultOf(null);
 				}
 				if (newGraph != null && element.getResultOf() == null) {
-					try {
-						element.setResultOf((Graph) element.getAncestor(GraphImpl.class));
-					} catch (MissingPatternContainerException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					element.setResultOf(element.getGraph());
 				}
 			}			
 		}
@@ -914,12 +944,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				element.setResultOf(null);
 			}
 			if (newGraph != null && element.getResultOf() == null) {
-				try {
-					element.setResultOf((Graph) element.getAncestor(GraphImpl.class));
-				} catch (MissingPatternContainerException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				element.setResultOf(element.getGraph());
 			}		
 		}
 	}
@@ -939,6 +964,28 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			if (newGraph != null)
 				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__ELEMENTS, Graph.class, msgs);
 			msgs = basicSetGraph(newGraph, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__GRAPH, newGraph, newGraph));
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setGraphSimple(Graph newGraph) {
+		if (newGraph != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.ELEMENT__GRAPH && newGraph != null)) {
+			if (EcoreUtil.isAncestor(this, newGraph))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newGraph != null)
+				msgs = ((InternalEObject)newGraph).eInverseAdd(this, GraphstructurePackage.GRAPH__ELEMENTS, Graph.class, msgs);
+			msgs = basicSetGraphSimple(newGraph, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
@@ -1392,6 +1439,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				return null;
 			case GraphstructurePackage.ELEMENT___ADD_NEW_PROPERTY:
 				return addNewProperty();
+			case GraphstructurePackage.ELEMENT___SET_GRAPH_SIMPLE__GRAPH:
+				setGraphSimple((Graph)arguments.get(0));
+				return null;
 			case GraphstructurePackage.ELEMENT___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;
@@ -1534,7 +1584,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		try {			
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			Graph graph = (Graph) getAncestor(Graph.class);
+			Graph graph = getGraph();
 			OperatorList oplist = graph.getOperatorList();
 			
 			Property property = new PropertyImpl();
@@ -1653,7 +1703,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				
 				Property property = new PropertyImpl();
 				getProperties().add(property);
-				property.createParameters();
+//				property.createParameters();
 				
 	//			TextLiteralImpl textlit = new TextLiteralImpl();
 	//			varlist.add(textlit);
@@ -1662,6 +1712,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				oplist.add(match);	
 				match.createParameters();
 				match.setProperty(property);
+								
 	//			match.setArgument1(property);
 	//			match.setRegularExpression(textlit);
 	//			match.setArgument2(textlit);		
@@ -1670,6 +1721,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				}
 			} catch (Exception e) {
 				System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+				e.printStackTrace();
 			}
 		}
 

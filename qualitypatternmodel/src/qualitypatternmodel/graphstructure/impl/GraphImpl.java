@@ -17,9 +17,6 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
-import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XMLElement;
 import qualitypatternmodel.adaptionxml.XMLNavigation;
 import qualitypatternmodel.adaptionxml.XMLRoot;
@@ -38,13 +35,18 @@ import qualitypatternmodel.operators.impl.OperatorListImpl;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.RelationMapping;
+import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -208,7 +210,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		if(root == null) {	
 			root = new XMLRootImpl();
-			root.setGraph(this);	
+			root.setGraphSimple(this);	
 		}
 		for(Element element : getElements()) {
 			if(element instanceof XMLElement) {
@@ -219,8 +221,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					}
 				}
 				if(!hasIncomingNavigation) {				
-					XMLNavigation navigation = new XMLNavigationImpl();
-					navigation.setGraph(this);
+					XMLNavigation navigation = new XMLNavigationImpl();					
+					navigation.setGraphSimple(this);
+					navigation.createParameters();
 					navigation.setSource(root);
 					navigation.setTarget(element);
 				}
@@ -267,6 +270,69 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public void copyGraph(Graph graph) throws MissingPatternContainerException {
+		// TODO: copy this to graph: copy all elements and relations! + return elements
+		
+		for(Element element : getElements()) {
+			Element newElement = new ElementImpl();		
+			newElement.setGraph(graph);
+			if(element.getResultOf() != null) {
+				newElement.setResultOf(graph);
+			}
+			ElementMapping newMapping = new ElementMappingImpl();
+			if(graph.getQuantifiedCondition() != null) {
+				graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
+			} else if(graph.getPattern() instanceof CountPattern) {
+				((CountPattern) graph.getPattern()).getMorphism().getMappings().add(newMapping);
+			}
+			
+			newMapping.setFrom(element);
+			newMapping.setTo(newElement);
+		}
+		
+		for(Relation relation : getRelations()) {
+			Relation newRelation = new RelationImpl();
+			newRelation.setGraph(graph);		
+			
+			
+			RelationMapping newMapping = new RelationMappingImpl();
+			Morphism morphism = null;
+			if(graph.getQuantifiedCondition() != null) {
+				morphism = graph.getQuantifiedCondition().getMorphism();
+				morphism.getMappings().add(newMapping);
+			} else if(graph.getPattern() instanceof CountPattern) {
+				morphism = ((CountPattern) graph.getPattern()).getMorphism();
+				morphism.getMappings().add(newMapping);
+			}
+			
+			newMapping.setFrom(relation);
+			newMapping.setTo(newRelation);
+			
+			
+			Element source = relation.getSource();
+			Element target = relation.getTarget();
+			
+			Element mappedSource;
+			for(ElementMapping mapping : source.getMappingTo()) {
+				if(mapping.getMorphism().equals(morphism)) {
+					mappedSource = mapping.getTo();
+					newRelation.setSource(mappedSource);
+				}
+			}
+			
+			Element mappedTarget;
+			for(ElementMapping mapping : target.getMappingTo()) {
+				if(mapping.getMorphism().equals(morphism)) {
+					mappedTarget = mapping.getTo();
+					newRelation.setTarget(mappedTarget);
+				}
+			}
+			
+			
+			
+			
+		}
+		
+		
 //		Element newRootElement = new ElementImpl();		
 //		newRootElement.setRoot(graph);		
 //		ElementMapping newMapping = new ElementMappingImpl();

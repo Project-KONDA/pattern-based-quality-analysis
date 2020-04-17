@@ -126,7 +126,7 @@ public class XMLPropertyImpl extends PropertyImpl implements XMLProperty {
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
 		super.isValidLocal(isDefinedPattern);
 		if (option == null) 
-			throw new InvalidityException("location or propertyOptions invalid");
+			throw new InvalidityException("options invalid");
 		if (option.getValue() != null && option.getValue() == PropertyLocation.ATTRIBUTE && attributeName == null)
 			throw new InvalidityException("attributeName null");		
 	}

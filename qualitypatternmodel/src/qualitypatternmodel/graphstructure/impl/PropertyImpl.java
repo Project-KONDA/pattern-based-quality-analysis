@@ -98,11 +98,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public PatternElement createXMLAdaption() {
 		if(!(this instanceof XMLProperty)) {
-			XMLProperty xmlProperty = new XMLPropertyImpl();
+			XMLProperty xmlProperty = new XMLPropertyImpl();			 
 			xmlProperty.setElement(getElement());
+			xmlProperty.createParameters();
 			setElement(null);
 			xmlProperty.getMatch().addAll(getMatch());
-			getMatch().clear();
+			getMatch().clear();			
 			xmlProperty.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			xmlProperty.getComparison2().addAll(getComparison2());

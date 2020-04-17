@@ -223,25 +223,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
-		Property oldProperty = property;
-		property = newProperty;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PROPERTY, oldProperty, newProperty);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	@Override
-	public void setProperty(Property newProperty) {
+	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
 		Property oldProperty = property;
 		property = newProperty;
 		if(newProperty != null || oldProperty != null) {
@@ -254,8 +238,31 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 				}
 			}
 		}
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__PROPERTY, oldProperty, property));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PROPERTY, oldProperty, newProperty);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setProperty(Property newProperty) {
+		if (newProperty != property) {
+			NotificationChain msgs = null;
+			if (property != null)
+				msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__MATCH, Property.class, msgs);
+			if (newProperty != null)
+				msgs = ((InternalEObject)newProperty).eInverseAdd(this, GraphstructurePackage.PROPERTY__MATCH, Property.class, msgs);
+			msgs = basicSetProperty(newProperty, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PROPERTY, newProperty, newProperty));
 	}
 
 	/**

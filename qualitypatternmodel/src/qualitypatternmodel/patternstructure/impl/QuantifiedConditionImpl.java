@@ -446,6 +446,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
+		newMorphism.setTo(getGraph());
+		newMorphism.setMorphDepth(condDepth);
+		
 		if (getMorphism() != null) {
 			getMorphism().setFrom(null);
 			getMorphism().setTo(getGraph());
@@ -469,24 +472,21 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
 	 */
+	@Override
 	public void setMorphism(Morphism newMorphism) {
-		if (!newMorphism.equals(morphism)) {
+		if (newMorphism != morphism) {
 			NotificationChain msgs = null;
 			if (morphism != null)
-				msgs = ((InternalEObject) morphism).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, null, msgs);
+				msgs = ((InternalEObject)morphism).eInverseRemove(this, PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER, Morphism.class, msgs);
 			if (newMorphism != null)
-				msgs = ((InternalEObject) newMorphism).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, null, msgs);
-			newMorphism.setTo(getGraph());
-			newMorphism.setMorphDepth(condDepth);
+				msgs = ((InternalEObject)newMorphism).eInverseAdd(this, PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER, Morphism.class, msgs);
 			msgs = basicSetMorphism(newMorphism, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-					PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, newMorphism, newMorphism));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, newMorphism, newMorphism));
 	}
 
 	/**

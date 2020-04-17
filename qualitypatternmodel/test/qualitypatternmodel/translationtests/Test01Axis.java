@@ -40,8 +40,9 @@ public class Test01Axis {
 
 	public static CompletePattern getBasePatternAxisRoot(Axis axis) {		
 		CompletePattern completePattern = Test00.getBasePattern();
-		Element element1 = completePattern.getGraph().getElements().get(0);
-		XMLNavigation relation = (XMLNavigation) element1.getIncoming().get(0);
+		completePattern.createXMLAdaption();
+		completePattern.finalizeXMLAdaption();
+		XMLNavigation relation = (XMLNavigation) completePattern.getGraph().getRelations().get(0);
 		RelationOptionParam axisOption = relation.getOption();
 		EList<Axis> axisOptions = axisOption.getOptions();
 		if(!axisOptions.contains(axis)) axisOptions.add(axis);
@@ -70,7 +71,7 @@ public class Test01Axis {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		XMLNavigation navigation = completePattern.getGraph().getElements().get(2).getIncoming().get(0).adaptAsXMLNavigation();		
+		XMLNavigation navigation = completePattern.getGraph().getElements().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
 		completePattern.finalizeXMLAdaption();			
 		
 		RelationOptionParam axisOption = navigation.getOption();

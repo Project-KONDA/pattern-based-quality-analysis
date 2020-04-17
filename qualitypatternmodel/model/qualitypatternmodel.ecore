@@ -217,6 +217,9 @@
       </eOperations>
       <eOperations name="adaptAsXMLNavigation" eType="#//adaptionxml/XMLNavigation"/>
       <eOperations name="adaptAsXMLReference" eType="#//adaptionxml/XMLReference"/>
+      <eOperations name="setGraphSimple">
+        <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/to"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
@@ -281,6 +284,9 @@
         <eParameters name="match" eType="#//operators/Match"/>
       </eOperations>
       <eOperations name="addNewProperty" eType="#//graphstructure/Property"/>
+      <eOperations name="setGraphSimple">
+        <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/from"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/ElementMapping"

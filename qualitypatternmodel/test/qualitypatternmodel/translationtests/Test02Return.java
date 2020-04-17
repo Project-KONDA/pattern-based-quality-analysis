@@ -38,7 +38,7 @@ public class Test02Return {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		completePattern.getGraph().getElements().get(2).getIncoming().get(0).adaptAsXMLNavigation();		
+		completePattern.getGraph().getElements().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
 		completePattern.finalizeXMLAdaption();
 				
 		return completePattern;
@@ -61,7 +61,7 @@ public class Test02Return {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		XMLReference reference = completePattern.getGraph().getElements().get(2).getIncoming().get(0).adaptAsXMLReference();	
+		XMLReference reference = completePattern.getGraph().getElements().get(1).getIncoming().get(0).adaptAsXMLReference();	
 		reference.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();
 				
