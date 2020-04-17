@@ -18,13 +18,16 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XMLProperty;
 import qualitypatternmodel.adaptionxml.XMLReference;
 import qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl;
+import qualitypatternmodel.adaptionxml.impl.XMLPropertyImpl;
 import qualitypatternmodel.adaptionxml.impl.XMLReferenceImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
@@ -487,6 +490,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			reference.setTarget(getTarget());
 			setSource(null);
 			setTarget(null);
+			XMLProperty sourceProperty = new XMLPropertyImpl();
+			sourceProperty.setElement(reference.getSource());
+			sourceProperty.createParameters();
+			XMLProperty targetProperty = new XMLPropertyImpl();
+			targetProperty.setElement(reference.getTarget());
+			targetProperty.createParameters();
+			reference.setSourceProperty(sourceProperty);			
+			reference.setTargetProperty(targetProperty);
 			reference.getMappingTo().addAll(getMappingTo());
 			getMappingTo().clear();
 			for(RelationMapping mapping : reference.getMappingTo()) {
