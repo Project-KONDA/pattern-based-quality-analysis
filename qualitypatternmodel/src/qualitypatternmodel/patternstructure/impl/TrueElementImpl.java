@@ -54,7 +54,7 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	
 	@Override
 	public String myToString() {
-		return "true";
+		return "TRUE";
 	}
 
 } //TrueImpl

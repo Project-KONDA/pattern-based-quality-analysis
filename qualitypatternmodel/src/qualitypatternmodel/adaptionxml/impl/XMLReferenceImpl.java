@@ -421,10 +421,9 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	
 	@Override
 	public String myToString() {
-		String res = "Ref (" + getInternalId() + "):";
-		res += "[";
+		String res = super.myToString() + " [";
 		if (getSourceProperty() != null) res += getSourceProperty().getInternalId(); else res += "-";
-		res += " = ";
+		res += " to ";
 		if (getTargetProperty() != null) res += getTargetProperty().getInternalId(); else res += "-";
 		res += "]";
 		return res;

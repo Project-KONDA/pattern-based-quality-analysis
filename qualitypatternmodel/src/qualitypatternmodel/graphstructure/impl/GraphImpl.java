@@ -986,6 +986,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (isReturnGraph())
 			res += "Return-";
 		res += "Graph " + getInternalId();
+		for (Element e : getElements()) {
+			res += "\n  > " + e.myToString().replace("\n", "\n    ");
+		}
+		for (Relation r : getRelations()) {
+			res += "\n  ~ " + r.myToString().replace("\n", "\n    ");
+		}
 		// TODO: call Element.myToString()
 //		if ( getRootElement() != null)
 //		res += "\n| " + getRootElement().myToString().replace("\n", "\n| ");

@@ -468,4 +468,13 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public String myToString() {
+		String res = super.myToString() + " ";
+		if (getOption() != null) {
+			return res + "(" + getOption().getValue().getLiteral() + ")";
+		} else {
+			return res + "[prev.]";
+		}
+	}
 } //XMLNavigationImpl

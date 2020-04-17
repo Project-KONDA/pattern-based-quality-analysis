@@ -1471,23 +1471,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@Override
 	public String myToString() {
 		String res = "";
-//		if (isRootElement())
-//			res += "Root-";
-//		else
-//			res += getRelationFromPrevious().myToString() + " ";
-		if (getGraph() != null)
+		if (getResultOf() != null)
 			res += "Return-";
-//		res += "Single";
-		res += "Element " + getName() + " " + getInternalId();
+		res += this.getClass().getSimpleName() + " ";
+		if (getName() != null) res += getName() + " ";
+		res += getInternalId();
 		for (Property prop : getProperties())
 			res += "\n  " + prop.myToString();
-//		if (getNextElements().size() > 0) {
-////			res += "\n[";
-//			for (Element e : getNextElements()) {
-//				res += "\n  " + e.myToString().replace("\n", "\n  ");
-//			}
-////			res += "\n]";
-//		}
 		return res;
 	}
 
