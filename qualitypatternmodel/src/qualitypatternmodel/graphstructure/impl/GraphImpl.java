@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
+import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XMLElement;
 import qualitypatternmodel.adaptionxml.XMLNavigation;
 import qualitypatternmodel.adaptionxml.XMLRoot;
@@ -188,7 +190,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	@Override
 	public PatternElement createXMLAdaption() {
-		for(Element element : getElements()) {
+		EList<Element> elementsCopy = new BasicEList<Element>();
+		elementsCopy.addAll(getElements());
+		for(Element element : elementsCopy) {
 			element.createXMLAdaption();
 		}				
 		return this;
@@ -196,8 +200,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	@Override
 	public void finalizeXMLAdaption() {
-		XMLRoot root = new XMLRootImpl();
-		root.setGraph(this);	
+		XMLRoot root = null;
+		for(Element element : getElements()) {
+			if(element instanceof XMLRoot) {
+				root = (XMLRoot) element;
+			}
+		}
+		if(root == null) {	
+			root = new XMLRootImpl();
+			root.setGraph(this);	
+		}
 		for(Element element : getElements()) {
 			if(element instanceof XMLElement) {
 				boolean hasIncomingNavigation = false;

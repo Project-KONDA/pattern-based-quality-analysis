@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.PropertyLocation;
 import qualitypatternmodel.adaptionxml.XMLElement;
+import qualitypatternmodel.adaptionxml.XMLRoot;
 import qualitypatternmodel.adaptionxml.impl.XMLElementImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -417,7 +418,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		for(Property property : getProperties()) {
 			property.createXMLAdaption();
 		}
-		if(!(this instanceof XMLElement)) {
+		if(!(this instanceof XMLElement) && !(this instanceof XMLRoot)) {
 			XMLElement xmlElement = new XMLElementImpl();
 			xmlElement.setGraph(getGraph());
 			xmlElement.setResultOf(getResultOf());
@@ -427,17 +428,23 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			xmlElement.setMappingFrom(getMappingFrom());
 			setMappingFrom(null);
 			setGraph(null);
-			for(Relation relation : getOutgoing()) {
+			EList<Relation> outgoingCopy = new BasicEList<Relation>();
+			outgoingCopy.addAll(getOutgoing());
+			for(Relation relation : outgoingCopy) {
 				relation.setSource(xmlElement);
 			}
-			for(Relation relation : getIncoming()) {
+			EList<Relation> incomingCopy = new BasicEList<Relation>();
+			incomingCopy.addAll(getIncoming());
+			for(Relation relation : incomingCopy) {
 				relation.setTarget(xmlElement);
 			}
 			xmlElement.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			xmlElement.getComparison2().addAll(getComparison2());
-			getComparison2().clear();			
-			for(Property property : getProperties()) {
+			getComparison2().clear();	
+			EList<Property> propertiesCopy = new BasicEList<Property>();
+			propertiesCopy.addAll(getProperties());
+			for(Property property : propertiesCopy) {
 				property.setElement(xmlElement);
 			}			
 			return xmlElement;
