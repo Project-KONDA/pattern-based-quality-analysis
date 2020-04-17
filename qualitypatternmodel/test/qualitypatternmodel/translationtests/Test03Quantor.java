@@ -14,10 +14,11 @@ public class Test03Quantor {
 //		System.out.println(getPatternExists().myToString());
 		
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternExistsFinal());
-		completePatterns.add(getPatternExistsCondFinal());
-		completePatterns.add(getPatternForall());
-		completePatterns.add(getPatternForallCond());
+//		completePatterns.add(getPatternExistsFinal());
+		completePatterns.add(getPatternExistsNavigation());
+//		completePatterns.add(getPatternExistsCondFinal());
+//		completePatterns.add(getPatternForall());
+//		completePatterns.add(getPatternForallCond());
 
 		Test00.test(completePatterns);
 	}
@@ -34,6 +35,32 @@ public class Test03Quantor {
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();		
 				
+		return completePattern;
+	}
+	
+	public static CompletePattern getPatternExistsNavigation() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+		
+		// Pattern Structure
+		CompletePattern completePattern = getPatternExists();	
+		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
+		Graph graph2 = cond.getGraph();
+		
+		Element e0g2 = graph2.getElements().get(0);
+		Element e1g2 = graph2.getElements().get(1);
+		
+		Relation relation = graphFactory.createRelation();
+		relation.setGraph(graph2);
+		relation.setSource(e0g2);
+		relation.setTarget(e1g2);		
+		
+		completePattern.createXMLAdaption();
+		relation.adaptAsXMLNavigation();
+		completePattern.finalizeXMLAdaption();	
+		
 		return completePattern;
 	}
 

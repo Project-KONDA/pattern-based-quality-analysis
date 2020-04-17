@@ -223,7 +223,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if(!hasIncomingNavigation) {				
 					XMLNavigation navigation = new XMLNavigationImpl();					
 					navigation.setGraphSimple(this);
-					navigation.createParameters();
+					navigation.createParameters();					
 					navigation.setSource(root);
 					navigation.setTarget(element);
 				}

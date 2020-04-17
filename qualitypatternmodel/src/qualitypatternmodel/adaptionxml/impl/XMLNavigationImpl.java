@@ -89,10 +89,10 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 			XMLElement sourceElement = (XMLElement) getSource();
 			source = sourceElement.getXQueryVariable();
 		}
-		String xPathExpression;
-		if (option != null) {
+		String xPathExpression = "";
+		if (option != null && getMappingFrom() == null) {
 			xPathExpression = source + option.generateQuery(location);
-		} else {
+		} else if(getMappingFrom() == null) {
 			throw new InvalidityException("option null");
 		}
 		

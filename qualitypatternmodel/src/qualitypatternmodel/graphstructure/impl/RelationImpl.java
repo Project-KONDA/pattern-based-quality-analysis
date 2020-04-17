@@ -341,11 +341,25 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetSource(Element newSource, NotificationChain msgs) {
 		Element oldSource = source;
 		source = newSource;
+		
+		if(newSource != null) {
+			for(RelationMapping relationMapping : getMappingTo()) {
+				for(Mapping mapping : relationMapping.getMorphism().getMappings()) {
+					if(mapping instanceof ElementMapping) {
+						ElementMapping elementMapping = (ElementMapping) mapping;
+						if(elementMapping.getFrom().equals(newSource)) {
+							relationMapping.getTo().setSource(elementMapping.getTo());
+						}						
+					}
+				}
+			}
+		}
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, oldSource, newSource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -403,11 +417,25 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetTarget(Element newTarget, NotificationChain msgs) {
 		Element oldTarget = target;
 		target = newTarget;
+		
+		if(newTarget != null) {
+			for(RelationMapping relationMapping : getMappingTo()) {
+				for(Mapping mapping : relationMapping.getMorphism().getMappings()) {
+					if(mapping instanceof ElementMapping) {
+						ElementMapping elementMapping = (ElementMapping) mapping;
+						if(elementMapping.getFrom().equals(newTarget)) {
+							relationMapping.getTo().setTarget(elementMapping.getTo());
+						}						
+					}
+				}
+			}
+		}
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TARGET, oldTarget, newTarget);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -550,6 +578,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if(!(this instanceof XMLNavigation)) {
 			XMLNavigation navigation = new XMLNavigationImpl();
 			navigation.setGraphSimple(getGraph());
+			navigation.createParameters();
 			navigation.setSource(getSource());
 			navigation.setTarget(getTarget());
 			setSource(null);

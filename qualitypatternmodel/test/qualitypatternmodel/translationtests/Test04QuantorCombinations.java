@@ -5,6 +5,9 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
+import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XMLReference;
+import qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl;
 import qualitypatternmodel.exceptions.*;
 
 public class Test04QuantorCombinations {
@@ -30,15 +33,36 @@ public class Test04QuantorCombinations {
 		QuantifiedCondition qcond2 =  factory.createQuantifiedCondition();
 		qcond.setCondition(qcond2);
 		TrueElement t = factory.createTrueElement();
-		qcond2.setCondition(t);
-		
+		qcond2.setCondition(t);		
 		
 		// EXISTS 2 additional graph structure
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
+		Element e1q1 = qcond.getGraph().getElements().get(0);
+		Element e2q1 = qcond.getGraph().getElements().get(1);
+		
+		Relation relation2 = graphFactory.createRelation();		
+		relation2.setSource(e1q1);
+		relation2.setTarget(e2q1);
+		relation2.setGraph(qcond.getGraph());
+		
 		Element se3 = graphFactory.createElement();
-		qcond2.getGraph().getRootElement().getNextElements().get(0).getNextElements().get(0).getNextElements().add(se3);
+		qcond2.getGraph().getElements().add(se3);
+		
+		Element e2q2 = qcond2.getGraph().getElements().get(1);
+		
+		Relation relation = graphFactory.createRelation();		
+		relation.setSource(e2q2);
+		relation.setTarget(se3);	
+		relation.setGraph(qcond2.getGraph());
+		
+		
+		completePattern.createXMLAdaption();
+		relation2.adaptAsXMLNavigation();
+		XMLReference ref = relation.adaptAsXMLReference();
+		ref.setType(ReturnType.STRING);
+		completePattern.finalizeXMLAdaption();		
 		
 		return completePattern;
 	}

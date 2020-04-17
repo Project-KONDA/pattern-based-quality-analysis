@@ -38,6 +38,8 @@ public class Test11Match {
 		pattern.getGraph().getReturnElements().get(0).addPrimitiveMatch(str);
 		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
 		match.getOption().setValue(false);
+		pattern.createXMLAdaption();
+		pattern.finalizeXMLAdaption();
 		return pattern;		
 	}
 

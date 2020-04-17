@@ -420,7 +420,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		}
 		if(!(this instanceof XMLElement) && !(this instanceof XMLRoot)) {
 			XMLElement xmlElement = new XMLElementImpl();
-			xmlElement.setGraphSimple(getGraph());		 // TODO: Simple	
+			xmlElement.setGraphSimple(getGraph());	
 			
 //			for(ElementMapping mapping : xmlElement.getMappingTo()) {
 //				mapping.getTo().setGraph(null);
