@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.XMLElement;
 import qualitypatternmodel.adaptionxml.XMLProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -92,7 +93,14 @@ public class XMLPropertyImpl extends PropertyImpl implements XMLProperty {
 		if(option == null || option.getValue() == null) {
 			throw new InvalidityException("propertyOptions invalid");
 		}				
-		String propertyElementTranslation = getElement().getXQueryRepresentation(location);
+		String propertyElementTranslation;
+		if(getElement() instanceof XMLElement) {
+			XMLElement xmlElement = (XMLElement) getElement();
+			propertyElementTranslation = xmlElement.getXQueryRepresentation(location);
+		} else {
+			throw new InvalidityException("XMLProperty container of invalid type");
+		}
+		
 		switch (option.getValue()) {
 			case ATTRIBUTE: 
 				if(attributeName == null || attributeName.getValue() == null) {

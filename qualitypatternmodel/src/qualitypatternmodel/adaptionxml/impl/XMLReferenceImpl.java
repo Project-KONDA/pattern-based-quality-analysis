@@ -4,7 +4,6 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -17,13 +16,9 @@ import qualitypatternmodel.adaptionxml.XMLReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Comparable;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.operators.ReferenceOperator;
-import qualitypatternmodel.operators.impl.ReferenceOperatorImpl;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -70,7 +65,7 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ReturnType TYPE_EDEFAULT = ReturnType.STRING;
+	protected static final ReturnType TYPE_EDEFAULT = ReturnType.UNSPECIFIED;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

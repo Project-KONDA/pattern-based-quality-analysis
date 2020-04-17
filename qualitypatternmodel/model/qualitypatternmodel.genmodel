@@ -98,7 +98,8 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/OptionParam/countCondition"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Operators" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//operators">
+    <nestedGenPackages prefix="Operators" basePackage="qualitypatternmodel" disposableProviderFactory="true"
+        ecorePackage="qualitypatternmodel.ecore#//operators">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//operators/ComparisonOperator">
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//operators/ComparisonOperator/EQUAL"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//operators/ComparisonOperator/GREATER"/>
@@ -447,7 +448,8 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NumberElement/numberParam"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Adaptionxml" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//adaptionxml">
+    <nestedGenPackages prefix="Adaptionxml" basePackage="qualitypatternmodel" disposableProviderFactory="true"
+        ecorePackage="qualitypatternmodel.ecore#//adaptionxml">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionxml/PropertyLocation">
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/PropertyLocation/DATA"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/PropertyLocation/TAG"/>
