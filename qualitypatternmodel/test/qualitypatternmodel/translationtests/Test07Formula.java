@@ -10,6 +10,7 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
+import qualitypatternmodel.adaptionxml.XMLReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -50,8 +51,29 @@ public class Test07Formula {
 		form.setCondition2(qc2);
 		qc2.setCondition(te2);
 
-		qc1.getGraph().getReturnElements().get(0).getNextElements().add(graphFactory.createElement());
-		qc2.getGraph().getReturnElements().get(0).getNextElements().add(graphFactory.createElement());
+		Element e0qc1 = qc1.getGraph().getElements().get(0);
+		Element e1 = graphFactory.createElement();
+		e1.setGraph(qc1.getGraph());
+		Relation relation1 = graphFactory.createRelation();
+		relation1.setGraph(qc1.getGraph());
+		relation1.setSource(e0qc1);
+		relation1.setTarget(e1);
+		
+		Element e0qc2 = qc2.getGraph().getElements().get(0);
+		Element e2 = graphFactory.createElement();
+		e2.setGraph(qc2.getGraph());
+		Relation relation2 = graphFactory.createRelation();
+		relation2.setGraph(qc2.getGraph());
+		relation2.setSource(e0qc2);
+		relation2.setTarget(e2);
+	
+		completePattern.createXMLAdaption();
+		
+		qc1.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		XMLReference ref = qc2.getGraph().getRelations().get(0).adaptAsXMLReference();
+		ref.setType(ReturnType.STRING);		
+		
+		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern;
 	}
