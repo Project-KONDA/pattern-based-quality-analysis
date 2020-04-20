@@ -13,11 +13,11 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Axis</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getAxis()
+ * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getRelationKind()
  * @model
  * @generated
  */
-public enum Axis implements Enumerator {
+public enum RelationKind implements Enumerator {
 	/**
 	 * The '<em><b>CHILD</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -313,13 +313,13 @@ public enum Axis implements Enumerator {
 	public static final int FOURCHILD_VALUE = 13;
 
 	/**
-	 * An array of all the '<em><b>Axis</b></em>' enumerators.
+	 * An array of all the '<em><b>Relation Kind</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final Axis[] VALUES_ARRAY =
-		new Axis[] {
+	private static final RelationKind[] VALUES_ARRAY =
+		new RelationKind[] {
 			CHILD,
 			DESCENDANT,
 			PARENT,
@@ -337,24 +337,24 @@ public enum Axis implements Enumerator {
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Axis</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Relation Kind</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<Axis> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<RelationKind> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Axis</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Relation Kind</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static Axis get(String literal) {
+	public static RelationKind get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			Axis result = VALUES_ARRAY[i];
+			RelationKind result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -363,16 +363,16 @@ public enum Axis implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Axis</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Relation Kind</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static Axis getByName(String name) {
+	public static RelationKind getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			Axis result = VALUES_ARRAY[i];
+			RelationKind result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -381,14 +381,14 @@ public enum Axis implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Axis</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Relation Kind</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static Axis get(int value) {
+	public static RelationKind get(int value) {
 		switch (value) {
 			case CHILD_VALUE: return CHILD;
 			case DESCENDANT_VALUE: return DESCENDANT;
@@ -435,7 +435,7 @@ public enum Axis implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private Axis(int value, String name, String literal) {
+	private RelationKind(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;

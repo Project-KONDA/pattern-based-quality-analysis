@@ -458,26 +458,26 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Adaptionxml" basePackage="qualitypatternmodel" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//adaptionxml">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionxml/PropertyLocation">
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/PropertyLocation/DATA"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/PropertyLocation/TAG"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/PropertyLocation/ATTRIBUTE"/>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionxml/PropertyKind">
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/PropertyKind/DATA"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/PropertyKind/TAG"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/PropertyKind/ATTRIBUTE"/>
       </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionxml/Axis">
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/CHILD"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/DESCENDANT"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/PARENT"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/ANCESTOR"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/FOLLOWING"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/FOLLOWING_SIBLING"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/PRECEDING"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/PRECEDING_SIBLING"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/ANCESTOR_OR_SELF"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/DESCENDANT_OR_SELF"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/SELF"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/TWOCHILD"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/THREECHILD"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/Axis/FOURCHILD"/>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionxml/RelationKind">
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/CHILD"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/DESCENDANT"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/PARENT"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/ANCESTOR"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/FOLLOWING"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/FOLLOWING_SIBLING"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/PRECEDING"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/PRECEDING_SIBLING"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/ANCESTOR_OR_SELF"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/DESCENDANT_OR_SELF"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/SELF"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/TWOCHILD"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/THREECHILD"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/FOURCHILD"/>
       </genEnums>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XMLElement">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XMLElement/getXQueryRepresentation">

@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.Axis;
+import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XMLNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Relation;
@@ -51,7 +51,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Axis> options;
+	protected EList<RelationKind> options;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute. <!--
@@ -61,7 +61,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Axis VALUE_EDEFAULT = Axis.CHILD;
+	protected static final RelationKind VALUE_EDEFAULT = RelationKind.CHILD;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute. <!--
@@ -71,7 +71,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated
 	 * @ordered
 	 */
-	protected Axis value = VALUE_EDEFAULT;
+	protected RelationKind value = VALUE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRelations() <em>Relations</em>}' reference list.
@@ -89,8 +89,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 */
 	public RelationOptionParamImpl() {
 		super();
-		getOptions().add(Axis.CHILD);
-		getOptions().add(Axis.DESCENDANT);
+		getOptions().add(RelationKind.CHILD);
+		getOptions().add(RelationKind.DESCENDANT);
 //		getOptions().add(Axis.PARENT);
 //		getOptions().add(Axis.ANCESTOR);
 	}
@@ -139,9 +139,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated
 	 */
 	@Override
-	public EList<Axis> getOptions() {
+	public EList<RelationKind> getOptions() {
 		if (options == null) {
-			options = new EDataTypeUniqueEList<Axis>(Axis.class, this, ParametersPackage.RELATION_OPTION_PARAM__OPTIONS);
+			options = new EDataTypeUniqueEList<RelationKind>(RelationKind.class, this, ParametersPackage.RELATION_OPTION_PARAM__OPTIONS);
 		}
 		return options;
 	}
@@ -151,7 +151,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated
 	 */
 	@Override
-	public Axis getValue() {
+	public RelationKind getValue() {
 		return value;
 	}
 
@@ -161,8 +161,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated
 	 */
 	@Override
-	public void setValue(Axis newValue) {
-		Axis oldValue = value;
+	public void setValue(RelationKind newValue) {
+		RelationKind oldValue = value;
 		value = newValue == null ? VALUE_EDEFAULT : newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.RELATION_OPTION_PARAM__VALUE, oldValue, value));
@@ -234,10 +234,10 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 		switch (featureID) {
 			case ParametersPackage.RELATION_OPTION_PARAM__OPTIONS:
 				getOptions().clear();
-				getOptions().addAll((Collection<? extends Axis>)newValue);
+				getOptions().addAll((Collection<? extends RelationKind>)newValue);
 				return;
 			case ParametersPackage.RELATION_OPTION_PARAM__VALUE:
-				setValue((Axis)newValue);
+				setValue((RelationKind)newValue);
 				return;
 			case ParametersPackage.RELATION_OPTION_PARAM__RELATIONS:
 				getRelations().clear();

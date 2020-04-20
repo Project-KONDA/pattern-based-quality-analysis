@@ -169,9 +169,9 @@ public class Eval07Unique {
 		
 		CompletePattern completePattern = getUniqueAbstractMidas();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("wer");
 		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
@@ -182,31 +182,31 @@ public class Eval07Unique {
 		Element returnInCPattern = countPattern.getGraph().getRootElement().getNextElements().get(0);
 		Element rootInCPattern = countPattern.getGraph().getRootElement();
 		Element element2 = rootInCPattern.getNextElements().get(1);	
-		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element2.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		element2.getProperties().get(0).getAttributeName().setValue("Type");
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("wer");
 		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
 		
 		Element nextToReturn = returnInCPattern.getNextElements().get(0);
 		nextToReturn.getProperties().get(0).getAttributeName().setValue("Type");
-		nextToReturn.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		nextToReturn.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("3600");
 		((UnknownParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
 		
 		Element nextToElement2 = element2.getNextElements().get(0);
 		nextToElement2.getProperties().get(0).getAttributeName().setValue("Type");
-		nextToElement2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		nextToElement2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("3600");
 		((UnknownParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
 		
-		nextToReturn.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		nextToReturn.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		nextToReturn.getProperties().get(1).getAttributeName().setValue("Value");
 		
-		nextToElement2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		nextToElement2.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		nextToElement2.getProperties().get(1).getAttributeName().setValue("Value");
 		
 		((Comparison) nextToElement2.getPredicates().get(1)).setType(ReturnType.STRING);
@@ -220,9 +220,9 @@ public class Eval07Unique {
 		
 		CompletePattern completePattern = getUniqueAbstractMidas();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 //		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
 		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
@@ -233,31 +233,31 @@ public class Eval07Unique {
 		Element returnInCPattern = countPattern.getGraph().getRootElement().getNextElements().get(0);
 		Element rootInCPattern = countPattern.getGraph().getRootElement();
 		Element element2 = rootInCPattern.getNextElements().get(1);	
-		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element2.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 //		element2.getProperties().get(0).getAttributeName().setValue("Type");
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("lido:lido");
 		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
 		
 		Element nextToReturn = returnInCPattern.getNextElements().get(0);
 //		nextToReturn.getProperties().get(0).getAttributeName().setValue("Type");
-		nextToReturn.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		nextToReturn.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("lido:lidoRecID");
 		((UnknownParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
 		
 		Element nextToElement2 = element2.getNextElements().get(0);
 //		nextToElement2.getProperties().get(0).getAttributeName().setValue("Type");
-		nextToElement2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		nextToElement2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("lido:lidoRecID");
 		((UnknownParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
 		
-		nextToReturn.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		nextToReturn.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 //		nextToReturn.getProperties().get(1).getAttributeName().setValue("Value");
 		
-		nextToElement2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		nextToElement2.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 //		nextToElement2.getProperties().get(1).getAttributeName().setValue("Value");
 		
 		((Comparison) nextToElement2.getPredicates().get(1)).setType(ReturnType.STRING);
@@ -271,9 +271,9 @@ public class Eval07Unique {
 		
 		CompletePattern completePattern = getUniqueAbstractMidas();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 //		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
 		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
@@ -284,31 +284,31 @@ public class Eval07Unique {
 		Element returnInCPattern = countPattern.getGraph().getRootElement().getNextElements().get(0);
 		Element rootInCPattern = countPattern.getGraph().getRootElement();
 		Element element2 = rootInCPattern.getNextElements().get(1);	
-		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element2.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 //		element2.getProperties().get(0).getAttributeName().setValue("Type");
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("lido:lido");
 		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
 		
 		Element nextToReturn = returnInCPattern.getNextElements().get(0);
 //		nextToReturn.getProperties().get(0).getAttributeName().setValue("Type");
-		nextToReturn.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		nextToReturn.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("lido:objectPublishedID");
 		((UnknownParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
 		
 		Element nextToElement2 = element2.getNextElements().get(0);
 //		nextToElement2.getProperties().get(0).getAttributeName().setValue("Type");
-		nextToElement2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		nextToElement2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("lido:objectPublishedID");
 		((UnknownParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
 		
-		nextToReturn.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		nextToReturn.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 //		nextToReturn.getProperties().get(1).getAttributeName().setValue("Value");
 		
-		nextToElement2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		nextToElement2.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 //		nextToElement2.getProperties().get(1).getAttributeName().setValue("Value");
 		
 		((Comparison) nextToElement2.getPredicates().get(1)).setType(ReturnType.STRING);
@@ -322,7 +322,7 @@ public class Eval07Unique {
 		
 		CompletePattern completePattern = getUniqueAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("artist");
 		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
@@ -333,15 +333,15 @@ public class Eval07Unique {
 		Element returnInCPattern = countPattern.getGraph().getRootElement().getNextElements().get(0);
 		Element rootInCPattern = countPattern.getGraph().getRootElement();
 		Element nextToRootInCPattern = rootInCPattern.getNextElements().get(1);	
-		nextToRootInCPattern.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		nextToRootInCPattern.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("artist");
 		((UnknownParameterValue) ((Comparison) nextToRootInCPattern.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
 		
-		returnInCPattern.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		returnInCPattern.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		returnInCPattern.getProperties().get(0).getAttributeName().setValue("id");
 		
-		nextToRootInCPattern.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		nextToRootInCPattern.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		nextToRootInCPattern.getProperties().get(1).getAttributeName().setValue("id");
 		
 		((Comparison) nextToRootInCPattern.getPredicates().get(1)).setType(ReturnType.STRING);

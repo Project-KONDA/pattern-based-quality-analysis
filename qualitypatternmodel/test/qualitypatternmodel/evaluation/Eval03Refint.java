@@ -85,43 +85,43 @@ public class Eval03Refint {
 		CompletePattern completePattern = getRefintAbstract();
 		
 		Element returnInReturnGraph = completePattern.getGraph().getRootElement().getNextElements().get(0);
-		returnInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
 		((UnknownParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
 		returnInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		returnInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element element1 = graph1.getRootElement().getNextElements().get(0).getNextElements().get(0);
-		element1.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element1.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("3600");
 		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
 		element1.getProperties().get(0).getAttributeName().setValue("Type");
-		element1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
 		Element element1InGraph2 = graph2.getRootElement().getNextElements().get(0).getNextElements().get(0);
 		Element element2 = graph2.getRootElement().getNextElements().get(1);
-		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element2.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("wer");
 		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
 		element2.getProperties().get(0).getAttributeName().setValue("Type");
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element element3 = element2.getNextElements().get(0);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("3600");
 		((UnknownParameterValue) ((Comparison) element3.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
 		element3.getProperties().get(0).getAttributeName().setValue("Type");
-		element3.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);		
+		element3.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);		
 		
-		element1InGraph2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element1InGraph2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		element1InGraph2.getProperties().get(0).getAttributeName().setValue("Value");
 		
-		element3.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element3.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		element3.getProperties().get(1).getAttributeName().setValue("Value");
 		
 		((Comparison) element3.getPredicates().get(1)).setType(ReturnType.STRING);
@@ -183,14 +183,14 @@ public class Eval03Refint {
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("building");
 		((UnknownParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
-		returnInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element element1 = graph1.getRootElement().getNextElements().get(0).getNextElements().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("creator");
 		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
-		element1.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		element1.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
 		Element element1InGraph2 = graph2.getRootElement().getNextElements().get(0).getNextElements().get(0);
@@ -198,12 +198,12 @@ public class Eval03Refint {
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("artist");
 		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
-		element2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element2.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		element2.getProperties().get(1).getAttributeName().setValue("id");
 		
-		element1InGraph2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element1InGraph2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		element1InGraph2.getProperties().get(0).getAttributeName().setValue("ref");
 		
 		((Comparison) element2.getPredicates().get(1)).setType(ReturnType.STRING);

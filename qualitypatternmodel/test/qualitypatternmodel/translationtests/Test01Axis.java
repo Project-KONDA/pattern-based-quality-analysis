@@ -13,7 +13,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.Axis;
+import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XMLNavigation;
 import qualitypatternmodel.adaptionxml.XMLRoot;
 import qualitypatternmodel.exceptions.*;
@@ -25,7 +25,7 @@ public class Test01Axis {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
-		for (Axis ax : Axis.VALUES) {
+		for (RelationKind ax : RelationKind.VALUES) {
 			completePatterns.add(getBasePatternAxisRoot(ax));
 			completePatterns.add(getBasePatternAxisNotRoot(ax));
 		}
@@ -33,19 +33,19 @@ public class Test01Axis {
 		Test00.test(completePatterns);
 	}
 
-	public static CompletePattern getBasePatternAxisRoot(Axis axis) {		
+	public static CompletePattern getBasePatternAxisRoot(RelationKind relationKind) {		
 		CompletePattern completePattern = Test00.getBasePattern();
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();
 		XMLNavigation relation = (XMLNavigation) completePattern.getGraph().getRelations().get(0);
 		RelationOptionParam axisOption = relation.getOption();
-		EList<Axis> axisOptions = axisOption.getOptions();
-		if(!axisOptions.contains(axis)) axisOptions.add(axis);
-		axisOption.setValue(axis);
+		EList<RelationKind> axisOptions = axisOption.getOptions();
+		if(!axisOptions.contains(relationKind)) axisOptions.add(relationKind);
+		axisOption.setValue(relationKind);
 		return completePattern;
 	}
 	
-	public static CompletePattern getBasePatternAxisNotRoot(Axis axis) {		
+	public static CompletePattern getBasePatternAxisNotRoot(RelationKind relationKind) {		
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -64,17 +64,17 @@ public class Test01Axis {
 		completePattern.finalizeXMLAdaption();			
 		
 		RelationOptionParam axisOption = navigation.getOption();
-		EList<Axis> axisOptions = axisOption.getOptions();
-		if(!axisOptions.contains(axis)) axisOptions.add(axis);
-		axisOption.setValue(axis);
+		EList<RelationKind> axisOptions = axisOption.getOptions();
+		if(!axisOptions.contains(relationKind)) axisOptions.add(relationKind);
+		axisOption.setValue(relationKind);
 		return completePattern;
 	}
 
 	public static List<PatternTestPair> getTestPairs() {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
-		for (Axis ax : Axis.VALUES) {
-			if(ax != Axis.DESCENDANT && ax != Axis.ANCESTOR)
+		for (RelationKind ax : RelationKind.VALUES) {
+			if(ax != RelationKind.DESCENDANT && ax != RelationKind.ANCESTOR)
 				testPairs.add(new PatternTestPair(ax.getName(), getBasePatternAxisRoot(ax), "/"+ax.getLiteral()+"::*"));
 		}		
 //		testPairs.add(new PatternTestPair("CHILD", 				getBasePatternAxis(Axis.CHILD), 				"/child::*"));

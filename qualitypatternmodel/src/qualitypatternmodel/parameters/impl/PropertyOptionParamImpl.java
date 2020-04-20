@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XMLProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Property;
@@ -53,7 +53,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PropertyLocation> options;
+	protected EList<PropertyKind> options;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -63,7 +63,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 * @ordered
 	 */
-	protected static final PropertyLocation VALUE_EDEFAULT = PropertyLocation.DATA;
+	protected static final PropertyKind VALUE_EDEFAULT = PropertyKind.DATA;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -73,7 +73,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 * @ordered
 	 */
-	protected PropertyLocation value = VALUE_EDEFAULT;
+	protected PropertyKind value = VALUE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' reference list.
@@ -92,9 +92,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 */
 	public PropertyOptionParamImpl() {
 		super();
-		getOptions().add(PropertyLocation.TAG);
-		getOptions().add(PropertyLocation.DATA);
-		getOptions().add(PropertyLocation.ATTRIBUTE);
+		getOptions().add(PropertyKind.TAG);
+		getOptions().add(PropertyKind.DATA);
+		getOptions().add(PropertyKind.ATTRIBUTE);
 	}
 	
 	@Override
@@ -142,9 +142,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 */
 	@Override
-	public EList<PropertyLocation> getOptions() {
+	public EList<PropertyKind> getOptions() {
 		if (options == null) {
-			options = new EDataTypeUniqueEList<PropertyLocation>(PropertyLocation.class, this, ParametersPackage.PROPERTY_OPTION_PARAM__OPTIONS);
+			options = new EDataTypeUniqueEList<PropertyKind>(PropertyKind.class, this, ParametersPackage.PROPERTY_OPTION_PARAM__OPTIONS);
 		}
 		return options;
 	}
@@ -155,7 +155,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 */
 	@Override
-	public PropertyLocation getValue() {
+	public PropertyKind getValue() {
 		return value;
 	}
 
@@ -165,8 +165,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 */
 	@Override
-	public void setValue(PropertyLocation newValue) {
-		PropertyLocation oldValue = value;
+	public void setValue(PropertyKind newValue) {
+		PropertyKind oldValue = value;
 		value = newValue == null ? VALUE_EDEFAULT : newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PROPERTY_OPTION_PARAM__VALUE, oldValue, value));
@@ -243,10 +243,10 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 		switch (featureID) {
 			case ParametersPackage.PROPERTY_OPTION_PARAM__OPTIONS:
 				getOptions().clear();
-				getOptions().addAll((Collection<? extends PropertyLocation>)newValue);
+				getOptions().addAll((Collection<? extends PropertyKind>)newValue);
 				return;
 			case ParametersPackage.PROPERTY_OPTION_PARAM__VALUE:
-				setValue((PropertyLocation)newValue);
+				setValue((PropertyKind)newValue);
 				return;
 			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
 				getProperties().clear();

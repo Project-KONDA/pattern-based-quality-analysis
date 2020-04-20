@@ -10,7 +10,7 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
-import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XMLProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -27,7 +27,7 @@ public class Test08Comparison {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
-		for (PropertyLocation pl : PropertyLocation.VALUES) {
+		for (PropertyKind pl : PropertyKind.VALUES) {
 				for (ParameterValue parameter : getExampleInputs()) {
 					CompletePattern completePattern = Test00.getBasePattern();
 					completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.EQUAL, parameter);

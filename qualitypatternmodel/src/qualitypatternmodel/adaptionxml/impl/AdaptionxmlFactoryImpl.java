@@ -75,10 +75,10 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case AdaptionxmlPackage.PROPERTY_LOCATION:
-				return createPropertyLocationFromString(eDataType, initialValue);
-			case AdaptionxmlPackage.AXIS:
-				return createAxisFromString(eDataType, initialValue);
+			case AdaptionxmlPackage.PROPERTY_KIND:
+				return createPropertyKindFromString(eDataType, initialValue);
+			case AdaptionxmlPackage.RELATION_KIND:
+				return createRelationKindFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -92,10 +92,10 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case AdaptionxmlPackage.PROPERTY_LOCATION:
-				return convertPropertyLocationToString(eDataType, instanceValue);
-			case AdaptionxmlPackage.AXIS:
-				return convertAxisToString(eDataType, instanceValue);
+			case AdaptionxmlPackage.PROPERTY_KIND:
+				return convertPropertyKindToString(eDataType, instanceValue);
+			case AdaptionxmlPackage.RELATION_KIND:
+				return convertRelationKindToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -161,8 +161,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropertyLocation createPropertyLocationFromString(EDataType eDataType, String initialValue) {
-		PropertyLocation result = PropertyLocation.get(initialValue);
+	public PropertyKind createPropertyKindFromString(EDataType eDataType, String initialValue) {
+		PropertyKind result = PropertyKind.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -172,7 +172,7 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertPropertyLocationToString(EDataType eDataType, Object instanceValue) {
+	public String convertPropertyKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -181,8 +181,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Axis createAxisFromString(EDataType eDataType, String initialValue) {
-		Axis result = Axis.get(initialValue);
+	public RelationKind createRelationKindFromString(EDataType eDataType, String initialValue) {
+		RelationKind result = RelationKind.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -192,7 +192,7 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertAxisToString(EDataType eDataType, Object instanceValue) {
+	public String convertRelationKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

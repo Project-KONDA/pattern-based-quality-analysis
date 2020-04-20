@@ -2100,25 +2100,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT_OPERATION_COUNT = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.PropertyLocation <em>Property Location</em>}' enum.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.PropertyLocation
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPropertyLocation()
+	 * @see qualitypatternmodel.adaptionxml.PropertyKind
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPropertyKind()
 	 * @generated
 	 */
-	int PROPERTY_LOCATION = 5;
+	int PROPERTY_KIND = 5;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.Axis <em>Axis</em>}' enum.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.RelationKind <em>Relation Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.Axis
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getAxis()
+	 * @see qualitypatternmodel.adaptionxml.RelationKind
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getRelationKind()
 	 * @generated
 	 */
-	int AXIS = 6;
-
+	int RELATION_KIND = 6;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XMLElement <em>XML Element</em>}'.
@@ -2299,24 +2298,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	EClass getXMLRoot();
 
 	/**
-	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionxml.PropertyLocation <em>Property Location</em>}'.
+	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Property Location</em>'.
-	 * @see qualitypatternmodel.adaptionxml.PropertyLocation
+	 * @return the meta object for enum '<em>Property Kind</em>'.
+	 * @see qualitypatternmodel.adaptionxml.PropertyKind
 	 * @generated
 	 */
-	EEnum getPropertyLocation();
+	EEnum getPropertyKind();
 
 	/**
-	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionxml.Axis <em>Axis</em>}'.
+	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionxml.RelationKind <em>Relation Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Axis</em>'.
-	 * @see qualitypatternmodel.adaptionxml.Axis
+	 * @return the meta object for enum '<em>Relation Kind</em>'.
+	 * @see qualitypatternmodel.adaptionxml.RelationKind
 	 * @generated
 	 */
-	EEnum getAxis();
+	EEnum getRelationKind();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2488,24 +2487,24 @@ public interface AdaptionxmlPackage extends EPackage {
 		EClass XML_ROOT = eINSTANCE.getXMLRoot();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.PropertyLocation <em>Property Location</em>}' enum.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionxml.PropertyLocation
-		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPropertyLocation()
+		 * @see qualitypatternmodel.adaptionxml.PropertyKind
+		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPropertyKind()
 		 * @generated
 		 */
-		EEnum PROPERTY_LOCATION = eINSTANCE.getPropertyLocation();
+		EEnum PROPERTY_KIND = eINSTANCE.getPropertyKind();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.Axis <em>Axis</em>}' enum.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.RelationKind <em>Relation Kind</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionxml.Axis
-		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getAxis()
+		 * @see qualitypatternmodel.adaptionxml.RelationKind
+		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getRelationKind()
 		 * @generated
 		 */
-		EEnum AXIS = eINSTANCE.getAxis();
+		EEnum RELATION_KIND = eINSTANCE.getRelationKind();
 
 	}
 

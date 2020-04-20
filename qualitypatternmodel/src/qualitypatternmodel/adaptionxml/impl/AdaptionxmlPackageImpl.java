@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.Axis;
-import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XMLElement;
 import qualitypatternmodel.adaptionxml.XMLNavigation;
 import qualitypatternmodel.adaptionxml.XMLProperty;
@@ -84,14 +84,14 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum propertyLocationEEnum = null;
+	private EEnum propertyKindEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum axisEEnum = null;
+	private EEnum relationKindEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -348,8 +348,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EEnum getPropertyLocation() {
-		return propertyLocationEEnum;
+	public EEnum getPropertyKind() {
+		return propertyKindEEnum;
 	}
 
 	/**
@@ -358,8 +358,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EEnum getAxis() {
-		return axisEEnum;
+	public EEnum getRelationKind() {
+		return relationKindEEnum;
 	}
 
 	/**
@@ -414,8 +414,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		xmlRootEClass = createEClass(XML_ROOT);
 
 		// Create enums
-		propertyLocationEEnum = createEEnum(PROPERTY_LOCATION);
-		axisEEnum = createEEnum(AXIS);
+		propertyKindEEnum = createEEnum(PROPERTY_KIND);
+		relationKindEEnum = createEEnum(RELATION_KIND);
 	}
 
 	/**
@@ -490,26 +490,26 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEClass(xmlRootEClass, XMLRoot.class, "XMLRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
-		initEEnum(propertyLocationEEnum, PropertyLocation.class, "PropertyLocation");
-		addEEnumLiteral(propertyLocationEEnum, PropertyLocation.DATA);
-		addEEnumLiteral(propertyLocationEEnum, PropertyLocation.TAG);
-		addEEnumLiteral(propertyLocationEEnum, PropertyLocation.ATTRIBUTE);
+		initEEnum(propertyKindEEnum, PropertyKind.class, "PropertyKind");
+		addEEnumLiteral(propertyKindEEnum, PropertyKind.DATA);
+		addEEnumLiteral(propertyKindEEnum, PropertyKind.TAG);
+		addEEnumLiteral(propertyKindEEnum, PropertyKind.ATTRIBUTE);
 
-		initEEnum(axisEEnum, Axis.class, "Axis");
-		addEEnumLiteral(axisEEnum, Axis.CHILD);
-		addEEnumLiteral(axisEEnum, Axis.DESCENDANT);
-		addEEnumLiteral(axisEEnum, Axis.PARENT);
-		addEEnumLiteral(axisEEnum, Axis.ANCESTOR);
-		addEEnumLiteral(axisEEnum, Axis.FOLLOWING);
-		addEEnumLiteral(axisEEnum, Axis.FOLLOWING_SIBLING);
-		addEEnumLiteral(axisEEnum, Axis.PRECEDING);
-		addEEnumLiteral(axisEEnum, Axis.PRECEDING_SIBLING);
-		addEEnumLiteral(axisEEnum, Axis.ANCESTOR_OR_SELF);
-		addEEnumLiteral(axisEEnum, Axis.DESCENDANT_OR_SELF);
-		addEEnumLiteral(axisEEnum, Axis.SELF);
-		addEEnumLiteral(axisEEnum, Axis.TWOCHILD);
-		addEEnumLiteral(axisEEnum, Axis.THREECHILD);
-		addEEnumLiteral(axisEEnum, Axis.FOURCHILD);
+		initEEnum(relationKindEEnum, RelationKind.class, "RelationKind");
+		addEEnumLiteral(relationKindEEnum, RelationKind.CHILD);
+		addEEnumLiteral(relationKindEEnum, RelationKind.DESCENDANT);
+		addEEnumLiteral(relationKindEEnum, RelationKind.PARENT);
+		addEEnumLiteral(relationKindEEnum, RelationKind.ANCESTOR);
+		addEEnumLiteral(relationKindEEnum, RelationKind.FOLLOWING);
+		addEEnumLiteral(relationKindEEnum, RelationKind.FOLLOWING_SIBLING);
+		addEEnumLiteral(relationKindEEnum, RelationKind.PRECEDING);
+		addEEnumLiteral(relationKindEEnum, RelationKind.PRECEDING_SIBLING);
+		addEEnumLiteral(relationKindEEnum, RelationKind.ANCESTOR_OR_SELF);
+		addEEnumLiteral(relationKindEEnum, RelationKind.DESCENDANT_OR_SELF);
+		addEEnumLiteral(relationKindEEnum, RelationKind.SELF);
+		addEEnumLiteral(relationKindEEnum, RelationKind.TWOCHILD);
+		addEEnumLiteral(relationKindEEnum, RelationKind.THREECHILD);
+		addEEnumLiteral(relationKindEEnum, RelationKind.FOURCHILD);
 
 		// Create resource
 		createResource(eNS_URI);

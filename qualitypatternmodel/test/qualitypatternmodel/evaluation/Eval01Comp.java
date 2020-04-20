@@ -74,13 +74,13 @@ public class Eval01Comp {
 		CompletePattern completePattern = getCompAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);
@@ -92,18 +92,18 @@ public class Eval01Comp {
 		concreteInputValue1.setValue("3100");
 		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
 		next1ToReturnElementInGraph1.getProperties().get(0).getAttributeName().setValue("Type");
-		next1ToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		next1ToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		next1ToReturnElementInGraph1.getProperties().get(1).getAttributeName().setValue("Value");
-		next1ToReturnElementInGraph1.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		next1ToReturnElementInGraph1.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Comparison comparison2 = (Comparison) next2ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("3105");
 		((UnknownParameterValue) comparison2.getArguments().get(1)).concretize(concreteInputValue2);
 		next2ToReturnElementInGraph1.getProperties().get(0).getAttributeName().setValue("Type");
-		next2ToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		next2ToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		next2ToReturnElementInGraph1.getProperties().get(1).getAttributeName().setValue("Value");
-		next2ToReturnElementInGraph1.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		next2ToReturnElementInGraph1.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Comparison comparison3 = (Comparison) next2ToReturnElementInGraph1.getPredicates().get(1);
 		comparison3.setType(ReturnType.STRING);

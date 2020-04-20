@@ -48,7 +48,7 @@ public class Eval04Card {
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern pattern = Test12Count.getPatternCountInPattern();	
-		pattern.getGraph().getReturnElements().get(0).getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		pattern.getGraph().getReturnElements().get(0).getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		CountCondition condition = (CountCondition) pattern.getCondition();
 		CountPattern countPattern = (CountPattern) condition.getCountPattern();
 		Element element2InC = countPattern.getGraph()
@@ -80,7 +80,7 @@ public class Eval04Card {
 		concreteInputValue.setValue("obj");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		CountCondition countCondition = (CountCondition) pattern.getCondition();
 		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
@@ -92,12 +92,12 @@ public class Eval04Card {
 		
 		Element returnElementInGraph1 = graph1.getRootElement().getNextElements().get(0);
 		Element nextToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(0);	
-		nextToReturnElementInGraph1.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT_OR_SELF);
+		nextToReturnElementInGraph1.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT_OR_SELF);
 		Comparison comparisonNextToReturnElementInGraph1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("h1:Block");
 		((UnknownParameterValue) comparisonNextToReturnElementInGraph1.getArguments().get(1)).concretize(concreteInputValue2);
-		nextToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		nextToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 //		Comparison comparisonCount = (Comparison) nextToReturnElementInGraph1.getPredicates().get(1);
 //		comparisonCount.getOption().getOptions().add(ComparisonOperator.GREATER);
@@ -112,14 +112,14 @@ public class Eval04Card {
 		concreteInputValue4.setValue("ob30");
 		((UnknownParameterValue) comparison1Set1.getArguments().get(1)).concretize(concreteInputValue4);
 		setElement1InGraph1.getProperties().get(0).getAttributeName().setValue("Type");
-		setElement1InGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		setElement1InGraph1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 				
 		Comparison comparison2Set1 = (Comparison) setElement1InGraph1.getPredicates().get(1);
 		TextLiteralParam concreteInputValue5 = parametersFactory.createTextLiteralParam();
 		concreteInputValue5.setValue("Herstellung");
 		((UnknownParameterValue) comparison2Set1.getArguments().get(1)).concretize(concreteInputValue5);
 		setElement1InGraph1.getProperties().get(1).getAttributeName().setValue("Value");
-		setElement1InGraph1.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		setElement1InGraph1.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element setElement2InGraph1 = setElement1InGraph1.getNextElements().get(0);	
 		Comparison comparison1Set2 = (Comparison) setElement2InGraph1.getPredicates().get(0);
@@ -127,7 +127,7 @@ public class Eval04Card {
 		concreteInputValue6.setValue("ob30rl");
 		((UnknownParameterValue) comparison1Set2.getArguments().get(1)).concretize(concreteInputValue6);
 		setElement2InGraph1.getProperties().get(0).getAttributeName().setValue("Type");
-		setElement2InGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		setElement2InGraph1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		return pattern;		
 	}

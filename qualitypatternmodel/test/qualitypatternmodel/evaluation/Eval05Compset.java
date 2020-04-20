@@ -62,13 +62,13 @@ public class Eval05Compset {
 		CompletePattern completePattern = getCompsetAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		QuantifiedCondition condition = (QuantifiedCondition) completePattern.getCondition();
 		Graph graph1 = condition.getGraph();
@@ -80,7 +80,7 @@ public class Eval05Compset {
 		concreteInputValue1.setValue("3140");
 		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
 		nextToReturnElementInGraph1.getProperties().get(0).getAttributeName().setValue("Type");
-		nextToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		nextToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 	
 		NotCondition notCondition = (NotCondition) condition.getCondition();
 		QuantifiedCondition condition2 = (QuantifiedCondition) notCondition.getCondition();
@@ -97,7 +97,7 @@ public class Eval05Compset {
 		concreteInputValue2.getValues().add("?");
 		((UnknownParameterValue) comparison2.getArguments().get(1)).concretize(concreteInputValue2);
 		nextToReturnElementInGraph2.getProperties().get(0).getAttributeName().setValue("Value");
-		nextToReturnElementInGraph2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		nextToReturnElementInGraph2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		
 		return completePattern;
@@ -110,26 +110,26 @@ public class Eval05Compset {
 		CompletePattern completePattern = getCompsetAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 //		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		QuantifiedCondition condition = (QuantifiedCondition) completePattern.getCondition();
 		Graph graph1 = condition.getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);
 		Element nextToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(0);	
-		nextToReturnElementInGraph1.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		nextToReturnElementInGraph1.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		
 		Comparison comparison1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("lido:genderActor");
 		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
 //		nextToReturnElementInGraph1.getProperties().get(0).getAttributeName().setValue("Type");
-		nextToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		nextToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 	
 		NotCondition notCondition = (NotCondition) condition.getCondition();
 		QuantifiedCondition condition2 = (QuantifiedCondition) notCondition.getCondition();
@@ -146,7 +146,7 @@ public class Eval05Compset {
 		concreteInputValue2.getValues().add("not applicable");
 		((UnknownParameterValue) comparison2.getArguments().get(1)).concretize(concreteInputValue2);
 //		nextToReturnElementInGraph2.getProperties().get(0).getAttributeName().setValue("Value");
-		nextToReturnElementInGraph2.getProperties().get(0).getOption().setValue(PropertyLocation.DATA);
+		nextToReturnElementInGraph2.getProperties().get(0).getOption().setValue(PropertyKind.DATA);
 		
 		
 		return completePattern;

@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XMLElement;
 import qualitypatternmodel.adaptionxml.XMLProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -127,7 +127,7 @@ public class XMLPropertyImpl extends PropertyImpl implements XMLProperty {
 		super.isValidLocal(isDefinedPattern);
 		if (option == null) 
 			throw new InvalidityException("options invalid");
-		if (option.getValue() != null && option.getValue() == PropertyLocation.ATTRIBUTE && attributeName == null)
+		if (option.getValue() != null && option.getValue() == PropertyKind.ATTRIBUTE && attributeName == null)
 			throw new InvalidityException("attributeName null");		
 	}
 

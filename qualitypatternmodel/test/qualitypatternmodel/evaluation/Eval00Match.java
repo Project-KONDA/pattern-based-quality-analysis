@@ -48,13 +48,13 @@ public class Eval00Match {
 		
 		CompletePattern completePattern = getMatchAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element returnElementInGraph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph().getReturnElements().get(0);				
 		Element element2 = returnElementInGraph1.getNextElements().get(0);
@@ -63,13 +63,13 @@ public class Eval00Match {
 		concreteInputValue2.setValue("3162");
 		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
 		element2.getProperties().get(0).getAttributeName().setValue("Type");
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		BooleanOperator matchElement2 = element2.getPredicates().get(1);
 		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
 		regularExpression.setValue(".*\\?.*");
 		element2.getProperties().get(1).getAttributeName().setValue("Value");
-		element2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element2.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		return completePattern;		
 	}
@@ -81,29 +81,29 @@ public class Eval00Match {
 		
 		CompletePattern completePattern = getMatchAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element returnElementInGraph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph().getReturnElements().get(0);				
 		Element element2 = returnElementInGraph1.getNextElements().get(0);
-		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element2.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("5064");
 		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
 		element2.getProperties().get(0).getAttributeName().setValue("Type");
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		BooleanOperator matchElement2 = element2.getPredicates().get(1);
 		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
 		regularExpression.setValue(".*[a-zA-Z ]{10}.*");
 		element2.getProperties().get(1).getAttributeName().setValue("Value");
-		element2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element2.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		return completePattern;		
 	}
@@ -115,29 +115,29 @@ public class Eval00Match {
 		
 		CompletePattern completePattern = getMatchAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element returnElementInGraph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph().getReturnElements().get(0);				
 		Element element2 = returnElementInGraph1.getNextElements().get(0);
-		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element2.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("5360");
 		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
 		element2.getProperties().get(0).getAttributeName().setValue("Type");
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		BooleanOperator matchElement2 = element2.getPredicates().get(1);
 		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
 		regularExpression.setValue("^[0-9]+(,[0-9]+)?( x [0-9]+(,[0-9]+)?)? (m|mm)( \\([a-zA-Z‰¸ˆƒ‹÷ ]+\\))?$");
 		element2.getProperties().get(1).getAttributeName().setValue("Value");
-		element2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element2.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		return completePattern;		
 	}
@@ -149,29 +149,29 @@ public class Eval00Match {
 		
 		CompletePattern completePattern = getMatchAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 //		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Element returnElementInGraph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph().getReturnElements().get(0);				
 		Element element2 = returnElementInGraph1.getNextElements().get(0);
-		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element2.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("lido:measurementValue");
 		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
 //		element2.getProperties().get(0).getAttributeName().setValue("Type");
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		BooleanOperator matchElement2 = element2.getPredicates().get(1);
 		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
 		regularExpression.setValue("[a-zA-Z¸ˆ‰‹÷ƒ]");
 //		element2.getProperties().get(1).getAttributeName().setValue("Value");
-		element2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		element2.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 		
 		return completePattern;		
 	}
@@ -183,29 +183,29 @@ public class Eval00Match {
 		
 		CompletePattern completePattern = getMatchAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 //		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Element returnElementInGraph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph().getReturnElements().get(0);				
 		Element element2 = returnElementInGraph1.getNextElements().get(0);
-		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element2.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("lido:measurementUnit");
 		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
 //		element2.getProperties().get(0).getAttributeName().setValue("Type");
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		BooleanOperator matchElement2 = element2.getPredicates().get(1);
 		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
 		regularExpression.setValue("[0-9]");
 //		element2.getProperties().get(1).getAttributeName().setValue("Value");
-		element2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		element2.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 		
 		return completePattern;		
 	}
@@ -217,29 +217,29 @@ public class Eval00Match {
 		
 		CompletePattern completePattern = getMatchAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 //		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Element returnElementInGraph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph().getReturnElements().get(0);				
 		Element element2 = returnElementInGraph1.getNextElements().get(0);
-		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element2.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("lido:earliestDate");
 		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
 //		element2.getProperties().get(0).getAttributeName().setValue("Type");
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		BooleanOperator matchElement2 = element2.getPredicates().get(1);
 		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
 		regularExpression.setValue("^[0-9]{4}$");
 //		element2.getProperties().get(1).getAttributeName().setValue("Value");
-		element2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		element2.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 		
 		return completePattern;		
 	}
@@ -251,29 +251,29 @@ public static CompletePattern getMatchLidoNamePlaceSet() {
 		
 		CompletePattern completePattern = getMatchAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);		
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 //		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Element returnElementInGraph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph().getReturnElements().get(0);				
 		Element element2 = returnElementInGraph1.getNextElements().get(0);
-		element2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element2.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("lido:namePlaceSet");
 		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
 //		element2.getProperties().get(0).getAttributeName().setValue("Type");
-		element2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		element2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		BooleanOperator matchElement2 = element2.getPredicates().get(1);
 		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
 		regularExpression.setValue(",");
 //		element2.getProperties().get(1).getAttributeName().setValue("Value");
-		element2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		element2.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 		
 		return completePattern;		
 	}

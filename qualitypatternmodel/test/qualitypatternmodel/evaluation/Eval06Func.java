@@ -159,12 +159,12 @@ public class Eval06Func {
 		
 		CompletePattern completePattern = getFuncAbstract();
 		Element returnInReturnGraph = completePattern.getGraph().getRootElement().getNextElements().get(0);
-		returnInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("wer");
 		((UnknownParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
 		returnInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		returnInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 				
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element returnInGraph2 = graph2.getRootElement().getNextElements().get(0);				
@@ -174,48 +174,48 @@ public class Eval06Func {
 		concreteInputValue2.setValue("3600");
 		((UnknownParameterValue) ((Comparison) elementA1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
 		elementA1.getProperties().get(0).getAttributeName().setValue("Type");
-		elementA1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		elementA1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		elementA1.getProperties().get(1).getAttributeName().setValue("Value");
-		elementA1.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		elementA1.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element elementB1 = returnInGraph2.getNextElements().get(1);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("3680");
 		((UnknownParameterValue) ((Comparison) elementB1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
 		elementB1.getProperties().get(0).getAttributeName().setValue("Type");
-		elementB1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		elementB1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		elementB1.getProperties().get(1).getAttributeName().setValue("Value");
-		elementB1.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		elementB1.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element element1 = graph2.getRootElement().getNextElements().get(1);
-		element1.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element1.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("wer");
 		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
 		element1.getProperties().get(0).getAttributeName().setValue("Type");
-		element1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		element1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element elementA2 = element1.getNextElements().get(0);		
 		TextLiteralParam concreteInputValue5 = parametersFactory.createTextLiteralParam();
 		concreteInputValue5.setValue("3600");
 		((UnknownParameterValue) ((Comparison) elementA2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue5);
 		elementA2.getProperties().get(0).getAttributeName().setValue("Type");
-		elementA2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		elementA2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		elementA2.getProperties().get(1).getAttributeName().setValue("Value");
-		elementA2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		elementA2.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element elementB2 = element1.getNextElements().get(1);		
 		TextLiteralParam concreteInputValue6 = parametersFactory.createTextLiteralParam();
 		concreteInputValue6.setValue("3680");
 		((UnknownParameterValue) ((Comparison) elementB2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue6);
 		elementB2.getProperties().get(0).getAttributeName().setValue("Type");
-		elementB2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		elementB2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		elementB2.getProperties().get(1).getAttributeName().setValue("Value");
-		elementB2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		elementB2.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		((Comparison) elementB1.getPredicates().get(1)).getOption().setValue(ComparisonOperator.NOTEQUAL);
 		
@@ -231,39 +231,39 @@ public class Eval06Func {
 		
 		CompletePattern completePattern = getFuncAbstractLido();
 		Element returnInReturnGraph = completePattern.getGraph().getRootElement().getNextElements().get(0);
-		returnInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
 		((UnknownParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
 //		returnInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 				
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element returnInGraph2 = graph2.getRootElement().getNextElements().get(0);				
 		Element below = returnInGraph2.getNextElements().get(0);
-		below.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		below.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		Element elementA1 = below.getNextElements().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("lido:conceptID");
 		((UnknownParameterValue) ((Comparison) elementA1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
 //		elementA1.getProperties().get(0).getAttributeName().setValue("Type");
-		elementA1.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		elementA1.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 //		elementA1.getProperties().get(1).getAttributeName().setValue("Value");
-		elementA1.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		elementA1.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 		
 		Element elementB1 = below.getNextElements().get(1);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("lido:term");
 		((UnknownParameterValue) ((Comparison) elementB1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
 //		elementB1.getProperties().get(0).getAttributeName().setValue("Type");
-		elementB1.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		elementB1.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 //		elementB1.getProperties().get(1).getAttributeName().setValue("Value");
-		elementB1.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		elementB1.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 		
 		Element element1 = graph2.getRootElement().getNextElements().get(1);
-		element1.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		element1.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 //		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 //		concreteInputValue4.setValue("lido:lido");
 //		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
@@ -275,20 +275,20 @@ public class Eval06Func {
 		concreteInputValue5.setValue("lido:conceptID");
 		((UnknownParameterValue) ((Comparison) elementA2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue5);
 //		elementA2.getProperties().get(0).getAttributeName().setValue("Type");
-		elementA2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		elementA2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 //		elementA2.getProperties().get(1).getAttributeName().setValue("Value");
-		elementA2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		elementA2.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 		
 		Element elementB2 = element1.getNextElements().get(1);		
 		TextLiteralParam concreteInputValue6 = parametersFactory.createTextLiteralParam();
 		concreteInputValue6.setValue("lido:term");
 		((UnknownParameterValue) ((Comparison) elementB2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue6);
 //		elementB2.getProperties().get(0).getAttributeName().setValue("Type");
-		elementB2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		elementB2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 //		elementB2.getProperties().get(1).getAttributeName().setValue("Value");
-		elementB2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		elementB2.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 		
 		((Comparison) elementB1.getPredicates().get(1)).getOption().setValue(ComparisonOperator.NOTEQUAL);
 		
@@ -307,7 +307,7 @@ public class Eval06Func {
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("building");
 		((UnknownParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
-		returnInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 				
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element returnInGraph2 = graph2.getRootElement().getNextElements().get(0);				
@@ -316,31 +316,31 @@ public class Eval06Func {
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("city");
 		((UnknownParameterValue) ((Comparison) elementA1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
-		elementA1.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		elementA1.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Element elementB1 = returnInGraph2.getNextElements().get(1);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("country");
 		((UnknownParameterValue) ((Comparison) elementB1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
-		elementB1.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		elementB1.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Element element1 = graph2.getRootElement().getNextElements().get(1);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("building");
 		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
-		element1.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		element1.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Element elementA2 = element1.getNextElements().get(0);		
 		TextLiteralParam concreteInputValue5 = parametersFactory.createTextLiteralParam();
 		concreteInputValue5.setValue("city");
 		((UnknownParameterValue) ((Comparison) elementA2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue5);
-		elementA2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		elementA2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Element elementB2 = element1.getNextElements().get(1);		
 		TextLiteralParam concreteInputValue6 = parametersFactory.createTextLiteralParam();
 		concreteInputValue6.setValue("country");
 		((UnknownParameterValue) ((Comparison) elementB2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue6);
-		elementB2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		elementB2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		((Comparison) elementB1.getPredicates().get(1)).getOption().setValue(ComparisonOperator.NOTEQUAL);
 		

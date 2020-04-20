@@ -3,7 +3,7 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.adaptionxml.Axis;
+import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XMLNavigation;
 
 /**
@@ -27,42 +27,42 @@ import qualitypatternmodel.adaptionxml.XMLNavigation;
 public interface RelationOptionParam extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.Axis}.
-	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.Axis}.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.RelationKind}.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.RelationKind}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' attribute list.
-	 * @see qualitypatternmodel.adaptionxml.Axis
+	 * @see qualitypatternmodel.adaptionxml.RelationKind
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam_Options()
 	 * @model
 	 * @generated
 	 */
-	EList<Axis> getOptions();
+	EList<RelationKind> getOptions();
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.Axis}.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.RelationKind}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see qualitypatternmodel.adaptionxml.Axis
-	 * @see #setValue(Axis)
+	 * @see qualitypatternmodel.adaptionxml.RelationKind
+	 * @see #setValue(RelationKind)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam_Value()
 	 * @model required="true"
 	 * @generated
 	 */
-	Axis getValue();
+	RelationKind getValue();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.parameters.RelationOptionParam#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see qualitypatternmodel.adaptionxml.Axis
+	 * @see qualitypatternmodel.adaptionxml.RelationKind
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(Axis value);
+	void setValue(RelationKind value);
 
 	/**
 	 * Returns the value of the '<em><b>Relations</b></em>' reference list.

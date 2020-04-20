@@ -3,7 +3,7 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XMLProperty;
 
 /**
@@ -27,42 +27,42 @@ import qualitypatternmodel.adaptionxml.XMLProperty;
 public interface PropertyOptionParam extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.PropertyLocation}.
-	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.PropertyLocation}.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.PropertyKind}.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.PropertyKind}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' attribute list.
-	 * @see qualitypatternmodel.adaptionxml.PropertyLocation
+	 * @see qualitypatternmodel.adaptionxml.PropertyKind
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getPropertyOptionParam_Options()
 	 * @model
 	 * @generated
 	 */
-	EList<PropertyLocation> getOptions();
+	EList<PropertyKind> getOptions();
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.PropertyLocation}.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.PropertyKind}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see qualitypatternmodel.adaptionxml.PropertyLocation
-	 * @see #setValue(PropertyLocation)
+	 * @see qualitypatternmodel.adaptionxml.PropertyKind
+	 * @see #setValue(PropertyKind)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getPropertyOptionParam_Value()
 	 * @model required="true"
 	 * @generated
 	 */
-	PropertyLocation getValue();
+	PropertyKind getValue();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.parameters.PropertyOptionParam#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see qualitypatternmodel.adaptionxml.PropertyLocation
+	 * @see qualitypatternmodel.adaptionxml.PropertyKind
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(PropertyLocation value);
+	void setValue(PropertyKind value);
 
 	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' reference list.

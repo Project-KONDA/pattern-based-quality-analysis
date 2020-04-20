@@ -80,14 +80,14 @@ public class Eval08Mandatt {
 		CompletePattern completePattern = getMandattAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Formula formula = (Formula) completePattern.getCondition();
 		NotCondition not = (NotCondition) formula.getCondition1();
@@ -102,7 +102,7 @@ public class Eval08Mandatt {
 		concreteInputValue1.setValue("3162");
 		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
 		next1ToReturnElementInGraph1.getProperties().get(0).getAttributeName().setValue("Type");
-		next1ToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		next1ToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Graph graph2 = qc2.getGraph();
 		Element returnElementInGraph2 = graph2.getReturnElements().get(0);
@@ -113,14 +113,14 @@ public class Eval08Mandatt {
 		concreteInputValue2.setValue("3162");
 		((UnknownParameterValue) comparison2.getArguments().get(1)).concretize(concreteInputValue2);
 		next1ToReturnElementInGraph2.getProperties().get(0).getAttributeName().setValue("Type");
-		next1ToReturnElementInGraph2.getProperties().get(0).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		next1ToReturnElementInGraph2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Comparison comparison3 = (Comparison) next1ToReturnElementInGraph2.getPredicates().get(1);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("");
 		((UnknownParameterValue) comparison3.getArguments().get(1)).concretize(concreteInputValue3);
 		next1ToReturnElementInGraph2.getProperties().get(1).getAttributeName().setValue("Value");
-		next1ToReturnElementInGraph2.getProperties().get(1).getOption().setValue(PropertyLocation.ATTRIBUTE);
+		next1ToReturnElementInGraph2.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		return completePattern;
 	}
@@ -132,14 +132,14 @@ public class Eval08Mandatt {
 		CompletePattern completePattern = getMandattAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
 //		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Formula formula = (Formula) completePattern.getCondition();
 		NotCondition not = (NotCondition) formula.getCondition1();
@@ -149,25 +149,25 @@ public class Eval08Mandatt {
 		Graph graph1 = qc1.getGraph();
 		Element returnElementInGraph1 = graph1.getReturnElements().get(0);
 		Element next1ToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(0);	
-		next1ToReturnElementInGraph1.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		next1ToReturnElementInGraph1.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		Comparison comparison1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("lido:appellationValue");
 		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
 //		next1ToReturnElementInGraph1.getProperties().get(0).getAttributeName().setValue("Type");
-		next1ToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		next1ToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Graph graph2 = qc2.getGraph();
 		Element returnElementInGraph2 = graph2.getReturnElements().get(0);
 		Element next1ToReturnElementInGraph2 = returnElementInGraph2.getNextElements().get(0);	
-		next1ToReturnElementInGraph2.getRelationFromPrevious().getOption().setValue(Axis.DESCENDANT);
+		next1ToReturnElementInGraph2.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
 		
 		Comparison comparison2 = (Comparison) next1ToReturnElementInGraph2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("lido:appellationValue");
 		((UnknownParameterValue) comparison2.getArguments().get(1)).concretize(concreteInputValue2);
 //		next1ToReturnElementInGraph2.getProperties().get(0).getAttributeName().setValue("Type");
-		next1ToReturnElementInGraph2.getProperties().get(0).getOption().setValue(PropertyLocation.TAG);
+		next1ToReturnElementInGraph2.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
 		
 		Comparison comparison3 = (Comparison) next1ToReturnElementInGraph2.getPredicates().get(1);
 		TextListParam concreteInputValue3 = parametersFactory.createTextListParam();
@@ -178,7 +178,7 @@ public class Eval08Mandatt {
 		concreteInputValue3.getValues().add("unknown");
 		((UnknownParameterValue) comparison3.getArguments().get(1)).concretize(concreteInputValue3);
 //		next1ToReturnElementInGraph2.getProperties().get(1).getAttributeName().setValue("Value");
-		next1ToReturnElementInGraph2.getProperties().get(1).getOption().setValue(PropertyLocation.DATA);
+		next1ToReturnElementInGraph2.getProperties().get(1).getOption().setValue(PropertyKind.DATA);
 		
 		return completePattern;
 	}

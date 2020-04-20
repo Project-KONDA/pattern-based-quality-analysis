@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XMLElement;
 import qualitypatternmodel.adaptionxml.XMLNavigation;
 import qualitypatternmodel.adaptionxml.XMLProperty;
@@ -214,7 +214,7 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 			XMLProperty property = new XMLPropertyImpl();
 			getProperties().add(property);
 			property.createParameters();
-			property.getOption().setValue(PropertyLocation.TAG);
+			property.getOption().setValue(PropertyKind.TAG);
 						
 			TextLiteralParamImpl textlit = new TextLiteralParamImpl();
 			varlist.add(textlit);
