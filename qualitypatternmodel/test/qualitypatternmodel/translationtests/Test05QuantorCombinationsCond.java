@@ -7,6 +7,9 @@ import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.parameters.*;
+import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.XMLProperty;
+import qualitypatternmodel.adaptionxml.XMLReference;
 import qualitypatternmodel.exceptions.*;
 
 public class Test05QuantorCombinationsCond {
@@ -22,42 +25,42 @@ public class Test05QuantorCombinationsCond {
 		Test00.test(completePatterns);
 	}
 
-	public static CompletePattern getPatternExistsInExistsCond() {
-		// Factory
-//		PatternstructurePackage.eINSTANCE.eClass();
-//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-//		GraphstructurePackage.eINSTANCE.eClass();
-//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-//		FunctionsPackage.eINSTANCE.eClass();
-//		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
-//		InputfieldsPackage.eINSTANCE.eClass();
-//		InputfieldsFactory inputFactory = InputfieldsFactory.eINSTANCE;
-		
+	public static CompletePattern getPatternExistsInExistsCond() {		
 		// PatternStructure
 		CompletePattern completePattern = Test04QuantorCombinations.getPatternExistsInExists();
-//		VariableList varlist = pattern.getVariableList();
-		Graph graph = ((QuantifiedCondition)((QuantifiedCondition) completePattern.getCondition()).getCondition()).getGraph();
-//		OperatorList oplist = graph.getOperatorList();
+		Graph graph0 = completePattern.getGraph();
+		QuantifiedCondition qcond = (QuantifiedCondition) completePattern.getCondition();
+		Graph graph1 = qcond.getGraph();
+		QuantifiedCondition qcond2 = (QuantifiedCondition) qcond.getCondition();
+		Graph graph2 = qcond2.getGraph();
 		
-		// Property
-		Element se = graph.getRootElement().getNextElements().get(0).getNextElements().get(0).getNextElements().get(0);
-		se.addPrimitiveComparison("abc");
-		se.getProperties().get(0).getAttributeName().setValue("def"); // not needed, only for better visibility in textual representation
-//		Property prop = graphFactory.createProperty();
-//		se.getProperties().add(prop);
-//		prop.getPropertyOption().setValue(PropertyLocation.ATTRIBUTE);
-//		prop.getAttributeName().setValue("def"); // not needed, only for better visibility in textual representation
-//		
-//		// Comparison
-//		Comparison comp = functionFactory.createComparison();
-//		oplist.add(comp);
-//		
-//		TextLiteral tl = inputFactory.createTextLiteral();
-//		varlist.add(tl);
-//		tl.setValue("abc");		
-//		
-//		comp.setArgument1(prop);
-//		comp.setArgument2(tl);
+		// comparisons
+		Element e0 = graph0.getElements().get(0);
+		e0.addPrimitiveComparison("test");
+		Element e1 = graph1.getElements().get(0);
+		e1.addPrimitiveComparison("abc");
+		e1.addPrimitiveComparison("abc2");
+		Element e2 = graph1.getElements().get(1);
+		e2.addPrimitiveComparison("def");
+		Element se = graph2.getElements().get(2);
+		se.addPrimitiveComparison("ghi");
+
+		
+		completePattern.createXMLAdaption();
+		
+		XMLProperty property = (XMLProperty) graph0.getElements().get(0).getProperties().get(0);
+		property.getAttributeName().setValue("prop");
+		property.getOption().getOptions().add(PropertyLocation.ATTRIBUTE);
+		property.getOption().setValue(PropertyLocation.ATTRIBUTE);
+	
+		XMLProperty property1 = (XMLProperty) graph1.getElements().get(0).getProperties().get(0);
+		property1.getOption().getOptions().add(PropertyLocation.TAG);
+		property1.getOption().setValue(PropertyLocation.TAG);
+		
+		qcond.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		XMLReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
+		ref.setType(ReturnType.STRING);
+		completePattern.finalizeXMLAdaption();		
 		
 		return completePattern;
 	}

@@ -10,6 +10,7 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
+import qualitypatternmodel.adaptionxml.XMLReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -21,7 +22,8 @@ public class Test06NotElement {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternNotTrue());		
+		completePatterns.add(getPatternNotTrue());	
+		completePatterns.add(getPatternNotExists());
 		completePatterns.add(getPatternNotForall());
 		completePatterns.add(getPatternExistsNotExists());
 		completePatterns.add(getPatternForallNotForall());
@@ -38,12 +40,19 @@ public class Test06NotElement {
 		completePattern.setCondition(n);
 		TrueElement t = factory.createTrueElement();
 		n.setCondition(t);
+		
+		completePattern.createXMLAdaption();
+		completePattern.finalizeXMLAdaption();	
+		
 		return completePattern;		
 	}
 	
 	public static CompletePattern getPatternNotExists() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+		
 		CompletePattern completePattern = Test00.getBasePattern();
 		
 		NotCondition n = factory.createNotCondition();
@@ -52,11 +61,18 @@ public class Test06NotElement {
 		n.setCondition(qc);
 		TrueElement t = factory.createTrueElement();
 		qc.setCondition(t);
-
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;		
-		Element last = qc.getGraph().getRootElement().getNextElements().get(0);
-		last.getNextElements().add(graphFactory.createElement());
+		
+		Element e0 = qc.getGraph().getElements().get(0);
+		Element e1 = graphFactory.createElement();
+		e1.setGraph(qc.getGraph());
+		Relation relation = graphFactory.createRelation();
+		relation.setGraph(qc.getGraph());
+		relation.setSource(e0);
+		relation.setTarget(e1);
+		
+		completePattern.createXMLAdaption();
+		qc.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern;
 	}
@@ -80,16 +96,16 @@ public class Test06NotElement {
 		QuantifiedCondition qc1 = (QuantifiedCondition) completePattern.getCondition(); 
 		NotCondition n = factory.createNotCondition();
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
-
-//		SingleElement root = qc1.getGraph().getRootElement();
-//		root.getNextElements().get(0).getNextElements().add(graphFactory.createSingleElement());
 				
 		qc1.setCondition(n);
 		n.setCondition(qc2);
 		qc2.setCondition(t);
-	
-		Element root2 = qc2.getGraph().getRootElement();
-		root2.getNextElements().get(0).getNextElements().get(0).getNextElements().add(graphFactory.createElement());
+		
+		Element e2 = graphFactory.createElement();
+		e2.setGraph(qc2.getGraph());
+		
+		completePattern.createXMLAdaption();
+		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern; 
 	}

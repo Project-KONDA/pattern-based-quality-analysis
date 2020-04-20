@@ -415,7 +415,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	@Override
 	public PatternElement createXMLAdaption() {
-		for(Property property : getProperties()) {
+		EList<Property> propertiesCopy = new BasicEList<Property>();
+		propertiesCopy.addAll(getProperties());
+		for(Property property : propertiesCopy) {
 			property.createXMLAdaption();
 		}
 		if(!(this instanceof XMLElement) && !(this instanceof XMLRoot)) {
@@ -450,9 +452,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			getComparison1().clear();
 			xmlElement.getComparison2().addAll(getComparison2());
 			getComparison2().clear();	
-			EList<Property> propertiesCopy = new BasicEList<Property>();
-			propertiesCopy.addAll(getProperties());
-			for(Property property : propertiesCopy) {
+			EList<Property> propertiesCopy2 = new BasicEList<Property>();
+			propertiesCopy2.addAll(getProperties());
+			for(Property property : propertiesCopy2) {
 				property.setElement(xmlElement);
 			}		
 			return xmlElement;

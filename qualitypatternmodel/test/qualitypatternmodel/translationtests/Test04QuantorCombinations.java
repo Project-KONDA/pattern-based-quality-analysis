@@ -15,12 +15,26 @@ public class Test04QuantorCombinations {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternExistsInExists());
-		completePatterns.add(getPatternForallInExists());
-		completePatterns.add(getPatternExistsInForall());
-		completePatterns.add(getPatternForallInForall());
+		completePatterns.add(getPatternExistsInExistsFinal());
+//		completePatterns.add(getPatternForallInExists());
+//		completePatterns.add(getPatternExistsInForall());
+//		completePatterns.add(getPatternForallInForall());
 
 		Test00.test(completePatterns);
+	}
+	
+	public static CompletePattern getPatternExistsInExistsFinal() {
+		CompletePattern completePattern = getPatternExistsInExists();
+		QuantifiedCondition qcond = (QuantifiedCondition) completePattern.getCondition();
+		QuantifiedCondition qcond2 = (QuantifiedCondition) qcond.getCondition();
+		
+		completePattern.createXMLAdaption();
+		qcond.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		XMLReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
+		ref.setType(ReturnType.STRING);
+		completePattern.finalizeXMLAdaption();		
+		
+		return completePattern;
 	}
 
 	public static CompletePattern getPatternExistsInExists() {
@@ -43,38 +57,38 @@ public class Test04QuantorCombinations {
 		Element e2q1 = qcond.getGraph().getElements().get(1);
 		
 		Relation relation2 = graphFactory.createRelation();		
+		relation2.setGraph(qcond.getGraph());
 		relation2.setSource(e1q1);
 		relation2.setTarget(e2q1);
-		relation2.setGraph(qcond.getGraph());
+		
 		
 		Element se3 = graphFactory.createElement();
 		qcond2.getGraph().getElements().add(se3);
 		
 		Element e2q2 = qcond2.getGraph().getElements().get(1);
 		
-		Relation relation = graphFactory.createRelation();		
-		relation.setSource(e2q2);
-		relation.setTarget(se3);	
+		Relation relation = graphFactory.createRelation();	
 		relation.setGraph(qcond2.getGraph());
+		relation.setSource(e2q2);
+		relation.setTarget(se3);		
 		
-		
-		completePattern.createXMLAdaption();
-		relation2.adaptAsXMLNavigation();
-		XMLReference ref = relation.adaptAsXMLReference();
-		ref.setType(ReturnType.STRING);
-		completePattern.finalizeXMLAdaption();		
+//		completePattern.createXMLAdaption();
+//		relation2.adaptAsXMLNavigation();
+//		XMLReference ref = relation.adaptAsXMLReference();
+//		ref.setType(ReturnType.STRING);
+//		completePattern.finalizeXMLAdaption();		
 		
 		return completePattern;
 	}
 	
 	public static CompletePattern getPatternForallInExists() {
-		CompletePattern completePattern = getPatternExistsInExists();
+		CompletePattern completePattern = getPatternExistsInExistsFinal();
 		((QuantifiedCondition)((QuantifiedCondition) completePattern.getCondition()).getCondition()).setQuantifier(Quantifier.FORALL);
 		return completePattern;		
 	}
 
 	public static CompletePattern getPatternExistsInForall() {
-		CompletePattern completePattern = getPatternExistsInExists();
+		CompletePattern completePattern = getPatternExistsInExistsFinal();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		return completePattern;
 	}
@@ -86,7 +100,7 @@ public class Test04QuantorCombinations {
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
-		testPairs.add(new PatternTestPair("EXEX", 	getPatternExistsInExists(), ""));
+		testPairs.add(new PatternTestPair("EXEX", 	getPatternExistsInExistsFinal(), ""));
 		testPairs.add(new PatternTestPair("EXFA", 	getPatternForallInExists(), ""));
 		testPairs.add(new PatternTestPair("FAEX", 	getPatternExistsInForall(), ""));
 		testPairs.add(new PatternTestPair("FAFA", 	getPatternForallInForall(), ""));
