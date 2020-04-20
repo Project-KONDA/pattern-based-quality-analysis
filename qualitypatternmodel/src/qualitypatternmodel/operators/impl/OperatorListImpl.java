@@ -23,7 +23,6 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.FunctionsPackage;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
@@ -155,7 +154,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 				((Comparison) op).setOption(null);
 			}
 		}
-		msgs = eBasicSetContainer((InternalEObject)newGraph, FunctionsPackage.OPERATOR_LIST__GRAPH, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newGraph, OperatorsPackage.OPERATOR_LIST__GRAPH, msgs);
 		return msgs;
 	}
 

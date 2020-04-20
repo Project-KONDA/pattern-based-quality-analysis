@@ -25,7 +25,6 @@ import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.operators.FunctionsPackage;
 import qualitypatternmodel.operators.NumberOperator;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
@@ -377,7 +376,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					FunctionsPackage.COMPARISON__ARGUMENT1, oldArgument1, newArgument1);
+					OperatorsPackage.COMPARISON__ARGUMENT1, oldArgument1, newArgument1);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -560,7 +559,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					FunctionsPackage.COMPARISON__OPTION, oldOption, newOption);
+					OperatorsPackage.COMPARISON__OPTION, oldOption, newOption);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -789,7 +788,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		ReturnType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FunctionsPackage.COMPARISON__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.COMPARISON__TYPE, oldType, type));
 	}
 
 	/**
@@ -821,7 +820,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					FunctionsPackage.COMPARISON__ARGUMENT2, oldArgument2, newArgument2);
+					OperatorsPackage.COMPARISON__ARGUMENT2, oldArgument2, newArgument2);
 			if (msgs == null)
 				msgs = notification;
 			else

@@ -19,7 +19,6 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.operators.BooleanOperator;
-import qualitypatternmodel.operators.FunctionsPackage;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -316,7 +315,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		}	
 		
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, newRegularExpression);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, newRegularExpression);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -467,7 +466,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		}	
 		
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FunctionsPackage.MATCH__OPTION, oldOption, newOption);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
