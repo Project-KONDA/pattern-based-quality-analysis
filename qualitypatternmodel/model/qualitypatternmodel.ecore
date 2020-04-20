@@ -264,8 +264,6 @@
       <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addPrimitiveComparison">
-        <eParameters name="property" eType="#//adaptionxml/PropertyLocation"/>
-        <eParameters name="attr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="operator" eType="#//operators/ComparisonOperator"/>
         <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>

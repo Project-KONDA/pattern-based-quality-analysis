@@ -3,7 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.adaptionxml.PropertyLocation;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.operators.BooleanOperator;
@@ -366,7 +366,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model
 	 * @generated
 	 */
-	void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, ParameterValue input);
+	void addPrimitiveComparison(ComparisonOperator operator, ParameterValue input);
 
 	/**
 	 * <!-- begin-user-doc -->

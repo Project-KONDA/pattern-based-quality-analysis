@@ -10,6 +10,8 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
+import qualitypatternmodel.adaptionxml.PropertyLocation;
+import qualitypatternmodel.adaptionxml.XMLProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -28,10 +30,19 @@ public class Test08Comparison {
 		for (PropertyLocation pl : PropertyLocation.VALUES) {
 				for (ParameterValue parameter : getExampleInputs()) {
 					CompletePattern completePattern = Test00.getBasePattern();
-					completePattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.EQUAL, parameter);
-					completePattern.getGraph().getReturnElements().get(0).addPrimitiveComparison(pl, "something", ComparisonOperator.NOTEQUAL, parameter);
-					completePatterns.add(completePattern);
-				
+					completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.EQUAL, parameter);
+					completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.NOTEQUAL, parameter);
+					
+					completePattern.createXMLAdaption();
+					
+					XMLProperty property = (XMLProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0);
+					property.getAttributeName().setValue("prop");
+					property.getOption().getOptions().add(pl);
+					property.getOption().setValue(pl);
+					
+					completePattern.finalizeXMLAdaption();
+					
+					completePatterns.add(completePattern);				
 			}
 		}
 
@@ -71,15 +82,19 @@ public class Test08Comparison {
 		return parameters;
 	}
 
-	public static CompletePattern getPrimCondPattern(PropertyLocation pl, LogicalOperator op, ParameterValue parameter) {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-
-		CompletePattern completePattern = Test00.getBasePattern();
-		Element ret = completePattern.getGraph().getReturnElements().get(0);
-		ret.addPrimitiveComparison(parameter);
-		return completePattern;
-	}
+//	public static CompletePattern getPrimCondPattern(PropertyLocation pl, LogicalOperator op, ParameterValue parameter) {
+//		PatternstructurePackage.eINSTANCE.eClass();
+//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+//
+//		CompletePattern completePattern = Test00.getBasePattern();
+//		Element ret = completePattern.getGraph().getElements().get(0);
+//		ret.addPrimitiveComparison(parameter);
+//		
+//		completePattern.createXMLAdaption();
+//		completePattern.finalizeXMLAdaption();
+//		
+//		return completePattern;
+//	}
 
 	public static List<PatternTestPair> getTestPairs() {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();

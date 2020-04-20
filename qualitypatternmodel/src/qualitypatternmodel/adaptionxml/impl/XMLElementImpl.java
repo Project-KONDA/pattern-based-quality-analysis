@@ -204,7 +204,6 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 	
 	@Override
 	public void addPrimitiveComparison(String value) {
-		// TODO: move to XMLElement ?
 		Comparison comparison = new ComparisonImpl();		
 		try {			
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);

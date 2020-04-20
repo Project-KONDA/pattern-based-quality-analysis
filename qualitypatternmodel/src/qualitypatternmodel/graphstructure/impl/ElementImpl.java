@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionxml.PropertyLocation;
 import qualitypatternmodel.adaptionxml.XMLElement;
 import qualitypatternmodel.adaptionxml.XMLRoot;
 import qualitypatternmodel.adaptionxml.impl.XMLElementImpl;
@@ -1414,8 +1413,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETERVALUE:
-				addPrimitiveComparison((PropertyLocation)arguments.get(0), (String)arguments.get(1), (ComparisonOperator)arguments.get(2), (ParameterValue)arguments.get(3));
+			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE:
+				addPrimitiveComparison((ComparisonOperator)arguments.get(0), (ParameterValue)arguments.get(1));
 				return null;
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE:
 				addPrimitiveComparison((ParameterValue)arguments.get(0));
@@ -1606,27 +1605,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@Override
 	public void addPrimitiveComparison(ParameterValue parameter) {
 		// TODO: move to XMLElement ?
-//		Comparison comparison = new ComparisonImpl();
-//		try {			
-//			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-//			ParameterList varlist = completePattern.getParameterList();
-//			Graph graph = (Graph) getAncestor(Graph.class);
-//			OperatorList oplist = graph.getOperatorList();
-//			
-//			Property property = new PropertyImpl();			
-//			getProperties().add(property);
-//			property.createParameters();
-//			property.getOption().setValue(PropertyLocation.TAG);
-//			
-//			varlist.add(parameter);
-//	
-//			oplist.add(comparison);	
-//			comparison.createParameters();
-//			comparison.setArgument1(property);
-//			comparison.setArgument2(parameter);			
-//		} catch (Exception e) {
-//			System.out.println("Adding Condition Failed: " + e.getMessage());
-//		}
 		
 		addPrimitiveComparison().concretize(parameter);
 	}
@@ -1637,7 +1615,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveComparison(PropertyLocation property, String attr, ComparisonOperator operator, ParameterValue parameter) {
+	public void addPrimitiveComparison(ComparisonOperator operator, ParameterValue parameter) {
 		// TODO: move to XMLElement ?
 		Comparison comparison = new ComparisonImpl();
 		try {		

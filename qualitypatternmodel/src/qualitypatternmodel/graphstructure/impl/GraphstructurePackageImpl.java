@@ -582,7 +582,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_ParameterValue() {
+	public EOperation getElement__AddPrimitiveComparison__ComparisonOperator_ParameterValue() {
 		return elementEClass.getEOperations().get(12);
 	}
 
@@ -977,7 +977,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_MATCH);
 		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON);
 		createEOperation(elementEClass, ELEMENT___GET_ALL_OPERATORS);
-		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON__PROPERTYLOCATION_STRING_COMPARISONOPERATOR_PARAMETERVALUE);
+		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE);
 		createEOperation(elementEClass, ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE);
 		createEOperation(elementEClass, ELEMENT___CLEAR_COMPARISON_RECURSIVELY);
 		createEOperation(elementEClass, ELEMENT___CLEAR_PROPERTY_RECURSIVELY);
@@ -1136,9 +1136,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getElement__GetAllOperators(), theOperatorsPackage.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getElement__AddPrimitiveComparison__PropertyLocation_String_ComparisonOperator_ParameterValue(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theAdaptionxmlPackage.getPropertyLocation(), "property", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "attr", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getElement__AddPrimitiveComparison__ComparisonOperator_ParameterValue(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatorsPackage.getComparisonOperator(), "operator", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getParameterValue(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
 
