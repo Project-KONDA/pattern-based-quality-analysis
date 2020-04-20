@@ -578,7 +578,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if(!(this instanceof XMLNavigation)) {
 			XMLNavigation navigation = new XMLNavigationImpl();
 			navigation.setGraphSimple(getGraph());
-			navigation.createParameters();
+			if(getMappingFrom() == null) {
+				navigation.createParameters();
+			}
 			navigation.setSource(getSource());
 			navigation.setTarget(getTarget());
 			setSource(null);

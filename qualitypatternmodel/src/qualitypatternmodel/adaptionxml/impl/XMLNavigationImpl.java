@@ -220,7 +220,7 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 	
 	@Override
 	public NotificationChain basicSetMappingFrom(RelationMapping newMappingFrom, NotificationChain msgs) {
-		if (newMappingFrom != null) {
+		if (newMappingFrom != null) { // TODO: remove?
 			removeParametersFromParameterList();
 			setOption(null);
 		}
