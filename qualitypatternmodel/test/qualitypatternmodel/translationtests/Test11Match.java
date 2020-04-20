@@ -35,9 +35,9 @@ public class Test11Match {
 	
 	public static CompletePattern getPatternMatch(Boolean invert, String str) {
 		CompletePattern pattern = Test00.getBasePattern();
-		pattern.getGraph().getReturnElements().get(0).addPrimitiveMatch(str);
+		pattern.getGraph().getElements().get(0).addPrimitiveMatch(str);
 		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
-		match.getOption().setValue(false);
+		match.getOption().setValue(invert);
 		pattern.createXMLAdaption();
 		pattern.finalizeXMLAdaption();
 		return pattern;		

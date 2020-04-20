@@ -1667,7 +1667,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			Match match = new MatchImpl();
 			try {			
 				CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-				ParameterList varlist = completePattern.getParameterList();
+//				ParameterList varlist = completePattern.getParameterList();
 				Graph graph = (Graph) getAncestor(Graph.class);
 				OperatorList oplist = graph.getOperatorList();
 				

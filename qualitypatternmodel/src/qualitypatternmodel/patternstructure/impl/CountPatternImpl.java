@@ -197,7 +197,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetCountCondition1(CountCondition newCountCondition1, NotificationChain msgs) {
+	public NotificationChain basicSetCountCondition(CountCondition newCountCondition1, NotificationChain msgs) {
 		getMorphism().setFrom(null);
 		getMorphism().setTo(getGraph());
 		getMorphism().removeDanglingMappingReference();		
@@ -283,16 +283,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	public CountCondition getCountCondition() {
 		if (eContainerFeatureID() != PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION) return null;
 		return (CountCondition)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCountCondition(CountCondition newCountCondition, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newCountCondition, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION, msgs);
-		return msgs;
 	}
 
 	/**

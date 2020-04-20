@@ -214,7 +214,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetCountPattern(CountPattern newCountPattern, NotificationChain msgs) {
-		newCountPattern.updateParameters(getCountPattern().getParameterList());
+		if(newCountPattern != null) {
+			newCountPattern.updateParameters(newCountPattern.getParameterList());
+		}
 		CountPattern oldCountPattern = countPattern;
 		countPattern = newCountPattern;
 		if (eNotificationRequired()) {
