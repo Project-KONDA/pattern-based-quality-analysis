@@ -15,8 +15,7 @@ public class Test02Return {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternMultipleReturnNavigation());
-		completePatterns.add(getPatternMultipleReturnNestedReference());
-//		completePatterns.add(getPatternLateReturn());
+		completePatterns.add(getPatternMultipleReturnReference());
 
 		Test00.test(completePatterns);
 	}
@@ -44,7 +43,7 @@ public class Test02Return {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternMultipleReturnNestedReference() {
+	public static CompletePattern getPatternMultipleReturnReference() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 			
@@ -67,28 +66,11 @@ public class Test02Return {
 				
 		return completePattern;
 	}
-
-//	public static CompletePattern getPatternLateReturn() {
-//		GraphstructurePackage.eINSTANCE.eClass();
-//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-//			
-//		CompletePattern completePattern = Test00.getBasePattern();
-//		Graph return_graph = completePattern.getGraph();
-//		
-//		Element return2 = graphFactory.createElement();
-//		EList<Element> return_elements = return_graph.getReturnElements();
-//		return_elements.get(0).getNextElements().add(return2);
-//		return_elements.remove(0);
-//		return_elements.add(return2);
-//		
-//		return completePattern;
-//	}
 	
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		testPairs.add(new PatternTestPair("MULRETNAV", 	getPatternMultipleReturnNavigation(), 		""));
-		testPairs.add(new PatternTestPair("MULRETREF", getPatternMultipleReturnNestedReference(), 	""));
-//		testPairs.add(new PatternTestPair("LATERET", 	getPatternLateReturn(), 			""));
+		testPairs.add(new PatternTestPair("MULRETREF", getPatternMultipleReturnReference(), 	""));
 		// ...
 		return testPairs;		
 	}

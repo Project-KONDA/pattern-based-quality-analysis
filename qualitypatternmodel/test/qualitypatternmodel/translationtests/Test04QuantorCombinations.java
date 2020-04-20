@@ -16,9 +16,9 @@ public class Test04QuantorCombinations {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternExistsInExistsFinal());
-//		completePatterns.add(getPatternForallInExists());
-//		completePatterns.add(getPatternExistsInForall());
-//		completePatterns.add(getPatternForallInForall());
+		completePatterns.add(getPatternForallInExists());
+		completePatterns.add(getPatternExistsInForall());
+		completePatterns.add(getPatternForallInForall());
 
 		Test00.test(completePatterns);
 	}

@@ -23,15 +23,15 @@ public class Test09ComplexComparison {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternSelfTwoProps());
-//		completePatterns.add(getPatternTwoProps());
-//		completePatterns.add(getPatternTwoEs());
-//		completePatterns.add(getPatternTwoOps()); // TODO
+		completePatterns.add(getPatternSelfTwoProperties());
+		completePatterns.add(getPatternTwoProperties());
+		completePatterns.add(getPatternTwoElements());
+		completePatterns.add(getPatternTwoOperators());
 		
 		Test00.test(completePatterns);
 	}
 	
-	public static CompletePattern getPatternSelfTwoProps() {
+	public static CompletePattern getPatternSelfTwoProperties() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		OperatorsPackage.eINSTANCE.eClass();
@@ -48,12 +48,8 @@ public class Test09ComplexComparison {
 		completePattern.getGraph().getOperatorList().add(comp);
 		comp.createParameters();
 		ret.getProperties().add(p1);
-//		p1.createParameters();
 		ret.getProperties().add(p2);
-//		p2.createParameters();
-		
-//		p1.getOption().setValue(PropertyLocation.TAG);
-		
+			
 		comp.setArgument1(p1);
 		comp.setArgument2(p2);
 		comp.setType(ReturnType.STRING);
@@ -64,56 +60,73 @@ public class Test09ComplexComparison {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternTwoProps() {
+	public static CompletePattern getPatternTwoProperties() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		FunctionsPackage.eINSTANCE.eClass();
-		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
+		OperatorsPackage.eINSTANCE.eClass();
+		OperatorsFactory operatorsFactory = OperatorsFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test00.getBasePattern();
-		Element ret = completePattern.getGraph().getReturnElements().get(0);
+		Element ret = completePattern.getGraph().getElements().get(0);
 
 		Element se1 = graphFactory.createElement();
+		se1.setGraph(completePattern.getGraph());
+		Relation relation = graphFactory.createRelation();
+		relation.setGraph(completePattern.getGraph());
+		relation.setSource(ret);
+		relation.setTarget(se1);
+		
 		Element se2 = graphFactory.createElement();
-
-		ret.getNextElements().add(se1);
-		ret.getNextElements().add(se2);
+		se2.setGraph(completePattern.getGraph());
+		Relation relation2 = graphFactory.createRelation();
+		relation2.setGraph(completePattern.getGraph());
+		relation2.setSource(ret);
+		relation2.setTarget(se2);
 		
 		Property p1 = graphFactory.createProperty();
 		Property p2 = graphFactory.createProperty();
 		
-		Comparison comp = functionFactory.createComparison();
+		Comparison comp = operatorsFactory.createComparison();
 		
 		completePattern.getGraph().getOperatorList().add(comp);
 		comp.createParameters();
 		se1.getProperties().add(p1);
-		p1.createParameters();
 		se2.getProperties().add(p2);
-		p2.createParameters();
-		
-		p1.getOption().setValue(PropertyLocation.TAG);
-		
+				
 		comp.setArgument1(p1);
 		comp.setArgument2(p2);
 		comp.setType(ReturnType.STRING);
+		
+		completePattern.createXMLAdaption();
+		completePattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		completePattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		completePattern.finalizeXMLAdaption();
 
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternTwoEs() {
+	public static CompletePattern getPatternTwoElements() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		FunctionsPackage.eINSTANCE.eClass();
-		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
+		OperatorsPackage.eINSTANCE.eClass();
+		OperatorsFactory functionFactory = OperatorsFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test00.getBasePattern();
-		Element ret = completePattern.getGraph().getReturnElements().get(0);
+		Element ret = completePattern.getGraph().getElements().get(0);
 
 		Element se1 = graphFactory.createElement();
+		se1.setGraph(completePattern.getGraph());
+		Relation relation = graphFactory.createRelation();
+		relation.setGraph(completePattern.getGraph());
+		relation.setSource(ret);
+		relation.setTarget(se1);
+		
 		Element se2 = graphFactory.createElement();
-
-		ret.getNextElements().add(se1);
-		ret.getNextElements().add(se2);
+		se2.setGraph(completePattern.getGraph());
+		Relation relation2 = graphFactory.createRelation();
+		relation2.setGraph(completePattern.getGraph());
+		relation2.setSource(ret);
+		relation2.setTarget(se2);
 		
 		Comparison comp = functionFactory.createComparison();
 		
@@ -122,30 +135,32 @@ public class Test09ComplexComparison {
 		comp.setArgument1(se1);
 		comp.setArgument2(se2);
 		
+		completePattern.createXMLAdaption();
+		completePattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		completePattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		completePattern.finalizeXMLAdaption();
+		
 		return completePattern;
 	}	
 
-	public static CompletePattern getPatternTwoOps() {
-		FunctionsPackage.eINSTANCE.eClass();
-		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
+	public static CompletePattern getPatternTwoOperators() {
+		OperatorsPackage.eINSTANCE.eClass();
+		OperatorsFactory functionFactory = OperatorsFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory inputsFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test00.getBasePattern();
 		ParameterList varlist = completePattern.getParameterList();
 		OperatorList oplist = completePattern.getGraph().getOperatorList();
-		Element se = completePattern.getGraph().getReturnElements().get(0);
-		
-//		TextLiteralParam tl = inputsFactory.createTextLiteralParam();
-//		tl.setValue("a");
+		Element se = completePattern.getGraph().getElements().get(0);
+
 		TextLiteralParam tl2 = inputsFactory.createTextLiteralParam();
 		tl2.setValue("a");
 		TextLiteralParam tl3 = inputsFactory.createTextLiteralParam();
-		tl3.setValue("a");
+		tl3.setValue("b");
 		TextLiteralParam tl4 = inputsFactory.createTextLiteralParam();
-		tl4.setValue("a");
+		tl4.setValue("c");
 
-//		varlist.add(tl);
 		varlist.add(tl2);
 		varlist.add(tl3);
 		varlist.add(tl4);
@@ -160,7 +175,7 @@ public class Test09ComplexComparison {
 		oplist.add(comp2);		
 		comp2.createParameters();
 		
-		se.getPredicates().add(comp0);
+//		se.getPredicates().add(comp0);
 		comp0.setArgument1(comp1);
 		comp0.setArgument2(comp2);
 
@@ -169,16 +184,15 @@ public class Test09ComplexComparison {
 		comp2.setArgument1(tl3);
 		comp2.setArgument2(tl4);
 		
+		completePattern.createXMLAdaption();
+		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern;		
-	}
-	
-	
-	
+	}	
 
 	public static List<PatternTestPair> getTestPairs() {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-
+		// TODO
 		return testPairs;
 	}
 

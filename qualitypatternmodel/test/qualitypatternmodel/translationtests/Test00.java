@@ -7,34 +7,13 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
-import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
-import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XMLElement;
-import qualitypatternmodel.adaptionxml.XMLNavigation;
-import qualitypatternmodel.adaptionxml.XMLRoot;
-import qualitypatternmodel.adaptionxml.impl.XMLElementImpl;
-import qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl;
-import qualitypatternmodel.adaptionxml.impl.XMLRootImpl;
 import qualitypatternmodel.exceptions.*;
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
-
-//import qualitypatternmodel.patternstructure.*;
-//import qualitypatternmodel.patternstructure.impl.*;
-//import qualitypatternmodel.graphstructure.*;
-//import qualitypatternmodel.graphstructure.impl.*;
-//import qualitypatternmodel.functions.*;
-//import qualitypatternmodel.functions.impl.*;
-//import qualitypatternmodel.inputfields.*;
-//import qualitypatternmodel.inputfields.impl.*;
-//import qualitypatternmodel.exceptions.*;
 
 public class Test00 {
 	

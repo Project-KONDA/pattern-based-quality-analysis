@@ -22,13 +22,8 @@ public class Test01Axis {
 
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		PatternstructurePackage.eINSTANCE.eClass();
-//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-//		GraphstructurePackage.eINSTANCE.eClass();
-//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		completePatterns.add(Test00.getBasePattern()); // child
 		
 		for (Axis ax : Axis.VALUES) {
 			completePatterns.add(getBasePatternAxisRoot(ax));
@@ -50,13 +45,7 @@ public class Test01Axis {
 		return completePattern;
 	}
 	
-	public static CompletePattern getBasePatternAxisNotRoot(Axis axis) {
-//		ParametersPackage.eINSTANCE.eClass();
-//		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
-		AdaptionxmlPackage.eINSTANCE.eClass();
-		AdaptionxmlFactory xmlFactory = AdaptionxmlFactory.eINSTANCE;
-		
+	public static CompletePattern getBasePatternAxisNotRoot(Axis axis) {		
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
