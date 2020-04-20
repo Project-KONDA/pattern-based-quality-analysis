@@ -562,4 +562,14 @@ public class XMLPropertyImpl extends PropertyImpl implements XMLProperty {
 		return super.eIsSet(featureID);
 	}
 
+	
+
+	@Override
+	public String myToString() {
+		String res = super.myToString() + " ";
+		res += getOption().getValue().getLiteral();
+		res += " ('" + getAttributeName().getValue() + "' (" + getAttributeName().getInternalId() + "))";
+		return res;
+	}
+
 } //XMLPropertyImpl

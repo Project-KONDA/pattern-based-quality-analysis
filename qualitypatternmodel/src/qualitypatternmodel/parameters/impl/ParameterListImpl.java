@@ -338,7 +338,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 		if (getParameters().size() > 0) {
 			String res = "\nParameterList " + getInternalId();
 			for (Parameter parameter : getParameters()) {
-				res += "\n- " + parameter.myToString();
+				res += "\n  : " + parameter.myToString();
 			}
 			return res;
 		}

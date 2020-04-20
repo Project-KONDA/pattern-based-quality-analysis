@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
-import org.graalvm.graphio.GraphStructure;
+//import org.graalvm.graphio.GraphStructure;
 
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;

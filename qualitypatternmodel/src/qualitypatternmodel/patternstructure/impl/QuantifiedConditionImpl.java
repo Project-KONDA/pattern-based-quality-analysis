@@ -759,12 +759,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public String myToString() {
 		String res = getQuantifier().getLiteral() + " " + getInternalId();
-		res += "\n: " + getGraph().myToString().replace("\n", "\n: ");
-		res += "\n: " + getMorphism().myToString().replace("\n", "\n: ");
+		res += "\n  : " + getGraph().myToString().replace("\n", "\n  | ");
+		res += "\n  : " + getMorphism().myToString().replace("\n", "\n  | ");
 //		if(getCountCondition() != null) {
 //			res += "\n: included " + getCountCondition().myToString().replace("\n", "\n: ");
 //		}
-		res += "\n: " + getCondition().myToString().replace("\n", "\n: ");
+		res += "\n  : " + getCondition().myToString().replace("\n", "\n  | ");
 		return res;
 	}
 
