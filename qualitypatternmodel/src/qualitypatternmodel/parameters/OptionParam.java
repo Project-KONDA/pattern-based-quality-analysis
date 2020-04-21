@@ -4,8 +4,8 @@ package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.adaptionxml.XMLNavigation;
-import qualitypatternmodel.adaptionxml.XMLProperty;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.patternstructure.CountCondition;
 
@@ -66,17 +66,17 @@ public interface OptionParam<T> extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XMLProperty#getOptionParam <em>Option Param</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOptionParam <em>Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property</em>' reference.
-	 * @see #setProperty(XMLProperty)
+	 * @see #setProperty(XmlProperty)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getOptionParam_Property()
-	 * @see qualitypatternmodel.adaptionxml.XMLProperty#getOptionParam
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getOptionParam
 	 * @model opposite="optionParam"
 	 * @generated
 	 */
-	XMLProperty getProperty();
+	XmlProperty getProperty();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.parameters.OptionParam#getProperty <em>Property</em>}' reference.
@@ -86,21 +86,21 @@ public interface OptionParam<T> extends Parameter {
 	 * @see #getProperty()
 	 * @generated
 	 */
-	void setProperty(XMLProperty value);
+	void setProperty(XmlProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Relation</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XMLNavigation#getOptionParam <em>Option Param</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOptionParam <em>Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Relation</em>' reference.
-	 * @see #setRelation(XMLNavigation)
+	 * @see #setRelation(XmlNavigation)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getOptionParam_Relation()
-	 * @see qualitypatternmodel.adaptionxml.XMLNavigation#getOptionParam
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getOptionParam
 	 * @model opposite="optionParam"
 	 * @generated
 	 */
-	XMLNavigation getRelation();
+	XmlNavigation getRelation();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.parameters.OptionParam#getRelation <em>Relation</em>}' reference.
@@ -110,7 +110,7 @@ public interface OptionParam<T> extends Parameter {
 	 * @see #getRelation()
 	 * @generated
 	 */
-	void setRelation(XMLNavigation value);
+	void setRelation(XmlNavigation value);
 
 	/**
 	 * Returns the value of the '<em><b>Comparison</b></em>' reference list.

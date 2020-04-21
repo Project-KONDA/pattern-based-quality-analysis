@@ -10,9 +10,9 @@ import qualitypatternmodel.graphstructure.Element;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXMLRoot()
+ * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlRoot()
  * @model
  * @generated
  */
-public interface XMLRoot extends Element {
+public interface XmlRoot extends Element {
 } // XMLRoot

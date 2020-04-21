@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XMLElement;
+import qualitypatternmodel.adaptionxml.XmlElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public class AdaptionxmlExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.adaptionxml"));
-				XMLElement root = AdaptionxmlFactory.eINSTANCE.createXMLElement();
+				XmlElement root = AdaptionxmlFactory.eINSTANCE.createXmlElement();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

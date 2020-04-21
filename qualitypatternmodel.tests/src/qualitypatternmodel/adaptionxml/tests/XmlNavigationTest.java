@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionxml.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
-import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 
 import qualitypatternmodel.graphstructure.tests.RelationTest;
 
@@ -15,7 +15,7 @@ import qualitypatternmodel.graphstructure.tests.RelationTest;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XMLNavigationTest extends RelationTest {
+public class XmlNavigationTest extends RelationTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -23,28 +23,28 @@ public class XMLNavigationTest extends RelationTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(XMLNavigationTest.class);
+		TestRunner.run(XmlNavigationTest.class);
 	}
 
 	/**
-	 * Constructs a new XML Navigation test case with the given name.
+	 * Constructs a new Xml Navigation test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLNavigationTest(String name) {
+	public XmlNavigationTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this XML Navigation test case.
+	 * Returns the fixture for this Xml Navigation test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected XMLNavigation getFixture() {
-		return (XMLNavigation)fixture;
+	protected XmlNavigation getFixture() {
+		return (XmlNavigation)fixture;
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class XMLNavigationTest extends RelationTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionxmlFactory.eINSTANCE.createXMLNavigation());
+		setFixture(AdaptionxmlFactory.eINSTANCE.createXmlNavigation());
 	}
 
 	/**

@@ -42,7 +42,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="#//adaptionxml/PropertyKind"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#//adaptionxml/XMLProperty" eOpposite="#//adaptionxml/XMLProperty/option"/>
+          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterList" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="add">
@@ -73,7 +73,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
           eType="#//operators/Match" eOpposite="#//operators/Match/regularExpression"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#//adaptionxml/XMLProperty" eOpposite="#//adaptionxml/XMLProperty/attributeName"/>
+          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/attributeName"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
@@ -105,7 +105,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="#//adaptionxml/RelationKind"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
-          eType="#//adaptionxml/XMLNavigation" eOpposite="#//adaptionxml/XMLNavigation/option"/>
+          eType="#//adaptionxml/XmlNavigation" eOpposite="#//adaptionxml/XmlNavigation/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OptionParam" eSuperTypes="#//parameters/Parameter">
       <eTypeParameters name="T"/>
@@ -115,10 +115,10 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1">
         <eGenericType eTypeParameter="#//parameters/OptionParam/T"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//adaptionxml/XMLProperty"
-          eOpposite="#//adaptionxml/XMLProperty/optionParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="relation" eType="#//adaptionxml/XMLNavigation"
-          eOpposite="#//adaptionxml/XMLNavigation/optionParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//adaptionxml/XmlProperty"
+          eOpposite="#//adaptionxml/XmlProperty/optionParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relation" eType="#//adaptionxml/XmlNavigation"
+          eOpposite="#//adaptionxml/XmlNavigation/optionParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comparison" upperBound="-1"
           eType="#//operators/Comparison" eOpposite="#//operators/Comparison/optionParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" eType="#//patternstructure/CountCondition"
@@ -215,8 +215,8 @@
       <eOperations name="copyToNewNextGraphs">
         <eParameters name="newRelationTo" eType="#//graphstructure/Element"/>
       </eOperations>
-      <eOperations name="adaptAsXMLNavigation" eType="#//adaptionxml/XMLNavigation"/>
-      <eOperations name="adaptAsXMLReference" eType="#//adaptionxml/XMLReference"/>
+      <eOperations name="adaptAsXMLNavigation" eType="#//adaptionxml/XmlNavigation"/>
+      <eOperations name="adaptAsXMLReference" eType="#//adaptionxml/XmlReference"/>
       <eOperations name="setGraphSimple">
         <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
       </eOperations>
@@ -555,7 +555,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionxml" nsURI="adaptionxml" nsPrefix="adaptionxml">
-    <eClassifiers xsi:type="ecore:EClass" name="XMLElement" eSuperTypes="#//graphstructure/Element">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//graphstructure/Element">
       <eOperations name="getXQueryRepresentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="location" eType="#//patternstructure/Location"/>
@@ -566,22 +566,22 @@
         <eParameters name="location" eType="#//patternstructure/Location"/>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="XMLNavigation" eSuperTypes="#//graphstructure/Relation">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" eSuperTypes="#//graphstructure/Relation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/RelationOptionParam"
           eOpposite="#//parameters/RelationOptionParam/relations"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" eType="#//parameters/OptionParam"
           eOpposite="#//parameters/OptionParam/relation"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="XMLReference" eSuperTypes="#//graphstructure/Relation">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlReference" eSuperTypes="#//graphstructure/Relation">
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" lowerBound="1"
-          eType="#//adaptionxml/XMLProperty"/>
+          eType="#//adaptionxml/XmlProperty"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" lowerBound="1"
-          eType="#//adaptionxml/XMLProperty"/>
+          eType="#//adaptionxml/XmlProperty"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="XMLProperty" eSuperTypes="#//graphstructure/Property">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/Property">
       <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" eType="#//parameters/OptionParam"
           eOpposite="#//parameters/OptionParam/property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/PropertyOptionParam"
@@ -610,6 +610,6 @@
       <eLiterals name="THREECHILD" value="12" literal="/child::*/child::*/child::*"/>
       <eLiterals name="FOURCHILD" value="13" literal="/child::*/child::*/child::*/child::*"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="XMLRoot" eSuperTypes="#//graphstructure/Element"/>
+    <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/Element"/>
   </eSubpackages>
 </ecore:EPackage>

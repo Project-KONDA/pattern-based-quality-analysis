@@ -22,49 +22,49 @@ public interface AdaptionxmlFactory extends EFactory {
 	AdaptionxmlFactory eINSTANCE = qualitypatternmodel.adaptionxml.impl.AdaptionxmlFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>XML Element</em>'.
+	 * Returns a new object of class '<em>Xml Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>XML Element</em>'.
+	 * @return a new object of class '<em>Xml Element</em>'.
 	 * @generated
 	 */
-	XMLElement createXMLElement();
+	XmlElement createXmlElement();
 
 	/**
-	 * Returns a new object of class '<em>XML Navigation</em>'.
+	 * Returns a new object of class '<em>Xml Navigation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>XML Navigation</em>'.
+	 * @return a new object of class '<em>Xml Navigation</em>'.
 	 * @generated
 	 */
-	XMLNavigation createXMLNavigation();
+	XmlNavigation createXmlNavigation();
 
 	/**
-	 * Returns a new object of class '<em>XML Reference</em>'.
+	 * Returns a new object of class '<em>Xml Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>XML Reference</em>'.
+	 * @return a new object of class '<em>Xml Reference</em>'.
 	 * @generated
 	 */
-	XMLReference createXMLReference();
+	XmlReference createXmlReference();
 
 	/**
-	 * Returns a new object of class '<em>XML Property</em>'.
+	 * Returns a new object of class '<em>Xml Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>XML Property</em>'.
+	 * @return a new object of class '<em>Xml Property</em>'.
 	 * @generated
 	 */
-	XMLProperty createXMLProperty();
+	XmlProperty createXmlProperty();
 
 	/**
-	 * Returns a new object of class '<em>XML Root</em>'.
+	 * Returns a new object of class '<em>Xml Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>XML Root</em>'.
+	 * @return a new object of class '<em>Xml Root</em>'.
 	 * @generated
 	 */
-	XMLRoot createXMLRoot();
+	XmlRoot createXmlRoot();
 
 	/**
 	 * Returns the package supported by this factory.

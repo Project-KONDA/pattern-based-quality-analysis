@@ -13,26 +13,26 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import qualitypatternmodel.adaptionxml.XMLRoot;
+import qualitypatternmodel.adaptionxml.XmlElement;
 
 import qualitypatternmodel.graphstructure.provider.ElementItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XMLRoot} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XmlElement} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class XMLRootItemProvider extends ElementItemProvider {
+public class XmlElementItemProvider extends ElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLRootItemProvider(AdapterFactory adapterFactory) {
+	public XmlElementItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -52,14 +52,14 @@ public class XMLRootItemProvider extends ElementItemProvider {
 	}
 
 	/**
-	 * This returns XMLRoot.gif.
+	 * This returns XmlElement.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XMLRoot"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XmlElement"));
 	}
 
 	/**
@@ -70,10 +70,10 @@ public class XMLRootItemProvider extends ElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XMLRoot)object).getName();
+		String label = ((XmlElement)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XMLRoot_type") :
-			getString("_UI_XMLRoot_type") + " " + label;
+			getString("_UI_XmlElement_type") :
+			getString("_UI_XmlElement_type") + " " + label;
 	}
 
 

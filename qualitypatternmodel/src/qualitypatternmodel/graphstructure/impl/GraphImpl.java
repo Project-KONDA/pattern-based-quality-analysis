@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionxml.XMLElement;
-import qualitypatternmodel.adaptionxml.XMLNavigation;
-import qualitypatternmodel.adaptionxml.XMLRoot;
-import qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl;
-import qualitypatternmodel.adaptionxml.impl.XMLRootImpl;
+import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlRoot;
+import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlRootImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -149,7 +149,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public String generateQuery(Location location) throws InvalidityException {
 		String result = "";
 		for(Element element : getElements()) {
-			if(element instanceof XMLRoot) {
+			if(element instanceof XmlRoot) {
 				result += element.generateQuery(location);
 			}
 		}
@@ -176,7 +176,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			throw new InvalidityException("operatorList null (" + getInternalId() + ")");
 		boolean rootExists = false;
 		for(Element element : getElements()) {
-			if(element instanceof XMLRoot) {
+			if(element instanceof XmlRoot) {
 				rootExists = true;
 			}
 		}
@@ -202,26 +202,26 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	@Override
 	public void finalizeXMLAdaption() {
-		XMLRoot root = null;
+		XmlRoot root = null;
 		for(Element element : getElements()) {
-			if(element instanceof XMLRoot) {
-				root = (XMLRoot) element;
+			if(element instanceof XmlRoot) {
+				root = (XmlRoot) element;
 			}
 		}
 		if(root == null) {	
-			root = new XMLRootImpl();
+			root = new XmlRootImpl();
 			root.setGraphSimple(this);	
 		}
 		for(Element element : getElements()) {
-			if(element instanceof XMLElement) {
+			if(element instanceof XmlElement) {
 				boolean hasIncomingNavigation = false;
 				for(Relation relation : element.getIncoming()) {
-					if(relation instanceof XMLNavigation) {
+					if(relation instanceof XmlNavigation) {
 						hasIncomingNavigation = true;
 					}
 				}
 				if(!hasIncomingNavigation) {				
-					XMLNavigation navigation = new XMLNavigationImpl();					
+					XmlNavigation navigation = new XmlNavigationImpl();					
 					navigation.setGraphSimple(this);
 					navigation.createParameters();					
 					navigation.setSource(root);

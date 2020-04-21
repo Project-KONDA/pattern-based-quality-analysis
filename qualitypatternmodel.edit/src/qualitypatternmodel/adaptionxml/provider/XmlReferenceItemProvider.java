@@ -17,26 +17,26 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XMLReference;
+import qualitypatternmodel.adaptionxml.XmlReference;
 
 import qualitypatternmodel.graphstructure.provider.RelationItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XMLReference} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XmlReference} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class XMLReferenceItemProvider extends RelationItemProvider {
+public class XmlReferenceItemProvider extends RelationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLReferenceItemProvider(AdapterFactory adapterFactory) {
+	public XmlReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,8 +69,8 @@ public class XMLReferenceItemProvider extends RelationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XMLReference_sourceProperty_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XMLReference_sourceProperty_feature", "_UI_XMLReference_type"),
+				 getString("_UI_XmlReference_sourceProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlReference_sourceProperty_feature", "_UI_XmlReference_type"),
 				 AdaptionxmlPackage.Literals.XML_REFERENCE__SOURCE_PROPERTY,
 				 true,
 				 false,
@@ -91,8 +91,8 @@ public class XMLReferenceItemProvider extends RelationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XMLReference_targetProperty_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XMLReference_targetProperty_feature", "_UI_XMLReference_type"),
+				 getString("_UI_XmlReference_targetProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlReference_targetProperty_feature", "_UI_XmlReference_type"),
 				 AdaptionxmlPackage.Literals.XML_REFERENCE__TARGET_PROPERTY,
 				 true,
 				 false,
@@ -113,8 +113,8 @@ public class XMLReferenceItemProvider extends RelationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XMLReference_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XMLReference_type_feature", "_UI_XMLReference_type"),
+				 getString("_UI_XmlReference_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlReference_type_feature", "_UI_XmlReference_type"),
 				 AdaptionxmlPackage.Literals.XML_REFERENCE__TYPE,
 				 true,
 				 false,
@@ -125,14 +125,14 @@ public class XMLReferenceItemProvider extends RelationItemProvider {
 	}
 
 	/**
-	 * This returns XMLReference.gif.
+	 * This returns XmlReference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XMLReference"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XmlReference"));
 	}
 
 	/**
@@ -143,10 +143,10 @@ public class XMLReferenceItemProvider extends RelationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XMLReference)object).getId();
+		String label = ((XmlReference)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XMLReference_type") :
-			getString("_UI_XMLReference_type") + " " + label;
+			getString("_UI_XmlReference_type") :
+			getString("_UI_XmlReference_type") + " " + label;
 	}
 
 
@@ -161,7 +161,7 @@ public class XMLReferenceItemProvider extends RelationItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(XMLReference.class)) {
+		switch (notification.getFeatureID(XmlReference.class)) {
 			case AdaptionxmlPackage.XML_REFERENCE__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

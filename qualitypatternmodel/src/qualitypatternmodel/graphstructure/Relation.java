@@ -3,8 +3,8 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.adaptionxml.XMLNavigation;
-import qualitypatternmodel.adaptionxml.XMLReference;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -169,7 +169,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @model
 	 * @generated
 	 */
-	XMLNavigation adaptAsXMLNavigation();
+	XmlNavigation adaptAsXMLNavigation();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -177,7 +177,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @model
 	 * @generated
 	 */
-	XMLReference adaptAsXMLReference();
+	XmlReference adaptAsXMLReference();
 
 	/**
 	 * <!-- begin-user-doc -->

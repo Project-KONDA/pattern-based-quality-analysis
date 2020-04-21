@@ -15,26 +15,26 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XMLProperty;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 
-import qualitypatternmodel.graphstructure.provider.PropertyItemProvider;
+import qualitypatternmodel.graphstructure.provider.RelationItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XMLProperty} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XmlNavigation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class XMLPropertyItemProvider extends PropertyItemProvider {
+public class XmlNavigationItemProvider extends RelationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLPropertyItemProvider(AdapterFactory adapterFactory) {
+	public XmlNavigationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -49,33 +49,10 @@ public class XMLPropertyItemProvider extends PropertyItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOptionParamPropertyDescriptor(object);
 			addOptionPropertyDescriptor(object);
-			addAttributeNamePropertyDescriptor(object);
+			addOptionParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Option Param feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOptionParamPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XMLProperty_optionParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XMLProperty_optionParam_feature", "_UI_XMLProperty_type"),
-				 AdaptionxmlPackage.Literals.XML_PROPERTY__OPTION_PARAM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -89,9 +66,9 @@ public class XMLPropertyItemProvider extends PropertyItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XMLProperty_option_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XMLProperty_option_feature", "_UI_XMLProperty_type"),
-				 AdaptionxmlPackage.Literals.XML_PROPERTY__OPTION,
+				 getString("_UI_XmlNavigation_option_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlNavigation_option_feature", "_UI_XmlNavigation_type"),
+				 AdaptionxmlPackage.Literals.XML_NAVIGATION__OPTION,
 				 true,
 				 false,
 				 true,
@@ -101,19 +78,19 @@ public class XMLPropertyItemProvider extends PropertyItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Attribute Name feature.
+	 * This adds a property descriptor for the Option Param feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAttributeNamePropertyDescriptor(Object object) {
+	protected void addOptionParamPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XMLProperty_attributeName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XMLProperty_attributeName_feature", "_UI_XMLProperty_type"),
-				 AdaptionxmlPackage.Literals.XML_PROPERTY__ATTRIBUTE_NAME,
+				 getString("_UI_XmlNavigation_optionParam_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlNavigation_optionParam_feature", "_UI_XmlNavigation_type"),
+				 AdaptionxmlPackage.Literals.XML_NAVIGATION__OPTION_PARAM,
 				 true,
 				 false,
 				 true,
@@ -123,14 +100,14 @@ public class XMLPropertyItemProvider extends PropertyItemProvider {
 	}
 
 	/**
-	 * This returns XMLProperty.gif.
+	 * This returns XmlNavigation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XMLProperty"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XmlNavigation"));
 	}
 
 	/**
@@ -141,10 +118,10 @@ public class XMLPropertyItemProvider extends PropertyItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XMLProperty)object).getId();
+		String label = ((XmlNavigation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XMLProperty_type") :
-			getString("_UI_XMLProperty_type") + " " + label;
+			getString("_UI_XmlNavigation_type") :
+			getString("_UI_XmlNavigation_type") + " " + label;
 	}
 
 

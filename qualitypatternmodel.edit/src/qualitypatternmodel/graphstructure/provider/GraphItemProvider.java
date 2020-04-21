@@ -251,12 +251,12 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__ELEMENTS,
-				 AdaptionxmlFactory.eINSTANCE.createXMLElement()));
+				 AdaptionxmlFactory.eINSTANCE.createXmlElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__ELEMENTS,
-				 AdaptionxmlFactory.eINSTANCE.createXMLRoot()));
+				 AdaptionxmlFactory.eINSTANCE.createXmlRoot()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -271,12 +271,12 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
-				 AdaptionxmlFactory.eINSTANCE.createXMLNavigation()));
+				 AdaptionxmlFactory.eINSTANCE.createXmlNavigation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
-				 AdaptionxmlFactory.eINSTANCE.createXMLReference()));
+				 AdaptionxmlFactory.eINSTANCE.createXmlReference()));
 	}
 
 	/**

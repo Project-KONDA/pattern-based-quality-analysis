@@ -31,11 +31,11 @@ public class AdaptionxmlTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new AdaptionxmlTests("adaptionxml Tests");
-		suite.addTestSuite(XMLElementTest.class);
-		suite.addTestSuite(XMLNavigationTest.class);
-		suite.addTestSuite(XMLReferenceTest.class);
-		suite.addTestSuite(XMLPropertyTest.class);
-		suite.addTestSuite(XMLRootTest.class);
+		suite.addTestSuite(XmlElementTest.class);
+		suite.addTestSuite(XmlNavigationTest.class);
+		suite.addTestSuite(XmlReferenceTest.class);
+		suite.addTestSuite(XmlPropertyTest.class);
+		suite.addTestSuite(XmlRootTest.class);
 		return suite;
 	}
 

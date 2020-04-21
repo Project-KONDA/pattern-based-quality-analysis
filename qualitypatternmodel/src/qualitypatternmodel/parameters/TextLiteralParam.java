@@ -4,7 +4,7 @@ package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.adaptionxml.XMLProperty;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.operators.Match;
 
 
@@ -66,16 +66,16 @@ public interface TextLiteralParam extends ParameterValue {
 
 	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XMLProperty}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XMLProperty#getAttributeName <em>Attribute Name</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlProperty}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlProperty#getAttributeName <em>Attribute Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Properties</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_Properties()
-	 * @see qualitypatternmodel.adaptionxml.XMLProperty#getAttributeName
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getAttributeName
 	 * @model opposite="attributeName"
 	 * @generated
 	 */
-	EList<XMLProperty> getProperties();
+	EList<XmlProperty> getProperties();
 
 } // TextLiteral

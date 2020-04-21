@@ -17,16 +17,16 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XMLProperty#getOptionParam <em>Option Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XMLProperty#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XMLProperty#getAttributeName <em>Attribute Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getOptionParam <em>Option Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getAttributeName <em>Attribute Name</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXMLProperty()
+ * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlProperty()
  * @model
  * @generated
  */
-public interface XMLProperty extends Property {
+public interface XmlProperty extends Property {
 	/**
 	 * Returns the value of the '<em><b>Option Param</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.OptionParam#getProperty <em>Property</em>}'.
@@ -34,7 +34,7 @@ public interface XMLProperty extends Property {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option Param</em>' reference.
 	 * @see #setOptionParam(OptionParam)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXMLProperty_OptionParam()
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlProperty_OptionParam()
 	 * @see qualitypatternmodel.parameters.OptionParam#getProperty
 	 * @model opposite="property"
 	 * @generated
@@ -42,7 +42,7 @@ public interface XMLProperty extends Property {
 	OptionParam getOptionParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XMLProperty#getOptionParam <em>Option Param</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOptionParam <em>Option Param</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Option Param</em>' reference.
@@ -58,7 +58,7 @@ public interface XMLProperty extends Property {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
 	 * @see #setOption(PropertyOptionParam)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXMLProperty_Option()
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlProperty_Option()
 	 * @see qualitypatternmodel.parameters.PropertyOptionParam#getProperties
 	 * @model opposite="properties"
 	 * @generated
@@ -66,7 +66,7 @@ public interface XMLProperty extends Property {
 	PropertyOptionParam getOption();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XMLProperty#getOption <em>Option</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOption <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Option</em>' reference.
@@ -82,7 +82,7 @@ public interface XMLProperty extends Property {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute Name</em>' reference.
 	 * @see #setAttributeName(TextLiteralParam)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXMLProperty_AttributeName()
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlProperty_AttributeName()
 	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperties
 	 * @model opposite="properties"
 	 * @generated
@@ -90,7 +90,7 @@ public interface XMLProperty extends Property {
 	TextLiteralParam getAttributeName();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XMLProperty#getAttributeName <em>Attribute Name</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlProperty#getAttributeName <em>Attribute Name</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Attribute Name</em>' reference.

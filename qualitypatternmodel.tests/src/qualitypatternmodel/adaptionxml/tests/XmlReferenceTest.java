@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionxml.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
-import qualitypatternmodel.adaptionxml.XMLReference;
+import qualitypatternmodel.adaptionxml.XmlReference;
 
 import qualitypatternmodel.graphstructure.tests.RelationTest;
 
@@ -16,12 +16,12 @@ import qualitypatternmodel.graphstructure.tests.RelationTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XMLReference#isTranslatable() <em>Is Translatable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#isTranslatable() <em>Is Translatable</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class XMLReferenceTest extends RelationTest {
+public class XmlReferenceTest extends RelationTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -29,28 +29,28 @@ public class XMLReferenceTest extends RelationTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(XMLReferenceTest.class);
+		TestRunner.run(XmlReferenceTest.class);
 	}
 
 	/**
-	 * Constructs a new XML Reference test case with the given name.
+	 * Constructs a new Xml Reference test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLReferenceTest(String name) {
+	public XmlReferenceTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this XML Reference test case.
+	 * Returns the fixture for this Xml Reference test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected XMLReference getFixture() {
-		return (XMLReference)fixture;
+	protected XmlReference getFixture() {
+		return (XmlReference)fixture;
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class XMLReferenceTest extends RelationTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionxmlFactory.eINSTANCE.createXMLReference());
+		setFixture(AdaptionxmlFactory.eINSTANCE.createXmlReference());
 	}
 
 	/**
@@ -76,10 +76,10 @@ public class XMLReferenceTest extends RelationTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XMLReference#isTranslatable() <em>Is Translatable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlReference#isTranslatable() <em>Is Translatable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XMLReference#isTranslatable()
+	 * @see qualitypatternmodel.adaptionxml.XmlReference#isTranslatable()
 	 * @generated
 	 */
 	public void testIsTranslatable() {

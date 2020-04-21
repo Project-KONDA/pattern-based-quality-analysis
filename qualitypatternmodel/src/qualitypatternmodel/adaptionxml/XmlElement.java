@@ -14,11 +14,11 @@ import qualitypatternmodel.patternstructure.Location;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXMLElement()
+ * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlElement()
  * @model
  * @generated
  */
-public interface XMLElement extends Element {
+public interface XmlElement extends Element {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

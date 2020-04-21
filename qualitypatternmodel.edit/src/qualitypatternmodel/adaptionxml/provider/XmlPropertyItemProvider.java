@@ -15,26 +15,26 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 
-import qualitypatternmodel.graphstructure.provider.RelationItemProvider;
+import qualitypatternmodel.graphstructure.provider.PropertyItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XMLNavigation} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.XmlProperty} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class XMLNavigationItemProvider extends RelationItemProvider {
+public class XmlPropertyItemProvider extends PropertyItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLNavigationItemProvider(AdapterFactory adapterFactory) {
+	public XmlPropertyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -49,32 +49,11 @@ public class XMLNavigationItemProvider extends RelationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOptionPropertyDescriptor(object);
 			addOptionParamPropertyDescriptor(object);
+			addOptionPropertyDescriptor(object);
+			addAttributeNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Option feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XMLNavigation_option_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XMLNavigation_option_feature", "_UI_XMLNavigation_type"),
-				 AdaptionxmlPackage.Literals.XML_NAVIGATION__OPTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -88,9 +67,9 @@ public class XMLNavigationItemProvider extends RelationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XMLNavigation_optionParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XMLNavigation_optionParam_feature", "_UI_XMLNavigation_type"),
-				 AdaptionxmlPackage.Literals.XML_NAVIGATION__OPTION_PARAM,
+				 getString("_UI_XmlProperty_optionParam_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlProperty_optionParam_feature", "_UI_XmlProperty_type"),
+				 AdaptionxmlPackage.Literals.XML_PROPERTY__OPTION_PARAM,
 				 true,
 				 false,
 				 true,
@@ -100,14 +79,58 @@ public class XMLNavigationItemProvider extends RelationItemProvider {
 	}
 
 	/**
-	 * This returns XMLNavigation.gif.
+	 * This adds a property descriptor for the Option feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlProperty_option_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlProperty_option_feature", "_UI_XmlProperty_type"),
+				 AdaptionxmlPackage.Literals.XML_PROPERTY__OPTION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Attribute Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAttributeNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlProperty_attributeName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlProperty_attributeName_feature", "_UI_XmlProperty_type"),
+				 AdaptionxmlPackage.Literals.XML_PROPERTY__ATTRIBUTE_NAME,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns XmlProperty.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/XMLNavigation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/XmlProperty"));
 	}
 
 	/**
@@ -118,10 +141,10 @@ public class XMLNavigationItemProvider extends RelationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XMLNavigation)object).getId();
+		String label = ((XmlProperty)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_XMLNavigation_type") :
-			getString("_UI_XMLNavigation_type") + " " + label;
+			getString("_UI_XmlProperty_type") :
+			getString("_UI_XmlProperty_type") + " " + label;
 	}
 
 

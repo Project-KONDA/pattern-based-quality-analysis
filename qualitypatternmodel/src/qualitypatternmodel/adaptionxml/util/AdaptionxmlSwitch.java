@@ -74,8 +74,8 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case AdaptionxmlPackage.XML_ELEMENT: {
-				XMLElement xmlElement = (XMLElement)theEObject;
-				T result = caseXMLElement(xmlElement);
+				XmlElement xmlElement = (XmlElement)theEObject;
+				T result = caseXmlElement(xmlElement);
 				if (result == null) result = caseElement(xmlElement);
 				if (result == null) result = caseComparable(xmlElement);
 				if (result == null) result = caseAdaptable(xmlElement);
@@ -84,8 +84,8 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case AdaptionxmlPackage.XML_NAVIGATION: {
-				XMLNavigation xmlNavigation = (XMLNavigation)theEObject;
-				T result = caseXMLNavigation(xmlNavigation);
+				XmlNavigation xmlNavigation = (XmlNavigation)theEObject;
+				T result = caseXmlNavigation(xmlNavigation);
 				if (result == null) result = caseRelation(xmlNavigation);
 				if (result == null) result = casePatternElement(xmlNavigation);
 				if (result == null) result = caseAdaptable(xmlNavigation);
@@ -93,8 +93,8 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case AdaptionxmlPackage.XML_REFERENCE: {
-				XMLReference xmlReference = (XMLReference)theEObject;
-				T result = caseXMLReference(xmlReference);
+				XmlReference xmlReference = (XmlReference)theEObject;
+				T result = caseXmlReference(xmlReference);
 				if (result == null) result = caseRelation(xmlReference);
 				if (result == null) result = casePatternElement(xmlReference);
 				if (result == null) result = caseAdaptable(xmlReference);
@@ -102,8 +102,8 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case AdaptionxmlPackage.XML_PROPERTY: {
-				XMLProperty xmlProperty = (XMLProperty)theEObject;
-				T result = caseXMLProperty(xmlProperty);
+				XmlProperty xmlProperty = (XmlProperty)theEObject;
+				T result = caseXmlProperty(xmlProperty);
 				if (result == null) result = caseProperty(xmlProperty);
 				if (result == null) result = caseComparable(xmlProperty);
 				if (result == null) result = caseAdaptable(xmlProperty);
@@ -112,8 +112,8 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case AdaptionxmlPackage.XML_ROOT: {
-				XMLRoot xmlRoot = (XMLRoot)theEObject;
-				T result = caseXMLRoot(xmlRoot);
+				XmlRoot xmlRoot = (XmlRoot)theEObject;
+				T result = caseXmlRoot(xmlRoot);
 				if (result == null) result = caseElement(xmlRoot);
 				if (result == null) result = caseComparable(xmlRoot);
 				if (result == null) result = caseAdaptable(xmlRoot);
@@ -126,77 +126,77 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>XML Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>XML Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXMLElement(XMLElement object) {
+	public T caseXmlElement(XmlElement object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>XML Navigation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Navigation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>XML Navigation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Navigation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXMLNavigation(XMLNavigation object) {
+	public T caseXmlNavigation(XmlNavigation object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>XML Reference</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>XML Reference</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Reference</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXMLReference(XMLReference object) {
+	public T caseXmlReference(XmlReference object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>XML Property</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>XML Property</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Property</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXMLProperty(XMLProperty object) {
+	public T caseXmlProperty(XmlProperty object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>XML Root</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>XML Root</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Root</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXMLRoot(XMLRoot object) {
+	public T caseXmlRoot(XmlRoot object) {
 		return null;
 	}
 

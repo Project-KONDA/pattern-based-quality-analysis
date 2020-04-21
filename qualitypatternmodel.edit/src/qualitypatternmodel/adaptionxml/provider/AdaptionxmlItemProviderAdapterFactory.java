@@ -72,115 +72,115 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XMLElement} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XMLElementItemProvider xmlElementItemProvider;
+	protected XmlElementItemProvider xmlElementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XMLElement}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlElement}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createXMLElementAdapter() {
+	public Adapter createXmlElementAdapter() {
 		if (xmlElementItemProvider == null) {
-			xmlElementItemProvider = new XMLElementItemProvider(this);
+			xmlElementItemProvider = new XmlElementItemProvider(this);
 		}
 
 		return xmlElementItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XMLNavigation} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlNavigation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XMLNavigationItemProvider xmlNavigationItemProvider;
+	protected XmlNavigationItemProvider xmlNavigationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XMLNavigation}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlNavigation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createXMLNavigationAdapter() {
+	public Adapter createXmlNavigationAdapter() {
 		if (xmlNavigationItemProvider == null) {
-			xmlNavigationItemProvider = new XMLNavigationItemProvider(this);
+			xmlNavigationItemProvider = new XmlNavigationItemProvider(this);
 		}
 
 		return xmlNavigationItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XMLReference} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XMLReferenceItemProvider xmlReferenceItemProvider;
+	protected XmlReferenceItemProvider xmlReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XMLReference}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlReference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createXMLReferenceAdapter() {
+	public Adapter createXmlReferenceAdapter() {
 		if (xmlReferenceItemProvider == null) {
-			xmlReferenceItemProvider = new XMLReferenceItemProvider(this);
+			xmlReferenceItemProvider = new XmlReferenceItemProvider(this);
 		}
 
 		return xmlReferenceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XMLProperty} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlProperty} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XMLPropertyItemProvider xmlPropertyItemProvider;
+	protected XmlPropertyItemProvider xmlPropertyItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XMLProperty}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlProperty}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createXMLPropertyAdapter() {
+	public Adapter createXmlPropertyAdapter() {
 		if (xmlPropertyItemProvider == null) {
-			xmlPropertyItemProvider = new XMLPropertyItemProvider(this);
+			xmlPropertyItemProvider = new XmlPropertyItemProvider(this);
 		}
 
 		return xmlPropertyItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XMLRoot} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlRoot} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XMLRootItemProvider xmlRootItemProvider;
+	protected XmlRootItemProvider xmlRootItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XMLRoot}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlRoot}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createXMLRootAdapter() {
+	public Adapter createXmlRootAdapter() {
 		if (xmlRootItemProvider == null) {
-			xmlRootItemProvider = new XMLRootItemProvider(this);
+			xmlRootItemProvider = new XmlRootItemProvider(this);
 		}
 
 		return xmlRootItemProvider;

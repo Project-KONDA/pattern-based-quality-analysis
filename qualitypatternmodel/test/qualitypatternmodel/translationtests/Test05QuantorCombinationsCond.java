@@ -8,8 +8,8 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.parameters.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.XMLProperty;
-import qualitypatternmodel.adaptionxml.XMLReference;
+import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.*;
 
 public class Test05QuantorCombinationsCond {
@@ -48,17 +48,17 @@ public class Test05QuantorCombinationsCond {
 		
 		completePattern.createXMLAdaption();
 		
-		XMLProperty property = (XMLProperty) graph0.getElements().get(0).getProperties().get(0);
+		XmlProperty property = (XmlProperty) graph0.getElements().get(0).getProperties().get(0);
 		property.getAttributeName().setValue("prop");
 		property.getOption().getOptions().add(PropertyKind.ATTRIBUTE);
 		property.getOption().setValue(PropertyKind.ATTRIBUTE);
 	
-		XMLProperty property1 = (XMLProperty) graph1.getElements().get(0).getProperties().get(0);
+		XmlProperty property1 = (XmlProperty) graph1.getElements().get(0).getProperties().get(0);
 		property1.getOption().getOptions().add(PropertyKind.TAG);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
 		qcond.getGraph().getRelations().get(0).adaptAsXMLNavigation();
-		XMLReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
+		XmlReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
 		ref.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();		
 		

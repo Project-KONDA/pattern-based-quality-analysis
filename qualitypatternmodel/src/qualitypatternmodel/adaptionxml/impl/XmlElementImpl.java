@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.XMLElement;
-import qualitypatternmodel.adaptionxml.XMLNavigation;
-import qualitypatternmodel.adaptionxml.XMLProperty;
-import qualitypatternmodel.adaptionxml.XMLReference;
+import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Relation;
@@ -44,13 +44,13 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class XMLElementImpl extends ElementImpl implements XMLElement {
+public class XmlElementImpl extends ElementImpl implements XmlElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public XMLElementImpl() {
+	public XmlElementImpl() {
 		super();
 	}
 
@@ -69,7 +69,7 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 		translated = true;
 		String query = "";
 		for(Relation relation : getOutgoing()) {
-			if(relation instanceof XMLNavigation) {
+			if(relation instanceof XmlNavigation) {
 				query += relation.generateQuery(location);
 			}
 		}		
@@ -123,7 +123,7 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 		}
 		boolean hasIncomingXMLNavigation = false;
 		for(Relation relation : getIncoming()) {
-			if(relation instanceof XMLNavigation) {
+			if(relation instanceof XmlNavigation) {
 				if(hasIncomingXMLNavigation) {
 					throw new InvalidityException("too many incoming XMLNavigations at XMLElement " + getId());
 				} else {
@@ -175,16 +175,16 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 		
 		// translate XMLReferences:
 		for (Relation relation : getIncoming()) {
-			if(relation instanceof XMLReference) {
-				XMLReference reference = (XMLReference) relation;
+			if(relation instanceof XmlReference) {
+				XmlReference reference = (XmlReference) relation;
 				if (reference.isTranslatable()) {
 					xPredicates += "[" + relation.generateQuery(location) + "]";
 				}
 			}			
 		}
 		for (Relation relation : getOutgoing()) {
-			if(relation instanceof XMLReference) {
-				XMLReference reference = (XMLReference) relation;
+			if(relation instanceof XmlReference) {
+				XmlReference reference = (XmlReference) relation;
 				if (reference.isTranslatable()) {
 					xPredicates += "[" + relation.generateQuery(location) + "]";
 				}
@@ -211,7 +211,7 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 			Graph graph = getGraph();
 			OperatorList oplist = graph.getOperatorList();
 			
-			XMLProperty property = new XMLPropertyImpl();
+			XmlProperty property = new XmlPropertyImpl();
 			getProperties().add(property);
 			property.createParameters();
 			property.getOption().setValue(PropertyKind.TAG);
@@ -238,7 +238,7 @@ public class XMLElementImpl extends ElementImpl implements XMLElement {
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			
-			XMLProperty property = new XMLPropertyImpl();
+			XmlProperty property = new XmlPropertyImpl();
 			getProperties().add(property);
 			property.createParameters();	
 

@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionxml.XMLProperty;
-import qualitypatternmodel.adaptionxml.impl.XMLPropertyImpl;
+import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -97,8 +97,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	
 	@Override
 	public PatternElement createXMLAdaption() {
-		if(!(this instanceof XMLProperty)) {
-			XMLProperty xmlProperty = new XMLPropertyImpl();			 
+		if(!(this instanceof XmlProperty)) {
+			XmlProperty xmlProperty = new XmlPropertyImpl();			 
 			xmlProperty.setElement(getElement());
 			xmlProperty.createParameters();
 			setElement(null);

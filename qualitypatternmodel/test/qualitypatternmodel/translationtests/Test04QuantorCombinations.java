@@ -5,9 +5,9 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.adaptionxml.XMLNavigation;
-import qualitypatternmodel.adaptionxml.XMLReference;
-import qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
 import qualitypatternmodel.exceptions.*;
 
 public class Test04QuantorCombinations {
@@ -30,7 +30,7 @@ public class Test04QuantorCombinations {
 		
 		completePattern.createXMLAdaption();
 		qcond.getGraph().getRelations().get(0).adaptAsXMLNavigation();
-		XMLReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
+		XmlReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
 		ref.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();		
 		

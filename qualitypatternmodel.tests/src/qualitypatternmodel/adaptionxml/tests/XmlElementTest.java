@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionxml.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
-import qualitypatternmodel.adaptionxml.XMLElement;
+import qualitypatternmodel.adaptionxml.XmlElement;
 
 import qualitypatternmodel.graphstructure.tests.ElementTest;
 
@@ -16,14 +16,14 @@ import qualitypatternmodel.graphstructure.tests.ElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XMLElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XMLElement#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XMLElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class XMLElementTest extends ElementTest {
+public class XmlElementTest extends ElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -31,28 +31,28 @@ public class XMLElementTest extends ElementTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(XMLElementTest.class);
+		TestRunner.run(XmlElementTest.class);
 	}
 
 	/**
-	 * Constructs a new XML Element test case with the given name.
+	 * Constructs a new Xml Element test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLElementTest(String name) {
+	public XmlElementTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this XML Element test case.
+	 * Returns the fixture for this Xml Element test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected XMLElement getFixture() {
-		return (XMLElement)fixture;
+	protected XmlElement getFixture() {
+		return (XmlElement)fixture;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class XMLElementTest extends ElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionxmlFactory.eINSTANCE.createXMLElement());
+		setFixture(AdaptionxmlFactory.eINSTANCE.createXmlElement());
 	}
 
 	/**
@@ -78,10 +78,10 @@ public class XMLElementTest extends ElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XMLElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XMLElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location)
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
 	public void testGetXQueryRepresentation__Location() {
@@ -91,10 +91,10 @@ public class XMLElementTest extends ElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XMLElement#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XMLElement#getXQueryVariable()
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable()
 	 * @generated
 	 */
 	public void testGetXQueryVariable() {
@@ -104,10 +104,10 @@ public class XMLElementTest extends ElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XMLElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XMLElement#translatePredicates(qualitypatternmodel.patternstructure.Location)
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#translatePredicates(qualitypatternmodel.patternstructure.Location)
 	 * @generated
 	 */
 	public void testTranslatePredicates__Location() {

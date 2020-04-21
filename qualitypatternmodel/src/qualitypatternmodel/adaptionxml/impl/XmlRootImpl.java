@@ -5,9 +5,9 @@ package qualitypatternmodel.adaptionxml.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XMLNavigation;
-import qualitypatternmodel.adaptionxml.XMLReference;
-import qualitypatternmodel.adaptionxml.XMLRoot;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
@@ -20,13 +20,13 @@ import qualitypatternmodel.patternstructure.Location;
  *
  * @generated
  */
-public class XMLRootImpl extends ElementImpl implements XMLRoot {
+public class XmlRootImpl extends ElementImpl implements XmlRoot {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public XMLRootImpl() {
+	public XmlRootImpl() {
 		super();
 	}
 	
@@ -34,7 +34,7 @@ public class XMLRootImpl extends ElementImpl implements XMLRoot {
 	public String generateQuery(Location location) throws InvalidityException {
 		String result = "";
 		for(Relation relation : getOutgoing()) {
-			if(relation instanceof XMLNavigation) {
+			if(relation instanceof XmlNavigation) {
 				result += relation.generateQuery(location);
 			} else {
 				throw new InvalidityException("XMLRoot has XMLReference");
@@ -53,7 +53,7 @@ public class XMLRootImpl extends ElementImpl implements XMLRoot {
 			throw new InvalidityException("XMLRoot has predicate");
 		}
 		for(Relation relation : getOutgoing()) {
-			if(relation instanceof XMLReference) {
+			if(relation instanceof XmlReference) {
 				throw new InvalidityException("XMLRoot has XMLReference");
 			}
 		}

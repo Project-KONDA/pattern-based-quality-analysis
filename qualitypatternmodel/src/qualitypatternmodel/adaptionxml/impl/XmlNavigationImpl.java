@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XMLElement;
-import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
@@ -41,13 +41,13 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl#getOptionParam <em>Option Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl#getOptionParam <em>Option Param</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
+public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -73,7 +73,7 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public XMLNavigationImpl() {
+	public XmlNavigationImpl() {
 		super();
 	}
 	
@@ -85,8 +85,8 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 		String query = "";
 		
 		String source = "";
-		if(getSource() instanceof XMLElement) {
-			XMLElement sourceElement = (XMLElement) getSource();
+		if(getSource() instanceof XmlElement) {
+			XmlElement sourceElement = (XmlElement) getSource();
 			source = sourceElement.getXQueryVariable();
 		}
 		String xPathExpression = "";
@@ -98,8 +98,8 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 		
 		String xPredicates;
 		String target;
-		if(getTarget() instanceof XMLElement) {
-			XMLElement targetElement = (XMLElement) getTarget();
+		if(getTarget() instanceof XmlElement) {
+			XmlElement targetElement = (XmlElement) getTarget();
 			targetElement.setTranslated(true);
 			xPredicates = targetElement.translatePredicates(location);
 			target = targetElement.getXQueryVariable();
@@ -149,7 +149,7 @@ public class XMLNavigationImpl extends RelationImpl implements XMLNavigation {
 			throw new InvalidityException("axis redundant");
 		
 		for(RelationMapping mapping : getMappingTo()) {
-			if(!(mapping.getFrom() instanceof XMLNavigation)) {
+			if(!(mapping.getFrom() instanceof XmlNavigation)) {
 				throw new InvalidityException("mapping different relations");
 			}			
 		}		

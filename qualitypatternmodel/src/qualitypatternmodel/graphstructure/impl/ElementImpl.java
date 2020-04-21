@@ -20,9 +20,9 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionxml.XMLElement;
-import qualitypatternmodel.adaptionxml.XMLRoot;
-import qualitypatternmodel.adaptionxml.impl.XMLElementImpl;
+import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlRoot;
+import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -419,8 +419,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		for(Property property : propertiesCopy) {
 			property.createXMLAdaption();
 		}
-		if(!(this instanceof XMLElement) && !(this instanceof XMLRoot)) {
-			XMLElement xmlElement = new XMLElementImpl();
+		if(!(this instanceof XmlElement) && !(this instanceof XmlRoot)) {
+			XmlElement xmlElement = new XmlElementImpl();
 			xmlElement.setGraphSimple(getGraph());	
 			
 //			for(ElementMapping mapping : xmlElement.getMappingTo()) {

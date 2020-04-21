@@ -57,11 +57,11 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case AdaptionxmlPackage.XML_ELEMENT: return createXMLElement();
-			case AdaptionxmlPackage.XML_NAVIGATION: return createXMLNavigation();
-			case AdaptionxmlPackage.XML_REFERENCE: return createXMLReference();
-			case AdaptionxmlPackage.XML_PROPERTY: return createXMLProperty();
-			case AdaptionxmlPackage.XML_ROOT: return createXMLRoot();
+			case AdaptionxmlPackage.XML_ELEMENT: return createXmlElement();
+			case AdaptionxmlPackage.XML_NAVIGATION: return createXmlNavigation();
+			case AdaptionxmlPackage.XML_REFERENCE: return createXmlReference();
+			case AdaptionxmlPackage.XML_PROPERTY: return createXmlProperty();
+			case AdaptionxmlPackage.XML_ROOT: return createXmlRoot();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -107,8 +107,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public XMLElement createXMLElement() {
-		XMLElementImpl xmlElement = new XMLElementImpl();
+	public XmlElement createXmlElement() {
+		XmlElementImpl xmlElement = new XmlElementImpl();
 		return xmlElement;
 	}
 
@@ -118,8 +118,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public XMLNavigation createXMLNavigation() {
-		XMLNavigationImpl xmlNavigation = new XMLNavigationImpl();
+	public XmlNavigation createXmlNavigation() {
+		XmlNavigationImpl xmlNavigation = new XmlNavigationImpl();
 		return xmlNavigation;
 	}
 
@@ -129,8 +129,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public XMLReference createXMLReference() {
-		XMLReferenceImpl xmlReference = new XMLReferenceImpl();
+	public XmlReference createXmlReference() {
+		XmlReferenceImpl xmlReference = new XmlReferenceImpl();
 		return xmlReference;
 	}
 
@@ -140,8 +140,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public XMLProperty createXMLProperty() {
-		XMLPropertyImpl xmlProperty = new XMLPropertyImpl();
+	public XmlProperty createXmlProperty() {
+		XmlPropertyImpl xmlProperty = new XmlPropertyImpl();
 		return xmlProperty;
 	}
 
@@ -151,8 +151,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public XMLRoot createXMLRoot() {
-		XMLRootImpl xmlRoot = new XMLRootImpl();
+	public XmlRoot createXmlRoot() {
+		XmlRootImpl xmlRoot = new XmlRootImpl();
 		return xmlRoot;
 	}
 

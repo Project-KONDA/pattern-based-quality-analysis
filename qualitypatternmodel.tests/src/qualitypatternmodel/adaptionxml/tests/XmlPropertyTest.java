@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionxml.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
-import qualitypatternmodel.adaptionxml.XMLProperty;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 
 import qualitypatternmodel.graphstructure.tests.PropertyTest;
 
@@ -15,7 +15,7 @@ import qualitypatternmodel.graphstructure.tests.PropertyTest;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XMLPropertyTest extends PropertyTest {
+public class XmlPropertyTest extends PropertyTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -23,28 +23,28 @@ public class XMLPropertyTest extends PropertyTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(XMLPropertyTest.class);
+		TestRunner.run(XmlPropertyTest.class);
 	}
 
 	/**
-	 * Constructs a new XML Property test case with the given name.
+	 * Constructs a new Xml Property test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLPropertyTest(String name) {
+	public XmlPropertyTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this XML Property test case.
+	 * Returns the fixture for this Xml Property test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected XMLProperty getFixture() {
-		return (XMLProperty)fixture;
+	protected XmlProperty getFixture() {
+		return (XmlProperty)fixture;
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class XMLPropertyTest extends PropertyTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionxmlFactory.eINSTANCE.createXMLProperty());
+		setFixture(AdaptionxmlFactory.eINSTANCE.createXmlProperty());
 	}
 
 	/**

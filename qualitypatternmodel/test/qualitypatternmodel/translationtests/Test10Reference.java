@@ -8,7 +8,7 @@ import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.XMLReference;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -44,7 +44,7 @@ public class Test10Reference {
 		relation.setTarget(element1);	
 		
 		completePattern.createXMLAdaption();
-		XMLReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
 		reference.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();
 		
@@ -74,9 +74,9 @@ public class Test10Reference {
 		relation2.setTarget(element1);
 		
 		completePattern.createXMLAdaption();
-		XMLReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
 		reference.setType(ReturnType.STRING);
-		XMLReference reference2 = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference2 = graph.getRelations().get(0).adaptAsXMLReference();	
 		reference2.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();
 		
@@ -105,7 +105,7 @@ public class Test10Reference {
 		
 		completePattern.createXMLAdaption();
 		graph.getRelations().get(0).adaptAsXMLNavigation();
-		XMLReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
 		reference.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();
 		
@@ -138,16 +138,16 @@ public class Test10Reference {
 		relation2.setTarget(element1);	
 		
 		completePattern.createXMLAdaption();
-		XMLReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
 		reference.setType(ReturnType.STRING);
 		reference.getSourceProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
 		reference.getSourceProperty().getOption().setValue(PropertyKind.ATTRIBUTE);
 		reference.getSourceProperty().getAttributeName().setValue("prop");
-		XMLReference reference1 = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference1 = graph.getRelations().get(0).adaptAsXMLReference();	
 		reference1.setType(ReturnType.STRING);
 		reference1.getSourceProperty().getOption().getOptions().add(PropertyKind.TAG);
 		reference1.getSourceProperty().getOption().setValue(PropertyKind.TAG);
-		XMLReference reference2 = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference2 = graph.getRelations().get(0).adaptAsXMLReference();	
 		reference2.setType(ReturnType.STRING);
 		reference2.getSourceProperty().getOption().getOptions().add(PropertyKind.DATA);
 		reference2.getSourceProperty().getOption().setValue(PropertyKind.DATA);

@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.XMLProperty;
-import qualitypatternmodel.adaptionxml.XMLReference;
+import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -29,14 +29,14 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XMLReferenceImpl#getSourceProperty <em>Source Property</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XMLReferenceImpl#getTargetProperty <em>Target Property</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XMLReferenceImpl#getType <em>Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl#getSourceProperty <em>Source Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl#getTargetProperty <em>Target Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class XMLReferenceImpl extends RelationImpl implements XMLReference {
+public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	/**
 	 * The cached value of the '{@link #getSourceProperty() <em>Source Property</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -45,7 +45,7 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	 * @generated
 	 * @ordered
 	 */
-	protected XMLProperty sourceProperty;
+	protected XmlProperty sourceProperty;
 
 	/**
 	 * The cached value of the '{@link #getTargetProperty() <em>Target Property</em>}' reference.
@@ -55,7 +55,7 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	 * @generated
 	 * @ordered
 	 */
-	protected XMLProperty targetProperty;
+	protected XmlProperty targetProperty;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -82,7 +82,7 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public XMLReferenceImpl() {
+	public XmlReferenceImpl() {
 		super();
 	}
 
@@ -207,10 +207,10 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	 * @generated
 	 */
 	@Override
-	public XMLProperty getSourceProperty() {
+	public XmlProperty getSourceProperty() {
 		if (sourceProperty != null && sourceProperty.eIsProxy()) {
 			InternalEObject oldSourceProperty = (InternalEObject)sourceProperty;
-			sourceProperty = (XMLProperty)eResolveProxy(oldSourceProperty);
+			sourceProperty = (XmlProperty)eResolveProxy(oldSourceProperty);
 			if (sourceProperty != oldSourceProperty) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY, oldSourceProperty, sourceProperty));
@@ -224,7 +224,7 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLProperty basicGetSourceProperty() {
+	public XmlProperty basicGetSourceProperty() {
 		return sourceProperty;
 	}
 
@@ -234,8 +234,8 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	 * @generated
 	 */
 	@Override
-	public void setSourceProperty(XMLProperty newSourceProperty) {
-		XMLProperty oldSourceProperty = sourceProperty;
+	public void setSourceProperty(XmlProperty newSourceProperty) {
+		XmlProperty oldSourceProperty = sourceProperty;
 		sourceProperty = newSourceProperty;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY, oldSourceProperty, sourceProperty));
@@ -247,10 +247,10 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	 * @generated
 	 */
 	@Override
-	public XMLProperty getTargetProperty() {
+	public XmlProperty getTargetProperty() {
 		if (targetProperty != null && targetProperty.eIsProxy()) {
 			InternalEObject oldTargetProperty = (InternalEObject)targetProperty;
-			targetProperty = (XMLProperty)eResolveProxy(oldTargetProperty);
+			targetProperty = (XmlProperty)eResolveProxy(oldTargetProperty);
 			if (targetProperty != oldTargetProperty) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY, oldTargetProperty, targetProperty));
@@ -264,7 +264,7 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLProperty basicGetTargetProperty() {
+	public XmlProperty basicGetTargetProperty() {
 		return targetProperty;
 	}
 
@@ -274,8 +274,8 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	 * @generated
 	 */
 	@Override
-	public void setTargetProperty(XMLProperty newTargetProperty) {
-		XMLProperty oldTargetProperty = targetProperty;
+	public void setTargetProperty(XmlProperty newTargetProperty) {
+		XmlProperty oldTargetProperty = targetProperty;
 		targetProperty = newTargetProperty;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY, oldTargetProperty, targetProperty));
@@ -333,10 +333,10 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
-				setSourceProperty((XMLProperty)newValue);
+				setSourceProperty((XmlProperty)newValue);
 				return;
 			case AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY:
-				setTargetProperty((XMLProperty)newValue);
+				setTargetProperty((XmlProperty)newValue);
 				return;
 			case AdaptionxmlPackage.XML_REFERENCE__TYPE:
 				setType((ReturnType)newValue);
@@ -354,10 +354,10 @@ public class XMLReferenceImpl extends RelationImpl implements XMLReference {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
-				setSourceProperty((XMLProperty)null);
+				setSourceProperty((XmlProperty)null);
 				return;
 			case AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY:
-				setTargetProperty((XMLProperty)null);
+				setTargetProperty((XmlProperty)null);
 				return;
 			case AdaptionxmlPackage.XML_REFERENCE__TYPE:
 				setType(TYPE_EDEFAULT);

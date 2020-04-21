@@ -11,7 +11,7 @@ import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.XMLProperty;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -35,7 +35,7 @@ public class Test08Comparison {
 					
 					completePattern.createXMLAdaption();
 					
-					XMLProperty property = (XMLProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0);
+					XmlProperty property = (XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0);
 					property.getAttributeName().setValue("prop");
 					property.getOption().getOptions().add(pl);
 					property.getOption().setValue(pl);

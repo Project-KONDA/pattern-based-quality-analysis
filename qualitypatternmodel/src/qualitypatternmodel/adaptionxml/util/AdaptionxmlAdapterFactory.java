@@ -75,24 +75,24 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	protected AdaptionxmlSwitch<Adapter> modelSwitch =
 		new AdaptionxmlSwitch<Adapter>() {
 			@Override
-			public Adapter caseXMLElement(XMLElement object) {
-				return createXMLElementAdapter();
+			public Adapter caseXmlElement(XmlElement object) {
+				return createXmlElementAdapter();
 			}
 			@Override
-			public Adapter caseXMLNavigation(XMLNavigation object) {
-				return createXMLNavigationAdapter();
+			public Adapter caseXmlNavigation(XmlNavigation object) {
+				return createXmlNavigationAdapter();
 			}
 			@Override
-			public Adapter caseXMLReference(XMLReference object) {
-				return createXMLReferenceAdapter();
+			public Adapter caseXmlReference(XmlReference object) {
+				return createXmlReferenceAdapter();
 			}
 			@Override
-			public Adapter caseXMLProperty(XMLProperty object) {
-				return createXMLPropertyAdapter();
+			public Adapter caseXmlProperty(XmlProperty object) {
+				return createXmlPropertyAdapter();
 			}
 			@Override
-			public Adapter caseXMLRoot(XMLRoot object) {
-				return createXMLRootAdapter();
+			public Adapter caseXmlRoot(XmlRoot object) {
+				return createXmlRootAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -139,72 +139,72 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XMLElement <em>XML Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlElement <em>Xml Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionxml.XMLElement
+	 * @see qualitypatternmodel.adaptionxml.XmlElement
 	 * @generated
 	 */
-	public Adapter createXMLElementAdapter() {
+	public Adapter createXmlElementAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XMLNavigation <em>XML Navigation</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlNavigation <em>Xml Navigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionxml.XMLNavigation
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation
 	 * @generated
 	 */
-	public Adapter createXMLNavigationAdapter() {
+	public Adapter createXmlNavigationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XMLReference <em>XML Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlReference <em>Xml Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionxml.XMLReference
+	 * @see qualitypatternmodel.adaptionxml.XmlReference
 	 * @generated
 	 */
-	public Adapter createXMLReferenceAdapter() {
+	public Adapter createXmlReferenceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XMLProperty <em>XML Property</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlProperty <em>Xml Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionxml.XMLProperty
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty
 	 * @generated
 	 */
-	public Adapter createXMLPropertyAdapter() {
+	public Adapter createXmlPropertyAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XMLRoot <em>XML Root</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlRoot <em>Xml Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionxml.XMLRoot
+	 * @see qualitypatternmodel.adaptionxml.XmlRoot
 	 * @generated
 	 */
-	public Adapter createXMLRootAdapter() {
+	public Adapter createXmlRootAdapter() {
 		return null;
 	}
 

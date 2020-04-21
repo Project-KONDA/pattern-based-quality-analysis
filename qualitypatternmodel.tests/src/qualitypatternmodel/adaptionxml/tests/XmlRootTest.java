@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionxml.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
-import qualitypatternmodel.adaptionxml.XMLRoot;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 
 import qualitypatternmodel.graphstructure.tests.ElementTest;
 
@@ -15,7 +15,7 @@ import qualitypatternmodel.graphstructure.tests.ElementTest;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XMLRootTest extends ElementTest {
+public class XmlRootTest extends ElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -23,28 +23,28 @@ public class XMLRootTest extends ElementTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(XMLRootTest.class);
+		TestRunner.run(XmlRootTest.class);
 	}
 
 	/**
-	 * Constructs a new XML Root test case with the given name.
+	 * Constructs a new Xml Root test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public XMLRootTest(String name) {
+	public XmlRootTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this XML Root test case.
+	 * Returns the fixture for this Xml Root test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected XMLRoot getFixture() {
-		return (XMLRoot)fixture;
+	protected XmlRoot getFixture() {
+		return (XmlRoot)fixture;
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class XMLRootTest extends ElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionxmlFactory.eINSTANCE.createXMLRoot());
+		setFixture(AdaptionxmlFactory.eINSTANCE.createXmlRoot());
 	}
 
 	/**

@@ -431,7 +431,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.ELEMENT__PROPERTIES,
-				 AdaptionxmlFactory.eINSTANCE.createXMLProperty()));
+				 AdaptionxmlFactory.eINSTANCE.createXmlProperty()));
 	}
 
 	/**

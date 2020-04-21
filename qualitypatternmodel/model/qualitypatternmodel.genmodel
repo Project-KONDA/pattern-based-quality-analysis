@@ -479,38 +479,38 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/THREECHILD"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/FOURCHILD"/>
       </genEnums>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XMLElement">
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XMLElement/getXQueryRepresentation">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XMLElement/getXQueryRepresentation/location"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlElement">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getXQueryRepresentation">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getXQueryRepresentation/location"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XMLElement/getXQueryVariable"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XMLElement/translatePredicates">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XMLElement/translatePredicates/location"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getXQueryVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/translatePredicates">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlElement/translatePredicates/location"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XMLNavigation">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XMLNavigation/option"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/option"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XMLNavigation/optionParam"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/optionParam"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XMLReference">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlReference">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XMLReference/sourceProperty"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlReference/sourceProperty"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XMLReference/targetProperty"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XMLReference/type"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XMLReference/isTranslatable"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlReference/targetProperty"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlReference/type"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlReference/isTranslatable"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XMLProperty">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlProperty">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XMLProperty/optionParam"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/optionParam"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XMLProperty/option"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/option"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XMLProperty/attributeName"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/attributeName"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XMLRoot"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

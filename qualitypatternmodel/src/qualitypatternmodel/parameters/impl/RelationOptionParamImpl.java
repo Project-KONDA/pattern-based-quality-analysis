@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.RelationKind;
-import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Element;
@@ -80,7 +80,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<XMLNavigation> relations;
+	protected EList<XmlNavigation> relations;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -173,9 +173,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated
 	 */
 	@Override
-	public EList<XMLNavigation> getRelations() {
+	public EList<XmlNavigation> getRelations() {
 		if (relations == null) {
-			relations = new EObjectWithInverseResolvingEList<XMLNavigation>(XMLNavigation.class, this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, AdaptionxmlPackage.XML_NAVIGATION__OPTION);
+			relations = new EObjectWithInverseResolvingEList<XmlNavigation>(XmlNavigation.class, this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, AdaptionxmlPackage.XML_NAVIGATION__OPTION);
 		}
 		return relations;
 	}
@@ -241,7 +241,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 				return;
 			case ParametersPackage.RELATION_OPTION_PARAM__RELATIONS:
 				getRelations().clear();
-				getRelations().addAll((Collection<? extends XMLNavigation>)newValue);
+				getRelations().addAll((Collection<? extends XmlNavigation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

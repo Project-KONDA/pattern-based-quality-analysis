@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.XMLProperty;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Element;
@@ -83,7 +83,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<XMLProperty> properties;
+	protected EList<XmlProperty> properties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -178,9 +178,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 */
 	@Override
-	public EList<XMLProperty> getProperties() {
+	public EList<XmlProperty> getProperties() {
 		if (properties == null) {
-			properties = new EObjectWithInverseResolvingEList<XMLProperty>(XMLProperty.class, this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, AdaptionxmlPackage.XML_PROPERTY__OPTION);
+			properties = new EObjectWithInverseResolvingEList<XmlProperty>(XmlProperty.class, this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, AdaptionxmlPackage.XML_PROPERTY__OPTION);
 		}
 		return properties;
 	}
@@ -250,7 +250,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				return;
 			case ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
 				getProperties().clear();
-				getProperties().addAll((Collection<? extends XMLProperty>)newValue);
+				getProperties().addAll((Collection<? extends XmlProperty>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

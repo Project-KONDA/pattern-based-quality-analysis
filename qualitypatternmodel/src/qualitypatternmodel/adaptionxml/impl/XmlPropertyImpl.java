@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.XMLElement;
-import qualitypatternmodel.adaptionxml.XMLProperty;
+import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -41,14 +41,14 @@ import qualitypatternmodel.patternstructure.Location;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XMLPropertyImpl#getOptionParam <em>Option Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XMLPropertyImpl#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XMLPropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getOptionParam <em>Option Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class XMLPropertyImpl extends PropertyImpl implements XMLProperty {
+public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getOptionParam() <em>Option Param</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -84,7 +84,7 @@ public class XMLPropertyImpl extends PropertyImpl implements XMLProperty {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public XMLPropertyImpl() {
+	public XmlPropertyImpl() {
 		super();
 	}
 	
@@ -94,8 +94,8 @@ public class XMLPropertyImpl extends PropertyImpl implements XMLProperty {
 			throw new InvalidityException("propertyOptions invalid");
 		}				
 		String propertyElementTranslation;
-		if(getElement() instanceof XMLElement) {
-			XMLElement xmlElement = (XMLElement) getElement();
+		if(getElement() instanceof XmlElement) {
+			XmlElement xmlElement = (XmlElement) getElement();
 			propertyElementTranslation = xmlElement.getXQueryRepresentation(location);
 		} else {
 			throw new InvalidityException("XMLProperty container of invalid type");
@@ -210,7 +210,7 @@ public class XMLPropertyImpl extends PropertyImpl implements XMLProperty {
 
 	@Override
 	public Property copy() {
-		XMLProperty property = new XMLPropertyImpl();
+		XmlProperty property = new XmlPropertyImpl();
 		property.setOption(getOption());
 		property.setAttributeName(getAttributeName());
 		return property;

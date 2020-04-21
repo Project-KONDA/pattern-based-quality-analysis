@@ -4,7 +4,7 @@ package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.XMLProperty;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,16 +66,16 @@ public interface PropertyOptionParam extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XMLProperty}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XMLProperty#getOption <em>Option</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlProperty}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Properties</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getPropertyOptionParam_Properties()
-	 * @see qualitypatternmodel.adaptionxml.XMLProperty#getOption
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */
-	EList<XMLProperty> getProperties();
+	EList<XmlProperty> getProperties();
 
 } // PropertyOption

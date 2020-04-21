@@ -15,59 +15,59 @@ import qualitypatternmodel.graphstructure.ReturnType;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XMLReference#getSourceProperty <em>Source Property</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XMLReference#getTargetProperty <em>Target Property</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XMLReference#getType <em>Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getSourceProperty <em>Source Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getTargetProperty <em>Target Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getType <em>Type</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXMLReference()
+ * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference()
  * @model
  * @generated
  */
-public interface XMLReference extends Relation {
+public interface XmlReference extends Relation {
 	/**
 	 * Returns the value of the '<em><b>Source Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Property</em>' reference.
-	 * @see #setSourceProperty(XMLProperty)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXMLReference_SourceProperty()
+	 * @see #setSourceProperty(XmlProperty)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference_SourceProperty()
 	 * @model required="true"
 	 * @generated
 	 */
-	XMLProperty getSourceProperty();
+	XmlProperty getSourceProperty();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XMLReference#getSourceProperty <em>Source Property</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlReference#getSourceProperty <em>Source Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Source Property</em>' reference.
 	 * @see #getSourceProperty()
 	 * @generated
 	 */
-	void setSourceProperty(XMLProperty value);
+	void setSourceProperty(XmlProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Target Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target Property</em>' reference.
-	 * @see #setTargetProperty(XMLProperty)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXMLReference_TargetProperty()
+	 * @see #setTargetProperty(XmlProperty)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference_TargetProperty()
 	 * @model required="true"
 	 * @generated
 	 */
-	XMLProperty getTargetProperty();
+	XmlProperty getTargetProperty();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XMLReference#getTargetProperty <em>Target Property</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlReference#getTargetProperty <em>Target Property</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Target Property</em>' reference.
 	 * @see #getTargetProperty()
 	 * @generated
 	 */
-	void setTargetProperty(XMLProperty value);
+	void setTargetProperty(XmlProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -77,14 +77,14 @@ public interface XMLReference extends Relation {
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see qualitypatternmodel.graphstructure.ReturnType
 	 * @see #setType(ReturnType)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXMLReference_Type()
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference_Type()
 	 * @model
 	 * @generated
 	 */
 	ReturnType getType();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XMLReference#getType <em>Type</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlReference#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' attribute.

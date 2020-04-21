@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionxml.XMLNavigation;
-import qualitypatternmodel.adaptionxml.XMLProperty;
-import qualitypatternmodel.adaptionxml.XMLReference;
-import qualitypatternmodel.adaptionxml.impl.XMLNavigationImpl;
-import qualitypatternmodel.adaptionxml.impl.XMLPropertyImpl;
-import qualitypatternmodel.adaptionxml.impl.XMLReferenceImpl;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Adaptable;
@@ -574,9 +574,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public XMLNavigation adaptAsXMLNavigation() {
-		if(!(this instanceof XMLNavigation)) {
-			XMLNavigation navigation = new XMLNavigationImpl();
+	public XmlNavigation adaptAsXMLNavigation() {
+		if(!(this instanceof XmlNavigation)) {
+			XmlNavigation navigation = new XmlNavigationImpl();
 			navigation.setGraphSimple(getGraph());
 			if(getMappingFrom() == null) {
 				navigation.createParameters();
@@ -595,7 +595,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			setGraph(null);
 			return navigation;
 		}
-		return (XMLNavigation) this;
+		return (XmlNavigation) this;
 	}
 
 	/**
@@ -604,18 +604,18 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public XMLReference adaptAsXMLReference() {
-		if(!(this instanceof XMLReference)) {
-			XMLReference reference = new XMLReferenceImpl();
+	public XmlReference adaptAsXMLReference() {
+		if(!(this instanceof XmlReference)) {
+			XmlReference reference = new XmlReferenceImpl();
 			reference.setGraphSimple(getGraph());
 			reference.setSource(getSource());
 			reference.setTarget(getTarget());
 			setSource(null);
 			setTarget(null);
-			XMLProperty sourceProperty = new XMLPropertyImpl();
+			XmlProperty sourceProperty = new XmlPropertyImpl();
 			sourceProperty.setElement(reference.getSource());
 			sourceProperty.createParameters();
-			XMLProperty targetProperty = new XMLPropertyImpl();
+			XmlProperty targetProperty = new XmlPropertyImpl();
 			targetProperty.setElement(reference.getTarget());
 			targetProperty.createParameters();
 			reference.setSourceProperty(sourceProperty);			
@@ -630,7 +630,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			setGraph(null);
 			return reference;
 		}
-		return (XMLReference) this;
+		return (XmlReference) this;
 	}
 
 	@Override

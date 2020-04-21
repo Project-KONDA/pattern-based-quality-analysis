@@ -10,7 +10,7 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
-import qualitypatternmodel.adaptionxml.XMLReference;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -70,7 +70,7 @@ public class Test07Formula {
 		completePattern.createXMLAdaption();
 		
 		qc1.getGraph().getRelations().get(0).adaptAsXMLNavigation();
-		XMLReference ref = qc2.getGraph().getRelations().get(0).adaptAsXMLReference();
+		XmlReference ref = qc2.getGraph().getRelations().get(0).adaptAsXMLReference();
 		ref.setType(ReturnType.STRING);		
 		
 		completePattern.finalizeXMLAdaption();	

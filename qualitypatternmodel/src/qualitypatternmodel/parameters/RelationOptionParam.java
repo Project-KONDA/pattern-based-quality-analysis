@@ -4,7 +4,7 @@ package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionxml.RelationKind;
-import qualitypatternmodel.adaptionxml.XMLNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,16 +66,16 @@ public interface RelationOptionParam extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Relations</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XMLNavigation}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XMLNavigation#getOption <em>Option</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlNavigation}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Relations</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getRelationOptionParam_Relations()
-	 * @see qualitypatternmodel.adaptionxml.XMLNavigation#getOption
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getOption
 	 * @model opposite="option"
 	 * @generated
 	 */
-	EList<XMLNavigation> getRelations();
+	EList<XmlNavigation> getRelations();
 
 } // AxisOption
