@@ -14,11 +14,12 @@ public class Test03Quantor {
 //		System.out.println(getPatternExists().myToString());
 		
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternExistsFinal());
-		completePatterns.add(getPatternExistsNavigation());
-		completePatterns.add(getPatternExistsCondFinal());
-		completePatterns.add(getPatternForall());
-		completePatterns.add(getPatternForallCond());
+		completePatterns.add(getPatternExistsTwoElements());
+//		completePatterns.add(getPatternExistsFinal());
+//		completePatterns.add(getPatternExistsNavigation());
+//		completePatterns.add(getPatternExistsCondFinal());
+//		completePatterns.add(getPatternForall());
+//		completePatterns.add(getPatternForallCond());
 
 		Test00.test(completePatterns);
 	}
@@ -83,6 +84,37 @@ public class Test03Quantor {
 		return completePattern;
 	}
 
+	public static CompletePattern getPatternExistsTwoElements() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+		
+		// Pattern Structure
+		CompletePattern completePattern = Test00.getBasePattern();
+		QuantifiedCondition cond = factory.createQuantifiedCondition();
+		cond.setCondition(factory.createTrueElement());
+		completePattern.setCondition(cond);
+				
+		// EXISTS additional graph structure
+		Element se1 = graphFactory.createElement();
+		se1.setGraph(cond.getGraph());	
+		
+		Element se2 = graphFactory.createElement();
+		se2.setGraph(cond.getGraph());
+		
+		Relation relation = graphFactory.createRelation();
+		relation.setGraph(cond.getGraph());
+		relation.setSource(se1);
+		relation.setTarget(se2);
+		
+		completePattern.createXMLAdaption();
+		relation.adaptAsXMLNavigation();
+		completePattern.finalizeXMLAdaption();	
+				
+		return completePattern;
+	}
+	
 	public static CompletePattern getPatternExistsCondFinal() {
 		
 		CompletePattern completePattern = getPatternExistsCond();		
