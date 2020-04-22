@@ -286,6 +286,14 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 			System.out.println("addPrimitiveMatch failed: " + e.getMessage());
 		}
 	}
+	
+	@Override
+	public Property addNewProperty() {
+		XmlProperty prop = new XmlPropertyImpl();
+		getProperties().add(prop);
+		prop.createParameters();
+		return prop;
+	}
 
 
 	@Override

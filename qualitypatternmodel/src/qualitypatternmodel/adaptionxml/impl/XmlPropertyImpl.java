@@ -567,8 +567,8 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	@Override
 	public String myToString() {
 		String res = super.myToString() + " ";
-		res += getOption().getValue().getLiteral();
-		res += " ('" + getAttributeName().getValue() + "' (" + getAttributeName().getInternalId() + "))";
+		res += getOption().getValue().getLiteral() + "[" + getOption().getInternalId() + "]";
+		res += " ('" + getAttributeName().getValue() + "'[" + getAttributeName().getInternalId() + "])";
 		return res;
 	}
 

@@ -1842,7 +1842,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public Property addNewProperty() {
-		// TODO: move to XMLElement ?
+		// Overritten in XMLElement
 		Property prop = new PropertyImpl();
 		getProperties().add(prop);
 		prop.createParameters();

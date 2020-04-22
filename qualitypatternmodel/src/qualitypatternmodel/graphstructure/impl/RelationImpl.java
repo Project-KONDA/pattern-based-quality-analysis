@@ -877,7 +877,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 //		if (getOption() != null) {
 //			return getOption().getValue().getLiteral() + " (" + getInternalId() + ")";
 //		} else {
-			return this.getClass().getSimpleName() + " (" + getInternalId() + ") from " + getSource().getInternalId() + " to " + getTarget().getInternalId();
+			return this.getClass().getSimpleName() + " [" + getInternalId() + "] from " + getSource().getInternalId() + " to " + getTarget().getInternalId();
 //		}
 	}
 
