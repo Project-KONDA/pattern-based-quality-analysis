@@ -31,7 +31,7 @@ public class Test12Count {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternCountInPattern());	
+		completePatterns.add(getPatternCountInPatternFinal());	
 		completePatterns.add(getPatternCountInExists());	
 		completePatterns.add(getPatternCountInForall());	
 		completePatterns.add(getPatternCountNextToExists());
@@ -41,6 +41,15 @@ public class Test12Count {
 		completePatterns.add(getPatternCountNextToForallNested());
 
 		Test00.test(completePatterns);
+	}
+	
+	public static CompletePattern getPatternCountInPatternFinal() {
+		CompletePattern completePattern = getPatternCountInPattern();
+		completePattern.createXMLAdaption();
+		CountPattern countPattern = ((CountCondition) completePattern.getCondition()).getCountPattern();
+		countPattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		completePattern.finalizeXMLAdaption();
+		return completePattern;
 	}
 
 	public static CompletePattern getPatternCountInPattern() {
@@ -79,11 +88,7 @@ public class Test12Count {
 		countpattern.getGraph().getReturnElements().add(nextToReturnInCPattern);
 				
 		Condition truecondition = factory.createTrueElement();
-		countpattern.setCondition(truecondition);
-		
-		completePattern.createXMLAdaption();
-		countpattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
-		completePattern.finalizeXMLAdaption();
+		countpattern.setCondition(truecondition);		
 		
 		return completePattern;
 	}

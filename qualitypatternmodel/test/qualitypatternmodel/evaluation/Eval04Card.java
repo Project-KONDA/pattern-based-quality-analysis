@@ -2,18 +2,18 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.graphstructure.Axis;
+import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.PropertyLocation;
-import qualitypatternmodel.operators.BooleanOperator;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.operators.FunctionsFactory;
-import qualitypatternmodel.operators.FunctionsPackage;
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -22,17 +22,13 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.NumberElement;
-import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
-import qualitypatternmodel.translationtests.Test03Quantor;
 import qualitypatternmodel.translationtests.Test12Count;
 
 public class Eval04Card {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getCardMidas());
+		completePatterns.add(getCardMidasOb30());
 		Test00.test(completePatterns);		
 	}
 	
@@ -47,40 +43,58 @@ public class Eval04Card {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
-		CompletePattern pattern = Test12Count.getPatternCountInPattern();	
-		pattern.getGraph().getReturnElements().get(0).getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
-		CountCondition condition = (CountCondition) pattern.getCondition();
+		CompletePattern completePattern = Test12Count.getPatternCountInPattern();	
+		CountCondition condition = (CountCondition) completePattern.getCondition();
 		CountPattern countPattern = (CountPattern) condition.getCountPattern();
-		Element element2InC = countPattern.getGraph()
-				.getReturnElements()
-				.get(0);				
+		
+		Element element2InC = countPattern.getGraph().getElements().get(1);	
+		
 		Element element3InC = graphstructureFactory.createElement();
-		element3InC.setPreviousElement(element2InC);
+		element3InC.setGraph(countPattern.getGraph());
+		element3InC.addPrimitiveComparison();		
 		element3InC.addPrimitiveComparison();
-		element3InC.addPrimitiveComparison();
+
+		Relation relation = graphstructureFactory.createRelation();
+		relation.setGraph(countPattern.getGraph());
+		relation.setSource(element2InC);
+		relation.setTarget(element3InC);
+		
 		Element element4InC = graphstructureFactory.createElement();
-		element4InC.setPreviousElement(element3InC);
+		element4InC.setGraph(countPattern.getGraph());
 		element4InC.addPrimitiveComparison();
+		
+		Relation relation2 = graphstructureFactory.createRelation();
+		relation2.setGraph(countPattern.getGraph());
+		relation2.setSource(element3InC);
+		relation2.setTarget(element4InC);		
 		
 		countPattern.getGraph().getReturnElements().clear();
 		countPattern.getGraph().getReturnElements().add(element3InC);
 		
-		return pattern;
+		completePattern.createXMLAdaption();
+		countPattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		relation.adaptAsXMLNavigation();
+		relation2.adaptAsXMLNavigation();		
+		completePattern.finalizeXMLAdaption();
+		
+		return completePattern;
 	}
 	
-	public static CompletePattern getCardMidas() {
+	public static CompletePattern getCardMidasOb30() {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern pattern = getCardAbstractMidas();
 		
-		Element returnElementInReturnGraph = pattern.getGraph().getReturnElements().get(0);			
+		XmlElement returnElementInReturnGraph = (XmlElement) pattern.getGraph().getReturnElements().get(0);	
+		XmlNavigation relation = (XmlNavigation) pattern.getGraph().getRelations().get(0);
+		relation.getOption().setValue(RelationKind.DESCENDANT);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
-		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
-		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
+		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		CountCondition countCondition = (CountCondition) pattern.getCondition();
 		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
@@ -90,44 +104,37 @@ public class Eval04Card {
 		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		Graph graph1 = countPattern.getGraph();
 		
-		Element returnElementInGraph1 = graph1.getRootElement().getNextElements().get(0);
-		Element nextToReturnElementInGraph1 = returnElementInGraph1.getNextElements().get(0);	
-		nextToReturnElementInGraph1.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT_OR_SELF);
+		XmlElement nextToReturnElementInGraph1 = (XmlElement) graph1.getElements().get(1);	
+		XmlNavigation relation2 = (XmlNavigation) graph1.getRelations().get(0);
+		relation2.getOption().setValue(RelationKind.DESCENDANT_OR_SELF);
 		Comparison comparisonNextToReturnElementInGraph1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("h1:Block");
 		((UnknownParameterValue) comparisonNextToReturnElementInGraph1.getArguments().get(1)).concretize(concreteInputValue2);
-		nextToReturnElementInGraph1.getProperties().get(0).getOption().setValue(PropertyKind.TAG);
-		
-//		Comparison comparisonCount = (Comparison) nextToReturnElementInGraph1.getPredicates().get(1);
-//		comparisonCount.getOption().getOptions().add(ComparisonOperator.GREATER);
-//		comparisonCount.getOption().setValue(ComparisonOperator.GREATER);
-//		NumberParam concreteInputValue3 = parametersFactory.createNumberParam();
-//		concreteInputValue3.setValue(1.0);
-//		((UnknownParameterValue) comparisonCount.getArguments().get(0)).concretize(concreteInputValue3);	
-		System.out.println(nextToReturnElementInGraph1.getPredicates().size());
-		Element setElement1InGraph1 = nextToReturnElementInGraph1.getNextElements().get(0);			
+		((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+
+		XmlElement setElement1InGraph1 = (XmlElement) graph1.getElements().get(2);			
 		Comparison comparison1Set1 = (Comparison) setElement1InGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("ob30");
 		((UnknownParameterValue) comparison1Set1.getArguments().get(1)).concretize(concreteInputValue4);
-		setElement1InGraph1.getProperties().get(0).getAttributeName().setValue("Type");
-		setElement1InGraph1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) setElement1InGraph1.getProperties().get(0)).getAttributeName().setValue("Type");
+		((XmlProperty) setElement1InGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 				
 		Comparison comparison2Set1 = (Comparison) setElement1InGraph1.getPredicates().get(1);
 		TextLiteralParam concreteInputValue5 = parametersFactory.createTextLiteralParam();
 		concreteInputValue5.setValue("Herstellung");
 		((UnknownParameterValue) comparison2Set1.getArguments().get(1)).concretize(concreteInputValue5);
-		setElement1InGraph1.getProperties().get(1).getAttributeName().setValue("Value");
-		setElement1InGraph1.getProperties().get(1).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) setElement1InGraph1.getProperties().get(1)).getAttributeName().setValue("Value");
+		((XmlProperty) setElement1InGraph1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
-		Element setElement2InGraph1 = setElement1InGraph1.getNextElements().get(0);	
+		Element setElement2InGraph1 = graph1.getElements().get(3);	
 		Comparison comparison1Set2 = (Comparison) setElement2InGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue6 = parametersFactory.createTextLiteralParam();
 		concreteInputValue6.setValue("ob30rl");
 		((UnknownParameterValue) comparison1Set2.getArguments().get(1)).concretize(concreteInputValue6);
-		setElement2InGraph1.getProperties().get(0).getAttributeName().setValue("Type");
-		setElement2InGraph1.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) setElement2InGraph1.getProperties().get(0)).getAttributeName().setValue("Type");
+		((XmlProperty) setElement2InGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		return pattern;		
 	}
