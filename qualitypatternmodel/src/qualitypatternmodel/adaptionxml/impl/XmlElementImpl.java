@@ -24,8 +24,10 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
+import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;
@@ -33,7 +35,9 @@ import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.impl.ComparisonImpl;
 import qualitypatternmodel.operators.impl.MatchImpl;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
+import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Location;
 
@@ -201,6 +205,35 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 		return VARIABLE + getOriginalID();
 	}
 	
+	@Override
+	public UnknownParameterValue addPrimitiveComparison() {
+		try {
+			Comparison comparison = new ComparisonImpl();
+			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+			
+			XmlProperty property = new XmlPropertyImpl();			
+			getProperties().add(property);
+			property.createParameters();
+	
+			UnknownParameterValue unknownParameterValue = new UnknownParameterValueImpl();
+			varlist.add(unknownParameterValue);
+	
+			oplist.add(comparison);	
+			comparison.createParameters();
+			comparison.setArgument1(property);
+			comparison.setArgument2(unknownParameterValue);						
+			
+			return unknownParameterValue;
+			
+		} catch (Exception e) {			
+			System.out.println("Adding Condition Failed: " + e.getMessage());		
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	@Override
 	public void addPrimitiveComparison(String value) {
