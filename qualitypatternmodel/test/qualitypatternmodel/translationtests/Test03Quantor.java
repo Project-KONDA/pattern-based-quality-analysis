@@ -14,7 +14,7 @@ public class Test03Quantor {
 //		System.out.println(getPatternExists().myToString());
 		
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternExistsTwoElements());
+		completePatterns.add(getPatternExistsWithRelation());
 //		completePatterns.add(getPatternExistsFinal());
 //		completePatterns.add(getPatternExistsNavigation());
 //		completePatterns.add(getPatternExistsCondFinal());
@@ -84,7 +84,7 @@ public class Test03Quantor {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternExistsTwoElements() {
+	public static CompletePattern getPatternExistsWithRelation() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -97,8 +97,7 @@ public class Test03Quantor {
 		completePattern.setCondition(cond);
 				
 		// EXISTS additional graph structure
-		Element se1 = graphFactory.createElement();
-		se1.setGraph(cond.getGraph());	
+		Element se1 = cond.getGraph().getElements().get(0);	
 		
 		Element se2 = graphFactory.createElement();
 		se2.setGraph(cond.getGraph());
