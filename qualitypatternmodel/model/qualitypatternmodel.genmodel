@@ -364,6 +364,14 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappings"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkRelationMappingsUniqueness"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/checkElementMappingsUniqueness"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping/from"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping/to"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping.1">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping.1/from"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping.1/to"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/ElementMapping">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

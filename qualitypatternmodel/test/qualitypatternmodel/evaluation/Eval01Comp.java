@@ -12,6 +12,7 @@ import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.FunctionsFactory;
 import qualitypatternmodel.operators.FunctionsPackage;
+import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersFactory;
@@ -34,8 +35,8 @@ public class Eval01Comp {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		FunctionsPackage.eINSTANCE.eClass();
-		FunctionsFactory functionsFactory = FunctionsFactory.eINSTANCE;		
+		OperatorsPackage.eINSTANCE.eClass();
+		OperatorsPackage functionsFactory = OperatorsPackage.eINSTANCE;		
 		
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);			

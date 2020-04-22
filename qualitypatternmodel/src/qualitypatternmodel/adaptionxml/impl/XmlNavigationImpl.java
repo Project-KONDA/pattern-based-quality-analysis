@@ -472,7 +472,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	public String myToString() {
 		String res = super.myToString() + " ";
 		if (getOption() != null) {
-			return res + "(" + getOption().getValue().getLiteral() + ")";
+			return res + "(" + getOption().getValue().getLiteral() + "[" + getOption().getInternalId() + "])";
 		} else {
 			return res + "[prev.]";
 		}

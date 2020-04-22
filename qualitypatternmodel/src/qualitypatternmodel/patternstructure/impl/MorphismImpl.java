@@ -425,6 +425,34 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public ElementMapping addMapping(Element from, Element to) {
+		ElementMapping em = new ElementMappingImpl();
+		getMappings().add(em);
+		em.setFrom(from);
+		em.setTo(to);
+		return em;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public RelationMapping addMapping(Relation from, Relation to) {		
+		RelationMapping rm = new RelationMappingImpl();
+		getMappings().add(rm);
+		rm.setFrom(from);
+		rm.setTo(to);
+		return rm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @throws InvalidityException
 	 * @generated NOT
 	 */
@@ -639,6 +667,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case PatternstructurePackage.MORPHISM___ADD_MAPPING__ELEMENT_ELEMENT:
+				return addMapping((Element)arguments.get(0), (Element)arguments.get(1));
+			case PatternstructurePackage.MORPHISM___ADD_MAPPING__RELATION_RELATION:
+				return addMapping((Relation)arguments.get(0), (Relation)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

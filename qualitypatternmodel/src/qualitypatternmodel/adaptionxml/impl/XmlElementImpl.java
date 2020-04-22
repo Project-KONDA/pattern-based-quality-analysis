@@ -27,7 +27,6 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
-import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;
@@ -285,6 +284,14 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 		} catch (Exception e) {
 			System.out.println("addPrimitiveMatch failed: " + e.getMessage());
 		}
+	}
+	
+	@Override
+	public Property addNewProperty() {
+		XmlProperty prop = new XmlPropertyImpl();
+		getProperties().add(prop);
+		prop.createParameters();
+		return prop;
 	}
 
 
