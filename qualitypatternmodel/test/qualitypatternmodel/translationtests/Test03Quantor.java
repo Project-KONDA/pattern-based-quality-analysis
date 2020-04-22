@@ -14,7 +14,7 @@ public class Test03Quantor {
 //		System.out.println(getPatternExists().myToString());
 		
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternExistsWithRelation());
+		completePatterns.add(getPatternExistsWithRelationFinal());
 //		completePatterns.add(getPatternExistsFinal());
 //		completePatterns.add(getPatternExistsNavigation());
 //		completePatterns.add(getPatternExistsCondFinal());
@@ -83,7 +83,7 @@ public class Test03Quantor {
 				
 		return completePattern;
 	}
-
+	
 	public static CompletePattern getPatternExistsWithRelation() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -105,10 +105,18 @@ public class Test03Quantor {
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(cond.getGraph());
 		relation.setSource(se1);
-		relation.setTarget(se2);
+		relation.setTarget(se2);		
+				
+		return completePattern;
+	}
+
+	public static CompletePattern getPatternExistsWithRelationFinal() {
+		
+		CompletePattern completePattern = getPatternExistsWithRelation();
+		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
 		
 		completePattern.createXMLAdaption();
-		relation.adaptAsXMLNavigation();
+		cond.getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();	
 				
 		return completePattern;

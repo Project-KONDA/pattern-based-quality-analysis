@@ -31,7 +31,7 @@ public class Eval00Match {
 	public static CompletePattern getMatchAbstract() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		
-		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
+		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelationFinal();
 		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);		
 		returnElementInReturnGraph.addPrimitiveComparison(); 
 		
