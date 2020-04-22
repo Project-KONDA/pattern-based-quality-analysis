@@ -2,6 +2,8 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.common.util.EList;
+
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -12,13 +14,19 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.ComparisonImpl;
+import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.PropertyOptionParam;
+import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
@@ -27,6 +35,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval01Comp {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getCompAbstract());
 		completePatterns.add(getCompMidas());
 		Test00.test(completePatterns);
 		
@@ -38,7 +47,7 @@ public class Eval01Comp {
 		OperatorsPackage.eINSTANCE.eClass();
 		OperatorsPackage functionsFactory = OperatorsPackage.eINSTANCE;		
 		
-		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
+		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelationFinal();
 		
 		Graph graph1 = completePattern.getGraph();
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
@@ -95,12 +104,36 @@ public class Eval01Comp {
 	}
 	
 	public static CompletePattern getCompMidas() {
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+//		ParametersPackage.eINSTANCE.eClass();
+//		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getCompAbstract();
 		
-		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);
+		EList<Parameter> params = completePattern.getParameterList().getParameters();
+		
+//		completePattern.myToString();
+//		for (int i = 0; i<params.size(); i++) {
+//			System.out.println(params.get(i).myToString());			
+//		}
+
+		((UnknownParameterValue) params.get(17)).concretize(new TextLiteralParamImpl("3105"));
+		((TextLiteralParam) params.get(16)).setValue("Type");
+		((PropertyOptionParam) params.get(15)).setValue(PropertyKind.ATTRIBUTE);		
+		((TextLiteralParam) params.get(13)).setValue("Value");
+		((PropertyOptionParam) params.get(12)).setValue(PropertyKind.ATTRIBUTE);
+		((TextLiteralParam) params.get(11)).setValue("Value");
+		((PropertyOptionParam) params.get(10)).setValue(PropertyKind.ATTRIBUTE);
+		((UnknownParameterValue) params.get(8)).concretize(new TextLiteralParamImpl("3100"));
+		((TextLiteralParam) params.get(7)).setValue("Type");
+		((PropertyOptionParam) params.get(6)).setValue(PropertyKind.ATTRIBUTE);
+		((UnknownParameterValue) params.get(4)).concretize(new TextLiteralParamImpl("kue"));
+		((TextLiteralParam) params.get(3)).setValue("Type");
+		((PropertyOptionParam) params.get(2)).setValue(PropertyKind.ATTRIBUTE);
+		((RelationOptionParam) params.get(1)).setValue(RelationKind.DESCENDANT);
+		
+//		completePattern.myToString();
+//		Graph returnGraph = completePattern.getGraph();
+//		Element returnElementInReturnGraph = returnGraph.getReturnElements().get(0);
 		
 		
 //		returnElementInReturnGraph.getRelationFromPrevious().getOption().setValue(RelationKind.DESCENDANT);
