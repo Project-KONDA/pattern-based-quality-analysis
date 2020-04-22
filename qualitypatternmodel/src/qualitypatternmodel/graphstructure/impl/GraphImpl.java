@@ -211,6 +211,37 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if(root == null) {	
 			root = new XmlRootImpl();
 			root.setGraphSimple(this);	
+			if (getQuantifiedCondition() != null) {
+				Morphism morph = getQuantifiedCondition().getMorphism();
+				Graph graph2 = morph.getFrom();
+				XmlRoot root2 = null;
+				for(Element element : graph2.getElements()) {
+					if(element instanceof XmlRoot) {
+						root2 = (XmlRoot) element;
+					}
+				}
+				morph.addMapping(root2, root);
+			}
+		}
+		
+		if (getQuantifiedCondition() != null) {
+			Morphism morph = getQuantifiedCondition().getMorphism();
+			Graph graph2 = morph.getFrom();
+			Element root2 = root.getMappingFrom().getFrom();
+			for (Relation re : graph2.getRelations()) {
+				if (re.getSource() == root2) {
+					Relation rel = new XmlNavigationImpl();
+					rel.setGraphSimple(this);
+					rel.setSource(root);
+					EList<ElementMapping> emaps = re.getTarget().getMappingTo();
+					for (ElementMapping em : emaps) {
+						if (getElements().contains(em.getTo())) {
+							rel.setTarget(em.getTo());							
+						}
+					}					
+					morph.addMapping(re, rel);
+				}
+			}
 		}
 		for(Element element : getElements()) {
 			if(element instanceof XmlElement) {
