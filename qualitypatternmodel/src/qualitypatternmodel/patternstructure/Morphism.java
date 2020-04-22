@@ -5,7 +5,9 @@ package qualitypatternmodel.patternstructure;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Relation;
 
 /**
  * <!-- begin-user-doc -->
@@ -147,6 +149,22 @@ public interface Morphism extends PatternElement {
 	 * @generated
 	 */
 	void checkElementMappingsUniqueness() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ElementMapping addMapping(Element from, Element to);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	RelationMapping addMapping(Relation from, Relation to);
 
 	/**
 	 * Returns the value of the '<em><b>Morph Depth</b></em>' attribute.

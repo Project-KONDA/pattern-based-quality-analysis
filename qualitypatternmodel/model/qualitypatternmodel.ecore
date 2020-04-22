@@ -405,6 +405,14 @@
       <eOperations name="checkRelationMappings" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="checkRelationMappingsUniqueness" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="checkElementMappingsUniqueness" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addMapping" eType="#//patternstructure/ElementMapping">
+        <eParameters name="from" eType="#//graphstructure/Element"/>
+        <eParameters name="to" eType="#//graphstructure/Element"/>
+      </eOperations>
+      <eOperations name="addMapping" eType="#//patternstructure/RelationMapping">
+        <eParameters name="from" eType="#//graphstructure/Relation"/>
+        <eParameters name="to" eType="#//graphstructure/Relation"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="morphDepth" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"

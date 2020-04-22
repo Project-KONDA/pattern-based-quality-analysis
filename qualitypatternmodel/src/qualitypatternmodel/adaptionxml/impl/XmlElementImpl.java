@@ -27,7 +27,6 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
-import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;

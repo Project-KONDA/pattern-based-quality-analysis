@@ -561,6 +561,26 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getMorphism__AddMapping__Element_Element() {
+		return morphismEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getMorphism__AddMapping__Relation_Relation() {
+		return morphismEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getElementMapping() {
 		return elementMappingEClass;
 	}
@@ -1243,6 +1263,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(morphismEClass, MORPHISM___CHECK_RELATION_MAPPINGS);
 		createEOperation(morphismEClass, MORPHISM___CHECK_RELATION_MAPPINGS_UNIQUENESS);
 		createEOperation(morphismEClass, MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS);
+		createEOperation(morphismEClass, MORPHISM___ADD_MAPPING__ELEMENT_ELEMENT);
+		createEOperation(morphismEClass, MORPHISM___ADD_MAPPING__RELATION_RELATION);
 
 		elementMappingEClass = createEClass(ELEMENT_MAPPING);
 		createEReference(elementMappingEClass, ELEMENT_MAPPING__FROM);
@@ -1418,6 +1440,14 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		op = initEOperation(getMorphism__CheckElementMappingsUniqueness(), null, "checkElementMappingsUniqueness", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getMorphism__AddMapping__Element_Element(), this.getElementMapping(), "addMapping", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getElement(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getElement(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMorphism__AddMapping__Relation_Relation(), this.getRelationMapping(), "addMapping", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getRelation(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getRelation(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(elementMappingEClass, ElementMapping.class, "ElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElementMapping_From(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_MappingTo(), "from", null, 1, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

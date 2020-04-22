@@ -1461,13 +1461,31 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS = PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Add Mapping</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___ADD_MAPPING__ELEMENT_ELEMENT = PATTERN_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Add Mapping</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___ADD_MAPPING__RELATION_RELATION = PATTERN_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int MORPHISM_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl <em>Element Mapping</em>}' class.
@@ -4218,6 +4236,26 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getMorphism__CheckElementMappingsUniqueness();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element) <em>Add Mapping</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Mapping</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element)
+	 * @generated
+	 */
+	EOperation getMorphism__AddMapping__Element_Element();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation) <em>Add Mapping</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Mapping</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation)
+	 * @generated
+	 */
+	EOperation getMorphism__AddMapping__Relation_Relation();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.ElementMapping <em>Element Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5104,6 +5142,22 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS = eINSTANCE.getMorphism__CheckElementMappingsUniqueness();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Mapping</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MORPHISM___ADD_MAPPING__ELEMENT_ELEMENT = eINSTANCE.getMorphism__AddMapping__Element_Element();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Mapping</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MORPHISM___ADD_MAPPING__RELATION_RELATION = eINSTANCE.getMorphism__AddMapping__Relation_Relation();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl <em>Element Mapping</em>}' class.
