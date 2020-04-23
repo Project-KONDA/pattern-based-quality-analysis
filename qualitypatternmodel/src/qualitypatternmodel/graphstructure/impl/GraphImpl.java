@@ -229,14 +229,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			Graph graph2 = morph.getFrom();
 			Element root2 = root.getMappingFrom().getFrom();
 			for (Relation re : graph2.getRelations()) {
-				if (re.getSource() == root2) {
+				if (re.getSource().equals(root2)) {
 					Relation rel = new XmlNavigationImpl();
 					rel.setGraphSimple(this);
 					rel.setSource(root);
 					EList<ElementMapping> emaps = re.getTarget().getMappingTo();
 					for (ElementMapping em : emaps) {
 						if (getElements().contains(em.getTo())) {
-							rel.setTarget(em.getTo());							
+							rel.setTarget(em.getTo());	
 						}
 					}					
 					morph.addMapping(re, rel);
@@ -318,6 +318,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			
 			newMapping.setFrom(element);
 			newMapping.setTo(newElement);
+			
 		}
 		
 		for(Relation relation : getRelations()) {
