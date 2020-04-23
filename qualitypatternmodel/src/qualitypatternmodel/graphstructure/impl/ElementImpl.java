@@ -422,6 +422,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		if(!(this instanceof XmlElement) && !(this instanceof XmlRoot)) {
 			XmlElement xmlElement = new XmlElementImpl();
 			xmlElement.setGraphSimple(getGraph());	
+			xmlElement.setName(getName());
 			
 //			for(ElementMapping mapping : xmlElement.getMappingTo()) {
 //				mapping.getTo().setGraph(null);
@@ -436,7 +437,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			xmlElement.setMappingFrom(getMappingFrom());
 			setMappingFrom(null);
 			setResultOf(null);
-			setGraph(null);		
+			setGraph(null);
 			EList<Relation> outgoingCopy = new BasicEList<Relation>();
 			outgoingCopy.addAll(getOutgoing());
 			for(Relation relation : outgoingCopy) {

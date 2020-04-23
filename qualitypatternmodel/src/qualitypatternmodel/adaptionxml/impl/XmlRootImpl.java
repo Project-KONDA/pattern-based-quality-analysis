@@ -28,6 +28,7 @@ public class XmlRootImpl extends ElementImpl implements XmlRoot {
 	 */
 	public XmlRootImpl() {
 		super();
+		setName("Root");
 	}
 	
 	@Override

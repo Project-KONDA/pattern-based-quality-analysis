@@ -82,8 +82,8 @@ public class Test06NotElement {
 		qc.setQuantifier(Quantifier.FORALL);
 		return completePattern;
 	}
-	
-	public static CompletePattern getPatternExistsNotExists() {
+
+	public static CompletePattern getPatternExistsNotExistsAbstract() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
@@ -103,7 +103,13 @@ public class Test06NotElement {
 		
 		Element e2 = graphFactory.createElement();
 		e2.setGraph(qc2.getGraph());
+		return completePattern;
 		
+	}
+	
+	
+	public static CompletePattern getPatternExistsNotExists() {
+		CompletePattern completePattern = getPatternExistsNotExistsAbstract();
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();	
 		
