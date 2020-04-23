@@ -25,7 +25,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval00Match {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getMatchMidasOb30Child());
+		completePatterns.add(getMatchMidas3100Abbreviation());
 		Test00.test(completePatterns);
 		
 	}
@@ -191,6 +191,18 @@ public class Eval00Match {
 	
 	public static CompletePattern getMatchMidas3270() {		
 		return getMatchMidasConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3270", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\?$");		
+	}
+	
+	public static CompletePattern getMatchMidas3270Imprecise() {		
+		return getMatchMidasConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3270", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "[0-9]/[0-9]");		
+	}
+	
+	public static CompletePattern getMatchMidas3100Abbreviation() {		
+		return getMatchMidasConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3100", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\.");		
+	}
+	
+	public static CompletePattern getMatchMidas5060() {		
+		return getMatchMidasConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5060", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "^[0-9/]+$");		
 	}
 	
 	public static CompletePattern getMatchMidasOb30Child() {	
