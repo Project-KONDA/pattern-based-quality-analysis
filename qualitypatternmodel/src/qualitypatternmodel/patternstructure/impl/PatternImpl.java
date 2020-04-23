@@ -65,7 +65,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected PatternImpl() {
 		super();

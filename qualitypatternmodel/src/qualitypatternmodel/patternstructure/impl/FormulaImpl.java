@@ -82,7 +82,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected FormulaImpl() {
 		super();
