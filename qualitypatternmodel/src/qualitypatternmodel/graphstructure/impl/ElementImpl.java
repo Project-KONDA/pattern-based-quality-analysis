@@ -862,6 +862,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			removeElementFromPreviousGraphs();
 		}
 		
+		removeMappingsToNext();
+		
+		setResultOf(null);
+		
 		if(newGraph != null) {
 			for(Morphism morphism : newGraph.getMorphismTo()) {
 				MorphismContainer container = morphism.getMorphismContainer();
@@ -873,10 +877,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				newMapping.setTo(newElement);
 			}		
 		}
-		
-		setResultOf(null);
-		
-		removeMappingsToNext();
 		
 		// TODO: reset incoming and outgoing ?
 		
