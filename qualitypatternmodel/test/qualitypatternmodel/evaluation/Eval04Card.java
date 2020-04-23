@@ -87,8 +87,7 @@ public class Eval04Card {
 		CompletePattern pattern = getCardAbstractMidas();
 		
 		XmlElement returnElementInReturnGraph = (XmlElement) pattern.getGraph().getReturnElements().get(0);	
-		XmlNavigation relation = (XmlNavigation) pattern.getGraph().getRelations().get(0);
-		relation.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
@@ -105,8 +104,7 @@ public class Eval04Card {
 		Graph graph1 = countPattern.getGraph();
 		
 		XmlElement nextToReturnElementInGraph1 = (XmlElement) graph1.getElements().get(1);	
-		XmlNavigation relation2 = (XmlNavigation) graph1.getRelations().get(0);
-		relation2.getOption().setValue(RelationKind.DESCENDANT_OR_SELF);
+		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT_OR_SELF);
 		Comparison comparisonNextToReturnElementInGraph1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("h1:Block");

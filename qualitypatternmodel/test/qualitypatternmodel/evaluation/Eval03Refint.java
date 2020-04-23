@@ -107,8 +107,7 @@ public class Eval03Refint {
 		CompletePattern completePattern = getRefintAbstractMidas();
 		
 		Element returnInReturnGraph = completePattern.getGraph().getElements().get(0);
-		XmlNavigation relation1 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		relation1.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
 		((UnknownParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
@@ -117,8 +116,7 @@ public class Eval03Refint {
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element element1 = graph1.getElements().get(1);
-		XmlNavigation relation2 = (XmlNavigation) graph1.getRelations().get(0);
-		relation2.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("3600");
 		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
@@ -128,8 +126,7 @@ public class Eval03Refint {
 		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
 		Element element1InGraph2 = graph2.getElements().get(1);
 		Element element2 = graph2.getElements().get(2);
-		XmlNavigation relation3 = (XmlNavigation) graph2.getRelations().get(3);
-		relation3.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph2.getRelations().get(3)).getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("wer");
 		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);

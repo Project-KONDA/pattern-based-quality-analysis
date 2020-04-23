@@ -213,8 +213,7 @@ public class Eval06Func {
 		
 		CompletePattern completePattern = getFuncAbstract();
 		Element returnInReturnGraph = completePattern.getGraph().getElements().get(0);
-		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		relation.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("wer");
 		((UnknownParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
@@ -244,8 +243,7 @@ public class Eval06Func {
 		((XmlProperty) elementB1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element element1 = graph2.getElements().get(3);
-		XmlNavigation relation2 = (XmlNavigation) graph2.getRelations().get(5);
-		relation2.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph2.getRelations().get(5)).getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("wer");
 		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);

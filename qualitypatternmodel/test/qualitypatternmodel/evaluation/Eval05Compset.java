@@ -86,8 +86,7 @@ public class Eval05Compset {
 		CompletePattern completePattern = getCompsetAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
-		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		relation.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
@@ -133,8 +132,7 @@ public class Eval05Compset {
 		CompletePattern completePattern = getCompsetAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
-		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		relation.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
@@ -144,8 +142,7 @@ public class Eval05Compset {
 		QuantifiedCondition condition = (QuantifiedCondition) completePattern.getCondition();
 		Graph graph1 = condition.getGraph();
 		Element nextToReturnElementInGraph1 = graph1.getElements().get(1);	
-		XmlNavigation relation1 = (XmlNavigation) graph1.getRelations().get(0);
-		relation1.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 		
 		Comparison comparison1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();

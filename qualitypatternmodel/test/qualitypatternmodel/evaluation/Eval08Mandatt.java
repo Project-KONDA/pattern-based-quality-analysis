@@ -96,8 +96,7 @@ public class Eval08Mandatt {
 		CompletePattern completePattern = getMandattAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
-		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		relation.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -147,8 +146,7 @@ public class Eval08Mandatt {
 		CompletePattern completePattern = getMandattAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
-		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		relation.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 				
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -163,8 +161,7 @@ public class Eval08Mandatt {
 		
 		Graph graph1 = qc1.getGraph();
 		Element next1ToReturnElementInGraph1 = graph1.getElements().get(1);
-		XmlNavigation relation2 = (XmlNavigation) graph1.getRelations().get(0);		
-		relation2.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 		Comparison comparison1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("lido:appellationValue");
@@ -173,8 +170,7 @@ public class Eval08Mandatt {
 		
 		Graph graph2 = qc2.getGraph();
 		Element next1ToReturnElementInGraph2 = graph2.getElements().get(1);
-		XmlNavigation relation3 = (XmlNavigation) graph2.getRelations().get(0);
-		relation3.getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph2.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 		
 		Comparison comparison2 = (Comparison) next1ToReturnElementInGraph2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
