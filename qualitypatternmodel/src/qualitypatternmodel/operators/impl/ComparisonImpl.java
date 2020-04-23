@@ -143,6 +143,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				argument2Translated = ((XmlElement) argument2).getXQueryRepresentation(location);
 			} else {
 				argument2Translated = argument2.generateQuery(location);
+			}			
+			if( argument1 instanceof XmlElement && argument2 instanceof XmlElement ) {
+				String res = "fn:deep-equal ( " + argument1Translated + ", " + argument2Translated + " )";
+				if (operator == ComparisonOperator.EQUAL) {
+					return res;
+				} else if (operator == ComparisonOperator.NOTEQUAL) {
+					return "not ( " + res + ")";					
+				}
 			}
 			return conversionStartArgument1 + argument1Translated + conversionEndArgument1 + operator.getLiteral()
 					+ conversionStartArgument2 + argument2Translated + conversionEndArgument2;
