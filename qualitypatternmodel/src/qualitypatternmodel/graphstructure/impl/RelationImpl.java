@@ -136,11 +136,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				throw new InvalidityException("mapping of source invalid");
 			}
 			Element mappedTarget = mappedRelation.getTarget();
-			if(!mappedTarget.getMappingFrom().getFrom().equals(getTarget())) {
+			if (mappedTarget == null) {
+				throw new InvalidityException("Target of Mapping " + mappedRelation.getInternalId() + " from " + mappedRelation.getSource().getInternalId() + " is null");
+			}
+			ElementMapping mappingSource = mappedTarget.getMappingFrom();
+			Element mappedSource2 = mappingSource.getFrom();
+			if(!mappedSource2.equals(getTarget())) {
 				throw new InvalidityException("mapping of target invalid");
 			}
-		}
-	
+		}	
 	}	
 	
 	@Override

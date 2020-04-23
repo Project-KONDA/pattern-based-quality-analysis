@@ -668,6 +668,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getUnknownParameterValue__SetValue__String() {
+		return unknownParameterValueEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDateTimeParam() {
 		return dateTimeParamEClass;
 	}
@@ -874,6 +884,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		unknownParameterValueEClass = createEClass(UNKNOWN_PARAMETER_VALUE);
 		createEOperation(unknownParameterValueEClass, UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE);
+		createEOperation(unknownParameterValueEClass, UNKNOWN_PARAMETER_VALUE___SET_VALUE__STRING);
 
 		dateTimeParamEClass = createEClass(DATE_TIME_PARAM);
 		createEAttribute(dateTimeParamEClass, DATE_TIME_PARAM__VALUE);
@@ -1015,6 +1026,9 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		op = initEOperation(getUnknownParameterValue__Concretize__ParameterValue(), null, "concretize", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getParameterValue(), "concreteValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getUnknownParameterValue__SetValue__String(), null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "val", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dateTimeParamEClass, DateTimeParam.class, "DateTimeParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateTimeParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateTimeParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

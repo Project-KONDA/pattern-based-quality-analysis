@@ -3384,13 +3384,22 @@ public interface ParametersPackage extends EPackage {
 	int UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE = PARAMETER_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Set Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_PARAMETER_VALUE___SET_VALUE__STRING = PARAMETER_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Unknown Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 5;
+	int UNKNOWN_PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.DateTimeParamImpl <em>Date Time Param</em>}' class.
@@ -4676,6 +4685,16 @@ public interface ParametersPackage extends EPackage {
 	EOperation getUnknownParameterValue__Concretize__ParameterValue();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.UnknownParameterValue#setValue(java.lang.String) <em>Set Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value</em>' operation.
+	 * @see qualitypatternmodel.parameters.UnknownParameterValue#setValue(java.lang.String)
+	 * @generated
+	 */
+	EOperation getUnknownParameterValue__SetValue__String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.DateTimeParam <em>Date Time Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5197,6 +5216,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE = eINSTANCE.getUnknownParameterValue__Concretize__ParameterValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation UNKNOWN_PARAMETER_VALUE___SET_VALUE__STRING = eINSTANCE.getUnknownParameterValue__SetValue__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.DateTimeParamImpl <em>Date Time Param</em>}' class.

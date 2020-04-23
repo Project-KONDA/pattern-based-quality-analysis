@@ -22,4 +22,12 @@ public interface UnknownParameterValue extends Parameter, qualitypatternmodel.gr
 	 * @generated
 	 */
 	void concretize(ParameterValue concreteValue);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setValue(String val);
 } // UnknownInputValue

@@ -313,6 +313,16 @@ public class UnknownParameterValueImpl extends ParameterImpl implements UnknownP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setValue(String val) {
+		concretize(new TextLiteralParamImpl(val));	
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -320,6 +330,9 @@ public class UnknownParameterValueImpl extends ParameterImpl implements UnknownP
 		switch (operationID) {
 			case ParametersPackage.UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE:
 				concretize((ParameterValue)arguments.get(0));
+				return null;
+			case ParametersPackage.UNKNOWN_PARAMETER_VALUE___SET_VALUE__STRING:
+				setValue((String)arguments.get(0));
 				return null;
 			case ParametersPackage.UNKNOWN_PARAMETER_VALUE___GET_RETURN_TYPE:
 				return getReturnType();

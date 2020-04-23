@@ -94,6 +94,9 @@
       <eOperations name="concretize">
         <eParameters name="concreteValue" eType="#//parameters/ParameterValue"/>
       </eOperations>
+      <eOperations name="setValue">
+        <eParameters name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DateTimeParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

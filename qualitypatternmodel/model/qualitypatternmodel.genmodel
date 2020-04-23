@@ -74,6 +74,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize/concreteValue"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/setValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/setValue/val"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateTimeParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/DateTimeParam/value"/>
