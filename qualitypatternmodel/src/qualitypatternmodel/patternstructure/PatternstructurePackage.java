@@ -4132,11 +4132,11 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCondition_NotCondition();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Condition#getNextQuantifiedConditions() <em>Get Next Quantified Conditions</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Condition#getNextMorphismContainers() <em>Get Next Quantified Conditions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Next Quantified Conditions</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Condition#getNextQuantifiedConditions()
+	 * @see qualitypatternmodel.patternstructure.Condition#getNextMorphismContainers()
 	 * @generated
 	 */
 	EOperation getCondition__GetNextQuantifiedConditions();

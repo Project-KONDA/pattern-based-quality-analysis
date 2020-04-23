@@ -290,6 +290,10 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/copyGraph/graph"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/isReturnGraph"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/addRelation">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/addRelation/from"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/addRelation/to"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//graphstructure/Comparable">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

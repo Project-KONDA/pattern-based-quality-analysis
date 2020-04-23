@@ -38,7 +38,7 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	public void isValidLocal(boolean isDefinedPattern) {}
 
 	@Override
-	public EList<MorphismContainer> getNextQuantifiedConditions() {
+	public EList<MorphismContainer> getNextMorphismContainers() {
 		return new BasicEList<MorphismContainer>();
 	}	
 	
