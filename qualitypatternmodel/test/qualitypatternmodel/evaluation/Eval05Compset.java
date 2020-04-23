@@ -76,7 +76,7 @@ public class Eval05Compset {
 		return completePattern; 
 	}
 	
-	public static CompletePattern getCompsetMIDASConcrete(String returnElementType, RelationKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind,
+	public static CompletePattern getCompsetConcrete(String returnElementType, RelationKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind,
 			String element2Type, RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind, List<String> values) {	
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
@@ -129,12 +129,12 @@ public class Eval05Compset {
 	
 	public static CompletePattern getCompsetMIDAS3140() {			
 		List<String> values = Arrays.asList("m","f","unbekannt","m?","f?","?");		
-		return getCompsetMIDASConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3140", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, values);
+		return getCompsetConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3140", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, values);
 	}
 	
 	public static CompletePattern getCompsetLidoGenderActor() {			
 		List<String> values = Arrays.asList("male","männlich","weiblich","female","unknown","not applicable");		
-		return getCompsetMIDASConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:genderActor", RelationKind.DESCENDANT, 
+		return getCompsetConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:genderActor", RelationKind.DESCENDANT, 
 				null, PropertyKind.TAG, null, PropertyKind.DATA, values);
 	}
 }
