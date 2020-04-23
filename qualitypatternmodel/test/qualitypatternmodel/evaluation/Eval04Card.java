@@ -37,15 +37,8 @@ import qualitypatternmodel.translationtests.Test12Count;
 public class Eval04Card {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getCardLidoActorName());
+		completePatterns.add(getCardMidasOb30());
 		Test00.test(completePatterns);		
-	}
-	
-	public static CompletePattern getCardAbstract() {	
-		
-		CompletePattern pattern = Test12Count.getPatternCountInPattern();		
-		
-		return pattern;
 	}
 	
 	public static CompletePattern getCardAbstractThreeElements() {	
@@ -141,53 +134,17 @@ public class Eval04Card {
 		TextLiteralParam concreteInputValue1G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1G1.setValue(e1Name);
 		((UnknownParameterValue) ((Comparison) e1G1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue1G1);
-		
-//		Element e2G1 = graph1.getElements().get(2);	
-//		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
-//		((XmlProperty) e2G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-//		TextLiteralParam concreteInputValue2G1 = parametersFactory.createTextLiteralParam();
-//		concreteInputValue2G1.setValue(e2Name);
-//		((UnknownParameterValue) ((Comparison) e2G1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2G1);
-//		
-//		Element e3G1 = graph1.getElements().get(3);	
-//		((XmlNavigation) graph1.getRelations().get(2)).getOption().setValue(RelationKind.CHILD);
-//		((XmlProperty) e3G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-//		TextLiteralParam concreteInputValue3G1 = parametersFactory.createTextLiteralParam();
-//		concreteInputValue3G1.setValue(e3Name);
-//		((UnknownParameterValue) ((Comparison) e3G1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3G1);
-		
-		
+				
 		CountCondition countCondition = (CountCondition) quantifiedCondition.getCondition();		
 		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		Graph graph2 = countPattern.getGraph();
-		
-		Element e3G2 = graph2.getElements().get(1);	
-		
+				
 		Element e4G2 = graph2.getElements().get(2);	
 		((XmlNavigation) graph2.getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
 		((XmlProperty) e4G2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue4G2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4G2.setValue(e2Name);
 		((UnknownParameterValue) ((Comparison) e4G2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4G2);
-//		
-//		Element e5G2 = graph2.getElements().get(5);
-//		((XmlNavigation) graph2.getRelations().get(4)).getOption().setValue(RelationKind.CHILD);
-//		((XmlProperty) e5G2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-//		TextLiteralParam concreteInputValue5G2 = parametersFactory.createTextLiteralParam();
-//		concreteInputValue5G2.setValue(e3Name);
-//		((UnknownParameterValue) ((Comparison) e5G2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue5G2);
-		
-//		Element nextToElement2 = graph2.getElements().get(3);
-//		((XmlProperty) nextToElement2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-//		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
-//		concreteInputValue4.setValue(elementName);
-//		((UnknownParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
-		
-//		((XmlProperty) e5G2.getProperties().get(1)).getOption().setValue(PropertyKind.DATA);
-//		
-//		((XmlProperty) e3G2.getProperties().get(0)).getOption().setValue(PropertyKind.DATA);
-//		
-//		((Comparison) e5G2.getPredicates().get(1)).setType(ReturnType.STRING);
 		
 		return completePattern;
 	}
