@@ -7,9 +7,7 @@ import java.util.List;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -20,7 +18,6 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -28,15 +25,13 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
-import qualitypatternmodel.patternstructure.validation.NotElementValidator;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
-import qualitypatternmodel.translationtests.Test06NotElement;
 
 public class Eval05Compset {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getCompsetMIDAS3140());
+		completePatterns.add(getCompsetLidoGenderActor());
 		Test00.test(completePatterns);
 		
 	}
@@ -94,7 +89,9 @@ public class Eval05Compset {
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementType);
 		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue(attribute1Name);
+		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
+			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue(attribute1Name);
+		}
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(attribute1Kind);
 		
 		QuantifiedCondition condition = (QuantifiedCondition) completePattern.getCondition();
@@ -105,7 +102,9 @@ public class Eval05Compset {
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue(element2Type);
 		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
-		((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
+		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
+			((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
+		}
 		((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getOption().setValue(attribute2Kind);
 	
 		NotCondition notCondition = (NotCondition) condition.getCondition();
@@ -118,14 +117,11 @@ public class Eval05Compset {
 		for(String str : values) {
 			concreteInputValue2.getValues().add(str);
 		}
-//		concreteInputValue2.getValues().add("m");	
-//		concreteInputValue2.getValues().add("f");
-//		concreteInputValue2.getValues().add("unbekannt");
-//		concreteInputValue2.getValues().add("m?");
-//		concreteInputValue2.getValues().add("f?");
-//		concreteInputValue2.getValues().add("?");
+
 		((UnknownParameterValue) comparison2.getArguments().get(1)).concretize(concreteInputValue2);
-		((XmlProperty) nextToReturnElementInGraph2.getProperties().get(0)).getAttributeName().setValue(attribute3Name);
+		if (attribute3Kind == PropertyKind.ATTRIBUTE) {
+			((XmlProperty) nextToReturnElementInGraph2.getProperties().get(0)).getAttributeName().setValue(attribute3Name);
+		}
 		((XmlProperty) nextToReturnElementInGraph2.getProperties().get(0)).getOption().setValue(attribute3Kind);		
 		
 		return completePattern;
@@ -136,47 +132,9 @@ public class Eval05Compset {
 		return getCompsetMIDASConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3140", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, values);
 	}
 	
-	public static CompletePattern getCompsetLido() {	
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
-		CompletePattern completePattern = getCompsetAbstract();
-		
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
-		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
-		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
-		concreteInputValue.setValue("lido:lido");
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-		
-		QuantifiedCondition condition = (QuantifiedCondition) completePattern.getCondition();
-		Graph graph1 = condition.getGraph();
-		Element nextToReturnElementInGraph1 = graph1.getElements().get(1);	
-		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
-		
-		Comparison comparison1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
-		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
-		concreteInputValue1.setValue("lido:genderActor");
-		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
-		((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-	
-		NotCondition notCondition = (NotCondition) condition.getCondition();
-		QuantifiedCondition condition2 = (QuantifiedCondition) notCondition.getCondition();
-		Graph graph2 = condition2.getGraph();
-		Element nextToReturnElementInGraph2 = graph2.getElements().get(1);
-		
-		Comparison comparison2 = (Comparison) nextToReturnElementInGraph2.getPredicates().get(0);
-		TextListParam concreteInputValue2 = parametersFactory.createTextListParam();
-		concreteInputValue2.getValues().add("male");	
-		concreteInputValue2.getValues().add("männlich");
-		concreteInputValue2.getValues().add("weiblich");
-		concreteInputValue2.getValues().add("female");
-		concreteInputValue2.getValues().add("unknown");
-		concreteInputValue2.getValues().add("not applicable");
-		((UnknownParameterValue) comparison2.getArguments().get(1)).concretize(concreteInputValue2);
-		((XmlProperty) nextToReturnElementInGraph2.getProperties().get(0)).getOption().setValue(PropertyKind.DATA);		
-		
-		return completePattern;
+	public static CompletePattern getCompsetLidoGenderActor() {			
+		List<String> values = Arrays.asList("male","männlich","weiblich","female","unknown","not applicable");		
+		return getCompsetMIDASConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:genderActor", RelationKind.DESCENDANT, 
+				null, PropertyKind.TAG, null, PropertyKind.DATA, values);
 	}
 }

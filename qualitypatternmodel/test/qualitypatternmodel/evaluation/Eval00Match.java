@@ -25,56 +25,58 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval00Match {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getMatchMidas3100Abbreviation());
+		completePatterns.add(getMatchLidoAppellationValue());
 		Test00.test(completePatterns);
-		
+
 	}
+
 	public static CompletePattern getMatchAbstract() {
 		GraphstructurePackage.eINSTANCE.eClass();
-		
+
 		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelationFinal();
-		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);		
-		returnElementInReturnGraph.addPrimitiveComparison(); 
-		
+		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);
+		returnElementInReturnGraph.addPrimitiveComparison();
+
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		XmlElement element2 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);	
-		
-		element2.addPrimitiveComparison(); 		
+		XmlElement element2 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+
+		element2.addPrimitiveComparison();
 		element2.addPrimitiveMatch();
-		
+
 		return completePattern;
 	}
+
 	public static CompletePattern getMatchAbstractThreeElements() {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);		
-		returnElementInReturnGraph.addPrimitiveComparison(); 
-		
+		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);
+		returnElementInReturnGraph.addPrimitiveComparison();
+
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		
-		Element element2 = quantifiedCondition.getGraph().getElements().get(1);			
-		element2.addPrimitiveComparison(); 		
-		
+
+		Element element2 = quantifiedCondition.getGraph().getElements().get(1);
+		element2.addPrimitiveComparison();
+
 		Element element3 = graphFactory.createElement();
 		element3.setGraph(quantifiedCondition.getGraph());
 //		element3.addPrimitiveComparison(); 		
 		element3.addPrimitiveMatch();
-		
+
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(quantifiedCondition.getGraph());
 		relation.setSource(element2);
-		relation.setTarget(element3);	
-		
+		relation.setTarget(element3);
+
 		completePattern.createXMLAdaption();
 		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		relation.adaptAsXMLNavigation();
-		completePattern.finalizeXMLAdaption();	
-		
+		completePattern.finalizeXMLAdaption();
+
 		return completePattern;
 	}
-	
+
 //	public static CompletePattern getMatchMidas() {
 //		
 //		ParametersPackage.eINSTANCE.eClass();
@@ -107,154 +109,159 @@ public class Eval00Match {
 //		
 //		return completePattern;		
 //	}
-	
-	public static CompletePattern getMatchMidasThreeElementsConcrete(String returnElementType, RelationKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind,
-			String element2Type, RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, RelationKind element3Axis,			
+
+	public static CompletePattern getMatchThreeElementsConcrete(String returnElementType,
+			RelationKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind, String element2Type,
+			RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, RelationKind element3Axis,
 			String attributeMatchName, PropertyKind attributeMatchKind, String regex) {
-		
+
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = getMatchAbstractThreeElements();
-		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);		
+		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnElementAxis);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementType);
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue(attribute1Name);
+		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
+				.concretize(concreteInputValue);
+		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
+			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue(attribute1Name);
+		}
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(attribute1Kind);
-		
+
 		QuantifiedCondition qc = (QuantifiedCondition) completePattern.getCondition();
-		XmlElement element2 = (XmlElement) qc.getGraph().getElements().get(1); 		
+		XmlElement element2 = (XmlElement) qc.getGraph().getElements().get(1);
 		((XmlNavigation) qc.getGraph().getRelations().get(0)).getOption().setValue(element2Axis);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(element2Type);
 		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
-		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
+		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
+			((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
+		}
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(attribute2Kind);
-		
-		XmlElement element3 = (XmlElement) qc.getGraph().getElements().get(2); 		
+
+		XmlElement element3 = (XmlElement) qc.getGraph().getElements().get(2);
 		((XmlNavigation) qc.getGraph().getRelations().get(0)).getOption().setValue(element3Axis);
-		
+
 		BooleanOperator matchElement2 = element3.getPredicates().get(0);
 		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
 		regularExpression.setValue(regex);
-		((XmlProperty) element3.getProperties().get(0)).getAttributeName().setValue(attributeMatchName);
+		if (attributeMatchKind == PropertyKind.ATTRIBUTE) {
+			((XmlProperty) element3.getProperties().get(0)).getAttributeName().setValue(attributeMatchName);
+		}
 		((XmlProperty) element3.getProperties().get(0)).getOption().setValue(attributeMatchKind);
-		
-		return completePattern;		
+
+		return completePattern;
 	}
-	
-	public static CompletePattern getMatchMidasConcrete(String returnElementType, RelationKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind,
-			String element2Type, RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind, String regex) {
+
+	public static CompletePattern getMatchConcrete(String returnElementType, RelationKind returnElementAxis,
+			String attribute1Name, PropertyKind attribute1Kind, String element2Type, RelationKind element2Axis,
+			String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind,
+			String regex) {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
+
 		CompletePattern completePattern = getMatchAbstract();
-		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);		
+		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnElementAxis);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementType);
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue(attribute1Name);
+		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
+				.concretize(concreteInputValue);
+		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
+			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName()
+					.setValue(attribute1Name);
+		}
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(attribute1Kind);
-		
+
 		QuantifiedCondition qc = (QuantifiedCondition) completePattern.getCondition();
-		XmlElement element2 = (XmlElement) qc.getGraph().getElements().get(1); 		
+		XmlElement element2 = (XmlElement) qc.getGraph().getElements().get(1);
 		((XmlNavigation) qc.getGraph().getRelations().get(0)).getOption().setValue(element2Axis);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(element2Type);
 		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
-		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
+		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
+			((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
+		}
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(attribute2Kind);
-		
+
 		BooleanOperator matchElement2 = element2.getPredicates().get(1);
 		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
 		regularExpression.setValue(regex);
-		((XmlProperty) element2.getProperties().get(1)).getAttributeName().setValue(attribute3Name);
+		if (attribute3Kind == PropertyKind.ATTRIBUTE) {
+			((XmlProperty) element2.getProperties().get(1)).getAttributeName().setValue(attribute3Name);
+		}
 		((XmlProperty) element2.getProperties().get(1)).getOption().setValue(attribute3Kind);
-		
-		return completePattern;		
+
+		return completePattern;
 	}
-	
-	public static CompletePattern getMatchMidas5064() {		
-		return getMatchMidasConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5064", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, ".*[a-zA-Z ]{10}.*");		
+
+	public static CompletePattern getMatchMidas5064() {
+		return getMatchConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5064",
+				RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
+				".*[a-zA-Z ]{10}.*");
 	}
-	
-	public static CompletePattern getMatchMidas5360() {		
-		return getMatchMidasConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5360", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "^[0-9]+(,[0-9]+)?( x [0-9]+(,[0-9]+)?)? (m|mm)( \\([a-zA-Z‰¸ˆƒ‹÷ ]+\\))?$");		
+
+	public static CompletePattern getMatchMidas5360() {
+		return getMatchConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5360",
+				RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
+				"^[0-9]+(,[0-9]+)?( x [0-9]+(,[0-9]+)?)? (m|mm)( \\([a-zA-Z‰¸ˆƒ‹÷ ]+\\))?$");
 	}
-	
-	public static CompletePattern getMatchMidas3270() {		
-		return getMatchMidasConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3270", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\?$");		
+
+	public static CompletePattern getMatchMidas3270() {
+		return getMatchConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3270",
+				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\?$");
 	}
-	
-	public static CompletePattern getMatchMidas3270Imprecise() {		
-		return getMatchMidasConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3270", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "[0-9]/[0-9]");		
+
+	public static CompletePattern getMatchMidas3270Imprecise() {
+		return getMatchConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3270",
+				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "[0-9]/[0-9]");
 	}
-	
-	public static CompletePattern getMatchMidas3100Abbreviation() {		
-		return getMatchMidasConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3100", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\.");		
+
+	public static CompletePattern getMatchMidas3100Abbreviation() {
+		return getMatchConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3100",
+				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\.");
 	}
-	
-	public static CompletePattern getMatchMidas5060() {		
-		return getMatchMidasConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5060", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "^[0-9/]+$");		
+
+	public static CompletePattern getMatchMidas5060() {
+		return getMatchConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5060",
+				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "^[0-9/]+$");
 	}
-	
-	public static CompletePattern getMatchMidasOb30Child() {	
-		return getMatchMidasThreeElementsConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "ob30", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "^[12456789]");
+
+	public static CompletePattern getMatchMidasOb30Child() {
+		return getMatchThreeElementsConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE,
+				"ob30", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, RelationKind.CHILD, "Type",
+				PropertyKind.ATTRIBUTE, "^[12456789]");
 	}
-	
-	public static CompletePattern getMatchLidoConcrete(String returnElementName, String element2Name, String regex) {
-		
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
-		CompletePattern completePattern = getMatchAbstract();
-		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);		
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
-		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
-		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
-		concreteInputValue.setValue(returnElementName);
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-		
-		QuantifiedCondition qc = (QuantifiedCondition) completePattern.getCondition();
-		XmlElement element2 = (XmlElement) qc.getGraph().getElements().get(1);
-		((XmlNavigation) qc.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
-		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
-		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
-		concreteInputValue2.setValue(element2Name);
-		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-		
-		BooleanOperator matchElement2 = element2.getPredicates().get(1);
-		TextLiteralParam regularExpression = (TextLiteralParam) matchElement2.getArguments().get(1);
-		regularExpression.setValue(regex);
-		((XmlProperty) element2.getProperties().get(1)).getOption().setValue(PropertyKind.DATA);
-		
-		return completePattern;		
+
+	public static CompletePattern getMatchLidoMeasurementValue() {
+		return getMatchConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:measurementValue",
+				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, "[a-zA-Z¸ˆ‰‹÷ƒ]");
 	}
-	
-	public static CompletePattern getMatchLidoMeasurementValue() {		
-		return getMatchLidoConcrete("lido:lido", "lido:measurementValue", "[a-zA-Z¸ˆ‰‹÷ƒ]");		
+
+	public static CompletePattern getMatchLidoMeasurementUnit() {
+		return getMatchConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:measurementUnit",
+				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, "[0-9]");
 	}
-	
-	public static CompletePattern getMatchLidoMeasurementUnit() {		
-		return getMatchLidoConcrete("lido:lido", "lido:measurementUnit", "[0-9]");		
+
+	public static CompletePattern getMatchLidoEarliestDate() {
+		return getMatchConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:earliestDate",
+				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, "^[0-9]{4}$");
 	}
-	
-	public static CompletePattern getMatchLidoEarliestDate() {		
-		return getMatchLidoConcrete("lido:lido", "lido:earliestDate", "^[0-9]{4}$");		
+
+	public static CompletePattern getMatchLidoNamePlaceSet() {
+		return getMatchConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:namePlaceSet",
+				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, ",");
 	}
-	
-	public static CompletePattern getMatchLidoNamePlaceSet() {		
-		return getMatchLidoConcrete("lido:lido", "lido:namePlaceSet", ",");
+
+	public static CompletePattern getMatchLidoAppellationValue() {
+		return getMatchConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:appellationValue",
+				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, "\\?$");
 	}
-	
 
 }
