@@ -132,7 +132,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		EList<MorphismContainer> nextQuantifiedConditions = getCondition().getNextMorphismContainers();
 		for(MorphismContainer next : nextQuantifiedConditions) {
 			if(!getGraph().equals(next.getMorphism().getFrom())) {
-				throw new InvalidityException("wrong mapping from [" + getInternalId() + "]");
+				throw new InvalidityException("[" + getInternalId() + "] wrong morphism source in " + next.getInternalId() + ": " + next.getMorphism().getFrom().getInternalId() + " instead of " + getGraph().getInternalId());
 			}
 			if(!next.getGraph().equals(next.getMorphism().getTo())) {
 				throw new InvalidityException("wrong mapping to [" + getInternalId() + "]");

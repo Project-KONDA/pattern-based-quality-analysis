@@ -500,8 +500,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public void copyPreviousGraph() throws MissingPatternContainerException {
 		Graph previousGraph;
 		try {
-			QuantifiedCondition previousQuantifiedCondition = (QuantifiedCondition) getContainer()
-					.getAncestor(QuantifiedCondition.class);
+			MorphismContainer previousQuantifiedCondition = (MorphismContainer) getContainer()
+					.getAncestor(MorphismContainer.class);
 			previousGraph = previousQuantifiedCondition.getGraph();
 		} catch (MissingPatternContainerException e) {
 			CompletePattern completePattern;

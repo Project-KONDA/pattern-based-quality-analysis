@@ -544,7 +544,7 @@
           eOpposite="#//patternstructure/CountCondition/argument2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MorphismContainer" abstract="true"
-        interface="true">
+        interface="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getGraph" eType="#//graphstructure/Graph"/>
       <eOperations name="copyPreviousGraph" eExceptions="#//patternstructure/MissingPatternContainerException"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" eType="#//patternstructure/Morphism"

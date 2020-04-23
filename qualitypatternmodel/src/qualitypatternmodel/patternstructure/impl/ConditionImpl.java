@@ -519,7 +519,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS:
+			case PatternstructurePackage.CONDITION___GET_NEXT_MORPHISM_CONTAINERS:
 				try {
 					return getNextMorphismContainers();
 				}

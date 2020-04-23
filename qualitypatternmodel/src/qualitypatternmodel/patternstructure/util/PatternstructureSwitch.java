@@ -167,6 +167,7 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 			case PatternstructurePackage.MORPHISM_CONTAINER: {
 				MorphismContainer morphismContainer = (MorphismContainer)theEObject;
 				T result = caseMorphismContainer(morphismContainer);
+				if (result == null) result = casePatternElement(morphismContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

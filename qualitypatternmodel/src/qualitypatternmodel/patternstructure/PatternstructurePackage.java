@@ -883,13 +883,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___FINALIZE_XML_ADAPTION = PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
+	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS = PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int CONDITION___GET_NEXT_MORPHISM_CONTAINERS = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -1163,13 +1163,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___FINALIZE_XML_ADAPTION = CONDITION___FINALIZE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
+	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS;
+	int QUANTIFIED_CONDITION___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -1958,13 +1958,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___FINALIZE_XML_ADAPTION = CONDITION___FINALIZE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
+	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS;
+	int FORMULA___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
 
 	/**
 	 * The number of operations of the '<em>Formula</em>' class.
@@ -2202,13 +2202,13 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___FINALIZE_XML_ADAPTION = CONDITION___FINALIZE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
+	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS;
+	int TRUE_ELEMENT___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
 
 	/**
 	 * The number of operations of the '<em>True Element</em>' class.
@@ -2916,13 +2916,13 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___FINALIZE_XML_ADAPTION = CONDITION___FINALIZE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
+	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS;
+	int NOT_CONDITION___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
 
 	/**
 	 * The number of operations of the '<em>Not Condition</em>' class.
@@ -3196,13 +3196,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___FINALIZE_XML_ADAPTION = CONDITION___FINALIZE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Get Next Quantified Conditions</em>' operation.
+	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS = CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS;
+	int COUNT_CONDITION___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
 
 	/**
 	 * The number of operations of the '<em>Count Condition</em>' class.
@@ -3414,13 +3414,31 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER = 13;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER__ID = PATTERN_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
+
+	/**
 	 * The feature id for the '<em><b>Morphism</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER__MORPHISM = 0;
+	int MORPHISM_CONTAINER__MORPHISM = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Morphism Container</em>' class.
@@ -3429,7 +3447,142 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER_FEATURE_COUNT = 1;
+	int MORPHISM_CONTAINER_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+
+	/**
+	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___PREPARE_TRANSLATION = PATTERN_ELEMENT___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GET_CONTAINER = PATTERN_ELEMENT___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GET_ANCESTOR__CLASS = PATTERN_ELEMENT___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___MY_TO_STRING = PATTERN_ELEMENT___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___VALIDATE__DIAGNOSTICCHAIN_MAP = PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GET_PARAMETER_LIST = PATTERN_ELEMENT___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Update Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___UPDATE_OPERATORS__OPERATORLIST = PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___GET_OPERATOR_LIST = PATTERN_ELEMENT___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___FINALIZE_XML_ADAPTION = PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -3438,7 +3591,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___GET_GRAPH = 0;
+	int MORPHISM_CONTAINER___GET_GRAPH = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Copy Previous Graph</em>' operation.
@@ -3447,7 +3600,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___COPY_PREVIOUS_GRAPH = 1;
+	int MORPHISM_CONTAINER___COPY_PREVIOUS_GRAPH = PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Morphism Container</em>' class.
@@ -3456,7 +3609,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER_OPERATION_COUNT = 2;
+	int MORPHISM_CONTAINER_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CountPatternImpl <em>Count Pattern</em>}' class.
@@ -4132,14 +4285,14 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCondition_NotCondition();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Condition#getNextMorphismContainers() <em>Get Next Quantified Conditions</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Condition#getNextMorphismContainers() <em>Get Next Morphism Containers</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Next Quantified Conditions</em>' operation.
+	 * @return the meta object for the '<em>Get Next Morphism Containers</em>' operation.
 	 * @see qualitypatternmodel.patternstructure.Condition#getNextMorphismContainers()
 	 * @generated
 	 */
-	EOperation getCondition__GetNextQuantifiedConditions();
+	EOperation getCondition__GetNextMorphismContainers();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Morphism <em>Morphism</em>}'.
@@ -5062,12 +5215,12 @@ public interface PatternstructurePackage extends EPackage {
 		EReference CONDITION__NOT_CONDITION = eINSTANCE.getCondition_NotCondition();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Next Quantified Conditions</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Next Morphism Containers</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS = eINSTANCE.getCondition__GetNextQuantifiedConditions();
+		EOperation CONDITION___GET_NEXT_MORPHISM_CONTAINERS = eINSTANCE.getCondition__GetNextMorphismContainers();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.MorphismImpl <em>Morphism</em>}' class.

@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.patternstructure;
 
-import org.eclipse.emf.ecore.EObject;
-
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Graph;
 
@@ -23,7 +21,7 @@ import qualitypatternmodel.graphstructure.Graph;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface MorphismContainer extends EObject {
+public interface MorphismContainer extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

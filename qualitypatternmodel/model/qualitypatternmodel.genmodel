@@ -354,7 +354,7 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Condition/formula1"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Condition/formula2"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Condition/notCondition"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Condition/getNextQuantifiedConditions"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Condition/getNextMorphismContainers"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/Morphism">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Morphism/morphDepth"/>
