@@ -27,7 +27,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval09Compval {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getCompvalLidoObjectWorkTypePrint());
+		completePatterns.add(getCompvalSetLidoAppellationValue());
 		Test00.test(completePatterns);
 
 	}
@@ -280,5 +280,11 @@ public class Eval09Compval {
 				"lido:objectWorkType", RelationKind.DESCENDANT, null, PropertyKind.TAG,
 				"lido:term", RelationKind.DESCENDANT, null, PropertyKind.TAG, 
 				null, PropertyKind.DATA, "Print");
+	}
+	
+	public static CompletePattern getCompvalSetLidoAppellationValue() {
+		List<String> values = Arrays.asList("unbekannt", "x", "unknown", "?");
+		return getCompvalSetConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, 
+				"lido:appellationValue", RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, values);
 	}
 }
