@@ -46,8 +46,7 @@ public class Test06NotElement {
 		
 		return completePattern;		
 	}
-	
-	public static CompletePattern getPatternNotExists() {
+	public static CompletePattern getPatternNotExistsAbstract() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -68,10 +67,16 @@ public class Test06NotElement {
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(qc.getGraph());
 		relation.setSource(e0);
-		relation.setTarget(e1);
+		relation.setTarget(e1);	
+		
+		return completePattern;
+	}
+	public static CompletePattern getPatternNotExists() {		
+		
+		CompletePattern completePattern = getPatternNotExistsAbstract();		
 		
 		completePattern.createXMLAdaption();
-		qc.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern;
