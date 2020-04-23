@@ -46,7 +46,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	protected Condition condition;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NotConditionImpl() {
 		super();
