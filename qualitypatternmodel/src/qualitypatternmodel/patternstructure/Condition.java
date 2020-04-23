@@ -178,5 +178,5 @@ public interface Condition extends PatternElement {
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException;
+	EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException;
 } // Condition

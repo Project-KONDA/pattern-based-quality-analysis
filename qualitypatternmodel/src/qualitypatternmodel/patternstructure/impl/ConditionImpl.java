@@ -320,7 +320,7 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	 * @generated
 	 */
 	@Override
-	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {
+	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -519,9 +519,9 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS:
+			case PatternstructurePackage.CONDITION___GET_NEXT_MORPHISM_CONTAINERS:
 				try {
-					return getNextQuantifiedConditions();
+					return getNextMorphismContainers();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

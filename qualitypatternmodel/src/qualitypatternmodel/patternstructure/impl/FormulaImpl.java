@@ -196,10 +196,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 //	}
 	
 	@Override
-	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {
+	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
-		result.addAll(getCondition1().getNextQuantifiedConditions());
-		result.addAll(getCondition2().getNextQuantifiedConditions());
+		result.addAll(getCondition1().getNextMorphismContainers());
+		result.addAll(getCondition2().getNextMorphismContainers());
 		return result;
 	}
 

@@ -184,7 +184,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //	}
 	
 	@Override
-	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {
+	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		result.add(this);		
 		return result;
@@ -500,8 +500,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public void copyPreviousGraph() throws MissingPatternContainerException {
 		Graph previousGraph;
 		try {
-			QuantifiedCondition previousQuantifiedCondition = (QuantifiedCondition) getContainer()
-					.getAncestor(QuantifiedCondition.class);
+			MorphismContainer previousQuantifiedCondition = (MorphismContainer) getContainer()
+					.getAncestor(MorphismContainer.class);
 			previousGraph = previousQuantifiedCondition.getGraph();
 		} catch (MissingPatternContainerException e) {
 			CompletePattern completePattern;
@@ -525,7 +525,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	@Override
 	public void checkMorphismOfNextGraph() throws InvalidityException  {
-		EList<MorphismContainer> nextGraphContainers = getCondition().getNextQuantifiedConditions();
+		EList<MorphismContainer> nextGraphContainers = getCondition().getNextMorphismContainers();
 //		if(getCountCondition() != null) {
 //			if(getCountCondition().getArgument1() instanceof Count) {
 //				nextGraphContainers.add((MorphismContainer) getCountCondition().getArgument1());

@@ -408,7 +408,17 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateMorphismContainer(MorphismContainer morphismContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(morphismContainer, diagnostics, context);
+		if (!validate_NoCircularContainment(morphismContainer, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(morphismContainer, diagnostics, context);
+		return result;
 	}
 
 	/**

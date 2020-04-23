@@ -461,7 +461,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getCondition__GetNextQuantifiedConditions() {
+	public EOperation getCondition__GetNextMorphismContainers() {
 		return conditionEClass.getEOperations().get(0);
 	}
 
@@ -1251,7 +1251,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(conditionEClass, CONDITION__FORMULA1);
 		createEReference(conditionEClass, CONDITION__FORMULA2);
 		createEReference(conditionEClass, CONDITION__NOT_CONDITION);
-		createEOperation(conditionEClass, CONDITION___GET_NEXT_QUANTIFIED_CONDITIONS);
+		createEOperation(conditionEClass, CONDITION___GET_NEXT_MORPHISM_CONTAINERS);
 
 		morphismEClass = createEClass(MORPHISM);
 		createEAttribute(morphismEClass, MORPHISM__MORPH_DEPTH);
@@ -1392,6 +1392,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		notConditionEClass.getESuperTypes().add(this.getCondition());
 		countConditionEClass.getESuperTypes().add(this.getCondition());
 		countConditionArgumentEClass.getESuperTypes().add(this.getPatternElement());
+		morphismContainerEClass.getESuperTypes().add(this.getPatternElement());
 		countPatternEClass.getESuperTypes().add(this.getPattern());
 		countPatternEClass.getESuperTypes().add(this.getMorphismContainer());
 		countPatternEClass.getESuperTypes().add(this.getCountConditionArgument());
@@ -1419,7 +1420,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getCondition_Formula2(), this.getFormula(), this.getFormula_Condition2(), "formula2", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCondition_NotCondition(), this.getNotCondition(), this.getNotCondition_Condition(), "notCondition", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getCondition__GetNextQuantifiedConditions(), this.getMorphismContainer(), "getNextQuantifiedConditions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getCondition__GetNextMorphismContainers(), this.getMorphismContainer(), "getNextMorphismContainers", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEClass(morphismEClass, Morphism.class, "Morphism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

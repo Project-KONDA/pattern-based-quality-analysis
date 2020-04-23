@@ -389,7 +389,7 @@
           eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/quantifiedCondition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="getNextQuantifiedConditions" upperBound="-1" eType="#//patternstructure/MorphismContainer"
+      <eOperations name="getNextMorphismContainers" upperBound="-1" eType="#//patternstructure/MorphismContainer"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="condDepth" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
@@ -544,7 +544,7 @@
           eOpposite="#//patternstructure/CountCondition/argument2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MorphismContainer" abstract="true"
-        interface="true">
+        interface="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getGraph" eType="#//graphstructure/Graph"/>
       <eOperations name="copyPreviousGraph" eExceptions="#//patternstructure/MissingPatternContainerException"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" eType="#//patternstructure/Morphism"

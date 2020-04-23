@@ -90,9 +90,9 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 //	}
 	
 	@Override
-	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {
+	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
-		result.addAll(getCondition().getNextQuantifiedConditions());
+		result.addAll(getCondition().getNextMorphismContainers());
 		return result;
 	}	
 	

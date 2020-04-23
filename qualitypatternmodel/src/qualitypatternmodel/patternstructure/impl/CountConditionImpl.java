@@ -148,7 +148,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
-	public EList<MorphismContainer> getNextQuantifiedConditions() throws InvalidityException {		
+	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {		
 		BasicEList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		if(getCountPattern() instanceof CountPattern) {
 			result.add((MorphismContainer) getCountPattern());

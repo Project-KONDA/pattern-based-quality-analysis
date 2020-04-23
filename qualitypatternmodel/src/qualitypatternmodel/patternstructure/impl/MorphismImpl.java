@@ -694,7 +694,13 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public String myToString() {
 		if (getMappings().size() >0) {
-			String res = "Morphism " + getInternalId();
+			String res = "Morphism [" + getInternalId() + "] [";
+			if (getFrom()!= null) res += getFrom().getInternalId();
+			else res += "-";		
+			res += " -> ";
+			if (getTo()!= null) res += getTo().getInternalId() ;
+			else res += "-";	
+			res += "]";
 			for (Mapping map : getMappings()) {
 				res += "\n  * " + map.myToString();
 			}
