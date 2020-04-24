@@ -188,7 +188,7 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	
 	@Override 
 	public String myToString() {
-		return "dati " + getInternalId() + " " + getValue();
+		return "dati [" + getInternalId() + "] " + getValue();
 	}
 
 	

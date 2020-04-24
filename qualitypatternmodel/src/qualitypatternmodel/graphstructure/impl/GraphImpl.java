@@ -1040,7 +1040,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		String res = "";
 		if (isReturnGraph())
 			res += "Return-";
-		res += "Graph " + getInternalId();
+		res += "Graph [" + getInternalId() + "]";
 		for (Element e : getElements()) {
 			res += "\n| > " + e.myToString().replace("\n", "\n|   ");
 		}

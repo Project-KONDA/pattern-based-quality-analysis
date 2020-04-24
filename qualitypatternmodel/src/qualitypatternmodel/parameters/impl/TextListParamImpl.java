@@ -212,12 +212,12 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	
 	@Override 
 	public String myToString() {
-		String res = "list " + getInternalId() + "[";
+		String res = "list [" + getInternalId() + "] (";
 		for (int i = 0; i < getValues().size(); i++) {
 			if (i>0) res += ", ";
 			res += "'" + getValues().get(i) + "'";
 		}
-		return res + "]";
+		return res + ")";
 	}
 	
 	@Override

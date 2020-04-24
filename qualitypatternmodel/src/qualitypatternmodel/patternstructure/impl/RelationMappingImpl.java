@@ -316,14 +316,14 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 
 	@Override
 	public String myToString() {
-		String res = "RelationMapping (" + getInternalId() + ") ";
-		res += "[";
+		String res = "RelationMapping [" + getInternalId() + "] ";
+		res += "(";
 		if (getFrom()!= null) res += getFrom().getInternalId();
 		else res += "-";			
 		res += " -> ";
 		if (getTo()!= null) res += getTo().getInternalId() ;
 		else res += "-";	
-		res += "]";
+		res += ")";
 		return res;
 	}
 

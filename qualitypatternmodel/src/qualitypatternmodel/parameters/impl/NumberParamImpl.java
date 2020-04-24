@@ -304,7 +304,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	
 	@Override 
 	public String myToString() {
-		return "numb " + getInternalId() + " " + getValue();
+		return "numb [" + getInternalId() + "] " + getValue();
 	}
 	
 	@Override

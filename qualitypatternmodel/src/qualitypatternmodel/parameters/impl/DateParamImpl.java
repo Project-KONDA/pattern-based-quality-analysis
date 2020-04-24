@@ -186,7 +186,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	
 	@Override 
 	public String myToString() {
-		return "date " + getInternalId() + " " + getValue();
+		return "date [" + getInternalId() + "] " + getValue();
 	}
 	
 	@Override

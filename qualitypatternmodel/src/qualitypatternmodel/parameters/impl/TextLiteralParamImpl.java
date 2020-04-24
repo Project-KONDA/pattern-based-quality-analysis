@@ -319,7 +319,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override 
 	public String myToString() {
 		
-		return "text " + getInternalId() + " '" + getValue() + "'";
+		return "text [" + getInternalId() + "] '" + getValue() + "'";
 	}
 	
 	@Override

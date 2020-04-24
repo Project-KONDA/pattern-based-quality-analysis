@@ -416,7 +416,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	@Override
 	public String myToString() {
-		String res = "Pattern " + getInternalId() + " " + name; 
+		String res = "Pattern [" + getInternalId() + "] " + name; 
 		res += "\n  " + getGraph().myToString().replace("\n", "\n  ");
 		res += "\n  " + getCondition().myToString().replace("\n", "\n  ");
 		res += getParameterList().myToString().replace("\n", "\n  ");
