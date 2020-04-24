@@ -203,8 +203,8 @@ public class Eval11CARD3 {
 		CompletePattern completePattern = getCARD3Abstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 
-		((RelationOptionParamImpl) params.get(56)).setValue(RelationKind.TWOCHILD);
-		((RelationOptionParamImpl) params.get(55)).setValue(RelationKind.TWOCHILD);
+		((RelationOptionParamImpl) params.get(56)).setValue(RelationKind.THREECHILD);
+		((RelationOptionParamImpl) params.get(55)).setValue(RelationKind.THREECHILD);
 		((TextLiteralParamImpl) params.get(48)).setValue("Type");
 		((PropertyOptionParamImpl) params.get(47)).setValue(PropertyKind.ATTRIBUTE);
 		((TextLiteralParamImpl) params.get(46)).setValue("Value");
@@ -231,7 +231,7 @@ public class Eval11CARD3 {
 		((PropertyOptionParamImpl) params.get(25)).setValue(PropertyKind.ATTRIBUTE);
 		((TextLiteralParamImpl) params.get(24)).setValue("Type");
 		((PropertyOptionParamImpl) params.get(23)).setValue(PropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(22)).setValue("Value");
+		((TextLiteralParamImpl) params.get(22)).setValue("Type");
 		((PropertyOptionParamImpl) params.get(21)).setValue(PropertyKind.ATTRIBUTE);
 		((UnknownParameterValueImpl) params.get(16)).setValue("3560");
 		((UnknownParameterValueImpl) params.get(14)).setValue("3580");
