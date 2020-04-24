@@ -39,6 +39,7 @@ import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -211,37 +212,42 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if(root == null) {	
 			root = new XmlRootImpl();
 			root.setGraphSimple(this);	
-			if (getQuantifiedCondition() != null) {
-				Morphism morph = getQuantifiedCondition().getMorphism();
-				Graph graph2 = morph.getFrom();
-				XmlRoot root2 = null;
-				for(Element element : graph2.getElements()) {
-					if(element instanceof XmlRoot) {
-						root2 = (XmlRoot) element;
+			try {
+				if (getContainer() instanceof MorphismContainer) {
+//			if (getQuantifiedCondition() != null || getPattern() instanceof MorphismContainer) {
+//				Morphism morph = getQuantifiedCondition().getMorphism();
+//				if (morph == null) morph = ((MorphismContainer) getPattern()).getMorphism();
+					Morphism morph = ((MorphismContainer) getContainer()).getMorphism();
+					Graph graph2 = morph.getFrom();
+					XmlRoot root2 = null;
+					for(Element element : graph2.getElements()) {
+						if(element instanceof XmlRoot) {
+							root2 = (XmlRoot) element;
+						}
+					}
+					morph.addMapping(root2, root);
+//				}
+//		
+//				if (getQuantifiedCondition() != null) {
+//					Morphism morph = getQuantifiedCondition().getMorphism();
+//					Graph graph2 = morph.getFrom();
+					root2 = (XmlRoot) root.getMappingFrom().getFrom();
+					for (Relation re : graph2.getRelations()) {
+						if (re.getSource().equals(root2)) {
+							Relation rel = new XmlNavigationImpl();
+							rel.setGraphSimple(this);
+							rel.setSource(root);
+							EList<ElementMapping> emaps = re.getTarget().getMappingTo();
+							for (ElementMapping em : emaps) {
+								if (getElements().contains(em.getTo())) {
+									rel.setTarget(em.getTo());	
+								}
+							}					
+							morph.addMapping(re, rel);
+						}
 					}
 				}
-				morph.addMapping(root2, root);
-			}
-		}
-		
-		if (getQuantifiedCondition() != null) {
-			Morphism morph = getQuantifiedCondition().getMorphism();
-			Graph graph2 = morph.getFrom();
-			Element root2 = root.getMappingFrom().getFrom();
-			for (Relation re : graph2.getRelations()) {
-				if (re.getSource().equals(root2)) {
-					Relation rel = new XmlNavigationImpl();
-					rel.setGraphSimple(this);
-					rel.setSource(root);
-					EList<ElementMapping> emaps = re.getTarget().getMappingTo();
-					for (ElementMapping em : emaps) {
-						if (getElements().contains(em.getTo())) {
-							rel.setTarget(em.getTo());	
-						}
-					}					
-					morph.addMapping(re, rel);
-				}
-			}
+			} catch (MissingPatternContainerException e) {}
 		}
 		for(Element element : getElements()) {
 			if(element instanceof XmlElement) {

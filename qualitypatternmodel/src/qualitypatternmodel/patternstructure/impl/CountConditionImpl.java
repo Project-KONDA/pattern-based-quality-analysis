@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -395,11 +396,13 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
 		ComparisonOptionParam oldOption = option;
 		option = newOption;
+		option.getOptions().clear();
+		option.getOptions().addAll(ComparisonOperator.VALUES);
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -677,7 +680,11 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 
 	@Override
 	public String myToString() {
-		return "CountCondition " + getInternalId() + " " + getOption().getValue().getLiteral() + ("\n" + getCountPattern().myToString()).replace("\n", "\n#  ") + ("\n" + getArgument2().myToString()).replace("\n", "\n#  ");
+		String res = "CountCondition [" + getInternalId() + "]";
+		res += " " + getOption().getValue().getLiteral() + " [" + getOption().getInternalId() + "]";
+		res += ("\n" + getCountPattern().myToString()).replace("\n", "\n#  ");
+		res += ("\n" + getArgument2().myToString()).replace("\n", "\n#  ");
+		return res;
 	}
 
 } //CountComparisonImpl
