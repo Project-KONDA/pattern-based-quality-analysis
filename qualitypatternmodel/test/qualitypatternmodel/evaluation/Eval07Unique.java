@@ -308,17 +308,17 @@ public class Eval07Unique {
 		
 		CompletePattern completePattern = Test00.getBasePattern();
 		Element e0InReturnGraph = completePattern.getGraph().getElements().get(0);	
-		e0InReturnGraph.addPrimitiveComparison();
+//		e0InReturnGraph.addPrimitiveComparison();
 		
-//		Element ret = graphFactory.createElement();
-//		ret.setGraph(completePattern.getGraph());
-//		ret.addPrimitiveComparison();	
-//		Relation relation0 = graphFactory.createRelation();
-//		relation0.setGraph(completePattern.getGraph());
-//		relation0.setSource(e0InReturnGraph);
-//		relation0.setTarget(ret);
-//		completePattern.getGraph().getReturnElements().clear();
-//		completePattern.getGraph().getReturnElements().add(ret);
+		Element ret = graphFactory.createElement();
+		ret.setGraph(completePattern.getGraph());
+		ret.addPrimitiveComparison();	
+		Relation relation0 = graphFactory.createRelation();
+		relation0.setGraph(completePattern.getGraph());
+		relation0.setSource(e0InReturnGraph);
+		relation0.setTarget(ret);
+		completePattern.getGraph().getReturnElements().clear();
+		completePattern.getGraph().getReturnElements().add(ret);
 		
 		QuantifiedCondition quantifiedCondition = patternStructureFactory.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);	
@@ -346,20 +346,20 @@ public class Eval07Unique {
 		countCondition.setCountPattern(countPattern);
 		countCondition.setArgument2(numberElement);
 		
-//		Element childInCPattern = countPattern.getGraph().getElements().get(2);
+		Element childInCPattern = countPattern.getGraph().getElements().get(2);
 		Element element2 = graphFactory.createElement();
 		element2.setGraph(countPattern.getGraph());
 		
-//		Element element3 = graphFactory.createElement();
-//		element3.setGraph(countPattern.getGraph());
-//		Relation relation1 = graphFactory.createRelation();
-//		relation1.setGraph(countPattern.getGraph());
-//		relation1.setSource(element2);
-//		relation1.setTarget(element3);
+		Element element3 = graphFactory.createElement();
+		element3.setGraph(countPattern.getGraph());
+		Relation relation1 = graphFactory.createRelation();
+		relation1.setGraph(countPattern.getGraph());
+		relation1.setSource(element2);
+		relation1.setTarget(element3);
 		
 		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(element2);
-		element2.addPrimitiveComparison();
+		countPattern.getGraph().getReturnElements().add(element3);
+		element3.addPrimitiveComparison();
 		
 		QuantifiedCondition quantifiedConditionCount = patternStructureFactory.createQuantifiedCondition();
 		countPattern.setCondition(quantifiedConditionCount);		
@@ -402,7 +402,9 @@ public class Eval07Unique {
 		quantifiedConditionCount.setCondition(truecondition);		
 		
 		completePattern.createXMLAdaption();
+		relation0.adaptAsXMLNavigation();
 		relation.adaptAsXMLNavigation();
+		relation1.adaptAsXMLNavigation();
 		relation2.adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();
 		
@@ -595,10 +597,10 @@ public class Eval07Unique {
 		CompletePattern completePattern = getUniqueLidoEfficientAbstract();
 		
 		Element e0InReturnGraph = completePattern.getGraph().getElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.CHILD);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(1);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.CHILD);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
@@ -616,14 +618,14 @@ public class Eval07Unique {
 		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		
 		Element element2 = countPattern.getGraph().getElements().get(3);	
-		((XmlNavigation) countPattern.getGraph().getRelations().get(3)).getOption().setValue(RelationKind.CHILD);
+		((XmlNavigation) countPattern.getGraph().getRelations().get(4)).getOption().setValue(RelationKind.CHILD);
 //		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 //		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 //		concreteInputValue2.setValue(returnElementName);
 //		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
 		
 		Element nextToReturn = countPattern.getGraph().getElements().get(4);
-		((XmlNavigation) countPattern.getGraph().getRelations().get(4)).getOption().setValue(RelationKind.CHILD);
+		((XmlNavigation) countPattern.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.CHILD);
 		((XmlProperty) nextToReturn.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("lido:lido");
