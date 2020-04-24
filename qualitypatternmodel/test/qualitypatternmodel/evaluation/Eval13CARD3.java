@@ -176,9 +176,9 @@ public class Eval13CARD3 {
 		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();	
 		
-		for (int i = completePattern.getParameterList().getParameters().size()-1; i>=0; i--) {
-			System.out.println("((" + completePattern.getParameterList().getParameters().get(i).getClass().getSimpleName() + ") params.get(" + i + ")).setValue(\"\");");
-		}
+//		for (int i = completePattern.getParameterList().getParameters().size()-1; i>=0; i--) {
+//			System.out.println("((" + completePattern.getParameterList().getParameters().get(i).getClass().getSimpleName() + ") params.get(" + i + ")).setValue(\"\");");
+//		}
 		return completePattern;		
 	}
 	
@@ -186,16 +186,14 @@ public class Eval13CARD3 {
 	private static CompletePattern getCARD3Midas() {
 		CompletePattern completePattern = getCARD3Abstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
-//		((RelationOptionParamImpl) params.get(53).setValue(RelationKind.DESCENDANT);
-//		((RelationOptionParamImpl) params.get(53)).setValue(RelationKind.DESCENDANT);
 //		((RelationOptionParamImpl) params.get(52)).setValue(RelationKind.DESCENDANT);
 //		((RelationOptionParamImpl) params.get(51)).setValue(RelationKind.DESCENDANT);
 //		((RelationOptionParamImpl) params.get(50)).setValue(RelationKind.DESCENDANT);
-		((RelationOptionParamImpl) params.get(49)).setValue(RelationKind.DESCENDANT);
-		((RelationOptionParamImpl) params.get(48)).setValue(RelationKind.DESCENDANT);
-		((RelationOptionParamImpl) params.get(47)).setValue(RelationKind.DESCENDANT);
-//		((RelationOptionParamImpl) params.get(46)).setValue(RelationKind.DESCENDANT);
-		((RelationOptionParamImpl) params.get(45)).setValue(RelationKind.DESCENDANT);
+//		((RelationOptionParamImpl) params.get(49)).setValue(RelationKind.DESCENDANT);
+//		((RelationOptionParamImpl) params.get(48)).setValue(RelationKind.DESCENDANT);
+//		((RelationOptionParamImpl) params.get(47)).setValue(RelationKind.DESCENDANT);
+		((RelationOptionParamImpl) params.get(46)).setValue(RelationKind.TWOCHILD);
+		((RelationOptionParamImpl) params.get(45)).setValue(RelationKind.TWOCHILD);
 		((TextLiteralParamImpl) params.get(44)).setValue("Type");
 		((PropertyOptionParamImpl) params.get(43)).setValue(PropertyKind.ATTRIBUTE);
 		((TextLiteralParamImpl) params.get(42)).setValue("Value");
@@ -241,6 +239,9 @@ public class Eval13CARD3 {
 //		((ComparisonOptionParamImpl) params.get(2)).setValue(ComparisonOperator.EQUAL);
 //		((ComparisonOptionParamImpl) params.get(1)).setValue(ComparisonOperator.EQUAL);
 		((UnknownParameterValueImpl) params.get(0)).setValue("wer");
+		
+		ComparisonOptionParam compOp = ((CountCondition) completePattern.getCondition()).getOption();
+		compOp.setValue(ComparisonOperator.GREATER);
 		
 		return completePattern;
 	}
