@@ -236,6 +236,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 						if (re.getSource().equals(root2)) {
 							Relation rel = new XmlNavigationImpl();
 							rel.setGraphSimple(this);
+							rel.createParameters();	
 							rel.setSource(root);
 							EList<ElementMapping> emaps = re.getTarget().getMappingTo();
 							for (ElementMapping em : emaps) {
@@ -257,7 +258,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 						hasIncomingNavigation = true;
 					}
 				}
-				if(!hasIncomingNavigation) {				
+				if(!hasIncomingNavigation) {			
 					XmlNavigation navigation = new XmlNavigationImpl();					
 					navigation.setGraphSimple(this);
 					navigation.createParameters();					
