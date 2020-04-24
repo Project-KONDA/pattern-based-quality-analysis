@@ -108,8 +108,8 @@ public class Eval11CARD3 {
 		QuantifiedCondition cpqc = factory.createQuantifiedCondition();
 		cp.setCondition(cpqc);
 		Graph cpqcg = cpqc.getGraph();		
-		Element e1 = cpg.getElements().get(0);
-		Element e2 = cpg.getElements().get(1);
+		Element e1 = cpqcg.getElements().get(0);
+		Element e2 = cpqcg.getElements().get(1);
 
 		Element e1a = graphfactory.createElement();
 		e1a.setGraph(cpqcg);
