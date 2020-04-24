@@ -364,7 +364,7 @@ public class UnknownParameterValueImpl extends ParameterImpl implements UnknownP
 	
 	@Override 
 	public String myToString() {
-		return "unknown" + " (" + getInternalId() + ")";
+		return "unknown" + " [" + getInternalId() + "]";
 	}
 	
 	@Override

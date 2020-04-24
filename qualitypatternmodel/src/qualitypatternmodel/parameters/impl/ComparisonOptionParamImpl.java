@@ -357,7 +357,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	
 	@Override 
 	public String myToString() {
-		return "comp " + getInternalId() + " " + getValue();
+		return "comp [" + getInternalId() + "] " + getValue();
 	}
 	
 	@Override

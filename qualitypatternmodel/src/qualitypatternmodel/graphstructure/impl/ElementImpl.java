@@ -1475,9 +1475,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		String res = "";
 		if (getResultOf() != null)
 			res += "Return-";
-		res += this.getClass().getSimpleName() + " ";
-		if (getName() != null) res += getName() + " ";
-		res += getInternalId();
+		res += this.getClass().getSimpleName();
+		if (getName() != null) res +=  " " + getName();
+		res += " [" + getInternalId() + "]";
 		for (Property prop : getProperties())
 			res += "\n  " + prop.myToString();
 		return res;

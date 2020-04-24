@@ -432,7 +432,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	
 	@Override
 	public String myToString() {
-		String res = this.getClass().getSimpleName() + " (" + getInternalId() + ")";
+		String res = this.getClass().getSimpleName() + " [" + getInternalId() + "]";
 		return res;
 	}
 

@@ -309,14 +309,14 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	
 	@Override
 	public String myToString() {
-		String res = "SingleElementMapping (" + getInternalId() + ") ";
-		res += "[";
+		String res = "SingleElementMapping [" + getInternalId() + "] ";
+		res += "(";
 		if (getFrom()!= null) res += getFrom().getInternalId();
 		else res += "-";		
 		res += " -> ";
 		if (getTo()!= null) res += getTo().getInternalId() ;
 		else res += "-";	
-		res += "]";
+		res += ")";
 		return res;
 	}
 

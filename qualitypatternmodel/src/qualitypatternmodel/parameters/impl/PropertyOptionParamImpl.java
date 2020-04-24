@@ -315,7 +315,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	
 	@Override 
 	public String myToString() {
-		return "prop " + getInternalId() + " " + getValue();
+		return "prop [" + getInternalId() + "] " + getValue();
 	}
 
 	@Override

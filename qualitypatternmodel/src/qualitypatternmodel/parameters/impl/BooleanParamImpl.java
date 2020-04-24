@@ -273,7 +273,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	
 	@Override 
 	public String myToString() {
-		return "bool " + getInternalId() + " " + getValue();
+		return "bool [" + getInternalId() + "] " + getValue();
 	}
 	
 	@Override

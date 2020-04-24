@@ -184,7 +184,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	
 	@Override 
 	public String myToString() {
-		return "time " + getInternalId() + " " + getValue();
+		return "time [" + getInternalId() + "] " + getValue();
 	}
 	
 	@Override

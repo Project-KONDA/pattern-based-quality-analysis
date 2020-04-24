@@ -1018,21 +1018,21 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	@Override
 	public String myToString() {
-		String res = "COMP (" + getInternalId() + "):" + getReturnType() + " ";
-		res += "[";
+		String res = "COMP [" + getInternalId() + "]:" + getReturnType() + " ";
+		res += "(";
 		if (getArgument1() != null)
 			res += getArgument1().getInternalId() + " ";
 		else
 			res += "- ";
 		if (getOption() != null)
-			res += getOption().getValue() + "(" + getOption().getInternalId() + ")";
+			res += getOption().getValue() + "[" + getOption().getInternalId() + "]";
 		else
 			res += "-";
 		if (getArgument2() != null)
 			res += " " + getArgument2().getInternalId();
 		else
 			res += " -";
-		return res + "]";
+		return res + ")";
 	}
 
 } // ComparisonImpl

@@ -474,7 +474,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		if (getOption() != null) {
 			return res + "(" + getOption().getValue().getLiteral() + "[" + getOption().getInternalId() + "])";
 		} else {
-			return res + "[prev.]";
+			return res + "(prev.)";
 		}
 	}
 } //XMLNavigationImpl

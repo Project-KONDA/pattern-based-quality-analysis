@@ -303,7 +303,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 
 	@Override
 	public String myToString() {
-		return "axis " + getInternalId() + " " + getValue();
+		return "axis [" + getInternalId() + "] " + getValue();
 	}
 
 	@Override
