@@ -35,6 +35,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
@@ -152,6 +153,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 					return "not ( " + res + ")";					
 				}
 			}
+
+			if ((argument1 instanceof TextListParam || argument2 instanceof TextListParam)
+					&& (getOption().getValue() == ComparisonOperator.NOTEQUAL)) {
+				return "not ( " + argument1Translated + " = " + argument2Translated + " )";
+			}
+			
 			return conversionStartArgument1 + argument1Translated + conversionEndArgument1 + operator.getLiteral()
 					+ conversionStartArgument2 + argument2Translated + conversionEndArgument2;
 		} else {
