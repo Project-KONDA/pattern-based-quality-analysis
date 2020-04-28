@@ -26,8 +26,8 @@ import qualitypatternmodel.translationtests.Test06NotElement;
 public class Eval12ExNEx {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getExNExMidas());
 		completePatterns.add(getExNExLidoRoleActor());
-//		completePatterns.add(getExNExLido());
 		Test00.test(completePatterns);
 		
 	}

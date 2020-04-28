@@ -35,6 +35,10 @@ import qualitypatternmodel.translationtests.Test00;
 public class Eval07Unique {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getUniqueMidas());
+		completePatterns.add(getUniqueLidoLidoRecId());
+		completePatterns.add(getUniqueLidoObjectPublishedId());
+		completePatterns.add(getUniqueComplexLidoNameActorSet());
 		completePatterns.add(getUniqueLidoEfficientConcrete());
 		Test00.test(completePatterns);
 		

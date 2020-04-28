@@ -33,6 +33,8 @@ public class Eval06Func {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getFuncRunningExample());
+		completePatterns.add(getFuncMidas());
+		completePatterns.add(getFuncLido());
 		Test00.test(completePatterns);
 		
 	}

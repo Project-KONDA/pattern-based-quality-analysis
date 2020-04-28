@@ -71,7 +71,6 @@ public class Eval11CARD3 {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getCARD3Midas());
-//		completePatterns.add(getExNExLido());
 		Test00.test(completePatterns);
 		
 	}

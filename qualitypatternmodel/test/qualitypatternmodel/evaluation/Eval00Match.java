@@ -26,6 +26,19 @@ public class Eval00Match {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMatchLidoNameActorSetAbbreviation());
+		completePatterns.add(getMatchMidas5064());
+		completePatterns.add(getMatchMidas5360());
+		completePatterns.add(getMatchMidas3270());
+		completePatterns.add(getMatchMidas3270Imprecise());
+		completePatterns.add(getMatchMidas3100Abbreviation());
+		completePatterns.add(getMatchMidas5060());
+		completePatterns.add(getMatchMidasOb30Child());
+		completePatterns.add(getMatchLidoMeasurementValue());
+		completePatterns.add(getMatchLidoMeasurementUnit());
+		completePatterns.add(getMatchLidoEarliestDate());
+		completePatterns.add(getMatchLidoNamePlaceSet());
+		completePatterns.add(getMatchLidoAppellationValue());
+		completePatterns.add(getMatchLidoNameActorSetAbbreviation());
 		Test00.test(completePatterns);
 
 	}

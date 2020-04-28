@@ -35,7 +35,11 @@ import qualitypatternmodel.translationtests.Test06NotElement;
 public class Eval03Refint {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getRefintAbstractMidas());
+		completePatterns.add(getRefintMidasWer());
+		completePatterns.add(getRefintAbstractRunningExample());
 		completePatterns.add(getRefintRunningExample());
+		
 		Test00.test(completePatterns);
 		
 	}
@@ -125,7 +129,9 @@ public class Eval03Refint {
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
 		Element element1InGraph2 = graph2.getElements().get(1);
-		Element element2 = graph2.getElements().get(2);
+		Element element2 = graph2.getElements().get(2);		
+		System.out.println(((XmlNavigation) graph2.getRelations().get(3)).myToString());
+		System.out.println(completePattern.myToString());
 		((XmlNavigation) graph2.getRelations().get(3)).getOption().setValue(RelationKind.DESCENDANT);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("wer");

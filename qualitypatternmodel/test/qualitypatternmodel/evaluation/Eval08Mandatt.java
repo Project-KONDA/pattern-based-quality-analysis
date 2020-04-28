@@ -30,6 +30,8 @@ import qualitypatternmodel.translationtests.Test00;
 public class Eval08Mandatt {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getMandattMidas());
+		completePatterns.add(getMandattLido());
 		completePatterns.add(getMandattThreeElementsLido());
 		Test00.test(completePatterns);
 		

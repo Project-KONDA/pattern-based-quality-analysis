@@ -27,6 +27,14 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval09Compval {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getCompvalMidas5230Objekt());
+		completePatterns.add(getCompvalMidas5230Schloss());
+		completePatterns.add(getCompvalMidas5230Print());
+		completePatterns.add(getCompvalSetMidas3270());
+		completePatterns.add(getCompvalLidoEventPlace());
+		completePatterns.add(getCompvalLidoObjectWorkTypeObjekt());
+		completePatterns.add(getCompvalLidoObjectWorkTypeSchloss());
+		completePatterns.add(getCompvalLidoObjectWorkTypePrint());
 		completePatterns.add(getCompvalSetLidoAppellationValue());
 		Test00.test(completePatterns);
 

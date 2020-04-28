@@ -37,7 +37,9 @@ import qualitypatternmodel.translationtests.Test12Count;
 public class Eval04Card {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getCardAbstractMidas());
 		completePatterns.add(getCardMidasOb30());
+		completePatterns.add(getCardLidoActorName());
 		Test00.test(completePatterns);		
 	}
 	

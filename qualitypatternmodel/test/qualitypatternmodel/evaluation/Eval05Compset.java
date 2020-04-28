@@ -31,6 +31,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval05Compset {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getCompsetMIDAS3140());
 		completePatterns.add(getCompsetLidoGenderActor());
 		Test00.test(completePatterns);
 		

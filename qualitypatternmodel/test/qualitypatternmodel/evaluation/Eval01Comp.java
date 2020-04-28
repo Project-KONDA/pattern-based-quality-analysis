@@ -35,7 +35,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 public class Eval01Comp {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getCompAbstract());
+//		completePatterns.add(getCompAbstract());
 		completePatterns.add(getCompMidas());
 		Test00.test(completePatterns);
 		
