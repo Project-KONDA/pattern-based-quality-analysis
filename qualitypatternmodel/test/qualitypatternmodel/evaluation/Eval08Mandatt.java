@@ -188,7 +188,7 @@ public class Eval08Mandatt {
 		CompletePattern completePattern = getMandattAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -238,7 +238,7 @@ public class Eval08Mandatt {
 		CompletePattern completePattern = getMandattAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
 				
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -290,7 +290,7 @@ public class Eval08Mandatt {
 		CompletePattern completePattern = getMandattAbstractThreeElements();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
 				
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -318,7 +318,7 @@ public class Eval08Mandatt {
 		Graph graph1 = qc1.getGraph();
 		
 		Element element2InG1 = graph1.getElements().get(2);
-		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
 		Comparison comparison1 = (Comparison) element2InG1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("lido:nameActorSet");
@@ -326,7 +326,7 @@ public class Eval08Mandatt {
 		((XmlProperty) element2InG1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		Element next1ToReturnElementInGraph1 = graph1.getElements().get(3);
-		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
 		Comparison comparison2G1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2G1.setValue("lido:appellationValue");
@@ -336,7 +336,7 @@ public class Eval08Mandatt {
 		Graph graph2 = qc2.getGraph();
 		
 		Element element2 = graph2.getElements().get(2);
-		((XmlNavigation) graph2.getRelations().get(1)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph2.getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
 		
 		Comparison comparison2 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -345,7 +345,7 @@ public class Eval08Mandatt {
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		Element element3 = graph2.getElements().get(3);
-		((XmlNavigation) graph2.getRelations().get(2)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph2.getRelations().get(2)).getOption().setValue(RelationKind.CHILD);
 		
 		Comparison comparison3 = (Comparison) element3.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();

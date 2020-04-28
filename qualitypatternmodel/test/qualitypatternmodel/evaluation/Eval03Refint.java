@@ -35,9 +35,9 @@ import qualitypatternmodel.translationtests.Test06NotElement;
 public class Eval03Refint {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getRefintAbstractMidas());
+//		completePatterns.add(getRefintAbstractMidas());
 		completePatterns.add(getRefintMidasWer());
-		completePatterns.add(getRefintAbstractRunningExample());
+//		completePatterns.add(getRefintAbstractRunningExample());
 		completePatterns.add(getRefintRunningExample());
 		
 		Test00.test(completePatterns);
@@ -111,7 +111,7 @@ public class Eval03Refint {
 		CompletePattern completePattern = getRefintAbstractMidas();
 		
 		Element returnInReturnGraph = completePattern.getGraph().getElements().get(0);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
 		((UnknownParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
@@ -120,7 +120,7 @@ public class Eval03Refint {
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element element1 = graph1.getElements().get(1);
-		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("3600");
 		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
@@ -130,9 +130,7 @@ public class Eval03Refint {
 		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
 		Element element1InGraph2 = graph2.getElements().get(1);
 		Element element2 = graph2.getElements().get(2);		
-		System.out.println(((XmlNavigation) graph2.getRelations().get(3)).myToString());
-		System.out.println(completePattern.myToString());
-		((XmlNavigation) graph2.getRelations().get(3)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph2.getRelations().get(4)).getOption().setValue(RelationKind.THREECHILD);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("wer");
 		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);

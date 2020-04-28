@@ -421,7 +421,7 @@ public class Eval07Unique {
 		
 		CompletePattern completePattern = getUniqueAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -432,7 +432,7 @@ public class Eval07Unique {
 		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		
 		Element element2 = countPattern.getGraph().getElements().get(1);	
-		((XmlNavigation) countPattern.getGraph().getRelations().get(3)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) countPattern.getGraph().getRelations().get(3)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -464,13 +464,13 @@ public class Eval07Unique {
 		return completePattern;
 	}
 	
-	private static CompletePattern getUniqueComplexLidoConcrete(String returnElementName, String e1Name, String e2Name, String e3Name) {
+	private static CompletePattern getUniqueComplexLidoConcrete(RelationKind returnRel, String returnElementName, RelationKind retToE1Rel, String e1Name, String e2Name, String e3Name) {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getUniqueComplexAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnRel);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementName);
@@ -536,13 +536,13 @@ public class Eval07Unique {
 		return completePattern;
 	}
 	
-	private static CompletePattern getUniqueLidoConcrete(String returnElementName, String elementName) {
+	private static CompletePattern getUniqueLidoConcrete(RelationKind returnRel, String returnElementName, String elementName) {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getUniqueAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnRel);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementName);
@@ -552,7 +552,7 @@ public class Eval07Unique {
 		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		
 		Element element2 = countPattern.getGraph().getElements().get(1);	
-		((XmlNavigation) countPattern.getGraph().getRelations().get(3)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) countPattern.getGraph().getRelations().get(3)).getOption().setValue(returnRel);
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(returnElementName);
@@ -583,15 +583,15 @@ public class Eval07Unique {
 	
 	private static CompletePattern getUniqueLidoLidoRecId() {		
 		// not used for evaluation anymore
-		return getUniqueLidoConcrete("lido:lido", "lido:lidoRecID");
+		return getUniqueLidoConcrete(RelationKind.TWOCHILD, "lido:lido", "lido:lidoRecID");
 	}
 	
 	private static CompletePattern getUniqueLidoObjectPublishedId() {		
-		return getUniqueLidoConcrete("lido:lido", "lido:objectPublishedID");
+		return getUniqueLidoConcrete(RelationKind.TWOCHILD, "lido:lido", "lido:objectPublishedID");
 	}
 	
 	private static CompletePattern getUniqueComplexLidoNameActorSet() {		
-		return getUniqueComplexLidoConcrete("lido:lido", "lido:actor", "lido:nameActorSet", "lido:appellationValue");
+		return getUniqueComplexLidoConcrete(RelationKind.TWOCHILD, "lido:lido", RelationKind.DESCENDANT, "lido:actor", "lido:nameActorSet", "lido:appellationValue");
 	}
 	
 	private static CompletePattern getUniqueLidoEfficientConcrete() {		

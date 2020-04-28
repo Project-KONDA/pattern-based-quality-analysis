@@ -105,7 +105,7 @@ public class Eval12ExNEx {
 		CompletePattern completePattern = getExNExAbstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 
-		((RelationOptionParam) params.get(10)).setValue(RelationKind.DESCENDANT);
+		((RelationOptionParam) params.get(10)).setValue(RelationKind.THREECHILD);
 		((RelationOptionParam) params.get(9)).setValue(RelationKind.CHILD);
 		((RelationOptionParam) params.get(8)).setValue(RelationKind.CHILD);
 		((TextLiteralParam) params.get(7)).setValue("Type");
@@ -124,7 +124,7 @@ public class Eval12ExNEx {
 		CompletePattern completePattern = getExNExAbstractWithComp();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 
-		((RelationOptionParam) params.get(14)).setValue(RelationKind.DESCENDANT);
+		((RelationOptionParam) params.get(14)).setValue(RelationKind.TWOCHILD);
 		((RelationOptionParam) params.get(13)).setValue(RelationKind.CHILD);
 		((RelationOptionParam) params.get(12)).setValue(RelationKind.DESCENDANT);
 //		((TextLiteralParam) params.get(11)).setValue("Type");

@@ -215,7 +215,7 @@ public class Eval06Func {
 		
 		CompletePattern completePattern = getFuncAbstract();
 		Element returnInReturnGraph = completePattern.getGraph().getElements().get(0);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("wer");
 		((UnknownParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
@@ -245,7 +245,7 @@ public class Eval06Func {
 		((XmlProperty) elementB1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element element1 = graph2.getElements().get(3);
-		((XmlNavigation) graph2.getRelations().get(5)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph2.getRelations().get(5)).getOption().setValue(RelationKind.THREECHILD);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("wer");
 		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
@@ -287,7 +287,7 @@ public class Eval06Func {
 		CompletePattern completePattern = getFuncAbstractLido();
 		Element returnInReturnGraph = completePattern.getGraph().getElements().get(0);
 		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		relation.getOption().setValue(RelationKind.DESCENDANT);
+		relation.getOption().setValue(RelationKind.TWOCHILD);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
 		((UnknownParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
@@ -319,8 +319,9 @@ public class Eval06Func {
 		((XmlProperty) elementB1.getProperties().get(1)).getOption().setValue(PropertyKind.DATA);
 		
 		Element element1 = graph2.getElements().get(4);
-		XmlNavigation relation3 = (XmlNavigation) graph2.getRelations().get(5);
-		relation3.getOption().setValue(RelationKind.DESCENDANT);
+		// HERE
+		XmlNavigation relation3 = (XmlNavigation) graph2.getRelations().get(6);
+		relation3.getOption().setValue(RelationKind.THREECHILD);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("lido:termMaterialsTech");
 		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);

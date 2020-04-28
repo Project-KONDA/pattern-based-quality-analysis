@@ -129,7 +129,7 @@ public class Eval01Comp {
 		((UnknownParameterValue) params.get(4)).concretize(new TextLiteralParamImpl("kue"));
 		((TextLiteralParam) params.get(3)).setValue("Type");
 		((PropertyOptionParam) params.get(2)).setValue(PropertyKind.ATTRIBUTE);
-		((RelationOptionParam) params.get(1)).setValue(RelationKind.DESCENDANT);
+		((RelationOptionParam) params.get(1)).setValue(RelationKind.THREECHILD);
 		
 //		completePattern.myToString();
 //		Graph returnGraph = completePattern.getGraph();

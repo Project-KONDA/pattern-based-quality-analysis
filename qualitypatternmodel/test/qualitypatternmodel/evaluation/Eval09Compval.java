@@ -36,7 +36,8 @@ public class Eval09Compval {
 		completePatterns.add(getCompvalLidoObjectWorkTypeSchloss());
 		completePatterns.add(getCompvalLidoObjectWorkTypePrint());
 		completePatterns.add(getCompvalSetLidoAppellationValue());
-		Test00.test(completePatterns);
+//		Test00.test(completePatterns);
+		Test00.getQueries(completePatterns);
 
 	}
 
@@ -244,55 +245,55 @@ public class Eval09Compval {
 	}
 
 	public static CompletePattern getCompvalMidas5230Objekt() {
-		return getCompvalConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5230",
+		return getCompvalConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5230",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "Objekt");
 	}
 
 	public static CompletePattern getCompvalMidas5230Schloss() {
-		return getCompvalConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5230",
+		return getCompvalConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5230",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "Schloss");
 	}
 
 	public static CompletePattern getCompvalMidas5230Print() {
-		return getCompvalConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5230",
+		return getCompvalConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5230",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "Print");
 	}
 
 	public static CompletePattern getCompvalSetMidas3270() {
 		List<String> values = Arrays.asList("unbekannt", "x", "y", "?");
-		return getCompvalSetConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3270",
+		return getCompvalSetConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3270",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, values);
 	}
 
 	public static CompletePattern getCompvalLidoEventPlace() {
-		return getCompvalConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:eventPlace",
+		return getCompvalConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:eventPlace",
 				RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:type", PropertyKind.ATTRIBUTE, "alternative");
 	}
 
 	public static CompletePattern getCompvalLidoObjectWorkTypeObjekt() {
-		return getCompvalThreeElementsConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG,
-				"lido:objectWorkType", RelationKind.DESCENDANT, null, PropertyKind.TAG,
-				"lido:term", RelationKind.DESCENDANT, null, PropertyKind.TAG, 
+		return getCompvalThreeElementsConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG,
+				"lido:objectWorkType", RelationKind.FOURCHILD, null, PropertyKind.TAG,
+				"lido:term", RelationKind.CHILD, null, PropertyKind.TAG, 
 				null, PropertyKind.DATA, "Objekt");
 	}
 	
 	public static CompletePattern getCompvalLidoObjectWorkTypeSchloss() {
-		return getCompvalThreeElementsConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG,
-				"lido:objectWorkType", RelationKind.DESCENDANT, null, PropertyKind.TAG,
-				"lido:term", RelationKind.DESCENDANT, null, PropertyKind.TAG, 
+		return getCompvalThreeElementsConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG,
+				"lido:objectWorkType", RelationKind.FOURCHILD, null, PropertyKind.TAG,
+				"lido:term", RelationKind.CHILD, null, PropertyKind.TAG, 
 				null, PropertyKind.DATA, "Schloss");
 	}
 	
 	public static CompletePattern getCompvalLidoObjectWorkTypePrint() {
-		return getCompvalThreeElementsConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG,
-				"lido:objectWorkType", RelationKind.DESCENDANT, null, PropertyKind.TAG,
-				"lido:term", RelationKind.DESCENDANT, null, PropertyKind.TAG, 
+		return getCompvalThreeElementsConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG,
+				"lido:objectWorkType", RelationKind.FOURCHILD, null, PropertyKind.TAG,
+				"lido:term", RelationKind.CHILD, null, PropertyKind.TAG, 
 				null, PropertyKind.DATA, "Print");
 	}
 	
 	public static CompletePattern getCompvalSetLidoAppellationValue() {
 		List<String> values = Arrays.asList("unbekannt", "x", "unknown", "?");
-		return getCompvalSetConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, 
+		return getCompvalSetConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, 
 				"lido:appellationValue", RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, values);
 	}
 }

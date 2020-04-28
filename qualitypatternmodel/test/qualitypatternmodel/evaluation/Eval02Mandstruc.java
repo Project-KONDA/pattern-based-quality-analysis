@@ -79,7 +79,7 @@ public class Eval02Mandstruc {
 		CompletePattern completePattern = getMandstrucThreeElementsAbstract();
 		
 		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");

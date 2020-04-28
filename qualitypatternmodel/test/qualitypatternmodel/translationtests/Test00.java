@@ -37,6 +37,21 @@ public class Test00 {
 		}
 	}
 	
+	public static void getQueries(ArrayList<CompletePattern> completePatterns) {
+		for (CompletePattern completePattern : completePatterns) {
+			concretize(completePattern);
+			try {
+				completePattern.isValid(true);
+//				System.out.println("\n\n___PATTERN_(VALID)___");
+				System.out.println(completePattern.generateQuery());
+			} catch (Exception e) {
+				System.out.println("\n\n___PATTERN_(InVALID)___");
+				e.printStackTrace();
+				System.out.println(completePattern.myToString());
+			}
+		}
+	}
+	
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();

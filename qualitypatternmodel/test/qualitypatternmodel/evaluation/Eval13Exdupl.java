@@ -179,7 +179,7 @@ public class Eval13Exdupl {
 		CompletePattern completePattern = getExactDuplicatesAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -191,7 +191,7 @@ public class Eval13Exdupl {
 		Graph graph1 = countPattern.getGraph();
 		
 		Element element2 = graph1.getElements().get(1);	
-		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -211,7 +211,7 @@ public class Eval13Exdupl {
 		CompletePattern completePattern = getExactDuplicatesAbstract();
 		
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
 //		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -223,7 +223,7 @@ public class Eval13Exdupl {
 		Graph graph1 = countPattern.getGraph();
 		
 		Element element2 = graph1.getElements().get(1);	
-		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.TWOCHILD);
 //		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();

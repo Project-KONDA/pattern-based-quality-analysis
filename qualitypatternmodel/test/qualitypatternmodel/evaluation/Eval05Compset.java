@@ -18,6 +18,7 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -98,6 +99,7 @@ public class Eval05Compset {
 		QuantifiedCondition condition = (QuantifiedCondition) completePattern.getCondition();
 		Graph graph1 = condition.getGraph();
 		Element nextToReturnElementInGraph1 =  graph1.getElements().get(1);
+		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(element2Axis);
 		
 		Comparison comparison1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
@@ -130,12 +132,12 @@ public class Eval05Compset {
 	
 	public static CompletePattern getCompsetMIDAS3140() {			
 		List<String> values = Arrays.asList("m","f","unbekannt","m?","f?","?");		
-		return getCompsetConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3140", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, values);
+		return getCompsetConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3140", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, values);
 	}
 	
 	public static CompletePattern getCompsetLidoGenderActor() {			
 		List<String> values = Arrays.asList("male","männlich","weiblich","female","unknown","not applicable");		
-		return getCompsetConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:genderActor", RelationKind.DESCENDANT, 
+		return getCompsetConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:genderActor", RelationKind.DESCENDANT, 
 				null, PropertyKind.TAG, null, PropertyKind.DATA, values);
 	}
 }

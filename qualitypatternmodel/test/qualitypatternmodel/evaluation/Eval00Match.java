@@ -39,7 +39,7 @@ public class Eval00Match {
 		completePatterns.add(getMatchLidoNamePlaceSet());
 		completePatterns.add(getMatchLidoAppellationValue());
 		completePatterns.add(getMatchLidoNameActorSetAbbreviation());
-		Test00.test(completePatterns);
+		Test00.getQueries(completePatterns);
 
 	}
 

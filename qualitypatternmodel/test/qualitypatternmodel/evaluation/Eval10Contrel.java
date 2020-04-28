@@ -163,7 +163,7 @@ public class Eval10Contrel {
 		
 		CompletePattern completePattern = getContrelAbstract();
 		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
