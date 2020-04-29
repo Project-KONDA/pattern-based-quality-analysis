@@ -102,16 +102,21 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		}
 		
 		switch (option.getValue()) {
-			case ATTRIBUTE: 
-				if(attributeName == null || attributeName.getValue() == null) {
-					throw new InvalidityException("attributeName invalid");
-				} else {
-					return propertyElementTranslation + "/@" + attributeName.getValue() + "";
-				}
-			case DATA: return propertyElementTranslation + "/data()";
-			case TAG: return propertyElementTranslation + "/name()";
-			default:
-				throw new InvalidityException("error in location specification");
+		case ATTRIBUTE:
+			if (attributeName == null || attributeName.getValue() == null) {
+				throw new InvalidityException("attributeName invalid");
+			} else {
+				if (attributeName.getValue().contains(":")) {
+					return propertyElementTranslation + "/@*[name()=\"" + attributeName.getValue() + "\"]";
+				} 
+				return propertyElementTranslation + "/@" + attributeName.getValue() + "";				
+			}
+		case DATA:
+			return propertyElementTranslation + "/data()";
+		case TAG:
+			return propertyElementTranslation + "/name()";
+		default:
+			throw new InvalidityException("error in location specification");
 		}
 		
 	}
