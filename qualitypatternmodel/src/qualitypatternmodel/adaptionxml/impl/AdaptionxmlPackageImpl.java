@@ -510,6 +510,10 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		addEEnumLiteral(relationKindEEnum, RelationKind.TWOCHILD);
 		addEEnumLiteral(relationKindEEnum, RelationKind.THREECHILD);
 		addEEnumLiteral(relationKindEEnum, RelationKind.FOURCHILD);
+		addEEnumLiteral(relationKindEEnum, RelationKind.FIVECHILD);
+		addEEnumLiteral(relationKindEEnum, RelationKind.SIXCHILD);
+		addEEnumLiteral(relationKindEEnum, RelationKind.SEVENCHILD);
+		addEEnumLiteral(relationKindEEnum, RelationKind.EIGHTCHILD);
 
 		// Create resource
 		createResource(eNS_URI);

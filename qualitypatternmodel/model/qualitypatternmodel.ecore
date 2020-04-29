@@ -624,6 +624,10 @@
       <eLiterals name="TWOCHILD" value="11" literal="/child::*/child::*"/>
       <eLiterals name="THREECHILD" value="12" literal="/child::*/child::*/child::*"/>
       <eLiterals name="FOURCHILD" value="13" literal="/child::*/child::*/child::*/child::*"/>
+      <eLiterals name="FIVECHILD" value="14" literal="/child::*/child::*/child::*/child::*/child::*"/>
+      <eLiterals name="SIXCHILD" value="15" literal="/child::*/child::*/child::*/child::*/child::*/child::*"/>
+      <eLiterals name="SEVENCHILD" value="16" literal="/child::*/child::*/child::*/child::*/child::*/child::*/child::*"/>
+      <eLiterals name="EIGHTCHILD" value="17" literal="/child::*/child::*/child::*/child::*/child::*/child::*/child::*/child::*"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/Element"/>
   </eSubpackages>
