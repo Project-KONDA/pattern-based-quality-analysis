@@ -37,7 +37,8 @@ public class Eval01Comp {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		completePatterns.add(getCompAbstract());
 		completePatterns.add(getCompMidas());
-		Test00.test(completePatterns);
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);
 		
 	}
 	public static CompletePattern getCompAbstract() {

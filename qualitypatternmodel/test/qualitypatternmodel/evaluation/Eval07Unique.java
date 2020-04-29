@@ -41,7 +41,9 @@ public class Eval07Unique {
 		completePatterns.add(getUniqueLidoObjectPublishedId());
 		completePatterns.add(getUniqueComplexLidoNameActorSet());
 		completePatterns.add(getUniqueLidoEfficientConcrete());
-		Test00.test(completePatterns);
+		
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);	
 		
 	}
 	

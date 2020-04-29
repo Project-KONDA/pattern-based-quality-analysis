@@ -35,8 +35,9 @@ public class Eval06Func {
 		completePatterns.add(getFuncRunningExample());
 		completePatterns.add(getFuncMidas());
 		completePatterns.add(getFuncLido());
-		Test00.test(completePatterns);
 		
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);	
 	}
 	
 	private static CompletePattern getFuncAbstract() {
@@ -295,8 +296,8 @@ public class Eval06Func {
 				
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element below = graph2.getElements().get(1);
-		XmlNavigation relation2 = (XmlNavigation) graph2.getRelations().get(6);
-		relation2.getOption().setValue(RelationKind.DESCENDANT);
+		XmlNavigation relation2 = (XmlNavigation) graph2.getRelations().get(0);
+		relation2.getOption().setValue(RelationKind.SEVENCHILD);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("lido:termMaterialsTech");
 		((UnknownParameterValue) ((Comparison) below.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue1);
@@ -321,7 +322,7 @@ public class Eval06Func {
 		Element element1 = graph2.getElements().get(4);
 		// HERE
 		XmlNavigation relation3 = (XmlNavigation) graph2.getRelations().get(6);
-		relation3.getOption().setValue(RelationKind.THREECHILD);
+		relation3.getOption().setValue(RelationKind.NINECHILD);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("lido:termMaterialsTech");
 		((UnknownParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);

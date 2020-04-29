@@ -33,8 +33,9 @@ public class Eval08Mandatt {
 		completePatterns.add(getMandattMidas());
 		completePatterns.add(getMandattLido());
 		completePatterns.add(getMandattThreeElementsLido());
-		Test00.test(completePatterns);
 		
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);		
 	}
 	
 	private static CompletePattern getMandattAbstract() {

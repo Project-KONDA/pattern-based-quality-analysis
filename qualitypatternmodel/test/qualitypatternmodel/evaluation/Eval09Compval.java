@@ -36,9 +36,9 @@ public class Eval09Compval {
 		completePatterns.add(getCompvalLidoObjectWorkTypeSchloss());
 		completePatterns.add(getCompvalLidoObjectWorkTypePrint());
 		completePatterns.add(getCompvalSetLidoAppellationValue());
-//		Test00.test(completePatterns);
+		
 		Test00.getQueries(completePatterns);
-
+//		Test00.test(completePatterns);		
 	}
 
 	public static CompletePattern getCompvalAbstract() {

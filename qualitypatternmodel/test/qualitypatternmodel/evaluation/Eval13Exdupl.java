@@ -35,7 +35,9 @@ public class Eval13Exdupl {
 		completePatterns.add(getExactDuplicatesMidasWer());
 		completePatterns.add(getExactDuplicatesLido());
 		completePatterns.add(getExactDuplicatesTwoElementLido());
-		Test00.test(completePatterns);		
+		
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);	
 	}
 	
 	public static CompletePattern getExactDuplicatesAbstract() {	

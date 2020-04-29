@@ -32,7 +32,9 @@ public class Eval10Contrel {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getContrelMidas());
-		Test00.test(completePatterns);		
+		
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);	
 	}
 	
 	public static CompletePattern getContrelAbstract() {

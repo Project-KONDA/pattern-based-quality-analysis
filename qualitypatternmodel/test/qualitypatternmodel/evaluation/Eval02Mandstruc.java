@@ -36,8 +36,9 @@ public class Eval02Mandstruc {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMandstrucThreeElementsMidas());
-		Test00.test(completePatterns);
 		
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);				
 	}
 	
 	public static CompletePattern getMandstrucThreeElementsAbstract() {

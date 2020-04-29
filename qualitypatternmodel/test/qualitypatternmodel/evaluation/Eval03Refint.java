@@ -40,8 +40,8 @@ public class Eval03Refint {
 //		completePatterns.add(getRefintAbstractRunningExample());
 		completePatterns.add(getRefintRunningExample());
 		
-		Test00.test(completePatterns);
-		
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);	
 	}
 	
 	public static CompletePattern getRefintAbstractMidas() {

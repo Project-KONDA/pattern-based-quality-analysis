@@ -34,8 +34,9 @@ public class Eval05Compset {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getCompsetMIDAS3140());
 		completePatterns.add(getCompsetLidoGenderActor());
-		Test00.test(completePatterns);
 		
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);		
 	}
 	
 	public static CompletePattern getCompsetAbstract() {	

@@ -39,8 +39,9 @@ public class Eval00Match {
 		completePatterns.add(getMatchLidoNamePlaceSet());
 		completePatterns.add(getMatchLidoAppellationValue());
 		completePatterns.add(getMatchLidoNameActorSetAbbreviation());
+		
 		Test00.getQueries(completePatterns);
-
+//		Test00.test(completePatterns);
 	}
 
 	public static CompletePattern getMatchAbstract() {
@@ -288,72 +289,72 @@ public class Eval00Match {
 	}
 
 	public static CompletePattern getMatchMidas5064() {
-		return getMatchConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5064",
-				RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
+		return getMatchConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5064",
+				RelationKind.TWOCHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
 				".*[a-zA-Z ]{10}.*");
 	}
 
 	public static CompletePattern getMatchMidas5360() {
-		return getMatchConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5360",
-				RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
+		return getMatchConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5360",
+				RelationKind.TWOCHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
 				"^[0-9]+(,[0-9]+)?( x [0-9]+(,[0-9]+)?)? (m|mm)( \\([a-zA-Z‰¸ˆƒ‹÷ ]+\\))?$");
 	}
 
 	public static CompletePattern getMatchMidas3270() {
-		return getMatchConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3270",
+		return getMatchConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3270",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\?$");
 	}
 
 	public static CompletePattern getMatchMidas3270Imprecise() {
-		return getMatchConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3270",
+		return getMatchConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3270",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "[0-9]/[0-9]");
 	}
 
 	public static CompletePattern getMatchMidas3100Abbreviation() {
-		return getMatchConcrete("kue", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "3100",
+		return getMatchConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3100",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\.");
 	}
 
 	public static CompletePattern getMatchMidas5060() {
-		return getMatchConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE, "5060",
+		return getMatchConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5060",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "^[0-9/]+$");
 	}
 
 	public static CompletePattern getMatchMidasOb30Child() {
-		return getMatchThreeElementsConcrete("obj", RelationKind.DESCENDANT, "Type", PropertyKind.ATTRIBUTE,
+		return getMatchThreeElementsConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE,
 				"ob30", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, RelationKind.CHILD, "Type",
 				PropertyKind.ATTRIBUTE, "^[12456789]");
 	}
 
 	public static CompletePattern getMatchLidoMeasurementValue() {
-		return getMatchConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:measurementValue",
-				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, "[a-zA-Z¸ˆ‰‹÷ƒ]");
+		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:measurementValue",
+				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "[a-zA-Z¸ˆ‰‹÷ƒ]");
 	}
 
 	public static CompletePattern getMatchLidoMeasurementUnit() {
-		return getMatchConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:measurementUnit",
-				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, "[0-9]");
+		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:measurementUnit",
+				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "[0-9]");
 	}
 
 	public static CompletePattern getMatchLidoEarliestDate() {
-		return getMatchConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:earliestDate",
-				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, "^[0-9]{4}$");
+		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:earliestDate",
+				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "^[0-9]{4}$");
 	}
 
 	public static CompletePattern getMatchLidoNamePlaceSet() {
-		return getMatchConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:namePlaceSet",
-				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, ",");
+		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:namePlaceSet",
+				RelationKind.SIXCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, ",");
 	}
 
 	public static CompletePattern getMatchLidoAppellationValue() {
-		return getMatchConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:appellationValue",
+		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:appellationValue",
 				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, "\\?$");
 	}
 	
 	public static CompletePattern getMatchLidoNameActorSetAbbreviation() {
-		return getMatchThreeElementsTwoConditionsConcrete("lido:lido", RelationKind.DESCENDANT, null, PropertyKind.TAG, 
-				"lido:nameActorSet", RelationKind.DESCENDANT, null, PropertyKind.TAG, 
-				"lido:appellationValue", RelationKind.DESCENDANT, null, PropertyKind.TAG, 
+		return getMatchThreeElementsTwoConditionsConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, 
+				"lido:nameActorSet", RelationKind.EIGHTCHILD, null, PropertyKind.TAG, 
+				"lido:appellationValue", RelationKind.CHILD, null, PropertyKind.TAG, 
 				null, PropertyKind.DATA, "\\.");
 	}
 

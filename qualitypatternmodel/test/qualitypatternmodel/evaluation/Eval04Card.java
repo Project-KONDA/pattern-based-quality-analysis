@@ -37,11 +37,13 @@ import qualitypatternmodel.translationtests.Test12Count;
 public class Eval04Card {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getCardAbstractThreeElements());
-		completePatterns.add(getCardAbstractMidas());
+//		completePatterns.add(getCardAbstractThreeElements());
+//		completePatterns.add(getCardAbstractMidas());
 		completePatterns.add(getCardMidasOb30());
 		completePatterns.add(getCardLidoActorName());
-		Test00.test(completePatterns);		
+		
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);		
 	}
 	
 	public static CompletePattern getCardAbstractThreeElements() {	
@@ -268,6 +270,6 @@ public class Eval04Card {
 	}
 	
 	public static CompletePattern getCardLidoActorName(){
-		return getCardThreeElementsLidoConcrete(RelationKind.THREECHILD, "lido:lido", RelationKind.EIGHTCHILD, "lido:nameActorSet", RelationKind.CHILD, "lido:appellationValue");
+		return getCardThreeElementsLidoConcrete(RelationKind.TWOCHILD, "lido:lido", RelationKind.EIGHTCHILD, "lido:nameActorSet", RelationKind.CHILD, "lido:appellationValue");
 	}
 }
