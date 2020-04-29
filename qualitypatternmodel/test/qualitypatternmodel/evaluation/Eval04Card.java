@@ -37,7 +37,8 @@ import qualitypatternmodel.translationtests.Test12Count;
 public class Eval04Card {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		completePatterns.add(getCardAbstractMidas());
+		completePatterns.add(getCardAbstractThreeElements());
+		completePatterns.add(getCardAbstractMidas());
 		completePatterns.add(getCardMidasOb30());
 		completePatterns.add(getCardLidoActorName());
 		Test00.test(completePatterns);		
@@ -96,6 +97,7 @@ public class Eval04Card {
 			
 		Element e2G2 = graphFactory.createElement();
 		e2G2.setGraph(graph2);
+		e2G2.setName("e2G2");
 		Relation r2G2 = graphFactory.createRelation();
 		r2G2.setGraph(graph2);
 		r2G2.setSource(e1G2);
@@ -105,8 +107,8 @@ public class Eval04Card {
 		e2G2.addPrimitiveComparison();
 
 		Condition truecondition = patternStructureFactory.createTrueElement();
-		countPattern.setCondition(truecondition);		
-		
+		countPattern.setCondition(truecondition);	
+				
 		completePattern.createXMLAdaption();
 		r1G1.adaptAsXMLNavigation();
 		r2G2.adaptAsXMLNavigation();		
@@ -153,6 +155,8 @@ public class Eval04Card {
 	}
 	
 	public static CompletePattern getCardAbstractMidas() {	
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;		
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -160,10 +164,13 @@ public class Eval04Card {
 		CountCondition condition = (CountCondition) completePattern.getCondition();
 		CountPattern countPattern = (CountPattern) condition.getCountPattern();
 		
+		
 		Element element2InC = countPattern.getGraph().getElements().get(1);	
+		element2InC.setName("Element2");
 		
 		Element element3InC = graphstructureFactory.createElement();
 		element3InC.setGraph(countPattern.getGraph());
+		element3InC.setName("Element3");
 		element3InC.addPrimitiveComparison();		
 		element3InC.addPrimitiveComparison();
 
@@ -171,14 +178,21 @@ public class Eval04Card {
 		relation.setGraph(countPattern.getGraph());
 		relation.setSource(element2InC);
 		relation.setTarget(element3InC);
+
+		
+		QuantifiedCondition countQCon = patternStructureFactory.createQuantifiedCondition();
+		countPattern.setCondition(countQCon);
+		Graph graphCQCon = countQCon.getGraph();
 		
 		Element element4InC = graphstructureFactory.createElement();
-		element4InC.setGraph(countPattern.getGraph());
+		element4InC.setGraph(graphCQCon);
+		element4InC.setName("Element4");
 		element4InC.addPrimitiveComparison();
 		
 		Relation relation2 = graphstructureFactory.createRelation();
-		relation2.setGraph(countPattern.getGraph());
-		relation2.setSource(element3InC);
+		relation2.setGraph(graphCQCon);
+		Element element3InCQC =element3InC.getMappingTo().get(0).getTo();
+		relation2.setSource(element3InCQC);
 		relation2.setTarget(element4InC);		
 		
 		countPattern.getGraph().getReturnElements().clear();
@@ -239,7 +253,10 @@ public class Eval04Card {
 		((XmlProperty) setElement1InGraph1.getProperties().get(1)).getAttributeName().setValue("Value");
 		((XmlProperty) setElement1InGraph1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
-		Element setElement2InGraph1 = graph1.getElements().get(3);	
+		
+		Graph graph2 = ((QuantifiedCondition)countPattern.getCondition()).getGraph();
+		
+		Element setElement2InGraph1 = graph2.getElements().get(3);	
 		Comparison comparison1Set2 = (Comparison) setElement2InGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue6 = parametersFactory.createTextLiteralParam();
 		concreteInputValue6.setValue("ob30rl");
@@ -251,6 +268,6 @@ public class Eval04Card {
 	}
 	
 	public static CompletePattern getCardLidoActorName(){
-		return getCardThreeElementsLidoConcrete(RelationKind.THREECHILD, "lido:lido", RelationKind.DESCENDANT, "lido:actorNameSet", RelationKind.CHILD, "lido:appellationValue");
+		return getCardThreeElementsLidoConcrete(RelationKind.THREECHILD, "lido:lido", RelationKind.DESCENDANT, "lido:nameActorSet", RelationKind.CHILD, "lido:appellationValue");
 	}
 }
