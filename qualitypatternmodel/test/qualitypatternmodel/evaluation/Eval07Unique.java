@@ -35,6 +35,7 @@ import qualitypatternmodel.translationtests.Test00;
 public class Eval07Unique {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getUniqueAbstract());
 		completePatterns.add(getUniqueMidas());
 		completePatterns.add(getUniqueLidoLidoRecId());
 		completePatterns.add(getUniqueLidoObjectPublishedId());
@@ -235,8 +236,12 @@ public class Eval07Unique {
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
 		returnElementInReturnGraph.addPrimitiveComparison();
 		
+		QuantifiedCondition qCond = patternStructureFactory.createQuantifiedCondition();
+		completePattern.setCondition(qCond);
+		Graph gQCon = qCond.getGraph();
+		
 		CountCondition countCondition = patternStructureFactory.createCountCondition();
-		completePattern.setCondition(countCondition);		
+		qCond.setCondition(countCondition); 
 		
 		CountPattern countPattern = patternStructureFactory.createCountPattern();
 
@@ -249,45 +254,55 @@ public class Eval07Unique {
 		countCondition.setCountPattern(countPattern);
 		countCondition.setArgument2(numberElement);
 		
+		Element returnInQCond = qCond.getGraph().getElements().get(0);
 		Element returnInCPattern = countPattern.getGraph().getElements().get(0);
 		Element element2 = graphFactory.createElement();
 		element2.setGraph(countPattern.getGraph());
+		element2.setName("Element2");
 		countPattern.getGraph().getReturnElements().clear();
 		countPattern.getGraph().getReturnElements().add(element2);
 		element2.addPrimitiveComparison();
 		
 		Element nextToReturn = graphFactory.createElement();
-		nextToReturn.setGraph(countPattern.getGraph());
+		nextToReturn.setGraph(qCond.getGraph());
+		nextToReturn.setName("Field1");
 		Relation relation = graphFactory.createRelation();
-		relation.setGraph(countPattern.getGraph());
-		relation.setSource(returnInCPattern);
+		relation.setGraph(qCond.getGraph());
+		relation.setSource(returnInQCond);
 		relation.setTarget(nextToReturn);
 		nextToReturn.addPrimitiveComparison();
 		
+		QuantifiedCondition countQCond= patternStructureFactory.createQuantifiedCondition();
+		countPattern.setCondition(countQCond);
+		
+		
+
+		
 		Element nextToElement2 = graphFactory.createElement();
-		nextToElement2.setGraph(countPattern.getGraph());
+		nextToElement2.setGraph(countQCond.getGraph());
 		Relation relation2 = graphFactory.createRelation();
-		relation2.setGraph(countPattern.getGraph());
-		relation2.setSource(element2);
+		relation2.setGraph(countQCond.getGraph());
+		relation2.setSource(element2.getMappingTo().get(0).getTo());
 		relation2.setTarget(nextToElement2);
 		nextToElement2.addPrimitiveComparison();
 		
 		Property propertyNextToReturn = graphFactory.createProperty();
-		propertyNextToReturn.setElement(nextToReturn);
+		propertyNextToReturn.setElement(nextToReturn.getMappingTo().get(0).getTo().getMappingTo().get(0).getTo());
 		
 		Property propertyNextToElement2 = graphFactory.createProperty();
 		propertyNextToElement2.setElement(nextToElement2);
 			
 		Comparison comparison = operatorsFactory.createComparison();
 		comparison.setType(ReturnType.STRING);
-		countPattern.getGraph().getOperatorList().add(comparison);		
+		countQCond.getGraph().getOperatorList().add(comparison);		
 		comparison.createParameters();
 		comparison.setArgument1(propertyNextToReturn);
 		comparison.setArgument2(propertyNextToElement2);	
 		comparison.getOption().setValue(ComparisonOperator.EQUAL);
 		
-		Condition truecondition = patternStructureFactory.createTrueElement();
-		countPattern.setCondition(truecondition);		
+		
+		
+		
 		
 		completePattern.createXMLAdaption();
 		relation.adaptAsXMLNavigation();
@@ -420,6 +435,8 @@ public class Eval07Unique {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getUniqueAbstract();
+		
+		
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
@@ -428,36 +445,52 @@ public class Eval07Unique {
 		concreteInputValue.setValue("wer");
 		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
 		
-		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
-		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		
-		Element element2 = countPattern.getGraph().getElements().get(1);	
-		((XmlNavigation) countPattern.getGraph().getRelations().get(3)).getOption().setValue(RelationKind.THREECHILD);
+		QuantifiedCondition qCond = (QuantifiedCondition) completePattern.getCondition();
+		Graph graphQCond = qCond.getGraph();
+		
+		CountCondition countCondition = (CountCondition) qCond.getCondition();		
+		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
+		Graph graphCountPattern = countPattern.getGraph();
+		
+		QuantifiedCondition countQCond = (QuantifiedCondition) countPattern.getCondition();
+		Graph graphCountQCond = countQCond.getGraph();
+		
+		
+		
+		
+		Element element2 = graphCountPattern.getElements().get(1);	
+		((XmlNavigation) countPattern.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("wer");
 		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
 		
-		Element nextToReturn = countPattern.getGraph().getElements().get(2);
-		((XmlProperty) nextToReturn.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) nextToReturn.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		Element nextToReturn = graphQCond.getElements().get(1);
+		XmlProperty propNextToReturn = (XmlProperty) nextToReturn.getProperties().get(0);
+		propNextToReturn.getAttributeName().setValue("Type");
+		propNextToReturn.getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("3600");
 		((UnknownParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
 		
-		Element nextToElement2 = countPattern.getGraph().getElements().get(3);
+		Element nextToElement2 = graphCountQCond.getElements().get(3);
 		((XmlProperty) nextToElement2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) nextToElement2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("3600");
 		((UnknownParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
 		
-		((XmlProperty) nextToReturn.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
-		((XmlProperty) nextToReturn.getProperties().get(1)).getAttributeName().setValue("Value");
 		
-		((XmlProperty) nextToElement2.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
-		((XmlProperty) nextToElement2.getProperties().get(1)).getAttributeName().setValue("Value");
+		Element nextToReturn2 = nextToReturn.getMappingTo().get(0).getTo().getMappingTo().get(0).getTo();
+		XmlProperty prop2NextToReturn = (XmlProperty) nextToReturn2.getProperties().get(0);
+		prop2NextToReturn.getOption().setValue(PropertyKind.ATTRIBUTE);
+		prop2NextToReturn.getAttributeName().setValue("Value");
+		
+		XmlProperty propNextToElement2 = ((XmlProperty) nextToElement2.getProperties().get(1));
+		propNextToElement2.getOption().setValue(PropertyKind.ATTRIBUTE);
+		propNextToElement2.getAttributeName().setValue("Value");
 		
 		((Comparison) nextToElement2.getPredicates().get(1)).setType(ReturnType.STRING);
 		
@@ -548,29 +581,32 @@ public class Eval07Unique {
 		concreteInputValue.setValue(returnElementName);
 		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
 		
-		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
+		QuantifiedCondition qCond = (QuantifiedCondition) completePattern.getCondition();	
+		CountCondition countCondition = (CountCondition) qCond.getCondition();		
 		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
+		QuantifiedCondition countQCon = (QuantifiedCondition) countPattern.getCondition();
 		
 		Element element2 = countPattern.getGraph().getElements().get(1);	
-		((XmlNavigation) countPattern.getGraph().getRelations().get(3)).getOption().setValue(returnRel);
+		((XmlNavigation) countPattern.getGraph().getRelations().get(2)).getOption().setValue(returnRel);
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(returnElementName);
 		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
 		
-		Element nextToReturn = countPattern.getGraph().getElements().get(2);
+		Element nextToReturn = qCond.getGraph().getElements().get(1);
 		((XmlProperty) nextToReturn.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue(elementName);
 		((UnknownParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
 		
-		Element nextToElement2 = countPattern.getGraph().getElements().get(3);
+		Element nextToElement2 = countQCon.getGraph().getElements().get(3);
 		((XmlProperty) nextToElement2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue(elementName);
 		((UnknownParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
 		
-		((XmlProperty) nextToReturn.getProperties().get(1)).getOption().setValue(PropertyKind.DATA);
+		Element nextToReturn2 = countQCon.getGraph().getElements().get(2);
+		((XmlProperty) nextToReturn2.getProperties().get(0)).getOption().setValue(PropertyKind.DATA);
 		
 		((XmlProperty) nextToElement2.getProperties().get(1)).getOption().setValue(PropertyKind.DATA);
 		

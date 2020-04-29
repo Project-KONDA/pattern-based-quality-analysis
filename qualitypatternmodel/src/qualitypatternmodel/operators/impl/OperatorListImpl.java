@@ -76,7 +76,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 			msg += getOperators();
 			msg += "\n";
 			for (Operator op : graphOps) {
-				msg += op.getId();
+				msg += op.myToString();
 				if (!getOperators().contains(op))
 					msg += "- ";
 				else
@@ -84,7 +84,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 			}
 			msg += "\n";
 			for (Operator op : getOperators()) {
-				msg += op.getId();
+				msg += op.myToString();
 				if (!getOperators().contains(op))
 					msg += "- ";
 				else
