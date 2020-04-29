@@ -14,6 +14,7 @@ import qualitypatternmodel.parameters.UnknownParameterValue;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.UnknownParameterValue#concretize(qualitypatternmodel.parameters.ParameterValue) <em>Concretize</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.UnknownParameterValue#setValue(java.lang.String) <em>Set Value</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
@@ -83,6 +84,19 @@ public class UnknownParameterValueTest extends ParameterTest {
 	 * @generated
 	 */
 	public void testConcretize__ParameterValue() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.UnknownParameterValue#setValue(java.lang.String) <em>Set Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.UnknownParameterValue#setValue(java.lang.String)
+	 * @generated
+	 */
+	public void testSetValue__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

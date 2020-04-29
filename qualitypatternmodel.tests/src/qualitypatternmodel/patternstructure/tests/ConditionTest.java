@@ -11,7 +11,7 @@ import qualitypatternmodel.patternstructure.Condition;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Condition#getNextMorphismContainers() <em>Get Next Quantified Conditions</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Condition#getNextMorphismContainers() <em>Get Next Morphism Containers</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -40,13 +40,13 @@ public abstract class ConditionTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Condition#getNextMorphismContainers() <em>Get Next Quantified Conditions</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Condition#getNextMorphismContainers() <em>Get Next Morphism Containers</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see qualitypatternmodel.patternstructure.Condition#getNextMorphismContainers()
 	 * @generated
 	 */
-	public void testGetNextQuantifiedConditions() {
+	public void testGetNextMorphismContainers() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -136,7 +136,7 @@ public enum RelationKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TWOCHILD(11, "TWOCHILD", "/child::*/child::*"),
+	TWOCHILD(11, "TWOCHILD", "/*/*"),
 
 	/**
 	 * The '<em><b>THREECHILD</b></em>' literal object.
@@ -146,7 +146,7 @@ public enum RelationKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	THREECHILD(12, "THREECHILD", "/child::*/child::*/child::*"),
+	THREECHILD(12, "THREECHILD", "/*/*/*"),
 
 	/**
 	 * The '<em><b>FOURCHILD</b></em>' literal object.
@@ -156,7 +156,7 @@ public enum RelationKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FOURCHILD(13, "FOURCHILD", "/child::*/child::*/child::*/child::*"), /**
+	FOURCHILD(13, "FOURCHILD", "/*/*/*/*"), /**
 	 * The '<em><b>FIVECHILD</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,7 +164,7 @@ public enum RelationKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FIVECHILD(14, "FIVECHILD", "/child::*/child::*/child::*/child::*/child::*"), /**
+	FIVECHILD(14, "FIVECHILD", "/*/*/*/*/*"), /**
 	 * The '<em><b>SIXCHILD</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -172,7 +172,7 @@ public enum RelationKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SIXCHILD(15, "SIXCHILD", "/child::*/child::*/child::*/child::*/child::*/child::*"), /**
+	SIXCHILD(15, "SIXCHILD", "/*/*/*/*/*/*"), /**
 	 * The '<em><b>SEVENCHILD</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -180,7 +180,7 @@ public enum RelationKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SEVENCHILD(16, "SEVENCHILD", "/child::*/child::*/child::*/child::*/child::*/child::*/child::*"), /**
+	SEVENCHILD(16, "SEVENCHILD", "/*/*/*/*/*/*/*"), /**
 	 * The '<em><b>EIGHTCHILD</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -188,7 +188,7 @@ public enum RelationKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EIGHTCHILD(17, "EIGHTCHILD", "/child::*/child::*/child::*/child::*/child::*/child::*/child::*/child::*");
+	EIGHTCHILD(17, "EIGHTCHILD", "/*/*/*/*/*/*/*/*");
 
 	/**
 	 * The '<em><b>CHILD</b></em>' literal value.
@@ -316,7 +316,7 @@ public enum RelationKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #TWOCHILD
-	 * @model literal="/child::\052/child::*"
+	 * @model literal="/\052/*"
 	 * @generated
 	 * @ordered
 	 */
@@ -327,7 +327,7 @@ public enum RelationKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #THREECHILD
-	 * @model literal="/child::\052/child::\052/child::*"
+	 * @model literal="/\052/\052/*"
 	 * @generated
 	 * @ordered
 	 */
@@ -338,7 +338,7 @@ public enum RelationKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #FOURCHILD
-	 * @model literal="/child::\052/child::\052/child::\052/child::*"
+	 * @model literal="/\052/\052/\052/*"
 	 * @generated
 	 * @ordered
 	 */
@@ -349,7 +349,7 @@ public enum RelationKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #FIVECHILD
-	 * @model literal="/child::\052/child::\052/child::\052/child::\052/child::*"
+	 * @model literal="/\052/\052/\052/\052/*"
 	 * @generated
 	 * @ordered
 	 */
@@ -360,7 +360,7 @@ public enum RelationKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #SIXCHILD
-	 * @model literal="/child::\052/child::\052/child::\052/child::\052/child::\052/child::*"
+	 * @model literal="/\052/\052/\052/\052/\052/*"
 	 * @generated
 	 * @ordered
 	 */
@@ -371,7 +371,7 @@ public enum RelationKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #SEVENCHILD
-	 * @model literal="/child::\052/child::\052/child::\052/child::\052/child::\052/child::\052/child::*"
+	 * @model literal="/\052/\052/\052/\052/\052/\052/*"
 	 * @generated
 	 * @ordered
 	 */
@@ -382,7 +382,7 @@ public enum RelationKind implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #EIGHTCHILD
-	 * @model literal="/child::\052/child::\052/child::\052/child::\052/child::\052/child::\052/child::\052/child::*"
+	 * @model literal="/\052/\052/\052/\052/\052/\052/\052/*"
 	 * @generated
 	 * @ordered
 	 */

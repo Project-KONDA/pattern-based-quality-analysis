@@ -621,13 +621,13 @@
       <eLiterals name="ANCESTOR_OR_SELF" value="8" literal="/ancestor-or-self::*"/>
       <eLiterals name="DESCENDANT_OR_SELF" value="9" literal="/descendant-or-self::*"/>
       <eLiterals name="SELF" value="10" literal="/self::*"/>
-      <eLiterals name="TWOCHILD" value="11" literal="/child::*/child::*"/>
-      <eLiterals name="THREECHILD" value="12" literal="/child::*/child::*/child::*"/>
-      <eLiterals name="FOURCHILD" value="13" literal="/child::*/child::*/child::*/child::*"/>
-      <eLiterals name="FIVECHILD" value="14" literal="/child::*/child::*/child::*/child::*/child::*"/>
-      <eLiterals name="SIXCHILD" value="15" literal="/child::*/child::*/child::*/child::*/child::*/child::*"/>
-      <eLiterals name="SEVENCHILD" value="16" literal="/child::*/child::*/child::*/child::*/child::*/child::*/child::*"/>
-      <eLiterals name="EIGHTCHILD" value="17" literal="/child::*/child::*/child::*/child::*/child::*/child::*/child::*/child::*"/>
+      <eLiterals name="TWOCHILD" value="11" literal="/*/*"/>
+      <eLiterals name="THREECHILD" value="12" literal="/*/*/*"/>
+      <eLiterals name="FOURCHILD" value="13" literal="/*/*/*/*"/>
+      <eLiterals name="FIVECHILD" value="14" literal="/*/*/*/*/*"/>
+      <eLiterals name="SIXCHILD" value="15" literal="/*/*/*/*/*/*"/>
+      <eLiterals name="SEVENCHILD" value="16" literal="/*/*/*/*/*/*/*"/>
+      <eLiterals name="EIGHTCHILD" value="17" literal="/*/*/*/*/*/*/*/*"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/Element"/>
   </eSubpackages>

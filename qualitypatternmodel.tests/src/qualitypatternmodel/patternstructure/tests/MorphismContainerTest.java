@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.patternstructure.tests;
 
-import junit.framework.TestCase;
-
 import qualitypatternmodel.patternstructure.MorphismContainer;
 
 /**
@@ -19,15 +17,7 @@ import qualitypatternmodel.patternstructure.MorphismContainer;
  * </p>
  * @generated
  */
-public abstract class MorphismContainerTest extends TestCase {
-
-	/**
-	 * The fixture for this Morphism Container test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MorphismContainer fixture = null;
+public abstract class MorphismContainerTest extends PatternElementTest {
 
 	/**
 	 * Constructs a new Morphism Container test case with the given name.
@@ -40,23 +30,14 @@ public abstract class MorphismContainerTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Morphism Container test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(MorphismContainer fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Morphism Container test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected MorphismContainer getFixture() {
-		return fixture;
+		return (MorphismContainer)fixture;
 	}
 
 	/**
