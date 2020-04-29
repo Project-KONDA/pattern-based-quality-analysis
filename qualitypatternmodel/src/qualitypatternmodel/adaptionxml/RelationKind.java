@@ -188,7 +188,15 @@ public enum RelationKind implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EIGHTCHILD(17, "EIGHTCHILD", "/*/*/*/*/*/*/*/*");
+	EIGHTCHILD(17, "EIGHTCHILD", "/*/*/*/*/*/*/*/*"), /**
+	 * The '<em><b>NINECHILD</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NINECHILD_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NINECHILD(18, "NINECHILD", "/*/*/*/*/*/*/*/*/*");
 
 	/**
 	 * The '<em><b>CHILD</b></em>' literal value.
@@ -389,6 +397,17 @@ public enum RelationKind implements Enumerator {
 	public static final int EIGHTCHILD_VALUE = 17;
 
 	/**
+	 * The '<em><b>NINECHILD</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NINECHILD
+	 * @model literal="/\052/\052/\052/\052/\052/\052/\052/\052/*"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NINECHILD_VALUE = 18;
+
+	/**
 	 * An array of all the '<em><b>Relation Kind</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -414,6 +433,7 @@ public enum RelationKind implements Enumerator {
 			SIXCHILD,
 			SEVENCHILD,
 			EIGHTCHILD,
+			NINECHILD,
 		};
 
 	/**
@@ -488,6 +508,7 @@ public enum RelationKind implements Enumerator {
 			case SIXCHILD_VALUE: return SIXCHILD;
 			case SEVENCHILD_VALUE: return SEVENCHILD;
 			case EIGHTCHILD_VALUE: return EIGHTCHILD;
+			case NINECHILD_VALUE: return NINECHILD;
 		}
 		return null;
 	}

@@ -497,6 +497,7 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/SIXCHILD"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/SEVENCHILD"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/EIGHTCHILD"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/RelationKind/NINECHILD"/>
       </genEnums>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlElement">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getXQueryRepresentation">

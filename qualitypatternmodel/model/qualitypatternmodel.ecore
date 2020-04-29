@@ -628,6 +628,7 @@
       <eLiterals name="SIXCHILD" value="15" literal="/*/*/*/*/*/*"/>
       <eLiterals name="SEVENCHILD" value="16" literal="/*/*/*/*/*/*/*"/>
       <eLiterals name="EIGHTCHILD" value="17" literal="/*/*/*/*/*/*/*/*"/>
+      <eLiterals name="NINECHILD" value="18" literal="/*/*/*/*/*/*/*/*/*"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/Element"/>
   </eSubpackages>
