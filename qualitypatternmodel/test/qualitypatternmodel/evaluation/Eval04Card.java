@@ -268,6 +268,6 @@ public class Eval04Card {
 	}
 	
 	public static CompletePattern getCardLidoActorName(){
-		return getCardThreeElementsLidoConcrete(RelationKind.THREECHILD, "lido:lido", RelationKind.DESCENDANT, "lido:nameActorSet", RelationKind.CHILD, "lido:appellationValue");
+		return getCardThreeElementsLidoConcrete(RelationKind.THREECHILD, "lido:lido", RelationKind.EIGHTCHILD, "lido:nameActorSet", RelationKind.CHILD, "lido:appellationValue");
 	}
 }

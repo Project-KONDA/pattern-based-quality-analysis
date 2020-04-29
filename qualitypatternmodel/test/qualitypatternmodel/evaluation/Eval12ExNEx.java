@@ -126,7 +126,7 @@ public class Eval12ExNEx {
 
 		((RelationOptionParam) params.get(14)).setValue(RelationKind.TWOCHILD);
 		((RelationOptionParam) params.get(13)).setValue(RelationKind.CHILD);
-		((RelationOptionParam) params.get(12)).setValue(RelationKind.DESCENDANT);
+		((RelationOptionParam) params.get(12)).setValue(RelationKind.SEVENCHILD);
 //		((TextLiteralParam) params.get(11)).setValue("Type");
 		((PropertyOptionParam) params.get(10)).setValue(PropertyKind.TAG);
 //		((TextLiteralParam) params.get(9)).setValue("Type");

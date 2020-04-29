@@ -267,7 +267,7 @@ public class Eval09Compval {
 
 	public static CompletePattern getCompvalLidoEventPlace() {
 		return getCompvalConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:eventPlace",
-				RelationKind.DESCENDANT, null, PropertyKind.TAG, "lido:type", PropertyKind.ATTRIBUTE, "alternative");
+				RelationKind.FIVECHILD, null, PropertyKind.TAG, "lido:type", PropertyKind.ATTRIBUTE, "alternative");
 	}
 
 	public static CompletePattern getCompvalLidoObjectWorkTypeObjekt() {
@@ -294,6 +294,6 @@ public class Eval09Compval {
 	public static CompletePattern getCompvalSetLidoAppellationValue() {
 		List<String> values = Arrays.asList("unbekannt", "x", "unknown", "?");
 		return getCompvalSetConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, 
-				"lido:appellationValue", RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, values);
+				"lido:appellationValue", RelationKind.FIVECHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, values);
 	}
 }

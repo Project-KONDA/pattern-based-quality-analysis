@@ -137,7 +137,7 @@ public class Eval05Compset {
 	
 	public static CompletePattern getCompsetLidoGenderActor() {			
 		List<String> values = Arrays.asList("male","männlich","weiblich","female","unknown","not applicable");		
-		return getCompsetConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:genderActor", RelationKind.DESCENDANT, 
+		return getCompsetConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:genderActor", RelationKind.EIGHTCHILD, 
 				null, PropertyKind.TAG, null, PropertyKind.DATA, values);
 	}
 }

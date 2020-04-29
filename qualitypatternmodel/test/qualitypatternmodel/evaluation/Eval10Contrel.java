@@ -207,7 +207,7 @@ public class Eval10Contrel {
 		((XmlProperty) val1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Element element2 = graph1.getElements().get(4);
-		((XmlNavigation) graph1.getRelations().get(7)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph1.getRelations().get(7)).getOption().setValue(RelationKind.THREECHILD);
 		Comparison element2Comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("wer");

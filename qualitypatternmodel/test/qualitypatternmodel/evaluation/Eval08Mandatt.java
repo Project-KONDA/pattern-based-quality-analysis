@@ -253,7 +253,7 @@ public class Eval08Mandatt {
 		
 		Graph graph1 = qc1.getGraph();
 		Element next1ToReturnElementInGraph1 = graph1.getElements().get(1);
-		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.FIVECHILD);
 		Comparison comparison1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("lido:appellationValue");
@@ -262,7 +262,7 @@ public class Eval08Mandatt {
 		
 		Graph graph2 = qc2.getGraph();
 		Element next1ToReturnElementInGraph2 = graph2.getElements().get(1);
-		((XmlNavigation) graph2.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph2.getRelations().get(0)).getOption().setValue(RelationKind.FIVECHILD);
 		
 		Comparison comparison2 = (Comparison) next1ToReturnElementInGraph2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -308,7 +308,7 @@ public class Eval08Mandatt {
 		
 		Graph graph0 = qc0.getGraph();
 		Element element1InG0 = graph0.getElements().get(1);
-		((XmlNavigation) graph0.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph0.getRelations().get(0)).getOption().setValue(RelationKind.SEVENCHILD);
 		Comparison comparison = (Comparison) element1InG0.getPredicates().get(0);
 		TextLiteralParam concreteInputValue0 = parametersFactory.createTextLiteralParam();
 		concreteInputValue0.setValue("lido:actor");

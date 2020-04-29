@@ -513,7 +513,7 @@ public class Eval07Unique {
 		Graph graph1 = quantifiedCondition.getGraph();
 		
 		Element e1G1 = graph1.getElements().get(1);	
-		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(retToE1Rel);
 		((XmlProperty) e1G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue1G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1G1.setValue(e1Name);
@@ -627,7 +627,7 @@ public class Eval07Unique {
 	}
 	
 	private static CompletePattern getUniqueComplexLidoNameActorSet() {		
-		return getUniqueComplexLidoConcrete(RelationKind.TWOCHILD, "lido:lido", RelationKind.DESCENDANT, "lido:actor", "lido:nameActorSet", "lido:appellationValue");
+		return getUniqueComplexLidoConcrete(RelationKind.TWOCHILD, "lido:lido", RelationKind.SEVENCHILD, "lido:actor", "lido:nameActorSet", "lido:appellationValue");
 	}
 	
 	private static CompletePattern getUniqueLidoEfficientConcrete() {		
