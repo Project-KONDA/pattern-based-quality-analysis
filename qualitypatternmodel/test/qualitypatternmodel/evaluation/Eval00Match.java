@@ -296,7 +296,7 @@ public class Eval00Match {
 
 	public static CompletePattern getMatchMidas5360() {
 		return getMatchConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5360",
-				RelationKind.TWOCHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
+				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
 				"^[0-9]+(,[0-9]+)?( x [0-9]+(,[0-9]+)?)? (m|mm)( \\([a-zA-Z‰¸ˆƒ‹÷ ]+\\))?$");
 	}
 
@@ -343,7 +343,7 @@ public class Eval00Match {
 
 	public static CompletePattern getMatchLidoNamePlaceSet() {
 		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:namePlaceSet",
-				RelationKind.SIXCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, ",");
+				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, ",");
 	}
 
 	public static CompletePattern getMatchLidoAppellationValue() {
