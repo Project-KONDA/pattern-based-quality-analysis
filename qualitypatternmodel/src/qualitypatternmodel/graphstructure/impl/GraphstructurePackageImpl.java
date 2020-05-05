@@ -1072,6 +1072,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		elementEClass.getESuperTypes().add(this.getAdaptable());
 		graphEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		comparableEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
+		adaptableEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(relationEClass, Relation.class, "Relation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -237,7 +237,17 @@ public class GraphstructureValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateAdaptable(Adaptable adaptable, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(adaptable, diagnostics, context);
+		if (!validate_NoCircularContainment(adaptable, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(adaptable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(adaptable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(adaptable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(adaptable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(adaptable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(adaptable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(adaptable, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(adaptable, diagnostics, context);
+		if (result || diagnostics != null) result &= patternstructureValidator.validatePatternElement_validate(adaptable, diagnostics, context);
+		return result;
 	}
 
 	/**

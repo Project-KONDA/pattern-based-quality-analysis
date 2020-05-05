@@ -74,8 +74,8 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 			case GraphstructurePackage.RELATION: {
 				Relation relation = (Relation)theEObject;
 				T result = caseRelation(relation);
-				if (result == null) result = casePatternElement(relation);
 				if (result == null) result = caseAdaptable(relation);
+				if (result == null) result = casePatternElement(relation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -114,6 +114,7 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 			case GraphstructurePackage.ADAPTABLE: {
 				Adaptable adaptable = (Adaptable)theEObject;
 				T result = caseAdaptable(adaptable);
+				if (result == null) result = casePatternElement(adaptable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

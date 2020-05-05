@@ -2,9 +2,8 @@
  */
 package qualitypatternmodel.graphstructure.tests;
 
-import junit.framework.TestCase;
-
 import qualitypatternmodel.graphstructure.Adaptable;
+import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,15 +18,7 @@ import qualitypatternmodel.graphstructure.Adaptable;
  * </p>
  * @generated
  */
-public abstract class AdaptableTest extends TestCase {
-
-	/**
-	 * The fixture for this Adaptable test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Adaptable fixture = null;
+public abstract class AdaptableTest extends PatternElementTest {
 
 	/**
 	 * Constructs a new Adaptable test case with the given name.
@@ -40,23 +31,14 @@ public abstract class AdaptableTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Adaptable test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Adaptable fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Adaptable test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected Adaptable getFixture() {
-		return fixture;
+		return (Adaptable)fixture;
 	}
 
 	/**

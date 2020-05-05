@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.graphstructure;
 
-import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface Adaptable extends EObject {
+public interface Adaptable extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

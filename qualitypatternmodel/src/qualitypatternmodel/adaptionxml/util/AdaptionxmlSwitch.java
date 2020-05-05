@@ -87,8 +87,8 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				XmlNavigation xmlNavigation = (XmlNavigation)theEObject;
 				T result = caseXmlNavigation(xmlNavigation);
 				if (result == null) result = caseRelation(xmlNavigation);
-				if (result == null) result = casePatternElement(xmlNavigation);
 				if (result == null) result = caseAdaptable(xmlNavigation);
+				if (result == null) result = casePatternElement(xmlNavigation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -96,8 +96,8 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				XmlReference xmlReference = (XmlReference)theEObject;
 				T result = caseXmlReference(xmlReference);
 				if (result == null) result = caseRelation(xmlReference);
-				if (result == null) result = casePatternElement(xmlReference);
 				if (result == null) result = caseAdaptable(xmlReference);
+				if (result == null) result = casePatternElement(xmlReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

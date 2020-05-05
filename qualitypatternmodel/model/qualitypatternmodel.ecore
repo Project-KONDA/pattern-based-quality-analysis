@@ -371,7 +371,8 @@
       <eLiterals name="NUMBER" value="7" literal="NUMBER"/>
       <eLiterals name="DATETIME" value="8"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Adaptable" abstract="true" interface="true">
+    <eClassifiers xsi:type="ecore:EClass" name="Adaptable" abstract="true" interface="true"
+        eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="removeParametersFromParameterList"/>
       <eOperations name="createParameters"/>
     </eClassifiers>
