@@ -175,14 +175,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			throw new InvalidityException("returnElement empty (" + getInternalId() + ")");
 		if (operatorList == null)
 			throw new InvalidityException("operatorList null (" + getInternalId() + ")");
-		boolean rootExists = false;
+//		boolean rootExists = false;
+		int noRoot = 0;
 		for(Element element : getElements()) {
 			if(element instanceof XmlRoot) {
-				rootExists = true;
+//				rootExists = true;
+				noRoot++;
 			}
 		}
-		if (!rootExists)
-			throw new InvalidityException("XMLRoot missing (" + getInternalId() + ")");
+		if (noRoot != 1)
+			throw new InvalidityException("too many or too few XMLRoot (" + getInternalId() + ")");
 
 		for (Element returnElement : returnElements) {
 			if (!returnElement.getGraph().equals(this)) {

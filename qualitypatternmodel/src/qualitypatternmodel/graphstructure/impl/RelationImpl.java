@@ -30,6 +30,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.Mapping;
@@ -106,13 +107,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
 		
-		CountPattern countPattern = null;				
-		try {
-			countPattern = (CountPattern) getAncestor(CountPattern.class);
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}
-		if (getGraph().getPattern() != null && mappingFrom != null && countPattern == null) // depth=0 => ReturnGraph
+//		CountPattern countPattern = null;				
+//		try {
+//			countPattern = (CountPattern) getAncestor(CountPattern.class);
+//		} catch (MissingPatternContainerException e) {
+//			// do nothing
+//		}
+		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && mappingFrom != null) // depth=0 => ReturnGraph
 			throw new InvalidityException("invalid RelationMapping to returnGraph: " + mappingFrom + " "
 					+ mappingFrom.getId() + " - (" + mappingTo + ")");		
 		

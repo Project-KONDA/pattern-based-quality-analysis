@@ -371,14 +371,14 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	@Override
 	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {	
-		CountPattern countPattern = null;				
-		try {
-			countPattern = (CountPattern) getAncestor(CountPattern.class);
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}
+//		CountPattern countPattern = null;				
+//		try {
+//			countPattern = (CountPattern) getAncestor(CountPattern.class);
+//		} catch (MissingPatternContainerException e) {
+//			// do nothing
+//		}
 	
-		if (getGraph().getPattern() != null && mappingFrom != null && countPattern == null) // depth=0 => ReturnGraph
+		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && mappingFrom != null) // depth=0 => ReturnGraph
 			throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + mappingFrom + " "
 					+ mappingFrom.getId() + " - (" + mappingTo + ")");
 			
