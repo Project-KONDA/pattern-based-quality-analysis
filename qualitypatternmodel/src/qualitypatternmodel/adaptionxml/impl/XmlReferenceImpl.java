@@ -19,6 +19,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -102,19 +103,19 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		}		
 	}
 	
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
-		getSourceProperty().isValid(isDefinedPattern);
-		getTargetProperty().isValid(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValidLocal(abstractionLevel);
+		getSourceProperty().isValid(abstractionLevel);
+		getTargetProperty().isValid(abstractionLevel);
 	}
 	
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getSourceProperty() == null)
 			throw new InvalidityException("referenceSource null (" + getInternalId() + ")" );
 		if (getTargetProperty() == null)
 			throw new InvalidityException("referenceSource2 null (" + getInternalId() + ")" );
 		
-		if(isDefinedPattern && type == ReturnType.UNSPECIFIED) {
+		if(abstractionLevel == AbstractionLevel.CONCRETE && type == ReturnType.UNSPECIFIED) {
 			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")" );	
 		}
 		

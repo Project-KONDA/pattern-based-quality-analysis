@@ -22,6 +22,7 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Location;
@@ -73,15 +74,15 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern)
+	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);		
-		graph.isValid(isDefinedPattern);
-		condition.isValid(isDefinedPattern);
+		isValidLocal(abstractionLevel);		
+		graph.isValid(abstractionLevel);
+		condition.isValid(abstractionLevel);
 	}
 	
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {		
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {		
 		if (graph == null)
 			throw new InvalidityException("Graph null" + " (" + getInternalId() + ")");
 		if (condition == null)

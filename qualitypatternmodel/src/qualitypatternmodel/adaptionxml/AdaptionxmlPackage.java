@@ -248,7 +248,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___IS_VALID__BOOLEAN = GraphstructurePackage.ELEMENT___IS_VALID__BOOLEAN;
+	int XML_ELEMENT___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -257,7 +257,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___IS_VALID_LOCAL__BOOLEAN = GraphstructurePackage.ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int XML_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -753,7 +753,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___IS_VALID__BOOLEAN = GraphstructurePackage.RELATION___IS_VALID__BOOLEAN;
+	int XML_NAVIGATION___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -762,7 +762,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___IS_VALID_LOCAL__BOOLEAN = GraphstructurePackage.RELATION___IS_VALID_LOCAL__BOOLEAN;
+	int XML_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1078,7 +1078,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___IS_VALID__BOOLEAN = GraphstructurePackage.RELATION___IS_VALID__BOOLEAN;
+	int XML_REFERENCE___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1087,7 +1087,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___IS_VALID_LOCAL__BOOLEAN = GraphstructurePackage.RELATION___IS_VALID_LOCAL__BOOLEAN;
+	int XML_REFERENCE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1403,7 +1403,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___IS_VALID__BOOLEAN = GraphstructurePackage.PROPERTY___IS_VALID__BOOLEAN;
+	int XML_PROPERTY___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.PROPERTY___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1412,7 +1412,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___IS_VALID_LOCAL__BOOLEAN = GraphstructurePackage.PROPERTY___IS_VALID_LOCAL__BOOLEAN;
+	int XML_PROPERTY___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.PROPERTY___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1755,7 +1755,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___IS_VALID__BOOLEAN = GraphstructurePackage.ELEMENT___IS_VALID__BOOLEAN;
+	int XML_ROOT___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1764,7 +1764,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___IS_VALID_LOCAL__BOOLEAN = GraphstructurePackage.ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int XML_ROOT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.

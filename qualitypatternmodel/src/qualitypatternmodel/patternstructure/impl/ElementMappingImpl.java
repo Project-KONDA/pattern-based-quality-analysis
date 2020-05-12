@@ -15,6 +15,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.ElementMapping;
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Single
@@ -58,7 +59,7 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 		super();
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (from == null)
 			throw new InvalidityException("SingleElementMapping " + getInternalId() + ": from-element null");
 		if (to == null)

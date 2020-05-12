@@ -40,6 +40,7 @@ import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
@@ -167,19 +168,19 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern)
+	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
+		isValidLocal(abstractionLevel);
 
 		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof ParameterImpl)
-			argument1.isValid(isDefinedPattern);
+			argument1.isValid(abstractionLevel);
 		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof ParameterImpl)
-			argument2.isValid(isDefinedPattern);
-		option.isValid(isDefinedPattern);
+			argument2.isValid(abstractionLevel);
+		option.isValid(abstractionLevel);
 
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
 		if (argument1 == null)
 			throw new InvalidityException("argument1 null" + " (" + getInternalId() + ")");
 		if (argument2 == null)
@@ -201,7 +202,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
 		}
 
-		if (isDefinedPattern && type == ReturnType.UNSPECIFIED) {
+		if (abstractionLevel == AbstractionLevel.CONCRETE && type == ReturnType.UNSPECIFIED) {
 			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")");
 		}
 
@@ -211,7 +212,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 						"invalid comparison operator for arguments of type Element" + " (" + getInternalId() + ")");
 			}
 		}
-		super.isValidLocal(isDefinedPattern);
+		super.isValidLocal(abstractionLevel);
 		isCycleFree();
 	}
 

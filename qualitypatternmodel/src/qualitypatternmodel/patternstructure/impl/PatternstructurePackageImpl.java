@@ -829,6 +829,26 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternElement__IsValid__AbstractionLevel() {
+		return patternElementEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__IsValidLocal__AbstractionLevel() {
+		return patternElementEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternElement__Validate__DiagnosticChain_Map() {
 		return patternElementEClass.getEOperations().get(8);
 	}
@@ -1139,26 +1159,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__IsValid__boolean() {
-		return patternElementEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getPatternElement__IsValidLocal__boolean() {
-		return patternElementEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getLogicalOperator() {
 		return logicalOperatorEEnum;
 	}
@@ -1312,8 +1312,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GENERATE_QUERY__LOCATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_INPUTS);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___PREPARE_TRANSLATION);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__BOOLEAN);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_CONTAINER);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ANCESTOR__CLASS);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___MY_TO_STRING);
@@ -1507,13 +1507,13 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		initEOperation(getPatternElement__PrepareTranslation(), null, "prepareTranslation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getPatternElement__IsValid__boolean(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__IsValid__AbstractionLevel(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAbstractionLevel(), "abstractionLevel", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
 
-		op = initEOperation(getPatternElement__IsValidLocal__boolean(), null, "isValidLocal", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "isDefinedPattern", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__IsValidLocal__AbstractionLevel(), null, "isValidLocal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAbstractionLevel(), "abstractionLevel", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
 

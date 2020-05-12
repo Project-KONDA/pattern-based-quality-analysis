@@ -30,6 +30,7 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -141,8 +142,8 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	}
 	
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		super.isValidLocal(isDefinedPattern);
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		super.isValidLocal(abstractionLevel);
 		if (getMappingFrom() == null && option == null)
 			throw new InvalidityException("axis missing");
 		if (getMappingFrom() != null && option != null)

@@ -28,6 +28,7 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -86,11 +87,11 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
-		isValidLocal(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
+		isValidLocal(abstractionLevel);
 	}
 	
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException{
 		if (getElement() == null) 
 			throw new InvalidityException("element null");		
 	}	

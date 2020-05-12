@@ -35,6 +35,7 @@ import qualitypatternmodel.operators.impl.OperatorListImpl;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.Location;
@@ -158,19 +159,19 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern)
+	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
+		isValidLocal(abstractionLevel);
 		for(Element element : getElements()) {
-			element.isValid(isDefinedPattern);
+			element.isValid(abstractionLevel);
 		}
 		for(Relation relation: getRelations()) {
-			relation.isValid(isDefinedPattern);
+			relation.isValid(abstractionLevel);
 		}
-		operatorList.isValid(isDefinedPattern);
+		operatorList.isValid(abstractionLevel);
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, MissingPatternContainerException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, MissingPatternContainerException {
 		if (returnElements == null || returnElements.isEmpty())
 			throw new InvalidityException("returnElement empty (" + getInternalId() + ")");
 		if (operatorList == null)

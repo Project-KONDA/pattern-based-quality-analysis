@@ -37,6 +37,7 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Location;
 
@@ -119,8 +120,8 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 	}
 	
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {	
-		super.isValidLocal(isDefinedPattern);
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
+		super.isValidLocal(abstractionLevel);
 		if(getIncoming() == null) {
 			throw new InvalidityException("no incoming relation at XMLElement " + getId());
 		}

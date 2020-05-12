@@ -22,6 +22,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
@@ -77,10 +78,10 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern)
+	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		getMorphism().isValid(isDefinedPattern);
-		super.isValid(isDefinedPattern);
+		getMorphism().isValid(abstractionLevel);
+		super.isValid(abstractionLevel);
 	}
 	
 	@Override

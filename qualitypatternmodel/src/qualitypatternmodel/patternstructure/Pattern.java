@@ -77,9 +77,9 @@ public interface Pattern extends PatternElement {
 
 	String generateQuery(Location location) throws InvalidityException;
 
-	void isValidLocal(boolean isDefinedPattern) throws InvalidityException;
+	void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException;
 
-	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	void checkMorphismOfNextGraph() throws InvalidityException;
 } // Pattern

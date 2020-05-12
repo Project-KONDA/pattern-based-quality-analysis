@@ -174,25 +174,25 @@ public interface PatternElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * call isValidLocal and isValid of all contained elements
-	 * @param isDefinedPattern true, if all input elements shall have assigned a concrete value
+	 * @param abstractionLevel true, if all input elements shall have assigned a concrete value
 	 * @throws InvalidityException when the current or one contained model element is invalid
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper" abstractionLevelRequired="true"
 	 * @generated
 	 */
-	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * check validity of the variables of the current model element. Does not check contained elements 
-	 * @param isDefinedPattern true, if the current element extends Input and shall have assigned a concrete value
+	 * @param abstractionLevel true, if the current element extends Input and shall have assigned a concrete value
 	 * if the current element does not extend Input, the parameter does not have an impact
 	 * @throws InvalidityException when the current model element is invalid
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper" abstractionLevelRequired="true"
 	 * @generated
 	 */
-	void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+	void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 	
 	/**
 	 * <!-- begin-user-doc -->

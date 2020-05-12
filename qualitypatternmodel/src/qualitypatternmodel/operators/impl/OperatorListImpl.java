@@ -27,6 +27,7 @@ import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -64,7 +65,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 		setGraph(graphImpl);
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getGraph() == null)
 			throw new InvalidityException("OperatorList not in Graph (" + getInternalId() + ")");
 		if (getGraph().getAllOperators() == null)

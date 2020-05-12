@@ -14,6 +14,7 @@ import org.eclipse.ocl.xtext.oclinecore.OCLinEcoreStandaloneSetup;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
 import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
@@ -32,7 +33,7 @@ public class ValidityTest {
 		printDiagnostic(diagnostic, "");
         
         try {
-			completePattern.isValid(true);
+			completePattern.isValid(AbstractionLevel.CONCRETE);
 		} catch (InvalidityException | OperatorCycleException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

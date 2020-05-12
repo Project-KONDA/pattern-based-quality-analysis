@@ -16,6 +16,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.MorphismContainer;
@@ -150,18 +151,18 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValidLocal(abstractionLevel);
 
 //		if (operator == LogicalOperator.NOT) {
 //			condition.isValid(isDefinedPattern);
 //		} else {
-			condition1.isValid(isDefinedPattern);
-			condition2.isValid(isDefinedPattern);
+			condition1.isValid(abstractionLevel);
+			condition2.isValid(abstractionLevel);
 //		}
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (operator == null)
 			throw new InvalidityException("operator null" + " (" + getInternalId() + ")");
 //		if (condition == null)

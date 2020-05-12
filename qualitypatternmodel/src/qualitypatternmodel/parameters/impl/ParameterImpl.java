@@ -18,6 +18,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -250,10 +251,10 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	}
 
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getParameterList() == null)
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
-		if ((isDefinedPattern && !inputIsValid()))
+		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
 			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
 	}
 

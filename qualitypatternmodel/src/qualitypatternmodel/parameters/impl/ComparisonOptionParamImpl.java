@@ -24,6 +24,7 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
@@ -112,12 +113,12 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	}
 	
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getOptions() == null) 
 			throw new InvalidityException("options null");
 		if (getOptions().size() < 1) 
 			throw new InvalidityException("not enough options");
-		super.isValidLocal(isDefinedPattern);
+		super.isValidLocal(abstractionLevel);
 	}
 	
 	@Override

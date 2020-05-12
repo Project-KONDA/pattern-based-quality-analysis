@@ -29,6 +29,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.Mapping;
@@ -103,7 +104,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		super();
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		
 //		CountPattern countPattern = null;				
 //		try {

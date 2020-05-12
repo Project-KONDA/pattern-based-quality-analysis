@@ -28,6 +28,7 @@ import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -106,8 +107,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @throws MissingPatternContainerException 
 	 */
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValidLocal(abstractionLevel);
 	}
 
 	/**
@@ -115,7 +116,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @throws OperatorCycleException 
 	 * @throws MissingPatternContainerException 
 	 */
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -126,7 +127,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	public boolean validate(DiagnosticChain chain, Map<Object, Object> context) {
 		try {
-			isValidLocal(false);
+			isValidLocal(AbstractionLevel.GENERIC);
 		} catch (Exception e) {
 			if (chain != null) {
 				chain.add(
@@ -433,17 +434,17 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION:
 				prepareTranslation();
 				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN:
+			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
-					isValid((Boolean)arguments.get(0));
+					isValid((AbstractionLevel)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN:
+			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL:
 				try {
-					isValidLocal((Boolean)arguments.get(0));
+					isValidLocal((AbstractionLevel)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {

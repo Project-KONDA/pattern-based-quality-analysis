@@ -11,6 +11,7 @@ import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -45,8 +46,8 @@ public class XmlRootImpl extends ElementImpl implements XmlRoot {
 	}
 
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {	
-		super.isValidLocal(isDefinedPattern);
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
+		super.isValidLocal(abstractionLevel);
 		if(!getIncoming().isEmpty()) {
 			throw new InvalidityException("incoming relation at XMLRoot " + getId());
 		}

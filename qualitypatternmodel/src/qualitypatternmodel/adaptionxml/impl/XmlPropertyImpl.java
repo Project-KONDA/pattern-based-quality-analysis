@@ -30,6 +30,7 @@ import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Location;
 
@@ -122,14 +123,14 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
-		super.isValid(isDefinedPattern);
-		option.isValid(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
+		super.isValid(abstractionLevel);
+		option.isValid(abstractionLevel);
 	}
 	
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
-		super.isValidLocal(isDefinedPattern);
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException{
+		super.isValidLocal(abstractionLevel);
 		if (option == null) 
 			throw new InvalidityException("options invalid");
 		if (option.getValue() != null && option.getValue() == PropertyKind.ATTRIBUTE && attributeName == null)

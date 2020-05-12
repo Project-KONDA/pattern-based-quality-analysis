@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
 import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
@@ -65,7 +66,7 @@ public class TranslationTests {
 		 */
 		
 		try {
-			testPair.getPattern().isValid(true);
+			testPair.getPattern().isValid(AbstractionLevel.CONCRETE);
 			String result = applyQuery(testPair.getPattern().generateQuery());
 			String expectedResult = applyQuery(testPair.getManualQuery());
 			boolean isCorrect = compareResults(result, expectedResult);	

@@ -3,7 +3,6 @@
 package qualitypatternmodel.patternstructure.tests;
 
 import junit.framework.TestCase;
-
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -16,8 +15,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#generateQuery(qualitypatternmodel.patternstructure.Location) <em>Generate Query</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAllInputs() <em>Get All Inputs</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValidLocal(boolean) <em>Is Valid Local</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#isValidLocal(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid Local</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#getAncestor(java.lang.Class) <em>Get Ancestor</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#myToString() <em>My To String</em>}</li>
@@ -106,6 +105,32 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testPrepareTranslation() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @generated
+	 */
+	public void testIsValid__AbstractionLevel() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#isValidLocal(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid Local</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#isValidLocal(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @generated
+	 */
+	public void testIsValidLocal__AbstractionLevel() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -236,32 +261,6 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testMyToString() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(boolean)
-	 * @generated
-	 */
-	public void testIsValid__boolean() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#isValidLocal(boolean) <em>Is Valid Local</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.PatternElement#isValidLocal(boolean)
-	 * @generated
-	 */
-	public void testIsValidLocal__boolean() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

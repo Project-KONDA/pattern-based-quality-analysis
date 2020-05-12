@@ -21,7 +21,7 @@ public class Test00 {
 		for (CompletePattern completePattern : completePatterns) {
 			concretize(completePattern);
 			try {
-				completePattern.isValid(true);
+				completePattern.isValid(AbstractionLevel.CONCRETE);
 				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(completePattern.myToString());
 				System.out.print("\n___TRANSLATION___");
@@ -41,7 +41,7 @@ public class Test00 {
 		for (CompletePattern completePattern : completePatterns) {
 			concretize(completePattern);
 			try {
-				completePattern.isValid(true);
+				completePattern.isValid(AbstractionLevel.CONCRETE);
 //				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(completePattern.generateQuery());
 			} catch (Exception e) {

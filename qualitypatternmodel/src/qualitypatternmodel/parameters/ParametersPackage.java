@@ -166,7 +166,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int PARAMETER___IS_VALID__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -175,7 +175,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -437,7 +437,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
+	int COMPARISON_OPTION_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -446,7 +446,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
+	int COMPARISON_OPTION_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -699,7 +699,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
+	int PROPERTY_OPTION_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -708,7 +708,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
+	int PROPERTY_OPTION_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -916,7 +916,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int PARAMETER_LIST___IS_VALID__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -925,7 +925,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int PARAMETER_LIST___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1160,7 +1160,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
+	int PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL = PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1169,7 +1169,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
+	int PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1458,7 +1458,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int BOOLEAN_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1467,7 +1467,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int BOOLEAN_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1747,7 +1747,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int TEXT_LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1756,7 +1756,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int TEXT_LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2072,7 +2072,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int TEXT_LITERAL_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2081,7 +2081,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int TEXT_LITERAL_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2370,7 +2370,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int NUMBER_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2379,7 +2379,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int NUMBER_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2659,7 +2659,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int DATE_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2668,7 +2668,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int DATE_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2948,7 +2948,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int TIME_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2957,7 +2957,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int TIME_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3228,7 +3228,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
+	int UNKNOWN_PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL = PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3237,7 +3237,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
+	int UNKNOWN_PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3535,7 +3535,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM___IS_VALID__BOOLEAN = PARAMETER_VALUE___IS_VALID__BOOLEAN;
+	int DATE_TIME_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3544,7 +3544,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER_VALUE___IS_VALID_LOCAL__BOOLEAN;
+	int DATE_TIME_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3824,7 +3824,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
+	int RELATION_OPTION_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3833,7 +3833,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
+	int RELATION_OPTION_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -4113,7 +4113,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPTION_PARAM___IS_VALID__BOOLEAN = PARAMETER___IS_VALID__BOOLEAN;
+	int OPTION_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -4122,7 +4122,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPTION_PARAM___IS_VALID_LOCAL__BOOLEAN = PARAMETER___IS_VALID_LOCAL__BOOLEAN;
+	int OPTION_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.

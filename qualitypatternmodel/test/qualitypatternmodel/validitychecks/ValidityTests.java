@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
 
@@ -26,7 +27,7 @@ public class ValidityTests {
 //		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);		
 //		printDiagnostic(diagnostic, "");
 		try {
-			completePattern.isValid(true);
+			completePattern.isValid(AbstractionLevel.CONCRETE);
 		} catch (InvalidityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

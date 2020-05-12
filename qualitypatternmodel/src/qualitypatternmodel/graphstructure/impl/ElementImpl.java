@@ -48,6 +48,7 @@ import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -357,20 +358,20 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern)
+	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
+		isValidLocal(abstractionLevel);
 //		for (Element next : getNextElements())
 //			next.isValid(isDefinedPattern);
 		for (BooleanOperator predicate : getPredicates())
-			predicate.isValid(isDefinedPattern);
+			predicate.isValid(abstractionLevel);
 //		if (!eIsSet(GraphstructurePackage.ELEMENT__ROOT))
 //			relationFromPrevious.isValid(isDefinedPattern);
 		
 	}
 
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {	
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
 //		CountPattern countPattern = null;				
 //		try {
 //			countPattern = (CountPattern) getAncestor(CountPattern.class);

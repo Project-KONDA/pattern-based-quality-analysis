@@ -32,6 +32,7 @@ import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -132,15 +133,15 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern)
+	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
-		graph.isValid(isDefinedPattern);
-		morphism.isValid(isDefinedPattern);
-		condition.isValid(isDefinedPattern);
+		isValidLocal(abstractionLevel);
+		graph.isValid(abstractionLevel);
+		morphism.isValid(abstractionLevel);
+		condition.isValid(abstractionLevel);
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (quantifier == null)
 			throw new InvalidityException("quantifier null (" + getInternalId() + ")");
 		if (condition == null)

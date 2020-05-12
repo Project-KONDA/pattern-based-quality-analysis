@@ -20,6 +20,7 @@ import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -111,19 +112,19 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern)
+	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
-		getCountPattern().isValid(isDefinedPattern);
-		getArgument2().isValid(isDefinedPattern);
+		isValidLocal(abstractionLevel);
+		getCountPattern().isValid(abstractionLevel);
+		getArgument2().isValid(abstractionLevel);
 		if(getOption() != null) {
-			getOption().isValid(isDefinedPattern);
+			getOption().isValid(abstractionLevel);
 		} else {
 			throw new InvalidityException("invalid option");
 		}
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if(getCountPattern() == null) {
 			throw new InvalidityException("argument1 missing");
 		} 		

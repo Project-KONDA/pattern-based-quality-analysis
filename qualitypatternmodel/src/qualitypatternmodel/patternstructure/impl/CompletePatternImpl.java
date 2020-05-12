@@ -24,6 +24,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParameterListImpl;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -114,14 +115,14 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	
 
 	@Override
-	public void isValid(boolean isDefinedPattern)
+	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		super.isValid(isDefinedPattern);
-		parameterList.isValid(isDefinedPattern);		
+		super.isValid(abstractionLevel);
+		parameterList.isValid(abstractionLevel);		
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		super.isValidLocal(isDefinedPattern);
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		super.isValidLocal(abstractionLevel);
 		if (parameterList == null)
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
 	}

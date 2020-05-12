@@ -27,6 +27,7 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.PropertyOptionParam;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Location;
 
 /**
@@ -103,12 +104,12 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	}
 	
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getOptions() == null) 
 			throw new InvalidityException("options null");
 		if (getOptions().size() < 1) 
 			throw new InvalidityException("not enough options");
-		super.isValidLocal(isDefinedPattern);
+		super.isValidLocal(abstractionLevel);
 	}
 	
 	@Override

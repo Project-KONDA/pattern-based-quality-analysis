@@ -20,7 +20,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
-
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NumberElement;
@@ -66,13 +66,13 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern)
+	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
-		getNumberParam().isValid(isDefinedPattern);		
+		isValidLocal(abstractionLevel);
+		getNumberParam().isValid(abstractionLevel);		
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		
 	}
 	

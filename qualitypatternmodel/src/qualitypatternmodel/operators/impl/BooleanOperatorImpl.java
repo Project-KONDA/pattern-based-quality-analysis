@@ -21,6 +21,7 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.graphstructure.Element;
 
 /**
@@ -57,7 +58,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	protected BooleanOperatorImpl() {
 		super();
 	}
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
 
 		if (getComparison1().isEmpty() && getComparison2().isEmpty()) {
 			// this is root operator

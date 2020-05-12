@@ -483,10 +483,10 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="prepareTranslation"/>
       <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper">
-        <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        <eParameters name="abstractionLevel" lowerBound="1" eType="#//patternstructure/AbstractionLevel"/>
       </eOperations>
       <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper">
-        <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        <eParameters name="abstractionLevel" lowerBound="1" eType="#//patternstructure/AbstractionLevel"/>
       </eOperations>
       <eOperations name="getContainer" eType="#//patternstructure/PatternElement"
           eExceptions="#//patternstructure/MissingPatternContainerException"/>

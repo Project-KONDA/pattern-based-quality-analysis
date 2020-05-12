@@ -130,7 +130,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___IS_VALID__BOOLEAN = 3;
+	int PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL = 3;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -139,7 +139,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN = 4;
+	int PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = 4;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -329,7 +329,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int MAPPING___IS_VALID__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -338,7 +338,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -546,7 +546,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
+	int RELATION_MAPPING___IS_VALID__ABSTRACTIONLEVEL = MAPPING___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -555,7 +555,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING___IS_VALID_LOCAL__BOOLEAN = MAPPING___IS_VALID_LOCAL__BOOLEAN;
+	int RELATION_MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL = MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -781,7 +781,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int CONDITION___IS_VALID__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -790,7 +790,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1061,7 +1061,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int QUANTIFIED_CONDITION___IS_VALID__ABSTRACTIONLEVEL = CONDITION___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1070,7 +1070,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
+	int QUANTIFIED_CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1323,7 +1323,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int MORPHISM___IS_VALID__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1332,7 +1332,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int MORPHISM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1594,7 +1594,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___IS_VALID__BOOLEAN = MAPPING___IS_VALID__BOOLEAN;
+	int ELEMENT_MAPPING___IS_VALID__ABSTRACTIONLEVEL = MAPPING___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1603,7 +1603,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___IS_VALID_LOCAL__BOOLEAN = MAPPING___IS_VALID_LOCAL__BOOLEAN;
+	int ELEMENT_MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL = MAPPING___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1856,7 +1856,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int FORMULA___IS_VALID__ABSTRACTIONLEVEL = CONDITION___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1865,7 +1865,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
+	int FORMULA___IS_VALID_LOCAL__ABSTRACTIONLEVEL = CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2100,7 +2100,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int TRUE_ELEMENT___IS_VALID__ABSTRACTIONLEVEL = CONDITION___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2109,7 +2109,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
+	int TRUE_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2308,7 +2308,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int PATTERN___IS_VALID__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2317,7 +2317,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int PATTERN___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2543,7 +2543,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___IS_VALID__BOOLEAN = PATTERN___IS_VALID__BOOLEAN;
+	int COMPLETE_PATTERN___IS_VALID__ABSTRACTIONLEVEL = PATTERN___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2552,7 +2552,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___IS_VALID_LOCAL__BOOLEAN = PATTERN___IS_VALID_LOCAL__BOOLEAN;
+	int COMPLETE_PATTERN___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2814,7 +2814,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int NOT_CONDITION___IS_VALID__ABSTRACTIONLEVEL = CONDITION___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2823,7 +2823,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
+	int NOT_CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3094,7 +3094,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___IS_VALID__BOOLEAN = CONDITION___IS_VALID__BOOLEAN;
+	int COUNT_CONDITION___IS_VALID__ABSTRACTIONLEVEL = CONDITION___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3103,7 +3103,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___IS_VALID_LOCAL__BOOLEAN = CONDITION___IS_VALID_LOCAL__BOOLEAN;
+	int COUNT_CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = CONDITION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3293,7 +3293,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int COUNT_CONDITION_ARGUMENT___IS_VALID__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3302,7 +3302,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int COUNT_CONDITION_ARGUMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3483,7 +3483,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___IS_VALID__BOOLEAN = PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int MORPHISM_CONTAINER___IS_VALID__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3492,7 +3492,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___IS_VALID_LOCAL__BOOLEAN = PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int MORPHISM_CONTAINER___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3727,7 +3727,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___IS_VALID__BOOLEAN = PATTERN___IS_VALID__BOOLEAN;
+	int COUNT_PATTERN___IS_VALID__ABSTRACTIONLEVEL = PATTERN___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3736,7 +3736,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___IS_VALID_LOCAL__BOOLEAN = PATTERN___IS_VALID_LOCAL__BOOLEAN;
+	int COUNT_PATTERN___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PATTERN___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3953,7 +3953,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___IS_VALID__BOOLEAN = COUNT_CONDITION_ARGUMENT___IS_VALID__BOOLEAN;
+	int NUMBER_ELEMENT___IS_VALID__ABSTRACTIONLEVEL = COUNT_CONDITION_ARGUMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3962,7 +3962,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___IS_VALID_LOCAL__BOOLEAN = COUNT_CONDITION_ARGUMENT___IS_VALID_LOCAL__BOOLEAN;
+	int NUMBER_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = COUNT_CONDITION_ARGUMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -4672,6 +4672,26 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__PrepareTranslation();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @generated
+	 */
+	EOperation getPatternElement__IsValid__AbstractionLevel();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValidLocal(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid Local</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Local</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#isValidLocal(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @generated
+	 */
+	EOperation getPatternElement__IsValidLocal__AbstractionLevel();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#validate(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Validate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4991,26 +5011,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__MyToString();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValid(boolean) <em>Is Valid</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#isValid(boolean)
-	 * @generated
-	 */
-	EOperation getPatternElement__IsValid__boolean();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#isValidLocal(boolean) <em>Is Valid Local</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid Local</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#isValidLocal(boolean)
-	 * @generated
-	 */
-	EOperation getPatternElement__IsValidLocal__boolean();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.LogicalOperator <em>Logical Operator</em>}'.
@@ -5537,6 +5537,22 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___PREPARE_TRANSLATION = eINSTANCE.getPatternElement__PrepareTranslation();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL = eINSTANCE.getPatternElement__IsValid__AbstractionLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Local</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL = eINSTANCE.getPatternElement__IsValidLocal__AbstractionLevel();
+
+		/**
 		 * The meta object literal for the '<em><b>Validate</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5797,22 +5813,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___MY_TO_STRING = eINSTANCE.getPatternElement__MyToString();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN_ELEMENT___IS_VALID__BOOLEAN = eINSTANCE.getPatternElement__IsValid__boolean();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Valid Local</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN = eINSTANCE.getPatternElement__IsValidLocal__boolean();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.LogicalOperator <em>Logical Operator</em>}' enum.

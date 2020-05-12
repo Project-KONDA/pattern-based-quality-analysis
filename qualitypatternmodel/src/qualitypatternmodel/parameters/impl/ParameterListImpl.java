@@ -27,6 +27,7 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -70,12 +71,12 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
-		isValidLocal(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
+		isValidLocal(abstractionLevel);
 	}
 
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getPattern() == null)
 			throw new InvalidityException("ParameterList not in Pattern" + " (" + getInternalId() + ")");
 

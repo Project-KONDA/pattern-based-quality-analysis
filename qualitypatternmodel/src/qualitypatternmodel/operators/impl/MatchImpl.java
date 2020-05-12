@@ -30,6 +30,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
@@ -101,14 +102,14 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
-		option.isValid(isDefinedPattern);		
-		regularExpression.isValid(isDefinedPattern);		
-		property.isValid(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValidLocal(abstractionLevel);
+		option.isValid(abstractionLevel);		
+		regularExpression.isValid(abstractionLevel);		
+		property.isValid(abstractionLevel);
 	}
 	
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
 		if (option == null)
 			throw new InvalidityException("options null");
 		if (regularExpression == null)
@@ -116,7 +117,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		if (property == null)
 			throw new InvalidityException("property null");		
 		
-		super.isValidLocal(isDefinedPattern);
+		super.isValidLocal(abstractionLevel);
 	}
 	
 	/**

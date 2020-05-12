@@ -161,7 +161,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___IS_VALID__BOOLEAN = GraphstructurePackage.COMPARABLE___IS_VALID__BOOLEAN;
+	int OPERATOR___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.COMPARABLE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -170,7 +170,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___IS_VALID_LOCAL__BOOLEAN = GraphstructurePackage.COMPARABLE___IS_VALID_LOCAL__BOOLEAN;
+	int OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.COMPARABLE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -450,7 +450,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
+	int BOOLEAN_OPERATOR___IS_VALID__ABSTRACTIONLEVEL = OPERATOR___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -459,7 +459,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___IS_VALID_LOCAL__BOOLEAN = OPERATOR___IS_VALID_LOCAL__BOOLEAN;
+	int BOOLEAN_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -766,7 +766,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATOR___IS_VALID__BOOLEAN = OPERATOR___IS_VALID__BOOLEAN;
+	int NUMBER_OPERATOR___IS_VALID__ABSTRACTIONLEVEL = OPERATOR___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -775,7 +775,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATOR___IS_VALID_LOCAL__BOOLEAN = OPERATOR___IS_VALID_LOCAL__BOOLEAN;
+	int NUMBER_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL = OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1082,7 +1082,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___IS_VALID__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN;
+	int MATCH___IS_VALID__ABSTRACTIONLEVEL = BOOLEAN_OPERATOR___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1091,7 +1091,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___IS_VALID_LOCAL__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID_LOCAL__BOOLEAN;
+	int MATCH___IS_VALID_LOCAL__ABSTRACTIONLEVEL = BOOLEAN_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1470,7 +1470,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___IS_VALID__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID__BOOLEAN;
+	int COMPARISON___IS_VALID__ABSTRACTIONLEVEL = BOOLEAN_OPERATOR___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1479,7 +1479,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___IS_VALID_LOCAL__BOOLEAN = BOOLEAN_OPERATOR___IS_VALID_LOCAL__BOOLEAN;
+	int COMPARISON___IS_VALID_LOCAL__ABSTRACTIONLEVEL = BOOLEAN_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1804,7 +1804,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST___IS_VALID__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN;
+	int OPERATOR_LIST___IS_VALID__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1813,7 +1813,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST___IS_VALID_LOCAL__BOOLEAN = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN;
+	int OPERATOR_LIST___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.

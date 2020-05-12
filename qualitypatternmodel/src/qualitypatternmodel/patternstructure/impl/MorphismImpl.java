@@ -33,6 +33,7 @@ import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.ElementMapping;
 
 /**
@@ -110,14 +111,14 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValidLocal(abstractionLevel);
 		for (Mapping mapping : mappings) {
-			mapping.isValid(isDefinedPattern);
+			mapping.isValid(abstractionLevel);
 		}
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (from == null)
 			throw new InvalidityException("Morphism " + getInternalId() + ": from null");
 		if (to == null)

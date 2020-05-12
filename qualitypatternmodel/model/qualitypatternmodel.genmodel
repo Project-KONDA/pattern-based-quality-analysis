@@ -417,10 +417,10 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getAllInputs"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/prepareTranslation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValid">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValid/isDefinedPattern"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValid/abstractionLevel"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValidLocal">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValidLocal/isDefinedPattern"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValidLocal/abstractionLevel"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getContainer"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getAncestor">
