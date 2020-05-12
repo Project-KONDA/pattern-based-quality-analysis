@@ -13,8 +13,8 @@ import qualitypatternmodel.graphstructure.Element;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.ElementMapping#getFrom <em>From</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.ElementMapping#getTo <em>To</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.ElementMapping#getSource <em>Source</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.ElementMapping#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getElementMapping()
@@ -23,51 +23,51 @@ import qualitypatternmodel.graphstructure.Element;
  */
 public interface ElementMapping extends Mapping {
 	/**
-	 * Returns the value of the '<em><b>From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getMappingTo <em>Mapping To</em>}'.
+	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getOutgoingMappings <em>Outgoing Mappings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From</em>' reference.
-	 * @see #setFrom(Element)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getElementMapping_From()
-	 * @see qualitypatternmodel.graphstructure.Element#getMappingTo
-	 * @model opposite="mappingTo" required="true"
+	 * @return the value of the '<em>Source</em>' reference.
+	 * @see #setSource(Element)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getElementMapping_Source()
+	 * @see qualitypatternmodel.graphstructure.Element#getOutgoingMappings
+	 * @model opposite="outgoingMappings" required="true"
 	 * @generated
 	 */
-	Element getFrom();
+	Element getSource();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.ElementMapping#getFrom <em>From</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.ElementMapping#getSource <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>From</em>' reference.
-	 * @see #getFrom()
+	 * @param value the new value of the '<em>Source</em>' reference.
+	 * @see #getSource()
 	 * @generated
 	 */
-	void setFrom(Element value);
+	void setSource(Element value);
 
 	/**
-	 * Returns the value of the '<em><b>To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getMappingFrom <em>Mapping From</em>}'.
+	 * Returns the value of the '<em><b>Target</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getIncomingMapping <em>Incoming Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>To</em>' reference.
-	 * @see #setTo(Element)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getElementMapping_To()
-	 * @see qualitypatternmodel.graphstructure.Element#getMappingFrom
-	 * @model opposite="mappingFrom" required="true"
+	 * @return the value of the '<em>Target</em>' reference.
+	 * @see #setTarget(Element)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getElementMapping_Target()
+	 * @see qualitypatternmodel.graphstructure.Element#getIncomingMapping
+	 * @model opposite="incomingMapping" required="true"
 	 * @generated
 	 */
-	Element getTo();
+	Element getTarget();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.ElementMapping#getTo <em>To</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.ElementMapping#getTarget <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>To</em>' reference.
-	 * @see #getTo()
+	 * @param value the new value of the '<em>Target</em>' reference.
+	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTo(Element value);
+	void setTarget(Element value);
 
 } // SingleElementMapping

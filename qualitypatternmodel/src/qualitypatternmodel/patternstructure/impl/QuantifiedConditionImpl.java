@@ -212,8 +212,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedcondition,
 			NotificationChain msgs) {
-		getMorphism().setFrom(null);
-		getMorphism().setTo(getGraph());
+		getMorphism().setSource(null);
+		getMorphism().setTarget(getGraph());
 		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetQuantifiedCondition(newQuantifiedcondition, msgs);
 		if (newQuantifiedcondition != null) {
@@ -230,8 +230,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	
 	@Override
 	public NotificationChain basicSetNotCondition(NotCondition newNot, NotificationChain msgs) {
-		getMorphism().setFrom(null);
-		getMorphism().setTo(getGraph());
+		getMorphism().setSource(null);
+		getMorphism().setTarget(getGraph());
 		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetNotCondition(newNot, msgs);
 		if (newNot != null) {
@@ -248,8 +248,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	@Override
 	public NotificationChain basicSetFormula1(Formula newFormula1, NotificationChain msgs) {
-		getMorphism().setFrom(null);
-		getMorphism().setTo(getGraph());
+		getMorphism().setSource(null);
+		getMorphism().setTarget(getGraph());
 		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetFormula1(newFormula1, msgs);
 		if (newFormula1 != null) {
@@ -266,8 +266,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	@Override
 	public NotificationChain basicSetFormula2(Formula newFormula2, NotificationChain msgs) {
-		getMorphism().setFrom(null);
-		getMorphism().setTo(getGraph());
+		getMorphism().setSource(null);
+		getMorphism().setTarget(getGraph());
 		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetFormula1(newFormula2, msgs);
 		if (newFormula2 != null) {
@@ -284,8 +284,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	@Override
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
-		getMorphism().setFrom(null);
-		getMorphism().setTo(getGraph());
+		getMorphism().setSource(null);
+		getMorphism().setTarget(getGraph());
 		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetPattern(newPattern, msgs);
 		if (newPattern != null) {
@@ -391,8 +391,8 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
 		if (getGraph() != null) {
-			getGraph().setMorphismFrom(null);
-			getGraph().getMorphismTo().clear();
+			getGraph().setIncomingMorphism(null);
+			getGraph().getOutgoingMorphisms().clear();
 		}
 		if (newGraph != null) {
 			newGraph.setGraphDepth(condDepth);
@@ -448,12 +448,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
-		newMorphism.setTo(getGraph());
+		newMorphism.setTarget(getGraph());
 		newMorphism.setMorphDepth(condDepth);
 		
 		if (getMorphism() != null) {
-			getMorphism().setFrom(null);
-			getMorphism().setTo(getGraph());
+			getMorphism().setSource(null);
+			getMorphism().setTarget(getGraph());
 		}
 		Morphism oldMorphism = morphism;
 		morphism = newMorphism;
@@ -514,7 +514,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				return;
 			}
 		}
-		getMorphism().setFrom(previousGraph);
+		getMorphism().setSource(previousGraph);
 		previousGraph.copyGraph(graph);
 	}
 
@@ -536,10 +536,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //			}
 //		}
 		for(MorphismContainer next : nextGraphContainers) {
-			if(!getGraph().equals(next.getMorphism().getFrom())) {
+			if(!getGraph().equals(next.getMorphism().getSource())) {
 				throw new InvalidityException("wrong mapping from");
 			}
-			if(!next.getGraph().equals(next.getMorphism().getTo())) {
+			if(!next.getGraph().equals(next.getMorphism().getTarget())) {
 				throw new InvalidityException("wrong mapping to");
 			}
 		}				

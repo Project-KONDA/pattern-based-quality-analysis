@@ -50,8 +50,8 @@ public class ElementItemProvider extends PatternElementItemProvider {
 
 			addComparison1PropertyDescriptor(object);
 			addComparison2PropertyDescriptor(object);
-			addMappingToPropertyDescriptor(object);
-			addMappingFromPropertyDescriptor(object);
+			addOutgoingMappingsPropertyDescriptor(object);
+			addIncomingMappingPropertyDescriptor(object);
 			addGraphPropertyDescriptor(object);
 			addResultOfPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
@@ -109,19 +109,19 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Mapping To feature.
+	 * This adds a property descriptor for the Outgoing Mappings feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMappingToPropertyDescriptor(Object object) {
+	protected void addOutgoingMappingsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Element_mappingTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Element_mappingTo_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__MAPPING_TO,
+				 getString("_UI_Element_outgoingMappings_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_outgoingMappings_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__OUTGOING_MAPPINGS,
 				 true,
 				 false,
 				 true,
@@ -131,19 +131,19 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Mapping From feature.
+	 * This adds a property descriptor for the Incoming Mapping feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMappingFromPropertyDescriptor(Object object) {
+	protected void addIncomingMappingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Element_mappingFrom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Element_mappingFrom_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__MAPPING_FROM,
+				 getString("_UI_Element_incomingMapping_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_incomingMapping_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__INCOMING_MAPPING,
 				 true,
 				 false,
 				 true,

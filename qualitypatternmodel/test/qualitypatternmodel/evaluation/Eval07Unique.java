@@ -284,12 +284,12 @@ public class Eval07Unique {
 		nextToElement2.setGraph(countQCond.getGraph());
 		Relation relation2 = graphFactory.createRelation();
 		relation2.setGraph(countQCond.getGraph());
-		relation2.setSource(element2.getMappingTo().get(0).getTo());
+		relation2.setSource(element2.getOutgoingMappings().get(0).getTarget());
 		relation2.setTarget(nextToElement2);
 		nextToElement2.addPrimitiveComparison();
 		
 		Property propertyNextToReturn = graphFactory.createProperty();
-		propertyNextToReturn.setElement(nextToReturn.getMappingTo().get(0).getTo().getMappingTo().get(0).getTo());
+		propertyNextToReturn.setElement(nextToReturn.getOutgoingMappings().get(0).getTarget().getOutgoingMappings().get(0).getTarget());
 		
 		Property propertyNextToElement2 = graphFactory.createProperty();
 		propertyNextToElement2.setElement(nextToElement2);
@@ -485,7 +485,7 @@ public class Eval07Unique {
 		((UnknownParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
 		
 		
-		Element nextToReturn2 = nextToReturn.getMappingTo().get(0).getTo().getMappingTo().get(0).getTo();
+		Element nextToReturn2 = nextToReturn.getOutgoingMappings().get(0).getTarget().getOutgoingMappings().get(0).getTarget();
 		XmlProperty prop2NextToReturn = (XmlProperty) nextToReturn2.getProperties().get(0);
 		prop2NextToReturn.getOption().setValue(PropertyKind.ATTRIBUTE);
 		prop2NextToReturn.getAttributeName().setValue("Value");

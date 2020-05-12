@@ -45,8 +45,8 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMorphDepth <em>Morph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMappings <em>Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getFrom <em>From</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getTo <em>To</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMorphismContainer <em>Morphism Container</em>}</li>
  * </ul>
  *
@@ -83,24 +83,24 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	protected EList<Mapping> mappings;
 
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference. <!--
+	 * The cached value of the '{@link #getSource() <em>From</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getFrom()
+	 * @see #getSource()
 	 * @generated
 	 * @ordered
 	 */
-	protected Graph from;
+	protected Graph source;
 
 	/**
-	 * The cached value of the '{@link #getTo() <em>To</em>}' reference. <!--
+	 * The cached value of the '{@link #getTarget() <em>To</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getTo()
+	 * @see #getTarget()
 	 * @generated
 	 * @ordered
 	 */
-	protected Graph to;
+	protected Graph target;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -119,9 +119,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (from == null)
+		if (source == null)
 			throw new InvalidityException("Morphism " + getInternalId() + ": from null");
-		if (to == null)
+		if (target == null)
 			throw new InvalidityException("Morphism " + getInternalId() + ": to null");
 //		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMorphDepth())
 //			throw new InvalidityException("Morphism " + getInternalId() + ": invalid target graphs");
@@ -140,12 +140,12 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			for(Mapping mapping : getMappings()) {			
 				if(mapping instanceof ElementMapping) {
 					ElementMapping elementMapping = (ElementMapping) mapping;
-					elementMapping.getFrom().getMappingTo().remove(elementMapping);
-					elementMapping.getTo().setMappingFrom(null);
+					elementMapping.getSource().getOutgoingMappings().remove(elementMapping);
+					elementMapping.getTarget().setIncomingMapping(null);
 				} else if (mapping instanceof RelationMapping) {
 					RelationMapping relationMapping = (RelationMapping) mapping;
-					relationMapping.getFrom().getMappingTo().remove(relationMapping);
-					relationMapping.getTo().setMappingFrom(null);
+					relationMapping.getSource().getOutgoingMappings().remove(relationMapping);
+					relationMapping.getTarget().setIncomingMapping(null);
 				}
 			}
 		}
@@ -183,14 +183,14 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		switch (featureID) {
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappings()).basicAdd(otherEnd, msgs);
-			case PatternstructurePackage.MORPHISM__FROM:
-				if (from != null)
-					msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.GRAPH__MORPHISM_TO, Graph.class, msgs);
-				return basicSetFrom((Graph)otherEnd, msgs);
-			case PatternstructurePackage.MORPHISM__TO:
-				if (to != null)
-					msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.GRAPH__MORPHISM_FROM, Graph.class, msgs);
-				return basicSetTo((Graph)otherEnd, msgs);
+			case PatternstructurePackage.MORPHISM__SOURCE:
+				if (source != null)
+					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS, Graph.class, msgs);
+				return basicSetSource((Graph)otherEnd, msgs);
+			case PatternstructurePackage.MORPHISM__TARGET:
+				if (target != null)
+					msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.GRAPH__INCOMING_MORPHISM, Graph.class, msgs);
+				return basicSetTarget((Graph)otherEnd, msgs);
 			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -204,24 +204,24 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated
 	 */
 	@Override
-	public Graph getFrom() {
-		if (from != null && from.eIsProxy()) {
-			InternalEObject oldFrom = (InternalEObject)from;
-			from = (Graph)eResolveProxy(oldFrom);
-			if (from != oldFrom) {
+	public Graph getSource() {
+		if (source != null && source.eIsProxy()) {
+			InternalEObject oldSource = (InternalEObject)source;
+			source = (Graph)eResolveProxy(oldSource);
+			if (source != oldSource) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.MORPHISM__FROM, oldFrom, from));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.MORPHISM__SOURCE, oldSource, source));
 			}
 		}
-		return from;
+		return source;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Graph basicGetFrom() {
-		return from;
+	public Graph basicGetSource() {
+		return source;
 	}
 
 	/**
@@ -229,11 +229,11 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFrom(Graph newFrom, NotificationChain msgs) {
-		Graph oldFrom = from;
-		from = newFrom;
+	public NotificationChain basicSetSource(Graph newSource, NotificationChain msgs) {
+		Graph oldSource = source;
+		source = newSource;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__FROM, oldFrom, newFrom);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__SOURCE, oldSource, newSource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -244,18 +244,18 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated
 	 */
 	@Override
-	public void setFrom(Graph newFrom) {
-		if (newFrom != from) {
+	public void setSource(Graph newSource) {
+		if (newSource != source) {
 			NotificationChain msgs = null;
-			if (from != null)
-				msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.GRAPH__MORPHISM_TO, Graph.class, msgs);
-			if (newFrom != null)
-				msgs = ((InternalEObject)newFrom).eInverseAdd(this, GraphstructurePackage.GRAPH__MORPHISM_TO, Graph.class, msgs);
-			msgs = basicSetFrom(newFrom, msgs);
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS, Graph.class, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS, Graph.class, msgs);
+			msgs = basicSetSource(newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__FROM, newFrom, newFrom));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__SOURCE, newSource, newSource));
 	}
 
 	/**
@@ -263,24 +263,24 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated
 	 */
 	@Override
-	public Graph getTo() {
-		if (to != null && to.eIsProxy()) {
-			InternalEObject oldTo = (InternalEObject)to;
-			to = (Graph)eResolveProxy(oldTo);
-			if (to != oldTo) {
+	public Graph getTarget() {
+		if (target != null && target.eIsProxy()) {
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (Graph)eResolveProxy(oldTarget);
+			if (target != oldTarget) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.MORPHISM__TO, oldTo, to));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.MORPHISM__TARGET, oldTarget, target));
 			}
 		}
-		return to;
+		return target;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Graph basicGetTo() {
-		return to;
+	public Graph basicGetTarget() {
+		return target;
 	}
 
 	/**
@@ -288,11 +288,11 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTo(Graph newTo, NotificationChain msgs) {
-		Graph oldTo = to;
-		to = newTo;
+	public NotificationChain basicSetTarget(Graph newTarget, NotificationChain msgs) {
+		Graph oldTarget = target;
+		target = newTarget;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__TO, oldTo, newTo);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__TARGET, oldTarget, newTarget);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -303,18 +303,18 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated
 	 */
 	@Override
-	public void setTo(Graph newTo) {
-		if (newTo != to) {
+	public void setTarget(Graph newTarget) {
+		if (newTarget != target) {
 			NotificationChain msgs = null;
-			if (to != null)
-				msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.GRAPH__MORPHISM_FROM, Graph.class, msgs);
-			if (newTo != null)
-				msgs = ((InternalEObject)newTo).eInverseAdd(this, GraphstructurePackage.GRAPH__MORPHISM_FROM, Graph.class, msgs);
-			msgs = basicSetTo(newTo, msgs);
+			if (target != null)
+				msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.GRAPH__INCOMING_MORPHISM, Graph.class, msgs);
+			if (newTarget != null)
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, GraphstructurePackage.GRAPH__INCOMING_MORPHISM, Graph.class, msgs);
+			msgs = basicSetTarget(newTarget, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__TO, newTo, newTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__TARGET, newTarget, newTarget));
 	}
 
 	/**
@@ -371,10 +371,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof ElementMapping) {
 				ElementMapping elementMapping = (ElementMapping) mapping;
-				if(!getFrom().getElements().contains(elementMapping.getFrom())) {
+				if(!getSource().getElements().contains(elementMapping.getSource())) {
 					throw new InvalidityException("wrong SingleElementMapping from");
 				}
-				if(!getTo().getElements().contains(elementMapping.getTo())) {
+				if(!getTarget().getElements().contains(elementMapping.getTarget())) {
 					throw new InvalidityException("wrong SingleElementMapping to");
 				}
 			}
@@ -392,10 +392,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof RelationMapping) {
 				RelationMapping relationMapping = (RelationMapping) mapping;
-				if(!getFrom().getRelations().contains(relationMapping.getFrom())) {
+				if(!getSource().getRelations().contains(relationMapping.getSource())) {
 					throw new InvalidityException("wrong RelationMapping from");
 				}
-				if(!getTo().getRelations().contains(relationMapping.getTo())) {
+				if(!getTarget().getRelations().contains(relationMapping.getTarget())) {
 					throw new InvalidityException("wrong RelationMapping to");
 				}
 			}
@@ -414,7 +414,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof ElementMapping) {
 				ElementMapping elementMapping = (ElementMapping) mapping;
-				elements.add(elementMapping.getFrom());
+				elements.add(elementMapping.getSource());
 			}
 		}
 		Set<Element> set = new HashSet<Element>(elements);
@@ -432,8 +432,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	public ElementMapping addMapping(Element from, Element to) {
 		ElementMapping em = new ElementMappingImpl();
 		getMappings().add(em);
-		em.setFrom(from);
-		em.setTo(to);
+		em.setSource(from);
+		em.setTarget(to);
 		return em;
 	}
 	
@@ -446,8 +446,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	public RelationMapping addMapping(Relation from, Relation to) {		
 		RelationMapping rm = new RelationMappingImpl();
 		getMappings().add(rm);
-		rm.setFrom(from);
-		rm.setTo(to);
+		rm.setSource(from);
+		rm.setTarget(to);
 		return rm;
 	}
 
@@ -463,7 +463,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof RelationMapping) {
 				RelationMapping singleElementMapping = (RelationMapping) mapping;
-				relations.add(singleElementMapping.getFrom());
+				relations.add(singleElementMapping.getSource());
 			}
 		}
 		Set<Relation> set = new HashSet<Relation>(relations);
@@ -506,10 +506,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		switch (featureID) {
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				return ((InternalEList<?>)getMappings()).basicRemove(otherEnd, msgs);
-			case PatternstructurePackage.MORPHISM__FROM:
-				return basicSetFrom(null, msgs);
-			case PatternstructurePackage.MORPHISM__TO:
-				return basicSetTo(null, msgs);
+			case PatternstructurePackage.MORPHISM__SOURCE:
+				return basicSetSource(null, msgs);
+			case PatternstructurePackage.MORPHISM__TARGET:
+				return basicSetTarget(null, msgs);
 			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
 				return basicSetMorphismContainer(null, msgs);
 		}
@@ -541,12 +541,12 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return getMorphDepth();
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				return getMappings();
-			case PatternstructurePackage.MORPHISM__FROM:
-				if (resolve) return getFrom();
-				return basicGetFrom();
-			case PatternstructurePackage.MORPHISM__TO:
-				if (resolve) return getTo();
-				return basicGetTo();
+			case PatternstructurePackage.MORPHISM__SOURCE:
+				if (resolve) return getSource();
+				return basicGetSource();
+			case PatternstructurePackage.MORPHISM__TARGET:
+				if (resolve) return getTarget();
+				return basicGetTarget();
 			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
 				return getMorphismContainer();
 		}
@@ -568,11 +568,11 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				getMappings().clear();
 				getMappings().addAll((Collection<? extends Mapping>)newValue);
 				return;
-			case PatternstructurePackage.MORPHISM__FROM:
-				setFrom((Graph)newValue);
+			case PatternstructurePackage.MORPHISM__SOURCE:
+				setSource((Graph)newValue);
 				return;
-			case PatternstructurePackage.MORPHISM__TO:
-				setTo((Graph)newValue);
+			case PatternstructurePackage.MORPHISM__TARGET:
+				setTarget((Graph)newValue);
 				return;
 			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
 				setMorphismContainer((MorphismContainer)newValue);
@@ -594,11 +594,11 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				getMappings().clear();
 				return;
-			case PatternstructurePackage.MORPHISM__FROM:
-				setFrom((Graph)null);
+			case PatternstructurePackage.MORPHISM__SOURCE:
+				setSource((Graph)null);
 				return;
-			case PatternstructurePackage.MORPHISM__TO:
-				setTo((Graph)null);
+			case PatternstructurePackage.MORPHISM__TARGET:
+				setTarget((Graph)null);
 				return;
 			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
 				setMorphismContainer((MorphismContainer)null);
@@ -618,10 +618,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return morphDepth != MORPH_DEPTH_EDEFAULT;
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				return mappings != null && !mappings.isEmpty();
-			case PatternstructurePackage.MORPHISM__FROM:
-				return from != null;
-			case PatternstructurePackage.MORPHISM__TO:
-				return to != null;
+			case PatternstructurePackage.MORPHISM__SOURCE:
+				return source != null;
+			case PatternstructurePackage.MORPHISM__TARGET:
+				return target != null;
 			case PatternstructurePackage.MORPHISM__MORPHISM_CONTAINER:
 				return getMorphismContainer() != null;
 		}
@@ -696,10 +696,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	public String myToString() {
 		if (getMappings().size() >0) {
 			String res = "Morphism [" + getInternalId() + "] (";
-			if (getFrom()!= null) res += getFrom().getInternalId();
+			if (getSource()!= null) res += getSource().getInternalId();
 			else res += "-";		
 			res += " -> ";
-			if (getTo()!= null) res += getTo().getInternalId() ;
+			if (getTarget()!= null) res += getTarget().getInternalId() ;
 			else res += "-";	
 			res += ")";
 			for (Mapping map : getMappings()) {

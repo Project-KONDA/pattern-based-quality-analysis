@@ -24,32 +24,32 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl#getFrom <em>From</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl#getTo <em>To</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference. <!--
+	 * The cached value of the '{@link #getSource() <em>From</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getFrom()
+	 * @see #getSource()
 	 * @generated
 	 * @ordered
 	 */
-	protected Element from;
+	protected Element source;
 
 	/**
-	 * The cached value of the '{@link #getTo() <em>To</em>}' reference. <!--
+	 * The cached value of the '{@link #getTarget() <em>To</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getTo()
+	 * @see #getTarget()
 	 * @generated
 	 * @ordered
 	 */
-	protected Element to;
+	protected Element target;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -60,9 +60,9 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (from == null)
+		if (source == null)
 			throw new InvalidityException("SingleElementMapping " + getInternalId() + ": from-element null");
-		if (to == null)
+		if (target == null)
 			throw new InvalidityException("SingleElementMapping " + getInternalId() + ": to null");
 //		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
 //			throw new InvalidityException("SingleElementMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
@@ -81,8 +81,8 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	
 	@Override
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
-		if (getFrom() != null) getFrom().getMappingTo().remove(this);
-		if (getTo() != null) getTo().setMappingFrom(null);
+		if (getSource() != null) getSource().getOutgoingMappings().remove(this);
+		if (getTarget() != null) getTarget().setIncomingMapping(null);
 		return super.basicSetMorphism(newMorphism, msgs);
 	}
 
@@ -91,38 +91,38 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * @generated
 	 */
 	@Override
-	public Element getFrom() {
-		if (from != null && from.eIsProxy()) {
-			InternalEObject oldFrom = (InternalEObject)from;
-			from = (Element)eResolveProxy(oldFrom);
-			if (from != oldFrom) {
+	public Element getSource() {
+		if (source != null && source.eIsProxy()) {
+			InternalEObject oldSource = (InternalEObject)source;
+			source = (Element)eResolveProxy(oldSource);
+			if (source != oldSource) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.ELEMENT_MAPPING__FROM, oldFrom, from));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.ELEMENT_MAPPING__SOURCE, oldSource, source));
 			}
 		}
-		return from;
+		return source;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element basicGetFrom() {
-		return from;
+	public Element basicGetSource() {
+		return source;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetFrom(Element newFrom, NotificationChain msgs) {
-		Element oldFrom = from;
-		from = newFrom;
-		if (newFrom != null && getTo() != null) {
-			newFrom.setName(getTo().getName());
+	public NotificationChain basicSetSource(Element newSource, NotificationChain msgs) {
+		Element oldFrom = source;
+		source = newSource;
+		if (newSource != null && getTarget() != null) {
+			newSource.setName(getTarget().getName());
 		}
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__FROM, oldFrom, newFrom);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__SOURCE, oldFrom, newSource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -133,18 +133,18 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * @generated
 	 */
 	@Override
-	public void setFrom(Element newFrom) {
-		if (newFrom != from) {
+	public void setSource(Element newSource) {
+		if (newSource != source) {
 			NotificationChain msgs = null;
-			if (from != null)
-				msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.ELEMENT__MAPPING_TO, Element.class, msgs);
-			if (newFrom != null)
-				msgs = ((InternalEObject)newFrom).eInverseAdd(this, GraphstructurePackage.ELEMENT__MAPPING_TO, Element.class, msgs);
-			msgs = basicSetFrom(newFrom, msgs);
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS, Element.class, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS, Element.class, msgs);
+			msgs = basicSetSource(newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__FROM, newFrom, newFrom));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__SOURCE, newSource, newSource));
 	}
 
 	/**
@@ -152,38 +152,38 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * @generated
 	 */
 	@Override
-	public Element getTo() {
-		if (to != null && to.eIsProxy()) {
-			InternalEObject oldTo = (InternalEObject)to;
-			to = (Element)eResolveProxy(oldTo);
-			if (to != oldTo) {
+	public Element getTarget() {
+		if (target != null && target.eIsProxy()) {
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (Element)eResolveProxy(oldTarget);
+			if (target != oldTarget) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.ELEMENT_MAPPING__TO, oldTo, to));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.ELEMENT_MAPPING__TARGET, oldTarget, target));
 			}
 		}
-		return to;
+		return target;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element basicGetTo() {
-		return to;
+	public Element basicGetTarget() {
+		return target;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetTo(Element newTo, NotificationChain msgs) {
-		Element oldTo = to;
-		to = newTo;
-		if (newTo != null && getFrom() != null) {
-			newTo.setName(getFrom().getName());
+	public NotificationChain basicSetTarget(Element newTarget, NotificationChain msgs) {
+		Element oldTo = target;
+		target = newTarget;
+		if (newTarget != null && getSource() != null) {
+			newTarget.setName(getSource().getName());
 		}
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__TO, oldTo, newTo);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__TARGET, oldTo, newTarget);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -194,18 +194,18 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * @generated
 	 */
 	@Override
-	public void setTo(Element newTo) {
-		if (newTo != to) {
+	public void setTarget(Element newTarget) {
+		if (newTarget != target) {
 			NotificationChain msgs = null;
-			if (to != null)
-				msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.ELEMENT__MAPPING_FROM, Element.class, msgs);
-			if (newTo != null)
-				msgs = ((InternalEObject)newTo).eInverseAdd(this, GraphstructurePackage.ELEMENT__MAPPING_FROM, Element.class, msgs);
-			msgs = basicSetTo(newTo, msgs);
+			if (target != null)
+				msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.ELEMENT__INCOMING_MAPPING, Element.class, msgs);
+			if (newTarget != null)
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, GraphstructurePackage.ELEMENT__INCOMING_MAPPING, Element.class, msgs);
+			msgs = basicSetTarget(newTarget, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__TO, newTo, newTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.ELEMENT_MAPPING__TARGET, newTarget, newTarget));
 	}
 
 	/**
@@ -215,14 +215,14 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
-				if (from != null)
-					msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.ELEMENT__MAPPING_TO, Element.class, msgs);
-				return basicSetFrom((Element)otherEnd, msgs);
-			case PatternstructurePackage.ELEMENT_MAPPING__TO:
-				if (to != null)
-					msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.ELEMENT__MAPPING_FROM, Element.class, msgs);
-				return basicSetTo((Element)otherEnd, msgs);
+			case PatternstructurePackage.ELEMENT_MAPPING__SOURCE:
+				if (source != null)
+					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS, Element.class, msgs);
+				return basicSetSource((Element)otherEnd, msgs);
+			case PatternstructurePackage.ELEMENT_MAPPING__TARGET:
+				if (target != null)
+					msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.ELEMENT__INCOMING_MAPPING, Element.class, msgs);
+				return basicSetTarget((Element)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -234,10 +234,10 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
-				return basicSetFrom(null, msgs);
-			case PatternstructurePackage.ELEMENT_MAPPING__TO:
-				return basicSetTo(null, msgs);
+			case PatternstructurePackage.ELEMENT_MAPPING__SOURCE:
+				return basicSetSource(null, msgs);
+			case PatternstructurePackage.ELEMENT_MAPPING__TARGET:
+				return basicSetTarget(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -249,12 +249,12 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
-				if (resolve) return getFrom();
-				return basicGetFrom();
-			case PatternstructurePackage.ELEMENT_MAPPING__TO:
-				if (resolve) return getTo();
-				return basicGetTo();
+			case PatternstructurePackage.ELEMENT_MAPPING__SOURCE:
+				if (resolve) return getSource();
+				return basicGetSource();
+			case PatternstructurePackage.ELEMENT_MAPPING__TARGET:
+				if (resolve) return getTarget();
+				return basicGetTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -266,11 +266,11 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
-				setFrom((Element)newValue);
+			case PatternstructurePackage.ELEMENT_MAPPING__SOURCE:
+				setSource((Element)newValue);
 				return;
-			case PatternstructurePackage.ELEMENT_MAPPING__TO:
-				setTo((Element)newValue);
+			case PatternstructurePackage.ELEMENT_MAPPING__TARGET:
+				setTarget((Element)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -283,11 +283,11 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
-				setFrom((Element)null);
+			case PatternstructurePackage.ELEMENT_MAPPING__SOURCE:
+				setSource((Element)null);
 				return;
-			case PatternstructurePackage.ELEMENT_MAPPING__TO:
-				setTo((Element)null);
+			case PatternstructurePackage.ELEMENT_MAPPING__TARGET:
+				setTarget((Element)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -300,10 +300,10 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.ELEMENT_MAPPING__FROM:
-				return from != null;
-			case PatternstructurePackage.ELEMENT_MAPPING__TO:
-				return to != null;
+			case PatternstructurePackage.ELEMENT_MAPPING__SOURCE:
+				return source != null;
+			case PatternstructurePackage.ELEMENT_MAPPING__TARGET:
+				return target != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -312,10 +312,10 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	public String myToString() {
 		String res = "SingleElementMapping [" + getInternalId() + "] ";
 		res += "(";
-		if (getFrom()!= null) res += getFrom().getInternalId();
+		if (getSource()!= null) res += getSource().getInternalId();
 		else res += "-";		
 		res += " -> ";
-		if (getTo()!= null) res += getTo().getInternalId() ;
+		if (getTarget()!= null) res += getTarget().getInternalId() ;
 		else res += "-";	
 		res += ")";
 		return res;

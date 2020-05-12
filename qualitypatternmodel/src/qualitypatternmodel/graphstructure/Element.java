@@ -26,8 +26,8 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getMappingTo <em>Mapping To</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getMappingFrom <em>Mapping From</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getOutgoingMappings <em>Outgoing Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Element#getIncomingMapping <em>Incoming Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getResultOf <em>Result Of</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Element#getName <em>Name</em>}</li>
@@ -45,42 +45,42 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  */
 public interface Element extends qualitypatternmodel.graphstructure.Comparable, PatternElement, Adaptable {
 	/**
-	 * Returns the value of the '<em><b>Mapping From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.ElementMapping#getTo <em>To</em>}'.
+	 * Returns the value of the '<em><b>Incoming Mapping</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.ElementMapping#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mapping From</em>' reference.
-	 * @see #setMappingFrom(ElementMapping)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_MappingFrom()
-	 * @see qualitypatternmodel.patternstructure.ElementMapping#getTo
-	 * @model opposite="to"
+	 * @return the value of the '<em>Incoming Mapping</em>' reference.
+	 * @see #setIncomingMapping(ElementMapping)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_IncomingMapping()
+	 * @see qualitypatternmodel.patternstructure.ElementMapping#getTarget
+	 * @model opposite="target"
 	 * @generated
 	 */
-	ElementMapping getMappingFrom();
+	ElementMapping getIncomingMapping();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getMappingFrom <em>Mapping From</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getIncomingMapping <em>Incoming Mapping</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mapping From</em>' reference.
-	 * @see #getMappingFrom()
+	 * @param value the new value of the '<em>Incoming Mapping</em>' reference.
+	 * @see #getIncomingMapping()
 	 * @generated
 	 */
-	void setMappingFrom(ElementMapping value);
+	void setIncomingMapping(ElementMapping value);
 
 	/**
-	 * Returns the value of the '<em><b>Mapping To</b></em>' reference list.
+	 * Returns the value of the '<em><b>Outgoing Mappings</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.patternstructure.ElementMapping}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.ElementMapping#getFrom <em>From</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.ElementMapping#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mapping To</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_MappingTo()
-	 * @see qualitypatternmodel.patternstructure.ElementMapping#getFrom
-	 * @model opposite="from"
+	 * @return the value of the '<em>Outgoing Mappings</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_OutgoingMappings()
+	 * @see qualitypatternmodel.patternstructure.ElementMapping#getSource
+	 * @model opposite="source"
 	 * @generated
 	 */
-	EList<ElementMapping> getMappingTo();
+	EList<ElementMapping> getOutgoingMappings();
 
 	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' container reference.

@@ -486,22 +486,22 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING__MORPHISM = MAPPING__MORPHISM;
 
 	/**
-	 * The feature id for the '<em><b>To</b></em>' reference.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING__TO = MAPPING_FEATURE_COUNT + 0;
+	int RELATION_MAPPING__TARGET = MAPPING_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING__FROM = MAPPING_FEATURE_COUNT + 1;
+	int RELATION_MAPPING__SOURCE = MAPPING_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Relation Mapping</em>' class.
@@ -1254,22 +1254,22 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM__MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__FROM = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int MORPHISM__SOURCE = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>To</b></em>' reference.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__TO = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int MORPHISM__TARGET = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Morphism Container</b></em>' container reference.
@@ -1534,22 +1534,22 @@ public interface PatternstructurePackage extends EPackage {
 	int ELEMENT_MAPPING__MORPHISM = MAPPING__MORPHISM;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' reference.
+	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__FROM = MAPPING_FEATURE_COUNT + 0;
+	int ELEMENT_MAPPING__SOURCE = MAPPING_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>To</b></em>' reference.
+	 * The feature id for the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__TO = MAPPING_FEATURE_COUNT + 1;
+	int ELEMENT_MAPPING__TARGET = MAPPING_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Element Mapping</em>' class.
@@ -4144,26 +4144,26 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getRelationMapping();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.RelationMapping#getTo <em>To</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.RelationMapping#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To</em>'.
-	 * @see qualitypatternmodel.patternstructure.RelationMapping#getTo()
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see qualitypatternmodel.patternstructure.RelationMapping#getTarget()
 	 * @see #getRelationMapping()
 	 * @generated
 	 */
-	EReference getRelationMapping_To();
+	EReference getRelationMapping_Target();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.RelationMapping#getFrom <em>From</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.RelationMapping#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From</em>'.
-	 * @see qualitypatternmodel.patternstructure.RelationMapping#getFrom()
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see qualitypatternmodel.patternstructure.RelationMapping#getSource()
 	 * @see #getRelationMapping()
 	 * @generated
 	 */
-	EReference getRelationMapping_From();
+	EReference getRelationMapping_Source();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.QuantifiedCondition <em>Quantified Condition</em>}'.
@@ -4326,26 +4326,26 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getMorphism_Mappings();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.Morphism#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From</em>'.
-	 * @see qualitypatternmodel.patternstructure.Morphism#getFrom()
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see qualitypatternmodel.patternstructure.Morphism#getSource()
 	 * @see #getMorphism()
 	 * @generated
 	 */
-	EReference getMorphism_From();
+	EReference getMorphism_Source();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.Morphism#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To</em>'.
-	 * @see qualitypatternmodel.patternstructure.Morphism#getTo()
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see qualitypatternmodel.patternstructure.Morphism#getTarget()
 	 * @see #getMorphism()
 	 * @generated
 	 */
-	EReference getMorphism_To();
+	EReference getMorphism_Target();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Morphism#getMorphismContainer <em>Morphism Container</em>}'.
@@ -4429,26 +4429,26 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getElementMapping();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.ElementMapping#getFrom <em>From</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.ElementMapping#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>From</em>'.
-	 * @see qualitypatternmodel.patternstructure.ElementMapping#getFrom()
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see qualitypatternmodel.patternstructure.ElementMapping#getSource()
 	 * @see #getElementMapping()
 	 * @generated
 	 */
-	EReference getElementMapping_From();
+	EReference getElementMapping_Source();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.ElementMapping#getTo <em>To</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.ElementMapping#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To</em>'.
-	 * @see qualitypatternmodel.patternstructure.ElementMapping#getTo()
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see qualitypatternmodel.patternstructure.ElementMapping#getTarget()
 	 * @see #getElementMapping()
 	 * @generated
 	 */
-	EReference getElementMapping_To();
+	EReference getElementMapping_Target();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}'.
@@ -5119,20 +5119,20 @@ public interface PatternstructurePackage extends EPackage {
 		EClass RELATION_MAPPING = eINSTANCE.getRelationMapping();
 
 		/**
-		 * The meta object literal for the '<em><b>To</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RELATION_MAPPING__TO = eINSTANCE.getRelationMapping_To();
+		EReference RELATION_MAPPING__TARGET = eINSTANCE.getRelationMapping_Target();
 
 		/**
-		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RELATION_MAPPING__FROM = eINSTANCE.getRelationMapping_From();
+		EReference RELATION_MAPPING__SOURCE = eINSTANCE.getRelationMapping_Source();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl <em>Quantified Condition</em>}' class.
@@ -5261,20 +5261,20 @@ public interface PatternstructurePackage extends EPackage {
 		EReference MORPHISM__MAPPINGS = eINSTANCE.getMorphism_Mappings();
 
 		/**
-		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MORPHISM__FROM = eINSTANCE.getMorphism_From();
+		EReference MORPHISM__SOURCE = eINSTANCE.getMorphism_Source();
 
 		/**
-		 * The meta object literal for the '<em><b>To</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MORPHISM__TO = eINSTANCE.getMorphism_To();
+		EReference MORPHISM__TARGET = eINSTANCE.getMorphism_Target();
 
 		/**
 		 * The meta object literal for the '<em><b>Morphism Container</b></em>' container reference feature.
@@ -5343,20 +5343,20 @@ public interface PatternstructurePackage extends EPackage {
 		EClass ELEMENT_MAPPING = eINSTANCE.getElementMapping();
 
 		/**
-		 * The meta object literal for the '<em><b>From</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_MAPPING__FROM = eINSTANCE.getElementMapping_From();
+		EReference ELEMENT_MAPPING__SOURCE = eINSTANCE.getElementMapping_Source();
 
 		/**
-		 * The meta object literal for the '<em><b>To</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT_MAPPING__TO = eINSTANCE.getElementMapping_To();
+		EReference ELEMENT_MAPPING__TARGET = eINSTANCE.getElementMapping_Target();
 
 		/**
 		 * The meta object literal for the '<em><b>Morph Depth</b></em>' attribute feature.

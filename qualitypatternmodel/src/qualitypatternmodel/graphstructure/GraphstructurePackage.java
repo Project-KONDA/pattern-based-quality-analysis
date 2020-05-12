@@ -88,22 +88,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__INTERNAL_ID = PatternstructurePackage.PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
+	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__MAPPING_FROM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
+	int RELATION__INCOMING_MAPPING = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
+	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION__MAPPING_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int RELATION__OUTGOING_MAPPINGS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -901,22 +901,22 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT__COMPARISON2 = COMPARABLE__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
+	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__MAPPING_TO = COMPARABLE_FEATURE_COUNT + 0;
+	int ELEMENT__OUTGOING_MAPPINGS = COMPARABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
+	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT__MAPPING_FROM = COMPARABLE_FEATURE_COUNT + 1;
+	int ELEMENT__INCOMING_MAPPING = COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -1469,22 +1469,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__RETURN_ELEMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Morphism To</b></em>' reference list.
+	 * The feature id for the '<em><b>Outgoing Morphisms</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__MORPHISM_TO = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
+	int GRAPH__OUTGOING_MORPHISMS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Morphism From</b></em>' reference.
+	 * The feature id for the '<em><b>Incoming Morphism</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__MORPHISM_FROM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
+	int GRAPH__INCOMING_MORPHISM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Relations</b></em>' containment reference list.
@@ -1905,15 +1905,26 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getRelation();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getIncomingMapping <em>Incoming Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Mapping To</em>'.
-	 * @see qualitypatternmodel.graphstructure.Relation#getMappingTo()
+	 * @return the meta object for the reference '<em>Incoming Mapping</em>'.
+	 * @see qualitypatternmodel.graphstructure.Relation#getIncomingMapping()
 	 * @see #getRelation()
 	 * @generated
 	 */
-	EReference getRelation_MappingTo();
+	EReference getRelation_IncomingMapping();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Relation#getOutgoingMappings <em>Outgoing Mappings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Outgoing Mappings</em>'.
+	 * @see qualitypatternmodel.graphstructure.Relation#getOutgoingMappings()
+	 * @see #getRelation()
+	 * @generated
+	 */
+	EReference getRelation_OutgoingMappings();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Relation#getGraph <em>Graph</em>}'.
@@ -1947,17 +1958,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRelation_Target();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Mapping From</em>'.
-	 * @see qualitypatternmodel.graphstructure.Relation#getMappingFrom()
-	 * @see #getRelation()
-	 * @generated
-	 */
-	EReference getRelation_MappingFrom();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}' operation.
@@ -2072,26 +2072,26 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getElement();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Element#getMappingTo <em>Mapping To</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Element#getOutgoingMappings <em>Outgoing Mappings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Mapping To</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getMappingTo()
+	 * @return the meta object for the reference list '<em>Outgoing Mappings</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#getOutgoingMappings()
 	 * @see #getElement()
 	 * @generated
 	 */
-	EReference getElement_MappingTo();
+	EReference getElement_OutgoingMappings();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Element#getMappingFrom <em>Mapping From</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Element#getIncomingMapping <em>Incoming Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Mapping From</em>'.
-	 * @see qualitypatternmodel.graphstructure.Element#getMappingFrom()
+	 * @return the meta object for the reference '<em>Incoming Mapping</em>'.
+	 * @see qualitypatternmodel.graphstructure.Element#getIncomingMapping()
 	 * @see #getElement()
 	 * @generated
 	 */
-	EReference getElement_MappingFrom();
+	EReference getElement_IncomingMapping();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}'.
@@ -2435,26 +2435,26 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getGraph_ReturnElements();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Graph#getMorphismTo <em>Morphism To</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Graph#getOutgoingMorphisms <em>Outgoing Morphisms</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Morphism To</em>'.
-	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismTo()
+	 * @return the meta object for the reference list '<em>Outgoing Morphisms</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getOutgoingMorphisms()
 	 * @see #getGraph()
 	 * @generated
 	 */
-	EReference getGraph_MorphismTo();
+	EReference getGraph_OutgoingMorphisms();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Graph#getIncomingMorphism <em>Incoming Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Morphism From</em>'.
-	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismFrom()
+	 * @return the meta object for the reference '<em>Incoming Morphism</em>'.
+	 * @see qualitypatternmodel.graphstructure.Graph#getIncomingMorphism()
 	 * @see #getGraph()
 	 * @generated
 	 */
-	EReference getGraph_MorphismFrom();
+	EReference getGraph_IncomingMorphism();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Graph#getRelations <em>Relations</em>}'.
@@ -2697,12 +2697,20 @@ public interface GraphstructurePackage extends EPackage {
 		EClass RELATION = eINSTANCE.getRelation();
 
 		/**
-		 * The meta object literal for the '<em><b>Mapping To</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Incoming Mapping</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RELATION__MAPPING_TO = eINSTANCE.getRelation_MappingTo();
+		EReference RELATION__INCOMING_MAPPING = eINSTANCE.getRelation_IncomingMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Outgoing Mappings</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION__OUTGOING_MAPPINGS = eINSTANCE.getRelation_OutgoingMappings();
 
 		/**
 		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.
@@ -2727,14 +2735,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference RELATION__TARGET = eINSTANCE.getRelation_Target();
-
-		/**
-		 * The meta object literal for the '<em><b>Mapping From</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RELATION__MAPPING_FROM = eINSTANCE.getRelation_MappingFrom();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Relation From Previous Graphs</b></em>' operation.
@@ -2829,20 +2829,20 @@ public interface GraphstructurePackage extends EPackage {
 		EClass ELEMENT = eINSTANCE.getElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Mapping To</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Outgoing Mappings</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT__MAPPING_TO = eINSTANCE.getElement_MappingTo();
+		EReference ELEMENT__OUTGOING_MAPPINGS = eINSTANCE.getElement_OutgoingMappings();
 
 		/**
-		 * The meta object literal for the '<em><b>Mapping From</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Incoming Mapping</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ELEMENT__MAPPING_FROM = eINSTANCE.getElement_MappingFrom();
+		EReference ELEMENT__INCOMING_MAPPING = eINSTANCE.getElement_IncomingMapping();
 
 		/**
 		 * The meta object literal for the '<em><b>Graph</b></em>' container reference feature.
@@ -3111,20 +3111,20 @@ public interface GraphstructurePackage extends EPackage {
 		EReference GRAPH__RETURN_ELEMENTS = eINSTANCE.getGraph_ReturnElements();
 
 		/**
-		 * The meta object literal for the '<em><b>Morphism To</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Outgoing Morphisms</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRAPH__MORPHISM_TO = eINSTANCE.getGraph_MorphismTo();
+		EReference GRAPH__OUTGOING_MORPHISMS = eINSTANCE.getGraph_OutgoingMorphisms();
 
 		/**
-		 * The meta object literal for the '<em><b>Morphism From</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Incoming Morphism</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GRAPH__MORPHISM_FROM = eINSTANCE.getGraph_MorphismFrom();
+		EReference GRAPH__INCOMING_MORPHISM = eINSTANCE.getGraph_IncomingMorphism();
 
 		/**
 		 * The meta object literal for the '<em><b>Relations</b></em>' containment reference list feature.

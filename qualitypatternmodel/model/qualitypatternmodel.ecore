@@ -223,10 +223,10 @@
       <eOperations name="setGraphSimple">
         <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/RelationMapping"
-          eOpposite="#//patternstructure/RelationMapping/to"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
-          eType="#//patternstructure/RelationMapping" eOpposite="#//patternstructure/RelationMapping/from"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"
+          eOpposite="#//patternstructure/RelationMapping/target"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
+          eType="#//patternstructure/RelationMapping" eOpposite="#//patternstructure/RelationMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/relations"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
@@ -288,10 +288,10 @@
       <eOperations name="setGraphSimple">
         <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
-          eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/from"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/ElementMapping"
-          eOpposite="#//patternstructure/ElementMapping/to"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
+          eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"
+          eOpposite="#//patternstructure/ElementMapping/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/elements"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resultOf" eType="#//graphstructure/Graph"
@@ -333,10 +333,10 @@
           eOpposite="#//patternstructure/Pattern/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="returnElements" lowerBound="1"
           upperBound="-1" eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/resultOf"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="morphismTo" upperBound="-1"
-          eType="#//patternstructure/Morphism" eOpposite="#//patternstructure/Morphism/from"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="morphismFrom" eType="#//patternstructure/Morphism"
-          eOpposite="#//patternstructure/Morphism/to"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMorphisms" upperBound="-1"
+          eType="#//patternstructure/Morphism" eOpposite="#//patternstructure/Morphism/source"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMorphism" eType="#//patternstructure/Morphism"
+          eOpposite="#//patternstructure/Morphism/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
           eType="#//graphstructure/Relation" containment="true" eOpposite="#//graphstructure/Relation/graph"/>
     </eClassifiers>
@@ -379,10 +379,10 @@
   </eSubpackages>
   <eSubpackages name="patternstructure" nsURI="patternstructure" nsPrefix="patternstructure">
     <eClassifiers xsi:type="ecore:EClass" name="RelationMapping" eSuperTypes="#//patternstructure/Mapping">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/Relation"
-          eOpposite="#//graphstructure/Relation/mappingFrom"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
-          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/mappingTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/incomingMapping"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/outgoingMappings"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="QuantifiedCondition" eSuperTypes="#//patternstructure/Condition #//patternstructure/MorphismContainer">
       <eOperations name="checkMorphismOfNextGraph" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
@@ -425,18 +425,18 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
           eType="#//patternstructure/Mapping" containment="true" eOpposite="#//patternstructure/Mapping/morphism"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
-          eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/morphismTo"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/Graph"
-          eOpposite="#//graphstructure/Graph/morphismFrom"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/outgoingMorphisms"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/incomingMorphism"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphismContainer" eType="#//patternstructure/MorphismContainer"
           eOpposite="#//patternstructure/MorphismContainer/morphism"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ElementMapping" eSuperTypes="#//patternstructure/Mapping">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
-          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/mappingTo"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/Element"
-          eOpposite="#//graphstructure/Element/mappingFrom"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/outgoingMappings"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/incomingMapping"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Mapping" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappingDepth" lowerBound="1"

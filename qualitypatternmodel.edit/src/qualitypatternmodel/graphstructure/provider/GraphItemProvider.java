@@ -107,19 +107,19 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Morphism To feature.
+	 * This adds a property descriptor for the Outgoing Morphisms feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMorphismToPropertyDescriptor(Object object) {
+	protected void addOutgoingMorphismsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Graph_morphismTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_morphismTo_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__MORPHISM_TO,
+				 getString("_UI_Graph_outgoingMorphisms_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_outgoingMorphisms_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__OUTGOING_MORPHISMS,
 				 true,
 				 false,
 				 true,
@@ -129,19 +129,19 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Morphism From feature.
+	 * This adds a property descriptor for the Incoming Morphism feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMorphismFromPropertyDescriptor(Object object) {
+	protected void addIncomingMorphismPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Graph_morphismFrom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_morphismFrom_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__MORPHISM_FROM,
+				 getString("_UI_Graph_incomingMorphism_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_incomingMorphism_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__INCOMING_MORPHISM,
 				 true,
 				 false,
 				 true,

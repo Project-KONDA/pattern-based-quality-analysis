@@ -17,8 +17,8 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getIncomingMapping <em>Incoming Mapping</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOutgoingMappings <em>Outgoing Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getTarget <em>Target</em>}</li>
@@ -30,18 +30,18 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  */
 public interface Relation extends PatternElement, Adaptable {
 	/**
-	 * Returns the value of the '<em><b>Mapping To</b></em>' reference list.
+	 * Returns the value of the '<em><b>Outgoing Mappings</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.patternstructure.RelationMapping}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.RelationMapping#getFrom <em>From</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.RelationMapping#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mapping To</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_MappingTo()
-	 * @see qualitypatternmodel.patternstructure.RelationMapping#getFrom
-	 * @model opposite="from"
+	 * @return the value of the '<em>Outgoing Mappings</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_OutgoingMappings()
+	 * @see qualitypatternmodel.patternstructure.RelationMapping#getSource
+	 * @model opposite="source"
 	 * @generated
 	 */
-	EList<RelationMapping> getMappingTo();
+	EList<RelationMapping> getOutgoingMappings();
 
 	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' container reference.
@@ -116,28 +116,28 @@ public interface Relation extends PatternElement, Adaptable {
 	void setTarget(Element value);
 
 	/**
-	 * Returns the value of the '<em><b>Mapping From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.RelationMapping#getTo <em>To</em>}'.
+	 * Returns the value of the '<em><b>Incoming Mapping</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.RelationMapping#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mapping From</em>' reference.
-	 * @see #setMappingFrom(RelationMapping)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_MappingFrom()
-	 * @see qualitypatternmodel.patternstructure.RelationMapping#getTo
-	 * @model opposite="to"
+	 * @return the value of the '<em>Incoming Mapping</em>' reference.
+	 * @see #setIncomingMapping(RelationMapping)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_IncomingMapping()
+	 * @see qualitypatternmodel.patternstructure.RelationMapping#getTarget
+	 * @model opposite="target"
 	 * @generated
 	 */
-	RelationMapping getMappingFrom();
+	RelationMapping getIncomingMapping();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getIncomingMapping <em>Incoming Mapping</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mapping From</em>' reference.
-	 * @see #getMappingFrom()
+	 * @param value the new value of the '<em>Incoming Mapping</em>' reference.
+	 * @see #getIncomingMapping()
 	 * @generated
 	 */
-	void setMappingFrom(RelationMapping value);
+	void setIncomingMapping(RelationMapping value);
 
 	/**
 	 * <!-- begin-user-doc -->

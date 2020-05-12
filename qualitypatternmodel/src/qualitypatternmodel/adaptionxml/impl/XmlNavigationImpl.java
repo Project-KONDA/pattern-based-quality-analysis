@@ -91,9 +91,9 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			source = sourceElement.getXQueryVariable();
 		}
 		String xPathExpression = "";
-		if (option != null && getMappingFrom() == null) {
+		if (option != null && getIncomingMapping() == null) {
 			xPathExpression = source + option.generateQuery(location);
-		} else if(getMappingFrom() == null) {
+		} else if(getIncomingMapping() == null) {
 			throw new InvalidityException("option null");
 		}
 		
@@ -110,7 +110,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		
 		if (location == Location.RETURN) {
 			query += FOR + target + IN; 			
-			if (getTarget().getMappingFrom() == null) {
+			if (getTarget().getIncomingMapping() == null) {
 				query += xPathExpression + xPredicates;
 			} else if (!xPredicates.equals("")) {
 				query += target + xPredicates;
@@ -127,7 +127,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 				throw new InvalidityException("invalid location");
 			}
 			query += target + IN;
-			if (getTarget().getMappingFrom() == null) {
+			if (getTarget().getIncomingMapping() == null) {
 				query += xPathExpression + xPredicates + SATISFIES;
 			} else if (!xPredicates.equals("")) {
 				query += target + xPredicates + SATISFIES;
@@ -144,13 +144,13 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		if (getMappingFrom() == null && option == null)
+		if (getIncomingMapping() == null && option == null)
 			throw new InvalidityException("axis missing");
-		if (getMappingFrom() != null && option != null)
+		if (getIncomingMapping() != null && option != null)
 			throw new InvalidityException("axis redundant");
 		
-		for(RelationMapping mapping : getMappingTo()) {
-			if(!(mapping.getFrom() instanceof XmlNavigation)) {
+		for(RelationMapping mapping : getOutgoingMappings()) {
+			if(!(mapping.getSource() instanceof XmlNavigation)) {
 				throw new InvalidityException("mapping different relations");
 			}			
 		}		
@@ -164,7 +164,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		if (getOption() != null) {
 			res.add(option);
-		} else if (getMappingFrom() == null) {
+		} else if (getIncomingMapping() == null) {
 			throw new InvalidityException("option null" + " (" + getInternalId() + ")");
 		}
 		return res;
@@ -213,19 +213,19 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			updateParameters(newGraph.getParameterList());
 		}
 		NotificationChain res = super.basicSetGraph(newGraph, msgs);
-		if (newGraph != null && getMappingFrom() == null) {
+		if (newGraph != null && getIncomingMapping() == null) {
 			createParameters();
 		}
 		return res;
 	}
 	
 	@Override
-	public NotificationChain basicSetMappingFrom(RelationMapping newMappingFrom, NotificationChain msgs) {
+	public NotificationChain basicSetIncomingMapping(RelationMapping newMappingFrom, NotificationChain msgs) {
 		if (newMappingFrom != null) { // TODO: remove?
 			removeParametersFromParameterList();
 			setOption(null);
 		}
-		NotificationChain res = super.basicSetMappingFrom(newMappingFrom, msgs);
+		NotificationChain res = super.basicSetIncomingMapping(newMappingFrom, msgs);
 		return res;
 	}
 

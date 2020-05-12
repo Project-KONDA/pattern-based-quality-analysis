@@ -22,8 +22,8 @@ import qualitypatternmodel.graphstructure.Relation;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getSource <em>Source</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTarget <em>Target</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMorphismContainer <em>Morphism Container</em>}</li>
  * </ul>
  *
@@ -47,52 +47,52 @@ public interface Morphism extends PatternElement {
 	EList<Mapping> getMappings();
 
 	/**
-	 * Returns the value of the '<em><b>From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getMorphismTo <em>Morphism To</em>}'.
+	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getOutgoingMorphisms <em>Outgoing Morphisms</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From</em>' reference.
-	 * @see #setFrom(Graph)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_From()
-	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismTo
-	 * @model opposite="morphismTo" required="true"
+	 * @return the value of the '<em>Source</em>' reference.
+	 * @see #setSource(Graph)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Source()
+	 * @see qualitypatternmodel.graphstructure.Graph#getOutgoingMorphisms
+	 * @model opposite="outgoingMorphisms" required="true"
 	 * @generated
 	 */
-	Graph getFrom();
+	Graph getSource();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getSource <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>From</em>' reference.
-	 * @see #getFrom()
+	 * @param value the new value of the '<em>Source</em>' reference.
+	 * @see #getSource()
 	 * @generated
 	 */
-	void setFrom(Graph value);
+	void setSource(Graph value);
 
 	/**
-	 * Returns the value of the '<em><b>To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}'.
+	 * Returns the value of the '<em><b>Target</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getIncomingMorphism <em>Incoming Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>To</em>' reference.
-	 * @see #setTo(Graph)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_To()
-	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismFrom
-	 * @model opposite="morphismFrom" required="true"
+	 * @return the value of the '<em>Target</em>' reference.
+	 * @see #setTarget(Graph)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Target()
+	 * @see qualitypatternmodel.graphstructure.Graph#getIncomingMorphism
+	 * @model opposite="incomingMorphism" required="true"
 	 * @generated
 	 */
-	Graph getTo();
+	Graph getTarget();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getTarget <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>To</em>' reference.
-	 * @see #getTo()
+	 * @param value the new value of the '<em>Target</em>' reference.
+	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTo(Graph value);
+	void setTarget(Graph value);
 
 	/**
 	 * Returns the value of the '<em><b>Morphism Container</b></em>' container reference.

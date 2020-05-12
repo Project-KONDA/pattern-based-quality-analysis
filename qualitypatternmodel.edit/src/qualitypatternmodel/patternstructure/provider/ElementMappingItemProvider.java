@@ -42,26 +42,26 @@ public class ElementMappingItemProvider extends MappingItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFromPropertyDescriptor(object);
-			addToPropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the From feature.
+	 * This adds a property descriptor for the Source feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFromPropertyDescriptor(Object object) {
+	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ElementMapping_from_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ElementMapping_from_feature", "_UI_ElementMapping_type"),
-				 PatternstructurePackage.Literals.ELEMENT_MAPPING__FROM,
+				 getString("_UI_ElementMapping_source_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementMapping_source_feature", "_UI_ElementMapping_type"),
+				 PatternstructurePackage.Literals.ELEMENT_MAPPING__SOURCE,
 				 true,
 				 false,
 				 true,
@@ -71,19 +71,19 @@ public class ElementMappingItemProvider extends MappingItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the To feature.
+	 * This adds a property descriptor for the Target feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addToPropertyDescriptor(Object object) {
+	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ElementMapping_to_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ElementMapping_to_feature", "_UI_ElementMapping_type"),
-				 PatternstructurePackage.Literals.ELEMENT_MAPPING__TO,
+				 getString("_UI_ElementMapping_target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementMapping_target_feature", "_UI_ElementMapping_type"),
+				 PatternstructurePackage.Literals.ELEMENT_MAPPING__TARGET,
 				 true,
 				 false,
 				 true,

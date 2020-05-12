@@ -193,7 +193,7 @@ public class Eval04Card {
 		
 		Relation relation2 = graphstructureFactory.createRelation();
 		relation2.setGraph(graphCQCon);
-		Element element3InCQC =element3InC.getMappingTo().get(0).getTo();
+		Element element3InCQC =element3InC.getOutgoingMappings().get(0).getTarget();
 		relation2.setSource(element3InCQC);
 		relation2.setTarget(element4InC);		
 		

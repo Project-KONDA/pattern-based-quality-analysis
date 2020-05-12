@@ -132,10 +132,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	public void checkMorphismOfNextGraph() throws InvalidityException {
 		EList<MorphismContainer> nextQuantifiedConditions = getCondition().getNextMorphismContainers();
 		for(MorphismContainer next : nextQuantifiedConditions) {
-			if(!getGraph().equals(next.getMorphism().getFrom())) {
-				throw new InvalidityException("[" + getInternalId() + "] wrong morphism source in " + next.getInternalId() + ": " + next.getMorphism().getFrom().getInternalId() + " instead of " + getGraph().getInternalId());
+			if(!getGraph().equals(next.getMorphism().getSource())) {
+				throw new InvalidityException("[" + getInternalId() + "] wrong morphism source in " + next.getInternalId() + ": " + next.getMorphism().getSource().getInternalId() + " instead of " + getGraph().getInternalId());
 			}
-			if(!next.getGraph().equals(next.getMorphism().getTo())) {
+			if(!next.getGraph().equals(next.getMorphism().getTarget())) {
 				throw new InvalidityException("wrong mapping to [" + getInternalId() + "]");
 			}
 		}
@@ -167,8 +167,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
 		if(getGraph() != null) {
-			getGraph().setMorphismFrom(null);
-			getGraph().getMorphismTo().clear();
+			getGraph().setIncomingMorphism(null);
+			getGraph().getOutgoingMorphisms().clear();
 		}
 		Graph oldGraph = graph;
 		graph = newGraph;

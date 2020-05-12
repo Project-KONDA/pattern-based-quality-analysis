@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -69,8 +68,8 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getComparison1 <em>Comparison1</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getComparison2 <em>Comparison2</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getMappingTo <em>Mapping To</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getMappingFrom <em>Mapping From</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getOutgoingMappings <em>Outgoing Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getIncomingMapping <em>Incoming Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getResultOf <em>Result Of</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.ElementImpl#getName <em>Name</em>}</li>
@@ -106,22 +105,22 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	protected EList<Comparison> comparison2;
 
 	/**
-	 * The cached value of the '{@link #getMappingTo() <em>Mapping To</em>}' reference list.
+	 * The cached value of the '{@link #getOutgoingMappings() <em>Outgoing Mappings</em>}' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getMappingTo()
+	 * @see #getOutgoingMappings()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ElementMapping> mappingTo;
+	protected EList<ElementMapping> outgoingMappings;
 
 	/**
-	 * The cached value of the '{@link #getMappingFrom() <em>Mapping From</em>}' reference.
+	 * The cached value of the '{@link #getIncomingMapping() <em>Incoming Mapping</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getMappingFrom()
+	 * @see #getIncomingMapping()
 	 * @generated
 	 * @ordered
 	 */
-	protected ElementMapping mappingFrom;
+	protected ElementMapping incomingMapping;
 
 	/**
 	 * The cached value of the '{@link #getResultOf() <em>Result Of</em>}' reference.
@@ -299,9 +298,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 	
 	private void removeElementFromPreviousGraphs() {
-		Element correspondingPreviousElement = getMappingFrom().getFrom();
+		Element correspondingPreviousElement = getIncomingMapping().getSource();
 		correspondingPreviousElement.setGraph(null);
-		getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
+		getIncomingMapping().getMorphism().getMappings().remove(getIncomingMapping());
 //		correspondingPreviousElement.setPreviousElement(null);
 //		correspondingPreviousElement.setRoot(null);
 ////		getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
@@ -380,9 +379,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //			// do nothing
 //		}
 	
-		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && mappingFrom != null) // depth=0 => ReturnGraph
-			throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + mappingFrom + " "
-					+ mappingFrom.getId() + " - (" + mappingTo + ")");
+		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && incomingMapping != null) // depth=0 => ReturnGraph
+			throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + incomingMapping + " "
+					+ incomingMapping.getId() + " - (" + outgoingMappings + ")");
 			
 //		if (!eIsSet(GraphstructurePackage.ELEMENT__ROOT)
 //				&& !eIsSet(GraphstructurePackage.ELEMENT__PREVIOUS_ELEMENT))
@@ -450,10 +449,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			xmlElement.setResultOf(getResultOf());
 			xmlElement.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
-			xmlElement.getMappingTo().addAll(getMappingTo());
-			getMappingTo().clear();
-			xmlElement.setMappingFrom(getMappingFrom());
-			setMappingFrom(null);
+			xmlElement.getOutgoingMappings().addAll(getOutgoingMappings());
+			getOutgoingMappings().clear();
+			xmlElement.setIncomingMapping(getIncomingMapping());
+			setIncomingMapping(null);
 			setResultOf(null);
 			setGraph(null);
 			EList<Relation> outgoingCopy = new BasicEList<Relation>();
@@ -537,35 +536,35 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated
 	 */
 	@Override
-	public ElementMapping getMappingFrom() {
-		if (mappingFrom != null && mappingFrom.eIsProxy()) {
-			InternalEObject oldMappingFrom = (InternalEObject)mappingFrom;
-			mappingFrom = (ElementMapping)eResolveProxy(oldMappingFrom);
-			if (mappingFrom != oldMappingFrom) {
+	public ElementMapping getIncomingMapping() {
+		if (incomingMapping != null && incomingMapping.eIsProxy()) {
+			InternalEObject oldIncomingMapping = (InternalEObject)incomingMapping;
+			incomingMapping = (ElementMapping)eResolveProxy(oldIncomingMapping);
+			if (incomingMapping != oldIncomingMapping) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.ELEMENT__MAPPING_FROM, oldMappingFrom, mappingFrom));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.ELEMENT__INCOMING_MAPPING, oldIncomingMapping, incomingMapping));
 			}
 		}
-		return mappingFrom;
+		return incomingMapping;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ElementMapping basicGetMappingFrom() {
-		return mappingFrom;
+	public ElementMapping basicGetIncomingMapping() {
+		return incomingMapping;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetMappingFrom(ElementMapping newMappingFrom, NotificationChain msgs) {
-		ElementMapping oldMappingFrom = mappingFrom;
-		mappingFrom = newMappingFrom;
+	public NotificationChain basicSetIncomingMapping(ElementMapping newIncomingMapping, NotificationChain msgs) {
+		ElementMapping oldIncomingMapping = incomingMapping;
+		incomingMapping = newIncomingMapping;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__MAPPING_FROM, oldMappingFrom, newMappingFrom);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__INCOMING_MAPPING, oldIncomingMapping, newIncomingMapping);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -576,18 +575,18 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated
 	 */
 	@Override
-	public void setMappingFrom(ElementMapping newMappingFrom) {
-		if (newMappingFrom != mappingFrom) {
+	public void setIncomingMapping(ElementMapping newIncomingMapping) {
+		if (newIncomingMapping != incomingMapping) {
 			NotificationChain msgs = null;
-			if (mappingFrom != null)
-				msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.ELEMENT_MAPPING__TO, ElementMapping.class, msgs);
-			if (newMappingFrom != null)
-				msgs = ((InternalEObject)newMappingFrom).eInverseAdd(this, PatternstructurePackage.ELEMENT_MAPPING__TO, ElementMapping.class, msgs);
-			msgs = basicSetMappingFrom(newMappingFrom, msgs);
+			if (incomingMapping != null)
+				msgs = ((InternalEObject)incomingMapping).eInverseRemove(this, PatternstructurePackage.ELEMENT_MAPPING__TARGET, ElementMapping.class, msgs);
+			if (newIncomingMapping != null)
+				msgs = ((InternalEObject)newIncomingMapping).eInverseAdd(this, PatternstructurePackage.ELEMENT_MAPPING__TARGET, ElementMapping.class, msgs);
+			msgs = basicSetIncomingMapping(newIncomingMapping, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__MAPPING_FROM, newMappingFrom, newMappingFrom));
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__INCOMING_MAPPING, newIncomingMapping, newIncomingMapping));
 	}
 
 	/**
@@ -595,11 +594,11 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated
 	 */
 	@Override
-	public EList<ElementMapping> getMappingTo() {
-		if (mappingTo == null) {
-			mappingTo = new EObjectWithInverseResolvingEList<ElementMapping>(ElementMapping.class, this, GraphstructurePackage.ELEMENT__MAPPING_TO, PatternstructurePackage.ELEMENT_MAPPING__FROM);
+	public EList<ElementMapping> getOutgoingMappings() {
+		if (outgoingMappings == null) {
+			outgoingMappings = new EObjectWithInverseResolvingEList<ElementMapping>(ElementMapping.class, this, GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS, PatternstructurePackage.ELEMENT_MAPPING__SOURCE);
 		}
-		return mappingTo;
+		return outgoingMappings;
 	}
 
 //	/**
@@ -730,10 +729,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	private void removeMappingsToNext() {
 		EList<ElementMapping> mappingToCopy = new BasicEList<ElementMapping>();
-		mappingToCopy.addAll(getMappingTo());
+		mappingToCopy.addAll(getOutgoingMappings());
 		for (ElementMapping mapping : mappingToCopy) {
-			mapping.setFrom(null);
-			mapping.setTo(null);
+			mapping.setSource(null);
+			mapping.setTarget(null);
 			mapping.getMorphism().getMappings().remove(mapping);
 		}
 	}
@@ -749,14 +748,14 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__NAME, oldName, name));
 	
-		if (getMappingFrom() != null) {
-			Element se = getMappingFrom().getFrom();
+		if (getIncomingMapping() != null) {
+			Element se = getIncomingMapping().getSource();
 			if (newName != null && !newName.equals(se.getName()))
 				se.setName(newName);
 		}
-		for (ElementMapping m : getMappingTo()) {
-			if (m.getTo() != null) {
-				Element se = m.getTo();
+		for (ElementMapping m : getOutgoingMappings()) {
+			if (m.getTarget() != null) {
+				Element se = m.getTarget();
 				if (newName != null && !newName.equals(se.getName())) {
 					se.setName(newName);
 				}
@@ -877,7 +876,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		if (getMappingFrom() != null) {
+		if (getIncomingMapping() != null) {
 			removeElementFromPreviousGraphs();
 		}
 		
@@ -886,14 +885,14 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		setResultOf(null);
 		
 		if(newGraph != null) {
-			for(Morphism morphism : newGraph.getMorphismTo()) {
+			for(Morphism morphism : newGraph.getOutgoingMorphisms()) {
 				MorphismContainer container = morphism.getMorphismContainer();
 				Element newElement = new ElementImpl();
 				newElement.setGraph(container.getGraph());
 				ElementMapping newMapping = new ElementMappingImpl();
 				newMapping.setMorphism(morphism);
-				newMapping.setFrom(this);
-				newMapping.setTo(newElement);
+				newMapping.setSource(this);
+				newMapping.setTarget(newElement);
 			}		
 		}
 		
@@ -931,7 +930,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 
 	private void setGraphForCorrespondingElements(Graph newGraph) {
-		for (ElementMapping mapping : getMappingTo()) {
+		for (ElementMapping mapping : getOutgoingMappings()) {
 //			PatternElement elem;
 //			try {
 //				elem = mapping.getMorphism().getContainer();
@@ -940,7 +939,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //			}
 //			if (!( elem instanceof CountPattern)) {
 			if (!( mapping.getMorphism().getMorphismContainer() instanceof CountPattern)) {
-				Element element = mapping.getTo();
+				Element element = mapping.getTarget();
 				if (newGraph == null && element.getResultOf() != null) {
 					element.setResultOf(null);
 				}
@@ -949,7 +948,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				}
 			}			
 		}
-		if (getMappingFrom() != null && !(getMappingFrom().getMorphism().getMorphismContainer() instanceof CountPattern)) {
+		if (getIncomingMapping() != null && !(getIncomingMapping().getMorphism().getMorphismContainer() instanceof CountPattern)) {
 
 //			PatternElement elem;
 //			try {
@@ -959,7 +958,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //			}
 //			if (!(elem instanceof CountPattern)) {
 			
-			Element element = getMappingFrom().getFrom();
+			Element element = getIncomingMapping().getSource();
 			if (newGraph == null && element.getResultOf() != null) {
 				element.setResultOf(null);
 			}
@@ -1087,10 +1086,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	@Override
 	public int getOriginalID() {
-		if (mappingFrom == null)
+		if (incomingMapping == null)
 			return this.getInternalId();
 		else
-			return mappingFrom.getFrom().getOriginalID();
+			return incomingMapping.getSource().getOriginalID();
 	}
 
 	/**
@@ -1105,12 +1104,12 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison1()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.ELEMENT__COMPARISON2:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparison2()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.ELEMENT__MAPPING_TO:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappingTo()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
-				if (mappingFrom != null)
-					msgs = ((InternalEObject)mappingFrom).eInverseRemove(this, PatternstructurePackage.ELEMENT_MAPPING__TO, ElementMapping.class, msgs);
-				return basicSetMappingFrom((ElementMapping)otherEnd, msgs);
+			case GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoingMappings()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.ELEMENT__INCOMING_MAPPING:
+				if (incomingMapping != null)
+					msgs = ((InternalEObject)incomingMapping).eInverseRemove(this, PatternstructurePackage.ELEMENT_MAPPING__TARGET, ElementMapping.class, msgs);
+				return basicSetIncomingMapping((ElementMapping)otherEnd, msgs);
 			case GraphstructurePackage.ELEMENT__GRAPH:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -1142,10 +1141,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				return ((InternalEList<?>)getComparison1()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.ELEMENT__COMPARISON2:
 				return ((InternalEList<?>)getComparison2()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.ELEMENT__MAPPING_TO:
-				return ((InternalEList<?>)getMappingTo()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
-				return basicSetMappingFrom(null, msgs);
+			case GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS:
+				return ((InternalEList<?>)getOutgoingMappings()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.ELEMENT__INCOMING_MAPPING:
+				return basicSetIncomingMapping(null, msgs);
 			case GraphstructurePackage.ELEMENT__GRAPH:
 				return basicSetGraph(null, msgs);
 			case GraphstructurePackage.ELEMENT__RESULT_OF:
@@ -1186,11 +1185,11 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				return getComparison1();
 			case GraphstructurePackage.ELEMENT__COMPARISON2:
 				return getComparison2();
-			case GraphstructurePackage.ELEMENT__MAPPING_TO:
-				return getMappingTo();
-			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
-				if (resolve) return getMappingFrom();
-				return basicGetMappingFrom();
+			case GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS:
+				return getOutgoingMappings();
+			case GraphstructurePackage.ELEMENT__INCOMING_MAPPING:
+				if (resolve) return getIncomingMapping();
+				return basicGetIncomingMapping();
 			case GraphstructurePackage.ELEMENT__GRAPH:
 				return getGraph();
 			case GraphstructurePackage.ELEMENT__RESULT_OF:
@@ -1230,12 +1229,12 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				getComparison2().clear();
 				getComparison2().addAll((Collection<? extends Comparison>)newValue);
 				return;
-			case GraphstructurePackage.ELEMENT__MAPPING_TO:
-				getMappingTo().clear();
-				getMappingTo().addAll((Collection<? extends ElementMapping>)newValue);
+			case GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS:
+				getOutgoingMappings().clear();
+				getOutgoingMappings().addAll((Collection<? extends ElementMapping>)newValue);
 				return;
-			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
-				setMappingFrom((ElementMapping)newValue);
+			case GraphstructurePackage.ELEMENT__INCOMING_MAPPING:
+				setIncomingMapping((ElementMapping)newValue);
 				return;
 			case GraphstructurePackage.ELEMENT__GRAPH:
 				setGraph((Graph)newValue);
@@ -1285,11 +1284,11 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT__COMPARISON2:
 				getComparison2().clear();
 				return;
-			case GraphstructurePackage.ELEMENT__MAPPING_TO:
-				getMappingTo().clear();
+			case GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS:
+				getOutgoingMappings().clear();
 				return;
-			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
-				setMappingFrom((ElementMapping)null);
+			case GraphstructurePackage.ELEMENT__INCOMING_MAPPING:
+				setIncomingMapping((ElementMapping)null);
 				return;
 			case GraphstructurePackage.ELEMENT__GRAPH:
 				setGraph((Graph)null);
@@ -1333,10 +1332,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				return comparison1 != null && !comparison1.isEmpty();
 			case GraphstructurePackage.ELEMENT__COMPARISON2:
 				return comparison2 != null && !comparison2.isEmpty();
-			case GraphstructurePackage.ELEMENT__MAPPING_TO:
-				return mappingTo != null && !mappingTo.isEmpty();
-			case GraphstructurePackage.ELEMENT__MAPPING_FROM:
-				return mappingFrom != null;
+			case GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS:
+				return outgoingMappings != null && !outgoingMappings.isEmpty();
+			case GraphstructurePackage.ELEMENT__INCOMING_MAPPING:
+				return incomingMapping != null;
 			case GraphstructurePackage.ELEMENT__GRAPH:
 				return getGraph() != null;
 			case GraphstructurePackage.ELEMENT__RESULT_OF:

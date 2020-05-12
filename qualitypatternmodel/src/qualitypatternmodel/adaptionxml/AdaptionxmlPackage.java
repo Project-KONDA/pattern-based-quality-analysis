@@ -107,22 +107,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT__COMPARISON2 = GraphstructurePackage.ELEMENT__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
+	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT__MAPPING_TO = GraphstructurePackage.ELEMENT__MAPPING_TO;
+	int XML_ELEMENT__OUTGOING_MAPPINGS = GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS;
 
 	/**
-	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
+	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT__MAPPING_FROM = GraphstructurePackage.ELEMENT__MAPPING_FROM;
+	int XML_ELEMENT__INCOMING_MAPPING = GraphstructurePackage.ELEMENT__INCOMING_MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -648,22 +648,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION__INTERNAL_ID = GraphstructurePackage.RELATION__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
+	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION__MAPPING_FROM = GraphstructurePackage.RELATION__MAPPING_FROM;
+	int XML_NAVIGATION__INCOMING_MAPPING = GraphstructurePackage.RELATION__INCOMING_MAPPING;
 
 	/**
-	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
+	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION__MAPPING_TO = GraphstructurePackage.RELATION__MAPPING_TO;
+	int XML_NAVIGATION__OUTGOING_MAPPINGS = GraphstructurePackage.RELATION__OUTGOING_MAPPINGS;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -964,22 +964,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE__INTERNAL_ID = GraphstructurePackage.RELATION__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
+	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE__MAPPING_FROM = GraphstructurePackage.RELATION__MAPPING_FROM;
+	int XML_REFERENCE__INCOMING_MAPPING = GraphstructurePackage.RELATION__INCOMING_MAPPING;
 
 	/**
-	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
+	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE__MAPPING_TO = GraphstructurePackage.RELATION__MAPPING_TO;
+	int XML_REFERENCE__OUTGOING_MAPPINGS = GraphstructurePackage.RELATION__OUTGOING_MAPPINGS;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -1614,22 +1614,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT__COMPARISON2 = GraphstructurePackage.ELEMENT__COMPARISON2;
 
 	/**
-	 * The feature id for the '<em><b>Mapping To</b></em>' reference list.
+	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT__MAPPING_TO = GraphstructurePackage.ELEMENT__MAPPING_TO;
+	int XML_ROOT__OUTGOING_MAPPINGS = GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS;
 
 	/**
-	 * The feature id for the '<em><b>Mapping From</b></em>' reference.
+	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT__MAPPING_FROM = GraphstructurePackage.ELEMENT__MAPPING_FROM;
+	int XML_ROOT__INCOMING_MAPPING = GraphstructurePackage.ELEMENT__INCOMING_MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.

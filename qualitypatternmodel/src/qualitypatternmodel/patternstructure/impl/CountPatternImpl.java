@@ -126,7 +126,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 				return;
 			}
 		}
-		getMorphism().setFrom(previousGraph);		
+		getMorphism().setSource(previousGraph);		
 		previousGraph.copyGraph(getGraph());
 	}
 	
@@ -142,8 +142,8 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	@Override
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		getMorphism().setFrom(null);
-		getMorphism().setTo(getGraph());
+		getMorphism().setSource(null);
+		getMorphism().setTarget(getGraph());
 		getMorphism().removeDanglingMappingReference();		
 		return super.basicSetGraph(newGraph, msgs);
 	}
@@ -199,8 +199,8 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetCountCondition(CountCondition newCountCondition1, NotificationChain msgs) {
-		getMorphism().setFrom(null);
-		getMorphism().setTo(getGraph());
+		getMorphism().setSource(null);
+		getMorphism().setTarget(getGraph());
 		getMorphism().removeDanglingMappingReference();		
 
 		msgs = eBasicSetContainer((InternalEObject)newCountCondition1, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION, msgs);
@@ -234,8 +234,8 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetCountCondition2(CountCondition newCountCondition2, NotificationChain msgs) {
-		getMorphism().setFrom(null);
-		getMorphism().setTo(getGraph());
+		getMorphism().setSource(null);
+		getMorphism().setTarget(getGraph());
 		getMorphism().removeDanglingMappingReference();		
 		
 		msgs = eBasicSetContainer((InternalEObject)newCountCondition2, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2, msgs);

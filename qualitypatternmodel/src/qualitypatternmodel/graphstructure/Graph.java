@@ -28,8 +28,8 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getMorphismTo <em>Morphism To</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOutgoingMorphisms <em>Outgoing Morphisms</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getIncomingMorphism <em>Incoming Morphism</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRelations <em>Relations</em>}</li>
  * </ul>
  *
@@ -67,42 +67,42 @@ public interface Graph extends PatternElement {
 	EList<Element> getReturnElements();
 
 	/**
-	 * Returns the value of the '<em><b>Morphism To</b></em>' reference list.
+	 * Returns the value of the '<em><b>Outgoing Morphisms</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.patternstructure.Morphism}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Morphism#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Morphism To</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_MorphismTo()
-	 * @see qualitypatternmodel.patternstructure.Morphism#getFrom
-	 * @model opposite="from"
+	 * @return the value of the '<em>Outgoing Morphisms</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_OutgoingMorphisms()
+	 * @see qualitypatternmodel.patternstructure.Morphism#getSource
+	 * @model opposite="source"
 	 * @generated
 	 */
-	EList<Morphism> getMorphismTo();
+	EList<Morphism> getOutgoingMorphisms();
 
 	/**
-	 * Returns the value of the '<em><b>Morphism From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}'.
+	 * Returns the value of the '<em><b>Incoming Morphism</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.Morphism#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Morphism From</em>' reference.
-	 * @see #setMorphismFrom(Morphism)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_MorphismFrom()
-	 * @see qualitypatternmodel.patternstructure.Morphism#getTo
-	 * @model opposite="to"
+	 * @return the value of the '<em>Incoming Morphism</em>' reference.
+	 * @see #setIncomingMorphism(Morphism)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_IncomingMorphism()
+	 * @see qualitypatternmodel.patternstructure.Morphism#getTarget
+	 * @model opposite="target"
 	 * @generated
 	 */
-	Morphism getMorphismFrom();
+	Morphism getIncomingMorphism();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Graph#getIncomingMorphism <em>Incoming Morphism</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Morphism From</em>' reference.
-	 * @see #getMorphismFrom()
+	 * @param value the new value of the '<em>Incoming Morphism</em>' reference.
+	 * @see #getIncomingMorphism()
 	 * @generated
 	 */
-	void setMorphismFrom(Morphism value);
+	void setIncomingMorphism(Morphism value);
 
 	/**
 	 * Returns the value of the '<em><b>Relations</b></em>' containment reference list.

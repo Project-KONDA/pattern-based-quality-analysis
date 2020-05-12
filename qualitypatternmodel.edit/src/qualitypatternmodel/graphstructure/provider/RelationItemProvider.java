@@ -45,8 +45,8 @@ public class RelationItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMappingFromPropertyDescriptor(object);
-			addMappingToPropertyDescriptor(object);
+			addIncomingMappingPropertyDescriptor(object);
+			addOutgoingMappingsPropertyDescriptor(object);
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
 		}
@@ -54,19 +54,19 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Mapping From feature.
+	 * This adds a property descriptor for the Incoming Mapping feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMappingFromPropertyDescriptor(Object object) {
+	protected void addIncomingMappingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Relation_mappingFrom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_mappingFrom_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__MAPPING_FROM,
+				 getString("_UI_Relation_incomingMapping_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_incomingMapping_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__INCOMING_MAPPING,
 				 true,
 				 false,
 				 true,
@@ -76,19 +76,19 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Mapping To feature.
+	 * This adds a property descriptor for the Outgoing Mappings feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMappingToPropertyDescriptor(Object object) {
+	protected void addOutgoingMappingsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Relation_mappingTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_mappingTo_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__MAPPING_TO,
+				 getString("_UI_Relation_outgoingMappings_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_outgoingMappings_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__OUTGOING_MAPPINGS,
 				 true,
 				 false,
 				 true,
