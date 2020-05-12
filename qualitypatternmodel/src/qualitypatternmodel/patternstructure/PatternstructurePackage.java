@@ -4094,6 +4094,16 @@ public interface PatternstructurePackage extends EPackage {
 	int LOCATION = 19;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.AbstractionLevel <em>Abstraction Level</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.AbstractionLevel
+	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getAbstractionLevel()
+	 * @generated
+	 */
+	int ABSTRACTION_LEVEL = 20;
+
+	/**
 	 * The meta object id for the '<em>Invalidity Exception Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4101,7 +4111,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 	 * @generated
 	 */
-	int INVALIDITY_EXCEPTION_WRAPPER = 20;
+	int INVALIDITY_EXCEPTION_WRAPPER = 21;
 
 	/**
 	 * The meta object id for the '<em>Class Wrapper</em>' data type.
@@ -4111,7 +4121,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getClassWrapper()
 	 * @generated
 	 */
-	int CLASS_WRAPPER = 21;
+	int CLASS_WRAPPER = 22;
 
 	/**
 	 * The meta object id for the '<em>Missing Pattern Container Exception</em>' data type.
@@ -4121,7 +4131,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMissingPatternContainerException()
 	 * @generated
 	 */
-	int MISSING_PATTERN_CONTAINER_EXCEPTION = 22;
+	int MISSING_PATTERN_CONTAINER_EXCEPTION = 23;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.RelationMapping <em>Relation Mapping</em>}'.
@@ -5033,6 +5043,16 @@ public interface PatternstructurePackage extends EPackage {
 	EEnum getLocation();
 
 	/**
+	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.AbstractionLevel <em>Abstraction Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Abstraction Level</em>'.
+	 * @see qualitypatternmodel.patternstructure.AbstractionLevel
+	 * @generated
+	 */
+	EEnum getAbstractionLevel();
+
+	/**
 	 * Returns the meta object for data type '{@link qualitypatternmodel.exceptions.InvalidityException <em>Invalidity Exception Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5823,6 +5843,16 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum LOCATION = eINSTANCE.getLocation();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.AbstractionLevel <em>Abstraction Level</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.patternstructure.AbstractionLevel
+		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getAbstractionLevel()
+		 * @generated
+		 */
+		EEnum ABSTRACTION_LEVEL = eINSTANCE.getAbstractionLevel();
 
 		/**
 		 * The meta object literal for the '<em>Invalidity Exception Wrapper</em>' data type.

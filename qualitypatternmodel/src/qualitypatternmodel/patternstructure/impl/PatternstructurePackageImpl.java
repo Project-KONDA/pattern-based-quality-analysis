@@ -24,6 +24,7 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
@@ -194,6 +195,13 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	private EEnum locationEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum abstractionLevelEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1181,6 +1189,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EEnum getAbstractionLevel() {
+		return abstractionLevelEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getInvalidityExceptionWrapper() {
 		return invalidityExceptionWrapperEDataType;
 	}
@@ -1339,6 +1357,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
 		quantifierEEnum = createEEnum(QUANTIFIER);
 		locationEEnum = createEEnum(LOCATION);
+		abstractionLevelEEnum = createEEnum(ABSTRACTION_LEVEL);
 
 		// Create data types
 		invalidityExceptionWrapperEDataType = createEDataType(INVALIDITY_EXCEPTION_WRAPPER);
@@ -1580,6 +1599,11 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEEnumLiteral(locationEEnum, Location.OUTSIDE);
 		addEEnumLiteral(locationEEnum, Location.EXISTS);
 		addEEnumLiteral(locationEEnum, Location.FORALL);
+
+		initEEnum(abstractionLevelEEnum, AbstractionLevel.class, "AbstractionLevel");
+		addEEnumLiteral(abstractionLevelEEnum, AbstractionLevel.GENERIC);
+		addEEnumLiteral(abstractionLevelEEnum, AbstractionLevel.ABSTRACT);
+		addEEnumLiteral(abstractionLevelEEnum, AbstractionLevel.CONCRETE);
 
 		// Initialize data types
 		initEDataType(invalidityExceptionWrapperEDataType, InvalidityException.class, "InvalidityExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -569,6 +569,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="numberParam" lowerBound="1"
           eType="#//parameters/NumberParam" eOpposite="#//parameters/NumberParam/numberArgument"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="AbstractionLevel">
+      <eLiterals name="GENERIC" literal="GENERIC"/>
+      <eLiterals name="ABSTRACT" value="1"/>
+      <eLiterals name="CONCRETE" value="2"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionxml" nsURI="adaptionxml" nsPrefix="adaptionxml">
     <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//graphstructure/Element">

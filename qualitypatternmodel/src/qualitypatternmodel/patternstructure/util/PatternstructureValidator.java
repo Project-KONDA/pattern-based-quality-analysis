@@ -134,6 +134,8 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validateQuantifier((Quantifier)value, diagnostics, context);
 			case PatternstructurePackage.LOCATION:
 				return validateLocation((Location)value, diagnostics, context);
+			case PatternstructurePackage.ABSTRACTION_LEVEL:
+				return validateAbstractionLevel((AbstractionLevel)value, diagnostics, context);
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
 				return validateInvalidityExceptionWrapper((InvalidityException)value, diagnostics, context);
 			case PatternstructurePackage.CLASS_WRAPPER:
@@ -502,6 +504,15 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateLocation(Location location, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractionLevel(AbstractionLevel abstractionLevel, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 
