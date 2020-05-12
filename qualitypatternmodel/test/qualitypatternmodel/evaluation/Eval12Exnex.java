@@ -23,7 +23,9 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test06NotElement;
 
-public class Eval12ExNEx {
+public class Eval12Exnex {
+	// also called MANDSTRUC2
+	
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getExNExMidas());

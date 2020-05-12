@@ -67,7 +67,7 @@ import qualitypatternmodel.patternstructure.impl.CountConditionImpl;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test06NotElement;
 
-public class Eval11CARD3 {
+public class Eval11Appdupl {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getCARD3Midas());

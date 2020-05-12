@@ -35,12 +35,12 @@ import qualitypatternmodel.translationtests.Test00;
 public class Eval07Unique {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getUniqueAbstract());
+//		completePatterns.add(getUniqueAbstract());
 		completePatterns.add(getUniqueMidas());
 		completePatterns.add(getUniqueLidoLidoRecId());
 		completePatterns.add(getUniqueLidoObjectPublishedId());
 		completePatterns.add(getUniqueComplexLidoNameActorSet());
-		completePatterns.add(getUniqueLidoEfficientConcrete());
+//		completePatterns.add(getUniqueLidoEfficientConcrete());
 		
 		Test00.getQueries(completePatterns);
 //		Test00.test(completePatterns);	
@@ -314,123 +314,123 @@ public class Eval07Unique {
 		return completePattern;
 	}
 	
-	private static CompletePattern getUniqueLidoEfficientAbstract() {
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
-		OperatorsPackage.eINSTANCE.eClass();
-		OperatorsFactory operatorsFactory = OperatorsFactory.eINSTANCE;
-		
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;		
-
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
-		CompletePattern completePattern = Test00.getBasePattern();
-		Element e0InReturnGraph = completePattern.getGraph().getElements().get(0);	
-//		e0InReturnGraph.addPrimitiveComparison();
-		
-		Element ret = graphFactory.createElement();
-		ret.setGraph(completePattern.getGraph());
-		ret.addPrimitiveComparison();	
-		Relation relation0 = graphFactory.createRelation();
-		relation0.setGraph(completePattern.getGraph());
-		relation0.setSource(e0InReturnGraph);
-		relation0.setTarget(ret);
-		completePattern.getGraph().getReturnElements().clear();
-		completePattern.getGraph().getReturnElements().add(ret);
-		
-		QuantifiedCondition quantifiedCondition = patternStructureFactory.createQuantifiedCondition();
-		completePattern.setCondition(quantifiedCondition);	
-		
-		Element retInQC = quantifiedCondition.getGraph().getElements().get(1);
-		Element child = graphFactory.createElement();
-		child.setGraph(quantifiedCondition.getGraph());
-		child.addPrimitiveComparison();	
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(quantifiedCondition.getGraph());
-		relation.setSource(retInQC);
-		relation.setTarget(child);
-		
-		CountCondition countCondition = patternStructureFactory.createCountCondition();
-		quantifiedCondition.setCondition(countCondition);	
-		
-		CountPattern countPattern = patternStructureFactory.createCountPattern();
-
-		NumberParam numberParam = parametersFactory.createNumberParam();
-		numberParam.setValue(1.0);
-		NumberElement numberElement = patternStructureFactory.createNumberElement();
-		numberElement.setNumberParam(numberParam);
-		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);
-		countCondition.setCountPattern(countPattern);
-		countCondition.setArgument2(numberElement);
-		
-		Element childInCPattern = countPattern.getGraph().getElements().get(2);
-		Element element2 = graphFactory.createElement();
-		element2.setGraph(countPattern.getGraph());
-		
-		Element element3 = graphFactory.createElement();
-		element3.setGraph(countPattern.getGraph());
-		Relation relation1 = graphFactory.createRelation();
-		relation1.setGraph(countPattern.getGraph());
-		relation1.setSource(element2);
-		relation1.setTarget(element3);
-		
-		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(element3);
-		element3.addPrimitiveComparison();
-		
-		QuantifiedCondition quantifiedConditionCount = patternStructureFactory.createQuantifiedCondition();
-		countPattern.setCondition(quantifiedConditionCount);		
-		
-		Element e4InQcC = quantifiedConditionCount.getGraph().getElements().get(4);
-		
-		Element e2InQcC = quantifiedConditionCount.getGraph().getElements().get(2);
-		
-		Element nextToReturn = graphFactory.createElement();
-		nextToReturn.setGraph(quantifiedConditionCount.getGraph());
-		Relation relation2 = graphFactory.createRelation();
-		relation2.setGraph(quantifiedConditionCount.getGraph());
-		relation2.setSource(e4InQcC);
-		relation2.setTarget(nextToReturn);
-		nextToReturn.addPrimitiveComparison();
-		
-//		Element nextToElement2 = graphFactory.createElement();
-//		nextToElement2.setGraph(countPattern.getGraph());
+//	private static CompletePattern getUniqueLidoEfficientAbstract() {
+//		GraphstructurePackage.eINSTANCE.eClass();
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		
+//		OperatorsPackage.eINSTANCE.eClass();
+//		OperatorsFactory operatorsFactory = OperatorsFactory.eINSTANCE;
+//		
+//		PatternstructurePackage.eINSTANCE.eClass();
+//		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;		
+//
+//		ParametersPackage.eINSTANCE.eClass();
+//		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+//		
+//		CompletePattern completePattern = Test00.getBasePattern();
+//		Element e0InReturnGraph = completePattern.getGraph().getElements().get(0);	
+////		e0InReturnGraph.addPrimitiveComparison();
+//		
+//		Element ret = graphFactory.createElement();
+//		ret.setGraph(completePattern.getGraph());
+//		ret.addPrimitiveComparison();	
+//		Relation relation0 = graphFactory.createRelation();
+//		relation0.setGraph(completePattern.getGraph());
+//		relation0.setSource(e0InReturnGraph);
+//		relation0.setTarget(ret);
+//		completePattern.getGraph().getReturnElements().clear();
+//		completePattern.getGraph().getReturnElements().add(ret);
+//		
+//		QuantifiedCondition quantifiedCondition = patternStructureFactory.createQuantifiedCondition();
+//		completePattern.setCondition(quantifiedCondition);	
+//		
+//		Element retInQC = quantifiedCondition.getGraph().getElements().get(1);
+//		Element child = graphFactory.createElement();
+//		child.setGraph(quantifiedCondition.getGraph());
+//		child.addPrimitiveComparison();	
+//		Relation relation = graphFactory.createRelation();
+//		relation.setGraph(quantifiedCondition.getGraph());
+//		relation.setSource(retInQC);
+//		relation.setTarget(child);
+//		
+//		CountCondition countCondition = patternStructureFactory.createCountCondition();
+//		quantifiedCondition.setCondition(countCondition);	
+//		
+//		CountPattern countPattern = patternStructureFactory.createCountPattern();
+//
+//		NumberParam numberParam = parametersFactory.createNumberParam();
+//		numberParam.setValue(1.0);
+//		NumberElement numberElement = patternStructureFactory.createNumberElement();
+//		numberElement.setNumberParam(numberParam);
+//		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
+//		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+//		countCondition.setCountPattern(countPattern);
+//		countCondition.setArgument2(numberElement);
+//		
+//		Element childInCPattern = countPattern.getGraph().getElements().get(2);
+//		Element element2 = graphFactory.createElement();
+//		element2.setGraph(countPattern.getGraph());
+//		
+//		Element element3 = graphFactory.createElement();
+//		element3.setGraph(countPattern.getGraph());
+//		Relation relation1 = graphFactory.createRelation();
+//		relation1.setGraph(countPattern.getGraph());
+//		relation1.setSource(element2);
+//		relation1.setTarget(element3);
+//		
+//		countPattern.getGraph().getReturnElements().clear();
+//		countPattern.getGraph().getReturnElements().add(element3);
+//		element3.addPrimitiveComparison();
+//		
+//		QuantifiedCondition quantifiedConditionCount = patternStructureFactory.createQuantifiedCondition();
+//		countPattern.setCondition(quantifiedConditionCount);		
+//		
+//		Element e4InQcC = quantifiedConditionCount.getGraph().getElements().get(4);
+//		
+//		Element e2InQcC = quantifiedConditionCount.getGraph().getElements().get(2);
+//		
+//		Element nextToReturn = graphFactory.createElement();
+//		nextToReturn.setGraph(quantifiedConditionCount.getGraph());
 //		Relation relation2 = graphFactory.createRelation();
-//		relation2.setGraph(countPattern.getGraph());
-//		relation2.setSource(element3);
-//		relation2.setTarget(nextToElement2);
-//		nextToElement2.addPrimitiveComparison();
-		
-		Property propertyNextToReturn = graphFactory.createProperty();
-		propertyNextToReturn.setElement(nextToReturn);
-		
-		Property propertyNextToElement2 = graphFactory.createProperty();
-		propertyNextToElement2.setElement(e2InQcC);
-			
-		Comparison comparison = operatorsFactory.createComparison();
-		comparison.setType(ReturnType.STRING);
-		quantifiedConditionCount.getGraph().getOperatorList().add(comparison);		
-		comparison.createParameters();
-		comparison.setArgument1(propertyNextToReturn);
-		comparison.setArgument2(propertyNextToElement2);	
-		comparison.getOption().setValue(ComparisonOperator.EQUAL);
-		
-		Condition truecondition = patternStructureFactory.createTrueElement();
-		quantifiedConditionCount.setCondition(truecondition);		
-		
-		completePattern.createXMLAdaption();
-		relation0.adaptAsXMLNavigation();
-		relation.adaptAsXMLNavigation();
-		relation1.adaptAsXMLNavigation();
-		relation2.adaptAsXMLNavigation();
-		completePattern.finalizeXMLAdaption();
-		
-		return completePattern;
-	}
+//		relation2.setGraph(quantifiedConditionCount.getGraph());
+//		relation2.setSource(e4InQcC);
+//		relation2.setTarget(nextToReturn);
+//		nextToReturn.addPrimitiveComparison();
+//		
+////		Element nextToElement2 = graphFactory.createElement();
+////		nextToElement2.setGraph(countPattern.getGraph());
+////		Relation relation2 = graphFactory.createRelation();
+////		relation2.setGraph(countPattern.getGraph());
+////		relation2.setSource(element3);
+////		relation2.setTarget(nextToElement2);
+////		nextToElement2.addPrimitiveComparison();
+//		
+//		Property propertyNextToReturn = graphFactory.createProperty();
+//		propertyNextToReturn.setElement(nextToReturn);
+//		
+//		Property propertyNextToElement2 = graphFactory.createProperty();
+//		propertyNextToElement2.setElement(e2InQcC);
+//			
+//		Comparison comparison = operatorsFactory.createComparison();
+//		comparison.setType(ReturnType.STRING);
+//		quantifiedConditionCount.getGraph().getOperatorList().add(comparison);		
+//		comparison.createParameters();
+//		comparison.setArgument1(propertyNextToReturn);
+//		comparison.setArgument2(propertyNextToElement2);	
+//		comparison.getOption().setValue(ComparisonOperator.EQUAL);
+//		
+//		Condition truecondition = patternStructureFactory.createTrueElement();
+//		quantifiedConditionCount.setCondition(truecondition);		
+//		
+//		completePattern.createXMLAdaption();
+//		relation0.adaptAsXMLNavigation();
+//		relation.adaptAsXMLNavigation();
+//		relation1.adaptAsXMLNavigation();
+//		relation2.adaptAsXMLNavigation();
+//		completePattern.finalizeXMLAdaption();
+//		
+//		return completePattern;
+//	}
 	
 	private static CompletePattern getUniqueMidas() {
 		ParametersPackage.eINSTANCE.eClass();
@@ -632,72 +632,72 @@ public class Eval07Unique {
 		return getUniqueComplexLidoConcrete(RelationKind.TWOCHILD, "lido:lido", RelationKind.SEVENCHILD, "lido:actor", "lido:nameActorSet", "lido:appellationValue");
 	}
 	
-	private static CompletePattern getUniqueLidoEfficientConcrete() {		
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
-		CompletePattern completePattern = getUniqueLidoEfficientAbstract();
-		
-		Element e0InReturnGraph = completePattern.getGraph().getElements().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
-		
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(1);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.CHILD);
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
-		concreteInputValue.setValue("lido:lido");
-		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
-		
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		Element childInQC = quantifiedCondition.getGraph().getElements().get(2);	
-		((XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
-		((XmlProperty) childInQC.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-		TextLiteralParam concreteInputValueQC = parametersFactory.createTextLiteralParam();
-		concreteInputValueQC.setValue("lido:lidoRecID");
-		((UnknownParameterValue) ((Comparison) childInQC.getPredicates().get(0)).getArgument2()).concretize(concreteInputValueQC);
-		
-		CountCondition countCondition = (CountCondition) quantifiedCondition.getCondition();		
-		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
-		
-		Element element2 = countPattern.getGraph().getElements().get(3);	
-		((XmlNavigation) countPattern.getGraph().getRelations().get(4)).getOption().setValue(RelationKind.CHILD);
-//		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-//		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
-//		concreteInputValue2.setValue(returnElementName);
-//		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
-		
-		Element nextToReturn = countPattern.getGraph().getElements().get(4);
-		((XmlNavigation) countPattern.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.CHILD);
-		((XmlProperty) nextToReturn.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
-		concreteInputValue3.setValue("lido:lido");
-		((UnknownParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
+//	private static CompletePattern getUniqueLidoEfficientConcrete() {		
+//		ParametersPackage.eINSTANCE.eClass();
+//		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 //		
-		QuantifiedCondition quantifiedCondition2 = (QuantifiedCondition) countPattern.getCondition();
-		
-		Element e2 = quantifiedCondition2.getGraph().getElements().get(2);
-//		((XmlProperty) e2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-//		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
-////		concreteInputValue4.setValue("");
-//		((UnknownParameterValue) ((Comparison) e2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
-		
-		Element e5 = quantifiedCondition2.getGraph().getElements().get(5);
-		((XmlNavigation) quantifiedCondition2.getGraph().getRelations().get(3)).getOption().setValue(RelationKind.CHILD);
-		((XmlProperty) e5.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-		TextLiteralParam concreteInputValueQC2 = parametersFactory.createTextLiteralParam();
-		concreteInputValueQC2.setValue("lido:lidoRecID");
-		((UnknownParameterValue) ((Comparison) e5.getPredicates().get(0)).getArgument2()).concretize(concreteInputValueQC2);
-		
-
-		
-		((XmlProperty) e5.getProperties().get(1)).getOption().setValue(PropertyKind.DATA);
-		
-		((XmlProperty) e2.getProperties().get(0)).getOption().setValue(PropertyKind.DATA);
-		
-		((Comparison) e2.getPredicates().get(0)).setType(ReturnType.STRING);
-		
-		return completePattern;
-	}
+//		CompletePattern completePattern = getUniqueLidoEfficientAbstract();
+//		
+//		Element e0InReturnGraph = completePattern.getGraph().getElements().get(0);	
+//		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
+//		
+//		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(1);	
+//		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.CHILD);
+//		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+//		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
+//		concreteInputValue.setValue("lido:lido");
+//		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
+//		
+//		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+//		Element childInQC = quantifiedCondition.getGraph().getElements().get(2);	
+//		((XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
+//		((XmlProperty) childInQC.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+//		TextLiteralParam concreteInputValueQC = parametersFactory.createTextLiteralParam();
+//		concreteInputValueQC.setValue("lido:lidoRecID");
+//		((UnknownParameterValue) ((Comparison) childInQC.getPredicates().get(0)).getArgument2()).concretize(concreteInputValueQC);
+//		
+//		CountCondition countCondition = (CountCondition) quantifiedCondition.getCondition();		
+//		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
+//		
+//		Element element2 = countPattern.getGraph().getElements().get(3);	
+//		((XmlNavigation) countPattern.getGraph().getRelations().get(4)).getOption().setValue(RelationKind.CHILD);
+////		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+////		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
+////		concreteInputValue2.setValue(returnElementName);
+////		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
+//		
+//		Element nextToReturn = countPattern.getGraph().getElements().get(4);
+//		((XmlNavigation) countPattern.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.CHILD);
+//		((XmlProperty) nextToReturn.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+//		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
+//		concreteInputValue3.setValue("lido:lido");
+//		((UnknownParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue3);
+////		
+//		QuantifiedCondition quantifiedCondition2 = (QuantifiedCondition) countPattern.getCondition();
+//		
+//		Element e2 = quantifiedCondition2.getGraph().getElements().get(2);
+////		((XmlProperty) e2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+////		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
+//////		concreteInputValue4.setValue("");
+////		((UnknownParameterValue) ((Comparison) e2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4);
+//		
+//		Element e5 = quantifiedCondition2.getGraph().getElements().get(5);
+//		((XmlNavigation) quantifiedCondition2.getGraph().getRelations().get(3)).getOption().setValue(RelationKind.CHILD);
+//		((XmlProperty) e5.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+//		TextLiteralParam concreteInputValueQC2 = parametersFactory.createTextLiteralParam();
+//		concreteInputValueQC2.setValue("lido:lidoRecID");
+//		((UnknownParameterValue) ((Comparison) e5.getPredicates().get(0)).getArgument2()).concretize(concreteInputValueQC2);
+//		
+//
+//		
+//		((XmlProperty) e5.getProperties().get(1)).getOption().setValue(PropertyKind.DATA);
+//		
+//		((XmlProperty) e2.getProperties().get(0)).getOption().setValue(PropertyKind.DATA);
+//		
+//		((Comparison) e2.getPredicates().get(0)).setType(ReturnType.STRING);
+//		
+//		return completePattern;
+//	}
 	
 //	private static CompletePattern getUniqueRunningExample() { // replaced by CARD
 //		ParametersPackage.eINSTANCE.eClass();

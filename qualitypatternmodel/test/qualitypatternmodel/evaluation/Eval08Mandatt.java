@@ -28,6 +28,9 @@ import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.translationtests.Test00;
 
 public class Eval08Mandatt {
+	
+	// also called MAND
+	
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMandattMidas());
