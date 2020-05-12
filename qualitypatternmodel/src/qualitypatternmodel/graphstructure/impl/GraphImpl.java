@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlRootImpl;
@@ -192,6 +193,32 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				throw new InvalidityException("returnElement not contained in this graph (" + getInternalId() + ")");
 			}
 		}
+		
+		if(abstractionLevel == AbstractionLevel.GENERIC) {
+			for(Element element : getElements()) {
+				if(!element.getClass().equals(ElementImpl.class)) {
+					throw new InvalidityException("Generic pattern contains non-generic class (" + getInternalId() + ")");
+				}				
+			}
+			for(Relation relation : getRelations()) {
+				if(!relation.getClass().equals(RelationImpl.class)) {
+					throw new InvalidityException("Generic pattern contains non-generic class (" + getInternalId() + ")");
+				}				
+			}
+		} else {
+			for(Element element : getElements()) {
+				if(element.getClass().equals(ElementImpl.class)) {
+					throw new InvalidityException("Non-generic pattern contains Element (" + getInternalId() + ")");
+				}
+				
+			}
+			for(Relation relation : getRelations()) {
+				if(relation.getClass().equals(RelationImpl.class)) {
+					throw new InvalidityException("Non-generic pattern contains Relation (" + getInternalId() + ")");
+				}				
+			}
+		}
+		
 	}
 	
 	@Override

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -411,6 +412,22 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		for (BooleanOperator predicate : getPredicates())
 			if (predicate == null)
 				throw new InvalidityException("predicate null (" + predicate + ")");
+		
+		if(abstractionLevel == AbstractionLevel.GENERIC) {
+			for(Property property : getProperties()) {
+				if(!property.getClass().equals(PropertyImpl.class)) {
+					throw new InvalidityException("Generic pattern contains non-generic class (" + getInternalId() + ")");
+				}
+			}
+		} else {
+			for(Property property : getProperties()) {
+				if(property.getClass().equals(PropertyImpl.class)) {
+					throw new InvalidityException("Non-generic pattern contains Property (" + getInternalId() + ")");
+				}
+				
+			}			
+		}
+		
 	}
 
 	@Override
