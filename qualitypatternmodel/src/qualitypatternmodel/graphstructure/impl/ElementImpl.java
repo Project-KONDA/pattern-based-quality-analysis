@@ -380,7 +380,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //		}
 	
 		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && incomingMapping != null) // depth=0 => ReturnGraph
-			throw new InvalidityException("invalid SingleElementMapping to returnGraph: " + incomingMapping + " "
+			throw new InvalidityException("invalid ElementMapping to returnGraph: " + incomingMapping + " "
 					+ incomingMapping.getId() + " - (" + outgoingMappings + ")");
 			
 //		if (!eIsSet(GraphstructurePackage.ELEMENT__ROOT)
