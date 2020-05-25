@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="runningexample.xsd">
+
+	<painting>
+		<name>Mona Lisa</name>
+		<creator ref="1"/>
+		<creationyear>around 1503-1507</creationyear>
+	</painting>
+	
+	<painting>
+		<name>The Last Supper</name>
+		<creator ref="1"/>
+		<creationyear>1494-1497</creationyear>
+	</painting>
+	
+	<building>
+		<name>Empire State Building</name>
+		<creator ref="2"/>
+		<city>New York City</city>
+		<country>USA</country>		
+	</building>	
+	
+	<building>
+		<name>Chrysler Building</name>
+		<creator ref="3"/>
+		<city>New York City</city>
+		<country>Unknown</country>		
+	</building>
+	
+	<artist id="1">
+		<name>Leonardo da Vinci</name>
+		<occupation>architect</occupation>
+	</artist>	
+	
+	<artist id="2">
+		<name>William F. Lamb</name>
+		<occupation>architect</occupation>
+	</artist>		
+
+</data>

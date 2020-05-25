@@ -3,9 +3,9 @@ package playground;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Mapping;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -16,13 +16,13 @@ public class ProgrammaticalCreation {
 	public static void main(String[] args) {
 		PatternstructurePackage.eINSTANCE.eClass();		
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructurePackage.eINSTANCE.eClass();
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		Pattern pattern = factory.createPattern();
+		CompletePattern completePattern = factory.createCompletePattern();
 		QuantifiedCondition condition = factory.createQuantifiedCondition();
 //		Graph graph = graphFactory.createGraph();
-		condition.setPattern(pattern);
+		condition.setPattern(completePattern);
 		System.out.println("morphism oben: " + condition.getMorphism());
 //		for(Mapping mapping : pattern.getReturnGraph().getRootElements().getMappingTo()) {
 //			System.out.println("mapping in return graph root oben: " + mapping);

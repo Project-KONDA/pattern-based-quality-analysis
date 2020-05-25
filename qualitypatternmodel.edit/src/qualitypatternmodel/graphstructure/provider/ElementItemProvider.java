@@ -7,18 +7,17 @@ import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -42,18 +41,25 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addComparison1PropertyDescriptor(object);
+			addComparison2PropertyDescriptor(object);
+			addOutgoingMappingsPropertyDescriptor(object);
+			addIncomingMappingPropertyDescriptor(object);
+			addGraphPropertyDescriptor(object);
+			addResultOfPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 			addTranslatedPropertyDescriptor(object);
-//			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
-//			addGetAllElementsPropertyDescriptor(object);
-//			addGetAllRelationsPropertyDescriptor(object);
+			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
 			addPredicatesPropertyDescriptor(object);
+			addOutgoingPropertyDescriptor(object);
+			addIncomingPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -103,19 +109,19 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Predicates feature.
+	 * This adds a property descriptor for the Outgoing Mappings feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPredicatesPropertyDescriptor(Object object) {
+	protected void addOutgoingMappingsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Element_predicates_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Element_predicates_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__PREDICATES,
+				 getString("_UI_Element_outgoingMappings_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_outgoingMappings_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__OUTGOING_MAPPINGS,
 				 true,
 				 false,
 				 true,
@@ -125,23 +131,67 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Predicates Are Being Translated feature.
+	 * This adds a property descriptor for the Incoming Mapping feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPredicatesAreBeingTranslatedPropertyDescriptor(Object object) {
+	protected void addIncomingMappingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Element_predicatesAreBeingTranslated_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Element_predicatesAreBeingTranslated_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED,
+				 getString("_UI_Element_incomingMapping_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_incomingMapping_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__INCOMING_MAPPING,
 				 true,
 				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Graph feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGraphPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Element_graph_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_graph_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__GRAPH,
+				 true,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Result Of feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResultOfPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Element_resultOf_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_resultOf_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__RESULT_OF,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -191,19 +241,41 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Get All Elements feature.
+	 * This adds a property descriptor for the Predicates Are Being Translated feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addGetAllElementsPropertyDescriptor(Object object) {
+	protected void addPredicatesAreBeingTranslatedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Element_getAllElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Element_getAllElements_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__GET_ALL_ELEMENTS,
+				 getString("_UI_Element_predicatesAreBeingTranslated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_predicatesAreBeingTranslated_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Predicates feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPredicatesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Element_predicates_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_predicates_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__PREDICATES,
 				 true,
 				 false,
 				 true,
@@ -213,19 +285,41 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Get All Relations feature.
+	 * This adds a property descriptor for the Outgoing feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addGetAllRelationsPropertyDescriptor(Object object) {
+	protected void addOutgoingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Element_getAllRelations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Element_getAllRelations_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__GET_ALL_RELATIONS,
+				 getString("_UI_Element_outgoing_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_outgoing_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__OUTGOING,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Incoming feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncomingPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Element_incoming_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Element_incoming_feature", "_UI_Element_type"),
+				 GraphstructurePackage.Literals.ELEMENT__INCOMING,
 				 true,
 				 false,
 				 true,
@@ -246,7 +340,6 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__RELATION_FROM_PREVIOUS);
 			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__PROPERTIES);
 		}
 		return childrenFeatures;
@@ -266,6 +359,17 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
+	 * This returns Element.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Element"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -274,7 +378,13 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Element element = (Element) object;
-		return getString("_UI_Element_type") + " " + element.getInternalId();			
+//		System.out.println(singleElement.getId());
+		return getString("_UI_SingleElement_type") + " " + element.getInternalId();
+		
+//		String label = ((SingleElement)object).getId();
+//		return label == null || label.length() == 0 ?
+//			getString("_UI_SingleElement_type") :
+//			getString("_UI_SingleElement_type") + " " + label;
 	}
 
 
@@ -290,12 +400,11 @@ public class ElementItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Element.class)) {
+			case GraphstructurePackage.ELEMENT__NAME:
 			case GraphstructurePackage.ELEMENT__TRANSLATED:
 			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
-			case GraphstructurePackage.ELEMENT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS:
 			case GraphstructurePackage.ELEMENT__PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -316,13 +425,13 @@ public class ElementItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.ELEMENT__RELATION_FROM_PREVIOUS,
-				 GraphstructureFactory.eINSTANCE.createRelation()));
+				(GraphstructurePackage.Literals.ELEMENT__PROPERTIES,
+				 GraphstructureFactory.eINSTANCE.createProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.ELEMENT__PROPERTIES,
-				 GraphstructureFactory.eINSTANCE.createProperty()));
+				 AdaptionxmlFactory.eINSTANCE.createXmlProperty()));
 	}
 
 	/**

@@ -12,12 +12,9 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -48,27 +45,28 @@ public class RelationItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMappingFromPropertyDescriptor(object);
-			addMappingToPropertyDescriptor(object);
-			addAxisPropertyDescriptor(object);
+			addIncomingMappingPropertyDescriptor(object);
+			addOutgoingMappingsPropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Mapping From feature.
+	 * This adds a property descriptor for the Incoming Mapping feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMappingFromPropertyDescriptor(Object object) {
+	protected void addIncomingMappingPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Relation_mappingFrom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_mappingFrom_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__MAPPING_FROM,
+				 getString("_UI_Relation_incomingMapping_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_incomingMapping_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__INCOMING_MAPPING,
 				 true,
 				 false,
 				 true,
@@ -78,19 +76,19 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Mapping To feature.
+	 * This adds a property descriptor for the Outgoing Mappings feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMappingToPropertyDescriptor(Object object) {
+	protected void addOutgoingMappingsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Relation_mappingTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_mappingTo_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__MAPPING_TO,
+				 getString("_UI_Relation_outgoingMappings_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_outgoingMappings_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__OUTGOING_MAPPINGS,
 				 true,
 				 false,
 				 true,
@@ -100,23 +98,45 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Axis feature.
+	 * This adds a property descriptor for the Source feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAxisPropertyDescriptor(Object object) {
+	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Relation_axis_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_axis_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__AXIS,
+				 getString("_UI_Relation_source_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_source_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__SOURCE,
 				 true,
 				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Relation_target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_target_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__TARGET,
+				 true,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -141,7 +161,11 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Relation relation = (Relation) object;
-		return getString("_UI_Relation_type") + " " + relation.getInternalId() + " " + relation.getAxis().getName();
+		String text = getString("_UI_Relation_type") + " " + relation.getInternalId();
+//		if(relation.getOption() != null && relation.getOption().getValue() != null) {
+//			text += " " + relation.getOption().getValue().getName();
+//		}
+		return text;
 	}
 
 
@@ -155,12 +179,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Relation.class)) {
-			case GraphstructurePackage.RELATION__AXIS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

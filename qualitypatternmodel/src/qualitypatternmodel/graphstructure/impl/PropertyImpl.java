@@ -7,7 +7,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -15,30 +14,23 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.emf.ecore.util.InternalEList;
+import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.functions.Comparison;
-import qualitypatternmodel.functions.FunctionsPackage;
-import qualitypatternmodel.functions.Match;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.inputfields.InputfieldsPackage;
-import qualitypatternmodel.inputfields.PropertyOption;
-import qualitypatternmodel.inputfields.TextLiteral;
-import qualitypatternmodel.inputfields.impl.PropertyOptionImpl;
-import qualitypatternmodel.inputfields.impl.TextLiteralImpl;
-import qualitypatternmodel.patternstructure.Location;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.patternstructure.impl.PatternImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -51,8 +43,6 @@ import qualitypatternmodel.patternstructure.impl.PatternImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getComparison2 <em>Comparison2</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getMatch <em>Match</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getOption <em>Option</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,26 +79,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	protected EList<Match> match;
 
 	/**
-	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAttributeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected TextLiteral attributeName;
-
-	/**
-	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOption()
-	 * @generated
-	 * @ordered
-	 */
-	protected PropertyOption option;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -117,61 +87,37 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	}
 	
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
-		isValidLocal(isDefinedPattern);
-		option.isValid(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
+		isValidLocal(abstractionLevel);
 	}
 	
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException{
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException{
 		if (getElement() == null) 
-			throw new InvalidityException("element null");
-		if (option == null) 
-			throw new InvalidityException("location or propertyOptions invalid");
-		if (option.getValue() != null && option.getValue() == PropertyLocation.ATTRIBUTE && attributeName == null)
-			throw new InvalidityException("attributeName null");		
-	}
-
+			throw new InvalidityException("element null");		
+	}	
+	
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {		
-		if(option == null || option.getValue() == null) {
-			throw new InvalidityException("propertyOptions invalid");
-		}				
-		String propertyElementTranslation = getElement().getXQueryRepresentation(location);
-		switch (option.getValue()) {
-			case ATTRIBUTE: 
-				if(attributeName == null || attributeName.getValue() == null) {
-					throw new InvalidityException("attributeName invalid");
-				} else {
-					return propertyElementTranslation + "/@" + attributeName.getValue() + "";
-				}
-			case DATA: return propertyElementTranslation + "/data()";
-			case TAG: return propertyElementTranslation + "/name()";
-			default:
-				throw new InvalidityException("error in location specification");
+	public PatternElement createXMLAdaption() {
+		if(!(this instanceof XmlProperty)) {
+			XmlProperty xmlProperty = new XmlPropertyImpl();			 
+			xmlProperty.setElement(getElement());
+			xmlProperty.createParameters();
+			setElement(null);
+			xmlProperty.getMatch().addAll(getMatch());
+			getMatch().clear();			
+			xmlProperty.getComparison1().addAll(getComparison1());
+			getComparison1().clear();
+			xmlProperty.getComparison2().addAll(getComparison2());
+			getComparison2().clear();
+			return xmlProperty;
 		}
-		
+		return this;
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> res = new BasicEList<Input>();
-		res.add(getAttributeName());
-		res.add(getOption());
-		return res;
-	}
-
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.UNSPECIFIED;
-	}
-	
-	@Override
-	public boolean isTranslatable() throws InvalidityException {
-		return getElement().isTranslatable();
-	}
+	}	
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,38 +126,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * 
 	 */
 	@Override
-	public EList<ListOfElements> getAllArgumentElements() throws InvalidityException {		
+	public EList<Element> getAllArgumentElements() throws InvalidityException {		
 		return getElement().getAllArgumentElements();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void createInputs() {
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			
-			if(getOption() == null) {
-				PropertyOption option = new PropertyOptionImpl();			
-				pattern.getVariableList().add(option);
-				setOption(option);
-			} else {
-				pattern.getVariableList().add(getOption());
-			}
-			if(getAttributeName() == null) {
-				TextLiteral textLiteral = new TextLiteralImpl();
-				pattern.getVariableList().add(textLiteral);
-				setAttributeName(textLiteral);
-			} else {
-				pattern.getVariableList().add(getAttributeName());
-			}
-		} catch (MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
 	}
 	
 	/**
@@ -231,7 +147,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public EList<Comparison> getComparison1() {
 		if (comparison1 == null) {
-			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.PROPERTY__COMPARISON1, FunctionsPackage.COMPARISON__ARGUMENT1);
+			comparison1 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.PROPERTY__COMPARISON1, OperatorsPackage.COMPARISON__ARGUMENT1);
 		}
 		return comparison1;
 	}
@@ -244,73 +160,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public EList<Comparison> getComparison2() {
 		if (comparison2 == null) {
-			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.PROPERTY__COMPARISON2, FunctionsPackage.COMPARISON__ARGUMENT2);
+			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, GraphstructurePackage.PROPERTY__COMPARISON2, OperatorsPackage.COMPARISON__ARGUMENT2);
 		}
 		return comparison2;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public PropertyOption getOption() {
-		if (option != null && option.eIsProxy()) {
-			InternalEObject oldOption = (InternalEObject)option;
-			option = (PropertyOption)eResolveProxy(oldOption);
-			if (option != oldOption) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__OPTION, oldOption, option));
-			}
-		}
-		return option;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropertyOption basicGetOption() {
-		return option;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOption(PropertyOption newOption, NotificationChain msgs) {
-		PropertyOption oldOption = option;
-		option = newOption;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__OPTION, oldOption, newOption);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOption(PropertyOption newOption) {
-		if (newOption != option) {
-			NotificationChain msgs = null;
-			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
-			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
-			msgs = basicSetOption(newOption, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__OPTION, newOption, newOption));
-	}
+	
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -325,46 +180,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
-		getComparison1().clear();
-		getComparison2().clear();
-		reset();
-		if(newElement == null) {
-			removeInputsFromVariableList();		
-		}
-		msgs = eBasicSetContainer((InternalEObject)newElement, GraphstructurePackage.PROPERTY__ELEMENT, msgs);
-		if(newElement != null) {
-			createInputs();
-		} 
-		return msgs;
-	}
-
-	public void reset() {
-		setAttributeName(null);
-		setOption(null);
-		getMatch().clear();
-	}
-
-	@Override
-	public void removeInputsFromVariableList() {
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getVariableList().getVariables().remove(getOption());
-		} catch (MissingPatternContainerException e) {
-			// since this property is not contained in a pattern, do nothing
-		}				
-		try {
-			Pattern pattern = (Pattern) getAncestor(PatternImpl.class);
-			pattern.getVariableList().getVariables().remove(getAttributeName());
-		} catch (MissingPatternContainerException e) {
-			// since this property is not contained in a pattern, do nothing
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -389,63 +204,22 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public TextLiteral getAttributeName() {
-		if (attributeName != null && attributeName.eIsProxy()) {
-			InternalEObject oldAttributeName = (InternalEObject)attributeName;
-			attributeName = (TextLiteral)eResolveProxy(oldAttributeName);
-			if (attributeName != oldAttributeName) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, oldAttributeName, attributeName));
-			}
-		}
-		return attributeName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TextLiteral basicGetAttributeName() {
-		return attributeName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAttributeName(TextLiteral newAttributeName, NotificationChain msgs) {
-		TextLiteral oldAttributeName = attributeName;
-		attributeName = newAttributeName;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, oldAttributeName, newAttributeName);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newElement, GraphstructurePackage.PROPERTY__ELEMENT, msgs);
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public void setAttributeName(TextLiteral newAttributeName) {
-		if (newAttributeName != attributeName) {
-			NotificationChain msgs = null;
-			if (attributeName != null)
-				msgs = ((InternalEObject)attributeName).eInverseRemove(this, InputfieldsPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
-			if (newAttributeName != null)
-				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, InputfieldsPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
-			msgs = basicSetAttributeName(newAttributeName, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME, newAttributeName, newAttributeName));
-	}
-
+	public Property copy() {
+		Property newProperty = new PropertyImpl();		
+		return newProperty;
+	} 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -454,7 +228,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public EList<Match> getMatch() {
 		if (match == null) {
-			match = new EObjectWithInverseResolvingEList<Match>(Match.class, this, GraphstructurePackage.PROPERTY__MATCH, FunctionsPackage.MATCH__PROPERTY);
+			match = new EObjectWithInverseResolvingEList<Match>(Match.class, this, GraphstructurePackage.PROPERTY__MATCH, OperatorsPackage.MATCH__PROPERTY);
 		}
 		return match;
 	}
@@ -478,14 +252,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return basicSetElement((Element)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatch()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				if (attributeName != null)
-					msgs = ((InternalEObject)attributeName).eInverseRemove(this, InputfieldsPackage.TEXT_LITERAL__PROPERTY, TextLiteral.class, msgs);
-				return basicSetAttributeName((TextLiteral)otherEnd, msgs);
-			case GraphstructurePackage.PROPERTY__OPTION:
-				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, InputfieldsPackage.PROPERTY_OPTION__PROPERTY, PropertyOption.class, msgs);
-				return basicSetOption((PropertyOption)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -506,10 +272,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return basicSetElement(null, msgs);
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return ((InternalEList<?>)getMatch()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				return basicSetAttributeName(null, msgs);
-			case GraphstructurePackage.PROPERTY__OPTION:
-				return basicSetOption(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -543,12 +305,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return getElement();
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return getMatch();
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				if (resolve) return getAttributeName();
-				return basicGetAttributeName();
-			case GraphstructurePackage.PROPERTY__OPTION:
-				if (resolve) return getOption();
-				return basicGetOption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -576,12 +332,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				getMatch().clear();
 				getMatch().addAll((Collection<? extends Match>)newValue);
 				return;
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				setAttributeName((TextLiteral)newValue);
-				return;
-			case GraphstructurePackage.PROPERTY__OPTION:
-				setOption((PropertyOption)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -605,12 +355,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__MATCH:
 				getMatch().clear();
 				return;
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				setAttributeName((TextLiteral)null);
-				return;
-			case GraphstructurePackage.PROPERTY__OPTION:
-				setOption((PropertyOption)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -630,10 +374,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return getElement() != null;
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return match != null && !match.isEmpty();
-			case GraphstructurePackage.PROPERTY__ATTRIBUTE_NAME:
-				return attributeName != null;
-			case GraphstructurePackage.PROPERTY__OPTION:
-				return option != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -644,13 +384,32 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == Adaptable.class) {
+			switch (baseOperationID) {
+				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return GraphstructurePackage.PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return GraphstructurePackage.PROPERTY___CREATE_PARAMETERS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.PROPERTY___CREATE_INPUTS:
-				createInputs();
+			case GraphstructurePackage.PROPERTY___COPY:
+				return copy();
+			case GraphstructurePackage.PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+				removeParametersFromParameterList();
 				return null;
-			case GraphstructurePackage.PROPERTY___REMOVE_INPUTS_FROM_VARIABLE_LIST:
-				removeInputsFromVariableList();
+			case GraphstructurePackage.PROPERTY___CREATE_PARAMETERS:
+				createParameters();
 				return null;
 			case GraphstructurePackage.PROPERTY___GET_RETURN_TYPE:
 				return getReturnType();
@@ -674,10 +433,23 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	
 	@Override
 	public String myToString() {
-		String res = getOption().getValue().getLiteral();
-		res += " (" + getInternalId() + ")";		
-		res += " ('" + getAttributeName().getValue() + "' (" + getAttributeName().getInternalId() + "))";
+		String res = this.getClass().getSimpleName() + " [" + getInternalId() + "]";
 		return res;
+	}
+
+	@Override
+	public boolean isTranslatable() throws InvalidityException {
+		return false;
+	}
+
+	@Override
+	public void removeParametersFromParameterList() {
+
+	}
+
+	@Override
+	public void createParameters() {
+
 	}
 
 } // PropertyImpl

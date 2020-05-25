@@ -12,25 +12,26 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="qualitypatternmodel.inputfields.presentation.InputfieldsModelWizardID"
-            name="%_UI_InputfieldsModelWizard_label"
-            class="qualitypatternmodel.inputfields.presentation.InputfieldsModelWizard"
+            id="qualitypatternmodel.parameters.presentation.ParametersModelWizardID"
+            name="%_UI_ParametersModelWizard_label"
+            class="qualitypatternmodel.parameters.presentation.ParametersModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/InputfieldsModelFile.gif">
-         <description>%_UI_InputfieldsModelWizard_description</description>
+            icon="icons/full/obj16/ParametersModelFile.gif">
+         <description>%_UI_ParametersModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
 
+
    <extension point="org.eclipse.ui.editors">
       <!-- @generated qualitypatternmodel -->
       <editor
-            id="qualitypatternmodel.inputfields.presentation.InputfieldsEditorID"
-            name="%_UI_InputfieldsEditor_label"
-            icon="icons/full/obj16/InputfieldsModelFile.gif"
-            extensions="inputfields"
-            class="qualitypatternmodel.inputfields.presentation.InputfieldsEditor"
-            contributorClass="qualitypatternmodel.inputfields.presentation.InputfieldsActionBarContributor">
+            id="qualitypatternmodel.parameters.presentation.ParametersEditorID"
+            name="%_UI_ParametersEditor_label"
+            icon="icons/full/obj16/ParametersModelFile.gif"
+            extensions="parameters"
+            class="qualitypatternmodel.parameters.presentation.ParametersEditor"
+            contributorClass="qualitypatternmodel.parameters.presentation.ParametersActionBarContributor">
       </editor>
    </extension>
 
@@ -40,12 +41,12 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="qualitypatternmodel.functions.presentation.FunctionsModelWizardID"
-            name="%_UI_FunctionsModelWizard_label"
-            class="qualitypatternmodel.functions.presentation.FunctionsModelWizard"
+            id="qualitypatternmodel.operators.presentation.OperatorsModelWizardID"
+            name="%_UI_OperatorsModelWizard_label"
+            class="qualitypatternmodel.operators.presentation.OperatorsModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/FunctionsModelFile.gif">
-         <description>%_UI_FunctionsModelWizard_description</description>
+            icon="icons/full/obj16/OperatorsModelFile.gif">
+         <description>%_UI_OperatorsModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
@@ -53,15 +54,14 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated qualitypatternmodel -->
       <editor
-            id="qualitypatternmodel.functions.presentation.FunctionsEditorID"
-            name="%_UI_FunctionsEditor_label"
-            icon="icons/full/obj16/FunctionsModelFile.gif"
-            extensions="functions"
-            class="qualitypatternmodel.functions.presentation.FunctionsEditor"
-            contributorClass="qualitypatternmodel.functions.presentation.FunctionsActionBarContributor">
+            id="qualitypatternmodel.operators.presentation.OperatorsEditorID"
+            name="%_UI_OperatorsEditor_label"
+            icon="icons/full/obj16/OperatorsModelFile.gif"
+            extensions="operators"
+            class="qualitypatternmodel.operators.presentation.OperatorsEditor"
+            contributorClass="qualitypatternmodel.operators.presentation.OperatorsActionBarContributor">
       </editor>
    </extension>
-
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated qualitypatternmodel -->
       <category
@@ -115,6 +115,34 @@
             extensions="patternstructure"
             class="qualitypatternmodel.patternstructure.presentation.PatternstructureEditor"
             contributorClass="qualitypatternmodel.patternstructure.presentation.PatternstructureActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.adaptionxml.presentation.AdaptionxmlModelWizardID"
+            name="%_UI_AdaptionxmlModelWizard_label"
+            class="qualitypatternmodel.adaptionxml.presentation.AdaptionxmlModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AdaptionxmlModelFile.gif">
+         <description>%_UI_AdaptionxmlModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.adaptionxml.presentation.AdaptionxmlEditorID"
+            name="%_UI_AdaptionxmlEditor_label"
+            icon="icons/full/obj16/AdaptionxmlModelFile.gif"
+            extensions="adaptionxml"
+            class="qualitypatternmodel.adaptionxml.presentation.AdaptionxmlEditor"
+            contributorClass="qualitypatternmodel.adaptionxml.presentation.AdaptionxmlActionBarContributor">
       </editor>
    </extension>
 

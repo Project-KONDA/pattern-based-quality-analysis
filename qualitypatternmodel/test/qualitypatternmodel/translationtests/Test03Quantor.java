@@ -5,84 +5,159 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.functions.*;
-import qualitypatternmodel.inputfields.*;
+import qualitypatternmodel.operators.*;
+import qualitypatternmodel.parameters.*;
 
 public class Test03Quantor {
 
 	public static void main(String[] args) {
 //		System.out.println(getPatternExists().myToString());
 		
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getPatternExists());
-		patterns.add(getPatternExistsCond());
-		patterns.add(getPatternForall());
-		patterns.add(getPatternForallCond());
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getPatternExistsWithRelationFinal());
+//		completePatterns.add(getPatternExistsFinal());
+//		completePatterns.add(getPatternExistsNavigation());
+//		completePatterns.add(getPatternExistsCondFinal());
+//		completePatterns.add(getPatternForall());
+//		completePatterns.add(getPatternForallCond());
 
-		Test00.test(patterns);
+		Test00.test(completePatterns);
 	}
-
-	public static Pattern getPatternExists() {
+	
+	public static CompletePattern getPatternExistsFinal() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		// Pattern Structure
-		Pattern pattern = Test00.getBasePattern();
-		QuantifiedCondition cond = factory.createQuantifiedCondition();
-		cond.setCondition(factory.createTrueElement());
-		pattern.setCondition(cond);
-				
-		// EXISTS additional graph structure
-		SingleElement se2 = graphFactory.createSingleElement();
-		cond.getGraph().getReturnElements().get(0).getNextSingle().add(se2);		
+		CompletePattern completePattern = getPatternExists();	
 		
-		return pattern;
+		completePattern.createXMLAdaption();
+		completePattern.finalizeXMLAdaption();		
+				
+		return completePattern;
 	}
-
-
-	public static Pattern getPatternExistsCond() {
+	
+	public static CompletePattern getPatternExistsNavigation() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		FunctionsPackage.eINSTANCE.eClass();
-		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
-		InputfieldsPackage.eINSTANCE.eClass();
-		InputfieldsFactory inputFactory = InputfieldsFactory.eINSTANCE;
 		
-		Pattern pattern = getPatternExists();
-//		VariableList varlist = pattern.getVariableList();
-		Graph graph2 = ((QuantifiedCondition) pattern.getCondition()).getGraph();
-//		OperatorList oplist = graph2.getOperatorList();
-		SingleElement last = graph2.getRootElement().getNextSingle().get(0).getNextSingle().get(0);
+		// Pattern Structure
+		CompletePattern completePattern = getPatternExists();	
+		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
+		Graph graph2 = cond.getGraph();
+		
+		Element e0g2 = graph2.getElements().get(0);
+		Element e1g2 = graph2.getElements().get(1);
+		
+		Relation relation = graphFactory.createRelation();
+		relation.setGraph(graph2);
+		relation.setSource(e0g2);
+		relation.setTarget(e1g2);		
+		
+		completePattern.createXMLAdaption();
+		relation.adaptAsXMLNavigation();
+		completePattern.finalizeXMLAdaption();	
+		
+		return completePattern;
+	}
+
+	public static CompletePattern getPatternExists() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+		
+		// Pattern Structure
+		CompletePattern completePattern = Test00.getBasePattern();
+		QuantifiedCondition cond = factory.createQuantifiedCondition();
+		cond.setCondition(factory.createTrueElement());
+		completePattern.setCondition(cond);
+				
+		// EXISTS additional graph structure
+		Element se2 = graphFactory.createElement();
+		se2.setGraph(cond.getGraph());	
+				
+		return completePattern;
+	}
+	
+	public static CompletePattern getPatternExistsWithRelation() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+		
+		// Pattern Structure
+		CompletePattern completePattern = Test00.getBasePattern();
+		QuantifiedCondition cond = factory.createQuantifiedCondition();
+		cond.setCondition(factory.createTrueElement());
+		completePattern.setCondition(cond);
+				
+		// EXISTS additional graph structure
+		Element se1 = cond.getGraph().getElements().get(0);	
+		
+		Element se2 = graphFactory.createElement();
+		se2.setGraph(cond.getGraph());
+		
+		Relation relation = graphFactory.createRelation();
+		relation.setGraph(cond.getGraph());
+		relation.setSource(se1);
+		relation.setTarget(se2);		
+				
+		return completePattern;
+	}
+
+	public static CompletePattern getPatternExistsWithRelationFinal() {
+		
+		CompletePattern completePattern = getPatternExistsWithRelation();
+		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
+		
+		completePattern.createXMLAdaption();
+		cond.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		completePattern.finalizeXMLAdaption();	
+				
+		return completePattern;
+	}
+	
+	public static CompletePattern getPatternExistsCondFinal() {
+		
+		CompletePattern completePattern = getPatternExistsCond();		
+		
+		completePattern.createXMLAdaption();
+		completePattern.finalizeXMLAdaption();	
+		
+		return completePattern;
+	}
+
+	public static CompletePattern getPatternExistsCond() {
+		
+		CompletePattern completePattern = getPatternExists();
+		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
+		Element last = graph2.getElements().get(1);
 		last.addPrimitiveComparison("myvalue");
-//		Comparison comp = functionFactory.createComparison();
-//		oplist.add(comp);
-//			
-//		Property prop = graphFactory.createProperty();
-//		last.getProperties().add(prop);
-//		comp.setArgument1(prop);
-//		
-//		TextLiteral textlit = inputFactory.createTextLiteral();
-//		textlit.setValue("myvalue");
-//		varlist.add(textlit);
-//		
-//		comp.setArgument2(textlit);
-		return pattern;
+		
+		return completePattern;
 	}
 
-	public static Pattern getPatternForall() {		
-		Pattern pattern = getPatternExists();
-		QuantifiedCondition cond1 = (QuantifiedCondition) pattern.getCondition();
+	public static CompletePattern getPatternForall() {		
+		CompletePattern completePattern = getPatternExists();
+		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);
-		return pattern;
+		completePattern.createXMLAdaption();
+		completePattern.finalizeXMLAdaption();	
+		return completePattern;
 	}
 
-	public static Pattern getPatternForallCond() {		
-		Pattern pattern = getPatternExistsCond();
-		QuantifiedCondition cond1 = (QuantifiedCondition) pattern.getCondition();
+	public static CompletePattern getPatternForallCond() {		
+		CompletePattern completePattern = getPatternExistsCond();
+		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);		
-		return pattern;
+		completePattern.createXMLAdaption();
+		completePattern.finalizeXMLAdaption();	
+		return completePattern;
 	}
 	
 	public static List<PatternTestPair> getTestPairs(){

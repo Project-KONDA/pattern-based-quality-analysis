@@ -4,9 +4,10 @@
   <eAnnotations source="http://www.eclipse.org/OCL/Import">
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
   </eAnnotations>
-  <eSubpackages name="inputfields" nsURI="inputfields" nsPrefix="inputfields">
-    <eClassifiers xsi:type="ecore:EClass" name="Input" abstract="true" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Comparable">
+  <eSubpackages name="parameters" nsURI="parameters" nsPrefix="parameters">
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="inputIsValid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="generateDescription"/>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context">
@@ -16,103 +17,138 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
-          eType="#//inputfields/VariableList" eOpposite="#//inputfields/VariableList/variables"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
+          eType="#//parameters/ParameterList" eOpposite="#//parameters/ParameterList/parameters"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPredefined" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="described" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          transient="true" defaultValueLiteral="false"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CompOption" eSuperTypes="#//inputfields/Input">
+    <eClassifiers xsi:type="ecore:EClass" name="ComparisonOptionParam" eSuperTypes="#//parameters/Parameter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
-          eType="#//functions/ComparisonOperator"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//functions/ComparisonOperator"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison" eType="#//functions/Comparison"
-          eOpposite="#//functions/Comparison/option"/>
+          eType="#//operators/ComparisonOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="#//operators/ComparisonOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="comparisons" upperBound="-1"
+          eType="#//operators/Comparison" eOpposite="#//operators/Comparison/option"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" upperBound="-1"
+          eType="#//patternstructure/CountCondition" eOpposite="#//patternstructure/CountCondition/option"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PropertyOption" eSuperTypes="#//inputfields/Input">
+    <eClassifiers xsi:type="ecore:EClass" name="PropertyOptionParam" eSuperTypes="#//parameters/Parameter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
-          eType="#//graphstructure/PropertyLocation"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//graphstructure/PropertyLocation"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//graphstructure/Property"
-          eOpposite="#//graphstructure/Property/option"/>
+          eType="#//adaptionxml/PropertyKind"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="#//adaptionxml/PropertyKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/option"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableList" eSuperTypes="#//patternstructure/PatternElement">
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterList" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="add">
-        <eParameters name="Input" eType="#//inputfields/Input"/>
+        <eParameters name="Input" eType="#//parameters/Parameter"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
-          eType="#//inputfields/Input" containment="true" eOpposite="#//inputfields/Input/variableList"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//parameters/Parameter" containment="true" eOpposite="#//parameters/Parameter/parameterList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
-          eType="#//patternstructure/Pattern" eOpposite="#//patternstructure/Pattern/variableList"/>
+          eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/parameterList"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="#//inputfields/InputValue">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanParam" eSuperTypes="#//parameters/ParameterValue">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           defaultValueLiteral="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="match" eType="#//functions/Match"
-          eOpposite="#//functions/Match/option"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
+          eType="#//operators/Match" eOpposite="#//operators/Match/option"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Text" abstract="true" eSuperTypes="#//inputfields/InputValue"/>
-    <eClassifiers xsi:type="ecore:EClass" name="TextList" eSuperTypes="#//inputfields/Text">
+    <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="getListDeclaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getListVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TextLiteral" eSuperTypes="#//inputfields/Text">
+    <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="match" eType="#//functions/Match"
-          eOpposite="#//functions/Match/regularExpression"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//graphstructure/Property"
-          eOpposite="#//graphstructure/Property/attributeName"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
+          eType="#//operators/Match" eOpposite="#//operators/Match/regularExpression"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/attributeName"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//inputfields/InputValue">
+    <eClassifiers xsi:type="ecore:EClass" name="NumberParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
           defaultValueLiteral="0.0"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="numberArgument" eType="#//patternstructure/NumberElement"
+          eOpposite="#//patternstructure/NumberElement/numberParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InputValue" eSuperTypes="#//inputfields/Input"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//inputfields/InputValue">
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Comparable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DateParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Time" eSuperTypes="#//inputfields/InputValue">
+    <eClassifiers xsi:type="ecore:EClass" name="TimeParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UnknownInputValue" eSuperTypes="#//inputfields/Input">
+    <eClassifiers xsi:type="ecore:EClass" name="UnknownParameterValue" eSuperTypes="#//parameters/Parameter #//graphstructure/Comparable">
       <eOperations name="concretize">
-        <eParameters name="concreteInputValue" eType="#//inputfields/InputValue"/>
+        <eParameters name="concreteValue" eType="#//parameters/ParameterValue"/>
+      </eOperations>
+      <eOperations name="setValue">
+        <eParameters name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DateTime" eSuperTypes="#//inputfields/InputValue">
+    <eClassifiers xsi:type="ecore:EClass" name="DateTimeParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RelationOptionParam" eSuperTypes="#//parameters/Parameter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
+          eType="#//adaptionxml/RelationKind"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="#//adaptionxml/RelationKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
+          eType="#//adaptionxml/XmlNavigation" eOpposite="#//adaptionxml/XmlNavigation/option"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OptionParam" eSuperTypes="#//parameters/Parameter">
+      <eTypeParameters name="T"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+        <eGenericType eTypeParameter="#//parameters/OptionParam/T"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1">
+        <eGenericType eTypeParameter="#//parameters/OptionParam/T"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//adaptionxml/XmlProperty"
+          eOpposite="#//adaptionxml/XmlProperty/optionParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relation" eType="#//adaptionxml/XmlNavigation"
+          eOpposite="#//adaptionxml/XmlNavigation/optionParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison" upperBound="-1"
+          eType="#//operators/Comparison" eOpposite="#//operators/Comparison/optionParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" eType="#//patternstructure/CountCondition"
+          eOpposite="#//patternstructure/CountCondition/optionParam"/>
+    </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="functions" nsURI="functions" nsPrefix="functions">
-    <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//functions/Operator">
+  <eSubpackages name="operators" nsURI="operators" nsPrefix="operators">
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//operators/Operator">
       <eOperations name="addElement">
         <eParameters name="element" eType="#//graphstructure/Element"/>
       </eOperations>
       <eOperations name="removeElement">
         <eParameters name="element" eType="#//graphstructure/Element"/>
       </eOperations>
-      <eOperations name="createInputs"/>
-      <eOperations name="removeInputsFromVariableList"/>
-      <eOperations name="hasCountPredicate" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="reset"/>
+      <eOperations name="createParameters"/>
+      <eOperations name="removeParametersFromParameterList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/predicates"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
+      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getRootBooleanOperators" upperBound="-1" eType="#//functions/BooleanOperator"/>
-      <eOperations name="isCycleFree" eExceptions="#//functions/OperatorCycleExceptionWrapper">
-        <eParameters name="visitedOperators" upperBound="-1" eType="#//functions/Operator"/>
+      <eOperations name="getRootBooleanOperators" upperBound="-1" eType="#//operators/BooleanOperator"/>
+      <eOperations name="isCycleFree" eExceptions="#//operators/OperatorCycleExceptionWrapper">
+        <eParameters name="visitedOperators" upperBound="-1" eType="#//operators/Operator"/>
       </eOperations>
-      <eOperations name="isCycleFree" eExceptions="#//functions/OperatorCycleExceptionWrapper"/>
+      <eOperations name="isCycleFree" eExceptions="#//operators/OperatorCycleExceptionWrapper"/>
       <eOperations name="getArguments" upperBound="-1" eType="#//graphstructure/Comparable"/>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
@@ -124,34 +160,36 @@
         </eParameters>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
-          eType="#//functions/OperatorList" eOpposite="#//functions/OperatorList/operators"/>
+          eType="#//operators/OperatorList" eOpposite="#//operators/OperatorList/operators"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Count" eSuperTypes="#//functions/NumberOperator">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="argument" lowerBound="1"
-          eType="#//graphstructure/SetElement" eOpposite="#//graphstructure/SetElement/count"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="OtherOperator" abstract="true" eSuperTypes="#//functions/Operator"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NumberOperator" abstract="true" eSuperTypes="#//functions/Operator"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//functions/BooleanOperator">
+    <eClassifiers xsi:type="ecore:EClass" name="NumberOperator" abstract="true" eSuperTypes="#//operators/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//operators/BooleanOperator">
+      <eOperations name="getElement" eType="#//graphstructure/Element"/>
+      <eOperations name="copy" eType="#//operators/Match"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
           eType="#//graphstructure/Property" eOpposite="#//graphstructure/Property/match"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//inputfields/Boolean" eOpposite="#//inputfields/Boolean/match"/>
+          eType="#//parameters/BooleanParam" eOpposite="#//parameters/BooleanParam/matches"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="regularExpression" lowerBound="1"
-          eType="#//inputfields/TextLiteral" eOpposite="#//inputfields/TextLiteral/match"/>
+          eType="#//parameters/TextLiteralParam" eOpposite="#//parameters/TextLiteralParam/matches"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//functions/BooleanOperator">
-      <eOperations name="setTypeAccordingToArgument">
-        <eParameters name="newArgument" eType="#//graphstructure/Comparable"/>
-        <eParameters name="otherArgument" eType="#//graphstructure/Comparable"/>
-      </eOperations>
+    <eClassifiers xsi:type="ecore:EClass" name="Comparison" eSuperTypes="#//operators/BooleanOperator">
+      <eOperations name="isPrimitive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="getElement" eType="#//graphstructure/Element"/>
+      <eOperations name="copy" eType="#//operators/Comparison"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument1" lowerBound="1"
           eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
           eType="#//graphstructure/Comparable" eOpposite="#//graphstructure/Comparable/comparison2"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//inputfields/CompOption" eOpposite="#//inputfields/CompOption/comparison"/>
+          eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/comparisons"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" lowerBound="1"
+          eOpposite="#//parameters/OptionParam/comparison">
+        <eGenericType eClassifier="#//parameters/OptionParam">
+          <eTypeArguments eClassifier="#//operators/ComparisonOperator"/>
+        </eGenericType>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
       <eLiterals name="EQUAL" literal="="/>
@@ -163,250 +201,149 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OperatorList" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="add">
-        <eParameters name="Operator" eType="#//functions/Operator"/>
+        <eParameters name="Operator" eType="#//operators/Operator"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/operatorList"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operators" upperBound="-1"
-          eType="#//functions/Operator" containment="true" eOpposite="#//functions/Operator/operatorList"/>
+          eType="#//operators/Operator" containment="true" eOpposite="#//operators/Operator/operatorList"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="OperatorCycleExceptionWrapper"
         instanceClassName="qualitypatternmodel.exceptions.OperatorCycleException"/>
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
-      <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
-      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
-    </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="correctMappingOfContainment"/>
-      </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="correctMappingOfContainment" value="self.mappingTo->forAll(m | m.to.relationTo.oclIsTypeOf(SingleElement) implies m.to.relationTo.oclAsType(SingleElement).mappingFrom.from = self.relationTo)"/>
-      </eAnnotations>
-      <eOperations name="getGraphDepth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="removeRelationFromPreviousGraphs"/>
       <eOperations name="removeMappingsToNext"/>
       <eOperations name="copyToNewNextGraphs">
         <eParameters name="newRelationTo" eType="#//graphstructure/Element"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/RelationMapping"
-          eOpposite="#//patternstructure/RelationMapping/to"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
-          eType="#//patternstructure/RelationMapping" eOpposite="#//patternstructure/RelationMapping/from"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="#//graphstructure/Axis"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="relationTo" lowerBound="1"
-          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/relationFromPrevious"/>
+      <eOperations name="adaptAsXMLNavigation" eType="#//adaptionxml/XmlNavigation"/>
+      <eOperations name="adaptAsXMLReference" eType="#//adaptionxml/XmlReference"/>
+      <eOperations name="setGraphSimple">
+        <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"
+          eOpposite="#//patternstructure/RelationMapping/target"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
+          eType="#//patternstructure/RelationMapping" eOpposite="#//patternstructure/RelationMapping/source"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
+          eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/relations"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/outgoing"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/incoming"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
-      <eOperations name="createInputs"/>
-      <eOperations name="removeInputsFromVariableList"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
+      <eOperations name="copy" eType="#//graphstructure/Property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
-          eType="#//functions/Match" eOpposite="#//functions/Match/property"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" lowerBound="1"
-          eType="#//inputfields/TextLiteral" eOpposite="#//inputfields/TextLiteral/property"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//inputfields/PropertyOption" eOpposite="#//inputfields/PropertyOption/property"/>
+          eType="#//operators/Match" eOpposite="#//operators/Match/property"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SingleElement" eSuperTypes="#//graphstructure/Element">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="hasPreviousOrIsRoot correctMappingOfContainment"/>
-      </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="hasPreviousOrIsRoot" value="self.previous->notEmpty() or self.root->notEmpty()"/>
-        <details key="correctMappingOfContainment" value="self.previous->notEmpty() implies self.mappingTo->forAll(m | m.to.previous.mappingFrom.from = self.previous)"/>
-      </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="copyNextElementsToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException"/>
       <eOperations name="copyNextElementToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException">
-        <eParameters name="nextElement" eType="#//graphstructure/SingleElement"/>
+        <eParameters name="nextElement" eType="#//graphstructure/Element"/>
       </eOperations>
-      <eOperations name="removeElementFromPreviousGraphs"/>
       <eOperations name="copyNextElementToPreviousGraphs">
-        <eParameters name="nextElement" eType="#//graphstructure/SingleElement"/>
+        <eParameters name="nextElement" eType="#//graphstructure/Element"/>
         <eParameters name="recursive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
       <eOperations name="copyNextElementsToPreviousGraphs">
         <eParameters name="recursive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       </eOperations>
-      <eOperations name="hasCountPredicate" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="toXQueryCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
-      <eOperations name="toXQueryNoCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
-      <eOperations name="isRootElement" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="removeMappingsToNext"/>
-      <eOperations name="removeFromReturnElements"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingTo" upperBound="-1"
-          eType="#//patternstructure/SingleElementMapping" eOpposite="#//patternstructure/SingleElementMapping/from"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="mappingFrom" eType="#//patternstructure/SingleElementMapping"
-          eOpposite="#//patternstructure/SingleElementMapping/to"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//graphstructure/Graph"
-          eOpposite="#//graphstructure/Graph/rootElement"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="nextSingle" upperBound="-1"
-          eType="#//graphstructure/SingleElement" containment="true" eOpposite="#//graphstructure/SingleElement/previous"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//graphstructure/SingleElement"
-          eOpposite="#//graphstructure/SingleElement/nextSingle"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="nextSet" upperBound="-1"
-          eType="#//graphstructure/SetElement" containment="true" eOpposite="#//graphstructure/SetElement/previousSingle"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="graph" eType="#//graphstructure/Graph"
-          eOpposite="#//graphstructure/Graph/returnElements"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SetElement" eSuperTypes="#//graphstructure/Element">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="hasPrevious"/>
-      </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="hasPrevious" value="self.previousSet->notEmpty() or self.previousSingle->notEmpty()"/>
-      </eAnnotations>
-      <eOperations name="getPathToPreviousSingleElement" eType="#//graphstructure/ListOfElements"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getAllArgumentElementsSetOperation" upperBound="-1" eType="#//graphstructure/ListOfElements"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="generateWhereClause" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="next" upperBound="-1"
-          eType="#//graphstructure/SetElement" containment="true" eOpposite="#//graphstructure/SetElement/previousSet"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="previousSet" eType="#//graphstructure/SetElement"
-          eOpposite="#//graphstructure/SetElement/next"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="previousSingle" eType="#//graphstructure/SingleElement"
-          eOpposite="#//graphstructure/SingleElement/nextSet"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//functions/Count"
-          eOpposite="#//functions/Count/argument"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Element" abstract="true" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
-      <eOperations name="getNextElements" upperBound="-1" eType="#//graphstructure/Element"/>
-      <eOperations name="getPreviousElement" eType="#//graphstructure/Element"/>
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getAllVariables" upperBound="-1" eType="#//inputfields/Input"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getXQueryRepresentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
-      <eOperations name="getGraphDepth" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="translateElementExistencePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
-      <eOperations name="addPrimitiveComparison"/>
+      <eOperations name="clearMatchRecursively"/>
+      <eOperations name="clearPredicatesRecursively"/>
+      <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eOperations name="addPrimitiveMatch">
         <eParameters name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="translatePathFromPrevious" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eOperations name="translatePredicatesViaBrackets" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
-      <eOperations name="translatePredicatesViaAnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
-      <eOperations name="resetCountOperatorRecursively"/>
-      <eOperations name="clearMatchRecursively"/>
-      <eOperations name="clearComparisonRecursively"/>
-      <eOperations name="clearPredicatesRecursively"/>
       <eOperations name="addPrimitiveComparison">
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="relationFromPrevious"
-          eType="#//graphstructure/Relation" containment="true" eOpposite="#//graphstructure/Relation/relationTo"/>
+      <eOperations name="addPrimitiveMatch"/>
+      <eOperations name="addPrimitiveComparison" eType="#//parameters/UnknownParameterValue"/>
+      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addPrimitiveComparison">
+        <eParameters name="operator" eType="#//operators/ComparisonOperator"/>
+        <eParameters name="input" eType="#//parameters/ParameterValue"/>
+      </eOperations>
+      <eOperations name="addPrimitiveComparison">
+        <eParameters name="input" eType="#//parameters/ParameterValue"/>
+      </eOperations>
+      <eOperations name="clearComparisonRecursively"/>
+      <eOperations name="clearPropertyRecursively"/>
+      <eOperations name="copyProperty" eType="#//graphstructure/Property">
+        <eParameters name="property" eType="#//graphstructure/Property"/>
+      </eOperations>
+      <eOperations name="copyPrimitiveComparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="comparison" eType="#//operators/Comparison"/>
+      </eOperations>
+      <eOperations name="copyMatch">
+        <eParameters name="match" eType="#//operators/Match"/>
+      </eOperations>
+      <eOperations name="addNewProperty" eType="#//graphstructure/Property"/>
+      <eOperations name="setGraphSimple">
+        <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
+          eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"
+          eOpposite="#//patternstructure/ElementMapping/target"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
+          eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/elements"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resultOf" eType="#//graphstructure/Graph"
+          eOpposite="#//graphstructure/Graph/returnElements"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="translated" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#//graphstructure/Property" containment="true" eOpposite="#//graphstructure/Property/element"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="getAllElements" ordered="false"
-          upperBound="-1" eType="#//graphstructure/Element" changeable="false" volatile="true"
-          derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9; self.getNextElements()->collect(e: Element | e.getAllElements)->asSet()->including(self)"/>
-        </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/OCL/Collection">
-          <details key="nullFree" value="false"/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="getAllRelations" ordered="false"
-          upperBound="-1" eType="#//graphstructure/Relation" changeable="false" volatile="true"
-          derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9; self.getNextElements()->collect(e: Element | e.getAllRelations)->asSet()->including(self.relationFromPrevious)"/>
-        </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/OCL/Collection">
-          <details key="nullFree" value="false"/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="predicates" upperBound="-1"
-          eType="#//functions/BooleanOperator" eOpposite="#//functions/BooleanOperator/elements"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="predicatesAreBeingTranslated"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//graphstructure/Property" containment="true" eOpposite="#//graphstructure/Property/element"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="predicates" upperBound="-1"
+          eType="#//operators/BooleanOperator" eOpposite="#//operators/BooleanOperator/elements"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
+          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/source"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1"
+          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/target"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//functions/Operator"
+      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="copyGraph" eExceptions="#//patternstructure/MissingPatternContainerException">
         <eParameters name="graph" eType="#//graphstructure/Graph"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rootElement" lowerBound="1"
-          eType="#//graphstructure/SingleElement" containment="true" eOpposite="#//graphstructure/SingleElement/root"/>
+      <eOperations name="isReturnGraph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="addRelation" eType="#//graphstructure/Relation">
+        <eParameters name="from" eType="#//graphstructure/Element"/>
+        <eParameters name="to" eType="#//graphstructure/Element"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
+          upperBound="-1" eType="#//graphstructure/Element" containment="true" eOpposite="#//graphstructure/Element/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
-          eType="#//functions/OperatorList" containment="true" eOpposite="#//functions/OperatorList/graph"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnGraph" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          defaultValueLiteral="false"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="getAllElements" ordered="false"
-          upperBound="-1" eType="#//graphstructure/Element" changeable="false" volatile="true"
-          derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;self.rootElement.getAllElements"/>
-        </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/OCL/Collection">
-          <details key="nullFree" value="false"/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="getAllRelations" ordered="false"
-          upperBound="-1" eType="#//graphstructure/Relation" changeable="false" volatile="true"
-          derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;self.rootElement.getAllRelations"/>
-        </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/OCL/Collection">
-          <details key="nullFree" value="false"/>
-        </eAnnotations>
-      </eStructuralFeatures>
+          eType="#//operators/OperatorList" containment="true" eOpposite="#//operators/OperatorList/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedCondition"
           eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//patternstructure/Pattern"
           eOpposite="#//patternstructure/Pattern/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="returnElements" lowerBound="1"
-          upperBound="-1" eType="#//graphstructure/SingleElement" eOpposite="#//graphstructure/SingleElement/graph"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="morphismTo" upperBound="-1"
-          eType="#//patternstructure/Morphism" eOpposite="#//patternstructure/Morphism/from"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="morphismFrom" eType="#//patternstructure/Morphism"
-          eOpposite="#//patternstructure/Morphism/to"/>
+          upperBound="-1" eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/resultOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMorphisms" upperBound="-1"
+          eType="#//patternstructure/Morphism" eOpposite="#//patternstructure/Morphism/source"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMorphism" eType="#//patternstructure/Morphism"
+          eOpposite="#//patternstructure/Morphism/target"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
+          eType="#//graphstructure/Relation" containment="true" eOpposite="#//graphstructure/Relation/graph"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Comparable" abstract="true" interface="true"
         eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getAllArgumentElements" upperBound="-1" eType="#//graphstructure/ListOfElements"
+      <eOperations name="getAllArgumentElements" upperBound="-1" eType="#//graphstructure/Element"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
@@ -418,27 +355,9 @@
         </eParameters>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comparison1" upperBound="-1"
-          eType="#//functions/Comparison" eOpposite="#//functions/Comparison/argument1"/>
+          eType="#//operators/Comparison" eOpposite="#//operators/Comparison/argument1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comparison2" upperBound="-1"
-          eType="#//functions/Comparison" eOpposite="#//functions/Comparison/argument2"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="PropertyLocation">
-      <eLiterals name="DATA" literal="DATA"/>
-      <eLiterals name="TAG" value="1" literal="TAG"/>
-      <eLiterals name="ATTRIBUTE" value="2" literal="ATTRIBUTE"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="Axis">
-      <eLiterals name="CHILD" literal="child"/>
-      <eLiterals name="DESCENDANT" value="1" literal="descendant"/>
-      <eLiterals name="PARENT" value="2" literal="parent"/>
-      <eLiterals name="ANCESTOR" value="3" literal="ancestor"/>
-      <eLiterals name="FOLLOWING" value="4" literal="following"/>
-      <eLiterals name="FOLLOWING_SIBLING" value="5" literal="following-sibling"/>
-      <eLiterals name="PRECEDING" value="6" literal="preceding"/>
-      <eLiterals name="PRECEDING_SIBLING" value="7" literal="preceding-sibling"/>
-      <eLiterals name="ANCESTOR_OR_SELF" value="8" literal="ancestor-or-self"/>
-      <eLiterals name="DESCENDANT_OR_SELF" value="9" literal="descendant-or-self"/>
-      <eLiterals name="SELF" value="10" literal="self"/>
+          eType="#//operators/Comparison" eOpposite="#//operators/Comparison/argument2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ReturnType">
       <eLiterals name="UNSPECIFIED" literal="UNSPECIFIED"/>
@@ -450,132 +369,80 @@
       <eLiterals name="NUMBER" value="7" literal="NUMBER"/>
       <eLiterals name="DATETIME" value="8"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="ListOfElements" instanceClassName="qualitypatternmodel.graphstructure.ListOfElements"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Adaptable" abstract="true" interface="true"
+        eSuperTypes="#//patternstructure/PatternElement">
+      <eOperations name="removeParametersFromParameterList"/>
+      <eOperations name="createParameters"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="patternstructure" nsURI="patternstructure" nsPrefix="patternstructure">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
-      <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
-      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
-    </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="RelationMapping" eSuperTypes="#//patternstructure/Mapping">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/Relation"
-          eOpposite="#//graphstructure/Relation/mappingFrom"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
-          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/mappingTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/incomingMapping"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/outgoingMappings"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="QuantifiedCondition" eSuperTypes="#//patternstructure/Condition">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="morphismValid"/>
-      </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="morphismValid" value="self.checkMorphismOfNextGraph"/>
-      </eAnnotations>
-      <eOperations name="copyPreviousGraph" eExceptions="#//patternstructure/MissingPatternContainerException"/>
+    <eClassifiers xsi:type="ecore:EClass" name="QuantifiedCondition" eSuperTypes="#//patternstructure/Condition #//patternstructure/MorphismContainer">
+      <eOperations name="checkMorphismOfNextGraph" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//patternstructure/Quantifier"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkMorphismOfNextGraph"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          changeable="false" volatile="true" derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;if self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to&#xA;&#x9;&#x9;&#x9;&#x9;else self.condition.getNextQuantifiedConditions->forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif"/>
-        </eAnnotations>
-      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/quantifiedCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
-          eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/quantifiedcondition"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"
-          eType="#//patternstructure/Morphism" containment="true"/>
+          eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/quantifiedCondition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="condDepth" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="getNextQuantifiedConditions"
-          ordered="false" upperBound="-1" eType="#//patternstructure/QuantifiedCondition"
-          changeable="false" volatile="true" derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;if self.oclIsTypeOf(QuantifiedCondition) then &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;Set{self.oclAsType(QuantifiedCondition)}&#xA;&#x9;&#x9;&#x9;&#x9;else &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;if self.oclIsTypeOf(Formula) then &#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if(self.oclAsType(Formula).condition2->notEmpty()) then&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.oclAsType(Formula).condition.getNextQuantifiedConditions->union(self.oclAsType(Formula).condition2.getNextQuantifiedConditions)&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.oclAsType(Formula).condition.getNextQuantifiedConditions&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Set{}&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;&#x9;&#x9;endif"/>
-        </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/OCL/Collection">
-          <details key="nullFree" value="false"/>
-        </eAnnotations>
-      </eStructuralFeatures>
+      <eOperations name="getNextMorphismContainers" upperBound="-1" eType="#//patternstructure/MorphismContainer"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//patternstructure/Pattern"
           eOpposite="#//patternstructure/Pattern/condition"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedcondition"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedCondition"
           eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/condition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="formula1" eType="#//patternstructure/Formula"
-          eOpposite="#//patternstructure/Formula/condition"/>
+          eOpposite="#//patternstructure/Formula/condition1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="formula2" eType="#//patternstructure/Formula"
           eOpposite="#//patternstructure/Formula/condition2"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="not" eType="#//patternstructure/NotElement"
-          eOpposite="#//patternstructure/NotElement/condition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="notCondition" eType="#//patternstructure/NotCondition"
+          eOpposite="#//patternstructure/NotCondition/condition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Morphism" eSuperTypes="#//patternstructure/PatternElement">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="singleElementMappingsValid relationMappingsValid singleElementMappingsUnique relationMappingsUnique"/>
-      </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="singleElementMappingsValid" value="self.checkSingleElementMappings"/>
-        <details key="relationMappingsValid" value="self.checkRelationMappings"/>
-        <details key="singleElementMappingsUnique" value="self.checkSingleElementMappingsUniqueness"/>
-        <details key="relationMappingsUnique" value="self.checkRelationMappingsUniqueness"/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="morphDepth" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkSingleElementMappings"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-          changeable="false" volatile="true" derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->forAll(m : Mapping | self.from.getAllElements->includes(m.oclAsType(SingleElementMapping).from))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->forAll(m : Mapping | self.to.getAllElements->includes(m.oclAsType(SingleElementMapping).to))"/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkRelationMappings"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-          changeable="false" volatile="true" derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->forAll(m : Mapping | self.from.getAllRelations->includes(m.oclAsType(RelationMapping).from))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->forAll(m : Mapping | self.to.getAllRelations->includes(m.oclAsType(RelationMapping).to))"/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkSingleElementMappingsUniqueness"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-          changeable="false" volatile="true" derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).from)->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;= self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).from)->asSet()->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).to)->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;= self.mappings->select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))->collect(m: Mapping | m.oclAsType(SingleElementMapping).to)->asSet()->size()"/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkRelationMappingsUniqueness"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
-          changeable="false" volatile="true" derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).from)->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;= self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).from)->asSet()->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).to)->size()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;= self.mappings->select(f: Mapping | f.oclIsTypeOf(RelationMapping))->collect(m: Mapping | m.oclAsType(RelationMapping).to)->asSet()->size()"/>
-        </eAnnotations>
-      </eStructuralFeatures>
+      <eOperations name="checkElementMappings" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="checkRelationMappings" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="checkRelationMappingsUniqueness" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="checkElementMappingsUniqueness" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addMapping" eType="#//patternstructure/ElementMapping">
+        <eParameters name="from" eType="#//graphstructure/Element"/>
+        <eParameters name="to" eType="#//graphstructure/Element"/>
+      </eOperations>
+      <eOperations name="addMapping" eType="#//patternstructure/RelationMapping">
+        <eParameters name="from" eType="#//graphstructure/Relation"/>
+        <eParameters name="to" eType="#//graphstructure/Relation"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
           eType="#//patternstructure/Mapping" containment="true" eOpposite="#//patternstructure/Mapping/morphism"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
-          eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/morphismTo"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/Graph"
-          eOpposite="#//graphstructure/Graph/morphismFrom"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/outgoingMorphisms"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/incomingMorphism"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="morphismContainer" eType="#//patternstructure/MorphismContainer"
+          eOpposite="#//patternstructure/MorphismContainer/morphism"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SingleElementMapping" eSuperTypes="#//patternstructure/Mapping">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1"
-          eType="#//graphstructure/SingleElement" eOpposite="#//graphstructure/SingleElement/mappingTo"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="#//graphstructure/SingleElement"
-          eOpposite="#//graphstructure/SingleElement/mappingFrom"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ElementMapping" eSuperTypes="#//patternstructure/Mapping">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/outgoingMappings"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/incomingMapping"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Mapping" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappingDepth" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"
           eType="#//patternstructure/Morphism" eOpposite="#//patternstructure/Morphism/mappings"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Formula" eSuperTypes="#//patternstructure/Condition">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//patternstructure/LogicalOperator"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+          eType="#//patternstructure/LogicalOperator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition1" lowerBound="1"
           eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/formula1"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="condition2" eType="#//patternstructure/Condition"
-          containment="true" eOpposite="#//patternstructure/Condition/formula2"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition2" lowerBound="1"
+          eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/formula2"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TrueElement" eSuperTypes="#//patternstructure/Condition"/>
     <eClassifiers xsi:type="ecore:EEnum" name="LogicalOperator">
@@ -583,55 +450,31 @@
       <eLiterals name="OR" value="2" literal="or"/>
       <eLiterals name="IMPLIES" value="3" literal="implies"/>
       <eLiterals name="XOR" value="4" literal="xor"/>
-      <eLiterals name="EQUAL" value="5" literal="EQUAL"/>
+      <eLiterals name="EQUAL" value="5" literal="equal"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="Quantifier">
       <eLiterals name="EXISTS" literal="EXISTS"/>
       <eLiterals name="FORALL" value="1" literal="FORALL"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Pattern" eSuperTypes="#//patternstructure/PatternElement">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="morphismValid"/>
-      </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-        <details key="morphismValid" value="self.checkMorphismOfNextGraph"/>
-      </eAnnotations>
-      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//functions/OperatorCycleExceptionWrapper">
-        <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      </eOperations>
-      <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CompletePattern" eSuperTypes="#//patternstructure/Pattern">
       <eOperations name="getNewRefNo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variableList" lowerBound="1"
-          eType="#//inputfields/VariableList" containment="true" eOpposite="#//inputfields/VariableList/pattern"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checkMorphismOfNextGraph"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          changeable="false" volatile="true" derived="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="derivation" value="&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else self.condition.getNextQuantifiedConditions->forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif"/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
-          eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/pattern"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
-          eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/pattern"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
+          eType="#//parameters/ParameterList" containment="true" eOpposite="#//parameters/ParameterList/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementCounter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
-      <eOperations name="toXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="location" eType="#//patternstructure/Location"/>
-      </eOperations>
-      <eOperations name="getAllInputs" upperBound="-1" eType="#//inputfields/Input"
+      <eOperations name="generateQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getAllInputs" upperBound="-1" eType="#//parameters/Parameter"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="prepareTranslation"/>
-      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//functions/OperatorCycleExceptionWrapper">
-        <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper">
+        <eParameters name="abstractionLevel" lowerBound="1" eType="#//patternstructure/AbstractionLevel"/>
       </eOperations>
-      <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//functions/OperatorCycleExceptionWrapper">
-        <eParameters name="isDefinedPattern" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper">
+        <eParameters name="abstractionLevel" lowerBound="1" eType="#//patternstructure/AbstractionLevel"/>
       </eOperations>
       <eOperations name="getContainer" eType="#//patternstructure/PatternElement"
           eExceptions="#//patternstructure/MissingPatternContainerException"/>
@@ -648,6 +491,16 @@
           </eGenericType>
         </eParameters>
       </eOperations>
+      <eOperations name="updateParameters">
+        <eParameters name="newParameterList" eType="#//parameters/ParameterList"/>
+      </eOperations>
+      <eOperations name="getParameterList" eType="#//parameters/ParameterList"/>
+      <eOperations name="updateOperators">
+        <eParameters name="newOperatorList" eType="#//operators/OperatorList"/>
+      </eOperations>
+      <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
+      <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"/>
+      <eOperations name="finalizeXMLAdaption"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"
@@ -663,9 +516,110 @@
     <eClassifiers xsi:type="ecore:EDataType" name="ClassWrapper" instanceClassName="java.lang.Class"/>
     <eClassifiers xsi:type="ecore:EDataType" name="MissingPatternContainerException"
         instanceClassName="qualitypatternmodel.exceptions.MissingPatternContainerException"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NotElement" eSuperTypes="#//patternstructure/Condition">
+    <eClassifiers xsi:type="ecore:EClass" name="NotCondition" eSuperTypes="#//patternstructure/Condition">
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
-          eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/not"/>
+          eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/notCondition"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CountCondition" eSuperTypes="#//patternstructure/Condition">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countPattern" lowerBound="1"
+          eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/countCondition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
+          eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/countCondition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" lowerBound="1"
+          eType="#//parameters/OptionParam" eOpposite="#//parameters/OptionParam/countCondition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
+          eType="#//patternstructure/CountConditionArgument" containment="true" eOpposite="#//patternstructure/CountConditionArgument/countCondition2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CountConditionArgument" abstract="true"
+        interface="true" eSuperTypes="#//patternstructure/PatternElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition2" eType="#//patternstructure/CountCondition"
+          eOpposite="#//patternstructure/CountCondition/argument2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MorphismContainer" abstract="true"
+        interface="true" eSuperTypes="#//patternstructure/PatternElement">
+      <eOperations name="getGraph" eType="#//graphstructure/Graph"/>
+      <eOperations name="copyPreviousGraph" eExceptions="#//patternstructure/MissingPatternContainerException"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" eType="#//patternstructure/Morphism"
+          containment="true" eOpposite="#//patternstructure/Morphism/morphismContainer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CountPattern" eSuperTypes="#//patternstructure/Pattern #//patternstructure/MorphismContainer #//patternstructure/CountConditionArgument">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" eType="#//patternstructure/CountCondition"
+          eOpposite="#//patternstructure/CountCondition/countPattern"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Pattern" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
+      <eOperations name="checkMorphismOfNextGraph" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
+          eType="#//graphstructure/Graph" containment="true" eOpposite="#//graphstructure/Graph/pattern"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//patternstructure/Condition"
+          containment="true" eOpposite="#//patternstructure/Condition/pattern"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberElement" eSuperTypes="#//patternstructure/CountConditionArgument">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="numberParam" lowerBound="1"
+          eType="#//parameters/NumberParam" eOpposite="#//parameters/NumberParam/numberArgument"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="AbstractionLevel">
+      <eLiterals name="GENERIC" literal="GENERIC"/>
+      <eLiterals name="ABSTRACT" value="1"/>
+      <eLiterals name="CONCRETE" value="2"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="adaptionxml" nsURI="adaptionxml" nsPrefix="adaptionxml">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//graphstructure/Element">
+      <eOperations name="getXQueryRepresentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="translatePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" eSuperTypes="#//graphstructure/Relation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/RelationOptionParam"
+          eOpposite="#//parameters/RelationOptionParam/relations"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" eType="#//parameters/OptionParam"
+          eOpposite="#//parameters/OptionParam/relation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="XmlReference" eSuperTypes="#//graphstructure/Relation">
+      <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" lowerBound="1"
+          eType="#//adaptionxml/XmlProperty"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" lowerBound="1"
+          eType="#//adaptionxml/XmlProperty"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/Property">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" eType="#//parameters/OptionParam"
+          eOpposite="#//parameters/OptionParam/property"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/PropertyOptionParam"
+          eOpposite="#//parameters/PropertyOptionParam/properties"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
+          eOpposite="#//parameters/TextLiteralParam/properties"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PropertyKind">
+      <eLiterals name="DATA" literal="DATA"/>
+      <eLiterals name="TAG" value="1" literal="TAG"/>
+      <eLiterals name="ATTRIBUTE" value="2" literal="ATTRIBUTE"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="RelationKind">
+      <eLiterals name="CHILD" literal="/child::*"/>
+      <eLiterals name="DESCENDANT" value="1" literal="/descendant::*"/>
+      <eLiterals name="PARENT" value="2" literal="/parent::*"/>
+      <eLiterals name="ANCESTOR" value="3" literal="/ancestor::*"/>
+      <eLiterals name="FOLLOWING" value="4" literal="/following::*"/>
+      <eLiterals name="FOLLOWING_SIBLING" value="5" literal="/following-sibling::*"/>
+      <eLiterals name="PRECEDING" value="6" literal="/preceding::*"/>
+      <eLiterals name="PRECEDING_SIBLING" value="7" literal="/preceding-sibling::*"/>
+      <eLiterals name="ANCESTOR_OR_SELF" value="8" literal="/ancestor-or-self::*"/>
+      <eLiterals name="DESCENDANT_OR_SELF" value="9" literal="/descendant-or-self::*"/>
+      <eLiterals name="SELF" value="10" literal="/self::*"/>
+      <eLiterals name="TWOCHILD" value="11" literal="/*/*"/>
+      <eLiterals name="THREECHILD" value="12" literal="/*/*/*"/>
+      <eLiterals name="FOURCHILD" value="13" literal="/*/*/*/*"/>
+      <eLiterals name="FIVECHILD" value="14" literal="/*/*/*/*/*"/>
+      <eLiterals name="SIXCHILD" value="15" literal="/*/*/*/*/*/*"/>
+      <eLiterals name="SEVENCHILD" value="16" literal="/*/*/*/*/*/*/*"/>
+      <eLiterals name="EIGHTCHILD" value="17" literal="/*/*/*/*/*/*/*/*"/>
+      <eLiterals name="NINECHILD" value="18" literal="/*/*/*/*/*/*/*/*/*"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/Element"/>
   </eSubpackages>
 </ecore:EPackage>

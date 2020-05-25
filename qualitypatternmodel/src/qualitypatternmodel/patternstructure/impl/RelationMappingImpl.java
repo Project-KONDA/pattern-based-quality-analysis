@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.RelationMapping;
@@ -24,32 +25,32 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.RelationMappingImpl#getTo <em>To</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.RelationMappingImpl#getFrom <em>From</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.RelationMappingImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.RelationMappingImpl#getSource <em>Source</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class RelationMappingImpl extends MappingImpl implements RelationMapping {
 	/**
-	 * The cached value of the '{@link #getTo() <em>To</em>}' reference. <!--
+	 * The cached value of the '{@link #getTarget() <em>To</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getTo()
+	 * @see #getTarget()
 	 * @generated
 	 * @ordered
 	 */
-	protected Relation to;
+	protected Relation target;
 
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference. <!--
+	 * The cached value of the '{@link #getSource() <em>From</em>}' reference. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @see #getFrom()
+	 * @see #getSource()
 	 * @generated
 	 * @ordered
 	 */
-	protected Relation from;
+	protected Relation source;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -60,19 +61,19 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException {
-		isValidLocal(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
+		isValidLocal(abstractionLevel);
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
-		if (from == null)
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		if (source == null)
 			throw new InvalidityException("RelationMapping " + getInternalId() + ": from-element null");
-		if (to == null)
+		if (target == null)
 			throw new InvalidityException("RelationMapping " + getInternalId() + ": to null");
-		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
-			throw new InvalidityException("RelationMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
-					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
-		}
+//		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
+//			throw new InvalidityException("RelationMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
+//					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
+//		}
 	}
 
 	/**
@@ -86,8 +87,8 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	
 	@Override
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
-		if (getFrom() != null) getFrom().getMappingTo().remove(this);
-		if (getTo() != null) getTo().setMappingFrom(null);
+		if (getSource() != null) getSource().getOutgoingMappings().remove(this);
+		if (getTarget() != null) getTarget().setIncomingMapping(null);
 		return super.basicSetMorphism(newMorphism, msgs);
 	}
 
@@ -96,35 +97,35 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	 * @generated
 	 */
 	@Override
-	public Relation getTo() {
-		if (to != null && to.eIsProxy()) {
-			InternalEObject oldTo = (InternalEObject)to;
-			to = (Relation)eResolveProxy(oldTo);
-			if (to != oldTo) {
+	public Relation getTarget() {
+		if (target != null && target.eIsProxy()) {
+			InternalEObject oldTarget = (InternalEObject)target;
+			target = (Relation)eResolveProxy(oldTarget);
+			if (target != oldTarget) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.RELATION_MAPPING__TO, oldTo, to));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.RELATION_MAPPING__TARGET, oldTarget, target));
 			}
 		}
-		return to;
+		return target;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Relation basicGetTo() {
-		return to;
+	public Relation basicGetTarget() {
+		return target;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTo(Relation newTo, NotificationChain msgs) {
-		Relation oldTo = to;
-		to = newTo;
+	public NotificationChain basicSetTarget(Relation newTarget, NotificationChain msgs) {
+		Relation oldTarget = target;
+		target = newTarget;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.RELATION_MAPPING__TO, oldTo, newTo);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.RELATION_MAPPING__TARGET, oldTarget, newTarget);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -135,18 +136,18 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	 * @generated
 	 */
 	@Override
-	public void setTo(Relation newTo) {
-		if (newTo != to) {
+	public void setTarget(Relation newTarget) {
+		if (newTarget != target) {
 			NotificationChain msgs = null;
-			if (to != null)
-				msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_FROM, Relation.class, msgs);
-			if (newTo != null)
-				msgs = ((InternalEObject)newTo).eInverseAdd(this, GraphstructurePackage.RELATION__MAPPING_FROM, Relation.class, msgs);
-			msgs = basicSetTo(newTo, msgs);
+			if (target != null)
+				msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.RELATION__INCOMING_MAPPING, Relation.class, msgs);
+			if (newTarget != null)
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, GraphstructurePackage.RELATION__INCOMING_MAPPING, Relation.class, msgs);
+			msgs = basicSetTarget(newTarget, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.RELATION_MAPPING__TO, newTo, newTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.RELATION_MAPPING__TARGET, newTarget, newTarget));
 	}
 
 	/**
@@ -154,35 +155,35 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	 * @generated
 	 */
 	@Override
-	public Relation getFrom() {
-		if (from != null && from.eIsProxy()) {
-			InternalEObject oldFrom = (InternalEObject)from;
-			from = (Relation)eResolveProxy(oldFrom);
-			if (from != oldFrom) {
+	public Relation getSource() {
+		if (source != null && source.eIsProxy()) {
+			InternalEObject oldSource = (InternalEObject)source;
+			source = (Relation)eResolveProxy(oldSource);
+			if (source != oldSource) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.RELATION_MAPPING__FROM, oldFrom, from));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.RELATION_MAPPING__SOURCE, oldSource, source));
 			}
 		}
-		return from;
+		return source;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Relation basicGetFrom() {
-		return from;
+	public Relation basicGetSource() {
+		return source;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFrom(Relation newFrom, NotificationChain msgs) {
-		Relation oldFrom = from;
-		from = newFrom;
+	public NotificationChain basicSetSource(Relation newSource, NotificationChain msgs) {
+		Relation oldSource = source;
+		source = newSource;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.RELATION_MAPPING__FROM, oldFrom, newFrom);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.RELATION_MAPPING__SOURCE, oldSource, newSource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -193,18 +194,18 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	 * @generated
 	 */
 	@Override
-	public void setFrom(Relation newFrom) {
-		if (newFrom != from) {
+	public void setSource(Relation newSource) {
+		if (newSource != source) {
 			NotificationChain msgs = null;
-			if (from != null)
-				msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_TO, Relation.class, msgs);
-			if (newFrom != null)
-				msgs = ((InternalEObject)newFrom).eInverseAdd(this, GraphstructurePackage.RELATION__MAPPING_TO, Relation.class, msgs);
-			msgs = basicSetFrom(newFrom, msgs);
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.RELATION__OUTGOING_MAPPINGS, Relation.class, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.RELATION__OUTGOING_MAPPINGS, Relation.class, msgs);
+			msgs = basicSetSource(newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.RELATION_MAPPING__FROM, newFrom, newFrom));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.RELATION_MAPPING__SOURCE, newSource, newSource));
 	}
 
 	/**
@@ -214,14 +215,14 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.RELATION_MAPPING__TO:
-				if (to != null)
-					msgs = ((InternalEObject)to).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_FROM, Relation.class, msgs);
-				return basicSetTo((Relation)otherEnd, msgs);
-			case PatternstructurePackage.RELATION_MAPPING__FROM:
-				if (from != null)
-					msgs = ((InternalEObject)from).eInverseRemove(this, GraphstructurePackage.RELATION__MAPPING_TO, Relation.class, msgs);
-				return basicSetFrom((Relation)otherEnd, msgs);
+			case PatternstructurePackage.RELATION_MAPPING__TARGET:
+				if (target != null)
+					msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.RELATION__INCOMING_MAPPING, Relation.class, msgs);
+				return basicSetTarget((Relation)otherEnd, msgs);
+			case PatternstructurePackage.RELATION_MAPPING__SOURCE:
+				if (source != null)
+					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.RELATION__OUTGOING_MAPPINGS, Relation.class, msgs);
+				return basicSetSource((Relation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -233,10 +234,10 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.RELATION_MAPPING__TO:
-				return basicSetTo(null, msgs);
-			case PatternstructurePackage.RELATION_MAPPING__FROM:
-				return basicSetFrom(null, msgs);
+			case PatternstructurePackage.RELATION_MAPPING__TARGET:
+				return basicSetTarget(null, msgs);
+			case PatternstructurePackage.RELATION_MAPPING__SOURCE:
+				return basicSetSource(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -248,12 +249,12 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.RELATION_MAPPING__TO:
-				if (resolve) return getTo();
-				return basicGetTo();
-			case PatternstructurePackage.RELATION_MAPPING__FROM:
-				if (resolve) return getFrom();
-				return basicGetFrom();
+			case PatternstructurePackage.RELATION_MAPPING__TARGET:
+				if (resolve) return getTarget();
+				return basicGetTarget();
+			case PatternstructurePackage.RELATION_MAPPING__SOURCE:
+				if (resolve) return getSource();
+				return basicGetSource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -265,11 +266,11 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.RELATION_MAPPING__TO:
-				setTo((Relation)newValue);
+			case PatternstructurePackage.RELATION_MAPPING__TARGET:
+				setTarget((Relation)newValue);
 				return;
-			case PatternstructurePackage.RELATION_MAPPING__FROM:
-				setFrom((Relation)newValue);
+			case PatternstructurePackage.RELATION_MAPPING__SOURCE:
+				setSource((Relation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -282,11 +283,11 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.RELATION_MAPPING__TO:
-				setTo((Relation)null);
+			case PatternstructurePackage.RELATION_MAPPING__TARGET:
+				setTarget((Relation)null);
 				return;
-			case PatternstructurePackage.RELATION_MAPPING__FROM:
-				setFrom((Relation)null);
+			case PatternstructurePackage.RELATION_MAPPING__SOURCE:
+				setSource((Relation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -299,10 +300,10 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.RELATION_MAPPING__TO:
-				return to != null;
-			case PatternstructurePackage.RELATION_MAPPING__FROM:
-				return from != null;
+			case PatternstructurePackage.RELATION_MAPPING__TARGET:
+				return target != null;
+			case PatternstructurePackage.RELATION_MAPPING__SOURCE:
+				return source != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -316,14 +317,14 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 
 	@Override
 	public String myToString() {
-		String res = "RelationMapping (" + getInternalId() + ") ";
-		res += "[";
-		if (getFrom()!= null) res += getFrom().getInternalId();
+		String res = "RelationMapping [" + getInternalId() + "] ";
+		res += "(";
+		if (getSource()!= null) res += getSource().getInternalId();
 		else res += "-";			
 		res += " -> ";
-		if (getTo()!= null) res += getTo().getInternalId() ;
+		if (getTarget()!= null) res += getTarget().getInternalId() ;
 		else res += "-";	
-		res += "]";
+		res += ")";
 		return res;
 	}
 

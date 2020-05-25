@@ -6,13 +6,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.SetElement;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -75,6 +74,7 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 			case GraphstructurePackage.RELATION: {
 				Relation relation = (Relation)theEObject;
 				T result = caseRelation(relation);
+				if (result == null) result = caseAdaptable(relation);
 				if (result == null) result = casePatternElement(relation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -83,25 +83,8 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 				Property property = (Property)theEObject;
 				T result = caseProperty(property);
 				if (result == null) result = caseComparable(property);
+				if (result == null) result = caseAdaptable(property);
 				if (result == null) result = casePatternElement(property);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case GraphstructurePackage.SINGLE_ELEMENT: {
-				SingleElement singleElement = (SingleElement)theEObject;
-				T result = caseSingleElement(singleElement);
-				if (result == null) result = caseElement(singleElement);
-				if (result == null) result = caseComparable(singleElement);
-				if (result == null) result = casePatternElement(singleElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case GraphstructurePackage.SET_ELEMENT: {
-				SetElement setElement = (SetElement)theEObject;
-				T result = caseSetElement(setElement);
-				if (result == null) result = caseElement(setElement);
-				if (result == null) result = caseComparable(setElement);
-				if (result == null) result = casePatternElement(setElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -109,6 +92,7 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 				Element element = (Element)theEObject;
 				T result = caseElement(element);
 				if (result == null) result = caseComparable(element);
+				if (result == null) result = caseAdaptable(element);
 				if (result == null) result = casePatternElement(element);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -124,6 +108,13 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 				qualitypatternmodel.graphstructure.Comparable comparable = (qualitypatternmodel.graphstructure.Comparable)theEObject;
 				T result = caseComparable(comparable);
 				if (result == null) result = casePatternElement(comparable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GraphstructurePackage.ADAPTABLE: {
+				Adaptable adaptable = (Adaptable)theEObject;
+				T result = caseAdaptable(adaptable);
+				if (result == null) result = casePatternElement(adaptable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -158,36 +149,6 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProperty(Property object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Single Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Single Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSingleElement(SingleElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Set Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Set Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSetElement(SetElement object) {
 		return null;
 	}
 
@@ -233,6 +194,21 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseComparable(qualitypatternmodel.graphstructure.Comparable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Adaptable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Adaptable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAdaptable(Adaptable object) {
 		return null;
 	}
 

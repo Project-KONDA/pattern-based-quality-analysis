@@ -15,10 +15,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.MorphismContainer;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.utilityclasses.Constants;
@@ -33,7 +35,7 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getOperator <em>Operator</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getCondition1 <em>Condition1</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.FormulaImpl#getCondition2 <em>Condition2</em>}</li>
  * </ul>
  *
@@ -59,14 +61,14 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	protected LogicalOperator operator = OPERATOR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+	 * The cached value of the '{@link #getCondition1() <em>Condition1</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCondition()
+	 * @see #getCondition1()
 	 * @generated
 	 * @ordered
 	 */
-	protected Condition condition;
+	protected Condition condition1;
 
 	/**
 	 * The cached value of the '{@link #getCondition2() <em>Condition2</em>}' containment reference.
@@ -80,15 +82,17 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected FormulaImpl() {
 		super();
+		setCondition1(new TrueElementImpl());
+		setCondition2(new TrueElementImpl());
 	}
 
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
-		String result;
+	public String generateQuery() throws InvalidityException {
+		String result = "";
 		if (operator != null) {
 //			if (operator == LogicalOperator.NOT) {
 //				if (condition2 == null && condition != null) {
@@ -97,26 +101,36 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 //					throw new InvalidityException("invalid argument");
 //				}
 //			} else {
-				if (condition != null && condition2 != null) {
+				if (condition1 != null && condition2 != null) {
 					switch (operator) {
 					case AND:
 					case OR:
-						result = "((" + condition.toXQuery(location) + ")" + operator.getLiteral() + "("
-						+ condition2.toXQuery(location) + "))";
+						result += "((" + condition1.generateQuery() + ")";
+						result += "\n" + operator.getLiteral() + "\n";
+						result += "(" + condition2.generateQuery() + "))";
 						break;
 					case IMPLIES:
-						result = "(" + Constants.NOT + "(" + condition.toXQuery(location) + ")" + Constants.OR + "("
-						+ condition2.toXQuery(location) + "))";
+						result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
+						result += Constants.OR;
+						result += "(" + condition2.generateQuery() + "))";
 						break;
 					case XOR:
-						result = "(" + Constants.NOT + "(" + condition.toXQuery(location) + ")" + Constants.AND + "("
-						+ condition2.toXQuery(location) + "))" + Constants.OR + "((" + condition.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
-						+ condition2.toXQuery(location) + "))";
+						result = "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
+						result += Constants.AND;
+						result += "(" + condition2.generateQuery() + "))";
+						result += Constants.OR;
+						result += "((" + condition1.generateQuery() + ")";
+						result += Constants.AND;
+						result += Constants.NOT + "("+ condition2.generateQuery() + "))";
 						break;
 					case EQUAL:
-						result = "(" + Constants.NOT + "(" + condition.toXQuery(location) + ")" + Constants.AND + Constants.NOT + "("
-						+ condition2.toXQuery(location) + "))" + Constants.OR + "((" + condition.toXQuery(location) + ")" + Constants.AND + "("
-						+ condition2.toXQuery(location) + "))";			
+						result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
+						result += Constants.AND;
+						result += Constants.NOT + "(" + condition2.generateQuery() + "))";
+						result += Constants.OR;
+						result += "((" + condition1.generateQuery() + ")";
+						result += Constants.AND;
+						result += "("+ condition2.generateQuery() + "))";			
 						break;
 					default:
 						throw new InvalidityException("invalid arguments");
@@ -136,18 +150,18 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValidLocal(abstractionLevel);
 
 //		if (operator == LogicalOperator.NOT) {
 //			condition.isValid(isDefinedPattern);
 //		} else {
-			condition.isValid(isDefinedPattern);
-			condition2.isValid(isDefinedPattern);
+			condition1.isValid(abstractionLevel);
+			condition2.isValid(abstractionLevel);
 //		}
 	}
 
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (operator == null)
 			throw new InvalidityException("operator null" + " (" + getInternalId() + ")");
 //		if (condition == null)
@@ -157,27 +171,54 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 //				throw new InvalidityException("argument invalid (op:NOT)");
 //			}
 //		} else 
-		if (condition == null || condition2 == null) {
+		if (condition1 == null || condition2 == null) {
 			throw new InvalidityException("arguments invalid" + " (" + getInternalId() + ")");
 		}
+	}
+	
+	@Override
+	public PatternElement createXMLAdaption() {
+		getCondition1().createXMLAdaption();
+		getCondition2().createXMLAdaption();
+		return this;
+	}
+	
+	@Override
+	public void finalizeXMLAdaption() {
+		getCondition1().finalizeXMLAdaption();
+		getCondition2().finalizeXMLAdaption();
+	}
+	
+//	@Override	
+//	public void updateParameters(ParameterList newParameterList) {
+//		getCondition1().updateParameters(newParameterList);
+//		getCondition2().updateParameters(newParameterList);
+//	}
+	
+	@Override
+	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
+		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
+		result.addAll(getCondition1().getNextMorphismContainers());
+		result.addAll(getCondition2().getNextMorphismContainers());
+		return result;
 	}
 
 	@Override
 	public void prepareTranslation() {
-		condition.prepareTranslation();
+		condition1.prepareTranslation();
 		if(condition2 != null) {
 			condition2.prepareTranslation();
 		}		
 	}
 
 	@Override
-	public EList<Input> getAllInputs() throws InvalidityException {
-		EList<Input> inputs = new BasicEList<Input>();
-		inputs.addAll(condition.getAllInputs());
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		EList<Parameter> parameters = new BasicEList<Parameter>();
+		parameters.addAll(condition1.getAllInputs());
 		if(condition2 != null) {
-			inputs.addAll(condition2.getAllInputs());
+			parameters.addAll(condition2.getAllInputs());
 		}	
-		return inputs;
+		return parameters;
 	}
 
 	/**
@@ -198,10 +239,10 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.FORMULA__CONDITION:
-				if (condition != null)
-					msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.FORMULA__CONDITION, null, msgs);
-				return basicSetCondition((Condition)otherEnd, msgs);
+			case PatternstructurePackage.FORMULA__CONDITION1:
+				if (condition1 != null)
+					msgs = ((InternalEObject)condition1).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.FORMULA__CONDITION1, null, msgs);
+				return basicSetCondition1((Condition)otherEnd, msgs);
 			case PatternstructurePackage.FORMULA__CONDITION2:
 				if (condition2 != null)
 					msgs = ((InternalEObject)condition2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.FORMULA__CONDITION2, null, msgs);
@@ -237,8 +278,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * @generated
 	 */
 	@Override
-	public Condition getCondition() {
-		return condition;
+	public Condition getCondition1() {
+		return condition1;
 	}
 
 	/**
@@ -246,11 +287,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
-		Condition oldCondition = condition;
-		condition = newCondition;
+	public NotificationChain basicSetCondition1(Condition newCondition1, NotificationChain msgs) {
+		Condition oldCondition1 = condition1;
+		condition1 = newCondition1;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__CONDITION, oldCondition, newCondition);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__CONDITION1, oldCondition1, newCondition1);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -262,18 +303,18 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 * @generated
 	 */
 	@Override
-	public void setCondition(Condition newCondition) {
-		if (newCondition != condition) {
+	public void setCondition1(Condition newCondition1) {
+		if (newCondition1 != condition1) {
 			NotificationChain msgs = null;
-			if (condition != null)
-				msgs = ((InternalEObject)condition).eInverseRemove(this, PatternstructurePackage.CONDITION__FORMULA1, Condition.class, msgs);
-			if (newCondition != null)
-				msgs = ((InternalEObject)newCondition).eInverseAdd(this, PatternstructurePackage.CONDITION__FORMULA1, Condition.class, msgs);
-			msgs = basicSetCondition(newCondition, msgs);
+			if (condition1 != null)
+				msgs = ((InternalEObject)condition1).eInverseRemove(this, PatternstructurePackage.CONDITION__FORMULA1, Condition.class, msgs);
+			if (newCondition1 != null)
+				msgs = ((InternalEObject)newCondition1).eInverseAdd(this, PatternstructurePackage.CONDITION__FORMULA1, Condition.class, msgs);
+			msgs = basicSetCondition1(newCondition1, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__CONDITION, newCondition, newCondition));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.FORMULA__CONDITION1, newCondition1, newCondition1));
 	}
 
 	/**
@@ -328,8 +369,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PatternstructurePackage.FORMULA__CONDITION:
-				return basicSetCondition(null, msgs);
+			case PatternstructurePackage.FORMULA__CONDITION1:
+				return basicSetCondition1(null, msgs);
 			case PatternstructurePackage.FORMULA__CONDITION2:
 				return basicSetCondition2(null, msgs);
 		}
@@ -345,8 +386,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		switch (featureID) {
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				return getOperator();
-			case PatternstructurePackage.FORMULA__CONDITION:
-				return getCondition();
+			case PatternstructurePackage.FORMULA__CONDITION1:
+				return getCondition1();
 			case PatternstructurePackage.FORMULA__CONDITION2:
 				return getCondition2();
 		}
@@ -364,8 +405,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				setOperator((LogicalOperator)newValue);
 				return;
-			case PatternstructurePackage.FORMULA__CONDITION:
-				setCondition((Condition)newValue);
+			case PatternstructurePackage.FORMULA__CONDITION1:
+				setCondition1((Condition)newValue);
 				return;
 			case PatternstructurePackage.FORMULA__CONDITION2:
 				setCondition2((Condition)newValue);
@@ -384,8 +425,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				setOperator(OPERATOR_EDEFAULT);
 				return;
-			case PatternstructurePackage.FORMULA__CONDITION:
-				setCondition((Condition)null);
+			case PatternstructurePackage.FORMULA__CONDITION1:
+				setCondition1((Condition)null);
 				return;
 			case PatternstructurePackage.FORMULA__CONDITION2:
 				setCondition2((Condition)null);
@@ -403,8 +444,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		switch (featureID) {
 			case PatternstructurePackage.FORMULA__OPERATOR:
 				return operator != OPERATOR_EDEFAULT;
-			case PatternstructurePackage.FORMULA__CONDITION:
-				return condition != null;
+			case PatternstructurePackage.FORMULA__CONDITION1:
+				return condition1 != null;
 			case PatternstructurePackage.FORMULA__CONDITION2:
 				return condition2 != null;
 		}
@@ -428,8 +469,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	
 	@Override
 	public String myToString() {
-		String res = "(\n. " + getCondition().myToString().replace("\n", "\n. ") 
-				+ "\n)" + getOperator().getLiteral() + " " + getInternalId() + " (\n. " + getCondition2().myToString().replace("\n", "\n. ") + "\n)";
+		String res = "( " + getCondition1().myToString().replace("\n", "\n. ") 
+				+ "\n)\n" + getOperator().getName() + " " + getInternalId() + "\n( " + getCondition2().myToString().replace("\n", "\n. ") + "\n)";
 		return res;
 	}
 	

@@ -22,8 +22,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.inputfields.Input;
-import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.operators.OperatorList;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
@@ -91,8 +96,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Input> getAllInputs() throws InvalidityException {
-		return new BasicEList<Input>();
+	public EList<Parameter> getAllInputs() throws InvalidityException {
+		return new BasicEList<Parameter>();
 	}
 
 	/**
@@ -101,8 +106,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @throws MissingPatternContainerException 
 	 */
 	@Override
-	public void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(isDefinedPattern);
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValidLocal(abstractionLevel);
 	}
 
 	/**
@@ -110,7 +115,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @throws OperatorCycleException 
 	 * @throws MissingPatternContainerException 
 	 */
-	public void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -119,9 +124,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * 
 	 * @generated NOT
 	 */
-	public boolean validate(DiagnosticChain chain, Map context) {
+	public boolean validate(DiagnosticChain chain, Map<Object, Object> context) {
 		try {
-			isValidLocal(false);
+			isValidLocal(AbstractionLevel.GENERIC);
 		} catch (Exception e) {
 			if (chain != null) {
 				chain.add(
@@ -144,13 +149,78 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public String myToString() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void updateParameters(ParameterList newParameterList) {
+		
+	}
+
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public ParameterList getParameterList() {
+		ParameterList newParameterList = null;
+		try {
+			newParameterList = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getParameterList();
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+//			e.printStackTrace();
+			
+		}	
+		return newParameterList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void updateOperators(OperatorList newOperatorList) {
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public OperatorList getOperatorList() {
+		OperatorList newOperatorList = null;
+		try {
+			newOperatorList = ((Graph) getAncestor(GraphImpl.class)).getOperatorList();
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+		}	
+		return newOperatorList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public PatternElement createXMLAdaption() {
+		return this;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void finalizeXMLAdaption() {
+		
 	}
 
 	/**
@@ -175,11 +245,23 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	@Override
-	public PatternElement getAncestor(Class cls) throws MissingPatternContainerException {
+	public PatternElement getAncestor(Class<?> cls) throws MissingPatternContainerException {
 		if (cls.isInstance(this))
 			return this;
 		else
 			return getContainer().getAncestor(cls);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String myToString() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -245,13 +327,12 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public int getInternalId() {
 		if (internalId == -1) {
-				try {
-					internalId = ((PatternImpl) this.getAncestor(PatternImpl.class)).getNewRefNo();
-				} catch (MissingPatternContainerException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
+			try {
+				internalId = ((CompletePatternImpl) this.getAncestor(CompletePatternImpl.class)).getNewRefNo();
+			} catch (MissingPatternContainerException e) {
+				// TODO Auto-generated catch block
+//				e.printStackTrace();
+			}
 		}
 		return internalId;
 	}
@@ -259,7 +340,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -335,9 +416,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.PATTERN_ELEMENT___TO_XQUERY__LOCATION:
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY:
 				try {
-					return toXQuery((Location)arguments.get(0));
+					return generateQuery();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -352,17 +433,17 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION:
 				prepareTranslation();
 				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__BOOLEAN:
+			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
-					isValid((Boolean)arguments.get(0));
+					isValid((AbstractionLevel)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__BOOLEAN:
+			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL:
 				try {
-					isValidLocal((Boolean)arguments.get(0));
+					isValidLocal((AbstractionLevel)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -386,6 +467,21 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return myToString();
 			case PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP:
 				return validate((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST:
+				updateParameters((ParameterList)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST:
+				return getParameterList();
+			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST:
+				updateOperators((OperatorList)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
+				return getOperatorList();
+			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION:
+				return createXMLAdaption();
+			case PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION:
+				finalizeXMLAdaption();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

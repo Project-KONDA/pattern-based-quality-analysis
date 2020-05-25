@@ -12,12 +12,14 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * A test case for the model object '<em><b>Morphism</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are tested:
+ * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings() <em>Check Single Element Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings() <em>Check Relation Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness() <em>Check Single Element Mappings Uniqueness</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappings() <em>Check Element Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappings() <em>Check Relation Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element) <em>Add Mapping</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation) <em>Add Mapping</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -77,53 +79,79 @@ public class MorphismTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings() <em>Check Single Element Mappings</em>}' feature getter.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappings() <em>Check Element Mappings</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings()
+	 * @see qualitypatternmodel.patternstructure.Morphism#checkElementMappings()
 	 * @generated
 	 */
-	public void testGetCheckSingleElementMappings() {
-		// TODO: implement this feature getter test method
+	public void testCheckElementMappings() {
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings() <em>Check Relation Mappings</em>}' feature getter.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappings() <em>Check Relation Mappings</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings()
+	 * @see qualitypatternmodel.patternstructure.Morphism#checkRelationMappings()
 	 * @generated
 	 */
-	public void testGetCheckRelationMappings() {
-		// TODO: implement this feature getter test method
+	public void testCheckRelationMappings() {
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness() <em>Check Single Element Mappings Uniqueness</em>}' feature getter.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness()
+	 * @see qualitypatternmodel.patternstructure.Morphism#checkRelationMappingsUniqueness()
 	 * @generated
 	 */
-	public void testGetCheckSingleElementMappingsUniqueness() {
-		// TODO: implement this feature getter test method
+	public void testCheckRelationMappingsUniqueness() {
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}' feature getter.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness()
+	 * @see qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness()
 	 * @generated
 	 */
-	public void testGetCheckRelationMappingsUniqueness() {
-		// TODO: implement this feature getter test method
+	public void testCheckElementMappingsUniqueness() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element) <em>Add Mapping</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element)
+	 * @generated
+	 */
+	public void testAddMapping__Element_Element() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation) <em>Add Mapping</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation)
+	 * @generated
+	 */
+	public void testAddMapping__Relation_Relation() {
+		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

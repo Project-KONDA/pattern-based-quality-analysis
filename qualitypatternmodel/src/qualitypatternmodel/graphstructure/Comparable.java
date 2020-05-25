@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.functions.Comparison;
+import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -30,13 +30,13 @@ import qualitypatternmodel.patternstructure.PatternElement;
 public interface Comparable extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Comparison1</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.functions.Comparison}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Comparison#getArgument1 <em>Argument1</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.operators.Comparison}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Comparison#getArgument1 <em>Argument1</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comparison1</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getComparable_Comparison1()
-	 * @see qualitypatternmodel.functions.Comparison#getArgument1
+	 * @see qualitypatternmodel.operators.Comparison#getArgument1
 	 * @model opposite="argument1"
 	 * @generated
 	 */
@@ -44,13 +44,13 @@ public interface Comparable extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Comparison2</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.functions.Comparison}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.functions.Comparison#getArgument2 <em>Argument2</em>}'.
+	 * The list contents are of type {@link qualitypatternmodel.operators.Comparison}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Comparison#getArgument2 <em>Argument2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Comparison2</em>' reference list.
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getComparable_Comparison2()
-	 * @see qualitypatternmodel.functions.Comparison#getArgument2
+	 * @see qualitypatternmodel.operators.Comparison#getArgument2
 	 * @model opposite="argument2"
 	 * @generated
 	 */
@@ -83,9 +83,9 @@ public interface Comparable extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="qualitypatternmodel.graphstructure.ListOfElements" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<ListOfElements> getAllArgumentElements() throws InvalidityException;
+	EList<Element> getAllArgumentElements() throws InvalidityException;
 
 } // GraphElement

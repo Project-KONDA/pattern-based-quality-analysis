@@ -4,7 +4,10 @@ package qualitypatternmodel.patternstructure;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Relation;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,19 +20,14 @@ import qualitypatternmodel.graphstructure.Graph;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappings <em>Check Single Element Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappings <em>Check Relation Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckSingleElementMappingsUniqueness <em>Check Single Element Mappings Uniqueness</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getCheckRelationMappingsUniqueness <em>Check Relation Mappings Uniqueness</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getSource <em>Source</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTarget <em>Target</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMorphismContainer <em>Morphism Container</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='singleElementMappingsValid relationMappingsValid singleElementMappingsUnique relationMappingsUnique'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot singleElementMappingsValid='self.checkSingleElementMappings' relationMappingsValid='self.checkRelationMappings' singleElementMappingsUnique='self.checkSingleElementMappingsUniqueness' relationMappingsUnique='self.checkRelationMappingsUniqueness'"
+ * @model
  * @generated
  */
 public interface Morphism extends PatternElement {
@@ -48,127 +46,124 @@ public interface Morphism extends PatternElement {
 	EList<Mapping> getMappings();
 
 	/**
-	 * Returns the value of the '<em><b>From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getMorphismTo <em>Morphism To</em>}'.
+	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getOutgoingMorphisms <em>Outgoing Morphisms</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From</em>' reference.
-	 * @see #setFrom(Graph)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_From()
-	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismTo
-	 * @model opposite="morphismTo" required="true"
+	 * @return the value of the '<em>Source</em>' reference.
+	 * @see #setSource(Graph)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Source()
+	 * @see qualitypatternmodel.graphstructure.Graph#getOutgoingMorphisms
+	 * @model opposite="outgoingMorphisms" required="true"
 	 * @generated
 	 */
-	Graph getFrom();
+	Graph getSource();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getFrom <em>From</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getSource <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>From</em>' reference.
-	 * @see #getFrom()
+	 * @param value the new value of the '<em>Source</em>' reference.
+	 * @see #getSource()
 	 * @generated
 	 */
-	void setFrom(Graph value);
+	void setSource(Graph value);
 
 	/**
-	 * Returns the value of the '<em><b>To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getMorphismFrom <em>Morphism From</em>}'.
+	 * Returns the value of the '<em><b>Target</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getIncomingMorphism <em>Incoming Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>To</em>' reference.
-	 * @see #setTo(Graph)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_To()
-	 * @see qualitypatternmodel.graphstructure.Graph#getMorphismFrom
-	 * @model opposite="morphismFrom" required="true"
+	 * @return the value of the '<em>Target</em>' reference.
+	 * @see #setTarget(Graph)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_Target()
+	 * @see qualitypatternmodel.graphstructure.Graph#getIncomingMorphism
+	 * @model opposite="incomingMorphism" required="true"
 	 * @generated
 	 */
-	Graph getTo();
+	Graph getTarget();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getTo <em>To</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getTarget <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>To</em>' reference.
-	 * @see #getTo()
+	 * @param value the new value of the '<em>Target</em>' reference.
+	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTo(Graph value);
+	void setTarget(Graph value);
 
 	/**
-	 * Returns the value of the '<em><b>Morph Depth</b></em>' attribute.
-	 * The default value is <code>"-1"</code>.
+	 * Returns the value of the '<em><b>Morphism Container</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.MorphismContainer#getMorphism <em>Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Morph Depth</em>' attribute.
-	 * @see #setMorphDepth(int)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_MorphDepth()
-	 * @model default="-1" required="true"
+	 * @return the value of the '<em>Morphism Container</em>' container reference.
+	 * @see #setMorphismContainer(MorphismContainer)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_MorphismContainer()
+	 * @see qualitypatternmodel.patternstructure.MorphismContainer#getMorphism
+	 * @model opposite="morphism" transient="false"
 	 * @generated
 	 */
-	int getMorphDepth();
+	MorphismContainer getMorphismContainer();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getMorphismContainer <em>Morphism Container</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Morph Depth</em>' attribute.
-	 * @see #getMorphDepth()
+	 * @param value the new value of the '<em>Morphism Container</em>' container reference.
+	 * @see #getMorphismContainer()
 	 * @generated
 	 */
-	void setMorphDepth(int value);
+	void setMorphismContainer(MorphismContainer value);
 
 	/**
-	 * Returns the value of the '<em><b>Check Single Element Mappings</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * checks the validity of the contained SingleElementMappings
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Check Single Element Mappings</em>' attribute.
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckSingleElementMappings()
-	 * @model changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;forAll(m : Mapping | self.from.getAllElements-&gt;includes(m.oclAsType(SingleElementMapping).from))\n\t\t\t\t\t\tand\n\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;forAll(m : Mapping | self.to.getAllElements-&gt;includes(m.oclAsType(SingleElementMapping).to))'"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	Boolean getCheckSingleElementMappings();
+	void checkElementMappings() throws InvalidityException;
 
 	/**
-	 * Returns the value of the '<em><b>Check Relation Mappings</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * checks the validity of the contained RelationMappings
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Check Relation Mappings</em>' attribute.
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckRelationMappings()
-	 * @model changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;forAll(m : Mapping | self.from.getAllRelations-&gt;includes(m.oclAsType(RelationMapping).from))\n\t\t\t\t\t\tand\n\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;forAll(m : Mapping | self.to.getAllRelations-&gt;includes(m.oclAsType(RelationMapping).to))'"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	Boolean getCheckRelationMappings();
+	void checkRelationMappings() throws InvalidityException;
 
 	/**
-	 * Returns the value of the '<em><b>Check Single Element Mappings Uniqueness</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * checks the uniqueness of the contained SingleElementMappings
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Check Single Element Mappings Uniqueness</em>' attribute.
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckSingleElementMappingsUniqueness()
-	 * @model changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;collect(m: Mapping | m.oclAsType(SingleElementMapping).from)-&gt;size()\n\t\t\t\t\t\t\t= self.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;collect(m: Mapping | m.oclAsType(SingleElementMapping).from)-&gt;asSet()-&gt;size()\n\t\t\t\t\t\t\tand\n\t\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;collect(m: Mapping | m.oclAsType(SingleElementMapping).to)-&gt;size()\n\t\t\t\t\t\t\t= self.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(SingleElementMapping))-&gt;collect(m: Mapping | m.oclAsType(SingleElementMapping).to)-&gt;asSet()-&gt;size()'"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	Boolean getCheckSingleElementMappingsUniqueness();
+	void checkRelationMappingsUniqueness() throws InvalidityException;
 
 	/**
-	 * Returns the value of the '<em><b>Check Relation Mappings Uniqueness</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * checks the uniqueness of the contained RelationMappings
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Check Relation Mappings Uniqueness</em>' attribute.
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_CheckRelationMappingsUniqueness()
-	 * @model changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\n\t\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;collect(m: Mapping | m.oclAsType(RelationMapping).from)-&gt;size()\n\t\t\t\t\t\t\t= self.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;collect(m: Mapping | m.oclAsType(RelationMapping).from)-&gt;asSet()-&gt;size()\n\t\t\t\t\t\t\tand\n\t\t\t\t\t\t\tself.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;collect(m: Mapping | m.oclAsType(RelationMapping).to)-&gt;size()\n\t\t\t\t\t\t\t= self.mappings-&gt;select(f: Mapping | f.oclIsTypeOf(RelationMapping))-&gt;collect(m: Mapping | m.oclAsType(RelationMapping).to)-&gt;asSet()-&gt;size()'"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	Boolean getCheckRelationMappingsUniqueness();
+	void checkElementMappingsUniqueness() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ElementMapping addMapping(Element from, Element to);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	RelationMapping addMapping(Relation from, Relation to);
 
 	void removeDanglingMappingReference();
 

@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated qualitypatternmodel -->
       <factory
-            uri="inputfields"
-            class="qualitypatternmodel.inputfields.provider.InputfieldsItemProviderAdapterFactory"
+            uri="parameters"
+            class="qualitypatternmodel.parameters.provider.ParametersItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -22,8 +22,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated qualitypatternmodel -->
       <factory
-            uri="functions"
-            class="qualitypatternmodel.functions.provider.FunctionsItemProviderAdapterFactory"
+            uri="operators"
+            class="qualitypatternmodel.operators.provider.OperatorsItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -50,6 +50,19 @@
       <factory
             uri="patternstructure"
             class="qualitypatternmodel.patternstructure.provider.PatternstructureItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated qualitypatternmodel -->
+      <factory
+            uri="adaptionxml"
+            class="qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

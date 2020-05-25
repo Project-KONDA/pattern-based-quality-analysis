@@ -10,17 +10,13 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import qualitypatternmodel.graphstructure.Axis;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.ListOfElements;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.PropertyLocation;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.SetElement;
-import qualitypatternmodel.graphstructure.SingleElement;
+import qualitypatternmodel.graphstructure.Element;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,8 +64,7 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 		switch (eClass.getClassifierID()) {
 			case GraphstructurePackage.RELATION: return createRelation();
 			case GraphstructurePackage.PROPERTY: return createProperty();
-			case GraphstructurePackage.SINGLE_ELEMENT: return createSingleElement();
-			case GraphstructurePackage.SET_ELEMENT: return createSetElement();
+			case GraphstructurePackage.ELEMENT: return createElement();
 			case GraphstructurePackage.GRAPH: return createGraph();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -84,14 +79,8 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case GraphstructurePackage.PROPERTY_LOCATION:
-				return createPropertyLocationFromString(eDataType, initialValue);
-			case GraphstructurePackage.AXIS:
-				return createAxisFromString(eDataType, initialValue);
 			case GraphstructurePackage.RETURN_TYPE:
 				return createReturnTypeFromString(eDataType, initialValue);
-			case GraphstructurePackage.LIST_OF_ELEMENTS:
-				return createListOfElementsFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -105,14 +94,8 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case GraphstructurePackage.PROPERTY_LOCATION:
-				return convertPropertyLocationToString(eDataType, instanceValue);
-			case GraphstructurePackage.AXIS:
-				return convertAxisToString(eDataType, instanceValue);
 			case GraphstructurePackage.RETURN_TYPE:
 				return convertReturnTypeToString(eDataType, instanceValue);
-			case GraphstructurePackage.LIST_OF_ELEMENTS:
-				return convertListOfElementsToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -146,20 +129,9 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public SingleElement createSingleElement() {
-		SingleElementImpl singleElement = new SingleElementImpl();
-		return singleElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public SetElement createSetElement() {
-		SetElementImpl setElement = new SetElementImpl();
-		return setElement;
+	public Element createElement() {
+		ElementImpl element = new ElementImpl();
+		return element;
 	}
 
 	/**
@@ -171,46 +143,6 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	public Graph createGraph() {
 		GraphImpl graph = new GraphImpl();
 		return graph;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropertyLocation createPropertyLocationFromString(EDataType eDataType, String initialValue) {
-		PropertyLocation result = PropertyLocation.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertPropertyLocationToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Axis createAxisFromString(EDataType eDataType, String initialValue) {
-		Axis result = Axis.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertAxisToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -231,24 +163,6 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 */
 	public String convertReturnTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ListOfElements createListOfElementsFromString(EDataType eDataType, String initialValue) {
-		return (ListOfElements)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertListOfElementsToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

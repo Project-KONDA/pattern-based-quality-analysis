@@ -77,6 +77,7 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				QuantifiedCondition quantifiedCondition = (QuantifiedCondition)theEObject;
 				T result = caseQuantifiedCondition(quantifiedCondition);
 				if (result == null) result = caseCondition(quantifiedCondition);
+				if (result == null) result = caseMorphismContainer(quantifiedCondition);
 				if (result == null) result = casePatternElement(quantifiedCondition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -95,11 +96,11 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING: {
-				SingleElementMapping singleElementMapping = (SingleElementMapping)theEObject;
-				T result = caseSingleElementMapping(singleElementMapping);
-				if (result == null) result = caseMapping(singleElementMapping);
-				if (result == null) result = casePatternElement(singleElementMapping);
+			case PatternstructurePackage.ELEMENT_MAPPING: {
+				ElementMapping elementMapping = (ElementMapping)theEObject;
+				T result = caseElementMapping(elementMapping);
+				if (result == null) result = caseMapping(elementMapping);
+				if (result == null) result = casePatternElement(elementMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -126,10 +127,11 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.PATTERN: {
-				Pattern pattern = (Pattern)theEObject;
-				T result = casePattern(pattern);
-				if (result == null) result = casePatternElement(pattern);
+			case PatternstructurePackage.COMPLETE_PATTERN: {
+				CompletePattern completePattern = (CompletePattern)theEObject;
+				T result = caseCompletePattern(completePattern);
+				if (result == null) result = casePattern(completePattern);
+				if (result == null) result = casePatternElement(completePattern);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,11 +141,58 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PatternstructurePackage.NOT_ELEMENT: {
-				NotElement notElement = (NotElement)theEObject;
-				T result = caseNotElement(notElement);
-				if (result == null) result = caseCondition(notElement);
-				if (result == null) result = casePatternElement(notElement);
+			case PatternstructurePackage.NOT_CONDITION: {
+				NotCondition notCondition = (NotCondition)theEObject;
+				T result = caseNotCondition(notCondition);
+				if (result == null) result = caseCondition(notCondition);
+				if (result == null) result = casePatternElement(notCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PatternstructurePackage.COUNT_CONDITION: {
+				CountCondition countCondition = (CountCondition)theEObject;
+				T result = caseCountCondition(countCondition);
+				if (result == null) result = caseCondition(countCondition);
+				if (result == null) result = casePatternElement(countCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PatternstructurePackage.COUNT_CONDITION_ARGUMENT: {
+				CountConditionArgument countConditionArgument = (CountConditionArgument)theEObject;
+				T result = caseCountConditionArgument(countConditionArgument);
+				if (result == null) result = casePatternElement(countConditionArgument);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PatternstructurePackage.MORPHISM_CONTAINER: {
+				MorphismContainer morphismContainer = (MorphismContainer)theEObject;
+				T result = caseMorphismContainer(morphismContainer);
+				if (result == null) result = casePatternElement(morphismContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PatternstructurePackage.COUNT_PATTERN: {
+				CountPattern countPattern = (CountPattern)theEObject;
+				T result = caseCountPattern(countPattern);
+				if (result == null) result = casePattern(countPattern);
+				if (result == null) result = caseMorphismContainer(countPattern);
+				if (result == null) result = caseCountConditionArgument(countPattern);
+				if (result == null) result = casePatternElement(countPattern);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PatternstructurePackage.PATTERN: {
+				Pattern pattern = (Pattern)theEObject;
+				T result = casePattern(pattern);
+				if (result == null) result = casePatternElement(pattern);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case PatternstructurePackage.NUMBER_ELEMENT: {
+				NumberElement numberElement = (NumberElement)theEObject;
+				T result = caseNumberElement(numberElement);
+				if (result == null) result = caseCountConditionArgument(numberElement);
+				if (result == null) result = casePatternElement(numberElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -212,17 +261,17 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Single Element Mapping</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Element Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Single Element Mapping</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Element Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSingleElementMapping(SingleElementMapping object) {
+	public T caseElementMapping(ElementMapping object) {
 		return null;
 	}
 
@@ -272,17 +321,17 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pattern</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Complete Pattern</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pattern</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Complete Pattern</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePattern(Pattern object) {
+	public T caseCompletePattern(CompletePattern object) {
 		return null;
 	}
 
@@ -302,17 +351,107 @@ public class PatternstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Not Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Not Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Not Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Not Condition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNotElement(NotElement object) {
+	public T caseNotCondition(NotCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Count Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Count Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountCondition(CountCondition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Count Condition Argument</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Count Condition Argument</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountConditionArgument(CountConditionArgument object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Morphism Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Morphism Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMorphismContainer(MorphismContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Count Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Count Pattern</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountPattern(CountPattern object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pattern</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePattern(Pattern object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Number Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Number Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNumberElement(NumberElement object) {
 		return null;
 	}
 

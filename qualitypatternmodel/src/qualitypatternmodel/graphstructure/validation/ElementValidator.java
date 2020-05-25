@@ -6,11 +6,10 @@ package qualitypatternmodel.graphstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.functions.BooleanOperator;
-
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.Relation;
+
+import qualitypatternmodel.patternstructure.ElementMapping;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.graphstructure.Element}.
@@ -21,21 +20,19 @@ import qualitypatternmodel.graphstructure.Relation;
 public interface ElementValidator {
 	boolean validate();
 
-	boolean validatePredicates(EList<BooleanOperator> value);
-	boolean validateRelationFromPrevious(Relation value);
-	boolean validateTranslated(boolean value);
+	boolean validateMappingTo(EList<ElementMapping> value);
 
-	boolean validateRoot(boolean value);
+	boolean validateMappingTo(ElementMapping value);
+	boolean validateMappingFrom(ElementMapping value);
+	boolean validatePrevious(Element value);
+	boolean validateNextSet(EList<Element> value);
 
-	boolean validateIsTranslated(boolean value);
-	boolean validateIsRoot(boolean value);
-	boolean validateProperties(EList<Property> value);
+	boolean validateGraph(Graph value);
 
-	boolean validatePredicatesAreBeingTranslated(boolean value);
+	boolean validateNext(EList<Element> value);
+	boolean validateRoot(Graph value);
 
-	boolean validateName(String value);
+	boolean validateNextSingle(EList<Element> value);
 
-	boolean validateGetAllElements(EList<Element> value);
-
-	boolean validateGetAllRelations(EList<Relation> value);
+	boolean validateGraphDepth(int value);
 }

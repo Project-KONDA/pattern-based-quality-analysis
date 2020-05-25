@@ -38,7 +38,7 @@ import org.eclipse.jface.viewers.Viewer;
 
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
-import qualitypatternmodel.inputfields.presentation.QualitypatternmodelEditorPlugin;
+import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin;
 
 /**
  * This is the action bar contributor for the Graphstructure model editor.

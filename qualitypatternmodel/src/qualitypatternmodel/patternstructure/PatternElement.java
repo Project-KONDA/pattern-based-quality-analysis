@@ -10,7 +10,9 @@ import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.inputfields.Input;
+import qualitypatternmodel.operators.OperatorList;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,7 +85,7 @@ public interface PatternElement extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String toXQuery(Location location) throws InvalidityException;
+	String generateQuery() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,7 +94,7 @@ public interface PatternElement extends EObject {
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<Input> getAllInputs() throws InvalidityException;
+	EList<Parameter> getAllInputs() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,7 +120,47 @@ public interface PatternElement extends EObject {
 	 * @model
 	 * @generated
 	 */
-	String myToString();
+	void updateParameters(ParameterList newParameterList);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	ParameterList getParameterList();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void updateOperators(OperatorList newOperatorList);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	OperatorList getOperatorList();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	PatternElement createXMLAdaption();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void finalizeXMLAdaption();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,25 +174,25 @@ public interface PatternElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * call isValidLocal and isValid of all contained elements
-	 * @param isDefinedPattern true, if all input elements shall have assigned a concrete value
+	 * @param abstractionLevel true, if all input elements shall have assigned a concrete value
 	 * @throws InvalidityException when the current or one contained model element is invalid
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper" abstractionLevelRequired="true"
 	 * @generated
 	 */
-	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * check validity of the variables of the current model element. Does not check contained elements 
-	 * @param isDefinedPattern true, if the current element extends Input and shall have assigned a concrete value
+	 * @param abstractionLevel true, if the current element extends Input and shall have assigned a concrete value
 	 * if the current element does not extend Input, the parameter does not have an impact
 	 * @throws InvalidityException when the current model element is invalid
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper" abstractionLevelRequired="true"
 	 * @generated
 	 */
-	void isValidLocal(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+	void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,5 +204,13 @@ public interface PatternElement extends EObject {
 	 * <!-- end-user-doc -->
 	 */
 	PatternElement getAncestor(Class<?> cls) throws MissingPatternContainerException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String myToString();
 
 } // PatternElement

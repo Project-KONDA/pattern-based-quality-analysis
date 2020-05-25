@@ -7,11 +7,11 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 public class EMFModelLoad {
-	public Pattern load(String path) {
+	public CompletePattern load(String path) {
 		// Initialize the model
         PatternstructurePackage.eINSTANCE.eClass();
 
@@ -28,8 +28,8 @@ public class EMFModelLoad {
         Resource resource = resSet.getResource(URI
                 .createURI(path), true);
         // Get the first model element and cast it to the right type
-        Pattern pattern = (Pattern) resource.getContents().get(0);
-        return pattern;
+        CompletePattern completePattern = (CompletePattern) resource.getContents().get(0);
+        return completePattern;
 	}
 
 }

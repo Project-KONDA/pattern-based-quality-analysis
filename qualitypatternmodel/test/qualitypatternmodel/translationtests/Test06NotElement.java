@@ -8,54 +8,87 @@ import qualitypatternmodel.patternstructure.impl.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
+import qualitypatternmodel.operators.*;
+import qualitypatternmodel.operators.impl.*;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.functions.*;
-import qualitypatternmodel.functions.impl.*;
-import qualitypatternmodel.inputfields.*;
-import qualitypatternmodel.inputfields.impl.*;
+import qualitypatternmodel.parameters.*;
+import qualitypatternmodel.parameters.impl.*;
 
 public class Test06NotElement {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getPatternNotExists());
-		patterns.add(getPatternNotForall());
-		patterns.add(getPatternExistsNotExists());
-		patterns.add(getPatternForallNotForall());
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getPatternNotTrue());	
+		completePatterns.add(getPatternNotExists());
+		completePatterns.add(getPatternNotForall());
+		completePatterns.add(getPatternExistsNotExists());
+		completePatterns.add(getPatternForallNotForall());
 
-		Test00.test(patterns);
+		Test00.test(completePatterns);
 	}
 	
-	public static Pattern getPatternNotExists() {
+	public static CompletePattern getPatternNotTrue() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		Pattern pattern = Test00.getBasePattern();
+		CompletePattern completePattern = Test00.getBasePattern();
 		
-		NotElement n = factory.createNotElement();
-		pattern.setCondition(n);
+		NotCondition n = factory.createNotCondition();
+		completePattern.setCondition(n);
+		TrueElement t = factory.createTrueElement();
+		n.setCondition(t);
+		
+		completePattern.createXMLAdaption();
+		completePattern.finalizeXMLAdaption();	
+		
+		return completePattern;		
+	}
+	public static CompletePattern getPatternNotExistsAbstract() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = Test00.getBasePattern();
+		
+		NotCondition n = factory.createNotCondition();
+		completePattern.setCondition(n);
 		QuantifiedCondition qc = factory.createQuantifiedCondition();
 		n.setCondition(qc);
 		TrueElement t = factory.createTrueElement();
 		qc.setCondition(t);
-
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;		
-		SingleElement last = qc.getGraph().getRootElement().getNextSingle().get(0);
-		last.getNextSingle().add(graphFactory.createSingleElement());
 		
-		return pattern;
+		Element e0 = qc.getGraph().getElements().get(0);
+		Element e1 = graphFactory.createElement();
+		e1.setGraph(qc.getGraph());
+		Relation relation = graphFactory.createRelation();
+		relation.setGraph(qc.getGraph());
+		relation.setSource(e0);
+		relation.setTarget(e1);	
+		
+		return completePattern;
 	}
-	public static Pattern getPatternNotForall() {
-		Pattern pattern = getPatternNotExists();
-		QuantifiedCondition qc = ((QuantifiedCondition) ((NotElement) pattern.getCondition()).getCondition());
+	public static CompletePattern getPatternNotExists() {		
+		
+		CompletePattern completePattern = getPatternNotExistsAbstract();		
+		
+		completePattern.createXMLAdaption();
+		((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		completePattern.finalizeXMLAdaption();	
+		
+		return completePattern;
+	}
+	public static CompletePattern getPatternNotForall() {
+		CompletePattern completePattern = getPatternNotExists();
+		QuantifiedCondition qc = ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition());
 		qc.setQuantifier(Quantifier.FORALL);
-		return pattern;
+		return completePattern;
 	}
-	
-	public static Pattern getPatternExistsNotExists() {
+
+	public static CompletePattern getPatternExistsNotExistsAbstract() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
@@ -63,34 +96,40 @@ public class Test06NotElement {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;	
 
 				
-		Pattern pattern = Test03Quantor.getPatternExists();
-		TrueElement t = (TrueElement) ((QuantifiedCondition) pattern.getCondition()).getCondition();
-		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition(); 
-		NotElement n = factory.createNotElement();
+		CompletePattern completePattern = Test03Quantor.getPatternExists();
+		TrueElement t = (TrueElement) ((QuantifiedCondition) completePattern.getCondition()).getCondition();
+		QuantifiedCondition qc1 = (QuantifiedCondition) completePattern.getCondition(); 
+		NotCondition n = factory.createNotCondition();
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
-
-		SingleElement root = qc1.getGraph().getRootElement();
-		root.getNextSingle().get(0).getNextSingle().add(graphFactory.createSingleElement());
 				
 		qc1.setCondition(n);
 		n.setCondition(qc2);
 		qc2.setCondition(t);
-	
-		SingleElement root2 = qc2.getGraph().getRootElement();
-		root2.getNextSingle().get(0).getNextSingle().get(0).getNextSingle().add(graphFactory.createSingleElement());
 		
-		return pattern; 
+		Element e2 = graphFactory.createElement();
+		e2.setGraph(qc2.getGraph());
+		return completePattern;
+		
 	}
-	public static Pattern getPatternForallNotForall() {	
-		Pattern pattern = getPatternExistsNotExists();
+	
+	
+	public static CompletePattern getPatternExistsNotExists() {
+		CompletePattern completePattern = getPatternExistsNotExistsAbstract();
+		completePattern.createXMLAdaption();
+		completePattern.finalizeXMLAdaption();	
 		
-		QuantifiedCondition qc1 = (QuantifiedCondition) pattern.getCondition();
-		QuantifiedCondition qc2 = (QuantifiedCondition) ((NotElement) qc1.getCondition()).getCondition();
+		return completePattern; 
+	}
+	public static CompletePattern getPatternForallNotForall() {	
+		CompletePattern completePattern = getPatternExistsNotExists();
+		
+		QuantifiedCondition qc1 = (QuantifiedCondition) completePattern.getCondition();
+		QuantifiedCondition qc2 = (QuantifiedCondition) ((NotCondition) qc1.getCondition()).getCondition();
 
 		qc1.setQuantifier(Quantifier.FORALL);
 		qc2.setQuantifier(Quantifier.FORALL);
 		
-		return pattern;
+		return completePattern;
 	}
 	
 	public static List<PatternTestPair> getTestPairs(){

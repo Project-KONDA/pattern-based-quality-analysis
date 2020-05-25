@@ -141,26 +141,26 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.SingleElementMapping} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.ElementMapping} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SingleElementMappingItemProvider singleElementMappingItemProvider;
+	protected ElementMappingItemProvider elementMappingItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.SingleElementMapping}.
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.ElementMapping}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSingleElementMappingAdapter() {
-		if (singleElementMappingItemProvider == null) {
-			singleElementMappingItemProvider = new SingleElementMappingItemProvider(this);
+	public Adapter createElementMappingAdapter() {
+		if (elementMappingItemProvider == null) {
+			elementMappingItemProvider = new ElementMappingItemProvider(this);
 		}
 
-		return singleElementMappingItemProvider;
+		return elementMappingItemProvider;
 	}
 
 	/**
@@ -210,49 +210,118 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.Pattern} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.CompletePattern} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PatternItemProvider patternItemProvider;
+	protected CompletePatternItemProvider completePatternItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.Pattern}.
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.CompletePattern}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPatternAdapter() {
-		if (patternItemProvider == null) {
-			patternItemProvider = new PatternItemProvider(this);
+	public Adapter createCompletePatternAdapter() {
+		if (completePatternItemProvider == null) {
+			completePatternItemProvider = new CompletePatternItemProvider(this);
 		}
 
-		return patternItemProvider;
+		return completePatternItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.NotElement} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.NotCondition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NotElementItemProvider notElementItemProvider;
+	protected NotConditionItemProvider notConditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.NotElement}.
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.NotCondition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNotElementAdapter() {
-		if (notElementItemProvider == null) {
-			notElementItemProvider = new NotElementItemProvider(this);
+	public Adapter createNotConditionAdapter() {
+		if (notConditionItemProvider == null) {
+			notConditionItemProvider = new NotConditionItemProvider(this);
 		}
 
-		return notElementItemProvider;
+		return notConditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.CountCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CountConditionItemProvider countConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.CountCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCountConditionAdapter() {
+		if (countConditionItemProvider == null) {
+			countConditionItemProvider = new CountConditionItemProvider(this);
+		}
+
+		return countConditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.CountPattern} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CountPatternItemProvider countPatternItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.CountPattern}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCountPatternAdapter() {
+		if (countPatternItemProvider == null) {
+			countPatternItemProvider = new CountPatternItemProvider(this);
+		}
+
+		return countPatternItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.patternstructure.NumberElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberElementItemProvider numberElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.patternstructure.NumberElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberElementAdapter() {
+		if (numberElementItemProvider == null) {
+			numberElementItemProvider = new NumberElementItemProvider(this);
+		}
+
+		return numberElementItemProvider;
 	}
 
 	/**
@@ -363,11 +432,14 @@ public class PatternstructureItemProviderAdapterFactory extends Patternstructure
 		if (relationMappingItemProvider != null) relationMappingItemProvider.dispose();
 		if (quantifiedConditionItemProvider != null) quantifiedConditionItemProvider.dispose();
 		if (morphismItemProvider != null) morphismItemProvider.dispose();
-		if (singleElementMappingItemProvider != null) singleElementMappingItemProvider.dispose();
+		if (elementMappingItemProvider != null) elementMappingItemProvider.dispose();
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
 		if (trueElementItemProvider != null) trueElementItemProvider.dispose();
-		if (patternItemProvider != null) patternItemProvider.dispose();
-		if (notElementItemProvider != null) notElementItemProvider.dispose();
+		if (completePatternItemProvider != null) completePatternItemProvider.dispose();
+		if (notConditionItemProvider != null) notConditionItemProvider.dispose();
+		if (countConditionItemProvider != null) countConditionItemProvider.dispose();
+		if (countPatternItemProvider != null) countPatternItemProvider.dispose();
+		if (numberElementItemProvider != null) numberElementItemProvider.dispose();
 	}
 
 }

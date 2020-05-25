@@ -49,13 +49,13 @@ public interface PatternstructureFactory extends EFactory {
 	Morphism createMorphism();
 
 	/**
-	 * Returns a new object of class '<em>Single Element Mapping</em>'.
+	 * Returns a new object of class '<em>Element Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Single Element Mapping</em>'.
+	 * @return a new object of class '<em>Element Mapping</em>'.
 	 * @generated
 	 */
-	SingleElementMapping createSingleElementMapping();
+	ElementMapping createElementMapping();
 
 	/**
 	 * Returns a new object of class '<em>Formula</em>'.
@@ -76,22 +76,49 @@ public interface PatternstructureFactory extends EFactory {
 	TrueElement createTrueElement();
 
 	/**
-	 * Returns a new object of class '<em>Pattern</em>'.
+	 * Returns a new object of class '<em>Complete Pattern</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pattern</em>'.
+	 * @return a new object of class '<em>Complete Pattern</em>'.
 	 * @generated
 	 */
-	Pattern createPattern();
+	CompletePattern createCompletePattern();
 
 	/**
-	 * Returns a new object of class '<em>Not Element</em>'.
+	 * Returns a new object of class '<em>Not Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Not Element</em>'.
+	 * @return a new object of class '<em>Not Condition</em>'.
 	 * @generated
 	 */
-	NotElement createNotElement();
+	NotCondition createNotCondition();
+
+	/**
+	 * Returns a new object of class '<em>Count Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Count Condition</em>'.
+	 * @generated
+	 */
+	CountCondition createCountCondition();
+
+	/**
+	 * Returns a new object of class '<em>Count Pattern</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Count Pattern</em>'.
+	 * @generated
+	 */
+	CountPattern createCountPattern();
+
+	/**
+	 * Returns a new object of class '<em>Number Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number Element</em>'.
+	 * @generated
+	 */
+	NumberElement createNumberElement();
 
 	/**
 	 * Returns the package supported by this factory.

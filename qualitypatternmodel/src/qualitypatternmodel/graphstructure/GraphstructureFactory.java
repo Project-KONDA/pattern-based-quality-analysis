@@ -40,22 +40,13 @@ public interface GraphstructureFactory extends EFactory {
 	Property createProperty();
 
 	/**
-	 * Returns a new object of class '<em>Single Element</em>'.
+	 * Returns a new object of class '<em>Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Single Element</em>'.
+	 * @return a new object of class '<em>Element</em>'.
 	 * @generated
 	 */
-	SingleElement createSingleElement();
-
-	/**
-	 * Returns a new object of class '<em>Set Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Set Element</em>'.
-	 * @generated
-	 */
-	SetElement createSetElement();
+	Element createElement();
 
 	/**
 	 * Returns a new object of class '<em>Graph</em>'.

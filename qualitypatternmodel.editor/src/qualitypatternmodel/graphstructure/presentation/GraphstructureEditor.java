@@ -156,13 +156,12 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAdapterFactory;
-
+import qualitypatternmodel.operators.provider.OperatorsItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
-import qualitypatternmodel.functions.provider.FunctionsItemProviderAdapterFactory;
-import qualitypatternmodel.inputfields.presentation.QualitypatternmodelEditorPlugin;
-import qualitypatternmodel.inputfields.provider.InputfieldsItemProviderAdapterFactory;
-
+import qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFactory;
+import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin;
+import qualitypatternmodel.parameters.provider.ParametersItemProviderAdapterFactory;
 import qualitypatternmodel.patternstructure.provider.PatternstructureItemProviderAdapterFactory;
 
 
@@ -716,10 +715,11 @@ public class GraphstructureEditor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new InputfieldsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new FunctionsItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ParametersItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new OperatorsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new GraphstructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PatternstructureItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AdaptionxmlItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

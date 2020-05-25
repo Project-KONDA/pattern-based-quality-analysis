@@ -3,7 +3,6 @@
 package qualitypatternmodel.patternstructure.util;
 
 import java.util.Map;
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -103,26 +102,40 @@ public class PatternstructureValidator extends EObjectValidator {
 				return validateCondition((Condition)value, diagnostics, context);
 			case PatternstructurePackage.MORPHISM:
 				return validateMorphism((Morphism)value, diagnostics, context);
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING:
-				return validateSingleElementMapping((SingleElementMapping)value, diagnostics, context);
+			case PatternstructurePackage.ELEMENT_MAPPING:
+				return validateElementMapping((ElementMapping)value, diagnostics, context);
 			case PatternstructurePackage.MAPPING:
 				return validateMapping((Mapping)value, diagnostics, context);
 			case PatternstructurePackage.FORMULA:
 				return validateFormula((Formula)value, diagnostics, context);
 			case PatternstructurePackage.TRUE_ELEMENT:
 				return validateTrueElement((TrueElement)value, diagnostics, context);
-			case PatternstructurePackage.PATTERN:
-				return validatePattern((Pattern)value, diagnostics, context);
+			case PatternstructurePackage.COMPLETE_PATTERN:
+				return validateCompletePattern((CompletePattern)value, diagnostics, context);
 			case PatternstructurePackage.PATTERN_ELEMENT:
 				return validatePatternElement((PatternElement)value, diagnostics, context);
-			case PatternstructurePackage.NOT_ELEMENT:
-				return validateNotElement((NotElement)value, diagnostics, context);
+			case PatternstructurePackage.NOT_CONDITION:
+				return validateNotCondition((NotCondition)value, diagnostics, context);
+			case PatternstructurePackage.COUNT_CONDITION:
+				return validateCountCondition((CountCondition)value, diagnostics, context);
+			case PatternstructurePackage.COUNT_CONDITION_ARGUMENT:
+				return validateCountConditionArgument((CountConditionArgument)value, diagnostics, context);
+			case PatternstructurePackage.MORPHISM_CONTAINER:
+				return validateMorphismContainer((MorphismContainer)value, diagnostics, context);
+			case PatternstructurePackage.COUNT_PATTERN:
+				return validateCountPattern((CountPattern)value, diagnostics, context);
+			case PatternstructurePackage.PATTERN:
+				return validatePattern((Pattern)value, diagnostics, context);
+			case PatternstructurePackage.NUMBER_ELEMENT:
+				return validateNumberElement((NumberElement)value, diagnostics, context);
 			case PatternstructurePackage.LOGICAL_OPERATOR:
 				return validateLogicalOperator((LogicalOperator)value, diagnostics, context);
 			case PatternstructurePackage.QUANTIFIER:
 				return validateQuantifier((Quantifier)value, diagnostics, context);
 			case PatternstructurePackage.LOCATION:
 				return validateLocation((Location)value, diagnostics, context);
+			case PatternstructurePackage.ABSTRACTION_LEVEL:
+				return validateAbstractionLevel((AbstractionLevel)value, diagnostics, context);
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
 				return validateInvalidityExceptionWrapper((InvalidityException)value, diagnostics, context);
 			case PatternstructurePackage.CLASS_WRAPPER:
@@ -169,37 +182,7 @@ public class PatternstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(quantifiedCondition, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(quantifiedCondition, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePatternElement_validate(quantifiedCondition, diagnostics, context);
-		if (result || diagnostics != null) result &= validateQuantifiedCondition_morphismValid(quantifiedCondition, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * The cached validation expression for the morphismValid constraint of '<em>Quantified Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String QUANTIFIED_CONDITION__MORPHISM_VALID__EEXPRESSION = "self.checkMorphismOfNextGraph";
-
-	/**
-	 * Validates the morphismValid constraint of '<em>Quantified Condition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateQuantifiedCondition_morphismValid(QuantifiedCondition quantifiedCondition, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION,
-				 quantifiedCondition,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "morphismValid",
-				 QUANTIFIED_CONDITION__MORPHISM_VALID__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
 	}
 
 	/**
@@ -237,145 +220,25 @@ public class PatternstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(morphism, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(morphism, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePatternElement_validate(morphism, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMorphism_singleElementMappingsValid(morphism, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMorphism_relationMappingsValid(morphism, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMorphism_singleElementMappingsUnique(morphism, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMorphism_relationMappingsUnique(morphism, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * The cached validation expression for the singleElementMappingsValid constraint of '<em>Morphism</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static final String MORPHISM__SINGLE_ELEMENT_MAPPINGS_VALID__EEXPRESSION = "self.checkSingleElementMappings";
-
-	/**
-	 * Validates the singleElementMappingsValid constraint of '<em>Morphism</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMorphism_singleElementMappingsValid(Morphism morphism, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(PatternstructurePackage.Literals.MORPHISM,
-				 morphism,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "singleElementMappingsValid",
-				 MORPHISM__SINGLE_ELEMENT_MAPPINGS_VALID__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * The cached validation expression for the relationMappingsValid constraint of '<em>Morphism</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String MORPHISM__RELATION_MAPPINGS_VALID__EEXPRESSION = "self.checkRelationMappings";
-
-	/**
-	 * Validates the relationMappingsValid constraint of '<em>Morphism</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMorphism_relationMappingsValid(Morphism morphism, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(PatternstructurePackage.Literals.MORPHISM,
-				 morphism,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "relationMappingsValid",
-				 MORPHISM__RELATION_MAPPINGS_VALID__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * The cached validation expression for the singleElementMappingsUnique constraint of '<em>Morphism</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String MORPHISM__SINGLE_ELEMENT_MAPPINGS_UNIQUE__EEXPRESSION = "self.checkSingleElementMappingsUniqueness";
-
-	/**
-	 * Validates the singleElementMappingsUnique constraint of '<em>Morphism</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMorphism_singleElementMappingsUnique(Morphism morphism, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(PatternstructurePackage.Literals.MORPHISM,
-				 morphism,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "singleElementMappingsUnique",
-				 MORPHISM__SINGLE_ELEMENT_MAPPINGS_UNIQUE__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * The cached validation expression for the relationMappingsUnique constraint of '<em>Morphism</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String MORPHISM__RELATION_MAPPINGS_UNIQUE__EEXPRESSION = "self.checkRelationMappingsUniqueness";
-
-	/**
-	 * Validates the relationMappingsUnique constraint of '<em>Morphism</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateMorphism_relationMappingsUnique(Morphism morphism, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(PatternstructurePackage.Literals.MORPHISM,
-				 morphism,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "relationMappingsUnique",
-				 MORPHISM__RELATION_MAPPINGS_UNIQUE__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateSingleElementMapping(SingleElementMapping singleElementMapping, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(singleElementMapping, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(singleElementMapping, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(singleElementMapping, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(singleElementMapping, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(singleElementMapping, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(singleElementMapping, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(singleElementMapping, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(singleElementMapping, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(singleElementMapping, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePatternElement_validate(singleElementMapping, diagnostics, context);
+	public boolean validateElementMapping(ElementMapping elementMapping, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(elementMapping, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(elementMapping, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(elementMapping, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(elementMapping, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(elementMapping, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(elementMapping, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(elementMapping, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(elementMapping, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(elementMapping, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(elementMapping, diagnostics, context);
 		return result;
 	}
 
@@ -441,48 +304,18 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePattern(Pattern pattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(pattern, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePatternElement_validate(pattern, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePattern_morphismValid(pattern, diagnostics, context);
+	public boolean validateCompletePattern(CompletePattern completePattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(completePattern, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(completePattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(completePattern, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * The cached validation expression for the morphismValid constraint of '<em>Pattern</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected static final String PATTERN__MORPHISM_VALID__EEXPRESSION = "self.checkMorphismOfNextGraph";
-
-	/**
-	 * Validates the morphismValid constraint of '<em>Pattern</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePattern_morphismValid(Pattern pattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return
-			validate
-				(PatternstructurePackage.Literals.PATTERN,
-				 pattern,
-				 diagnostics,
-				 context,
-				 "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-				 "morphismValid",
-				 PATTERN__MORPHISM_VALID__EEXPRESSION,
-				 Diagnostic.ERROR,
-				 DIAGNOSTIC_SOURCE,
-				 0);
 	}
 
 	/**
@@ -519,17 +352,131 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateNotElement(NotElement notElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(notElement, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(notElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(notElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(notElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(notElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(notElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(notElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(notElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(notElement, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePatternElement_validate(notElement, diagnostics, context);
+	public boolean validateNotCondition(NotCondition notCondition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(notCondition, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(notCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(notCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(notCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(notCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(notCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(notCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(notCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(notCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(notCondition, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCountCondition(CountCondition countCondition, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(countCondition, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(countCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(countCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(countCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(countCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(countCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(countCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(countCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(countCondition, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(countCondition, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCountConditionArgument(CountConditionArgument countConditionArgument, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(countConditionArgument, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(countConditionArgument, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(countConditionArgument, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(countConditionArgument, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(countConditionArgument, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(countConditionArgument, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(countConditionArgument, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(countConditionArgument, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(countConditionArgument, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(countConditionArgument, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateMorphismContainer(MorphismContainer morphismContainer, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(morphismContainer, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(morphismContainer, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(morphismContainer, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCountPattern(CountPattern countPattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(countPattern, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(countPattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(countPattern, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePattern(Pattern pattern, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(pattern, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pattern, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(pattern, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateNumberElement(NumberElement numberElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(numberElement, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(numberElement, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePatternElement_validate(numberElement, diagnostics, context);
 		return result;
 	}
 
@@ -557,6 +504,15 @@ public class PatternstructureValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateLocation(Location location, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAbstractionLevel(AbstractionLevel abstractionLevel, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

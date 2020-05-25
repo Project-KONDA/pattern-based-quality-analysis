@@ -6,33 +6,27 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.inputfields.VariableList;
+
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pattern</b></em>'.
- * Root class for Pattern. Contains the general UI Interfaces for external use.
- * Basic container class for all model elements for the structural representation of a Pattern. 
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getVariableList <em>Variable List</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#isCheckMorphismOfNextGraph <em>Check Morphism Of Next Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getElementCounter <em>Element Counter</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='morphismValid'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot morphismValid='self.checkMorphismOfNextGraph'"
+ * @model abstract="true"
  * @generated
  */
 public interface Pattern extends PatternElement {
+
 	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}'.
@@ -66,7 +60,7 @@ public interface Pattern extends PatternElement {
 	 * @see #setCondition(Condition)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_Condition()
 	 * @see qualitypatternmodel.patternstructure.Condition#getPattern
-	 * @model opposite="pattern" containment="true" required="true"
+	 * @model opposite="pattern" containment="true"
 	 * @generated
 	 */
 	Condition getCondition();
@@ -81,112 +75,11 @@ public interface Pattern extends PatternElement {
 	 */
 	void setCondition(Condition value);
 
-	/**
-	 * Returns the value of the '<em><b>Element Counter</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element Counter</em>' attribute.
-	 * @see #setElementCounter(int)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_ElementCounter()
-	 * @model default="0" required="true"
-	 * @generated
-	 */
-	int getElementCounter();
+	String generateQuery() throws InvalidityException;
 
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getElementCounter <em>Element Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element Counter</em>' attribute.
-	 * @see #getElementCounter()
-	 * @generated
-	 */
-	void setElementCounter(int value);
+	void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException;
 
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
+	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Variable List</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.inputfields.VariableList#getPattern <em>Pattern</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variable List</em>' containment reference.
-	 * @see #setVariableList(VariableList)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_VariableList()
-	 * @see qualitypatternmodel.inputfields.VariableList#getPattern
-	 * @model opposite="pattern" containment="true" required="true"
-	 * @generated
-	 */
-	VariableList getVariableList();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getVariableList <em>Variable List</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Variable List</em>' containment reference.
-	 * @see #getVariableList()
-	 * @generated
-	 */
-	void setVariableList(VariableList value);
-
-	/**
-	 * Returns the value of the '<em><b>Check Morphism Of Next Graph</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Check Morphism Of Next Graph</em>' attribute.
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_CheckMorphismOfNextGraph()
-	 * @model required="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='\t\t\t\t\t\n\t\t\t\t\t\t\t\tif self.condition.oclIsTypeOf(QuantifiedCondition) then self.graph = self.condition.oclAsType(QuantifiedCondition).morphism.from and self.condition.oclAsType(QuantifiedCondition).graph = self.condition.oclAsType(QuantifiedCondition).morphism.to\n\t\t\t\t\t\t\t\telse self.condition.getNextQuantifiedConditions-&gt;forAll(e|self.graph = e.morphism.from and e.graph = e.morphism.to) endif'"
-	 * @generated
-	 */
-	boolean isCheckMorphismOfNextGraph();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.functions.OperatorCycleExceptionWrapper" isDefinedPatternRequired="true"
-	 * @generated
-	 */
-	void isValid(boolean isDefinedPattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String toXQuery() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Basic Element counter: generates smallest locally unique (inside of patter) integer id
-	 * secures small representation variables for the translation to XQuery     
-	 * @return next Integer Value, which was not returned in the lifetime of the pattern before
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
-	 * @generated
-	 */
-	int getNewRefNo() throws InvalidityException;
-
+	void checkMorphismOfNextGraph() throws InvalidityException;
 } // Pattern

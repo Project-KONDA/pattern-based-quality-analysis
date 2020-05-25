@@ -5,78 +5,81 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.inputfields.*;
-import qualitypatternmodel.functions.*;
+import qualitypatternmodel.operators.*;
+import qualitypatternmodel.parameters.*;
+import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.*;
 
 public class Test05QuantorCombinationsCond {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
-		ArrayList<Pattern> patterns = new ArrayList<Pattern>();
-		patterns.add(getPatternExistsInExistsCond());
-		patterns.add(getPatternForallInExistsCond());
-		patterns.add(getPatternExistsInForallCond());
-		patterns.add(getPatternForallInForallCond());
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getPatternExistsInExistsCond());
+		completePatterns.add(getPatternForallInExistsCond());
+		completePatterns.add(getPatternExistsInForallCond());
+		completePatterns.add(getPatternForallInForallCond());
 
-		Test00.test(patterns);
+		Test00.test(completePatterns);
 	}
 
-	public static Pattern getPatternExistsInExistsCond() {
-		// Factory
-//		PatternstructurePackage.eINSTANCE.eClass();
-//		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-//		GraphstructurePackage.eINSTANCE.eClass();
-//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-//		FunctionsPackage.eINSTANCE.eClass();
-//		FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
-//		InputfieldsPackage.eINSTANCE.eClass();
-//		InputfieldsFactory inputFactory = InputfieldsFactory.eINSTANCE;
-		
+	public static CompletePattern getPatternExistsInExistsCond() {		
 		// PatternStructure
-		Pattern pattern = Test04QuantorCombinations.getPatternExistsInExists();
-//		VariableList varlist = pattern.getVariableList();
-		Graph graph = ((QuantifiedCondition)((QuantifiedCondition) pattern.getCondition()).getCondition()).getGraph();
-//		OperatorList oplist = graph.getOperatorList();
+		CompletePattern completePattern = Test04QuantorCombinations.getPatternExistsInExists();
+		Graph graph0 = completePattern.getGraph();
+		QuantifiedCondition qcond = (QuantifiedCondition) completePattern.getCondition();
+		Graph graph1 = qcond.getGraph();
+		QuantifiedCondition qcond2 = (QuantifiedCondition) qcond.getCondition();
+		Graph graph2 = qcond2.getGraph();
 		
-		// Property
-		SingleElement se = graph.getRootElement().getNextSingle().get(0).getNextSingle().get(0).getNextSingle().get(0);
-		se.addPrimitiveComparison("abc");
-		se.getProperties().get(0).getAttributeName().setValue("def"); // not needed, only for better visibility in textual representation
-//		Property prop = graphFactory.createProperty();
-//		se.getProperties().add(prop);
-//		prop.getPropertyOption().setValue(PropertyLocation.ATTRIBUTE);
-//		prop.getAttributeName().setValue("def"); // not needed, only for better visibility in textual representation
-//		
-//		// Comparison
-//		Comparison comp = functionFactory.createComparison();
-//		oplist.add(comp);
-//		
-//		TextLiteral tl = inputFactory.createTextLiteral();
-//		varlist.add(tl);
-//		tl.setValue("abc");		
-//		
-//		comp.setArgument1(prop);
-//		comp.setArgument2(tl);
+		// comparisons
+		Element e0 = graph0.getElements().get(0);
+		e0.addPrimitiveComparison("test");
+		Element e1 = graph1.getElements().get(0);
+		e1.addPrimitiveComparison("abc");
+		e1.addPrimitiveComparison("abc2");
+		Element e2 = graph1.getElements().get(1);
+		e2.addPrimitiveComparison("def");
+		Element se = graph2.getElements().get(2);
+		se.addPrimitiveComparison("ghi");
+
 		
-		return pattern;
+		completePattern.createXMLAdaption();
+		
+		XmlProperty property = (XmlProperty) graph0.getElements().get(0).getProperties().get(0);
+		property.getAttributeName().setValue("prop");
+		property.getOption().getOptions().add(PropertyKind.ATTRIBUTE);
+		property.getOption().setValue(PropertyKind.ATTRIBUTE);
+	
+		XmlProperty property1 = (XmlProperty) graph1.getElements().get(0).getProperties().get(0);
+		property1.getOption().getOptions().add(PropertyKind.TAG);
+		property1.getOption().setValue(PropertyKind.TAG);
+		
+		qcond.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		XmlReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
+		ref.setType(ReturnType.STRING);
+		completePattern.finalizeXMLAdaption();		
+		
+		return completePattern;
 	}
 	
-	public static Pattern getPatternForallInExistsCond() {
-		Pattern pattern = getPatternExistsInExistsCond();
-		((QuantifiedCondition)((QuantifiedCondition) pattern.getCondition()).getCondition()).setQuantifier(Quantifier.FORALL);
-		return pattern;		
+	public static CompletePattern getPatternForallInExistsCond() {
+		CompletePattern completePattern = getPatternExistsInExistsCond();
+		((QuantifiedCondition)((QuantifiedCondition) completePattern.getCondition()).getCondition()).setQuantifier(Quantifier.FORALL);
+		return completePattern;		
 	}
 
-	public static Pattern getPatternExistsInForallCond() {
-		Pattern pattern = getPatternExistsInExistsCond();
-		((QuantifiedCondition) pattern.getCondition()).setQuantifier(Quantifier.FORALL);
-		return pattern;
+	public static CompletePattern getPatternExistsInForallCond() {
+		CompletePattern completePattern = getPatternExistsInExistsCond();
+		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
+		return completePattern;
 	}
-	public static Pattern getPatternForallInForallCond() {
-		Pattern pattern = getPatternForallInExistsCond();
-		((QuantifiedCondition) pattern.getCondition()).setQuantifier(Quantifier.FORALL);
-		return pattern;
+	public static CompletePattern getPatternForallInForallCond() {
+		CompletePattern completePattern = getPatternForallInExistsCond();
+		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
+		return completePattern;
 	}
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();

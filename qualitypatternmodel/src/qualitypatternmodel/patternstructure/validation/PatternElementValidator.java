@@ -16,6 +16,8 @@ public interface PatternElementValidator {
 
 	boolean validateId(String value);
 
+	boolean validateInternalId(int value);
+
 	boolean validateShortPatternInternalId(int value);
 
 	boolean validateRefNo(int value);

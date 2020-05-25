@@ -14,14 +14,14 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.functions.FunctionsFactory;
+import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.operators.OperatorsFactory;
+import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -53,8 +53,8 @@ public class GraphItemProvider extends PatternElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addReturnElementsPropertyDescriptor(object);
-			addGraphDepthPropertyDescriptor(object);
-			addReturnGraphPropertyDescriptor(object);
+//			addGraphDepthPropertyDescriptor(object);
+//			addReturnGraphPropertyDescriptor(object);
 //			addGetAllElementsPropertyDescriptor(object);
 //			addGetAllRelationsPropertyDescriptor(object);
 		}
@@ -84,19 +84,19 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Morphism To feature.
+	 * This adds a property descriptor for the Outgoing Morphisms feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMorphismToPropertyDescriptor(Object object) {
+	protected void addOutgoingMorphismsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Graph_morphismTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_morphismTo_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__MORPHISM_TO,
+				 getString("_UI_Graph_outgoingMorphisms_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_outgoingMorphisms_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__OUTGOING_MORPHISMS,
 				 true,
 				 false,
 				 true,
@@ -106,107 +106,19 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Morphism From feature.
+	 * This adds a property descriptor for the Incoming Morphism feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMorphismFromPropertyDescriptor(Object object) {
+	protected void addIncomingMorphismPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Graph_morphismFrom_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_morphismFrom_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__MORPHISM_FROM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Graph Depth feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGraphDepthPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Graph_graphDepth_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_graphDepth_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__GRAPH_DEPTH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Return Graph feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReturnGraphPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Graph_returnGraph_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_returnGraph_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__RETURN_GRAPH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Get All Elements feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGetAllElementsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Graph_getAllElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_getAllElements_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__GET_ALL_ELEMENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Get All Relations feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGetAllRelationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Graph_getAllRelations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_getAllRelations_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__GET_ALL_RELATIONS,
+				 getString("_UI_Graph_incomingMorphism_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_incomingMorphism_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__INCOMING_MORPHISM,
 				 true,
 				 false,
 				 true,
@@ -227,8 +139,9 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENT);
+			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__ELEMENTS);
 			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST);
+			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__RELATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -284,12 +197,9 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Graph.class)) {
-			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
-			case GraphstructurePackage.GRAPH__RETURN_GRAPH:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case GraphstructurePackage.GRAPH__ROOT_ELEMENT:
+			case GraphstructurePackage.GRAPH__ELEMENTS:
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
+			case GraphstructurePackage.GRAPH__RELATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -309,13 +219,38 @@ public class GraphItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.GRAPH__ROOT_ELEMENT,
-				 GraphstructureFactory.eINSTANCE.createSingleElement()));
+				(GraphstructurePackage.Literals.GRAPH__ELEMENTS,
+				 GraphstructureFactory.eINSTANCE.createElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__ELEMENTS,
+				 AdaptionxmlFactory.eINSTANCE.createXmlElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__ELEMENTS,
+				 AdaptionxmlFactory.eINSTANCE.createXmlRoot()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST,
-				 FunctionsFactory.eINSTANCE.createOperatorList()));
+				 OperatorsFactory.eINSTANCE.createOperatorList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
+				 GraphstructureFactory.eINSTANCE.createRelation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
+				 AdaptionxmlFactory.eINSTANCE.createXmlNavigation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
+				 AdaptionxmlFactory.eINSTANCE.createXmlReference()));
 	}
 
 	/**

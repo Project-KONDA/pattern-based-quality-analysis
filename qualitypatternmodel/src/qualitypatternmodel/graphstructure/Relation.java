@@ -3,7 +3,8 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -16,88 +17,127 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getMappingTo <em>Mapping To</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getAxis <em>Axis</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getIncomingMapping <em>Incoming Mapping</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOutgoingMappings <em>Outgoing Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getTarget <em>Target</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='correctMappingOfContainment'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot correctMappingOfContainment='self.mappingTo-&gt;forAll(m | m.to.relationTo.oclIsTypeOf(SingleElement) implies m.to.relationTo.oclAsType(SingleElement).mappingFrom.from = self.relationTo)'"
+ * @model
  * @generated
  */
-public interface Relation extends PatternElement {
+public interface Relation extends PatternElement, Adaptable {
 	/**
-	 * Returns the value of the '<em><b>Mapping To</b></em>' reference list.
+	 * Returns the value of the '<em><b>Outgoing Mappings</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.patternstructure.RelationMapping}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.RelationMapping#getFrom <em>From</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.RelationMapping#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mapping To</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_MappingTo()
-	 * @see qualitypatternmodel.patternstructure.RelationMapping#getFrom
-	 * @model opposite="from"
+	 * @return the value of the '<em>Outgoing Mappings</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_OutgoingMappings()
+	 * @see qualitypatternmodel.patternstructure.RelationMapping#getSource
+	 * @model opposite="source"
 	 * @generated
 	 */
-	EList<RelationMapping> getMappingTo();
+	EList<RelationMapping> getOutgoingMappings();
 
 	/**
-	 * Returns the value of the '<em><b>Mapping From</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.RelationMapping#getTo <em>To</em>}'.
+	 * Returns the value of the '<em><b>Graph</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getRelations <em>Relations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mapping From</em>' reference.
-	 * @see #setMappingFrom(RelationMapping)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_MappingFrom()
-	 * @see qualitypatternmodel.patternstructure.RelationMapping#getTo
-	 * @model opposite="to"
+	 * @return the value of the '<em>Graph</em>' container reference.
+	 * @see #setGraph(Graph)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Graph()
+	 * @see qualitypatternmodel.graphstructure.Graph#getRelations
+	 * @model opposite="relations" required="true" transient="false"
 	 * @generated
 	 */
-	RelationMapping getMappingFrom();
+	Graph getGraph();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getMappingFrom <em>Mapping From</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getGraph <em>Graph</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mapping From</em>' reference.
-	 * @see #getMappingFrom()
+	 * @param value the new value of the '<em>Graph</em>' container reference.
+	 * @see #getGraph()
 	 * @generated
 	 */
-	void setMappingFrom(RelationMapping value);
+	void setGraph(Graph value);
 
 	/**
-	 * Returns the value of the '<em><b>Axis</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.Axis}.
+	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Axis</em>' attribute.
-	 * @see qualitypatternmodel.graphstructure.Axis
-	 * @see #setAxis(Axis)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Axis()
-	 * @model
+	 * @return the value of the '<em>Source</em>' reference.
+	 * @see #setSource(Element)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Source()
+	 * @see qualitypatternmodel.graphstructure.Element#getOutgoing
+	 * @model opposite="outgoing" required="true"
 	 * @generated
 	 */
-	Axis getAxis();
+	Element getSource();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getAxis <em>Axis</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Axis</em>' attribute.
-	 * @see qualitypatternmodel.graphstructure.Axis
-	 * @see #getAxis()
+	 * @param value the new value of the '<em>Source</em>' reference.
+	 * @see #getSource()
 	 * @generated
 	 */
-	void setAxis(Axis value);
+	void setSource(Element value);
 
 	/**
+	 * Returns the value of the '<em><b>Target</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getIncoming <em>Incoming</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @return the value of the '<em>Target</em>' reference.
+	 * @see #setTarget(Element)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Target()
+	 * @see qualitypatternmodel.graphstructure.Element#getIncoming
+	 * @model opposite="incoming" required="true"
 	 * @generated
 	 */
-	int getGraphDepth() throws InvalidityException;
+	Element getTarget();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getTarget <em>Target</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target</em>' reference.
+	 * @see #getTarget()
+	 * @generated
+	 */
+	void setTarget(Element value);
+
+	/**
+	 * Returns the value of the '<em><b>Incoming Mapping</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.RelationMapping#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Incoming Mapping</em>' reference.
+	 * @see #setIncomingMapping(RelationMapping)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_IncomingMapping()
+	 * @see qualitypatternmodel.patternstructure.RelationMapping#getTarget
+	 * @model opposite="target"
+	 * @generated
+	 */
+	RelationMapping getIncomingMapping();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getIncomingMapping <em>Incoming Mapping</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Incoming Mapping</em>' reference.
+	 * @see #getIncomingMapping()
+	 * @generated
+	 */
+	void setIncomingMapping(RelationMapping value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,27 +164,27 @@ public interface Relation extends PatternElement {
 	void copyToNewNextGraphs(Element newRelationTo);
 
 	/**
-	 * Returns the value of the '<em><b>Relation To</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getRelationFromPrevious <em>Relation From Previous</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relation To</em>' container reference.
-	 * @see #setRelationTo(Element)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_RelationTo()
-	 * @see qualitypatternmodel.graphstructure.Element#getRelationFromPrevious
-	 * @model opposite="relationFromPrevious" required="true" transient="false"
+	 * @model
 	 * @generated
 	 */
-	Element getRelationTo();
+	XmlNavigation adaptAsXMLNavigation();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getRelationTo <em>Relation To</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relation To</em>' container reference.
-	 * @see #getRelationTo()
+	 * @model
 	 * @generated
 	 */
-	void setRelationTo(Element value);
+	XmlReference adaptAsXMLReference();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setGraphSimple(Graph newGraph);
 
 } // Relation

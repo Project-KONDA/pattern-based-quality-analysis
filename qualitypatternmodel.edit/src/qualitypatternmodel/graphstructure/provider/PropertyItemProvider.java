@@ -13,7 +13,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.inputfields.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
@@ -47,8 +47,6 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 			addComparison1PropertyDescriptor(object);
 			addComparison2PropertyDescriptor(object);
 			addMatchPropertyDescriptor(object);
-			addAttributeNamePropertyDescriptor(object);
-			addOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,50 +87,6 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Comparable_comparison2_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Comparable_comparison2_feature", "_UI_Comparable_type"),
 				 GraphstructurePackage.Literals.COMPARABLE__COMPARISON2,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Attribute Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAttributeNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_attributeName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_attributeName_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__ATTRIBUTE_NAME,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Option feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_option_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_option_feature", "_UI_Property_type"),
-				 GraphstructurePackage.Literals.PROPERTY__OPTION,
 				 true,
 				 false,
 				 true,

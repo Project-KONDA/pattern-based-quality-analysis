@@ -6,7 +6,8 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
 
 public class ValidityTests {
@@ -18,15 +19,15 @@ public class ValidityTests {
 
 	private static void checkValidity(String path) {
 		EMFModelLoad loader = new EMFModelLoad();
-        Pattern pattern = loader.load(path);
+        CompletePattern completePattern = loader.load(path);
         DiagnosticChain diagnostics = null;
-        if(Diagnostician.INSTANCE.validate(pattern, diagnostics)) {
+        if(Diagnostician.INSTANCE.validate(completePattern, diagnostics)) {
         	// TODO: print output if pattern is not valid
         }
 //		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);		
 //		printDiagnostic(diagnostic, "");
 		try {
-			pattern.isValid(true);
+			completePattern.isValid(AbstractionLevel.CONCRETE);
 		} catch (InvalidityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

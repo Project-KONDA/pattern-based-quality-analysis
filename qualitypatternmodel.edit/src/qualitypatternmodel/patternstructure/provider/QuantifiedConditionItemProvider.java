@@ -78,28 +78,6 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Check Morphism Of Next Graph feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCheckMorphismOfNextGraphPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_QuantifiedCondition_checkMorphismOfNextGraph_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_QuantifiedCondition_checkMorphismOfNextGraph_feature", "_UI_QuantifiedCondition_type"),
-				 PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -111,9 +89,9 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(PatternstructurePackage.Literals.MORPHISM_CONTAINER__MORPHISM);
 			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__GRAPH);
 			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION);
-			childrenFeatures.add(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__MORPHISM);
 		}
 		return childrenFeatures;
 	}
@@ -168,12 +146,11 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 
 		switch (notification.getFeatureID(QuantifiedCondition.class)) {
 			case PatternstructurePackage.QUANTIFIED_CONDITION__QUANTIFIER:
-			case PatternstructurePackage.QUANTIFIED_CONDITION__CHECK_MORPHISM_OF_NEXT_GRAPH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
 			case PatternstructurePackage.QUANTIFIED_CONDITION__GRAPH:
 			case PatternstructurePackage.QUANTIFIED_CONDITION__CONDITION:
-			case PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -190,6 +167,11 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.MORPHISM_CONTAINER__MORPHISM,
+				 PatternstructureFactory.eINSTANCE.createMorphism()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -214,12 +196,12 @@ public class QuantifiedConditionItemProvider extends ConditionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createNotElement()));
+				 PatternstructureFactory.eINSTANCE.createNotCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__MORPHISM,
-				 PatternstructureFactory.eINSTANCE.createMorphism()));
+				(PatternstructurePackage.Literals.QUANTIFIED_CONDITION__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createCountCondition()));
 	}
 
 }

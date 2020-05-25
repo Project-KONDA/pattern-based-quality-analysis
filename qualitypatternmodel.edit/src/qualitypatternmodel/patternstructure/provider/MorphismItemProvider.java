@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -46,9 +45,9 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFromPropertyDescriptor(object);
-			addToPropertyDescriptor(object);
-			addMorphDepthPropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
+//			addMorphDepthPropertyDescriptor(object);
 //			addCheckSingleElementMappingsPropertyDescriptor(object);
 //			addCheckRelationMappingsPropertyDescriptor(object);
 //			addCheckSingleElementMappingsUniquenessPropertyDescriptor(object);
@@ -58,19 +57,19 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the From feature.
+	 * This adds a property descriptor for the Source feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFromPropertyDescriptor(Object object) {
+	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Morphism_from_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Morphism_from_feature", "_UI_Morphism_type"),
-				 PatternstructurePackage.Literals.MORPHISM__FROM,
+				 getString("_UI_Morphism_source_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Morphism_source_feature", "_UI_Morphism_type"),
+				 PatternstructurePackage.Literals.MORPHISM__SOURCE,
 				 true,
 				 false,
 				 true,
@@ -80,133 +79,23 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the To feature.
+	 * This adds a property descriptor for the Target feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addToPropertyDescriptor(Object object) {
+	protected void addTargetPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Morphism_to_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Morphism_to_feature", "_UI_Morphism_type"),
-				 PatternstructurePackage.Literals.MORPHISM__TO,
+				 getString("_UI_Morphism_target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Morphism_target_feature", "_UI_Morphism_type"),
+				 PatternstructurePackage.Literals.MORPHISM__TARGET,
 				 true,
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Morph Depth feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMorphDepthPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Morphism_morphDepth_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Morphism_morphDepth_feature", "_UI_Morphism_type"),
-				 PatternstructurePackage.Literals.MORPHISM__MORPH_DEPTH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Check Single Element Mappings feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCheckSingleElementMappingsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Morphism_checkSingleElementMappings_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Morphism_checkSingleElementMappings_feature", "_UI_Morphism_type"),
-				 PatternstructurePackage.Literals.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Check Relation Mappings feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCheckRelationMappingsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Morphism_checkRelationMappings_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Morphism_checkRelationMappings_feature", "_UI_Morphism_type"),
-				 PatternstructurePackage.Literals.MORPHISM__CHECK_RELATION_MAPPINGS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Check Single Element Mappings Uniqueness feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCheckSingleElementMappingsUniquenessPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Morphism_checkSingleElementMappingsUniqueness_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Morphism_checkSingleElementMappingsUniqueness_feature", "_UI_Morphism_type"),
-				 PatternstructurePackage.Literals.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Check Relation Mappings Uniqueness feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCheckRelationMappingsUniquenessPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Morphism_checkRelationMappingsUniqueness_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Morphism_checkRelationMappingsUniqueness_feature", "_UI_Morphism_type"),
-				 PatternstructurePackage.Literals.MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -285,13 +174,6 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Morphism.class)) {
-			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
-			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS:
-			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS:
-			case PatternstructurePackage.MORPHISM__CHECK_SINGLE_ELEMENT_MAPPINGS_UNIQUENESS:
-			case PatternstructurePackage.MORPHISM__CHECK_RELATION_MAPPINGS_UNIQUENESS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -318,7 +200,7 @@ public class MorphismItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.MORPHISM__MAPPINGS,
-				 PatternstructureFactory.eINSTANCE.createSingleElementMapping()));
+				 PatternstructureFactory.eINSTANCE.createElementMapping()));
 	}
 
 }

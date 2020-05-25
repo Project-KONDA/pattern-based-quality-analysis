@@ -2,10 +2,13 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.MorphismContainer;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.TrueElement;
 
@@ -27,13 +30,18 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	}
 	
 	@Override
-	public String toXQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		return "true()";
 	}
 	
 	@Override
-	public void isValidLocal(boolean isDefinedPattern) {}
+	public void isValidLocal(AbstractionLevel abstractionLevel) {}
 
+	@Override
+	public EList<MorphismContainer> getNextMorphismContainers() {
+		return new BasicEList<MorphismContainer>();
+	}	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +54,7 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	
 	@Override
 	public String myToString() {
-		return "true";
+		return "TRUE";
 	}
 
 } //TrueImpl

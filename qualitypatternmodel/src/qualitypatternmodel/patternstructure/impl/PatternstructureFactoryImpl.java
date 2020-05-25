@@ -62,11 +62,14 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 			case PatternstructurePackage.RELATION_MAPPING: return createRelationMapping();
 			case PatternstructurePackage.QUANTIFIED_CONDITION: return createQuantifiedCondition();
 			case PatternstructurePackage.MORPHISM: return createMorphism();
-			case PatternstructurePackage.SINGLE_ELEMENT_MAPPING: return createSingleElementMapping();
+			case PatternstructurePackage.ELEMENT_MAPPING: return createElementMapping();
 			case PatternstructurePackage.FORMULA: return createFormula();
 			case PatternstructurePackage.TRUE_ELEMENT: return createTrueElement();
-			case PatternstructurePackage.PATTERN: return createPattern();
-			case PatternstructurePackage.NOT_ELEMENT: return createNotElement();
+			case PatternstructurePackage.COMPLETE_PATTERN: return createCompletePattern();
+			case PatternstructurePackage.NOT_CONDITION: return createNotCondition();
+			case PatternstructurePackage.COUNT_CONDITION: return createCountCondition();
+			case PatternstructurePackage.COUNT_PATTERN: return createCountPattern();
+			case PatternstructurePackage.NUMBER_ELEMENT: return createNumberElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -86,6 +89,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return createQuantifierFromString(eDataType, initialValue);
 			case PatternstructurePackage.LOCATION:
 				return createLocationFromString(eDataType, initialValue);
+			case PatternstructurePackage.ABSTRACTION_LEVEL:
+				return createAbstractionLevelFromString(eDataType, initialValue);
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
 				return createInvalidityExceptionWrapperFromString(eDataType, initialValue);
 			case PatternstructurePackage.CLASS_WRAPPER:
@@ -111,6 +116,8 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return convertQuantifierToString(eDataType, instanceValue);
 			case PatternstructurePackage.LOCATION:
 				return convertLocationToString(eDataType, instanceValue);
+			case PatternstructurePackage.ABSTRACTION_LEVEL:
+				return convertAbstractionLevelToString(eDataType, instanceValue);
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
 				return convertInvalidityExceptionWrapperToString(eDataType, instanceValue);
 			case PatternstructurePackage.CLASS_WRAPPER:
@@ -161,9 +168,9 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public SingleElementMapping createSingleElementMapping() {
-		SingleElementMappingImpl singleElementMapping = new SingleElementMappingImpl();
-		return singleElementMapping;
+	public ElementMapping createElementMapping() {
+		ElementMappingImpl elementMapping = new ElementMappingImpl();
+		return elementMapping;
 	}
 
 	/**
@@ -194,9 +201,9 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public Pattern createPattern() {
-		PatternImpl pattern = new PatternImpl();
-		return pattern;
+	public CompletePattern createCompletePattern() {
+		CompletePatternImpl completePattern = new CompletePatternImpl();
+		return completePattern;
 	}
 
 	/**
@@ -205,9 +212,42 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public NotElement createNotElement() {
-		NotElementImpl notElement = new NotElementImpl();
-		return notElement;
+	public NotCondition createNotCondition() {
+		NotConditionImpl notCondition = new NotConditionImpl();
+		return notCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CountCondition createCountCondition() {
+		CountConditionImpl countCondition = new CountConditionImpl();
+		return countCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CountPattern createCountPattern() {
+		CountPatternImpl countPattern = new CountPatternImpl();
+		return countPattern;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NumberElement createNumberElement() {
+		NumberElementImpl numberElement = new NumberElementImpl();
+		return numberElement;
 	}
 
 	/**
@@ -267,6 +307,26 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	public String convertLocationToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AbstractionLevel createAbstractionLevelFromString(EDataType eDataType, String initialValue) {
+		AbstractionLevel result = AbstractionLevel.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertAbstractionLevelToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

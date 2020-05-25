@@ -5,19 +5,16 @@ package qualitypatternmodel.patternstructure.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
-
-import qualitypatternmodel.inputfields.InputfieldsFactory;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -43,82 +40,59 @@ public class PatternItemProvider extends PatternElementItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-//			addCheckMorphismOfNextGraphPropertyDescriptor(object);
-			addElementCounterPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
+			addGraphPropertyDescriptor(object);
+			addConditionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Check Morphism Of Next Graph feature.
+	 * This adds a property descriptor for the Graph feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCheckMorphismOfNextGraphPropertyDescriptor(Object object) {
+	protected void addGraphPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pattern_checkMorphismOfNextGraph_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pattern_checkMorphismOfNextGraph_feature", "_UI_Pattern_type"),
-				 PatternstructurePackage.Literals.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH,
+				 getString("_UI_Pattern_graph_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Pattern_graph_feature", "_UI_Pattern_type"),
+				 PatternstructurePackage.Literals.PATTERN__GRAPH,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Element Counter feature.
+	 * This adds a property descriptor for the Condition feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addElementCounterPropertyDescriptor(Object object) {
+	protected void addConditionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Pattern_elementCounter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pattern_elementCounter_feature", "_UI_Pattern_type"),
-				 PatternstructurePackage.Literals.PATTERN__ELEMENT_COUNTER,
+				 getString("_UI_Pattern_condition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Pattern_condition_feature", "_UI_Pattern_type"),
+				 PatternstructurePackage.Literals.PATTERN__CONDITION,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Pattern_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Pattern_name_feature", "_UI_Pattern_type"),
-				 PatternstructurePackage.Literals.PATTERN__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -135,7 +109,6 @@ public class PatternItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__VARIABLE_LIST);
 			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__GRAPH);
 			childrenFeatures.add(PatternstructurePackage.Literals.PATTERN__CONDITION);
 		}
@@ -156,30 +129,17 @@ public class PatternItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This returns Pattern.gif.
+	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Pattern"));
-	}
-
-	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
 	public String getText(Object object) {
-		Pattern pattern = (Pattern) object;
-		String text = getString("_UI_Pattern_type") + " " + pattern.getInternalId();
-		if(pattern.getName() != null) {
-			text += " " + pattern.getName();
-		}
-		return text;
+		String label = ((Pattern)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Pattern_type") :
+			getString("_UI_Pattern_type") + " " + label;
 	}
 
 
@@ -195,12 +155,6 @@ public class PatternItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Pattern.class)) {
-			case PatternstructurePackage.PATTERN__CHECK_MORPHISM_OF_NEXT_GRAPH:
-			case PatternstructurePackage.PATTERN__ELEMENT_COUNTER:
-			case PatternstructurePackage.PATTERN__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case PatternstructurePackage.PATTERN__VARIABLE_LIST:
 			case PatternstructurePackage.PATTERN__GRAPH:
 			case PatternstructurePackage.PATTERN__CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -219,11 +173,6 @@ public class PatternItemProvider extends PatternElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PatternstructurePackage.Literals.PATTERN__VARIABLE_LIST,
-				 InputfieldsFactory.eINSTANCE.createVariableList()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -248,7 +197,12 @@ public class PatternItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(PatternstructurePackage.Literals.PATTERN__CONDITION,
-				 PatternstructureFactory.eINSTANCE.createNotElement()));
+				 PatternstructureFactory.eINSTANCE.createNotCondition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.PATTERN__CONDITION,
+				 PatternstructureFactory.eINSTANCE.createCountCondition()));
 	}
 
 }
