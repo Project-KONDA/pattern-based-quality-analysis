@@ -32,6 +32,7 @@ import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Location;
+import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
 /**
@@ -80,7 +81,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	
 	@Override
 	public String generateQuery(Location location) throws InvalidityException {
-		// TODO: adapt
 //		translated = true;
 
 		String query = "";
@@ -108,7 +108,11 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			throw new InvalidityException("target of relation not XMLElement");
 		}	
 		
-		if (location == Location.RETURN) {
+		if(getGraph() == null) {
+			throw new InvalidityException("container Graph null");
+		}
+		
+		if (getGraph().isReturnGraph()) {
 			query += FOR + target + IN; 			
 			if (getTarget().getIncomingMapping() == null) {
 				query += xPathExpression + xPredicates;
@@ -119,9 +123,15 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			}
 			
 		} else {
-			if (location == Location.EXISTS) {
+			if(getGraph().getQuantifiedCondition() == null) {
+				throw new InvalidityException("container QuantifiedCondition null");
+			}
+			if(getGraph().getQuantifiedCondition().getQuantifier() == null) {
+				throw new InvalidityException("quantifier null");
+			}
+			if (getGraph().getQuantifiedCondition().getQuantifier() == Quantifier.EXISTS) {
 				query += SOME;
-			} else if (location == Location.FORALL) {
+			} else if (getGraph().getQuantifiedCondition().getQuantifier() == Quantifier.FORALL) {
 				query += EVERY;
 			} else {
 				throw new InvalidityException("invalid location");
