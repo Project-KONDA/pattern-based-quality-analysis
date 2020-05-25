@@ -15,7 +15,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Condition#getCondDepth <em>Cond Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Condition#getFormula1 <em>Formula1</em>}</li>
@@ -28,29 +27,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
  * @generated
  */
 public interface Condition extends PatternElement {
-
-	/**
-	 * Returns the value of the '<em><b>Cond Depth</b></em>' attribute.
-	 * The default value is <code>"-1"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cond Depth</em>' attribute.
-	 * @see #setCondDepth(int)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCondition_CondDepth()
-	 * @model default="-1" required="true"
-	 * @generated
-	 */
-	int getCondDepth();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Condition#getCondDepth <em>Cond Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cond Depth</em>' attribute.
-	 * @see #getCondDepth()
-	 * @generated
-	 */
-	void setCondDepth(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Pattern</b></em>' container reference.

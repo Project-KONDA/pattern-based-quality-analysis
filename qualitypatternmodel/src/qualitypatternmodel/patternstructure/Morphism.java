@@ -20,7 +20,6 @@ import qualitypatternmodel.graphstructure.Relation;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getMappings <em>Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#getTarget <em>Target</em>}</li>
@@ -165,29 +164,6 @@ public interface Morphism extends PatternElement {
 	 * @generated
 	 */
 	RelationMapping addMapping(Relation from, Relation to);
-
-	/**
-	 * Returns the value of the '<em><b>Morph Depth</b></em>' attribute.
-	 * The default value is <code>"-1"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Morph Depth</em>' attribute.
-	 * @see #setMorphDepth(int)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphism_MorphDepth()
-	 * @model default="-1" required="true"
-	 * @generated
-	 */
-	int getMorphDepth();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Morph Depth</em>' attribute.
-	 * @see #getMorphDepth()
-	 * @generated
-	 */
-	void setMorphDepth(int value);
 
 	void removeDanglingMappingReference();
 

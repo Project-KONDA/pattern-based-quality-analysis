@@ -16,9 +16,9 @@ import qualitypatternmodel.graphstructure.tests.ElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation() <em>Get XQuery Representation</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates() <em>Translate Predicates</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -78,13 +78,13 @@ public class XmlElementTest extends ElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location)
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation()
 	 * @generated
 	 */
-	public void testGetXQueryRepresentation__Location() {
+	public void testGetXQueryRepresentation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -104,13 +104,13 @@ public class XmlElementTest extends ElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates() <em>Translate Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlElement#translatePredicates(qualitypatternmodel.patternstructure.Location)
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#translatePredicates()
 	 * @generated
 	 */
-	public void testTranslatePredicates__Location() {
+	public void testTranslatePredicates() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

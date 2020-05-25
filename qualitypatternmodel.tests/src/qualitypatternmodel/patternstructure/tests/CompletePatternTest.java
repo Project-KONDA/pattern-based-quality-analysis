@@ -14,7 +14,6 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#generateQuery() <em>Generate Query</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo() <em>Get New Ref No</em>}</li>
  * </ul>
  * </p>
@@ -72,19 +71,6 @@ public class CompletePatternTest extends PatternTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateQuery() <em>Generate Query</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateQuery()
-	 * @generated
-	 */
-	public void testGenerateQuery() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**

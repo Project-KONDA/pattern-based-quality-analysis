@@ -133,6 +133,7 @@ public class ElementMappingItemProvider extends MappingItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

@@ -325,8 +325,6 @@
           upperBound="-1" eType="#//graphstructure/Element" containment="true" eOpposite="#//graphstructure/Element/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
           eType="#//operators/OperatorList" containment="true" eOpposite="#//operators/OperatorList/graph"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="graphDepth" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedCondition"
           eType="#//patternstructure/QuantifiedCondition" eOpposite="#//patternstructure/QuantifiedCondition/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//patternstructure/Pattern"
@@ -395,8 +393,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getNextMorphismContainers" upperBound="-1" eType="#//patternstructure/MorphismContainer"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="condDepth" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" eType="#//patternstructure/Pattern"
           eOpposite="#//patternstructure/Pattern/condition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="quantifiedCondition"
@@ -421,8 +417,6 @@
         <eParameters name="from" eType="#//graphstructure/Relation"/>
         <eParameters name="to" eType="#//graphstructure/Relation"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="morphDepth" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
           eType="#//patternstructure/Mapping" containment="true" eOpposite="#//patternstructure/Mapping/morphism"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
@@ -439,8 +433,6 @@
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/incomingMapping"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Mapping" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mappingDepth" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="morphism" lowerBound="1"
           eType="#//patternstructure/Morphism" eOpposite="#//patternstructure/Morphism/mappings"/>
     </eClassifiers>

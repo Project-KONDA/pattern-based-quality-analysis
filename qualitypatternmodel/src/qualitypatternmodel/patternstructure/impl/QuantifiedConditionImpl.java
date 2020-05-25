@@ -393,9 +393,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			getGraph().setIncomingMorphism(null);
 			getGraph().getOutgoingMorphisms().clear();
 		}
-		if (newGraph != null) {
-			newGraph.setGraphDepth(condDepth);
-		}
 		Graph oldGraph = graph;
 		graph = newGraph;
 		if (eNotificationRequired()) {
@@ -448,7 +445,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
 		newMorphism.setTarget(getGraph());
-		newMorphism.setMorphDepth(condDepth);
 		
 		if (getMorphism() != null) {
 			getMorphism().setSource(null);

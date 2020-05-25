@@ -43,7 +43,6 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMorphDepth <em>Morph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getMappings <em>Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MorphismImpl#getTarget <em>Target</em>}</li>
@@ -53,26 +52,6 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  * @generated
  */
 public class MorphismImpl extends PatternElementImpl implements Morphism {
-	/**
-	 * The default value of the '{@link #getMorphDepth() <em>Morph Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMorphDepth()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int MORPH_DEPTH_EDEFAULT = -1;
-
-	/**
-	 * The cached value of the '{@link #getMorphDepth() <em>Morph Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMorphDepth()
-	 * @generated
-	 * @ordered
-	 */
-	protected int morphDepth = MORPH_DEPTH_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -475,29 +454,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int getMorphDepth() {
-		return morphDepth;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMorphDepth(int newMorphDepth) {
-		int oldMorphDepth = morphDepth;
-		morphDepth = newMorphDepth;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MORPHISM__MORPH_DEPTH, oldMorphDepth, morphDepth));
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -537,8 +493,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
-				return getMorphDepth();
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				return getMappings();
 			case PatternstructurePackage.MORPHISM__SOURCE:
@@ -561,9 +515,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
-				setMorphDepth((Integer)newValue);
-				return;
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				getMappings().clear();
 				getMappings().addAll((Collection<? extends Mapping>)newValue);
@@ -588,9 +539,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
-				setMorphDepth(MORPH_DEPTH_EDEFAULT);
-				return;
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				getMappings().clear();
 				return;
@@ -614,8 +562,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.MORPHISM__MORPH_DEPTH:
-				return morphDepth != MORPH_DEPTH_EDEFAULT;
 			case PatternstructurePackage.MORPHISM__MAPPINGS:
 				return mappings != null && !mappings.isEmpty();
 			case PatternstructurePackage.MORPHISM__SOURCE:
@@ -676,22 +622,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		return super.eInvoke(operationID, arguments);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (morphDepth: ");
-		result.append(morphDepth);
-		result.append(')');
-		return result.toString();
-	}
-	
 	@Override
 	public String myToString() {
 		if (getMappings().size() >0) {

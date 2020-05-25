@@ -269,22 +269,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING__MAPPING_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING__MORPHISM = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int MAPPING__MORPHISM = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Mapping</em>' class.
@@ -293,7 +284,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int MAPPING_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -466,15 +457,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING__INTERNAL_ID = MAPPING__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING__MAPPING_DEPTH = MAPPING__MAPPING_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
@@ -685,22 +667,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION__COND_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__PATTERN = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int CONDITION__PATTERN = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Quantified Condition</b></em>' container reference.
@@ -709,7 +682,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__QUANTIFIED_CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int CONDITION__QUANTIFIED_CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Formula1</b></em>' container reference.
@@ -718,7 +691,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__FORMULA1 = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int CONDITION__FORMULA1 = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Formula2</b></em>' container reference.
@@ -727,7 +700,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__FORMULA2 = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int CONDITION__FORMULA2 = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Not Condition</b></em>' container reference.
@@ -736,7 +709,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__NOT_CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int CONDITION__NOT_CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
@@ -745,7 +718,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 6;
+	int CONDITION_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -927,15 +900,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int QUANTIFIED_CONDITION__INTERNAL_ID = CONDITION__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION__COND_DEPTH = CONDITION__COND_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -1236,22 +1200,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM__INTERNAL_ID = PATTERN_ELEMENT__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Morph Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM__MORPH_DEPTH = PATTERN_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Mappings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 1;
+	int MORPHISM__MAPPINGS = PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -1260,7 +1215,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__SOURCE = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int MORPHISM__SOURCE = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -1269,7 +1224,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__TARGET = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int MORPHISM__TARGET = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Morphism Container</b></em>' container reference.
@@ -1278,7 +1233,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM__MORPHISM_CONTAINER = PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int MORPHISM__MORPHISM_CONTAINER = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Morphism</em>' class.
@@ -1287,7 +1242,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1516,15 +1471,6 @@ public interface PatternstructurePackage extends EPackage {
 	int ELEMENT_MAPPING__INTERNAL_ID = MAPPING__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Mapping Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_MAPPING__MAPPING_DEPTH = MAPPING__MAPPING_DEPTH;
-
-	/**
 	 * The feature id for the '<em><b>Morphism</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1731,15 +1677,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int FORMULA__INTERNAL_ID = CONDITION__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA__COND_DEPTH = CONDITION__COND_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -2002,15 +1939,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUE_ELEMENT__INTERNAL_ID = CONDITION__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT__COND_DEPTH = CONDITION__COND_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -2700,15 +2628,6 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION__INTERNAL_ID = CONDITION__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_CONDITION__COND_DEPTH = CONDITION__COND_DEPTH;
-
-	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2951,15 +2870,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT_CONDITION__INTERNAL_ID = CONDITION__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Cond Depth</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION__COND_DEPTH = CONDITION__COND_DEPTH;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' container reference.
@@ -4220,17 +4130,6 @@ public interface PatternstructurePackage extends EPackage {
 	EClass getCondition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Condition#getCondDepth <em>Cond Depth</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cond Depth</em>'.
-	 * @see qualitypatternmodel.patternstructure.Condition#getCondDepth()
-	 * @see #getCondition()
-	 * @generated
-	 */
-	EAttribute getCondition_CondDepth();
-
-	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Condition#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4442,17 +4341,6 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getElementMapping_Target();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Morphism#getMorphDepth <em>Morph Depth</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Morph Depth</em>'.
-	 * @see qualitypatternmodel.patternstructure.Morphism#getMorphDepth()
-	 * @see #getMorphism()
-	 * @generated
-	 */
-	EAttribute getMorphism_MorphDepth();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Mapping <em>Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4461,17 +4349,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMapping();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Mapping#getMappingDepth <em>Mapping Depth</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mapping Depth</em>'.
-	 * @see qualitypatternmodel.patternstructure.Mapping#getMappingDepth()
-	 * @see #getMapping()
-	 * @generated
-	 */
-	EAttribute getMapping_MappingDepth();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.patternstructure.Mapping#getMorphism <em>Morphism</em>}'.
@@ -5178,14 +5055,6 @@ public interface PatternstructurePackage extends EPackage {
 		EClass CONDITION = eINSTANCE.getCondition();
 
 		/**
-		 * The meta object literal for the '<em><b>Cond Depth</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONDITION__COND_DEPTH = eINSTANCE.getCondition_CondDepth();
-
-		/**
 		 * The meta object literal for the '<em><b>Pattern</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5350,14 +5219,6 @@ public interface PatternstructurePackage extends EPackage {
 		EReference ELEMENT_MAPPING__TARGET = eINSTANCE.getElementMapping_Target();
 
 		/**
-		 * The meta object literal for the '<em><b>Morph Depth</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MORPHISM__MORPH_DEPTH = eINSTANCE.getMorphism_MorphDepth();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5366,14 +5227,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EClass MAPPING = eINSTANCE.getMapping();
-
-		/**
-		 * The meta object literal for the '<em><b>Mapping Depth</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MAPPING__MAPPING_DEPTH = eINSTANCE.getMapping_MappingDepth();
 
 		/**
 		 * The meta object literal for the '<em><b>Morphism</b></em>' container reference feature.

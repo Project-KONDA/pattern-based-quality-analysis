@@ -58,7 +58,6 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList <em>Operator List</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getGraphDepth <em>Graph Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElements <em>Return Elements</em>}</li>
@@ -88,11 +87,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @ordered
 	 */
 	protected OperatorList operatorList;
-
-	
-	protected static final int GRAPH_DEPTH_EDEFAULT = -1;
-	
-	protected int graphDepth = GRAPH_DEPTH_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getReturnElements() <em>Return Elements</em>}' reference list.
@@ -697,29 +691,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int getGraphDepth() {
-		return graphDepth;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setGraphDepth(int newGraphDepth) {
-		int oldGraphDepth = graphDepth;
-		graphDepth = newGraphDepth;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.GRAPH__GRAPH_DEPTH, oldGraphDepth, graphDepth));
-	}
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -889,8 +860,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getElements();
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				return getOperatorList();
-			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
-				return getGraphDepth();
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				return getQuantifiedCondition();
 			case GraphstructurePackage.GRAPH__PATTERN:
@@ -922,9 +891,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return;
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				setOperatorList((OperatorList)newValue);
-				return;
-			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
-				setGraphDepth((Integer)newValue);
 				return;
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				setQuantifiedCondition((QuantifiedCondition)newValue);
@@ -964,9 +930,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				setOperatorList((OperatorList)null);
 				return;
-			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
-				setGraphDepth(GRAPH_DEPTH_EDEFAULT);
-				return;
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				setQuantifiedCondition((QuantifiedCondition)null);
 				return;
@@ -1000,8 +963,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return elements != null && !elements.isEmpty();
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				return operatorList != null;
-			case GraphstructurePackage.GRAPH__GRAPH_DEPTH:
-				return graphDepth != GRAPH_DEPTH_EDEFAULT;
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				return getQuantifiedCondition() != null;
 			case GraphstructurePackage.GRAPH__PATTERN:
@@ -1046,22 +1007,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return addRelation((Element)arguments.get(0), (Element)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (graphDepth: ");
-		result.append(graphDepth);
-		result.append(')');
-		return result.toString();
 	}
 
 	@Override

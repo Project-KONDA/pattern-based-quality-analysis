@@ -21,33 +21,12 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.MappingImpl#getMappingDepth <em>Mapping Depth</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.MappingImpl#getMorphism <em>Morphism</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class MappingImpl extends PatternElementImpl implements Mapping {
-	/**
-	 * The default value of the '{@link #getMappingDepth() <em>Mapping Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMappingDepth()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int MAPPING_DEPTH_EDEFAULT = -1;
-	/**
-	 * The cached value of the '{@link #getMappingDepth() <em>Mapping Depth</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMappingDepth()
-	 * @generated
-	 * @ordered
-	 */
-	protected int mappingDepth = MAPPING_DEPTH_EDEFAULT;
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,31 +45,6 @@ public abstract class MappingImpl extends PatternElementImpl implements Mapping 
 	@Override
 	protected EClass eStaticClass() {
 		return PatternstructurePackage.Literals.MAPPING;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int getMappingDepth() {
-		return mappingDepth;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMappingDepth(int newMappingDepth) {
-		int oldMappingDepth = mappingDepth;
-		mappingDepth = newMappingDepth;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.MAPPING__MAPPING_DEPTH, oldMappingDepth, mappingDepth));
 	}
 
 
@@ -195,8 +149,6 @@ public abstract class MappingImpl extends PatternElementImpl implements Mapping 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PatternstructurePackage.MAPPING__MAPPING_DEPTH:
-				return getMappingDepth();
 			case PatternstructurePackage.MAPPING__MORPHISM:
 				return getMorphism();
 		}
@@ -212,9 +164,6 @@ public abstract class MappingImpl extends PatternElementImpl implements Mapping 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PatternstructurePackage.MAPPING__MAPPING_DEPTH:
-				setMappingDepth((Integer)newValue);
-				return;
 			case PatternstructurePackage.MAPPING__MORPHISM:
 				setMorphism((Morphism)newValue);
 				return;
@@ -231,9 +180,6 @@ public abstract class MappingImpl extends PatternElementImpl implements Mapping 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.MAPPING__MAPPING_DEPTH:
-				setMappingDepth(MAPPING_DEPTH_EDEFAULT);
-				return;
 			case PatternstructurePackage.MAPPING__MORPHISM:
 				setMorphism((Morphism)null);
 				return;
@@ -250,29 +196,10 @@ public abstract class MappingImpl extends PatternElementImpl implements Mapping 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PatternstructurePackage.MAPPING__MAPPING_DEPTH:
-				return mappingDepth != MAPPING_DEPTH_EDEFAULT;
 			case PatternstructurePackage.MAPPING__MORPHISM:
 				return getMorphism() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (mappingDepth: ");
-		result.append(mappingDepth);
-		result.append(')');
-		return result.toString();
 	}
 
 } //MappingImpl

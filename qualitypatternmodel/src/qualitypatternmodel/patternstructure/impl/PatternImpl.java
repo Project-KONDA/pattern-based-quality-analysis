@@ -171,9 +171,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		}
 		Graph oldGraph = graph;
 		graph = newGraph;
-		if (graph != null) {
-			graph.setGraphDepth(0);
-		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PatternstructurePackage.COMPLETE_PATTERN__GRAPH, oldGraph, newGraph);
@@ -191,9 +188,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
 		Condition oldCondition = condition;
 		condition = newCondition;
-		if (condition != null) {
-			condition.setCondDepth(1);
-		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PatternstructurePackage.COMPLETE_PATTERN__CONDITION, oldCondition, newCondition);
