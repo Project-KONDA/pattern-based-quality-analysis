@@ -457,8 +457,6 @@
       <eLiterals name="FORALL" value="1" literal="FORALL"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompletePattern" eSuperTypes="#//patternstructure/Pattern">
-      <eOperations name="generateQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getNewRefNo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
           eType="#//parameters/ParameterList" containment="true" eOpposite="#//parameters/ParameterList/pattern"/>

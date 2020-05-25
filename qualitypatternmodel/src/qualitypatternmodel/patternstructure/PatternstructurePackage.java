@@ -2438,6 +2438,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GENERATE_QUERY = PATTERN___GENERATE_QUERY;
+
+	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2573,22 +2582,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH = PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___GENERATE_QUERY = PATTERN_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Get New Ref No</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GET_NEW_REF_NO = PATTERN_OPERATION_COUNT + 1;
+	int COMPLETE_PATTERN___GET_NEW_REF_NO = PATTERN_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
@@ -2597,7 +2597,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 2;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -4458,16 +4458,6 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCompletePattern_Name();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#generateQuery() <em>Generate Query</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate Query</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#generateQuery()
-	 * @generated
-	 */
-	EOperation getCompletePattern__GenerateQuery();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo() <em>Get New Ref No</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5313,14 +5303,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPLETE_PATTERN__NAME = eINSTANCE.getCompletePattern_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Generate Query</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPLETE_PATTERN___GENERATE_QUERY = eINSTANCE.getCompletePattern__GenerateQuery();
 
 		/**
 		 * The meta object literal for the '<em><b>Get New Ref No</b></em>' operation.

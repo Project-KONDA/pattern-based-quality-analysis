@@ -97,14 +97,6 @@ public interface CompletePattern extends Pattern {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String generateQuery() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * Basic Element counter: generates smallest locally unique (inside of patter) integer id
 	 * secures small representation variables for the translation to XQuery     
 	 * @return next Integer Value, which was not returned in the lifetime of the pattern before
