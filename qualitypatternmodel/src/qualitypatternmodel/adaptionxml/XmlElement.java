@@ -6,8 +6,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 
 import qualitypatternmodel.graphstructure.Element;
 
-import qualitypatternmodel.patternstructure.Location;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>XML Element</b></em>'.
@@ -22,10 +20,10 @@ public interface XmlElement extends Element {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String getXQueryRepresentation(Location location) throws InvalidityException;
+	String getXQueryRepresentation() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -41,6 +39,6 @@ public interface XmlElement extends Element {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String translatePredicates(Location location) throws InvalidityException;
+	String translatePredicates() throws InvalidityException;
 
 } // XMLElement

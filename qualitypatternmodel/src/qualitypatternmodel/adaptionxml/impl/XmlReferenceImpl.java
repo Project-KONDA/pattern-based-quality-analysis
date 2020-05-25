@@ -20,7 +20,6 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -88,7 +87,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	}
 
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		if(getSourceProperty() != null && getTargetProperty() != null) {
 			String conversionStartArgument1 = getType().getConversion();
 			String conversionEndArgument1 = getType().getConversionEnd();
@@ -97,7 +96,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 			String conversionEndArgument2 = getType().getConversionEnd();
 					
 			ComparisonOperator operator = ComparisonOperator.EQUAL;				
-			return conversionStartArgument1 + getSourceProperty().generateQuery(location) + conversionEndArgument1 + operator.getLiteral() + conversionStartArgument2 +  getTargetProperty().generateQuery(location) + conversionEndArgument2;
+			return conversionStartArgument1 + getSourceProperty().generateQuery() + conversionEndArgument1 + operator.getLiteral() + conversionStartArgument2 +  getTargetProperty().generateQuery() + conversionEndArgument2;
 		} else {
 			throw new InvalidityException("invalid arguments for Reference" + " (" + getInternalId() + ")");
 		}		

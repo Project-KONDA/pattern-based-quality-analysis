@@ -21,7 +21,6 @@ import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.utilityclasses.Constants;
@@ -92,7 +91,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		String result = "";
 		if (operator != null) {
 //			if (operator == LogicalOperator.NOT) {
@@ -106,32 +105,32 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					switch (operator) {
 					case AND:
 					case OR:
-						result += "((" + condition1.generateQuery(location) + ")";
+						result += "((" + condition1.generateQuery() + ")";
 						result += "\n" + operator.getLiteral() + "\n";
-						result += "(" + condition2.generateQuery(location) + "))";
+						result += "(" + condition2.generateQuery() + "))";
 						break;
 					case IMPLIES:
-						result += "(" + Constants.NOT + "(" + condition1.generateQuery(location) + ")";
+						result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
 						result += Constants.OR;
-						result += "(" + condition2.generateQuery(location) + "))";
+						result += "(" + condition2.generateQuery() + "))";
 						break;
 					case XOR:
-						result = "(" + Constants.NOT + "(" + condition1.generateQuery(location) + ")";
+						result = "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
 						result += Constants.AND;
-						result += "(" + condition2.generateQuery(location) + "))";
+						result += "(" + condition2.generateQuery() + "))";
 						result += Constants.OR;
-						result += "((" + condition1.generateQuery(location) + ")";
+						result += "((" + condition1.generateQuery() + ")";
 						result += Constants.AND;
-						result += Constants.NOT + "("+ condition2.generateQuery(location) + "))";
+						result += Constants.NOT + "("+ condition2.generateQuery() + "))";
 						break;
 					case EQUAL:
-						result += "(" + Constants.NOT + "(" + condition1.generateQuery(location) + ")";
+						result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
 						result += Constants.AND;
-						result += Constants.NOT + "(" + condition2.generateQuery(location) + "))";
+						result += Constants.NOT + "(" + condition2.generateQuery() + "))";
 						result += Constants.OR;
-						result += "((" + condition1.generateQuery(location) + ")";
+						result += "((" + condition1.generateQuery() + ")";
 						result += Constants.AND;
-						result += "("+ condition2.generateQuery(location) + "))";			
+						result += "("+ condition2.generateQuery() + "))";			
 						break;
 					default:
 						throw new InvalidityException("invalid arguments");

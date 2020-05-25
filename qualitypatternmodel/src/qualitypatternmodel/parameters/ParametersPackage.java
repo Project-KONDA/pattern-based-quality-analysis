@@ -139,7 +139,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___GENERATE_QUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int PARAMETER___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -410,7 +410,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM___GENERATE_QUERY__LOCATION = PARAMETER___GENERATE_QUERY__LOCATION;
+	int COMPARISON_OPTION_PARAM___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -672,7 +672,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM___GENERATE_QUERY__LOCATION = PARAMETER___GENERATE_QUERY__LOCATION;
+	int PROPERTY_OPTION_PARAM___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -889,7 +889,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST___GENERATE_QUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int PARAMETER_LIST___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1133,7 +1133,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___GENERATE_QUERY__LOCATION = PARAMETER___GENERATE_QUERY__LOCATION;
+	int PARAMETER_VALUE___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1431,7 +1431,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM___GENERATE_QUERY__LOCATION = PARAMETER_VALUE___GENERATE_QUERY__LOCATION;
+	int BOOLEAN_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1720,7 +1720,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GENERATE_QUERY__LOCATION = PARAMETER_VALUE___GENERATE_QUERY__LOCATION;
+	int TEXT_LIST_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2045,7 +2045,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___GENERATE_QUERY__LOCATION = PARAMETER_VALUE___GENERATE_QUERY__LOCATION;
+	int TEXT_LITERAL_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2343,7 +2343,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM___GENERATE_QUERY__LOCATION = PARAMETER_VALUE___GENERATE_QUERY__LOCATION;
+	int NUMBER_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2632,7 +2632,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM___GENERATE_QUERY__LOCATION = PARAMETER_VALUE___GENERATE_QUERY__LOCATION;
+	int DATE_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2921,7 +2921,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM___GENERATE_QUERY__LOCATION = PARAMETER_VALUE___GENERATE_QUERY__LOCATION;
+	int TIME_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3201,7 +3201,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___GENERATE_QUERY__LOCATION = PARAMETER___GENERATE_QUERY__LOCATION;
+	int UNKNOWN_PARAMETER_VALUE___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3508,7 +3508,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM___GENERATE_QUERY__LOCATION = PARAMETER_VALUE___GENERATE_QUERY__LOCATION;
+	int DATE_TIME_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3797,7 +3797,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM___GENERATE_QUERY__LOCATION = PARAMETER___GENERATE_QUERY__LOCATION;
+	int RELATION_OPTION_PARAM___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -4086,7 +4086,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPTION_PARAM___GENERATE_QUERY__LOCATION = PARAMETER___GENERATE_QUERY__LOCATION;
+	int OPTION_PARAM___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.

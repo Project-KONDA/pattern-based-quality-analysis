@@ -27,7 +27,6 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.MorphismContainer;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -110,12 +109,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		String result;
 		if (quantifier == Quantifier.EXISTS) {
-			result = graph.generateQuery(Location.EXISTS);
+			result = graph.generateQuery();
 		} else if (quantifier == Quantifier.FORALL) {
-			result = graph.generateQuery(Location.FORALL);
+			result = graph.generateQuery();
 		} else {
 			throw new InvalidityException("invalid quantifier");
 		}
@@ -127,7 +126,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //				result += NOT + "(" + getCountCondition().generateQuery(location) + ")" + OR;
 //			}
 //		}
-		result += "(" + condition.generateQuery(location) + ")";
+		result += "(" + condition.generateQuery() + ")";
 		return result;
 
 	}

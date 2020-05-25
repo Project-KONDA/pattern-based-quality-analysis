@@ -103,7 +103,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GENERATE_QUERY__LOCATION = 0;
+	int PATTERN_ELEMENT___GENERATE_QUERY = 0;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -302,7 +302,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int MAPPING___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -519,7 +519,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING___GENERATE_QUERY__LOCATION = MAPPING___GENERATE_QUERY__LOCATION;
+	int RELATION_MAPPING___GENERATE_QUERY = MAPPING___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -754,7 +754,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int CONDITION___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1034,7 +1034,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
+	int QUANTIFIED_CONDITION___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1296,7 +1296,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int MORPHISM___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1567,7 +1567,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___GENERATE_QUERY__LOCATION = MAPPING___GENERATE_QUERY__LOCATION;
+	int ELEMENT_MAPPING___GENERATE_QUERY = MAPPING___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1829,7 +1829,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
+	int FORMULA___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2073,7 +2073,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
+	int TRUE_ELEMENT___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2281,7 +2281,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int PATTERN___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2508,15 +2508,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___GENERATE_QUERY__LOCATION = PATTERN___GENERATE_QUERY__LOCATION;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2787,7 +2778,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
+	int NOT_CONDITION___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3067,7 +3058,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___GENERATE_QUERY__LOCATION = CONDITION___GENERATE_QUERY__LOCATION;
+	int COUNT_CONDITION___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3266,7 +3257,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int COUNT_CONDITION_ARGUMENT___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3456,7 +3447,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___GENERATE_QUERY__LOCATION = PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int MORPHISM_CONTAINER___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3700,7 +3691,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GENERATE_QUERY__LOCATION = PATTERN___GENERATE_QUERY__LOCATION;
+	int COUNT_PATTERN___GENERATE_QUERY = PATTERN___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3926,7 +3917,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___GENERATE_QUERY__LOCATION = COUNT_CONDITION_ARGUMENT___GENERATE_QUERY__LOCATION;
+	int NUMBER_ELEMENT___GENERATE_QUERY = COUNT_CONDITION_ARGUMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -4642,14 +4633,14 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getPatternElement_InternalId();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateQuery(qualitypatternmodel.patternstructure.Location) <em>Generate Query</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateQuery() <em>Generate Query</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Generate Query</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#generateQuery(qualitypatternmodel.patternstructure.Location)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateQuery()
 	 * @generated
 	 */
-	EOperation getPatternElement__GenerateQuery__Location();
+	EOperation getPatternElement__GenerateQuery();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllInputs() <em>Get All Inputs</em>}' operation.
@@ -5518,7 +5509,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_ELEMENT___GENERATE_QUERY__LOCATION = eINSTANCE.getPatternElement__GenerateQuery__Location();
+		EOperation PATTERN_ELEMENT___GENERATE_QUERY = eINSTANCE.getPatternElement__GenerateQuery();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Inputs</b></em>' operation.

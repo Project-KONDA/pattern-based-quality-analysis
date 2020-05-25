@@ -39,7 +39,6 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,12 +68,12 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		translated = true;
 		String query = "";
 		for(Relation relation : getOutgoing()) {
 			if(relation instanceof XmlNavigation) {
-				query += relation.generateQuery(location);
+				query += relation.generateQuery();
 			}
 		}		
 		return query;
@@ -154,7 +153,7 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 //	}
 	
 	@Override
-	public String getXQueryRepresentation(Location location) throws InvalidityException {
+	public String getXQueryRepresentation() throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
 			return ".";
 		} else {
@@ -167,13 +166,13 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 	}
 	
 	@Override
-	public String translatePredicates(Location location) throws InvalidityException {
+	public String translatePredicates() throws InvalidityException {
 		String xPredicates = "";
 		predicatesAreBeingTranslated = true;
 		
 		for (BooleanOperator predicate : predicates) {
 			if (predicate.isTranslatable()) {
-				xPredicates += "[" + predicate.generateQuery(location) + "]";
+				xPredicates += "[" + predicate.generateQuery() + "]";
 			}
 		}
 		
@@ -182,7 +181,7 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 			if(relation instanceof XmlReference) {
 				XmlReference reference = (XmlReference) relation;
 				if (reference.isTranslatable()) {
-					xPredicates += "[" + relation.generateQuery(location) + "]";
+					xPredicates += "[" + relation.generateQuery() + "]";
 				}
 			}			
 		}
@@ -190,7 +189,7 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 			if(relation instanceof XmlReference) {
 				XmlReference reference = (XmlReference) relation;
 				if (reference.isTranslatable()) {
-					xPredicates += "[" + relation.generateQuery(location) + "]";
+					xPredicates += "[" + relation.generateQuery() + "]";
 				}
 			}			
 		}
@@ -314,18 +313,18 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION:
+			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_REPRESENTATION:
 				try {
-					return getXQueryRepresentation((Location)arguments.get(0));
+					return getXQueryRepresentation();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_VARIABLE:
 				return getXQueryVariable();
-			case AdaptionxmlPackage.XML_ELEMENT___TRANSLATE_PREDICATES__LOCATION:
+			case AdaptionxmlPackage.XML_ELEMENT___TRANSLATE_PREDICATES:
 				try {
-					return translatePredicates((Location)arguments.get(0));
+					return translatePredicates();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

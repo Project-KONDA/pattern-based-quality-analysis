@@ -148,7 +148,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___GENERATE_QUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int RELATION___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -419,7 +419,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARABLE___GENERATE_QUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int COMPARABLE___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -663,7 +663,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GENERATE_QUERY__LOCATION = COMPARABLE___GENERATE_QUERY__LOCATION;
+	int PROPERTY___GENERATE_QUERY = COMPARABLE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1015,7 +1015,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GENERATE_QUERY__LOCATION = COMPARABLE___GENERATE_QUERY__LOCATION;
+	int ELEMENT___GENERATE_QUERY = COMPARABLE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1511,7 +1511,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___GENERATE_QUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int GRAPH___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1728,7 +1728,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADAPTABLE___GENERATE_QUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int ADAPTABLE___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.

@@ -26,7 +26,6 @@ import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.MorphismContainer;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -100,9 +99,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
-		String argument1 = getCountPattern().generateQuery(location);
-		String argument2 = getArgument2().generateQuery(location);
+	public String generateQuery() throws InvalidityException {
+		String argument1 = getCountPattern().generateQuery();
+		String argument2 = getArgument2().generateQuery();
 		if(getOption() != null && getOption().getValue() != null) {
 			return argument1 + " " + getOption().getValue() + " " + argument2;
 		} else {

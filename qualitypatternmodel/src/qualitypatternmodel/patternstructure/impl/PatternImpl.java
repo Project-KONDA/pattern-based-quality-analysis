@@ -25,7 +25,6 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.MorphismContainer;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -92,13 +91,13 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		String res = "";
 		if (graph.getReturnElements() == null || graph.getReturnElements().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
-		res += graph.generateQuery(Location.RETURN);
-		res += WHERE + condition.generateQuery(Location.OUTSIDE).replace("\n", "\n  "); // TODO: schachteln!
+		res += graph.generateQuery();
+		res += WHERE + condition.generateQuery().replace("\n", "\n  "); // TODO: schachteln!
 
 		res += RETURN + "(";
 		EList<Element> returnElements = graph.getReturnElements();

@@ -10,7 +10,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.patternstructure.Location;
 import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
@@ -56,7 +55,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		if(getValue() != null) {
 			return "\"" + getValue() + "\"";
 		} else {

@@ -32,7 +32,6 @@ import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -90,14 +89,14 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {		
+	public String generateQuery() throws InvalidityException {		
 		if(option == null || option.getValue() == null) {
 			throw new InvalidityException("propertyOptions invalid");
 		}				
 		String propertyElementTranslation;
 		if(getElement() instanceof XmlElement) {
 			XmlElement xmlElement = (XmlElement) getElement();
-			propertyElementTranslation = xmlElement.getXQueryRepresentation(location);
+			propertyElementTranslation = xmlElement.getXQueryRepresentation();
 		} else {
 			throw new InvalidityException("XMLProperty container of invalid type");
 		}

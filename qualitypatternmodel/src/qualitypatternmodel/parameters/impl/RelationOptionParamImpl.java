@@ -28,7 +28,6 @@ import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Axis
@@ -106,7 +105,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	}
 
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 //		return "/" + value.getLiteral() + "::*";
 		return value.getLiteral();
 	}

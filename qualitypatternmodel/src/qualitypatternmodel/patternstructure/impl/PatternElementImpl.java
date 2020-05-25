@@ -27,7 +27,6 @@ import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -341,7 +340,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -417,9 +416,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION:
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY:
 				try {
-					return generateQuery((Location)arguments.get(0));
+					return generateQuery();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

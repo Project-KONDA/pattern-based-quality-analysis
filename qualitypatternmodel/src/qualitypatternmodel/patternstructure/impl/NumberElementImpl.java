@@ -22,7 +22,6 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -61,8 +60,8 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
-		return getNumberParam().generateQuery(location);
+	public String generateQuery() throws InvalidityException {
+		return getNumberParam().generateQuery();
 	}
 	
 	@Override

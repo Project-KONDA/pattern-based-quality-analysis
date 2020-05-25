@@ -23,7 +23,6 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,7 +79,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	}
 
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		if(getValue() != null) {
 			return getValue() + "()";
 		} else {

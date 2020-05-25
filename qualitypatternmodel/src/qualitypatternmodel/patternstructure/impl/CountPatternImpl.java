@@ -29,7 +29,6 @@ import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -73,8 +72,8 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
-		return "\ncount (" + super.generateQuery(location).replace("\n", "\n  ") + "\n)";
+	public String generateQuery() throws InvalidityException {
+		return "\ncount (" + super.generateQuery().replace("\n", "\n  ") + "\n)";
 	}
 	
 	@Override

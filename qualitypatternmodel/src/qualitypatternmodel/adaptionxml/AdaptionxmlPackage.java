@@ -221,7 +221,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GENERATE_QUERY__LOCATION = GraphstructurePackage.ELEMENT___GENERATE_QUERY__LOCATION;
+	int XML_ELEMENT___GENERATE_QUERY = GraphstructurePackage.ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -590,7 +590,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 0;
+	int XML_ELEMENT___GET_XQUERY_REPRESENTATION = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
@@ -608,7 +608,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___TRANSLATE_PREDICATES__LOCATION = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 2;
+	int XML_ELEMENT___TRANSLATE_PREDICATES = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Xml Element</em>' class.
@@ -726,7 +726,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___GENERATE_QUERY__LOCATION = GraphstructurePackage.RELATION___GENERATE_QUERY__LOCATION;
+	int XML_NAVIGATION___GENERATE_QUERY = GraphstructurePackage.RELATION___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1051,7 +1051,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___GENERATE_QUERY__LOCATION = GraphstructurePackage.RELATION___GENERATE_QUERY__LOCATION;
+	int XML_REFERENCE___GENERATE_QUERY = GraphstructurePackage.RELATION___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1376,7 +1376,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GENERATE_QUERY__LOCATION = GraphstructurePackage.PROPERTY___GENERATE_QUERY__LOCATION;
+	int XML_PROPERTY___GENERATE_QUERY = GraphstructurePackage.PROPERTY___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1728,7 +1728,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___GENERATE_QUERY__LOCATION = GraphstructurePackage.ELEMENT___GENERATE_QUERY__LOCATION;
+	int XML_ROOT___GENERATE_QUERY = GraphstructurePackage.ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -2130,14 +2130,14 @@ public interface AdaptionxmlPackage extends EPackage {
 	EClass getXmlElement();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location) <em>Get XQuery Representation</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get XQuery Representation</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation(qualitypatternmodel.patternstructure.Location)
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation()
 	 * @generated
 	 */
-	EOperation getXmlElement__GetXQueryRepresentation__Location();
+	EOperation getXmlElement__GetXQueryRepresentation();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
@@ -2150,14 +2150,14 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getXmlElement__GetXQueryVariable();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates(qualitypatternmodel.patternstructure.Location) <em>Translate Predicates</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates() <em>Translate Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Translate Predicates</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlElement#translatePredicates(qualitypatternmodel.patternstructure.Location)
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#translatePredicates()
 	 * @generated
 	 */
-	EOperation getXmlElement__TranslatePredicates__Location();
+	EOperation getXmlElement__TranslatePredicates();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlNavigation <em>Xml Navigation</em>}'.
@@ -2356,7 +2356,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation XML_ELEMENT___GET_XQUERY_REPRESENTATION__LOCATION = eINSTANCE.getXmlElement__GetXQueryRepresentation__Location();
+		EOperation XML_ELEMENT___GET_XQUERY_REPRESENTATION = eINSTANCE.getXmlElement__GetXQueryRepresentation();
 
 		/**
 		 * The meta object literal for the '<em><b>Get XQuery Variable</b></em>' operation.
@@ -2372,7 +2372,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation XML_ELEMENT___TRANSLATE_PREDICATES__LOCATION = eINSTANCE.getXmlElement__TranslatePredicates__Location();
+		EOperation XML_ELEMENT___TRANSLATE_PREDICATES = eINSTANCE.getXmlElement__TranslatePredicates();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.

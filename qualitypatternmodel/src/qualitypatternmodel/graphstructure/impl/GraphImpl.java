@@ -38,7 +38,6 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.ElementMapping;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -148,11 +147,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		String result = "";
 		for(Element element : getElements()) {
 			if(element instanceof XmlRoot) {
-				result += element.generateQuery(location);
+				result += element.generateQuery();
 			}
 		}
 		return result;

@@ -29,7 +29,6 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
@@ -89,12 +88,12 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		if(option!=null && regularExpression != null && regularExpression.getValue() != null && property != null) {
 			if (option.getValue()){
-				return "matches(" + property.generateQuery(location) + ", \"" + regularExpression.getValue() + "\")";
+				return "matches(" + property.generateQuery() + ", \"" + regularExpression.getValue() + "\")";
 			} else {
-				return "not(matches(" + property.generateQuery(location) + ", \"" + regularExpression.getValue() + "\"))";
+				return "not(matches(" + property.generateQuery() + ", \"" + regularExpression.getValue() + "\"))";
 			}	
 		} else {
 			throw new InvalidityException("invalid option");

@@ -134,7 +134,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GENERATE_QUERY__LOCATION = GraphstructurePackage.COMPARABLE___GENERATE_QUERY__LOCATION;
+	int OPERATOR___GENERATE_QUERY = GraphstructurePackage.COMPARABLE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -423,7 +423,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___GENERATE_QUERY__LOCATION = OPERATOR___GENERATE_QUERY__LOCATION;
+	int BOOLEAN_OPERATOR___GENERATE_QUERY = OPERATOR___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -739,7 +739,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATOR___GENERATE_QUERY__LOCATION = OPERATOR___GENERATE_QUERY__LOCATION;
+	int NUMBER_OPERATOR___GENERATE_QUERY = OPERATOR___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1055,7 +1055,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___GENERATE_QUERY__LOCATION = BOOLEAN_OPERATOR___GENERATE_QUERY__LOCATION;
+	int MATCH___GENERATE_QUERY = BOOLEAN_OPERATOR___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1443,7 +1443,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___GENERATE_QUERY__LOCATION = BOOLEAN_OPERATOR___GENERATE_QUERY__LOCATION;
+	int COMPARISON___GENERATE_QUERY = BOOLEAN_OPERATOR___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -1777,7 +1777,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST___GENERATE_QUERY__LOCATION = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY__LOCATION;
+	int OPERATOR_LIST___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.

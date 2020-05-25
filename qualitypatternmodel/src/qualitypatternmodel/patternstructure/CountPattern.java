@@ -47,7 +47,7 @@ public interface CountPattern extends Pattern, MorphismContainer, CountCondition
 	 */
 	void setCountCondition(CountCondition value);
 
-	String generateQuery(Location location) throws InvalidityException;
+	String generateQuery() throws InvalidityException;
 
 	void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException;
 

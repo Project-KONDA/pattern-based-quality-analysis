@@ -13,7 +13,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.patternstructure.Location;
 import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
@@ -47,7 +46,7 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		return getListVar();
 	}
 	

@@ -22,7 +22,6 @@ import qualitypatternmodel.graphstructure.impl.ElementImpl;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParameterListImpl;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -127,14 +126,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
 	}
 
-	public String generateQuery() throws InvalidityException {
-		return generateQuery(Location.OUTSIDE);
-	}
-
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
-		String res = getParameterList().generateQuery(location);
-		res += super.generateQuery(location);
+	public String generateQuery() throws InvalidityException {
+		String res = getParameterList().generateQuery();
+		res += super.generateQuery();
 		return res;
 	}
 
@@ -385,13 +380,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.COMPLETE_PATTERN___GENERATE_QUERY:
-				try {
-					return generateQuery();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case PatternstructurePackage.COMPLETE_PATTERN___GET_NEW_REF_NO:
 				return getNewRefNo();
 		}

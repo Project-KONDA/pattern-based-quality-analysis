@@ -85,7 +85,7 @@ public interface PatternElement extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	String generateQuery(Location location) throws InvalidityException;
+	String generateQuery() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

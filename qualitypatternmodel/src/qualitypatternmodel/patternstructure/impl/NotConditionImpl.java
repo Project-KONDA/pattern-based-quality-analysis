@@ -18,7 +18,6 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.MorphismContainer;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -55,9 +54,9 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		if (condition != null) {
-			return "not(" + condition.generateQuery(location) + ")";
+			return "not(" + condition.generateQuery() + ")";
 		} else {
 			throw new InvalidityException("invalid condition");
 		}

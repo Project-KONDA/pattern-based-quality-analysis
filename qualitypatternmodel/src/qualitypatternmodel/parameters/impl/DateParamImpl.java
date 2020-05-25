@@ -11,7 +11,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.patternstructure.Location;
 
 import static qualitypatternmodel.utilityclasses.Constants.*;
 
@@ -58,7 +57,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		if(getValue() != null) {
 			return "\"" + getValue() + "\"";
 		} else {

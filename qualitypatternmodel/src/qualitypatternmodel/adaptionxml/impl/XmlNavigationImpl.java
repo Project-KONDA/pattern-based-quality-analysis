@@ -31,7 +31,6 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -80,7 +79,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 //		translated = true;
 
 		String query = "";
@@ -92,7 +91,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		}
 		String xPathExpression = "";
 		if (option != null && getIncomingMapping() == null) {
-			xPathExpression = source + option.generateQuery(location);
+			xPathExpression = source + option.generateQuery();
 		} else if(getIncomingMapping() == null) {
 			throw new InvalidityException("option null");
 		}
@@ -102,7 +101,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		if(getTarget() instanceof XmlElement) {
 			XmlElement targetElement = (XmlElement) getTarget();
 			targetElement.setTranslated(true);
-			xPredicates = targetElement.translatePredicates(location);
+			xPredicates = targetElement.translatePredicates();
 			target = targetElement.getXQueryVariable();
 		} else {
 			throw new InvalidityException("target of relation not XMLElement");
@@ -146,7 +145,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			}
 		}
 		
-		query += getTarget().generateQuery(location);
+		query += getTarget().generateQuery();
 		
 		return query;
 	}

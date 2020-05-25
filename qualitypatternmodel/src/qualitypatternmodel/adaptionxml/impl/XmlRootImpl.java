@@ -12,7 +12,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.Location;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,11 +32,11 @@ public class XmlRootImpl extends ElementImpl implements XmlRoot {
 	}
 	
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		String result = "";
 		for(Relation relation : getOutgoing()) {
 			if(relation instanceof XmlNavigation) {
-				result += relation.generateQuery(location);
+				result += relation.generateQuery();
 			} else {
 				throw new InvalidityException("XMLRoot has XMLReference");
 			}

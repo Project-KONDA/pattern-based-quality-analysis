@@ -39,7 +39,6 @@ import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
@@ -127,24 +126,24 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	@Override
-	public String generateQuery(Location location) throws InvalidityException {
+	public String generateQuery() throws InvalidityException {
 		if (option != null && option.getValue() != null && argument1 != null && argument2 != null) {
 			ComparisonOperator operator = option.getValue();
 			String conversionStartArgument1 = type.getConversion();
 			String conversionEndArgument1 = type.getConversionEnd();
 			String argument1Translated = "";
 			if (argument1 instanceof XmlElement) {
-				argument1Translated = ((XmlElement) argument1).getXQueryRepresentation(location);
+				argument1Translated = ((XmlElement) argument1).getXQueryRepresentation();
 			} else {
-				argument1Translated = argument1.generateQuery(location);
+				argument1Translated = argument1.generateQuery();
 			}
 			String conversionStartArgument2 = type.getConversion();
 			String conversionEndArgument2 = type.getConversionEnd();
 			String argument2Translated = "";
 			if (argument2 instanceof XmlElement) {
-				argument2Translated = ((XmlElement) argument2).getXQueryRepresentation(location);
+				argument2Translated = ((XmlElement) argument2).getXQueryRepresentation();
 			} else {
-				argument2Translated = argument2.generateQuery(location);
+				argument2Translated = argument2.generateQuery();
 			}			
 			if( argument1 instanceof XmlElement && argument2 instanceof XmlElement ) {
 				String res = "fn:deep-equal ( " + argument1Translated + ", " + argument2Translated + " )";

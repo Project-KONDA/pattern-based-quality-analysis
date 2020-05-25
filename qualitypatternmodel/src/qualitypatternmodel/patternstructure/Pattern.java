@@ -75,7 +75,7 @@ public interface Pattern extends PatternElement {
 	 */
 	void setCondition(Condition value);
 
-	String generateQuery(Location location) throws InvalidityException;
+	String generateQuery() throws InvalidityException;
 
 	void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException;
 
