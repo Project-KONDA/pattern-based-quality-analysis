@@ -379,7 +379,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	public String getText(Object object) {
 		Element element = (Element) object;
 //		System.out.println(singleElement.getId());
-		return getString("_UI_SingleElement_type") + " " + element.getInternalId();
+		return getString("_UI_Element_type") + " " + element.getInternalId();
 		
 //		String label = ((SingleElement)object).getId();
 //		return label == null || label.length() == 0 ?
