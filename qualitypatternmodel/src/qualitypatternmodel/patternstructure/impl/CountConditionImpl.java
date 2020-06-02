@@ -304,8 +304,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		msgs = super.basicSetPattern(newPattern, msgs);
 
 		setOption(new ComparisonOptionParamImpl());
-		getParameterList().add(getOption());
-
+		if(newPattern != null) {
+			getParameterList().add(getOption());
+		}
 		return msgs;
 	}
 	
