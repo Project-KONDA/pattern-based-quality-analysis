@@ -730,10 +730,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition,
 			NotificationChain msgs) {
-		ParameterList parameterList = newQuantifiedCondition.getParameterList();
-		if(parameterList != null) {
-			updateParameters(parameterList);
-		}	
+		if(newQuantifiedCondition != null) {
+			ParameterList parameterList = newQuantifiedCondition.getParameterList();
+			if(parameterList != null) {
+				updateParameters(parameterList);
+			}
+		}
 		msgs = eBasicSetContainer((InternalEObject)newQuantifiedCondition, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, msgs);
 		return msgs;
 	}
