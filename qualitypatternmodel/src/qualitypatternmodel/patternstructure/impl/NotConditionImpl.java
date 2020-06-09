@@ -50,7 +50,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	 */
 	protected NotConditionImpl() {
 		super();
-		setCondition(new TrueElementImpl());
+//		setCondition(new TrueElementImpl());
 	}
 
 	@Override
