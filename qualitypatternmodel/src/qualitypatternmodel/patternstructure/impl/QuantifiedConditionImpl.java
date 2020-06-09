@@ -105,7 +105,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		super();
 		setGraph(new GraphImpl());
 		setMorphism(new MorphismImpl());
-		setCondition(new TrueElementImpl());
+//		setCondition(new TrueElementImpl());
 	}
 
 	@Override

@@ -69,7 +69,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 */
 	protected PatternImpl() {
 		super();
-		setCondition(new TrueElementImpl());
+//		setCondition(new TrueElementImpl());
 	}
 
 	@Override
