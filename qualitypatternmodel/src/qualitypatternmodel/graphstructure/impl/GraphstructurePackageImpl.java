@@ -332,6 +332,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getProperty__AddComparison() {
+		return propertyEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getProperty_Match() {
 		return (EReference)propertyEClass.getEStructuralFeatures().get(1);
 	}
@@ -952,6 +962,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(propertyEClass, PROPERTY__ELEMENT);
 		createEReference(propertyEClass, PROPERTY__MATCH);
 		createEOperation(propertyEClass, PROPERTY___COPY);
+		createEOperation(propertyEClass, PROPERTY___ADD_COMPARISON);
 
 		elementEClass = createEClass(ELEMENT);
 		createEReference(elementEClass, ELEMENT__OUTGOING_MAPPINGS);
@@ -1090,6 +1101,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEReference(getProperty_Match(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_Property(), "match", null, 0, -1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getProperty__Copy(), this.getProperty(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getProperty__AddComparison(), theOperatorsPackage.getComparison(), "addComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElement_OutgoingMappings(), thePatternstructurePackage.getElementMapping(), thePatternstructurePackage.getElementMapping_Source(), "outgoingMappings", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

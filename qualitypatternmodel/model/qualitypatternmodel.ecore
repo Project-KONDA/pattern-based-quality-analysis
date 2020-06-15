@@ -236,6 +236,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="copy" eType="#//graphstructure/Property"/>
+      <eOperations name="addComparison" eType="#//operators/Comparison"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"

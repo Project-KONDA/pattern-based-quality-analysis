@@ -846,13 +846,22 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___COPY = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ADD_COMPARISON = COMPARABLE_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 3;
+	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -2042,6 +2051,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getProperty__Copy();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#addComparison() <em>Add Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Comparison</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#addComparison()
+	 * @generated
+	 */
+	EOperation getProperty__AddComparison();
+
+	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2789,6 +2808,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PROPERTY___COPY = eINSTANCE.getProperty__Copy();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Comparison</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY___ADD_COMPARISON = eINSTANCE.getProperty__AddComparison();
 
 		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.

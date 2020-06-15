@@ -27,6 +27,7 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.operators.impl.ComparisonImpl;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -223,6 +224,20 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Comparison addComparison() {
+		Comparison comparison = new ComparisonImpl();
+		comparison.setOperatorList(getElement().getGraph().getOperatorList());
+		comparison.createParameters();
+		comparison.setArgument1(this);
+		return comparison;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -405,6 +420,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		switch (operationID) {
 			case GraphstructurePackage.PROPERTY___COPY:
 				return copy();
+			case GraphstructurePackage.PROPERTY___ADD_COMPARISON:
+				return addComparison();
 			case GraphstructurePackage.PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

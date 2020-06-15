@@ -16,6 +16,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#copy() <em>Copy</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#addComparison() <em>Add Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
@@ -113,6 +114,19 @@ public class PropertyTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testCopy() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#addComparison() <em>Add Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Property#addComparison()
+	 * @generated
+	 */
+	public void testAddComparison() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
