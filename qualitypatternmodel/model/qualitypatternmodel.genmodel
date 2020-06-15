@@ -209,6 +209,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Property/match"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/copy"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/addComparison"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Element">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

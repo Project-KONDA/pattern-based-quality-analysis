@@ -1559,6 +1559,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___COPY = GraphstructurePackage.PROPERTY___COPY;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_COMPARISON = GraphstructurePackage.PROPERTY___ADD_COMPARISON;
+
+	/**
 	 * The number of operations of the '<em>Xml Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -4,6 +4,7 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -32,6 +33,14 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 * @generated
 	 */
 	Property copy();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Comparison addComparison();
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.
