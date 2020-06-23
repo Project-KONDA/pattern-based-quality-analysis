@@ -113,8 +113,11 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 //			previousGraph = quantifiedConditionCount.getGraph();
 //		}
 		try {
-			QuantifiedCondition previousQuantifiedCondition = (QuantifiedCondition) getAncestor(QuantifiedCondition.class);
-			previousGraph = previousQuantifiedCondition.getGraph();
+//			QuantifiedCondition previousQuantifiedCondition = (QuantifiedCondition) getAncestor(QuantifiedCondition.class);
+//			previousGraph = previousQuantifiedCondition.getGraph();
+			MorphismContainer previousMorphismContainer = (MorphismContainer) getContainer()
+					.getAncestor(MorphismContainer.class);
+			previousGraph = previousMorphismContainer.getGraph();
 		} catch (MissingPatternContainerException e) {
 			CompletePattern completePattern;
 			try {
