@@ -8,7 +8,7 @@ import java.util.Collection;
 
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
-
+import org.basex.core.cmd.XQuery;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
@@ -197,25 +197,36 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void analyseDatabase() throws BaseXException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		open();				
+		executeAnalysis("distinct-values(//*/name())", "\n", getElementNames());
+		executeAnalysis("distinct-values(//*/@*/name()))", "\n", getAttributeNames());
+	}
+	
+	private void executeAnalysis(String query, String regex, EList<String> valueStorage) throws BaseXException {
+		XQuery xquery = new XQuery(query);
+		String result = xquery.execute(context);
+		String[] split = result.split(regex);
+		for(int i = 0; i < split.length; i++) {
+			valueStorage.add(split[i]);
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void analyseSchema() throws BaseXException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		open();		
+		// TODO: add namespace
+		executeAnalysis("//*[name()=\"xsd:element\"]/data(@name)", "\n", getElementNames());
+		executeAnalysis("//*[name()=\"xsd:attribute\"]/data(@name)", "\n", getAttributeNames());
+	
 	}
 
 	/**
