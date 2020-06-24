@@ -529,7 +529,8 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Execution" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//execution">
+    <nestedGenPackages prefix="Execution" basePackage="qualitypatternmodel" disposableProviderFactory="true"
+        ecorePackage="qualitypatternmodel.ecore#//execution">
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/BaseXExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/BaseXContextWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryExceptionWrapper"/>
