@@ -21,6 +21,8 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 
+import qualitypatternmodel.execution.ExecutionPackage;
+import qualitypatternmodel.execution.impl.ExecutionPackageImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
@@ -149,6 +151,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		GraphstructurePackageImpl theGraphstructurePackage = (GraphstructurePackageImpl)(registeredPackage instanceof GraphstructurePackageImpl ? registeredPackage : GraphstructurePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 		PatternstructurePackageImpl thePatternstructurePackage = (PatternstructurePackageImpl)(registeredPackage instanceof PatternstructurePackageImpl ? registeredPackage : PatternstructurePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
+		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl)(registeredPackage instanceof ExecutionPackageImpl ? registeredPackage : ExecutionPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAdaptionxmlPackage.createPackageContents();
@@ -156,6 +160,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		theOperatorsPackage.createPackageContents();
 		theGraphstructurePackage.createPackageContents();
 		thePatternstructurePackage.createPackageContents();
+		theExecutionPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAdaptionxmlPackage.initializePackageContents();
@@ -163,6 +168,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		theOperatorsPackage.initializePackageContents();
 		theGraphstructurePackage.initializePackageContents();
 		thePatternstructurePackage.initializePackageContents();
+		theExecutionPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAdaptionxmlPackage.freeze();

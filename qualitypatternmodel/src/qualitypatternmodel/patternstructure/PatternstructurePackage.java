@@ -2194,13 +2194,31 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Partial Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN__PARTIAL_QUERY = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN__QUERY = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2402,6 +2420,24 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__CONDITION = PATTERN__CONDITION;
 
 	/**
+	 * The feature id for the '<em><b>Partial Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__PARTIAL_QUERY = PATTERN__PARTIAL_QUERY;
+
+	/**
+	 * The feature id for the '<em><b>Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__QUERY = PATTERN__QUERY;
+
+	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2429,13 +2465,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__NAME = PATTERN_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Database</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__DATABASE = PATTERN_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 3;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -3559,6 +3604,24 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN__CONDITION = PATTERN__CONDITION;
 
 	/**
+	 * The feature id for the '<em><b>Partial Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN__PARTIAL_QUERY = PATTERN__PARTIAL_QUERY;
+
+	/**
+	 * The feature id for the '<em><b>Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN__QUERY = PATTERN__QUERY;
+
+	/**
 	 * The feature id for the '<em><b>Morphism</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4458,6 +4521,17 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCompletePattern_Name();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Database</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getDatabase()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EReference getCompletePattern_Database();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo() <em>Get New Ref No</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4808,6 +4882,28 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPattern_Condition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getPartialQuery <em>Partial Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Partial Query</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getPartialQuery()
+	 * @see #getPattern()
+	 * @generated
+	 */
+	EAttribute getPattern_PartialQuery();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getQuery <em>Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Query</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getQuery()
+	 * @see #getPattern()
+	 * @generated
+	 */
+	EAttribute getPattern_Query();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#checkMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' operation.
@@ -5305,6 +5401,14 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute COMPLETE_PATTERN__NAME = eINSTANCE.getCompletePattern_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Database</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPLETE_PATTERN__DATABASE = eINSTANCE.getCompletePattern_Database();
+
+		/**
 		 * The meta object literal for the '<em><b>Get New Ref No</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5589,6 +5693,22 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PATTERN__CONDITION = eINSTANCE.getPattern_Condition();
+
+		/**
+		 * The meta object literal for the '<em><b>Partial Query</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PATTERN__PARTIAL_QUERY = eINSTANCE.getPattern_PartialQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PATTERN__QUERY = eINSTANCE.getPattern_Query();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Morphism Of Next Graph</b></em>' operation.

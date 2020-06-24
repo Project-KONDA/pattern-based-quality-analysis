@@ -17,6 +17,8 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.execution.ExecutionPackage;
+import qualitypatternmodel.execution.impl.ExecutionPackageImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
@@ -280,6 +282,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		GraphstructurePackageImpl theGraphstructurePackage = (GraphstructurePackageImpl)(registeredPackage instanceof GraphstructurePackageImpl ? registeredPackage : GraphstructurePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionxmlPackage.eNS_URI);
 		AdaptionxmlPackageImpl theAdaptionxmlPackage = (AdaptionxmlPackageImpl)(registeredPackage instanceof AdaptionxmlPackageImpl ? registeredPackage : AdaptionxmlPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
+		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl)(registeredPackage instanceof ExecutionPackageImpl ? registeredPackage : ExecutionPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePatternstructurePackage.createPackageContents();
@@ -287,6 +291,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		theOperatorsPackage.createPackageContents();
 		theGraphstructurePackage.createPackageContents();
 		theAdaptionxmlPackage.createPackageContents();
+		theExecutionPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePatternstructurePackage.initializePackageContents();
@@ -294,6 +299,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		theOperatorsPackage.initializePackageContents();
 		theGraphstructurePackage.initializePackageContents();
 		theAdaptionxmlPackage.initializePackageContents();
+		theExecutionPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
@@ -719,6 +725,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EReference getCompletePattern_Database() {
+		return (EReference)completePatternEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getCompletePattern__GetNewRefNo() {
 		return completePatternEClass.getEOperations().get(0);
 	}
@@ -1059,6 +1075,26 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPattern_PartialQuery() {
+		return (EAttribute)patternEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPattern_Query() {
+		return (EAttribute)patternEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPattern__CheckMorphismOfNextGraph() {
 		return patternEClass.getEOperations().get(0);
 	}
@@ -1260,6 +1296,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(completePatternEClass, COMPLETE_PATTERN__PARAMETER_LIST);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__ELEMENT_COUNTER);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__NAME);
+		createEReference(completePatternEClass, COMPLETE_PATTERN__DATABASE);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_NEW_REF_NO);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
@@ -1304,6 +1341,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		patternEClass = createEClass(PATTERN);
 		createEReference(patternEClass, PATTERN__GRAPH);
 		createEReference(patternEClass, PATTERN__CONDITION);
+		createEAttribute(patternEClass, PATTERN__PARTIAL_QUERY);
+		createEAttribute(patternEClass, PATTERN__QUERY);
 		createEOperation(patternEClass, PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH);
 
 		numberElementEClass = createEClass(NUMBER_ELEMENT);
@@ -1347,6 +1386,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		// Obtain other dependent packages
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
+		ExecutionPackage theExecutionPackage = (ExecutionPackage)EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
 		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 
 		// Create type parameters
@@ -1441,6 +1481,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getCompletePattern_ParameterList(), theParametersPackage.getParameterList(), theParametersPackage.getParameterList_Pattern(), "parameterList", null, 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_ElementCounter(), ecorePackage.getEInt(), "elementCounter", "0", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_Name(), ecorePackage.getEString(), "name", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompletePattern_Database(), theExecutionPackage.getDatabase(), theExecutionPackage.getDatabase_Patterns(), "database", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getCompletePattern__GetNewRefNo(), ecorePackage.getEInt(), "getNewRefNo", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1524,6 +1565,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEClass(patternEClass, Pattern.class, "Pattern", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPattern_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_Pattern(), "graph", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_Condition(), this.getCondition(), this.getCondition_Pattern(), "condition", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPattern_PartialQuery(), ecorePackage.getEString(), "partialQuery", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPattern_Query(), ecorePackage.getEString(), "query", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPattern__CheckMorphismOfNextGraph(), null, "checkMorphismOfNextGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());

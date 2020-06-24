@@ -159,6 +159,7 @@ import qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFa
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
+import qualitypatternmodel.execution.provider.ExecutionItemProviderAdapterFactory;
 import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAdapterFactory;
 
 import qualitypatternmodel.operators.provider.OperatorsItemProviderAdapterFactory;
@@ -725,6 +726,7 @@ public class AdaptionxmlEditor
 		adapterFactory.addAdapterFactory(new GraphstructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PatternstructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AdaptionxmlItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ExecutionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

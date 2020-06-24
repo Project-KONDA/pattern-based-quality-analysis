@@ -146,4 +146,32 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.execution.presentation.ExecutionModelWizardID"
+            name="%_UI_ExecutionModelWizard_label"
+            class="qualitypatternmodel.execution.presentation.ExecutionModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ExecutionModelFile.gif">
+         <description>%_UI_ExecutionModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.execution.presentation.ExecutionEditorID"
+            name="%_UI_ExecutionEditor_label"
+            icon="icons/full/obj16/ExecutionModelFile.gif"
+            extensions="execution"
+            class="qualitypatternmodel.execution.presentation.ExecutionEditor"
+            contributorClass="qualitypatternmodel.execution.presentation.ExecutionActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

@@ -45,4 +45,12 @@
             class="qualitypatternmodel.adaptionxml.AdaptionxmlPackage"
             genModel="model/qualitypatternmodel.genmodel"/>
    </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated qualitypatternmodel -->
+      <package
+            uri="execution"
+            class="qualitypatternmodel.execution.ExecutionPackage"
+            genModel="model/qualitypatternmodel.genmodel"/>
+   </extension>
 </plugin>

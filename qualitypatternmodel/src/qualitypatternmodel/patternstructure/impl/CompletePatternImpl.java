@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
@@ -37,6 +39,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDatabase <em>Database</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +92,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	protected String name = NAME_EDEFAULT;
 	
+	/**
+	 * The cached value of the '{@link #getDatabase() <em>Database</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatabase()
+	 * @generated
+	 * @ordered
+	 */
+	protected Database database;
+
 	protected CompletePatternImpl() {
 		super();
 		setParameterList(new ParameterListImpl(this));
@@ -272,6 +285,72 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Database getDatabase() {
+		if (database != null && database.eIsProxy()) {
+			InternalEObject oldDatabase = (InternalEObject)database;
+			database = (Database)eResolveProxy(oldDatabase);
+			if (database != oldDatabase) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, oldDatabase, database));
+			}
+		}
+		return database;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Database basicGetDatabase() {
+		return database;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDatabase(Database newDatabase, NotificationChain msgs) {
+		Database oldDatabase = database;
+		database = newDatabase;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, oldDatabase, newDatabase);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDatabase(Database newDatabase) {
+		if (newDatabase != database) {
+			NotificationChain msgs = null;
+			if (database != null)
+				msgs = ((InternalEObject)database).eInverseRemove(this, ExecutionPackage.DATABASE__PATTERNS, Database.class, msgs);
+			if (newDatabase != null)
+				msgs = ((InternalEObject)newDatabase).eInverseAdd(this, ExecutionPackage.DATABASE__PATTERNS, Database.class, msgs);
+			msgs = basicSetDatabase(newDatabase, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, newDatabase, newDatabase));
+	}
+
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -282,6 +361,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				if (parameterList != null)
 					msgs = ((InternalEObject)parameterList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST, null, msgs);
 				return basicSetParameterList((ParameterList)otherEnd, msgs);
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
+				if (database != null)
+					msgs = ((InternalEObject)database).eInverseRemove(this, ExecutionPackage.DATABASE__PATTERNS, Database.class, msgs);
+				return basicSetDatabase((Database)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -295,6 +378,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		switch (featureID) {
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 				return basicSetParameterList(null, msgs);
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
+				return basicSetDatabase(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -312,6 +397,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getElementCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				return getName();
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
+				if (resolve) return getDatabase();
+				return basicGetDatabase();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -331,6 +419,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				setName((String)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
+				setDatabase((Database)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -352,6 +443,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
+				setDatabase((Database)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -369,6 +463,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return elementCounter != ELEMENT_COUNTER_EDEFAULT;
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
+				return database != null;
 		}
 		return super.eIsSet(featureID);
 	}

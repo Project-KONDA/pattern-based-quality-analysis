@@ -160,6 +160,7 @@ import qualitypatternmodel.operators.provider.OperatorsItemProviderAdapterFactor
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFactory;
+import qualitypatternmodel.execution.provider.ExecutionItemProviderAdapterFactory;
 import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin;
 import qualitypatternmodel.parameters.provider.ParametersItemProviderAdapterFactory;
 import qualitypatternmodel.patternstructure.provider.PatternstructureItemProviderAdapterFactory;
@@ -720,6 +721,7 @@ public class GraphstructureEditor
 		adapterFactory.addAdapterFactory(new GraphstructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new PatternstructureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AdaptionxmlItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ExecutionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

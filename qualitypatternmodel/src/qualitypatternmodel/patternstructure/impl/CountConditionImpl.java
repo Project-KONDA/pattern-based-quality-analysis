@@ -95,7 +95,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * @generated
 	 */
 	protected CountConditionImpl() {
-		super();		
+		super();
 	}
 	
 	@Override
