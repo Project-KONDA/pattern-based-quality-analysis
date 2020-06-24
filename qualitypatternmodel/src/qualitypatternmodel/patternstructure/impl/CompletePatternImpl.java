@@ -40,7 +40,6 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDatabase <em>Database</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getQuery <em>Query</em>}</li>
  * </ul>
  *
  * @generated
@@ -102,26 +101,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @ordered
 	 */
 	protected Database database;
-
-	/**
-	 * The default value of the '{@link #getQuery() <em>Query</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getQuery()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String QUERY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getQuery() <em>Query</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getQuery()
-	 * @generated
-	 * @ordered
-	 */
-	protected String query = QUERY_EDEFAULT;
 
 	protected CompletePatternImpl() {
 		super();
@@ -372,31 +351,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getQuery() {
-		return query;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setQuery(String newQuery) {
-		String oldQuery = query;
-		query = newQuery;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__QUERY, oldQuery, query));
-	}
-
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -446,8 +400,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				if (resolve) return getDatabase();
 				return basicGetDatabase();
-			case PatternstructurePackage.COMPLETE_PATTERN__QUERY:
-				return getQuery();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -470,9 +422,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				setDatabase((Database)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__QUERY:
-				setQuery((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -497,9 +446,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				setDatabase((Database)null);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__QUERY:
-				setQuery(QUERY_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -519,8 +465,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				return database != null;
-			case PatternstructurePackage.COMPLETE_PATTERN__QUERY:
-				return QUERY_EDEFAULT == null ? query != null : !QUERY_EDEFAULT.equals(query);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -551,8 +495,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		result.append(elementCounter);
 		result.append(", name: ");
 		result.append(name);
-		result.append(", query: ");
-		result.append(query);
 		result.append(')');
 		return result.toString();
 	}

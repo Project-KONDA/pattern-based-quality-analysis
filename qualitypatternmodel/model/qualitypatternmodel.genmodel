@@ -404,7 +404,6 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/name"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CompletePattern/database"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/query"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getNewRefNo"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/PatternElement">
@@ -464,6 +463,8 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/Pattern">
         <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Pattern/graph"/>
         <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Pattern/condition"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Pattern/partialQuery"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/Pattern/query"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Pattern/checkMorphismOfNextGraph"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NumberElement">
@@ -531,6 +532,8 @@
     <nestedGenPackages prefix="Execution" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//execution">
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/BaseXExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/BaseXContextWrapper"/>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryExceptionWrapper"/>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryIOExceptionWrapper"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/Database">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Database/results"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -540,9 +543,6 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/execute/pattern"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/execute/name"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/execute/person"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/Database/countProblems">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/countProblems/pattern"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/Database/countMatches">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/countMatches/pattern"/>
@@ -560,8 +560,9 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Result/pattern"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/Result/matchNumber"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/Result/splitResult"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/Result/queryResult"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/Result/split"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/Result/export">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Result/export/path"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/XmlResult"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/XmlDatabase">

@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -49,6 +50,8 @@ public class PatternItemProvider extends PatternElementItemProvider {
 
 			addGraphPropertyDescriptor(object);
 			addConditionPropertyDescriptor(object);
+			addPartialQueryPropertyDescriptor(object);
+			addQueryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,6 +96,50 @@ public class PatternItemProvider extends PatternElementItemProvider {
 				 false,
 				 false,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Partial Query feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPartialQueryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Pattern_partialQuery_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Pattern_partialQuery_feature", "_UI_Pattern_type"),
+				 PatternstructurePackage.Literals.PATTERN__PARTIAL_QUERY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Query feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQueryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Pattern_query_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Pattern_query_feature", "_UI_Pattern_type"),
+				 PatternstructurePackage.Literals.PATTERN__QUERY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -155,6 +202,10 @@ public class PatternItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Pattern.class)) {
+			case PatternstructurePackage.PATTERN__PARTIAL_QUERY:
+			case PatternstructurePackage.PATTERN__QUERY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case PatternstructurePackage.PATTERN__GRAPH:
 			case PatternstructurePackage.PATTERN__CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

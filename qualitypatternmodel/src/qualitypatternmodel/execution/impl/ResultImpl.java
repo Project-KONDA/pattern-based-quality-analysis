@@ -45,7 +45,6 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getMatchNumber <em>Match Number</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getSplitResult <em>Split Result</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getQueryResult <em>Query Result</em>}</li>
  * </ul>
  *
  * @generated
@@ -210,26 +209,6 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected EList<String> splitResult;
-
-	/**
-	 * The default value of the '{@link #getQueryResult() <em>Query Result</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getQueryResult()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String QUERY_RESULT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getQueryResult() <em>Query Result</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getQueryResult()
-	 * @generated
-	 * @ordered
-	 */
-	protected String queryResult = QUERY_RESULT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -513,30 +492,7 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	public String getQueryResult() {
-		return queryResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setQueryResult(String newQueryResult) {
-		String oldQueryResult = queryResult;
-		queryResult = newQueryResult;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.RESULT__QUERY_RESULT, oldQueryResult, queryResult));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<String> split() {
+	public void export(String path) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -615,8 +571,6 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 				return getMatchNumber();
 			case ExecutionPackage.RESULT__SPLIT_RESULT:
 				return getSplitResult();
-			case ExecutionPackage.RESULT__QUERY_RESULT:
-				return getQueryResult();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -661,9 +615,6 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 				getSplitResult().clear();
 				getSplitResult().addAll((Collection<? extends String>)newValue);
 				return;
-			case ExecutionPackage.RESULT__QUERY_RESULT:
-				setQueryResult((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -706,9 +657,6 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 			case ExecutionPackage.RESULT__SPLIT_RESULT:
 				getSplitResult().clear();
 				return;
-			case ExecutionPackage.RESULT__QUERY_RESULT:
-				setQueryResult(QUERY_RESULT_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -741,8 +689,6 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 				return matchNumber != MATCH_NUMBER_EDEFAULT;
 			case ExecutionPackage.RESULT__SPLIT_RESULT:
 				return splitResult != null && !splitResult.isEmpty();
-			case ExecutionPackage.RESULT__QUERY_RESULT:
-				return QUERY_RESULT_EDEFAULT == null ? queryResult != null : !QUERY_RESULT_EDEFAULT.equals(queryResult);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -755,8 +701,9 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ExecutionPackage.RESULT___SPLIT:
-				return split();
+			case ExecutionPackage.RESULT___EXPORT__STRING:
+				export((String)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -787,8 +734,6 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 		result.append(matchNumber);
 		result.append(", splitResult: ");
 		result.append(splitResult);
-		result.append(", queryResult: ");
-		result.append(queryResult);
 		result.append(')');
 		return result.toString();
 	}

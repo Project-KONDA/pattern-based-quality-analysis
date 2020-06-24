@@ -29,7 +29,6 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.execution.Result#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Result#getMatchNumber <em>Match Number</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Result#getSplitResult <em>Split Result</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.Result#getQueryResult <em>Query Result</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getResult()
@@ -250,33 +249,11 @@ public interface Result extends EObject {
 	EList<String> getSplitResult();
 
 	/**
-	 * Returns the value of the '<em><b>Query Result</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Query Result</em>' attribute.
-	 * @see #setQueryResult(String)
-	 * @see qualitypatternmodel.execution.ExecutionPackage#getResult_QueryResult()
-	 * @model
-	 * @generated
-	 */
-	String getQueryResult();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.execution.Result#getQueryResult <em>Query Result</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Query Result</em>' attribute.
-	 * @see #getQueryResult()
-	 * @generated
-	 */
-	void setQueryResult(String value);
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	EList<String> split();
+	void export(String path);
 
 } // Result

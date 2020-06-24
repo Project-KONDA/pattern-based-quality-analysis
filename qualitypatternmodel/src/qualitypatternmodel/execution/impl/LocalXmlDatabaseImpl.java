@@ -3,13 +3,19 @@
 package qualitypatternmodel.execution.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.CreateDB;
 import org.basex.core.cmd.Open;
-import org.basex.core.cmd.XQuery;
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
+import org.basex.query.QueryProcessor;
+import org.basex.query.iter.Iter;
+import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
@@ -122,7 +128,7 @@ public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDat
 	}
 	
 	@Override
-	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {
+	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException, QueryException, QueryIOException {
 		
 		pattern.isValid(AbstractionLevel.CONCRETE);	
 		
@@ -134,30 +140,63 @@ public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDat
 		} else {
 			query = pattern.getQuery();
 		}
-		XQuery xquery = new XQuery(query);
+//		XQuery xquery = new XQuery(query);
 		
 		Date startDate = new Date();
-		String queryResult = xquery.execute(context);
+		
+//		String queryResult = xquery.execute(context);
+		List<String> queryResult = new ArrayList<String>();
+		// Create a query processor
+	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
+	      // Store the pointer to the result in an iterator:
+	      Iter iter = proc.iter();
+	      for(Item item; (item = iter.next()) != null;) {
+	    	  queryResult.add(item.serialize().toString());
+	        }
+	    }
+		
 		Date endDate = new Date();
 		long runtime = endDate.getTime() - startDate.getTime();
 		
-		int matchNo = countMatches(pattern); // TODO: implement
-		int problemsNo = countProblems(pattern); // TODO: implement
+		int matchNo = countMatches(pattern);
 		
 		Result result = new XmlResultImpl();
 		result.setDatabase(this);
 		result.setName(name);
 		result.setPerson(person);
 		result.setPattern(pattern); // TODO: may be modified!!
-		result.setQueryResult(queryResult);
+//		result.setQueryResult(queryResult);
 		result.setStartDate(startDate);
 		result.setEndDate(endDate);
 		result.setRuntime(runtime);
 		result.setMatchNumber(matchNo);
-		result.setProblemNumber(problemsNo);
-		result.split(); // TODO: implement
+		result.getSplitResult().addAll(queryResult);
+		result.setProblemNumber(queryResult.size());
 				
 		return result;		
+	}
+	
+	@Override
+	public int countMatches(CompletePattern pattern) throws QueryException, InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException, QueryIOException {
+		pattern.isValid(AbstractionLevel.CONCRETE);	
+		
+		open();
+		
+		String query;
+		if(pattern.getPartialQuery() == null) {
+			pattern.generateQuery();
+		}
+		query = pattern.getPartialQuery();
+		
+		List<String> queryResult = new ArrayList<String>();
+	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
+	      Iter iter = proc.iter();
+	      for(Item item; (item = iter.next()) != null;) {
+	    	  queryResult.add(item.serialize().toString());
+	        }
+	    }
+	    
+	    return queryResult.size();
 	}
 	
 

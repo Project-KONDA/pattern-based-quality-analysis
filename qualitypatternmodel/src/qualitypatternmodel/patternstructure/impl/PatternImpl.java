@@ -38,6 +38,8 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getPartialQuery <em>Partial Query</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getQuery <em>Query</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,6 +63,43 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 * @ordered
 	 */
 	protected Condition condition;
+
+	/**
+	 * The default value of the '{@link #getPartialQuery() <em>Partial Query</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPartialQuery()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PARTIAL_QUERY_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getPartialQuery() <em>Partial Query</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPartialQuery()
+	 * @generated
+	 * @ordered
+	 */
+	protected String partialQuery = PARTIAL_QUERY_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getQuery() <em>Query</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuery()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String QUERY_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getQuery() <em>Query</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuery()
+	 * @generated
+	 * @ordered
+	 */
+	protected String query = QUERY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,21 +131,27 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	
 	@Override
 	public String generateQuery() throws InvalidityException {
-		String res = "";
 		if (graph.getReturnElements() == null || graph.getReturnElements().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
-		res += graph.generateQuery();
-		res += WHERE + condition.generateQuery().replace("\n", "\n  "); // TODO: schachteln!
+		String forClauses = graph.generateQuery();
+		String whereClause = WHERE + condition.generateQuery().replace("\n", "\n  "); // TODO: schachteln!
 
-		res += RETURN + "(";
+		String returnClause = RETURN + "(";
 		EList<Element> returnElements = graph.getReturnElements();
 		for (int i = 0; i < returnElements.size(); i++) {
 			if (i != 0)
-				res += ", ";
-			res += VARIABLE + returnElements.get(i).getOriginalID();
+				returnClause += ", ";
+			returnClause += VARIABLE + returnElements.get(i).getOriginalID();
 		}
-		return res + ")";
+		returnClause += returnClause;
+		returnClause += ")";	
+		
+		String query = forClauses + whereClause + returnClause;
+		setQuery(query);
+		setPartialQuery(forClauses + returnClause);
+		
+		return query;
 	}
 	
 	@Override
@@ -255,6 +300,52 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 * @generated
 	 */
 	@Override
+	public String getPartialQuery() {
+		return partialQuery;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPartialQuery(String newPartialQuery) {
+		String oldPartialQuery = partialQuery;
+		partialQuery = newPartialQuery;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__PARTIAL_QUERY, oldPartialQuery, partialQuery));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getQuery() {
+		return query;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setQuery(String newQuery) {
+		String oldQuery = query;
+		query = newQuery;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__QUERY, oldQuery, query));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case PatternstructurePackage.PATTERN__GRAPH:
@@ -297,6 +388,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				return getGraph();
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return getCondition();
+			case PatternstructurePackage.PATTERN__PARTIAL_QUERY:
+				return getPartialQuery();
+			case PatternstructurePackage.PATTERN__QUERY:
+				return getQuery();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -314,6 +409,12 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				return;
 			case PatternstructurePackage.PATTERN__CONDITION:
 				setCondition((Condition)newValue);
+				return;
+			case PatternstructurePackage.PATTERN__PARTIAL_QUERY:
+				setPartialQuery((String)newValue);
+				return;
+			case PatternstructurePackage.PATTERN__QUERY:
+				setQuery((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -333,6 +434,12 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			case PatternstructurePackage.PATTERN__CONDITION:
 				setCondition((Condition)null);
 				return;
+			case PatternstructurePackage.PATTERN__PARTIAL_QUERY:
+				setPartialQuery(PARTIAL_QUERY_EDEFAULT);
+				return;
+			case PatternstructurePackage.PATTERN__QUERY:
+				setQuery(QUERY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -349,6 +456,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				return graph != null;
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return condition != null;
+			case PatternstructurePackage.PATTERN__PARTIAL_QUERY:
+				return PARTIAL_QUERY_EDEFAULT == null ? partialQuery != null : !PARTIAL_QUERY_EDEFAULT.equals(partialQuery);
+			case PatternstructurePackage.PATTERN__QUERY:
+				return QUERY_EDEFAULT == null ? query != null : !QUERY_EDEFAULT.equals(query);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -371,6 +482,24 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				}
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (partialQuery: ");
+		result.append(partialQuery);
+		result.append(", query: ");
+		result.append(query);
+		result.append(')');
+		return result.toString();
 	}
 
 	

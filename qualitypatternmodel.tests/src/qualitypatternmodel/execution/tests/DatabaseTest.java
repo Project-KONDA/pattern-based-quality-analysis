@@ -14,7 +14,6 @@ import qualitypatternmodel.execution.Database;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.Database#execute(qualitypatternmodel.patternstructure.CompletePattern, java.lang.String, java.lang.String) <em>Execute</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.Database#countProblems(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Problems</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Matches</em>}</li>
  * </ul>
  * </p>
@@ -68,19 +67,6 @@ public abstract class DatabaseTest extends TestCase {
 	 * @generated
 	 */
 	public void testExecute__CompletePattern_String_String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.Database#countProblems(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Problems</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.Database#countProblems(qualitypatternmodel.patternstructure.CompletePattern)
-	 * @generated
-	 */
-	public void testCountProblems__CompletePattern() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

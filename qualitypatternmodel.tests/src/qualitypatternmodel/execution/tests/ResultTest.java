@@ -13,7 +13,7 @@ import qualitypatternmodel.execution.Result;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.execution.Result#split() <em>Split</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.Result#export(java.lang.String) <em>Export</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -59,13 +59,13 @@ public abstract class ResultTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.Result#split() <em>Split</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.Result#export(java.lang.String) <em>Export</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.Result#split()
+	 * @see qualitypatternmodel.execution.Result#export(java.lang.String)
 	 * @generated
 	 */
-	public void testSplit() {
+	public void testExport__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

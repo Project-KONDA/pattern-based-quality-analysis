@@ -10,7 +10,6 @@ import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.XQuery;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -108,7 +107,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	protected XmlDatabaseImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

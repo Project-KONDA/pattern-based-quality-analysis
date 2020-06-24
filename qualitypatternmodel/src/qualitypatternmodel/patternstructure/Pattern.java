@@ -19,6 +19,8 @@ import qualitypatternmodel.graphstructure.Graph;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getPartialQuery <em>Partial Query</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getQuery <em>Query</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern()
@@ -74,6 +76,50 @@ public interface Pattern extends PatternElement {
 	 * @generated
 	 */
 	void setCondition(Condition value);
+
+	/**
+	 * Returns the value of the '<em><b>Partial Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Partial Query</em>' attribute.
+	 * @see #setPartialQuery(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_PartialQuery()
+	 * @model
+	 * @generated
+	 */
+	String getPartialQuery();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getPartialQuery <em>Partial Query</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Partial Query</em>' attribute.
+	 * @see #getPartialQuery()
+	 * @generated
+	 */
+	void setPartialQuery(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Query</em>' attribute.
+	 * @see #setQuery(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_Query()
+	 * @model
+	 * @generated
+	 */
+	String getQuery();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getQuery <em>Query</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Query</em>' attribute.
+	 * @see #getQuery()
+	 * @generated
+	 */
+	void setQuery(String value);
 
 	String generateQuery() throws InvalidityException;
 

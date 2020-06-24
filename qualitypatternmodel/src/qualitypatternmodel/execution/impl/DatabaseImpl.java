@@ -8,6 +8,8 @@ import java.util.Collection;
 
 import org.basex.core.BaseXException;
 
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -169,7 +171,7 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {
+	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException, QueryException, QueryIOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -181,19 +183,7 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public int countProblems(CompletePattern pattern) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int countMatches(CompletePattern pattern) {
+	public int countMatches(CompletePattern pattern) throws QueryException, InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException, QueryIOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -328,10 +318,13 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case ExecutionPackage.DATABASE___COUNT_PROBLEMS__COMPLETEPATTERN:
-				return countProblems((CompletePattern)arguments.get(0));
 			case ExecutionPackage.DATABASE___COUNT_MATCHES__COMPLETEPATTERN:
-				return countMatches((CompletePattern)arguments.get(0));
+				try {
+					return countMatches((CompletePattern)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

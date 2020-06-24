@@ -114,22 +114,13 @@ public interface ExecutionPackage extends EPackage {
 	int DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = 0;
 
 	/**
-	 * The operation id for the '<em>Count Problems</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE___COUNT_PROBLEMS__COMPLETEPATTERN = 1;
-
-	/**
 	 * The operation id for the '<em>Count Matches</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE___COUNT_MATCHES__COMPLETEPATTERN = 2;
+	int DATABASE___COUNT_MATCHES__COMPLETEPATTERN = 1;
 
 	/**
 	 * The number of operations of the '<em>Database</em>' class.
@@ -138,7 +129,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASE_OPERATION_COUNT = 3;
+	int DATABASE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.ResultImpl <em>Result</em>}' class.
@@ -241,31 +232,22 @@ public interface ExecutionPackage extends EPackage {
 	int RESULT__SPLIT_RESULT = 9;
 
 	/**
-	 * The feature id for the '<em><b>Query Result</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__QUERY_RESULT = 10;
-
-	/**
 	 * The number of structural features of the '<em>Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_FEATURE_COUNT = 11;
+	int RESULT_FEATURE_COUNT = 10;
 
 	/**
-	 * The operation id for the '<em>Split</em>' operation.
+	 * The operation id for the '<em>Export</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT___SPLIT = 0;
+	int RESULT___EXPORT__STRING = 0;
 
 	/**
 	 * The number of operations of the '<em>Result</em>' class.
@@ -377,15 +359,6 @@ public interface ExecutionPackage extends EPackage {
 	int XML_RESULT__SPLIT_RESULT = RESULT__SPLIT_RESULT;
 
 	/**
-	 * The feature id for the '<em><b>Query Result</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_RESULT__QUERY_RESULT = RESULT__QUERY_RESULT;
-
-	/**
 	 * The number of structural features of the '<em>Xml Result</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -395,13 +368,13 @@ public interface ExecutionPackage extends EPackage {
 	int XML_RESULT_FEATURE_COUNT = RESULT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Split</em>' operation.
+	 * The operation id for the '<em>Export</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_RESULT___SPLIT = RESULT___SPLIT;
+	int XML_RESULT___EXPORT__STRING = RESULT___EXPORT__STRING;
 
 	/**
 	 * The number of operations of the '<em>Xml Result</em>' class.
@@ -511,15 +484,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING;
-
-	/**
-	 * The operation id for the '<em>Count Problems</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATABASE___COUNT_PROBLEMS__COMPLETEPATTERN = DATABASE___COUNT_PROBLEMS__COMPLETEPATTERN;
 
 	/**
 	 * The operation id for the '<em>Count Matches</em>' operation.
@@ -730,15 +694,6 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = XML_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Count Problems</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_XML_DATABASE___COUNT_PROBLEMS__COMPLETEPATTERN = XML_DATABASE___COUNT_PROBLEMS__COMPLETEPATTERN;
-
-	/**
 	 * The operation id for the '<em>Count Matches</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -938,15 +893,6 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = XML_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Count Problems</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVER_XML_DATABASE___COUNT_PROBLEMS__COMPLETEPATTERN = XML_DATABASE___COUNT_PROBLEMS__COMPLETEPATTERN;
-
-	/**
 	 * The operation id for the '<em>Count Matches</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1095,6 +1041,28 @@ public interface ExecutionPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>Query Exception Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.basex.query.QueryException
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryExceptionWrapper()
+	 * @generated
+	 */
+	int QUERY_EXCEPTION_WRAPPER = 9;
+
+
+	/**
+	 * The meta object id for the '<em>Query IO Exception Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.basex.query.QueryIOException
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryIOExceptionWrapper()
+	 * @generated
+	 */
+	int QUERY_IO_EXCEPTION_WRAPPER = 10;
+
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Database <em>Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1146,16 +1114,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getDatabase__Execute__CompletePattern_String_String();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.execution.Database#countProblems(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Problems</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Count Problems</em>' operation.
-	 * @see qualitypatternmodel.execution.Database#countProblems(qualitypatternmodel.patternstructure.CompletePattern)
-	 * @generated
-	 */
-	EOperation getDatabase__CountProblems__CompletePattern();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Matches</em>}' operation.
@@ -1288,25 +1246,14 @@ public interface ExecutionPackage extends EPackage {
 	EAttribute getResult_SplitResult();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.Result#getQueryResult <em>Query Result</em>}'.
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.Result#export(java.lang.String) <em>Export</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Query Result</em>'.
-	 * @see qualitypatternmodel.execution.Result#getQueryResult()
-	 * @see #getResult()
+	 * @return the meta object for the '<em>Export</em>' operation.
+	 * @see qualitypatternmodel.execution.Result#export(java.lang.String)
 	 * @generated
 	 */
-	EAttribute getResult_QueryResult();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.execution.Result#split() <em>Split</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Split</em>' operation.
-	 * @see qualitypatternmodel.execution.Result#split()
-	 * @generated
-	 */
-	EOperation getResult__Split();
+	EOperation getResult__Export__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.XmlResult <em>Xml Result</em>}'.
@@ -1559,6 +1506,28 @@ public interface ExecutionPackage extends EPackage {
 	EDataType getBaseXContextWrapper();
 
 	/**
+	 * Returns the meta object for data type '{@link org.basex.query.QueryException <em>Query Exception Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Query Exception Wrapper</em>'.
+	 * @see org.basex.query.QueryException
+	 * @model instanceClass="org.basex.query.QueryException"
+	 * @generated
+	 */
+	EDataType getQueryExceptionWrapper();
+
+	/**
+	 * Returns the meta object for data type '{@link org.basex.query.QueryIOException <em>Query IO Exception Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Query IO Exception Wrapper</em>'.
+	 * @see org.basex.query.QueryIOException
+	 * @model instanceClass="org.basex.query.QueryIOException"
+	 * @generated
+	 */
+	EDataType getQueryIOExceptionWrapper();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1622,14 +1591,6 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = eINSTANCE.getDatabase__Execute__CompletePattern_String_String();
-
-		/**
-		 * The meta object literal for the '<em><b>Count Problems</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DATABASE___COUNT_PROBLEMS__COMPLETEPATTERN = eINSTANCE.getDatabase__CountProblems__CompletePattern();
 
 		/**
 		 * The meta object literal for the '<em><b>Count Matches</b></em>' operation.
@@ -1730,20 +1691,12 @@ public interface ExecutionPackage extends EPackage {
 		EAttribute RESULT__SPLIT_RESULT = eINSTANCE.getResult_SplitResult();
 
 		/**
-		 * The meta object literal for the '<em><b>Query Result</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Export</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RESULT__QUERY_RESULT = eINSTANCE.getResult_QueryResult();
-
-		/**
-		 * The meta object literal for the '<em><b>Split</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RESULT___SPLIT = eINSTANCE.getResult__Split();
+		EOperation RESULT___EXPORT__STRING = eINSTANCE.getResult__Export__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.XmlResultImpl <em>Xml Result</em>}' class.
@@ -1950,6 +1903,26 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType BASE_XCONTEXT_WRAPPER = eINSTANCE.getBaseXContextWrapper();
+
+		/**
+		 * The meta object literal for the '<em>Query Exception Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.basex.query.QueryException
+		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryExceptionWrapper()
+		 * @generated
+		 */
+		EDataType QUERY_EXCEPTION_WRAPPER = eINSTANCE.getQueryExceptionWrapper();
+
+		/**
+		 * The meta object literal for the '<em>Query IO Exception Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.basex.query.QueryIOException
+		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryIOExceptionWrapper()
+		 * @generated
+		 */
+		EDataType QUERY_IO_EXCEPTION_WRAPPER = eINSTANCE.getQueryIOExceptionWrapper();
 
 	}
 

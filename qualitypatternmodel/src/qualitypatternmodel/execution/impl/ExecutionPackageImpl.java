@@ -5,6 +5,8 @@ package qualitypatternmodel.execution.impl;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -113,6 +115,20 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	private EDataType baseXContextWrapperEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType queryExceptionWrapperEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType queryIOExceptionWrapperEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -253,18 +269,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getDatabase__CountProblems__CompletePattern() {
-		return databaseEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getDatabase__CountMatches__CompletePattern() {
-		return databaseEClass.getEOperations().get(2);
+		return databaseEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -383,17 +389,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getResult_QueryResult() {
-		return (EAttribute)resultEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getResult__Split() {
+	public EOperation getResult__Export__String() {
 		return resultEClass.getEOperations().get(0);
 	}
 
@@ -643,6 +639,26 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EDataType getQueryExceptionWrapper() {
+		return queryExceptionWrapperEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EDataType getQueryIOExceptionWrapper() {
+		return queryIOExceptionWrapperEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ExecutionFactory getExecutionFactory() {
 		return (ExecutionFactory)getEFactoryInstance();
 	}
@@ -671,7 +687,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEReference(databaseEClass, DATABASE__PATTERNS);
 		createEAttribute(databaseEClass, DATABASE__NAME);
 		createEOperation(databaseEClass, DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING);
-		createEOperation(databaseEClass, DATABASE___COUNT_PROBLEMS__COMPLETEPATTERN);
 		createEOperation(databaseEClass, DATABASE___COUNT_MATCHES__COMPLETEPATTERN);
 
 		resultEClass = createEClass(RESULT);
@@ -685,8 +700,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEReference(resultEClass, RESULT__PATTERN);
 		createEAttribute(resultEClass, RESULT__MATCH_NUMBER);
 		createEAttribute(resultEClass, RESULT__SPLIT_RESULT);
-		createEAttribute(resultEClass, RESULT__QUERY_RESULT);
-		createEOperation(resultEClass, RESULT___SPLIT);
+		createEOperation(resultEClass, RESULT___EXPORT__STRING);
 
 		xmlResultEClass = createEClass(XML_RESULT);
 
@@ -718,6 +732,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		// Create data types
 		baseXExceptionWrapperEDataType = createEDataType(BASE_XEXCEPTION_WRAPPER);
 		baseXContextWrapperEDataType = createEDataType(BASE_XCONTEXT_WRAPPER);
+		queryExceptionWrapperEDataType = createEDataType(QUERY_EXCEPTION_WRAPPER);
+		queryIOExceptionWrapperEDataType = createEDataType(QUERY_IO_EXCEPTION_WRAPPER);
 	}
 
 	/**
@@ -771,12 +787,17 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
 		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
 		addEException(op, this.getBaseXExceptionWrapper());
-
-		op = initEOperation(getDatabase__CountProblems__CompletePattern(), ecorePackage.getEInt(), "countProblems", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, thePatternstructurePackage.getCompletePattern(), "pattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
 
 		op = initEOperation(getDatabase__CountMatches__CompletePattern(), ecorePackage.getEInt(), "countMatches", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getCompletePattern(), "pattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
+		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
 
 		initEClass(resultEClass, Result.class, "Result", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResult_Database(), this.getDatabase(), this.getDatabase_Results(), "database", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -789,9 +810,9 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEReference(getResult_Pattern(), thePatternstructurePackage.getCompletePattern(), null, "pattern", null, 1, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_MatchNumber(), ecorePackage.getEInt(), "matchNumber", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_SplitResult(), ecorePackage.getEString(), "splitResult", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResult_QueryResult(), ecorePackage.getEString(), "queryResult", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getResult__Split(), ecorePackage.getEString(), "split", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getResult__Export__String(), null, "export", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(xmlResultEClass, XmlResult.class, "XmlResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -837,6 +858,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		// Initialize data types
 		initEDataType(baseXExceptionWrapperEDataType, BaseXException.class, "BaseXExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(baseXContextWrapperEDataType, Context.class, "BaseXContextWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(queryExceptionWrapperEDataType, QueryException.class, "QueryExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(queryIOExceptionWrapperEDataType, QueryIOException.class, "QueryIOExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

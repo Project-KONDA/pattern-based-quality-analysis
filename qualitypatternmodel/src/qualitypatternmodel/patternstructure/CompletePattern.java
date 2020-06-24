@@ -21,7 +21,6 @@ import qualitypatternmodel.parameters.ParameterList;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getQuery <em>Query</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern()
@@ -121,28 +120,6 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setDatabase(Database value);
-
-	/**
-	 * Returns the value of the '<em><b>Query</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Query</em>' attribute.
-	 * @see #setQuery(String)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Query()
-	 * @model
-	 * @generated
-	 */
-	String getQuery();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getQuery <em>Query</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Query</em>' attribute.
-	 * @see #getQuery()
-	 * @generated
-	 */
-	void setQuery(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

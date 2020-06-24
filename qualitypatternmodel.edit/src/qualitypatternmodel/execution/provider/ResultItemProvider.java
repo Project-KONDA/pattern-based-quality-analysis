@@ -71,7 +71,6 @@ public class ResultItemProvider
 			addPatternPropertyDescriptor(object);
 			addMatchNumberPropertyDescriptor(object);
 			addSplitResultPropertyDescriptor(object);
-			addQueryResultPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -275,28 +274,6 @@ public class ResultItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Query Result feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addQueryResultPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Result_queryResult_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Result_queryResult_feature", "_UI_Result_type"),
-				 ExecutionPackage.Literals.RESULT__QUERY_RESULT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -331,7 +308,6 @@ public class ResultItemProvider
 			case ExecutionPackage.RESULT__END_DATE:
 			case ExecutionPackage.RESULT__MATCH_NUMBER:
 			case ExecutionPackage.RESULT__SPLIT_RESULT:
-			case ExecutionPackage.RESULT__QUERY_RESULT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

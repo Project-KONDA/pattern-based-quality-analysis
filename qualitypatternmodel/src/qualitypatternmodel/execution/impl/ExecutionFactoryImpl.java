@@ -5,6 +5,8 @@ package qualitypatternmodel.execution.impl;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -82,6 +84,10 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 				return createBaseXExceptionWrapperFromString(eDataType, initialValue);
 			case ExecutionPackage.BASE_XCONTEXT_WRAPPER:
 				return createBaseXContextWrapperFromString(eDataType, initialValue);
+			case ExecutionPackage.QUERY_EXCEPTION_WRAPPER:
+				return createQueryExceptionWrapperFromString(eDataType, initialValue);
+			case ExecutionPackage.QUERY_IO_EXCEPTION_WRAPPER:
+				return createQueryIOExceptionWrapperFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -99,6 +105,10 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 				return convertBaseXExceptionWrapperToString(eDataType, instanceValue);
 			case ExecutionPackage.BASE_XCONTEXT_WRAPPER:
 				return convertBaseXContextWrapperToString(eDataType, instanceValue);
+			case ExecutionPackage.QUERY_EXCEPTION_WRAPPER:
+				return convertQueryExceptionWrapperToString(eDataType, instanceValue);
+			case ExecutionPackage.QUERY_IO_EXCEPTION_WRAPPER:
+				return convertQueryIOExceptionWrapperToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -192,6 +202,42 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	 * @generated
 	 */
 	public String convertBaseXContextWrapperToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QueryException createQueryExceptionWrapperFromString(EDataType eDataType, String initialValue) {
+		return (QueryException)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertQueryExceptionWrapperToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QueryIOException createQueryIOExceptionWrapperFromString(EDataType eDataType, String initialValue) {
+		return (QueryIOException)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertQueryIOExceptionWrapperToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 
