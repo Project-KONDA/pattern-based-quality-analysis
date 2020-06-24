@@ -20,7 +20,7 @@ import qualitypatternmodel.parameters.ParameterList;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabases <em>Databases</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getQuery <em>Query</em>}</li>
  * </ul>
  *
@@ -99,28 +99,28 @@ public interface CompletePattern extends Pattern {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Databases</b></em>' reference.
+	 * Returns the value of the '<em><b>Database</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.execution.Database#getPatterns <em>Patterns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Databases</em>' reference.
-	 * @see #setDatabases(Database)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Databases()
+	 * @return the value of the '<em>Database</em>' reference.
+	 * @see #setDatabase(Database)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Database()
 	 * @see qualitypatternmodel.execution.Database#getPatterns
 	 * @model opposite="patterns"
 	 * @generated
 	 */
-	Database getDatabases();
+	Database getDatabase();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabases <em>Databases</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Databases</em>' reference.
-	 * @see #getDatabases()
+	 * @param value the new value of the '<em>Database</em>' reference.
+	 * @see #getDatabase()
 	 * @generated
 	 */
-	void setDatabases(Database value);
+	void setDatabase(Database value);
 
 	/**
 	 * Returns the value of the '<em><b>Query</b></em>' attribute.

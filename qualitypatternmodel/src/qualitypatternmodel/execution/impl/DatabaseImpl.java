@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -60,14 +61,14 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 	protected EList<Result> results;
 
 	/**
-	 * The cached value of the '{@link #getPatterns() <em>Patterns</em>}' reference.
+	 * The cached value of the '{@link #getPatterns() <em>Patterns</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPatterns()
 	 * @generated
 	 * @ordered
 	 */
-	protected CompletePattern patterns;
+	protected EList<CompletePattern> patterns;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -132,60 +133,11 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public CompletePattern getPatterns() {
-		if (patterns != null && patterns.eIsProxy()) {
-			InternalEObject oldPatterns = (InternalEObject)patterns;
-			patterns = (CompletePattern)eResolveProxy(oldPatterns);
-			if (patterns != oldPatterns) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExecutionPackage.DATABASE__PATTERNS, oldPatterns, patterns));
-			}
+	public EList<CompletePattern> getPatterns() {
+		if (patterns == null) {
+			patterns = new EObjectWithInverseResolvingEList<CompletePattern>(CompletePattern.class, this, ExecutionPackage.DATABASE__PATTERNS, PatternstructurePackage.COMPLETE_PATTERN__DATABASE);
 		}
 		return patterns;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CompletePattern basicGetPatterns() {
-		return patterns;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPatterns(CompletePattern newPatterns, NotificationChain msgs) {
-		CompletePattern oldPatterns = patterns;
-		patterns = newPatterns;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExecutionPackage.DATABASE__PATTERNS, oldPatterns, newPatterns);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setPatterns(CompletePattern newPatterns) {
-		if (newPatterns != patterns) {
-			NotificationChain msgs = null;
-			if (patterns != null)
-				msgs = ((InternalEObject)patterns).eInverseRemove(this, PatternstructurePackage.COMPLETE_PATTERN__DATABASES, CompletePattern.class, msgs);
-			if (newPatterns != null)
-				msgs = ((InternalEObject)newPatterns).eInverseAdd(this, PatternstructurePackage.COMPLETE_PATTERN__DATABASES, CompletePattern.class, msgs);
-			msgs = basicSetPatterns(newPatterns, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.DATABASE__PATTERNS, newPatterns, newPatterns));
 	}
 
 	/**
@@ -259,9 +211,7 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 			case ExecutionPackage.DATABASE__RESULTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResults()).basicAdd(otherEnd, msgs);
 			case ExecutionPackage.DATABASE__PATTERNS:
-				if (patterns != null)
-					msgs = ((InternalEObject)patterns).eInverseRemove(this, PatternstructurePackage.COMPLETE_PATTERN__DATABASES, CompletePattern.class, msgs);
-				return basicSetPatterns((CompletePattern)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPatterns()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -277,7 +227,7 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 			case ExecutionPackage.DATABASE__RESULTS:
 				return ((InternalEList<?>)getResults()).basicRemove(otherEnd, msgs);
 			case ExecutionPackage.DATABASE__PATTERNS:
-				return basicSetPatterns(null, msgs);
+				return ((InternalEList<?>)getPatterns()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -293,8 +243,7 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 			case ExecutionPackage.DATABASE__RESULTS:
 				return getResults();
 			case ExecutionPackage.DATABASE__PATTERNS:
-				if (resolve) return getPatterns();
-				return basicGetPatterns();
+				return getPatterns();
 			case ExecutionPackage.DATABASE__NAME:
 				return getName();
 		}
@@ -315,7 +264,8 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 				getResults().addAll((Collection<? extends Result>)newValue);
 				return;
 			case ExecutionPackage.DATABASE__PATTERNS:
-				setPatterns((CompletePattern)newValue);
+				getPatterns().clear();
+				getPatterns().addAll((Collection<? extends CompletePattern>)newValue);
 				return;
 			case ExecutionPackage.DATABASE__NAME:
 				setName((String)newValue);
@@ -336,7 +286,7 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 				getResults().clear();
 				return;
 			case ExecutionPackage.DATABASE__PATTERNS:
-				setPatterns((CompletePattern)null);
+				getPatterns().clear();
 				return;
 			case ExecutionPackage.DATABASE__NAME:
 				setName(NAME_EDEFAULT);
@@ -356,7 +306,7 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 			case ExecutionPackage.DATABASE__RESULTS:
 				return results != null && !results.isEmpty();
 			case ExecutionPackage.DATABASE__PATTERNS:
-				return patterns != null;
+				return patterns != null && !patterns.isEmpty();
 			case ExecutionPackage.DATABASE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}

@@ -464,7 +464,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementCounter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="0"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="databases" eType="#//execution/Database"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="database" eType="#//execution/Database"
           eOpposite="#//execution/Database/patterns"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
@@ -641,8 +641,8 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
           eType="#//execution/Result" containment="true" eOpposite="#//execution/Result/database"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" eType="#//patternstructure/CompletePattern"
-          eOpposite="#//patternstructure/CompletePattern/databases"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" upperBound="-1"
+          eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/database"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Result" abstract="true">

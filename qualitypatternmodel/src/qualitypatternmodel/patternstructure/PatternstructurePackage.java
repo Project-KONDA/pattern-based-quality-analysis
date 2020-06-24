@@ -2429,13 +2429,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__NAME = PATTERN_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Databases</b></em>' reference.
+	 * The feature id for the '<em><b>Database</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__DATABASES = PATTERN_FEATURE_COUNT + 3;
+	int COMPLETE_PATTERN__DATABASE = PATTERN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Query</b></em>' attribute.
@@ -4476,15 +4476,15 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCompletePattern_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabases <em>Databases</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Databases</em>'.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#getDatabases()
+	 * @return the meta object for the reference '<em>Database</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getDatabase()
 	 * @see #getCompletePattern()
 	 * @generated
 	 */
-	EReference getCompletePattern_Databases();
+	EReference getCompletePattern_Database();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getQuery <em>Query</em>}'.
@@ -5345,12 +5345,12 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute COMPLETE_PATTERN__NAME = eINSTANCE.getCompletePattern_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Databases</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Database</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPLETE_PATTERN__DATABASES = eINSTANCE.getCompletePattern_Databases();
+		EReference COMPLETE_PATTERN__DATABASE = eINSTANCE.getCompletePattern_Database();
 
 		/**
 		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.

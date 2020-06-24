@@ -48,28 +48,18 @@ public interface Database extends EObject {
 	EList<Result> getResults();
 
 	/**
-	 * Returns the value of the '<em><b>Patterns</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabases <em>Databases</em>}'.
+	 * Returns the value of the '<em><b>Patterns</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.patternstructure.CompletePattern}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Patterns</em>' reference.
-	 * @see #setPatterns(CompletePattern)
+	 * @return the value of the '<em>Patterns</em>' reference list.
 	 * @see qualitypatternmodel.execution.ExecutionPackage#getDatabase_Patterns()
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#getDatabases
-	 * @model opposite="databases"
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getDatabase
+	 * @model opposite="database"
 	 * @generated
 	 */
-	CompletePattern getPatterns();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.execution.Database#getPatterns <em>Patterns</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Patterns</em>' reference.
-	 * @see #getPatterns()
-	 * @generated
-	 */
-	void setPatterns(CompletePattern value);
+	EList<CompletePattern> getPatterns();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

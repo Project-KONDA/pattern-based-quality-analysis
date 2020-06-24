@@ -98,19 +98,19 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Databases feature.
+	 * This adds a property descriptor for the Database feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDatabasesPropertyDescriptor(Object object) {
+	protected void addDatabasePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompletePattern_databases_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_databases_feature", "_UI_CompletePattern_type"),
-				 PatternstructurePackage.Literals.COMPLETE_PATTERN__DATABASES,
+				 getString("_UI_CompletePattern_database_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_database_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__DATABASE,
 				 true,
 				 false,
 				 true,

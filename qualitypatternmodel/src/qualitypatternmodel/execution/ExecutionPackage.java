@@ -78,7 +78,7 @@ public interface ExecutionPackage extends EPackage {
 	int DATABASE__RESULTS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Patterns</b></em>' reference.
+	 * The feature id for the '<em><b>Patterns</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -432,7 +432,7 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE__RESULTS = DATABASE__RESULTS;
 
 	/**
-	 * The feature id for the '<em><b>Patterns</b></em>' reference.
+	 * The feature id for the '<em><b>Patterns</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -631,7 +631,7 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATABASE__RESULTS = XML_DATABASE__RESULTS;
 
 	/**
-	 * The feature id for the '<em><b>Patterns</b></em>' reference.
+	 * The feature id for the '<em><b>Patterns</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -857,7 +857,7 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATABASE__RESULTS = XML_DATABASE__RESULTS;
 
 	/**
-	 * The feature id for the '<em><b>Patterns</b></em>' reference.
+	 * The feature id for the '<em><b>Patterns</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1116,10 +1116,10 @@ public interface ExecutionPackage extends EPackage {
 	EReference getDatabase_Results();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.execution.Database#getPatterns <em>Patterns</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.execution.Database#getPatterns <em>Patterns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Patterns</em>'.
+	 * @return the meta object for the reference list '<em>Patterns</em>'.
 	 * @see qualitypatternmodel.execution.Database#getPatterns()
 	 * @see #getDatabase()
 	 * @generated
@@ -1600,7 +1600,7 @@ public interface ExecutionPackage extends EPackage {
 		EReference DATABASE__RESULTS = eINSTANCE.getDatabase_Results();
 
 		/**
-		 * The meta object literal for the '<em><b>Patterns</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Patterns</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
