@@ -151,11 +151,11 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Databases createDatabases() {
-		DatabasesImpl databases = new DatabasesImpl();
+		DatabasesImpl databases = DatabasesImpl.getInstance();
 		return databases;
 	}
 

@@ -43,14 +43,24 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 	 * @ordered
 	 */
 	protected EList<XmlDatabase> xmlDatabases;
+	
+	private static DatabasesImpl instance;
+
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected DatabasesImpl() {
+	private DatabasesImpl() {
 		super();
+	}
+	
+	public static DatabasesImpl getInstance() {
+		if (DatabasesImpl.instance == null) {
+			DatabasesImpl.instance = new DatabasesImpl();
+	    }
+	    return DatabasesImpl.instance;
 	}
 
 	/**
