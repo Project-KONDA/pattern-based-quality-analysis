@@ -98,6 +98,50 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Databases feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDatabasesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_databases_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_databases_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__DATABASES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Query feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQueryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_query_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_query_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__QUERY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -169,6 +213,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 		switch (notification.getFeatureID(CompletePattern.class)) {
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
+			case PatternstructurePackage.COMPLETE_PATTERN__QUERY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:

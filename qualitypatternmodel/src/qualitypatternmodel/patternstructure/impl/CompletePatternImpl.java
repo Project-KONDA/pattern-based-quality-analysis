@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
@@ -37,6 +39,8 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDatabases <em>Databases</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getQuery <em>Query</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +93,36 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	protected String name = NAME_EDEFAULT;
 	
+	/**
+	 * The cached value of the '{@link #getDatabases() <em>Databases</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatabases()
+	 * @generated
+	 * @ordered
+	 */
+	protected Database databases;
+
+	/**
+	 * The default value of the '{@link #getQuery() <em>Query</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuery()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String QUERY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getQuery() <em>Query</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuery()
+	 * @generated
+	 * @ordered
+	 */
+	protected String query = QUERY_EDEFAULT;
+
 	protected CompletePatternImpl() {
 		super();
 		setParameterList(new ParameterListImpl(this));
@@ -272,6 +306,97 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Database getDatabases() {
+		if (databases != null && databases.eIsProxy()) {
+			InternalEObject oldDatabases = (InternalEObject)databases;
+			databases = (Database)eResolveProxy(oldDatabases);
+			if (databases != oldDatabases) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.COMPLETE_PATTERN__DATABASES, oldDatabases, databases));
+			}
+		}
+		return databases;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Database basicGetDatabases() {
+		return databases;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDatabases(Database newDatabases, NotificationChain msgs) {
+		Database oldDatabases = databases;
+		databases = newDatabases;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__DATABASES, oldDatabases, newDatabases);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDatabases(Database newDatabases) {
+		if (newDatabases != databases) {
+			NotificationChain msgs = null;
+			if (databases != null)
+				msgs = ((InternalEObject)databases).eInverseRemove(this, ExecutionPackage.DATABASE__PATTERNS, Database.class, msgs);
+			if (newDatabases != null)
+				msgs = ((InternalEObject)newDatabases).eInverseAdd(this, ExecutionPackage.DATABASE__PATTERNS, Database.class, msgs);
+			msgs = basicSetDatabases(newDatabases, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__DATABASES, newDatabases, newDatabases));
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getQuery() {
+		return query;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setQuery(String newQuery) {
+		String oldQuery = query;
+		query = newQuery;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__QUERY, oldQuery, query));
+	}
+
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -282,6 +407,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				if (parameterList != null)
 					msgs = ((InternalEObject)parameterList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST, null, msgs);
 				return basicSetParameterList((ParameterList)otherEnd, msgs);
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASES:
+				if (databases != null)
+					msgs = ((InternalEObject)databases).eInverseRemove(this, ExecutionPackage.DATABASE__PATTERNS, Database.class, msgs);
+				return basicSetDatabases((Database)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -295,6 +424,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		switch (featureID) {
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
 				return basicSetParameterList(null, msgs);
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASES:
+				return basicSetDatabases(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -312,6 +443,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getElementCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				return getName();
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASES:
+				if (resolve) return getDatabases();
+				return basicGetDatabases();
+			case PatternstructurePackage.COMPLETE_PATTERN__QUERY:
+				return getQuery();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -331,6 +467,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				setName((String)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASES:
+				setDatabases((Database)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__QUERY:
+				setQuery((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -352,6 +494,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASES:
+				setDatabases((Database)null);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__QUERY:
+				setQuery(QUERY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -369,6 +517,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return elementCounter != ELEMENT_COUNTER_EDEFAULT;
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case PatternstructurePackage.COMPLETE_PATTERN__DATABASES:
+				return databases != null;
+			case PatternstructurePackage.COMPLETE_PATTERN__QUERY:
+				return QUERY_EDEFAULT == null ? query != null : !QUERY_EDEFAULT.equals(query);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -399,6 +551,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		result.append(elementCounter);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", query: ");
+		result.append(query);
 		result.append(')');
 		return result.toString();
 	}

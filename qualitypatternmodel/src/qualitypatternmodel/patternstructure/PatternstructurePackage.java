@@ -2429,13 +2429,31 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__NAME = PATTERN_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Databases</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__DATABASES = PATTERN_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__QUERY = PATTERN_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 3;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -4458,6 +4476,28 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCompletePattern_Name();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabases <em>Databases</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Databases</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getDatabases()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EReference getCompletePattern_Databases();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getQuery <em>Query</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Query</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getQuery()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_Query();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo() <em>Get New Ref No</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5303,6 +5343,22 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPLETE_PATTERN__NAME = eINSTANCE.getCompletePattern_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Databases</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPLETE_PATTERN__DATABASES = eINSTANCE.getCompletePattern_Databases();
+
+		/**
+		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__QUERY = eINSTANCE.getCompletePattern_Query();
 
 		/**
 		 * The meta object literal for the '<em><b>Get New Ref No</b></em>' operation.

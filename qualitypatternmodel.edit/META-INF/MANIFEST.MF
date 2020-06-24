@@ -10,6 +10,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: qualitypatternmodel.adaptionxml.provider,
+ qualitypatternmodel.execution.provider,
  qualitypatternmodel.graphstructure.provider,
  qualitypatternmodel.operators.provider,
  qualitypatternmodel.parameters.provider,

@@ -192,7 +192,6 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	public NotificationChain basicSetNumberParam(NumberParam newNumberParam, NotificationChain msgs) {
 		NumberParam oldNumberParam = numberParam;
 		numberParam = newNumberParam;
-		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM, oldNumberParam, newNumberParam);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

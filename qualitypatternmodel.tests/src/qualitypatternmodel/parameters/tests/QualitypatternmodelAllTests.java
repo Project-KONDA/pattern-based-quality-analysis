@@ -7,6 +7,7 @@ import junit.framework.TestSuite;
 
 import junit.textui.TestRunner;
 import qualitypatternmodel.adaptionxml.tests.AdaptionxmlTests;
+import qualitypatternmodel.execution.tests.ExecutionTests;
 import qualitypatternmodel.graphstructure.tests.GraphstructureTests;
 import qualitypatternmodel.operators.tests.OperatorsTests;
 import qualitypatternmodel.patternstructure.tests.PatternstructureTests;
@@ -40,6 +41,7 @@ public class QualitypatternmodelAllTests extends TestSuite {
 		suite.addTest(GraphstructureTests.suite());
 		suite.addTest(PatternstructureTests.suite());
 		suite.addTest(AdaptionxmlTests.suite());
+		suite.addTest(ExecutionTests.suite());
 		return suite;
 	}
 

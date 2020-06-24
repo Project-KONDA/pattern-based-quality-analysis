@@ -3,6 +3,7 @@
 package qualitypatternmodel.patternstructure;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.parameters.ParameterList;
 
 /**
@@ -19,6 +20,8 @@ import qualitypatternmodel.parameters.ParameterList;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabases <em>Databases</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getQuery <em>Query</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern()
@@ -94,6 +97,52 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Databases</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.execution.Database#getPatterns <em>Patterns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Databases</em>' reference.
+	 * @see #setDatabases(Database)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Databases()
+	 * @see qualitypatternmodel.execution.Database#getPatterns
+	 * @model opposite="patterns"
+	 * @generated
+	 */
+	Database getDatabases();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabases <em>Databases</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Databases</em>' reference.
+	 * @see #getDatabases()
+	 * @generated
+	 */
+	void setDatabases(Database value);
+
+	/**
+	 * Returns the value of the '<em><b>Query</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Query</em>' attribute.
+	 * @see #setQuery(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Query()
+	 * @model
+	 * @generated
+	 */
+	String getQuery();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getQuery <em>Query</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Query</em>' attribute.
+	 * @see #getQuery()
+	 * @generated
+	 */
+	void setQuery(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
