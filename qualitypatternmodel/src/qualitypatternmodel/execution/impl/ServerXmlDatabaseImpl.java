@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import org.basex.core.BaseXException;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.execution.ExecutionPackage;
@@ -22,6 +23,12 @@ public class ServerXmlDatabaseImpl extends XmlDatabaseImpl implements ServerXmlD
 	 */
 	protected ServerXmlDatabaseImpl() {
 		super();
+	}
+	
+	@Override
+	public void init() throws BaseXException {
+		open();
+		analyseDatabase();		
 	}
 
 	/**
