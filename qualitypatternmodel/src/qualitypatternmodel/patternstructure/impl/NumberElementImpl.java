@@ -20,6 +20,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.NumberElement;
@@ -111,10 +112,26 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetCountCondition2(CountCondition newCountCondition2, NotificationChain msgs) {
+		
 		msgs = eBasicSetContainer((InternalEObject)newCountCondition2, PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION2, msgs);
+		
+		if(newCountCondition2 != null) {
+			if(getNumberParam() != null) {
+				getNumberParam().setParameterList(getParameterList());
+			} else {			
+				NumberParam newNumberParam = new NumberParamImpl();
+				getParameterList().add(newNumberParam);
+				setNumberParam(newNumberParam);
+			}
+		} else {
+			if(getNumberParam() != null) {
+				getNumberParam().setParameterList(null);
+			}
+		}
+		
 		return msgs;
 	}
 
@@ -175,6 +192,7 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	public NotificationChain basicSetNumberParam(NumberParam newNumberParam, NotificationChain msgs) {
 		NumberParam oldNumberParam = numberParam;
 		numberParam = newNumberParam;
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM, oldNumberParam, newNumberParam);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

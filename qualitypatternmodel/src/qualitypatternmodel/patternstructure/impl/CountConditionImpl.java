@@ -95,7 +95,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * @generated
 	 */
 	protected CountConditionImpl() {
-		super();
+		super();		
 	}
 	
 	@Override
@@ -302,6 +302,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}
 
 		msgs = super.basicSetPattern(newPattern, msgs);
+		
+		if(newPattern != null) {
+			setCountPattern(new CountPatternImpl());
+		}		
 
 		setOption(new ComparisonOptionParamImpl());
 		if(newPattern != null) {
@@ -317,6 +321,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}
 
 		msgs = super.basicSetFormula1(newFormula, msgs);
+		
+		if(newFormula != null) {
+			setCountPattern(new CountPatternImpl());
+		}	
 
 		setOption(new ComparisonOptionParamImpl());
 		getParameterList().add(getOption());
@@ -331,7 +339,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}
 
 		msgs = super.basicSetFormula2(newFormula, msgs);
-
+		
+		if(newFormula != null) {
+			setCountPattern(new CountPatternImpl());
+		}	
 		setOption(new ComparisonOptionParamImpl());
 		getParameterList().add(getOption());
 
@@ -345,7 +356,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}
 
 		msgs = super.basicSetNotCondition(newNotCondition, msgs);
-
+		
+		if(newNotCondition != null) {
+			setCountPattern(new CountPatternImpl());
+		}	
 		setOption(new ComparisonOptionParamImpl());
 		getParameterList().add(getOption());
 
@@ -360,6 +374,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);
 		
+		if(newQuantifiedCondition != null) {
+			setCountPattern(new CountPatternImpl());
+		}			
 		setOption(new ComparisonOptionParamImpl());
 		getParameterList().add(getOption());
 		
@@ -447,7 +464,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetArgument2(CountConditionArgument newArgument2, NotificationChain msgs) {
-		newArgument2.updateParameters(newArgument2.getParameterList());
+		if(newArgument2 != null) {
+			newArgument2.updateParameters(newArgument2.getParameterList());
+		}
 		CountConditionArgument oldArgument2 = argument2;
 		argument2 = newArgument2;
 		if (eNotificationRequired()) {

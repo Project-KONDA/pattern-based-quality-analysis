@@ -66,7 +66,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NumberParamImpl() {
+	public NumberParamImpl() {
 		super();
 	}
 	

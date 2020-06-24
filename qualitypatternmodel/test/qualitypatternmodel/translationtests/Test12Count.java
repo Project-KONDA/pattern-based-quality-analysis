@@ -25,6 +25,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
+import qualitypatternmodel.patternstructure.TrueElement;
 
 public class Test12Count {
 	public static void main(String[] args)
@@ -155,18 +156,20 @@ public class Test12Count {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
-		CompletePattern completePattern = Test06NotElement.getPatternNotTrue();
-		NotCondition n = (NotCondition) completePattern.getCondition();
+		CompletePattern completePattern = Test00.getBasePattern();
+		
+		NotCondition n = factory.createNotCondition();
+		completePattern.setCondition(n);
+		TrueElement t = factory.createTrueElement();
+		n.setCondition(t);
 		
 		CountCondition countCondition = factory.createCountCondition();
 		n.setCondition(countCondition);		
 		
-		CountPattern countpattern = factory.createCountPattern();
+		CountPattern countpattern = countCondition.getCountPattern();
 
 		NumberElement numberElement = factory.createNumberElement();
-		NumberParam numberParam = parametersFactory.createNumberParam();
-		numberElement.setNumberParam(numberParam);
-		countCondition.setCountPattern(countpattern);
+
 		countCondition.setArgument2(numberElement);
 		
 		Element returnInCPattern = countpattern.getGraph().getReturnElements().get(0);
