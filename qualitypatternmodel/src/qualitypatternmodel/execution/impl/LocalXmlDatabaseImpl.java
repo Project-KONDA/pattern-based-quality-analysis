@@ -3,9 +3,13 @@
 package qualitypatternmodel.execution.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
 
 import org.basex.core.BaseXException;
-
+import org.basex.core.Context;
+import org.basex.core.cmd.CreateDB;
+import org.basex.core.cmd.Open;
+import org.basex.core.cmd.XQuery;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
@@ -14,8 +18,14 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.LocalXmlDatabase;
+import qualitypatternmodel.execution.Result;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +90,76 @@ public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDat
 	protected LocalXmlDatabaseImpl() {
 		super();
 	}
+	
+	protected LocalXmlDatabaseImpl(String name, String dataPath) {
+		super();
+		this.name = name;
+		this.dataPath = dataPath;		
+	}
+	
+	protected LocalXmlDatabaseImpl(String name, String dataPath, String schemaPath) {
+		super();
+		this.name = name;
+		this.dataPath = dataPath;	
+		this.schemaPath = schemaPath;
+	}
+
+	@Override
+	public void init() throws BaseXException {
+		try {
+			open();
+		} catch (BaseXException e) {
+			create();
+			analyseDatabase();
+		}
+		
+	}
+	
+	@Override
+	public void open() throws BaseXException {
+		context = new Context();
+		new Open(name).execute(context);
+	}
+	
+	@Override
+	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {
+		
+		pattern.isValid(AbstractionLevel.CONCRETE);	
+		
+		open();
+		
+		String query;
+		if(pattern.getQuery() == null) {
+			query = pattern.generateQuery();
+		} else {
+			query = pattern.getQuery();
+		}
+		XQuery xquery = new XQuery(query);
+		
+		Date startDate = new Date();
+		String queryResult = xquery.execute(context);
+		Date endDate = new Date();
+		long runtime = endDate.getTime() - startDate.getTime();
+		
+		int matchNo = countMatches(pattern); // TODO: implement
+		int problemsNo = countProblems(pattern); // TODO: implement
+		
+		Result result = new XmlResultImpl();
+		result.setDatabase(this);
+		result.setName(name);
+		result.setPerson(person);
+		result.setPattern(pattern); // TODO: may be modified!!
+		result.setQueryResult(queryResult);
+		result.setStartDate(startDate);
+		result.setEndDate(endDate);
+		result.setRuntime(runtime);
+		result.setMatchNumber(matchNo);
+		result.setProblemNumber(problemsNo);
+		result.split(); // TODO: implement
+				
+		return result;		
+	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,13 +220,11 @@ public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void create() throws BaseXException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		new CreateDB(name, dataPath).execute(context);	
 	}
 
 	/**
