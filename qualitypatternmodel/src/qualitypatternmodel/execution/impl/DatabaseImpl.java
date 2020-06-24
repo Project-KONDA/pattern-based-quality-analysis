@@ -97,6 +97,11 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 	protected DatabaseImpl() {
 		super();
 	}
+	
+	protected DatabaseImpl(String name) {
+		super();
+		this.name = name;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
