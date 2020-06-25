@@ -880,6 +880,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			removeElementFromPreviousGraphs();
 		}
 		
+		deleteRelations();
+		
 		removeMappingsToNext();
 		
 		setResultOf(null);
@@ -900,6 +902,15 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.ELEMENT__GRAPH, msgs);
 		return msgs;
+	}
+	
+	private void deleteRelations() {
+		EList<Relation> relations = new BasicEList<Relation>();
+		relations.addAll(getIncoming());
+		relations.addAll(getOutgoing());
+		for (Relation rel : relations) {
+			rel.setGraph(null);			
+		}
 	}
 	
 	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {
