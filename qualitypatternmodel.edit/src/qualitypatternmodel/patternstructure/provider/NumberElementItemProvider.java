@@ -12,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -89,10 +90,9 @@ public class NumberElementItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NumberElement)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_NumberElement_type") :
-			getString("_UI_NumberElement_type") + " " + label;
+		NumberElement numberelement = (NumberElement) object;
+		String text = getString("_UI_NumberElement_type") + " " + numberelement.getInternalId();
+		return text;
 	}
 
 

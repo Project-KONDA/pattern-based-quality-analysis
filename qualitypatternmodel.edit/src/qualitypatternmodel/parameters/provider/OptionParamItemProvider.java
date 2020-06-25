@@ -206,10 +206,13 @@ public class OptionParamItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((OptionParam<?>)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_OptionParam_type") :
-			getString("_UI_OptionParam_type") + " " + label;
+		OptionParam<?> objectparam = (OptionParam<?>) object;
+		String text = getString("_UI_OptionParam_type") + " " + objectparam.getInternalId();
+
+		if (objectparam.getValue() != null ) {
+			text += "<" + objectparam.getValue().getClass().getName() + "> " + objectparam.getValue();
+		}		
+		return text;
 	}
 
 

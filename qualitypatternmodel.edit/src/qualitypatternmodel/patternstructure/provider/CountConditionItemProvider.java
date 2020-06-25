@@ -16,6 +16,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.patternstructure.CountCondition;
+import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -147,10 +148,9 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CountCondition)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CountCondition_type") :
-			getString("_UI_CountCondition_type") + " " + label;
+		CountCondition numberelement = (CountCondition) object;
+		String text = getString("_UI_CountCondition_type") + " " + numberelement.getInternalId();
+		return text;
 	}
 
 
