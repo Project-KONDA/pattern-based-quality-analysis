@@ -114,7 +114,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 //		returnElement.setGraph(getGraph());
 ////		returnElement.setPreviousElement(getGraph().getRootElement());
 		getGraph().getReturnElements().add(element);
-		element.setName("First");
+//		element.setName("First");
 //		returnElement.setName("Return");
 //		
 //		Relation relation = new RelationImpl();

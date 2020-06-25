@@ -298,8 +298,12 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 	
 	private void removeElementFromPreviousGraphs() {
-		Element correspondingPreviousElement = getIncomingMapping().getSource();
-		correspondingPreviousElement.setGraph(null);
+
+		if (getIncomingMapping() != null && getIncomingMapping().getSource() != null) {
+			Element correspondingPreviousElement = getIncomingMapping().getSource();
+			correspondingPreviousElement.setGraph(null);
+		}
+
 //		getIncomingMapping().getMorphism().getMappings().remove(getIncomingMapping());
 //		correspondingPreviousElement.setPreviousElement(null);
 //		correspondingPreviousElement.setRoot(null);
@@ -739,7 +743,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated NOT
+	 * 
+	 * @generated
 	 */
 	@Override
 	public void setName(String newName) {

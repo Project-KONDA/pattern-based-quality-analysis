@@ -655,7 +655,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public void removeRelationFromPreviousGraphs() {
 		if (getIncomingMapping() != null) {
 			Relation correspondingRelation = getIncomingMapping().getSource();
-			correspondingRelation.setGraph(null);
+			if (correspondingRelation != null) correspondingRelation.setGraph(null);
 //			correspondingRelation.getElement().setRelationFromPrevious(null);
 //			getMappingFrom().setFrom(null);
 //			if(getMappingFrom().getMorphism() != null) {
