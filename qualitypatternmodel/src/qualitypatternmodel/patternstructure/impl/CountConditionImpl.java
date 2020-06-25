@@ -305,12 +305,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 		if(newPattern != null) {
 			setCountPattern(new CountPatternImpl());
-		}		
-
-		setOption(new ComparisonOptionParamImpl());
-		if(newPattern != null) {
+			setOption(new ComparisonOptionParamImpl());
 			getParameterList().add(getOption());
-		}
+		}			
+		
 		return msgs;
 	}
 	
@@ -324,10 +322,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 		if(newFormula != null) {
 			setCountPattern(new CountPatternImpl());
-		}	
-
-		setOption(new ComparisonOptionParamImpl());
-		getParameterList().add(getOption());
+			setOption(new ComparisonOptionParamImpl());
+			getParameterList().add(getOption());
+		}			
 
 		return msgs;
 	}
@@ -342,9 +339,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 		if(newFormula != null) {
 			setCountPattern(new CountPatternImpl());
-		}	
-		setOption(new ComparisonOptionParamImpl());
-		getParameterList().add(getOption());
+			setOption(new ComparisonOptionParamImpl());
+			getParameterList().add(getOption());
+		}			
 
 		return msgs;
 	}
@@ -359,9 +356,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 		if(newNotCondition != null) {
 			setCountPattern(new CountPatternImpl());
-		}	
-		setOption(new ComparisonOptionParamImpl());
-		getParameterList().add(getOption());
+			setOption(new ComparisonOptionParamImpl());
+			getParameterList().add(getOption());
+		}			
 
 		return msgs;
 	}
@@ -376,9 +373,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 		if(newQuantifiedCondition != null) {
 			setCountPattern(new CountPatternImpl());
+			setOption(new ComparisonOptionParamImpl());
+			getParameterList().add(getOption());
 		}			
-		setOption(new ComparisonOptionParamImpl());
-		getParameterList().add(getOption());
+		
 		
 		return msgs;
 	}
@@ -419,8 +417,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
 		ComparisonOptionParam oldOption = option;
 		option = newOption;
-		option.getOptions().clear();
-		option.getOptions().addAll(ComparisonOperator.VALUES);
+		if(option != null) {
+			option.getOptions().clear();
+			option.getOptions().addAll(ComparisonOperator.VALUES);
+		}
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
