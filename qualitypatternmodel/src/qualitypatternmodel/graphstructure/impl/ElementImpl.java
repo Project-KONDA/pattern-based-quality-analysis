@@ -300,7 +300,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	private void removeElementFromPreviousGraphs() {
 		Element correspondingPreviousElement = getIncomingMapping().getSource();
 		correspondingPreviousElement.setGraph(null);
-		getIncomingMapping().getMorphism().getMappings().remove(getIncomingMapping());
+//		getIncomingMapping().getMorphism().getMappings().remove(getIncomingMapping());
 //		correspondingPreviousElement.setPreviousElement(null);
 //		correspondingPreviousElement.setRoot(null);
 ////		getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());

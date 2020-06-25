@@ -235,6 +235,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		removeMappingsToNext();
 		
 		// TODO: reset ?
+
+		setSource(null);
+		setTarget(null);
 		
 		if(newGraph != null) {
 			for(Morphism morphism : newGraph.getOutgoingMorphisms()) {
@@ -257,7 +260,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 						}
 					}
 				}
-			}		
+			}
 		}
 		
 //		if (getElement() != null) {
