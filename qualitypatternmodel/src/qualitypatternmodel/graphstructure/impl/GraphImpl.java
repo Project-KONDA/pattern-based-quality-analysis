@@ -177,8 +177,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				noRoot++;
 			}
 		}
-		if (noRoot != 1)
-			throw new InvalidityException("too many or too few XMLRoot (" + getInternalId() + ")");
 
 		for (Element returnElement : returnElements) {
 			if (!returnElement.getGraph().equals(this)) {
@@ -198,6 +196,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}				
 			}
 		} else {
+			if (noRoot != 1)
+				throw new InvalidityException("too many or too few XMLRoot (" + getInternalId() + ")");
 			for(Element element : getElements()) {
 				if(element.getClass().equals(ElementImpl.class)) {
 					throw new InvalidityException("Non-generic pattern contains Element (" + getInternalId() + ")");
