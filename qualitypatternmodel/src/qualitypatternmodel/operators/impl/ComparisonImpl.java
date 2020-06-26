@@ -430,10 +430,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			moveElementsFromNewArgumentToRootOperator(newArgument, rootOperators);
 		}
 
-		for (BooleanOperator rootOperator : rootOperators) {
-			removeOldArgumentElementsFromRootOperator(oldArgument, rootOperator);
-			if (oldArgument instanceof BooleanOperator) {
-				moveElementsFromRootOperatorToOldArgument(oldArgument, rootOperator);
+		if(rootOperators.size() > 0) {
+			for (BooleanOperator rootOperator : rootOperators) {
+				removeOldArgumentElementsFromRootOperator(oldArgument, rootOperator);
+				if (oldArgument instanceof BooleanOperator) {
+					moveElementsFromRootOperatorToOldArgument(oldArgument, rootOperator);
+				}
 			}
 		}
 	}
@@ -445,9 +447,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 																// case THIS gets DELETED!
 		try {
 			EList<Element> argumentElements = oldArgumentOperator.getAllArgumentElements();
-			for (Element argumentElement : argumentElements) {
-					oldArgumentOperator.addElement(argumentElement);
-					rootOperator.removeElement(argumentElement);
+			if(argumentElements.size() > 0) {
+				for (Element argumentElement : argumentElements) {
+						oldArgumentOperator.addElement(argumentElement);
+						rootOperator.removeElement(argumentElement);
+				}
 			}
 		} catch (InvalidityException e) {
 			// TODO Auto-generated catch block
@@ -469,10 +473,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		BooleanOperator argumentOperator = (BooleanOperator) newArgument;
 		EList<Element> argumentOperatorElements = new BasicEList<Element>();
 		argumentOperatorElements.addAll(argumentOperator.getElements());
-		for (Element element : argumentOperatorElements) {
-			argumentOperator.removeElement(element);
-			for (BooleanOperator rootBoolenOperator : rootBooleanOperators) {
-				rootBoolenOperator.addElement(element);
+		if(argumentOperatorElements.size() > 0) {
+			for (Element element : argumentOperatorElements) {
+				argumentOperator.removeElement(element);
+				if(rootBooleanOperators.size() > 0) {
+					for (BooleanOperator rootBoolenOperator : rootBooleanOperators) {
+						rootBoolenOperator.addElement(element);
+					}
+				}
 			}
 		}
 	}

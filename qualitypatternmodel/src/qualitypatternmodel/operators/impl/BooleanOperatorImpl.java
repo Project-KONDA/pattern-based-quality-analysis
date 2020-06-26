@@ -113,13 +113,16 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public void addElement(Element element) {
 		if(getElementCount().containsKey(element)) {
+			System.out.println("addElement if 1");
 			getElementCount().put(element, getElementCount().get(element)+1);
 		} else {
+			System.out.println("addElement else");
 			getElementCount().put(element, 1);
 		}
 		if(!getElements().contains(element)) {
+			System.out.println("addElement if 2");
 			getElements().add(element);
-			element.getPredicates().add(this);
+//			element.getPredicates().add(this);
 		}
 	}
 

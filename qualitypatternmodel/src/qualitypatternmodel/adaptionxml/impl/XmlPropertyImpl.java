@@ -164,7 +164,9 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 //		getComparison2().clear();	
 //		getMatch().clear();			
 			
-		updateParameters(newElement.getParameterList());		
+		if(newElement != null) {
+			updateParameters(newElement.getParameterList());	
+		}
 		
 //		if(newElement == null) {
 //			removeParametersFromParameterList();		
