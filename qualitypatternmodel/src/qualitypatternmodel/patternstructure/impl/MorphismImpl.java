@@ -120,20 +120,20 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				ElementMapping elementMapping = (ElementMapping) mapping;
 				if(elementMapping != null) {
 					if(elementMapping.getSource() != null && elementMapping.getSource().getOutgoingMappings() != null) {
-						elementMapping.getSource().getOutgoingMappings().remove(elementMapping);
+						elementMapping.setSource(null);
 					}
 					if(elementMapping.getTarget() != null) {
-						elementMapping.getTarget().setIncomingMapping(null);
+						elementMapping.setTarget(null);
 					}
 				}
 			} else if (mapping instanceof RelationMapping) {
 				RelationMapping relationMapping = (RelationMapping) mapping;
 				if(relationMapping != null) {
 					if(relationMapping.getSource() != null && relationMapping.getSource().getOutgoingMappings() != null) {
-						relationMapping.getSource().getOutgoingMappings().remove(relationMapping);
+						relationMapping.setSource(null);
 					}
 					if(relationMapping.getTarget() != null) {
-						relationMapping.getTarget().setIncomingMapping(null);
+						relationMapping.setTarget(null);
 					}
 				}
 			}

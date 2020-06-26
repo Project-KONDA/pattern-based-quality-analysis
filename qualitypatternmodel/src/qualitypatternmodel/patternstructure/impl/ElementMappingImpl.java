@@ -90,8 +90,8 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 				&& (newMorphism == null
 //				|| newMorphism.getTarget() == null // maybe check consistency in Morphism.setTarget() 
 				|| !newMorphism.getTarget().getElements().contains(getTarget()));
-		if (delSource) getSource().getOutgoingMappings().remove(this);
-		if (delTarget) getTarget().setIncomingMapping(null);
+		if (delSource) setSource(null);
+		if (delTarget) setTarget(null);
 		return super.basicSetMorphism(newMorphism, msgs);
 	}
 
