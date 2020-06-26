@@ -110,23 +110,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
           eType="#//adaptionxml/XmlNavigation" eOpposite="#//adaptionxml/XmlNavigation/option"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="OptionParam" eSuperTypes="#//parameters/Parameter">
-      <eTypeParameters name="T"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
-        <eGenericType eTypeParameter="#//parameters/OptionParam/T"/>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1">
-        <eGenericType eTypeParameter="#//parameters/OptionParam/T"/>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//adaptionxml/XmlProperty"
-          eOpposite="#//adaptionxml/XmlProperty/optionParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="relation" eType="#//adaptionxml/XmlNavigation"
-          eOpposite="#//adaptionxml/XmlNavigation/optionParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison" upperBound="-1"
-          eType="#//operators/Comparison" eOpposite="#//operators/Comparison/optionParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" eType="#//patternstructure/CountCondition"
-          eOpposite="#//patternstructure/CountCondition/optionParam"/>
-    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="operators" nsURI="operators" nsPrefix="operators">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//operators/Operator">
@@ -184,12 +167,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/comparisons"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" lowerBound="1"
-          eOpposite="#//parameters/OptionParam/comparison">
-        <eGenericType eClassifier="#//parameters/OptionParam">
-          <eTypeArguments eClassifier="#//operators/ComparisonOperator"/>
-        </eGenericType>
-      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
       <eLiterals name="EQUAL" literal="="/>
@@ -529,8 +506,6 @@
           eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/countCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/countCondition"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" lowerBound="1"
-          eType="#//parameters/OptionParam" eOpposite="#//parameters/OptionParam/countCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
           eType="#//patternstructure/CountConditionArgument" containment="true" eOpposite="#//patternstructure/CountConditionArgument/countCondition2"/>
     </eClassifiers>
@@ -580,8 +555,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" eSuperTypes="#//graphstructure/Relation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/RelationOptionParam"
           eOpposite="#//parameters/RelationOptionParam/relations"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" eType="#//parameters/OptionParam"
-          eOpposite="#//parameters/OptionParam/relation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlReference" eSuperTypes="#//graphstructure/Relation">
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -593,8 +566,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/Property">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" eType="#//parameters/OptionParam"
-          eOpposite="#//parameters/OptionParam/property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/PropertyOptionParam"
           eOpposite="#//parameters/PropertyOptionParam/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"

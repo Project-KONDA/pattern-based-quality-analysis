@@ -11,7 +11,6 @@ import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -448,28 +447,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 */
 	@Override
 	public void removeInconsistentMappings() {
-		EList<Mapping> mappings = new BasicEList<Mapping>();
-		mappings.addAll(getMappings());
-		for(Mapping mapping : mappings) {
-			if(mapping instanceof ElementMapping) {
-				ElementMapping elementMapping = (ElementMapping) mapping;
-				if(!elementMapping.getSource().getGraph().equals(getSource())) {
-					getMappings().remove(elementMapping);
-				}
-				if(!elementMapping.getTarget().getGraph().equals(getTarget())) {
-					getMappings().remove(elementMapping);
-				}
-				
-			} else {
-				RelationMapping relationMapping = (RelationMapping) mapping;
-				if(!relationMapping.getSource().getGraph().equals(getSource())) {
-					getMappings().remove(relationMapping);
-				}
-				if(!relationMapping.getTarget().getGraph().equals(getTarget())) {
-					getMappings().remove(relationMapping);
-				}
-			}
-		}
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

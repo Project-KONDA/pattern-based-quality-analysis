@@ -141,8 +141,6 @@ public class ParametersValidator extends EObjectValidator {
 				return validateDateTimeParam((DateTimeParam)value, diagnostics, context);
 			case ParametersPackage.RELATION_OPTION_PARAM:
 				return validateRelationOptionParam((RelationOptionParam)value, diagnostics, context);
-			case ParametersPackage.OPTION_PARAM:
-				return validateOptionParam((OptionParam<?>)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -421,25 +419,6 @@ public class ParametersValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(relationOptionParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(relationOptionParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validateParameter_validate(relationOptionParam, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateOptionParam(OptionParam<?> optionParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(optionParam, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(optionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(optionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(optionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(optionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(optionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(optionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(optionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(optionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validateParameter_validate(optionParam, diagnostics, context);
 		return result;
 	}
 

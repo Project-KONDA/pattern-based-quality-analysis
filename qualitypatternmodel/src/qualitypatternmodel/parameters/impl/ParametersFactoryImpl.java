@@ -80,7 +80,6 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 			case ParametersPackage.UNKNOWN_PARAMETER_VALUE: return createUnknownParameterValue();
 			case ParametersPackage.DATE_TIME_PARAM: return createDateTimeParam();
 			case ParametersPackage.RELATION_OPTION_PARAM: return createRelationOptionParam();
-			case ParametersPackage.OPTION_PARAM: return createOptionParam();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -216,17 +215,6 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	public RelationOptionParam createRelationOptionParam() {
 		RelationOptionParamImpl relationOptionParam = new RelationOptionParamImpl();
 		return relationOptionParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public <T> OptionParam<T> createOptionParam() {
-		OptionParamImpl<T> optionParam = new OptionParamImpl<T>();
-		return optionParam;
 	}
 
 	/**

@@ -16,7 +16,6 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
@@ -42,7 +41,6 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getCountPattern <em>Count Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getOptionParam <em>Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl#getArgument2 <em>Argument2</em>}</li>
  * </ul>
  *
@@ -68,16 +66,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * @ordered
 	 */
 	protected ComparisonOptionParam option;
-
-	/**
-	 * The cached value of the '{@link #getOptionParam() <em>Option Param</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOptionParam()
-	 * @generated
-	 * @ordered
-	 */
-	protected OptionParam optionParam;
 
 	/**
 	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' containment reference.
@@ -501,68 +489,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public OptionParam getOptionParam() {
-		if (optionParam != null && optionParam.eIsProxy()) {
-			InternalEObject oldOptionParam = (InternalEObject)optionParam;
-			optionParam = (OptionParam)eResolveProxy(oldOptionParam);
-			if (optionParam != oldOptionParam) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM, oldOptionParam, optionParam));
-			}
-		}
-		return optionParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OptionParam basicGetOptionParam() {
-		return optionParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOptionParam(OptionParam newOptionParam, NotificationChain msgs) {
-		OptionParam oldOptionParam = optionParam;
-		optionParam = newOptionParam;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM, oldOptionParam, newOptionParam);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOptionParam(OptionParam newOptionParam) {
-		if (newOptionParam != optionParam) {
-			NotificationChain msgs = null;
-			if (optionParam != null)
-				msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__COUNT_CONDITION, OptionParam.class, msgs);
-			if (newOptionParam != null)
-				msgs = ((InternalEObject)newOptionParam).eInverseAdd(this, ParametersPackage.OPTION_PARAM__COUNT_CONDITION, OptionParam.class, msgs);
-			msgs = basicSetOptionParam(newOptionParam, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM, newOptionParam, newOptionParam));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -575,10 +501,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				if (option != null)
 					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION, ComparisonOptionParam.class, msgs);
 				return basicSetOption((ComparisonOptionParam)otherEnd, msgs);
-			case PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM:
-				if (optionParam != null)
-					msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__COUNT_CONDITION, OptionParam.class, msgs);
-				return basicSetOptionParam((OptionParam)otherEnd, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT2:
 				if (argument2 != null)
 					msgs = ((InternalEObject)argument2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PatternstructurePackage.COUNT_CONDITION__ARGUMENT2, null, msgs);
@@ -599,8 +521,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				return basicSetCountPattern(null, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				return basicSetOption(null, msgs);
-			case PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM:
-				return basicSetOptionParam(null, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT2:
 				return basicSetArgument2(null, msgs);
 		}
@@ -620,9 +540,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				if (resolve) return getOption();
 				return basicGetOption();
-			case PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM:
-				if (resolve) return getOptionParam();
-				return basicGetOptionParam();
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT2:
 				return getArgument2();
 		}
@@ -643,9 +560,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				return;
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				setOption((ComparisonOptionParam)newValue);
-				return;
-			case PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM:
-				setOptionParam((OptionParam)newValue);
 				return;
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT2:
 				setArgument2((CountConditionArgument)newValue);
@@ -668,9 +582,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				setOption((ComparisonOptionParam)null);
 				return;
-			case PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM:
-				setOptionParam((OptionParam)null);
-				return;
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT2:
 				setArgument2((CountConditionArgument)null);
 				return;
@@ -690,8 +601,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				return countPattern != null;
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				return option != null;
-			case PatternstructurePackage.COUNT_CONDITION__OPTION_PARAM:
-				return optionParam != null;
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT2:
 				return argument2 != null;
 		}

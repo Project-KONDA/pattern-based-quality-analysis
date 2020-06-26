@@ -2989,22 +2989,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION__OPTION = CONDITION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Option Param</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION__OPTION_PARAM = CONDITION_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Argument2</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION__ARGUMENT2 = CONDITION_FEATURE_COUNT + 3;
+	int COUNT_CONDITION__ARGUMENT2 = CONDITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Count Condition</em>' class.
@@ -3013,7 +3004,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 4;
+	int COUNT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -4766,17 +4757,6 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCountCondition_Option();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.patternstructure.CountCondition#getOptionParam <em>Option Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Option Param</em>'.
-	 * @see qualitypatternmodel.patternstructure.CountCondition#getOptionParam()
-	 * @see #getCountCondition()
-	 * @generated
-	 */
-	EReference getCountCondition_OptionParam();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2 <em>Argument2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5608,14 +5588,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COUNT_CONDITION__OPTION = eINSTANCE.getCountCondition_Option();
-
-		/**
-		 * The meta object literal for the '<em><b>Option Param</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COUNT_CONDITION__OPTION_PARAM = eINSTANCE.getCountCondition_OptionParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Argument2</b></em>' containment reference feature.

@@ -702,22 +702,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION__OPTION = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Option Param</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION__OPTION_PARAM = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Xml Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 2;
+	int XML_NAVIGATION_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1334,22 +1325,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY__MATCH = GraphstructurePackage.PROPERTY__MATCH;
 
 	/**
-	 * The feature id for the '<em><b>Option Param</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY__OPTION_PARAM = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__OPTION = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 1;
+	int XML_PROPERTY__OPTION = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Attribute Name</b></em>' reference.
@@ -1358,7 +1340,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__ATTRIBUTE_NAME = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 2;
+	int XML_PROPERTY__ATTRIBUTE_NAME = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Xml Property</em>' class.
@@ -1367,7 +1349,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 3;
+	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2190,17 +2172,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlNavigation_Option();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOptionParam <em>Option Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Option Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getOptionParam()
-	 * @see #getXmlNavigation()
-	 * @generated
-	 */
-	EReference getXmlNavigation_OptionParam();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlReference <em>Xml Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2262,17 +2233,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXmlProperty();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOptionParam <em>Option Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Option Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getOptionParam()
-	 * @see #getXmlProperty()
-	 * @generated
-	 */
-	EReference getXmlProperty_OptionParam();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOption <em>Option</em>}'.
@@ -2402,14 +2362,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_NAVIGATION__OPTION = eINSTANCE.getXmlNavigation_Option();
 
 		/**
-		 * The meta object literal for the '<em><b>Option Param</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference XML_NAVIGATION__OPTION_PARAM = eINSTANCE.getXmlNavigation_OptionParam();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl <em>Xml Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2460,14 +2412,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass XML_PROPERTY = eINSTANCE.getXmlProperty();
-
-		/**
-		 * The meta object literal for the '<em><b>Option Param</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference XML_PROPERTY__OPTION_PARAM = eINSTANCE.getXmlProperty_OptionParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.

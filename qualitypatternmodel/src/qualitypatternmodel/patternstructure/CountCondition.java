@@ -3,7 +3,6 @@
 package qualitypatternmodel.patternstructure;
 
 import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.OptionParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +15,6 @@ import qualitypatternmodel.parameters.OptionParam;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getCountPattern <em>Count Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getOptionParam <em>Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2 <em>Argument2</em>}</li>
  * </ul>
  *
@@ -86,30 +84,6 @@ public interface CountCondition extends Condition {
 	 * @generated
 	 */
 	CountConditionArgument getArgument2();
-
-	/**
-	 * Returns the value of the '<em><b>Option Param</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.OptionParam#getCountCondition <em>Count Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Option Param</em>' reference.
-	 * @see #setOptionParam(OptionParam)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_OptionParam()
-	 * @see qualitypatternmodel.parameters.OptionParam#getCountCondition
-	 * @model opposite="countCondition" required="true"
-	 * @generated
-	 */
-	OptionParam getOptionParam();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountCondition#getOptionParam <em>Option Param</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Option Param</em>' reference.
-	 * @see #getOptionParam()
-	 * @generated
-	 */
-	void setOptionParam(OptionParam value);
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CountCondition#getArgument2 <em>Argument2</em>}' containment reference.
