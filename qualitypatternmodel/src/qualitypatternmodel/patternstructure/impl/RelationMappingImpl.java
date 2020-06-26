@@ -95,8 +95,8 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 				&& (newMorphism == null 
 //				|| newMorphism.getTarget() == null // maybe check consistency in Morphism.setTarget() 
 				|| !newMorphism.getTarget().getRelations().contains(getTarget()));
-		if (delSource) getSource().getOutgoingMappings().remove(this);
-		if (delTarget) getTarget().setIncomingMapping(null);
+		if (delSource) setSource(null);
+		if (delTarget) setTarget(null);
 		return super.basicSetMorphism(newMorphism, msgs);
 	}
 
