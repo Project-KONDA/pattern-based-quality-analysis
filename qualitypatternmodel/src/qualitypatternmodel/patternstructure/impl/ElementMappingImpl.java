@@ -61,11 +61,11 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (source == null)
-			throw new InvalidityException("SingleElementMapping " + getInternalId() + ": from-element null");
+			throw new InvalidityException("ElementMapping " + getInternalId() + ": from-element null");
 		if (target == null)
-			throw new InvalidityException("SingleElementMapping " + getInternalId() + ": to null");
+			throw new InvalidityException("ElementMapping " + getInternalId() + ": to null");
 //		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
-//			throw new InvalidityException("SingleElementMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
+//			throw new InvalidityException("ElementMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
 //					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
 //		}
 	}
@@ -310,7 +310,7 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	
 	@Override
 	public String myToString() {
-		String res = "SingleElementMapping [" + getInternalId() + "] ";
+		String res = "ElementMapping [" + getInternalId() + "] ";
 		res += "(";
 		if (getSource()!= null) res += getSource().getInternalId();
 		else res += "-";		
@@ -321,4 +321,4 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 		return res;
 	}
 
-} // SingleElementMappingImpl
+} // ElementMappingImpl

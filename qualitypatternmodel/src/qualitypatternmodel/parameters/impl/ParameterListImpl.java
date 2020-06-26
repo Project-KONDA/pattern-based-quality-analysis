@@ -84,8 +84,8 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 			throw new InvalidityException("invalid Operators of Graph" + " (" + getInternalId() + ")");
 
 		if (!(patternVars.containsAll(getParameters()) && getParameters().containsAll(patternVars))) {
-			String msg = "parameters from ParameterList not equal to parameters used in Graph" + " ("
-					+ getInternalId() + ")" + ": \n";
+			String msg = "parameters from ParameterList (" + getInternalId() + ") not equal to parameters used in Pattern:";
+			msg += "\nin Pattern:       ";
 			for (Parameter var : patternVars) {
 				msg += "[" + var.myToString() + "]";
 				if (!getParameters().contains(var))
@@ -93,7 +93,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 				else
 					msg += "+ ";
 			}
-			msg += "\n";
+			msg += "\nin ParameterList: ";
 			for (Parameter var : getParameters()) {
 				msg += "[" + var.myToString() + "]";
 				if (!patternVars.contains(var))

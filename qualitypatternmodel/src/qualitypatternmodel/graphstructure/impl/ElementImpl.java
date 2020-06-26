@@ -298,9 +298,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 	
 	private void removeElementFromPreviousGraphs() {
-		Element correspondingPreviousElement = getIncomingMapping().getSource();
-		correspondingPreviousElement.setGraph(null);
-		getIncomingMapping().getMorphism().getMappings().remove(getIncomingMapping());
+
+		if (getIncomingMapping() != null && getIncomingMapping().getSource() != null) {
+			Element correspondingPreviousElement = getIncomingMapping().getSource();
+			correspondingPreviousElement.setGraph(null);
+		}
+
+//		getIncomingMapping().getMorphism().getMappings().remove(getIncomingMapping());
 //		correspondingPreviousElement.setPreviousElement(null);
 //		correspondingPreviousElement.setRoot(null);
 ////		getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
@@ -739,6 +743,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	@Override
@@ -880,6 +885,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			removeElementFromPreviousGraphs();
 		}
 		
+		deleteRelations();
+		
 		removeMappingsToNext();
 		
 		setResultOf(null);
@@ -900,6 +907,15 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.ELEMENT__GRAPH, msgs);
 		return msgs;
+	}
+	
+	private void deleteRelations() {
+		EList<Relation> relations = new BasicEList<Relation>();
+		relations.addAll(getIncoming());
+		relations.addAll(getOutgoing());
+		for (Relation rel : relations) {
+			rel.setGraph(null);			
+		}
 	}
 	
 	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {

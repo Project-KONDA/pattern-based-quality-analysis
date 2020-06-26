@@ -545,6 +545,15 @@ public class OptionParamImpl<T> extends ParameterImpl implements OptionParam<T> 
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	@Override 
+	public String myToString() {
+		String res = "option [" + getInternalId() + "] ";
+		if (getValue() != null ) {
+			res += getValue().getClass().getName() + " " + getValue();
+		}				
+		return res;
+	}
 
 	@Override
 	public void generateDescription() {

@@ -92,14 +92,13 @@ public class CountPatternItemProvider extends PatternItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CountPattern)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CountPattern_type") :
-			getString("_UI_CountPattern_type") + " " + label;
+		CountPattern numberelement = (CountPattern) object;
+		String text = getString("_UI_CountPattern_type") + " " + numberelement.getInternalId();
+		return text;
 	}
 
 

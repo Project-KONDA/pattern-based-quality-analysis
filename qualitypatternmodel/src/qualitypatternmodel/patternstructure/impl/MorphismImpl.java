@@ -115,19 +115,29 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 	
 	public void removeDanglingMappingReference() {
-		if(this != null) {
-			for(Mapping mapping : getMappings()) {			
-				if(mapping instanceof ElementMapping) {
-					ElementMapping elementMapping = (ElementMapping) mapping;
-					elementMapping.getSource().getOutgoingMappings().remove(elementMapping);
-					elementMapping.getTarget().setIncomingMapping(null);
-				} else if (mapping instanceof RelationMapping) {
-					RelationMapping relationMapping = (RelationMapping) mapping;
-					relationMapping.getSource().getOutgoingMappings().remove(relationMapping);
-					relationMapping.getTarget().setIncomingMapping(null);
+		for(Mapping mapping : getMappings()) {			
+			if(mapping instanceof ElementMapping) {
+				ElementMapping elementMapping = (ElementMapping) mapping;
+				if(elementMapping != null) {
+					if(elementMapping.getSource() != null && elementMapping.getSource().getOutgoingMappings() != null) {
+						elementMapping.getSource().getOutgoingMappings().remove(elementMapping);
+					}
+					if(elementMapping.getTarget() != null) {
+						elementMapping.getTarget().setIncomingMapping(null);
+					}
+				}
+			} else if (mapping instanceof RelationMapping) {
+				RelationMapping relationMapping = (RelationMapping) mapping;
+				if(relationMapping != null) {
+					if(relationMapping.getSource() != null && relationMapping.getSource().getOutgoingMappings() != null) {
+						relationMapping.getSource().getOutgoingMappings().remove(relationMapping);
+					}
+					if(relationMapping.getTarget() != null) {
+						relationMapping.getTarget().setIncomingMapping(null);
+					}
 				}
 			}
-		}
+		}		
 	}
 
 	/**
@@ -351,10 +361,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			if(mapping instanceof ElementMapping) {
 				ElementMapping elementMapping = (ElementMapping) mapping;
 				if(!getSource().getElements().contains(elementMapping.getSource())) {
-					throw new InvalidityException("wrong SingleElementMapping from");
+					throw new InvalidityException("wrong ElementMapping from");
 				}
 				if(!getTarget().getElements().contains(elementMapping.getTarget())) {
-					throw new InvalidityException("wrong SingleElementMapping to");
+					throw new InvalidityException("wrong ElementMapping to");
 				}
 			}
 		}
@@ -441,8 +451,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		List<Relation> relations = new ArrayList<Relation>();
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof RelationMapping) {
-				RelationMapping singleElementMapping = (RelationMapping) mapping;
-				relations.add(singleElementMapping.getSource());
+				RelationMapping elementMapping = (RelationMapping) mapping;
+				relations.add(elementMapping.getSource());
 			}
 		}
 		Set<Relation> set = new HashSet<Relation>(relations);

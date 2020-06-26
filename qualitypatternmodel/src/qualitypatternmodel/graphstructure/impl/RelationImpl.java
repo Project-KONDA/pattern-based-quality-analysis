@@ -235,6 +235,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		removeMappingsToNext();
 		
 		// TODO: reset ?
+
+		setSource(null);
+		setTarget(null);
 		
 		if(newGraph != null) {
 			for(Morphism morphism : newGraph.getOutgoingMorphisms()) {
@@ -257,7 +260,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 						}
 					}
 				}
-			}		
+			}
 		}
 		
 //		if (getElement() != null) {
@@ -362,6 +365,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 					}
 				}
 			}
+		} else {
+			for(RelationMapping relationMapping : getOutgoingMappings()) {
+				relationMapping.getTarget().setSource(null);
+			}
 		}
 		
 		if (eNotificationRequired()) {
@@ -437,6 +444,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 						}						
 					}
 				}
+			}
+		} else {
+			for(RelationMapping relationMapping : getOutgoingMappings()) {
+				relationMapping.getTarget().setTarget(null);
 			}
 		}
 		
@@ -652,7 +663,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public void removeRelationFromPreviousGraphs() {
 		if (getIncomingMapping() != null) {
 			Relation correspondingRelation = getIncomingMapping().getSource();
-			correspondingRelation.setGraph(null);
+			if (correspondingRelation != null) correspondingRelation.setGraph(null);
 //			correspondingRelation.getElement().setRelationFromPrevious(null);
 //			getMappingFrom().setFrom(null);
 //			if(getMappingFrom().getMorphism() != null) {

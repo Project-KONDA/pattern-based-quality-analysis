@@ -112,12 +112,12 @@ public class ElementMappingItemProvider extends MappingItemProvider {
 	@Override
 	public String getText(Object object) {
 		ElementMapping elementMapping = (ElementMapping) object;
-		String text = getString("_UI_SingleElementMapping_type") + " " + elementMapping.getInternalId();		
-//		if(singleElementMapping.getFrom() != null) {
-//			text += " from " + getString("_UI_SingleElement_type") + " " + singleElementMapping.getFrom().getRefNo();
+		String text = getString("_UI_ElementMapping_type") + " " + elementMapping.getInternalId();		
+//		if(elementMapping.getFrom() != null) {
+//			text += " from " + getString("_UI_Element_type") + " " + elementMapping.getFrom().getRefNo();
 //		}
-//		if(singleElementMapping.getTo() != null) {
-//			text += " to " + getString("_UI_SingleElement_type") + " " + singleElementMapping.getTo().getRefNo();
+//		if(elementMapping.getTo() != null) {
+//			text += " to " + getString("_UI_Element_type") + " " + elementMapping.getTo().getRefNo();
 //		}
 		return text;		
 	}

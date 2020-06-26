@@ -177,8 +177,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				noRoot++;
 			}
 		}
-		if (noRoot != 1)
-			throw new InvalidityException("too many or too few XMLRoot (" + getInternalId() + ")");
 
 		for (Element returnElement : returnElements) {
 			if (!returnElement.getGraph().equals(this)) {
@@ -198,6 +196,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}				
 			}
 		} else {
+			if (noRoot != 1)
+				throw new InvalidityException("too many or too few XMLRoot (" + getInternalId() + ")");
 			for(Element element : getElements()) {
 				if(element.getClass().equals(ElementImpl.class)) {
 					throw new InvalidityException("Non-generic pattern contains Element (" + getInternalId() + ")");
@@ -373,24 +373,24 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			Element target = relation.getTarget();
 			
 			Element mappedSource;
-			for(ElementMapping mapping : source.getOutgoingMappings()) {
-				if(mapping.getMorphism().equals(morphism)) {
-					mappedSource = mapping.getTarget();
-					newRelation.setSource(mappedSource);
+			if (source != null) {
+				for(ElementMapping mapping : source.getOutgoingMappings()) {
+					if(mapping.getMorphism().equals(morphism)) {
+						mappedSource = mapping.getTarget();
+						newRelation.setSource(mappedSource);
+					}
 				}
 			}
 			
 			Element mappedTarget;
-			for(ElementMapping mapping : target.getOutgoingMappings()) {
-				if(mapping.getMorphism().equals(morphism)) {
-					mappedTarget = mapping.getTarget();
-					newRelation.setTarget(mappedTarget);
+			if (target != null) {
+				for(ElementMapping mapping : target.getOutgoingMappings()) {
+					if(mapping.getMorphism().equals(morphism)) {
+						mappedTarget = mapping.getTarget();
+						newRelation.setTarget(mappedTarget);
+					}
 				}
 			}
-			
-			
-			
-			
 		}
 		
 		
