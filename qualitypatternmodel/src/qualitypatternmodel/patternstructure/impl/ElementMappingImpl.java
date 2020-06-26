@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Morphism;
@@ -81,8 +82,16 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	
 	@Override
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
-		if (getSource() != null) getSource().getOutgoingMappings().remove(this);
-		if (getTarget() != null) getTarget().setIncomingMapping(null);
+		Boolean delSource = getSource() != null
+				&& (newMorphism == null
+//				|| newMorphism.getSource() == null // maybe check consistency in Morphism.setSource() 
+				|| !newMorphism.getSource().getElements().contains(getSource()));
+		Boolean delTarget = getTarget() != null
+				&& (newMorphism == null
+//				|| newMorphism.getTarget() == null // maybe check consistency in Morphism.setTarget() 
+				|| !newMorphism.getTarget().getElements().contains(getTarget()));
+		if (delSource) getSource().getOutgoingMappings().remove(this);
+		if (delTarget) getTarget().setIncomingMapping(null);
 		return super.basicSetMorphism(newMorphism, msgs);
 	}
 

@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -87,8 +89,16 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 	
 	@Override
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
-		if (getSource() != null) getSource().getOutgoingMappings().remove(this);
-		if (getTarget() != null) getTarget().setIncomingMapping(null);
+		Boolean delSource = getSource() != null 
+				&& (newMorphism == null 
+//				|| newMorphism.getSource() == null // maybe check consistency in Morphism.setSource() 
+				|| !newMorphism.getSource().getRelations().contains(getSource()));
+		Boolean delTarget = getTarget() != null 
+				&& (newMorphism == null 
+//				|| newMorphism.getTarget() == null // maybe check consistency in Morphism.setTarget() 
+				|| !newMorphism.getTarget().getRelations().contains(getTarget()));
+		if (delSource) getSource().getOutgoingMappings().remove(this);
+		if (delTarget) getTarget().setIncomingMapping(null);
 		return super.basicSetMorphism(newMorphism, msgs);
 	}
 
