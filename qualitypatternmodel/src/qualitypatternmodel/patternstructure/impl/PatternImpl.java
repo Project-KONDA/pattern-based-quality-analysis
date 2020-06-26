@@ -214,32 +214,26 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			getGraph().setIncomingMorphism(null);
 			getGraph().getOutgoingMorphisms().clear();
 		}
+		
 		Graph oldGraph = graph;
 		graph = newGraph;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PatternstructurePackage.COMPLETE_PATTERN__GRAPH, oldGraph, newGraph);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__GRAPH, oldGraph, newGraph);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
 	 */
 	public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs) {
 		Condition oldCondition = condition;
 		condition = newCondition;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					PatternstructurePackage.COMPLETE_PATTERN__CONDITION, oldCondition, newCondition);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__CONDITION, oldCondition, newCondition);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
