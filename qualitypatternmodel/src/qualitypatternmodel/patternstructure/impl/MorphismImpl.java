@@ -11,6 +11,7 @@ import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -443,6 +444,37 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void removeInconsistentMappings() {
+		EList<Mapping> mappings = new BasicEList<Mapping>();
+		mappings.addAll(getMappings());
+		for(Mapping mapping : mappings) {
+			if(mapping instanceof ElementMapping) {
+				ElementMapping elementMapping = (ElementMapping) mapping;
+				if(!elementMapping.getSource().getGraph().equals(getSource())) {
+					getMappings().remove(elementMapping);
+				}
+				if(!elementMapping.getTarget().getGraph().equals(getTarget())) {
+					getMappings().remove(elementMapping);
+				}
+				
+			} else {
+				RelationMapping relationMapping = (RelationMapping) mapping;
+				if(!relationMapping.getSource().getGraph().equals(getSource())) {
+					getMappings().remove(relationMapping);
+				}
+				if(!relationMapping.getTarget().getGraph().equals(getTarget())) {
+					getMappings().remove(relationMapping);
+				}
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @throws InvalidityException
 	 * @generated NOT
 	 */
@@ -628,6 +660,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				return addMapping((Element)arguments.get(0), (Element)arguments.get(1));
 			case PatternstructurePackage.MORPHISM___ADD_MAPPING__RELATION_RELATION:
 				return addMapping((Relation)arguments.get(0), (Relation)arguments.get(1));
+			case PatternstructurePackage.MORPHISM___REMOVE_INCONSISTENT_MAPPINGS:
+				removeInconsistentMappings();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

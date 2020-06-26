@@ -382,6 +382,7 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping.1/from"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/Morphism/addMapping.1/to"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Morphism/removeInconsistentMappings"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/ElementMapping">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

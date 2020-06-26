@@ -585,6 +585,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getMorphism__RemoveInconsistentMappings() {
+		return morphismEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getElementMapping() {
 		return elementMappingEClass;
 	}
@@ -1277,6 +1287,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(morphismEClass, MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS);
 		createEOperation(morphismEClass, MORPHISM___ADD_MAPPING__ELEMENT_ELEMENT);
 		createEOperation(morphismEClass, MORPHISM___ADD_MAPPING__RELATION_RELATION);
+		createEOperation(morphismEClass, MORPHISM___REMOVE_INCONSISTENT_MAPPINGS);
 
 		elementMappingEClass = createEClass(ELEMENT_MAPPING);
 		createEReference(elementMappingEClass, ELEMENT_MAPPING__SOURCE);
@@ -1462,6 +1473,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		op = initEOperation(getMorphism__AddMapping__Relation_Relation(), this.getRelationMapping(), "addMapping", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theGraphstructurePackage.getRelation(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theGraphstructurePackage.getRelation(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getMorphism__RemoveInconsistentMappings(), null, "removeInconsistentMappings", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(elementMappingEClass, ElementMapping.class, "ElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElementMapping_Source(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_OutgoingMappings(), "source", null, 1, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

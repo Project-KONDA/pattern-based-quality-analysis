@@ -418,6 +418,7 @@
         <eParameters name="from" eType="#//graphstructure/Relation"/>
         <eParameters name="to" eType="#//graphstructure/Relation"/>
       </eOperations>
+      <eOperations name="removeInconsistentMappings"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
           eType="#//patternstructure/Mapping" containment="true" eOpposite="#//patternstructure/Mapping/morphism"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"

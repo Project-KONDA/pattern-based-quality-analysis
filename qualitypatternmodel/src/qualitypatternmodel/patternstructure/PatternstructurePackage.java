@@ -1434,13 +1434,22 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___ADD_MAPPING__RELATION_RELATION = PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Remove Inconsistent Mappings</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___REMOVE_INCONSISTENT_MAPPINGS = PATTERN_ELEMENT_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Morphism</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 6;
+	int MORPHISM_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl <em>Element Mapping</em>}' class.
@@ -4372,6 +4381,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getMorphism__AddMapping__Relation_Relation();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#removeInconsistentMappings() <em>Remove Inconsistent Mappings</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Inconsistent Mappings</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.Morphism#removeInconsistentMappings()
+	 * @generated
+	 */
+	EOperation getMorphism__RemoveInconsistentMappings();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.ElementMapping <em>Element Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5277,6 +5296,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation MORPHISM___ADD_MAPPING__RELATION_RELATION = eINSTANCE.getMorphism__AddMapping__Relation_Relation();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Inconsistent Mappings</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MORPHISM___REMOVE_INCONSISTENT_MAPPINGS = eINSTANCE.getMorphism__RemoveInconsistentMappings();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.ElementMappingImpl <em>Element Mapping</em>}' class.

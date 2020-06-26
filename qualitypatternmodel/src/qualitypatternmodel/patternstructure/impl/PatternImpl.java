@@ -212,7 +212,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
 		if(getGraph() != null) {
 			getGraph().setIncomingMorphism(null);
-			getGraph().getOutgoingMorphisms().clear();
+//			getGraph().getOutgoingMorphisms().clear();
 		}
 		
 		Graph oldGraph = graph;

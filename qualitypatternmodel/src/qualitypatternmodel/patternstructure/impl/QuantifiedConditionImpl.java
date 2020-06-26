@@ -211,10 +211,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedcondition,
 			NotificationChain msgs) {
-		getMorphism().setSource(null);
+//		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		getMorphism().removeDanglingMappingReference();
+//		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetQuantifiedCondition(newQuantifiedcondition, msgs);
+		
+		getMorphism().removeInconsistentMappings();
 		if (newQuantifiedcondition != null) {
 			try {
 				copyPreviousGraph();
@@ -229,10 +231,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	
 	@Override
 	public NotificationChain basicSetNotCondition(NotCondition newNot, NotificationChain msgs) {
-		getMorphism().setSource(null);
+//		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		getMorphism().removeDanglingMappingReference();
+//		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetNotCondition(newNot, msgs);
+		
+		getMorphism().removeInconsistentMappings();		
 		if (newNot != null) {
 			try {
 				copyPreviousGraph();
@@ -247,10 +251,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	@Override
 	public NotificationChain basicSetFormula1(Formula newFormula1, NotificationChain msgs) {
-		getMorphism().setSource(null);
+//		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		getMorphism().removeDanglingMappingReference();
+//		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetFormula1(newFormula1, msgs);
+		
+		getMorphism().removeInconsistentMappings();
 		if (newFormula1 != null) {
 			try {
 				copyPreviousGraph();
@@ -265,10 +271,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	@Override
 	public NotificationChain basicSetFormula2(Formula newFormula2, NotificationChain msgs) {
-		getMorphism().setSource(null);
+//		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		getMorphism().removeDanglingMappingReference();
+//		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetFormula1(newFormula2, msgs);
+		
+		getMorphism().removeInconsistentMappings();		
 		if (newFormula2 != null) {
 			try {
 				copyPreviousGraph();
@@ -283,10 +291,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	@Override
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
-		getMorphism().setSource(null);
+//		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		getMorphism().removeDanglingMappingReference();
+//		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetPattern(newPattern, msgs);
+		
+		getMorphism().removeInconsistentMappings();		
 		if (newPattern != null) {
 			try {
 				copyPreviousGraph();
@@ -391,7 +401,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
 		if (getGraph() != null) {
 			getGraph().setIncomingMorphism(null);
-			getGraph().getOutgoingMorphisms().clear();
+//			getGraph().getOutgoingMorphisms().clear();
 		}
 		Graph oldGraph = graph;
 		graph = newGraph;
@@ -448,13 +458,16 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		
 		if (getMorphism() != null) {
 			getMorphism().setSource(null);
-			getMorphism().setTarget(getGraph());
+			getMorphism().setTarget(null);
+			getMorphism().removeDanglingMappingReference();
+			getMorphism().getMappings().clear();
 		}
+		
 		Morphism oldMorphism = morphism;
 		morphism = newMorphism;
 
-		if (oldMorphism != null)
-			oldMorphism.removeDanglingMappingReference();
+//		if (oldMorphism != null)
+//			oldMorphism.removeDanglingMappingReference();
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
