@@ -365,6 +365,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 					}
 				}
 			}
+		} else {
+			for(RelationMapping relationMapping : getOutgoingMappings()) {
+				relationMapping.getTarget().setSource(null);
+			}
 		}
 		
 		if (eNotificationRequired()) {
@@ -440,6 +444,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 						}						
 					}
 				}
+			}
+		} else {
+			for(RelationMapping relationMapping : getOutgoingMappings()) {
+				relationMapping.getTarget().setTarget(null);
 			}
 		}
 		
