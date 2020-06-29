@@ -881,15 +881,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		if (getIncomingMapping() != null) {
+		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
 			removeElementFromPreviousGraphs();
+			removeMappingsToNext();
+			setResultOf(null);
 		}
 		
-		deleteRelations();
-		
-		removeMappingsToNext();
-		
-		setResultOf(null);
+		deleteRelations(newGraph);
 		
 		if(newGraph != null) {
 			for(Morphism morphism : newGraph.getOutgoingMorphisms()) {
@@ -909,12 +907,14 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		return msgs;
 	}
 	
-	private void deleteRelations() {
+	private void deleteRelations(Graph newGraph) {
 		EList<Relation> relations = new BasicEList<Relation>();
 		relations.addAll(getIncoming());
 		relations.addAll(getOutgoing());
 		for (Relation rel : relations) {
-			rel.setGraph(null);			
+			if(rel.getGraph() != null && !rel.getGraph().equals(newGraph)) {
+				rel.setGraph(null);			
+			}
 		}
 	}
 	
