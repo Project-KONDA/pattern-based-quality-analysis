@@ -7,6 +7,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -203,9 +204,29 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
+		
+		if (newElement == null || getElement() != null && !newElement.equals(getElement())) {
+//			EList<Match> matches = new BasicEList<Match>();
+//			matches.addAll(getMatch());
+//			for(Match match : matches) {
+//				match.reset();
+//			}
+//			EList<Comparison> comparisons = new BasicEList<Comparison>();
+//			comparisons.addAll(getComparison1());
+//			comparisons.addAll(getComparison2());
+//			for(Comparison comp : comparisons) {
+//				comp.reset();
+//			}
+			
+			getMatch().clear();
+			getComparison1().clear();
+			getComparison2().clear();
+			
+		}
+		
 		msgs = eBasicSetContainer((InternalEObject)newElement, GraphstructurePackage.PROPERTY__ELEMENT, msgs);
 		return msgs;
 	}
