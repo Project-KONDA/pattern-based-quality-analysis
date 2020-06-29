@@ -4,8 +4,7 @@ package qualitypatternmodel.execution;
 
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,11 +15,11 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getContext <em>Context</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getElementNames <em>Element Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getRecordedAttributeValues <em>Recorded Attribute Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getRecordedDataValues <em>Recorded Data Values</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getContext <em>Context</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase()
@@ -28,54 +27,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface XmlDatabase extends Database {
-	/**
-	 * Returns the value of the '<em><b>Element Names</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element Names</em>' attribute list.
-	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase_ElementNames()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getElementNames();
-
-	/**
-	 * Returns the value of the '<em><b>Attribute Names</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attribute Names</em>' attribute list.
-	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase_AttributeNames()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getAttributeNames();
-
-	/**
-	 * Returns the value of the '<em><b>Recorded Attribute Values</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Recorded Attribute Values</em>' attribute list.
-	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase_RecordedAttributeValues()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getRecordedAttributeValues();
-
-	/**
-	 * Returns the value of the '<em><b>Recorded Data Values</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Recorded Data Values</em>' attribute list.
-	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase_RecordedDataValues()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getRecordedDataValues();
-
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -99,6 +50,58 @@ public interface XmlDatabase extends Database {
 	void setContext(Context value);
 
 	/**
+	 * Returns the value of the '<em><b>Element Names</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link java.lang.Integer},
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Element Names</em>' map.
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase_ElementNames()
+	 * @model mapType="qualitypatternmodel.execution.StringToIntMap&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EIntegerObject&gt;"
+	 * @generated
+	 */
+	EMap<String, Integer> getElementNames();
+
+	/**
+	 * Returns the value of the '<em><b>Attribute Names</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link java.lang.Integer},
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attribute Names</em>' map.
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase_AttributeNames()
+	 * @model mapType="qualitypatternmodel.execution.StringToIntMap&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EIntegerObject&gt;"
+	 * @generated
+	 */
+	EMap<String, Integer> getAttributeNames();
+
+	/**
+	 * Returns the value of the '<em><b>Recorded Attribute Values</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link java.lang.Integer},
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Recorded Attribute Values</em>' map.
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase_RecordedAttributeValues()
+	 * @model mapType="qualitypatternmodel.execution.StringToIntMap&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EIntegerObject&gt;"
+	 * @generated
+	 */
+	EMap<String, Integer> getRecordedAttributeValues();
+
+	/**
+	 * Returns the value of the '<em><b>Recorded Data Values</b></em>' map.
+	 * The key is of type {@link java.lang.String},
+	 * and the value is of type {@link java.lang.Integer},
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Recorded Data Values</em>' map.
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase_RecordedDataValues()
+	 * @model mapType="qualitypatternmodel.execution.StringToIntMap&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EIntegerObject&gt;"
+	 * @generated
+	 */
+	EMap<String, Integer> getRecordedDataValues();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
@@ -120,7 +123,7 @@ public interface XmlDatabase extends Database {
 	 * @model
 	 * @generated
 	 */
-	void recordAttributeValue();
+	void recordAttributeValue(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,7 +131,7 @@ public interface XmlDatabase extends Database {
 	 * @model
 	 * @generated
 	 */
-	void recordDataValue();
+	void recordDataValue(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -136,7 +139,7 @@ public interface XmlDatabase extends Database {
 	 * @model
 	 * @generated
 	 */
-	void removeAttributeValue();
+	void removeAttributeValue(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,7 +147,7 @@ public interface XmlDatabase extends Database {
 	 * @model
 	 * @generated
 	 */
-	void removeDataValue();
+	void removeDataValue(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,5 +164,37 @@ public interface XmlDatabase extends Database {
 	 * @generated
 	 */
 	void open() throws BaseXException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void recordElementName(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void recordAttributeName(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeElementName(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeAttributeName(String name);
 
 } // XmlDatabase

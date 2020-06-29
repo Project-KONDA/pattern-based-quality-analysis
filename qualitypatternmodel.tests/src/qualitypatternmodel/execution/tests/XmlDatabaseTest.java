@@ -16,12 +16,16 @@ import qualitypatternmodel.execution.XmlDatabase;
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#analyseDatabase() <em>Analyse Database</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#analyseSchema() <em>Analyse Schema</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDatabase#recordAttributeValue() <em>Record Attribute Value</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDatabase#recordDataValue() <em>Record Data Value</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDatabase#removeAttributeValue() <em>Remove Attribute Value</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDatabase#removeDataValue() <em>Remove Data Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#recordAttributeValue(java.lang.String) <em>Record Attribute Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#recordDataValue(java.lang.String) <em>Record Data Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#removeAttributeValue(java.lang.String) <em>Remove Attribute Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#removeDataValue(java.lang.String) <em>Remove Data Value</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#init() <em>Init</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#open() <em>Open</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#recordElementName(java.lang.String) <em>Record Element Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#recordAttributeName(java.lang.String) <em>Record Attribute Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#removeElementName(java.lang.String) <em>Remove Element Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#removeAttributeName(java.lang.String) <em>Remove Attribute Name</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -107,52 +111,52 @@ public class XmlDatabaseTest extends DatabaseTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#recordAttributeValue() <em>Record Attribute Value</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#recordAttributeValue(java.lang.String) <em>Record Attribute Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDatabase#recordAttributeValue()
+	 * @see qualitypatternmodel.execution.XmlDatabase#recordAttributeValue(java.lang.String)
 	 * @generated
 	 */
-	public void testRecordAttributeValue() {
+	public void testRecordAttributeValue__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#recordDataValue() <em>Record Data Value</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#recordDataValue(java.lang.String) <em>Record Data Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDatabase#recordDataValue()
+	 * @see qualitypatternmodel.execution.XmlDatabase#recordDataValue(java.lang.String)
 	 * @generated
 	 */
-	public void testRecordDataValue() {
+	public void testRecordDataValue__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#removeAttributeValue() <em>Remove Attribute Value</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#removeAttributeValue(java.lang.String) <em>Remove Attribute Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDatabase#removeAttributeValue()
+	 * @see qualitypatternmodel.execution.XmlDatabase#removeAttributeValue(java.lang.String)
 	 * @generated
 	 */
-	public void testRemoveAttributeValue() {
+	public void testRemoveAttributeValue__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#removeDataValue() <em>Remove Data Value</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#removeDataValue(java.lang.String) <em>Remove Data Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDatabase#removeDataValue()
+	 * @see qualitypatternmodel.execution.XmlDatabase#removeDataValue(java.lang.String)
 	 * @generated
 	 */
-	public void testRemoveDataValue() {
+	public void testRemoveDataValue__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -179,6 +183,58 @@ public class XmlDatabaseTest extends DatabaseTest {
 	 * @generated
 	 */
 	public void testOpen() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#recordElementName(java.lang.String) <em>Record Element Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#recordElementName(java.lang.String)
+	 * @generated
+	 */
+	public void testRecordElementName__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#recordAttributeName(java.lang.String) <em>Record Attribute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#recordAttributeName(java.lang.String)
+	 * @generated
+	 */
+	public void testRecordAttributeName__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#removeElementName(java.lang.String) <em>Remove Element Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#removeElementName(java.lang.String)
+	 * @generated
+	 */
+	public void testRemoveElementName__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#removeAttributeName(java.lang.String) <em>Remove Attribute Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#removeAttributeName(java.lang.String)
+	 * @generated
+	 */
+	public void testRemoveAttributeName__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

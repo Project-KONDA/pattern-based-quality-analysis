@@ -187,6 +187,29 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringToIntMapItemProvider stringToIntMapItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link java.util.Map.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringToIntMapAdapter() {
+		if (stringToIntMapItemProvider == null) {
+			stringToIntMapItemProvider = new StringToIntMapItemProvider(this);
+		}
+
+		return stringToIntMapItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,6 +319,7 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 		if (localXmlDatabaseItemProvider != null) localXmlDatabaseItemProvider.dispose();
 		if (serverXmlDatabaseItemProvider != null) serverXmlDatabaseItemProvider.dispose();
 		if (databasesItemProvider != null) databasesItemProvider.dispose();
+		if (stringToIntMapItemProvider != null) stringToIntMapItemProvider.dispose();
 	}
 
 }

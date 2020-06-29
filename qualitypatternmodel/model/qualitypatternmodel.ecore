@@ -639,21 +639,41 @@
     <eClassifiers xsi:type="ecore:EClass" name="XmlDatabase" eSuperTypes="#//execution/Database">
       <eOperations name="analyseDatabase" eExceptions="#//execution/BaseXExceptionWrapper"/>
       <eOperations name="analyseSchema" eExceptions="#//execution/BaseXExceptionWrapper"/>
-      <eOperations name="recordAttributeValue"/>
-      <eOperations name="recordDataValue"/>
-      <eOperations name="removeAttributeValue"/>
-      <eOperations name="removeDataValue"/>
+      <eOperations name="recordAttributeValue">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="recordDataValue">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="removeAttributeValue">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="removeDataValue">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eOperations name="init" eExceptions="#//execution/BaseXExceptionWrapper"/>
       <eOperations name="open" eExceptions="#//execution/BaseXExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementNames" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeNames" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordedAttributeValues"
-          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordedDataValues" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="recordElementName">
+        <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="recordAttributeName">
+        <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="removeElementName">
+        <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="removeAttributeName">
+        <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="#//execution/BaseXContextWrapper"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elementNames" upperBound="-1"
+          eType="#//execution/StringToIntMap" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attributeNames" upperBound="-1"
+          eType="#//execution/StringToIntMap" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="recordedAttributeValues"
+          upperBound="-1" eType="#//execution/StringToIntMap" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="recordedDataValues" upperBound="-1"
+          eType="#//execution/StringToIntMap" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LocalXmlDatabase" eSuperTypes="#//execution/XmlDatabase">
       <eOperations name="create" eExceptions="#//execution/BaseXExceptionWrapper"/>
@@ -669,5 +689,9 @@
     <eClassifiers xsi:type="ecore:EDataType" name="BaseXContextWrapper" instanceClassName="org.basex.core.Context"/>
     <eClassifiers xsi:type="ecore:EDataType" name="QueryExceptionWrapper" instanceClassName="org.basex.query.QueryException"/>
     <eClassifiers xsi:type="ecore:EDataType" name="QueryIOExceptionWrapper" instanceClassName="org.basex.query.QueryIOException"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StringToIntMap" instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

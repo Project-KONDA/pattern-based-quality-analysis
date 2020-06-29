@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import java.util.Map;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 
@@ -101,6 +102,13 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	private EClass databasesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringToIntMapEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -419,7 +427,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlDatabase_ElementNames() {
+	public EAttribute getXmlDatabase_Context() {
 		return (EAttribute)xmlDatabaseEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -429,8 +437,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlDatabase_AttributeNames() {
-		return (EAttribute)xmlDatabaseEClass.getEStructuralFeatures().get(1);
+	public EReference getXmlDatabase_ElementNames() {
+		return (EReference)xmlDatabaseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -439,8 +447,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlDatabase_RecordedAttributeValues() {
-		return (EAttribute)xmlDatabaseEClass.getEStructuralFeatures().get(2);
+	public EReference getXmlDatabase_AttributeNames() {
+		return (EReference)xmlDatabaseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -449,8 +457,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlDatabase_RecordedDataValues() {
-		return (EAttribute)xmlDatabaseEClass.getEStructuralFeatures().get(3);
+	public EReference getXmlDatabase_RecordedAttributeValues() {
+		return (EReference)xmlDatabaseEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -459,8 +467,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlDatabase_Context() {
-		return (EAttribute)xmlDatabaseEClass.getEStructuralFeatures().get(4);
+	public EReference getXmlDatabase_RecordedDataValues() {
+		return (EReference)xmlDatabaseEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -489,7 +497,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RecordAttributeValue() {
+	public EOperation getXmlDatabase__RecordAttributeValue__String() {
 		return xmlDatabaseEClass.getEOperations().get(2);
 	}
 
@@ -499,7 +507,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RecordDataValue() {
+	public EOperation getXmlDatabase__RecordDataValue__String() {
 		return xmlDatabaseEClass.getEOperations().get(3);
 	}
 
@@ -509,7 +517,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RemoveAttributeValue() {
+	public EOperation getXmlDatabase__RemoveAttributeValue__String() {
 		return xmlDatabaseEClass.getEOperations().get(4);
 	}
 
@@ -519,7 +527,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RemoveDataValue() {
+	public EOperation getXmlDatabase__RemoveDataValue__String() {
 		return xmlDatabaseEClass.getEOperations().get(5);
 	}
 
@@ -541,6 +549,46 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	@Override
 	public EOperation getXmlDatabase__Open() {
 		return xmlDatabaseEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__RecordElementName__String() {
+		return xmlDatabaseEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__RecordAttributeName__String() {
+		return xmlDatabaseEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__RemoveElementName__String() {
+		return xmlDatabaseEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__RemoveAttributeName__String() {
+		return xmlDatabaseEClass.getEOperations().get(11);
 	}
 
 	/**
@@ -611,6 +659,36 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	@Override
 	public EReference getDatabases_XmlDatabases() {
 		return (EReference)databasesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStringToIntMap() {
+		return stringToIntMapEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStringToIntMap_Key() {
+		return (EAttribute)stringToIntMapEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getStringToIntMap_Value() {
+		return (EAttribute)stringToIntMapEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -705,19 +783,23 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		xmlResultEClass = createEClass(XML_RESULT);
 
 		xmlDatabaseEClass = createEClass(XML_DATABASE);
-		createEAttribute(xmlDatabaseEClass, XML_DATABASE__ELEMENT_NAMES);
-		createEAttribute(xmlDatabaseEClass, XML_DATABASE__ATTRIBUTE_NAMES);
-		createEAttribute(xmlDatabaseEClass, XML_DATABASE__RECORDED_ATTRIBUTE_VALUES);
-		createEAttribute(xmlDatabaseEClass, XML_DATABASE__RECORDED_DATA_VALUES);
 		createEAttribute(xmlDatabaseEClass, XML_DATABASE__CONTEXT);
+		createEReference(xmlDatabaseEClass, XML_DATABASE__ELEMENT_NAMES);
+		createEReference(xmlDatabaseEClass, XML_DATABASE__ATTRIBUTE_NAMES);
+		createEReference(xmlDatabaseEClass, XML_DATABASE__RECORDED_ATTRIBUTE_VALUES);
+		createEReference(xmlDatabaseEClass, XML_DATABASE__RECORDED_DATA_VALUES);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___ANALYSE_DATABASE);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___ANALYSE_SCHEMA);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_ATTRIBUTE_VALUE);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_DATA_VALUE);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_ATTRIBUTE_VALUE);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_DATA_VALUE);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_DATA_VALUE__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_DATA_VALUE__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___INIT);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___OPEN);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_ELEMENT_NAME__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_ATTRIBUTE_NAME__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_ELEMENT_NAME__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING);
 
 		localXmlDatabaseEClass = createEClass(LOCAL_XML_DATABASE);
 		createEAttribute(localXmlDatabaseEClass, LOCAL_XML_DATABASE__DATA_PATH);
@@ -728,6 +810,10 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		databasesEClass = createEClass(DATABASES);
 		createEReference(databasesEClass, DATABASES__XML_DATABASES);
+
+		stringToIntMapEClass = createEClass(STRING_TO_INT_MAP);
+		createEAttribute(stringToIntMapEClass, STRING_TO_INT_MAP__KEY);
+		createEAttribute(stringToIntMapEClass, STRING_TO_INT_MAP__VALUE);
 
 		// Create data types
 		baseXExceptionWrapperEDataType = createEDataType(BASE_XEXCEPTION_WRAPPER);
@@ -817,11 +903,11 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEClass(xmlResultEClass, XmlResult.class, "XmlResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(xmlDatabaseEClass, XmlDatabase.class, "XmlDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getXmlDatabase_ElementNames(), ecorePackage.getEString(), "elementNames", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXmlDatabase_AttributeNames(), ecorePackage.getEString(), "attributeNames", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXmlDatabase_RecordedAttributeValues(), ecorePackage.getEString(), "recordedAttributeValues", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXmlDatabase_RecordedDataValues(), ecorePackage.getEString(), "recordedDataValues", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXmlDatabase_Context(), this.getBaseXContextWrapper(), "context", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlDatabase_ElementNames(), this.getStringToIntMap(), null, "elementNames", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlDatabase_AttributeNames(), this.getStringToIntMap(), null, "attributeNames", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlDatabase_RecordedAttributeValues(), this.getStringToIntMap(), null, "recordedAttributeValues", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlDatabase_RecordedDataValues(), this.getStringToIntMap(), null, "recordedDataValues", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlDatabase__AnalyseDatabase(), null, "analyseDatabase", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
@@ -829,19 +915,35 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		op = initEOperation(getXmlDatabase__AnalyseSchema(), null, "analyseSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 
-		initEOperation(getXmlDatabase__RecordAttributeValue(), null, "recordAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDatabase__RecordAttributeValue__String(), null, "recordAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getXmlDatabase__RecordDataValue(), null, "recordDataValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDatabase__RecordDataValue__String(), null, "recordDataValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getXmlDatabase__RemoveAttributeValue(), null, "removeAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDatabase__RemoveAttributeValue__String(), null, "removeAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getXmlDatabase__RemoveDataValue(), null, "removeDataValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDatabase__RemoveDataValue__String(), null, "removeDataValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getXmlDatabase__Init(), null, "init", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 
 		op = initEOperation(getXmlDatabase__Open(), null, "open", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__RecordElementName__String(), null, "recordElementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getXmlDatabase__RecordAttributeName__String(), null, "recordAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getXmlDatabase__RemoveElementName__String(), null, "removeElementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getXmlDatabase__RemoveAttributeName__String(), null, "removeAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(localXmlDatabaseEClass, LocalXmlDatabase.class, "LocalXmlDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLocalXmlDatabase_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, LocalXmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -854,6 +956,10 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		initEClass(databasesEClass, Databases.class, "Databases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDatabases_XmlDatabases(), this.getXmlDatabase(), null, "xmlDatabases", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stringToIntMapEClass, Map.Entry.class, "StringToIntMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringToIntMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStringToIntMap_Value(), ecorePackage.getEIntegerObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(baseXExceptionWrapperEDataType, BaseXException.class, "BaseXExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

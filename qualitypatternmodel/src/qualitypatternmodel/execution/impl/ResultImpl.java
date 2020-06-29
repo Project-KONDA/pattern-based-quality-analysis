@@ -492,7 +492,11 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
-	abstract public void export(String path);
+	public void export(String path) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
