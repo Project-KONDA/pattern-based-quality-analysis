@@ -113,14 +113,11 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public void addElement(Element element) {
 		if(getElementCount().containsKey(element)) {
-			System.out.println("addElement if 1");
 			getElementCount().put(element, getElementCount().get(element)+1);
 		} else {
-			System.out.println("addElement else");
 			getElementCount().put(element, 1);
 		}
 		if(!getElements().contains(element)) {
-			System.out.println("addElement if 2");
 			getElements().add(element);
 //			element.getPredicates().add(this);
 		}
@@ -136,7 +133,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		if(getElementCount().containsKey(element)) {			
 			if(getElementCount().get(element) == 1) {
 				getElements().remove(element);
-				element.getPredicates().remove(this);
+//				element.getPredicates().remove(this);
 				getElementCount().removeKey(element);
 			} else {
 				getElementCount().put(element, getElementCount().get(element)-1);
@@ -151,13 +148,14 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 */
 	@Override
 	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
-		if(getOperatorList() != null && getOperatorList() != newOperatorList) {
+		if(getOperatorList() != null && !getOperatorList().equals(newOperatorList)) {
+			removeParametersFromParameterList();
 			reset();
 			getElements().clear();
 		}
-		if(getOperatorList() != null) {
-			removeParametersFromParameterList();
-		}
+//		if(getOperatorList() != null) {
+//			removeParametersFromParameterList();
+//		}
 		msgs = super.basicSetOperatorList(newOperatorList, msgs);
 //		if(newOperatorList != null) {
 //			createParameters();
