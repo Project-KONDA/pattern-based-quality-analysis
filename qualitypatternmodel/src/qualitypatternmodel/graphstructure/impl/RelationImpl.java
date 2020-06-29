@@ -231,13 +231,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		removeRelationFromPreviousGraphs();
-		removeMappingsToNext();
+		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
+			removeRelationFromPreviousGraphs();
+			removeMappingsToNext();
+			
+			setSource(null);
+			setTarget(null);
+		}
 		
-		// TODO: reset ?
-
-		setSource(null);
-		setTarget(null);
+		// TODO: reset ?		
 		
 		if(newGraph != null) {
 			for(Morphism morphism : newGraph.getOutgoingMorphisms()) {
