@@ -523,9 +523,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	@Override
 	public void reset() {
+		super.reset();
 		setArgument1(null);
 		setArgument2(null);
-		setOption(null);
+		setOption(null);		
 	}
 
 	/**
