@@ -493,6 +493,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 
 	@Override
 	public void reset() {
+		super.reset();
 		setProperty(null);
 		setOption(null);
 		setRegularExpression(null);
