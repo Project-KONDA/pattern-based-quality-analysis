@@ -151,7 +151,10 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 */
 	@Override
 	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
-		getElements().clear();
+		if(getOperatorList() != null && getOperatorList() != newOperatorList) {
+			reset();
+			getElements().clear();
+		}
 		if(getOperatorList() != null) {
 			removeParametersFromParameterList();
 		}
@@ -163,6 +166,10 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		return msgs;
 	}
 
+	
+	abstract public void reset();
+	
+	
 	@Override
 	public void createParameters() {
 		// TODO Auto-generated method stub
