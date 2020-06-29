@@ -172,6 +172,8 @@ public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDat
 		result.setMatchNumber(matchNo);
 		result.getSplitResult().addAll(queryResult);
 		result.setProblemNumber(queryResult.size());
+		
+		results.add(result);
 				
 		return result;		
 	}
