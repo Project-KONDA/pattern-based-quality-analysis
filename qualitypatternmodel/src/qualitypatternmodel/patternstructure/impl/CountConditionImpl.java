@@ -202,12 +202,17 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetCountPattern(CountPattern newCountPattern, NotificationChain msgs) {
+	public NotificationChain basicSetCountPattern(CountPattern newCountPattern, NotificationChain msgs) {		
+		CountPattern oldCountPattern = countPattern;
+		countPattern = newCountPattern;
+		
 		if(newCountPattern != null) {
 			newCountPattern.updateParameters(newCountPattern.getParameterList());
 		}
-		CountPattern oldCountPattern = countPattern;
-		countPattern = newCountPattern;
+		if(oldCountPattern != null) {
+			oldCountPattern.updateParameters(null);
+		}
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN, oldCountPattern, newCountPattern);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -451,12 +456,17 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetArgument2(CountConditionArgument newArgument2, NotificationChain msgs) {
+	public NotificationChain basicSetArgument2(CountConditionArgument newArgument2, NotificationChain msgs) {		
+		CountConditionArgument oldArgument2 = argument2;
+		argument2 = newArgument2;
+		
 		if(newArgument2 != null) {
 			newArgument2.updateParameters(newArgument2.getParameterList());
 		}
-		CountConditionArgument oldArgument2 = argument2;
-		argument2 = newArgument2;
+		if(oldArgument2 != null) {
+			oldArgument2.updateParameters(null);
+		}
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__ARGUMENT2, oldArgument2, newArgument2);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
