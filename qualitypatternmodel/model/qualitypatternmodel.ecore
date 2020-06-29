@@ -121,6 +121,7 @@
       </eOperations>
       <eOperations name="createParameters"/>
       <eOperations name="removeParametersFromParameterList"/>
+      <eOperations name="reset"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/predicates"/>
     </eClassifiers>

@@ -521,16 +521,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		return option;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
-		reset();
-		return super.basicSetOperatorList(newOperatorList, msgs);
-	}
-
+	@Override
 	public void reset() {
 		setArgument1(null);
 		setArgument2(null);

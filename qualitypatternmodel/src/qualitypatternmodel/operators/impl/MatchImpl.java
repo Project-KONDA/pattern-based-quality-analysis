@@ -20,7 +20,6 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Match;
-import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -492,17 +491,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__OPTION, newOption, newOption));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	@Override
-	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
-		reset();
-		return super.basicSetOperatorList(newOperatorList, msgs);		
-	}
-
 	public void reset() {
 		setProperty(null);
 		setOption(null);
