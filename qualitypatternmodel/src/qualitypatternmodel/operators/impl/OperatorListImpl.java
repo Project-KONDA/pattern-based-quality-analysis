@@ -150,9 +150,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 				((Match) op).reset();
 			}
 			if(op instanceof Comparison) {
-				((Comparison) op).setArgument1(null);
-				((Comparison) op).setArgument2(null);
-				((Comparison) op).setOption(null);
+				((Comparison) op).reset();		
 			}
 		}
 		msgs = eBasicSetContainer((InternalEObject)newGraph, OperatorsPackage.OPERATOR_LIST__GRAPH, msgs);
