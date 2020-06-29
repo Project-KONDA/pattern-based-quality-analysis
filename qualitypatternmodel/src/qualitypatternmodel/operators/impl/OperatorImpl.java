@@ -90,22 +90,17 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 */
 	@Override
 	public EList<BooleanOperator> getRootBooleanOperators() {
-		System.out.println("getRootBooleanOperators");
 		BasicEList<BooleanOperator> opList = new BasicEList<BooleanOperator>(); 
 		if(getComparison1().isEmpty() && getComparison2().isEmpty() && this instanceof BooleanOperator) {			
 			opList.add((BooleanOperator) this);
-			System.out.println("in if");
 			return opList;
 		}
-		System.out.println("after if");
 		EList<Comparable> arguments = new BasicEList<Comparable>();
 		arguments.addAll(getComparison1());
 		arguments.addAll(getComparison2());
 		if(arguments.size() > 0) {
-			System.out.println("in second if");
 			for(Comparable graphElement : arguments) {
 				if(graphElement instanceof Operator) {
-					System.out.println("in third if");
 					Operator op = (Operator) graphElement;
 					opList.addAll(op.getRootBooleanOperators());
 				}			
