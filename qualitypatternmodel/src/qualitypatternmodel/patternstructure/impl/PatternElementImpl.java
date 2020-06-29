@@ -115,9 +115,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @throws OperatorCycleException 
 	 * @throws MissingPatternContainerException 
 	 */
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		throw new UnsupportedOperationException();
-	}
+	abstract public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -255,25 +253,17 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public String myToString() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public String myToString();
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public void prepareTranslation() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	public void prepareTranslation() {}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -34,4 +34,10 @@ public class XmlResultImpl extends ResultImpl implements XmlResult {
 		return ExecutionPackage.Literals.XML_RESULT;
 	}
 
+	@Override
+	public void export(String path) {
+		// TODO Auto-generated method stub
+		
+	}
+
 } //XmlResultImpl

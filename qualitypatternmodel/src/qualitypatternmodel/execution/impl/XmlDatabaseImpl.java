@@ -9,6 +9,8 @@ import java.util.Collection;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.XQuery;
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
@@ -18,8 +20,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.ExecutionPackage;
+import qualitypatternmodel.execution.Result;
 import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
  * <!-- begin-user-doc -->
@@ -481,6 +488,20 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		result.append(context);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException,
+			OperatorCycleException, MissingPatternContainerException, BaseXException, QueryException, QueryIOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int countMatches(CompletePattern pattern) throws QueryException, InvalidityException, OperatorCycleException,
+			MissingPatternContainerException, BaseXException, QueryIOException {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 } //XmlDatabaseImpl
