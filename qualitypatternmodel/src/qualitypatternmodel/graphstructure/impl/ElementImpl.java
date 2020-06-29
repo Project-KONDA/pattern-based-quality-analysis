@@ -885,6 +885,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			removeElementFromPreviousGraphs();
 			removeMappingsToNext();
 			setResultOf(null);
+//			for(BooleanOperator boolOp : getPredicates()) {
+//				boolOp.reset();				
+//			}
+			getPredicates().clear();
 		}
 		
 		deleteRelations(newGraph);
