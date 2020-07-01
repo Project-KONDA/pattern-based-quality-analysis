@@ -18,9 +18,12 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -123,6 +126,44 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 			throw new InvalidityException("attributeName null");		
 	}
 
+	
+	@Override
+	public void recordValues(XmlDatabase database) {
+		if(getOption() != null && getOption().getValue() != null) {			
+			EList<Comparison> comps = new BasicEList<Comparison>();
+			comps.addAll(getComparison1());
+			comps.addAll(getComparison2());
+			for(Comparison comp : comps) {
+				String value = null;
+				if(comp.getArgument1() instanceof TextLiteralParam) {						
+					value = ((TextLiteralParam) comp.getArgument1()).getValue(); 
+				} else if (comp.getArgument2() instanceof TextLiteralParam) {
+					value = ((TextLiteralParam) comp.getArgument2()).getValue(); 
+				}
+				// TODO: support other Param types as well
+				if(value != null && comp.getOption() != null && comp.getOption().getValue() != null) {	//  && comp.getOption().getValue() == ComparisonOperator.EQUAL		
+					switch (getOption().getValue()) {
+					case ATTRIBUTE:
+						if(getAttributeName() != null && getAttributeName().getValue() != null) {
+							database.recordAttributeName(getAttributeName().getValue());
+						}
+						database.recordAttributeValue(value);						
+						break;
+					case TAG:
+						database.recordElementName(value);			
+						break;
+					case DATA:
+						database.recordDataValue(value);
+						break;
+					default:
+						break;
+					}					
+				}
+			}			
+			
+		}
+	}
+	
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
 		return getElement().isTranslatable();

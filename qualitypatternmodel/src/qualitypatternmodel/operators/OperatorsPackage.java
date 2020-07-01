@@ -254,6 +254,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___FINALIZE_XML_ADAPTION = GraphstructurePackage.COMPARABLE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.COMPARABLE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -541,6 +550,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___FINALIZE_XML_ADAPTION = OPERATOR___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___RECORD_VALUES__XMLDATABASE = OPERATOR___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -868,6 +886,15 @@ public interface OperatorsPackage extends EPackage {
 	int NUMBER_OPERATOR___FINALIZE_XML_ADAPTION = OPERATOR___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___RECORD_VALUES__XMLDATABASE = OPERATOR___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1182,6 +1209,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___FINALIZE_XML_ADAPTION = BOOLEAN_OPERATOR___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___RECORD_VALUES__XMLDATABASE = BOOLEAN_OPERATOR___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1572,6 +1608,15 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___FINALIZE_XML_ADAPTION = BOOLEAN_OPERATOR___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___RECORD_VALUES__XMLDATABASE = BOOLEAN_OPERATOR___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1922,6 +1967,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___FINALIZE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___RECORD_VALUES__XMLDATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.

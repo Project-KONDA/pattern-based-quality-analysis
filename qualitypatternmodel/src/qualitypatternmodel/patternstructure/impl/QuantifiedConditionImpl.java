@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
@@ -194,6 +195,12 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public void prepareTranslation() {
 		graph.prepareTranslation();
 		condition.prepareTranslation();
+	}
+	
+	@Override
+	public void recordValues(XmlDatabase database) {
+		getGraph().recordValues(database);
+		getCondition().recordValues(database);
 	}
 
 	@Override

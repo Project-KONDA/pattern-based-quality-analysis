@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.operators.OperatorList;
@@ -219,6 +220,18 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void finalizeXMLAdaption() {
 		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void recordValues(XmlDatabase database) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -471,6 +484,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return createXMLAdaption();
 			case PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION:
 				finalizeXMLAdaption();
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE:
+				recordValues((XmlDatabase)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

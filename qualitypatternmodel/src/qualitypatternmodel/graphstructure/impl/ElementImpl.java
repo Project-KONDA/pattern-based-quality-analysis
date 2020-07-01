@@ -26,6 +26,7 @@ import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -482,6 +483,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		}
 		return this;		
 		
+	}
+	
+	@Override
+	public void recordValues(XmlDatabase database) {
+		for(Property p : getProperties()) {
+			p.recordValues(database);
+		}
 	}
 	
 	@Override

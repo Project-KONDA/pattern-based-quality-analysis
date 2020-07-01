@@ -341,6 +341,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___FINALIZE_XML_ADAPTION = GraphstructurePackage.ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.ELEMENT___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -846,6 +855,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___FINALIZE_XML_ADAPTION = GraphstructurePackage.RELATION___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1171,6 +1189,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___FINALIZE_XML_ADAPTION = GraphstructurePackage.RELATION___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1476,6 +1503,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___FINALIZE_XML_ADAPTION = GraphstructurePackage.PROPERTY___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.PROPERTY___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1837,6 +1873,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___FINALIZE_XML_ADAPTION = GraphstructurePackage.ELEMENT___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.ELEMENT___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.

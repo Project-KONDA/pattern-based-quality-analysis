@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -165,6 +166,12 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 //			throw new InvalidityException("argument1 missing");
 //		}		
 //	}
+	
+	@Override
+	public void recordValues(XmlDatabase database) {
+		getCountPattern().recordValues(database);
+		getArgument2().recordValues(database);
+	}
 	
 	@Override
 	public EList<Parameter> getAllInputs() throws InvalidityException {

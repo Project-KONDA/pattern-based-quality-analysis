@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
@@ -209,6 +210,12 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		if(condition2 != null) {
 			condition2.prepareTranslation();
 		}		
+	}
+	
+	@Override
+	public void recordValues(XmlDatabase database) {
+		getCondition1().recordValues(database);
+		getCondition2().recordValues(database);
 	}
 
 	@Override

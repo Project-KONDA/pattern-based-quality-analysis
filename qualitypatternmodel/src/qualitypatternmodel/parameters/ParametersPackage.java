@@ -259,6 +259,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___FINALIZE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___RECORD_VALUES__XMLDATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -530,6 +539,15 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -792,6 +810,15 @@ public interface ParametersPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1016,6 +1043,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_LIST___FINALIZE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___RECORD_VALUES__XMLDATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.
@@ -1251,6 +1287,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_VALUE___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1551,6 +1596,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1838,6 +1892,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2165,6 +2228,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2463,6 +2535,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2750,6 +2831,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3041,6 +3131,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3319,6 +3418,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNKNOWN_PARAMETER_VALUE___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3628,6 +3736,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3915,6 +4032,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_OPTION_PARAM___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.

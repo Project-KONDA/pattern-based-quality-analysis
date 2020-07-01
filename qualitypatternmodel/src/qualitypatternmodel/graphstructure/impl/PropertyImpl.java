@@ -20,6 +20,7 @@ import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
@@ -113,7 +114,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			return xmlProperty;
 		}
 		return this;
-	}
+	}	
 	
 	@Override
 	public ReturnType getReturnType() {

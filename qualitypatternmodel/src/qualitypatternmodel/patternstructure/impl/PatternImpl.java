@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -158,6 +159,12 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	public void prepareTranslation() {
 		graph.prepareTranslation();
 		condition.prepareTranslation();
+	}
+	
+	@Override
+	public void recordValues(XmlDatabase database) {
+		getGraph().recordValues(database);
+		getCondition().recordValues(database);
 	}
 	
 	public EList<Parameter> getAllInputs() throws InvalidityException {
