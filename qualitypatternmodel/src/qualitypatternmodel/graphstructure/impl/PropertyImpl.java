@@ -104,13 +104,15 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			XmlProperty xmlProperty = new XmlPropertyImpl();			 
 			xmlProperty.setElement(getElement());
 			xmlProperty.createParameters();
-			setElement(null);
 			xmlProperty.getMatch().addAll(getMatch());
 			getMatch().clear();			
 			xmlProperty.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			xmlProperty.getComparison2().addAll(getComparison2());
 			getComparison2().clear();
+
+			setElement(null);
+			
 			return xmlProperty;
 		}
 		return this;
@@ -221,9 +223,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 //				comp.reset();
 //			}
 			
-			getMatch().clear();
-			getComparison1().clear();
-			getComparison2().clear();
+//			getMatch().clear();
+//			getComparison1().clear();
+//			getComparison2().clear();
 			
 		}
 		
