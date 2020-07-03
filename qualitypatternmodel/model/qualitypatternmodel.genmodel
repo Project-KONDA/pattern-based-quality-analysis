@@ -599,6 +599,14 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkParentInSchema/elementName1"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkParentInSchema/elementName2"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkDescendantInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkDescendantInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkDescendantInSchema/elementName2"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAncestorInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAncestorInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAncestorInSchema/elementName2"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/LocalXmlDatabase">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/LocalXmlDatabase/dataPath"/>

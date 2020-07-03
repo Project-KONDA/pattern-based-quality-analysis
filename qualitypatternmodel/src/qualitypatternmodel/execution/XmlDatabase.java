@@ -221,4 +221,20 @@ public interface XmlDatabase extends Database {
 	 */
 	boolean checkParentInSchema(String elementName1, String elementName2);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean checkDescendantInSchema(String elementName1, String elementName2);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean checkAncestorInSchema(String elementName1, String elementName2);
+
 } // XmlDatabase
